@@ -169,6 +169,15 @@
   list-style: none;
 }
 
+.navButton {
+  width: 100%;
+  display: flex;
+  align-items: center;
+
+  white-space: nowrap;
+  list-style: none;
+}
+
 .title {
   margin-top: 123px;
 }

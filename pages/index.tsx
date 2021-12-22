@@ -30,7 +30,7 @@ export default function Home() {
 
               if (nav === 'Contact Us') {
                 return (
-                  <ul key={index} className={styles.navContainer}>
+                  <ul key={index} className={styles.navButton}>
                     <li key={index}>
                       <Link href={'/ContactUs'}>
                         <a className={styles.navButtonContactUs}>

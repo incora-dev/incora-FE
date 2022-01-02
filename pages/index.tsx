@@ -1,10 +1,12 @@
+import { NextPage } from "next";
 import Head from 'next/head'
 import MainMenu from "../components/mainMenu/mainMenu";
+import Header from "../components/homePage/header/header";
 
 const titles = ['Services', 'Expertise', 'Case Studies', 'Company', 'Insights', 'Contact Us'];
 const bgCover = '#18181A;';
 
-function Home() {
+const Home: NextPage = () => {
   return (
     <div>
       <Head>
@@ -14,6 +16,7 @@ function Home() {
       </Head>
 
       <MainMenu titles={titles} backgroundColor={bgCover}>
+        <Header />
       </MainMenu>
     </div>
   )

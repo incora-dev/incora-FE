@@ -1,12 +1,38 @@
-import { NextPage } from "next";
+import type { NextPage } from 'next'
 import Head from 'next/head'
 import MainMenu from "../components/mainMenu/mainMenu";
 import Header from "../components/homePage/header/header";
+import CooperateComponent from "../components/homePage/cooperate/cooperate.component";
+import ServicesComponent from "../components/homePage/services/services.component";
 
 const titles = ['Services', 'Expertise', 'Case Studies', 'Company', 'Insights', 'Contact Us'];
 const bgCover = '#18181A;';
+const sliders = [
+  { title: 'How to Cooperate?',
+    mainTitle: 'Outline your idea',
+    text: 'Define the project you are working on. Let us analyze all requirements and documentation in order to conduct the relevant estimate.',
+    redirectTo: 'outline-your-idea'
+  },
+  { title: 'How to Cooperate?',
+    mainTitle: 'Get into specifics',
+    text: 'We will discuss expectations, best practices, and the development process. Then you’ll choose the best fitting candidates for your project.',
+    redirectTo: 'get-into-specifics'
+  },
+  { title: 'How to Cooperate?',
+    mainTitle: 'Go Through the Development Stage',
+    text: 'Get quality service and expert recommendations throughout all the cooperation. Develop your idea into a solid product.',
+    redirectTo: 'go-through-the-development-stage'
+  },
+  { title: 'How to Cooperate?',
+    mainTitle: 'Launch a Project',
+    text: 'When your product is in production, we’ll provide you with maintenance to test the software, and make adjustments.',
+    redirectTo: 'launch-a-project'
+  }
+];
 
-const Home: NextPage = () => {
+const plusesColor = '#FEC602';
+
+function Home() {
   return (
     <div>
       <Head>
@@ -17,9 +43,10 @@ const Home: NextPage = () => {
 
       <MainMenu titles={titles} backgroundColor={bgCover}>
         <Header />
+        <CooperateComponent sliders={sliders} plusesColor={plusesColor}/>
       </MainMenu>
     </div>
   )
 }
 
-export default Home;
+export default Home

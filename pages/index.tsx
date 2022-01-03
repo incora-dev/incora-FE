@@ -30,6 +30,12 @@ const sliders = [
   }
 ];
 
+const services = {
+  title: 'Services',
+  text: 'Working with dozens of custom projects we’ve come up to the set of services to cover up the whole workflow process your project might require. We are here to take all the challenges on ourselves and leave you nothing but relief.',
+  labels: ['Software development ', 'UI/UX Design', 'R&D discovery phase', 'Team Extension', 'Dedicated Team', 'Web/Mobile App Development', 'DevOps', 'Software QA & Testing']
+};
+
 const plusesColor = '#FEC602';
 
 function Home() {
@@ -44,6 +50,7 @@ function Home() {
       <MainMenu titles={titles} backgroundColor={bgCover}>
         <Header />
         <CooperateComponent sliders={sliders} plusesColor={plusesColor}/>
+        <ServicesComponent title={services.title} text={services.text} labels={services.labels}/>
       </MainMenu>
     </div>
   )

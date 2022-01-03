@@ -1,8 +1,12 @@
 import styled from "styled-components";
 
+interface IPositionInfo  {
+  positionRight: string;
+}
+
 export const Cooperate = styled.div`
   max-width: 1166px;
-  height: 685px;
+  height: 89vh;
   margin: 0 auto;
 
   display: flex;
@@ -44,7 +48,7 @@ export const InfoContainer = styled.div`
 
 export const PositionInfo = styled.div`
   position: relative;
-  right: ${({ positionRight }) => positionRight};
+  right: ${({ positionRight }: IPositionInfo) => positionRight};
 
   margin-top: 6px;
 `

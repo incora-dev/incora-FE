@@ -1,42 +1,8 @@
+import themeGet from "@styled-system/theme-get";
 import styled from "styled-components";
-import { themeGet } from "@styled-system/theme-get";
 import Image from "next/image";
 
-export const ReviewsWrapper = styled.div`
-  width: 100%;
-  height: 801px;
-  background-color: ${themeGet("colors.black")};
-  padding-top: 42px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
-
-export const ReviewsHeader = styled.div`
-  width: 1006px;
-  height: min-content;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 50px;
-
-  h1 {
-    text-transform: uppercase;
-    color: ${themeGet("colors.white")};
-    font-weight: 800;
-    font-size: 26px;
-    letter-spacing: ${themeGet("letterSpacing.h1")};
-  }
-
-  span {
-    font-size: 20px;
-    color: ${themeGet("colors.white")};
-    font-weight: 800;
-    letter-spacing: 0.6px;
-  }
-`;
-
-export const ReviewBox = styled.div`
+export const ReviewBoxWrapper = styled.div`
   width: 1366px;
   height: 270px;
   display: flex;

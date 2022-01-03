@@ -1,4 +1,4 @@
-import {Component, Position, Div, H2, Label, Labels, P} from "./styles";
+import {Component, Position, Div, Dv, H2, Label, Labels, P} from "./styles";
 import { IServices } from "@interfaces";
 
 function ServicesComponent(props: IServices) {
@@ -7,12 +7,14 @@ function ServicesComponent(props: IServices) {
     <Component>
       <Position>
         <Div>
-          <H2>{title}</H2>
-          <P>{text}</P>
+          <Dv>
+            <H2>{title}</H2>
+            <P>{text}</P>
 
-          <Labels>
-            {labels.map((label, index) => <Label key={index}>{label}</Label>)}
-          </Labels>
+            <Labels>
+              {labels.map((label, index) => <Label key={index}>{label}</Label>)}
+            </Labels>
+          </Dv>
         </Div>
       </Position>
     </Component>

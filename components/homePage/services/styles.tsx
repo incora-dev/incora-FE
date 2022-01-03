@@ -16,6 +16,10 @@ export const Div = styled.div`
   row-gap: 25px;
 `
 
+export const Dv = styled.div`
+  margin-top: 120px;
+`
+
 export const H2 = styled.h2`
   font-family: Poppins;
   font-style: normal;

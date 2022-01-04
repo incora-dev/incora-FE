@@ -1,7 +1,8 @@
 import { Canvas } from "@react-three/fiber";
-import { Suspense } from "react";
-import Earth from "./components/Earth";
+import { lazy, Suspense } from "react";
 import { EarthContainer, GlobeWrapper } from "./style";
+
+const Earth = lazy(() => import("./components/Earth"));
 
 const Globe = () => {
   return (

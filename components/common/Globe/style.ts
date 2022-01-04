@@ -12,7 +12,7 @@ export const GlobeWrapper = styled.div`
 
 export const EarthContainer = styled.div`
   position: absolute;
-  top: -35px;
+  top: -18px;
   width: 100%;
   height: 300%;
 `;

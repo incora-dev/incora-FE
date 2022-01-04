@@ -7,6 +7,7 @@ import ServicesComponent from "../components/homePage/services/services.componen
 import { theme } from "../styles/theme";
 import TechnologiesComponent from "../components/homePage/Technologies";
 import EmbodiedIdeasComponent from "../components/homePage/EmbodiedIdeas";
+import AboutUs from "../components/homePage/AboutUs";
 
 const titles = [
   "Services",
@@ -134,6 +135,11 @@ const EmbodiedIdeas = {
   ]
 }
 
+const aboutUs = {
+  title: 'about us',
+  text: 'As a full-service software company, we create a perfect synergy of processes to define, design, and develop cutting-edge solutions from initial ideas. Possessing experience in deploying various challenging features and projects, our Incora team is going to make your idea happen.'
+}
+
 const plusesColor = "#FEC602";
 
 function Home() {
@@ -163,6 +169,11 @@ function Home() {
           bgColor={EmbodiedIdeas.bgColor}
           projects={EmbodiedIdeas.projects}
           elementsColor={colorYellow}
+        />
+        <AboutUs
+          backgroundColor={bgColorBlack}
+          title={aboutUs.title}
+          text={aboutUs.text}
         />
       </MainMenu>
     </div>

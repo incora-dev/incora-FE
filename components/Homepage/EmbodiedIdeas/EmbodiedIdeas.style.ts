@@ -80,7 +80,7 @@ export const HexagonPosition = styled.div`
     z-index: 0;
     
     path {
-      background: #18181A;
+      fill: #18181A;
     }
   }
 `;
@@ -105,6 +105,7 @@ export const DotsPosition = styled.div`
   position: absolute;
   top: -32.5px;
   left: -90px;
+
   z-index: 1;
 
   transform: rotate(240deg);

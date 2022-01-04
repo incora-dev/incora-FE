@@ -4,15 +4,12 @@ import {
   H3,
   H2,
   Text,
-  Button,
-  Label,
-  Arrow,
-  PositionArrow,
   PositionH2,
   PositionH3,
   PositionText
 } from './styles'
 import { ISliderInfo } from "@interfaces";
+import ButtonWithArrow from "../../../ButtonWithArrow";
 
 function InfoBlock(props: ISliderInfo) {
   const { title, mainTitle, text, redirectTo, buttonLabel = 'Learn More'} = props;
@@ -33,16 +30,7 @@ function InfoBlock(props: ISliderInfo) {
         </Text>
       </PositionText>
 
-      <Link href={redirectTo}>
-        <Button>
-          <Label>{buttonLabel}</Label>
-
-          <PositionArrow>
-            <Arrow/>
-          </PositionArrow>
-
-        </Button>
-      </Link>
+      <ButtonWithArrow buttonLabel={buttonLabel} redirectTo={redirectTo} />
     </Div>
   )
 }

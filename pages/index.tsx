@@ -6,6 +6,7 @@ import CooperateComponent from "../components/homePage/Cooperate/cooperate.compo
 import ServicesComponent from "../components/homePage/services/services.component";
 import { theme } from "../styles/theme";
 import TechnologiesComponent from "../components/homePage/Technologies";
+import EmbodiedIdeasComponent from "../components/homePage/EmbodiedIdeas";
 
 const titles = [
   "Services",
@@ -15,7 +16,9 @@ const titles = [
   "Insights",
   "Contact Us",
 ];
-const bgColor = theme.colors.black;
+const bgColorBlack = theme.colors.black;
+const bgColorWhite = theme.colors.white;
+const colorYellow = theme.colors.yellow;
 const sliders = [
   {
     title: "How to Cooperate?",
@@ -106,6 +109,31 @@ const technologies = {
   ],
 };
 
+const EmbodiedIdeas = {
+  title: 'Embodied Ideas',
+  bgColor: bgColorWhite,
+  projects: [
+    {
+      title: 'DeepDao',
+      text: 'Bookety is an online booking system for travelers, which provides access to thousands of tours in more than 2,000 destinations worldwide.',
+      technologies: ['Node.JS', 'Express', 'PostgreSQL', 'Web3', 'React', 'Saga', 'Redux', 'MaterialUI', 'AWS'],
+      img: './project1.jpg'
+    },
+    {
+      title: 'Burgerizzer',
+      text: 'Bookety is an online booking system for travelers, which provides access to thousands of tours in more than 2,000 destinations worldwide.',
+      technologies: ['JavaScript', 'ReactJS', 'React Native', 'NodeJS', 'Google API', 'Foodics API', 'Tookan API', 'Unifonic API', 'Payfort API', 'AWS', 'PostgreSQL'],
+      img: './project2.jpg'
+    },
+    {
+      title: 'HealthApp',
+      text: 'It is an application for making quick and convenient doctor appointments and conducting online consultations.',
+      technologies: ['Node.JS', 'Express', 'PostgreSQL', 'Web3', 'React', 'Saga', 'Redux', 'MaterialUI', 'AWS'],
+      img: './project3.jpg'
+    },
+  ]
+}
+
 const plusesColor = "#FEC602";
 
 function Home() {
@@ -117,7 +145,7 @@ function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <MainMenu titles={titles} backgroundColor={bgColor}>
+      <MainMenu titles={titles} backgroundColor={bgColorBlack}>
         <Header />
         <CooperateComponent sliders={sliders} plusesColor={plusesColor} />
         <ServicesComponent
@@ -125,7 +153,17 @@ function Home() {
           text={services.text}
           labels={services.labels}
         />
-        <TechnologiesComponent bgColor={bgColor} title={technologies.title} labels={technologies.technologies}/>
+        <TechnologiesComponent
+          bgColor={bgColorBlack}
+          title={technologies.title}
+          labels={technologies.technologies}
+        />
+        <EmbodiedIdeasComponent
+          title={EmbodiedIdeas.title}
+          bgColor={EmbodiedIdeas.bgColor}
+          projects={EmbodiedIdeas.projects}
+          elementsColor={colorYellow}
+        />
       </MainMenu>
     </div>
   );

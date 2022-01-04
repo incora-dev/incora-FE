@@ -5,8 +5,8 @@ interface IDiv {
 }
 
 export const CreateDot = styled.div`
-  width: 4.18px;
-  height: 4.18px;
+  width: 4px;
+  height: 4px;
 
   border-radius: 50%;
   background-color: ${({color}) => color};

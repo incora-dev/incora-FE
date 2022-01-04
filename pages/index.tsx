@@ -2,9 +2,10 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import MainMenu from "../components/mainMenu/mainMenu";
 import Header from "../components/homePage/header/header";
-import CooperateComponent from "../components/homePage/cooperate/cooperate.component";
+import CooperateComponent from "../components/homePage/Cooperate/cooperate.component";
 import ServicesComponent from "../components/homePage/services/services.component";
-import Reviews from "../components/Homepage/Reviews";
+import { theme } from "../styles/theme";
+import TechnologiesComponent from "../components/homePage/Technologies";
 
 const titles = [
   "Services",
@@ -14,7 +15,7 @@ const titles = [
   "Insights",
   "Contact Us",
 ];
-const bgCover = "#18181A;";
+const bgColor = theme.colors.black;
 const sliders = [
   {
     title: "How to Cooperate?",
@@ -57,6 +58,54 @@ const services = {
   ],
 };
 
+const technologies = {
+  title: "Technologies",
+  technologies: [
+    {
+      technology:
+      {
+        label: 'frontend',
+        text: ['React', 'Angular2']
+      }
+    },
+    {
+      technology:
+        {
+          label: 'backend',
+          text: ['Node.js', 'Python', ' Django', 'Flask']
+        }
+    },
+    {
+      technology:
+        {
+          label: 'database',
+          text: ['PostgreSQL', 'MySQL', ' MongoDB', 'Apollo', 'Redis']
+        }
+    },
+    {
+      technology:
+        {
+          label: 'mobile apps',
+          text: ['React Native', 'Ionic']
+        }
+    },
+    {
+      technology:
+        {
+          label: 'devOps tools',
+          text: ['Docker', 'Kubernetes', 'Amazon  ECS']
+        }
+    },
+    {
+      technology:
+        {
+          label: 'cloud services',
+          text: ['Amazon Web Services', 'Google Cloud Platform', 'Microsoft Azure', 'DigitalOcean']
+        }
+    },
+  ],
+};
+
 const plusesColor = "#FEC602";
 
 function Home() {
@@ -68,15 +117,15 @@ function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <MainMenu titles={titles} backgroundColor={bgCover}>
+      <MainMenu titles={titles} backgroundColor={bgColor}>
         <Header />
-        <Reviews />
         <CooperateComponent sliders={sliders} plusesColor={plusesColor} />
         <ServicesComponent
           title={services.title}
           text={services.text}
           labels={services.labels}
         />
+        <TechnologiesComponent bgColor={bgColor} title={technologies.title} labels={technologies.technologies}/>
       </MainMenu>
     </div>
   );

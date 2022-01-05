@@ -8,6 +8,8 @@ import { theme } from "../styles/theme";
 import TechnologiesComponent from "../components/homePage/Technologies";
 import EmbodiedIdeasComponent from "../components/homePage/EmbodiedIdeas";
 import AboutUs from "../components/homePage/AboutUs";
+import ContactUsComponent from "../components/homePage/ContactUs";
+import {IContactUs} from "@interfaces";
 
 const titles = [
   "Services",
@@ -140,6 +142,17 @@ const aboutUs = {
   text: 'As a full-service software company, we create a perfect synergy of processes to define, design, and develop cutting-edge solutions from initial ideas. Possessing experience in deploying various challenging features and projects, our Incora team is going to make your idea happen.'
 }
 
+const contactUs: IContactUs = {
+  title: 'contact us',
+  text: 'Let’s create progress together!',
+  formLabels: ['name', 'phone number', 'email', 'what is you main goal?'],
+  addresses: [
+    { 'ukrainian office': '2 Horodotska Str.,\n' + 'Lviv 75001 Ukraine' },
+    { 'usa office': '16192 Coastal Hwy, Lewes,\n' + 'DE 19958 USA' }
+  ],
+  buttonLabel: 'send',
+}
+
 const plusesColor = "#FEC602";
 
 function Home() {
@@ -174,6 +187,13 @@ function Home() {
           backgroundColor={bgColorBlack}
           title={aboutUs.title}
           text={aboutUs.text}
+        />
+        <ContactUsComponent
+          title={contactUs.title}
+          text={contactUs.text}
+          formLabels={contactUs.formLabels}
+          addresses={contactUs.addresses}
+          buttonLabel={contactUs.buttonLabel}
         />
       </MainMenu>
     </div>

@@ -1,15 +1,17 @@
 import Link from "next/link";
 import { IButtonWithArrow } from "@interfaces";
-import { Arrow, Button, Label  } from "./ButtonWithArrow.style";
+import { Arrow, Button, Label, Container  } from "./ButtonWithArrow.style";
 
 function ButtonWithArrow({ buttonLabel, redirectTo }: IButtonWithArrow) {
   return (
-    <Link href={redirectTo}>
-      <Button>
-        <Label>{buttonLabel}</Label>
-        <Arrow/>
-      </Button>
-    </Link>
+    <Container>
+      <Link href={redirectTo}>
+        <Button padding={'23px 48.5px;'}>
+          <Label>{buttonLabel}</Label>
+          <Arrow/>
+        </Button>
+      </Link>
+    </Container>
   )
 }
 

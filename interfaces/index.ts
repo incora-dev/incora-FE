@@ -5,3 +5,5 @@ export * from './technologies.interface';
 export * from './embodiedIdeas.interface';
 export * from './buttonWithArrow.interface';
 export * from './aboutUs.interface';
+export * from './contactUs.interface';
+export * from './form.interface';

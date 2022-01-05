@@ -1,4 +1,3 @@
-import type { NextPage } from "next";
 import Head from "next/head";
 import MainMenu from "../components/mainMenu/mainMenu";
 import Header from "../components/homePage/header/header";
@@ -10,6 +9,12 @@ import EmbodiedIdeasComponent from "../components/homePage/EmbodiedIdeas";
 import AboutUs from "../components/homePage/AboutUs";
 import ContactUsComponent from "../components/homePage/ContactUs";
 import {IContactUs} from "@interfaces";
+import FooterComponent from "../components/Footer";
+import { IFooter } from "../interfaces/footer.interface";
+
+import Instagram from "../public/SVG/socialNetwork/instagram.svg"
+import Facebook from "../public/SVG/socialNetwork/facebook.svg"
+import LinkedIn from "../public/SVG/socialNetwork/linkedIn.svg"
 
 const titles = [
   "Services",
@@ -153,6 +158,18 @@ const contactUs: IContactUs = {
   buttonLabel: 'send',
 }
 
+const footer: IFooter = {
+  policies: ['privacy policy', 'Cookies Policy'],
+  offices: contactUs.addresses,
+  pages: ['services', 'expertise', 'Case Studies', 'Company', 'Insights'],
+  followUs: [
+    { icon: Facebook, redirectTo: 'Facebook' },
+    { icon: LinkedIn, redirectTo: 'LinkedIn' },
+    { icon: Instagram, redirectTo: 'Instagram' },
+  ],
+  copyright: '© 2015-2021 Incora LLC'
+}
+
 const plusesColor = "#FEC602";
 
 function Home() {
@@ -196,6 +213,13 @@ function Home() {
           buttonLabel={contactUs.buttonLabel}
         />
       </MainMenu>
+      <FooterComponent
+        policies={footer.policies}
+        offices={footer.offices}
+        followUs={footer.followUs}
+        pages={footer.pages}
+        copyright={footer.copyright}
+      />
     </div>
   );
 }

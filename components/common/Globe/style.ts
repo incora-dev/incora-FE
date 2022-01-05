@@ -2,17 +2,14 @@ import styled from "styled-components";
 
 export const GlobeWrapper = styled.div`
   width: 100%;
-  height: 100%;
   display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  position: relative;
+  justify-content: center;
   overflow: hidden;
 `;
 
-export const EarthContainer = styled.div`
-  position: absolute;
-  top: -18px;
-  width: 100%;
-  height: 300%;
-`;
+export const PointLabel = styled.div`
+  width: 30px;
+  height: 30px;
+  border-radius: 100px;
+  background-color: "white";
+`

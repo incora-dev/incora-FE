@@ -7,7 +7,7 @@ interface IContainer {
 
 const color = theme.colors.black;
 
-export const Container = styled.div`
+export const Container = styled.footer`
   height: 270px;
 
   background-color: ${({ backgroundColor = color }: IContainer) => backgroundColor};

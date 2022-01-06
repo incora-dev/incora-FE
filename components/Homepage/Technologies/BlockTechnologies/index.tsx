@@ -8,10 +8,7 @@ import CloudServices from "../../../../public/SVG/TechnologyCloudServices.svg";
 import { IBlockTechnologies } from "@interfaces";
 import TechnologyContainer from "./TechnologyContainer";
 
-function BlockTechnologies(props: IBlockTechnologies) {
-  const { technologies } = props;
-  const randomKey = () => Math.floor(Math.random() * 9999);
-
+function BlockTechnologies({ technologies }: IBlockTechnologies) {
   const setTechnologies = () => {
     return technologies.map(({ technology: { label }}, index) => {
       let icon;
@@ -41,13 +38,12 @@ function BlockTechnologies(props: IBlockTechnologies) {
       }
 
       return (
-        <Container key={randomKey()}>
-          <TechnologyHover key={randomKey()}>
-            <TechnologyContainer>
-            </TechnologyContainer>
+        <Container key={index}>
+          <TechnologyHover>
+            <TechnologyContainer/>
           </TechnologyHover>
 
-          <Technology key={randomKey()}>
+          <Technology>
             <ContainerTop>
               {icon}
               <p>{label}</p>

@@ -8,13 +8,14 @@ import TechnologiesComponent from "../components/homePage/Technologies";
 import EmbodiedIdeasComponent from "../components/homePage/EmbodiedIdeas";
 import AboutUs from "../components/homePage/AboutUs";
 import ContactUsComponent from "../components/homePage/ContactUs";
-import {IContactUs} from "@interfaces";
+import { IContactUs } from "@interfaces";
 import FooterComponent from "../components/Footer";
 import { IFooter } from "../interfaces/footer.interface";
 
 import Instagram from "../public/SVG/socialNetwork/instagram.svg"
 import Facebook from "../public/SVG/socialNetwork/facebook.svg"
 import LinkedIn from "../public/SVG/socialNetwork/linkedIn.svg"
+import VideoComponent from "../components/homePage/Video";
 
 const titles = [
   "Services",
@@ -200,6 +201,7 @@ function Home() {
           projects={EmbodiedIdeas.projects}
           elementsColor={colorYellow}
         />
+        <VideoComponent/>
         <AboutUs
           backgroundColor={bgColorBlack}
           title={aboutUs.title}

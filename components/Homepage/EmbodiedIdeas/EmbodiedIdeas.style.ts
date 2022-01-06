@@ -5,12 +5,12 @@ interface IDiv {
 }
 
 export const Div = styled.div`
-  height: max-content;
+  height: 2666px;
   background-color: ${({ bgColor }: IDiv) => bgColor};
 `;
 
 export const PositionTitle = styled.div`
-  margin-top: 120px;
+  padding-top: 120px;
   margin-bottom: 46px;
 `;
 

@@ -26,11 +26,7 @@ export const BGBottom = styled.div`
   background-color: #18181A;
 `;
 
-export const VideoBLock = styled.div`
-  width: 1006px;
-`;
-
-export const Video = styled.video`
+export const VideoContainer = styled.div`
   position: absolute;
   top: 28px;
   right: 0;
@@ -38,12 +34,19 @@ export const Video = styled.video`
   z-index: 1;
 `;
 
+export const VideoBLock = styled.div`
+  position: relative;
+`;
+
+export const Video = styled.video`
+`;
+
 export const PlayerPosition = styled.div`
   position: absolute;
   top: 50%;
-  right: 25%;
+  left: 50%;
 
-  z-index: 2;
+  z-index: 1;
 
   transform: translate(-50%, -50%);
 
@@ -63,14 +66,20 @@ export const Player = styled.div`
 
   opacity: ${({ opacity }: IPlayer ) => opacity};
   transition: 0.15s linear;
-  
-  svg {
-    position: absolute;
-    top: 50%;
-    right: 15%;
+`;
 
-    transform: translate(-50%, -50%);
-    
+export const PositionPlaySVG = styled.div`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  width: 33px;
+  height: 39px;
+
+  transform: translate(-50%, -50%);
+
+  svg {
+    margin: 0 auto;
     path {
       fill: #fff;
     }

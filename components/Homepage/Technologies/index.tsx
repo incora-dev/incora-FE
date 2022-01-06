@@ -5,6 +5,7 @@ import BlockTechnologies from "./BlockTechnologies";
 
 function TechnologiesComponent(props: ITechnologies) {
   const { title, bgColor, labels } = props;
+  console.log(labels)
 
   return (
     <Component bgColor={bgColor}>

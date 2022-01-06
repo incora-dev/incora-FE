@@ -1,7 +1,7 @@
 export interface ITechnologies {
   bgColor: string;
   title: string;
-  labels: object[];
+  labels: ITechnologiesInfo[];
 }
 
 export interface IBlockTechnologies {

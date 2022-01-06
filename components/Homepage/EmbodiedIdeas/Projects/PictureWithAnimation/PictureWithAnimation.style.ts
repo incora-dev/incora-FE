@@ -139,14 +139,10 @@ export const PositionElement9 = styled.div`
 
 export const Container = styled.div`
   position: relative;
-
   overflow: hidden;
 
-  img {
-    border-radius: ${({ borderRadius} : IImg) => borderRadius};
-    
-  }
-  
+  border-radius: ${({ borderRadius} : IImg) => borderRadius};
+
   &:hover ${PositionElement1} {
     bottom: -310px;
     

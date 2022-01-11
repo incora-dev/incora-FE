@@ -5,6 +5,7 @@ import { Mesh, MeshLambertMaterial, SphereBufferGeometry } from "three";
 import { useSelector } from "react-redux";
 import { pointsSelector } from "../../Homepage/selectors";
 import { Point } from "../../Homepage/interfaces";
+import { theme } from "../../../styles/theme";
 
 let GlobeGl: Function = () => null;
 if (typeof window !== "undefined") GlobeGl = require("react-globe.gl").default;
@@ -45,12 +46,24 @@ const Globe = ({ reviewIndex }: IGlobe) => {
       },
       700
     );
-    globeEl.current.controls().enableZoom = false;
-  }, [points, reviewIndex]);
+  }, [reviewIndex]);
+
+  const setControlsOptions = () => {
+    const controls = globeEl.current.controls();
+    controls.enableZoom = false;
+    controls.minAzimuthAngle = -1;
+    controls.maxAzimuthAngle = 1;
+    controls.minPolarAngle = 1.7;
+    controls.maxPolarAngle = 2.5;
+  };
+
+  useEffect(() => {
+    setControlsOptions();
+  }, []);
 
   useEffect(() => {
     changePointOfView();
-  }, [changePointOfView, points, reviewIndex]);
+  }, [reviewIndex]);
 
   return (
     <GlobeWrapper>
@@ -60,7 +73,7 @@ const Globe = ({ reviewIndex }: IGlobe) => {
         height={1200}
         animateIn={true}
         globeImageUrl={EarthTexture.src}
-        backgroundColor="#18181A"
+        backgroundColor={theme.colors.black}
         showAtmosphere={false}
         pointsData={points}
         pointAltitude={(point: Point) => {

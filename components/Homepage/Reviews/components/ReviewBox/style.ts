@@ -11,3 +11,8 @@ export const ReviewBoxWrapper = styled.div`
     justify-content: flex-end;
   }
 `;
+
+export const CarouselButtonWrapper = styled.div`
+  width: 269px;
+  height: 269px;
+`;

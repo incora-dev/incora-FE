@@ -7,8 +7,8 @@ interface IButton {
 
 export const ButtonWrap = styled.div`
   padding: 0 33px;
-  width: 269px;
-  height: 269px;
+  width: 100%;
+  height: 100%;
   display: flex;
   align-items: flex-end;
   justify-content: ${({ right }: IButton) => (right ? "flex-end" : "start")};

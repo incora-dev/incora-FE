@@ -1,11 +1,10 @@
-import { ReviewBoxWrapper } from "./style";
+import { CarouselButtonWrapper, ReviewBoxWrapper } from "./style";
 
 import ReviewContent from "./components/ReviewContent";
 import CarouselButton from "../../../../common/CarouselButton";
 import { Review } from "../../../interfaces";
-import { reviewsSelector } from "../../../selectors";
-import { useDispatch, useSelector } from "react-redux";
-import { Dispatch, SetStateAction, useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { Dispatch, SetStateAction, useEffect } from "react";
 import { changeCurrentGlobePoint } from "../../../actions";
 
 interface IReviewBox {
@@ -22,21 +21,30 @@ const ReviewBox = ({ reviews, reviewIndex, setReviewIndex }: IReviewBox) => {
 
     if (reviewIndex < lastElementIndex && right) {
       setReviewIndex(reviewIndex + 1);
+      dispatch(changeCurrentGlobePoint(reviewIndex + 1));
     } else if (reviewIndex <= lastElementIndex && !right && reviewIndex > 0) {
       setReviewIndex(reviewIndex - 1);
+      dispatch(changeCurrentGlobePoint(reviewIndex - 1));
     }
   };
 
-  useEffect(() => {
-    dispatch(changeCurrentGlobePoint(reviewIndex));
-    console.log("reviewIndex", reviewIndex);
-  }, [dispatch, reviewIndex]);
+  const leftCarouselButtonCondition = reviewIndex !== 0 && (
+    <CarouselButton changeReview={changeReview} right={false} />
+  );
+
+  const rightCarouselButtonCondition = reviewIndex !== reviews.length - 1 && (
+    <CarouselButton changeReview={changeReview} right={true} />
+  );
 
   return (
     <ReviewBoxWrapper>
-      <CarouselButton changeReview={changeReview} right={false} />
+      <CarouselButtonWrapper>
+        {leftCarouselButtonCondition}
+      </CarouselButtonWrapper>
       <ReviewContent review={reviews[reviewIndex]} />
-      <CarouselButton changeReview={changeReview} right={true} />
+      <CarouselButtonWrapper>
+        {rightCarouselButtonCondition}
+      </CarouselButtonWrapper>
     </ReviewBoxWrapper>
   );
 };

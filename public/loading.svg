@@ -3,7 +3,18 @@
 <defs>
 <linearGradient id="paint0_linear_731_343896" x1="169.01" y1="338" x2="169.01" y2="-0.100861" gradientUnits="userSpaceOnUse">
 <stop stop-color="#FEC506" stop-opacity="0.4"/>
-<stop offset="1" stop-color="#FFD8C7" stop-opacity="0"/>
+<stop offset="1" stop-color="#FEC506" stop-opacity="0">
+    <animate
+        attributeName="offset"
+        values="0.01; 1"
+        dur="2s"
+    />
+    <animate
+        attributeName="stop-opacity"
+        values="0.01; 0"
+        dur="2s"
+    />
+</stop>
 </linearGradient>
 </defs>
 </svg>

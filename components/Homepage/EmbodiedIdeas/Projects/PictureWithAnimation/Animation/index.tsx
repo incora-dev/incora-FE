@@ -21,21 +21,21 @@ import AnimationElement3c from "../../../../../../public/SVG/Animation3/Vector (
 import { IAnimation } from "@interfaces";
 
 function Animation(props: IAnimation) {
-  const { index, elementsColor } = props;
+  const { index, elementsColor, shouldHover } = props;
 
   const createdAnimation = () => {
     if (index === 0) {
       return (
           <>
-            <PositionElement1 elementsColor={elementsColor}>
+            <PositionElement1 elementsColor={elementsColor} index={shouldHover}>
               <AnimationElement1a/>
             </PositionElement1>
 
-            <PositionElement2 elementsColor={elementsColor}>
+            <PositionElement2 elementsColor={elementsColor} index={shouldHover}>
               <AnimationElement2a/>
             </PositionElement2>
 
-            <PositionElement3 elementsColor={elementsColor}>
+            <PositionElement3 elementsColor={elementsColor} index={shouldHover}>
               <AnimationElement3a/>
             </PositionElement3>
           </>
@@ -45,15 +45,15 @@ function Animation(props: IAnimation) {
     if (index === 1) {
       return (
           <>
-            <PositionElement4 elementsColor={elementsColor}>
+            <PositionElement4 elementsColor={elementsColor} index={shouldHover}>
               <AnimationElement1b/>
             </PositionElement4>
 
-            <PositionElement5 elementsColor={elementsColor}>
+            <PositionElement5 elementsColor={elementsColor} index={shouldHover}>
               <AnimationElement2b/>
             </PositionElement5>
 
-            <PositionElement6 elementsColor={elementsColor}>
+            <PositionElement6 elementsColor={elementsColor} index={shouldHover}>
               <AnimationElement3b/>
             </PositionElement6>
           </>
@@ -63,15 +63,15 @@ function Animation(props: IAnimation) {
     if (index === 2) {
       return (
           <>
-            <PositionElement7 elementsColor={elementsColor}>
+            <PositionElement7 elementsColor={elementsColor} index={shouldHover}>
               <AnimationElement1c/>
             </PositionElement7>
 
-            <PositionElement8 elementsColor={elementsColor}>
+            <PositionElement8 elementsColor={elementsColor} index={shouldHover}>
               <AnimationElement2c/>
             </PositionElement8>
 
-            <PositionElement9 elementsColor={elementsColor}>
+            <PositionElement9 elementsColor={elementsColor} index={shouldHover}>
               <AnimationElement3c/>
             </PositionElement9>
           </>

@@ -1,11 +1,10 @@
-import { Component, Div, H2, PaddingTop, PositionArrow, MarginTop } from "./Technologies.style";
+import { Component, Div, H2, PaddingTop, MarginTop } from "./Technologies.style";
 import { ITechnologies } from "@interfaces";
-import Arrow from "../../../public/SVG/svg";
+import Arrow from "../../../public/SVG";
 import BlockTechnologies from "./BlockTechnologies";
+import Link from "next/link"
 
-function TechnologiesComponent(props: ITechnologies) {
-  const { title, bgColor, labels } = props;
-  console.log(labels)
+function TechnologiesComponent({ title, bgColor, labels }: ITechnologies) {
 
   return (
     <Component bgColor={bgColor}>
@@ -13,10 +12,11 @@ function TechnologiesComponent(props: ITechnologies) {
         <Div>
           <H2>{title}</H2>
 
-          <PositionArrow>
-            <Arrow/>
-          </PositionArrow>
-
+          <Link href={title}>
+            <a>
+              <Arrow/>
+            </a>
+          </Link>
         </Div>
       </PaddingTop>
 

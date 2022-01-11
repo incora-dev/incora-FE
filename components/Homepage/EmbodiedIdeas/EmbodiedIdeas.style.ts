@@ -7,6 +7,8 @@ interface IDiv {
 export const Div = styled.div`
   height: 2666px;
   background-color: ${({ bgColor }: IDiv) => bgColor};
+  
+  overflow: hidden;
 `;
 
 export const PositionTitle = styled.div`
@@ -49,7 +51,7 @@ export const H4 = styled.h4`
   mix-blend-mode: difference;
 `;
 
-export const Container = styled.div`
+export const ProjectsContainer = styled.div`
   display: flex;
   flex-direction: column;
   row-gap: 180px;

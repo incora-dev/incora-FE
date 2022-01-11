@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import { IMenu } from "@interfaces";
 import Navigation from "./navigation/navigation";
 import { Wrapper, Block } from "./styles";

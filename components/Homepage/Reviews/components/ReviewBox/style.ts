@@ -1,5 +1,5 @@
 import themeGet from "@styled-system/theme-get";
-import styled from "styled-components";
+import styled, {keyframes} from "styled-components";
 import Image from "next/image";
 
 export const ReviewBoxWrapper = styled.div`
@@ -20,6 +20,12 @@ export const ButtonWrap = styled.div`
   align-items: flex-end;
 `;
 
+const dash = keyframes`
+  to {
+    stroke-dashoffset: 0;
+  }
+`
+
 export const Ellipse = styled.div`
   border-radius: 100px;
   width: 100px;
@@ -31,6 +37,14 @@ export const Ellipse = styled.div`
 
   .right_arrow {
     transform: rotate(180deg);
+  }
+  
+  svg {
+    path {
+      stroke-dasharray: 1000;
+      stroke-dashoffset: 1000;
+      animation: ${dash} 5s linear forwards;
+    }
   }
 `;
 

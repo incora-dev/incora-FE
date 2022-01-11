@@ -2,13 +2,12 @@ import Link from "next/link";
 import {
   Nav,
   Ul,
-  UlButton,
   Li,
   A,
   Arrow,
-  ButtonArrow
 } from "./styles";
 import { INavigation } from "@interfaces";
+import ButtonWithArrow from "../../ButtonWithArrow";
 
 function Navigation(props: INavigation) {
   const { titles } = props;
@@ -19,7 +18,7 @@ function Navigation(props: INavigation) {
         if (title === 'Services' || title === 'Expertise' || title === 'Company') {
           return (
               <Ul key={index}>
-                <Li key={index}>{title}</Li>
+                <Li>{title}</Li>
                 <Arrow/>
               </Ul>
           );
@@ -27,20 +26,18 @@ function Navigation(props: INavigation) {
 
         if (title === 'Contact Us') {
           return (
-            <UlButton key={index}>
-              <Link href={'/ContactUs'}>
-                <A>
-                  <Li key={index}>{title}</Li>
-                  <ButtonArrow/>
-                </A>
-              </Link>
-            </UlButton>
+            <ButtonWithArrow
+              key={index}
+              buttonLabel={'Contact Us'}
+              redirectTo={'Contact Us'}
+              padding={'11.5px 14.5px;'}
+            />
           );
         }
 
         return (
           <Ul key={index}>
-            <Li key={index}>{title}</Li>
+            <Li>{title}</Li>
           </Ul>
         );
       })}

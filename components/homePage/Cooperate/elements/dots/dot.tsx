@@ -1,8 +1,7 @@
 import { CreateDot } from "./styles";
 import { IDot } from "@interfaces";
 
-function Dot(props: IDot) {
-  const { color, numberOfDots } = props;
+function Dot({ color } : IDot) {
 
   return (
     <CreateDot color={color}/>

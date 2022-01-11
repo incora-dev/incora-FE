@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { transitionTimeProjectsHoverDuration } from "../../../../../constants";
 
 interface IImg {
   borderRadius: string;
@@ -6,17 +7,21 @@ interface IImg {
 
 interface IElement {
   elementsColor: string;
+  index: number;
 }
-
-const transitionTime = '0.5s';
-
 
 export const PositionElement1 = styled.div`
   position: absolute;
-  bottom: 0;
+  bottom: ${({ index }: IElement) => {
+    if (index === 0) {
+      return '-310px';
+    } else {
+      return '0';
+    }
+  }};
   right: 0;
 
-  transition: ${transitionTime};
+  transition: ${transitionTimeProjectsHoverDuration};
   
   svg {
     path {
@@ -27,10 +32,16 @@ export const PositionElement1 = styled.div`
 
 export const PositionElement2 = styled.div`
   position: absolute;
-  top: 0;
+  top: ${({ index }: IElement) => {
+    if (index === 0) {
+      return '-220px';
+    } else {
+      return '0';
+    }
+  }};
   right: 0;
 
-  transition: ${transitionTime};
+  transition: ${transitionTimeProjectsHoverDuration};
 
   svg {
     path {
@@ -42,9 +53,15 @@ export const PositionElement2 = styled.div`
 export const PositionElement3 = styled.div`
   position: absolute;
   top: 0;
-  left: 0;
+  left: ${({ index }: IElement) => {
+    if (index === 0) {
+      return '-220px';
+    } else {
+      return '0';
+    }
+  }};
 
-  transition: ${transitionTime};
+  transition: ${transitionTimeProjectsHoverDuration};
 
   svg {
     path {
@@ -55,10 +72,16 @@ export const PositionElement3 = styled.div`
 
 export const PositionElement4 = styled.div`
   position: absolute;
-  bottom: 0;
+  bottom: ${({ index }: IElement) => {
+    if (index === 1) {
+      return '-285px';
+    } else {
+      return '0';
+    }
+  }};
   right: 0;
 
-  transition: ${transitionTime};
+  transition: ${transitionTimeProjectsHoverDuration};
 
   svg {
     path {
@@ -69,10 +92,16 @@ export const PositionElement4 = styled.div`
 
 export const PositionElement5 = styled.div`
   position: absolute;
-  top: 0;
+  top: ${({ index }: IElement) => {
+    if (index === 1) {
+      return '-285px';
+    } else {
+      return '0';
+    }
+  }};
   right: 0;
 
-  transition: ${transitionTime};
+  transition: ${transitionTimeProjectsHoverDuration};
 
   svg {
     path {
@@ -84,9 +113,15 @@ export const PositionElement5 = styled.div`
 export const PositionElement6 = styled.div`
   position: absolute;
   top: 0;
-  left: 0;
+  left: ${({ index }: IElement) => {
+    if (index === 1) {
+      return '-255px';
+    } else {
+      return '0';
+    }
+  }};
 
-  transition: ${transitionTime};
+  transition: ${transitionTimeProjectsHoverDuration};
 
   svg {
     path {
@@ -97,10 +132,16 @@ export const PositionElement6 = styled.div`
 
 export const PositionElement7 = styled.div`
   position: absolute;
-  bottom: 0;
+  bottom: ${({ index }: IElement) => {
+    if (index === 2) {
+      return '-305px';
+    } else {
+      return '0';
+    }
+  }};
   left: 0;
 
-  transition: ${transitionTime};
+  transition: ${transitionTimeProjectsHoverDuration};
 
   svg {
     path {
@@ -112,9 +153,15 @@ export const PositionElement7 = styled.div`
 export const PositionElement8 = styled.div`
   position: absolute;
   top: 10px;
-  right: 0;
+  right: ${({ index }: IElement) => {
+    if (index === 2) {
+      return '-200px';
+    } else {
+      return '0';
+    }
+  }};
 
-  transition: ${transitionTime};
+  transition: ${transitionTimeProjectsHoverDuration};
 
   svg {
     path {
@@ -125,10 +172,16 @@ export const PositionElement8 = styled.div`
 
 export const PositionElement9 = styled.div`
   position: absolute;
-  top: 0;
+  top: ${({ index }: IElement) => {
+    if (index === 2) {
+      return '-205px';
+    } else {
+      return '0';
+    }
+  }};
   left: 0;
 
-  transition: ${transitionTime};
+  transition: ${transitionTimeProjectsHoverDuration};
 
   svg {
     path {
@@ -139,66 +192,8 @@ export const PositionElement9 = styled.div`
 
 export const Container = styled.div`
   position: relative;
-
   overflow: hidden;
 
-  img {
-    border-radius: ${({ borderRadius} : IImg) => borderRadius};
-    
-  }
-  
-  &:hover ${PositionElement1} {
-    bottom: -310px;
-    
-    transition: ${transitionTime};
-  }
-
-  &:hover ${PositionElement2} {
-    top: -220px;
-
-    transition: ${transitionTime};
-  }
-
-  &:hover ${PositionElement3} {
-    left: -220px;
-
-    transition: ${transitionTime};
-  }
-
-  &:hover ${PositionElement4} {
-    bottom: -285px;
-
-    transition: ${transitionTime};
-  }
-
-  &:hover ${PositionElement5} {
-    top: -285px;
-
-    transition: ${transitionTime};
-  }
-
-  &:hover ${PositionElement6} {
-    left: -255px;
-
-    transition: ${transitionTime};
-  }
-  
-  &:hover ${PositionElement7} {
-    bottom: -305px;
-
-    transition: ${transitionTime};
-  }
-
-  &:hover ${PositionElement8} {
-    right: -200px;
-
-    transition: ${transitionTime};
-  }
-
-  &:hover ${PositionElement9} {
-    top: -205px;
-
-    transition: ${transitionTime};
-  }
+  border-radius: ${({ borderRadius} : IImg) => borderRadius};
 `;
 

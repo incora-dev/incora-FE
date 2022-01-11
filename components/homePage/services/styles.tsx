@@ -10,8 +10,10 @@ export const Component = styled.div`
 `
 
 export const Position = styled.div`
+  position: relative;
+
   margin: auto;
-  width: 1005px;
+  width: 1006px;
 `
 
 export const Div = styled.div`
@@ -61,7 +63,7 @@ export const Labels = styled.div`
   row-gap: 9px;
 `
 
-export const Label = styled.h3`
+export const Label = styled.a`
   min-width: 202px;
   font-family: Poppins;
   font-style: normal;
@@ -71,18 +73,16 @@ export const Label = styled.h3`
 
   letter-spacing: 0.05em;
   text-transform: capitalize;
+  
+  cursor: pointer;
 
   color: #FEC506;
 `
 
-export const Loading = styled.div`
+export const PositionLoading = styled.div`
   position: absolute;
   top: -54px;
   right: -5px;
-  width: 338.02px;
-  height: 338.1px;
-
-  background: center no-repeat url("./loading.svg");
 `
 
 export const HexagonBordered = styled.div`
@@ -102,53 +102,53 @@ export const HexagonFilled = styled.div`
 export const PositionHexagonOne = styled.div`
   position: absolute;
   top: -101px;
-  right: 246.5px;
+  right: 66px;
 `
 
 export const PositionHexagonTwo = styled.div`
   position: absolute;
   top: -152px;
-  right: 492.5px;
+  right: 313.5px;
 `
 
 export const PositionHexagonThree = styled.div`
   position: absolute;
   top: -72px;
-  right: 602px;
+  right: 424px;
 `
 
 export const PositionHexagonFour = styled.div`
   position: absolute;
   top: -147.5px;
-  left: 21.5px;
+  left: -155.5px;
 `
 
 export const PositionHexagonFive = styled.div`
   position: absolute;
   top: -59px;
-  left: 129px;
+  left: -51px;
 `
 
 export const PositionHexagonSix = styled.div`
   position: absolute;
   top: 79px;
-  left: -81px;
+  left: -261px;
 `
 
 export const PositionHexagonSeven = styled.div`
   position: absolute;
-  bottom: 18px;
-  left: -31px;
+  bottom: -138px;
+  left: -212px;
 `
 
 export const PositionHexagonEight = styled.div`
   position: absolute;
-  bottom: -159px;
-  right: -59px;
+  bottom: -316px;
+  right: -240px;
 `
 
 export const PositionHexagonNine = styled.div`
   position: absolute;
-  bottom: -27px;
-  right: -86px;
+  bottom: -184px;
+  right: -267px;
 `

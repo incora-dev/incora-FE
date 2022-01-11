@@ -2,14 +2,12 @@ import Dot from "./dot";
 import { Div } from "./styles";
 import { IDots } from "@interfaces";
 
-function Dots(props: IDots) {
-  const { numberOfDots, dotColor } = props;
-
+function Dots({ numberOfDots, dotColor, animation }: IDots) {
   const getDots = (): JSX.Element[]  => {
     const dots: JSX.Element[] = [];
 
     while(dots.length !== numberOfDots) {
-      dots.push(<Dot key={dots.length} color={dotColor} numberOfDots={numberOfDots}/>)
+      dots.push(<Dot key={dots.length} color={dotColor}/>)
     }
 
     return dots;

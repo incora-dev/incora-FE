@@ -22,6 +22,7 @@ import { IFollowUs, IFooter} from "../../interfaces/footer.interface";
 import  Link from "next/link";
 import React from "react";
 import ClutchcoLogo from "../../public/SVG/logoClutchco.svg"
+import { clutchLink } from "../../constants";
 
 function createOfficesBlock(offices: object[]) {
   return offices.map((office) =>
@@ -95,7 +96,10 @@ function FooterComponent( { policies, offices, followUs, pages, copyright }: IFo
           <FollowUs>
             {followUsBlock}
           </FollowUs>
-          <ClutchcoLogo/>
+
+            <a target="_blank" href={clutchLink} rel="noopener noreferrer">
+              <ClutchcoLogo/>
+            </a>
         </FollowUsBlock>
       </Position>
     </Container>

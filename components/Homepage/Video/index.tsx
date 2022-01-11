@@ -46,12 +46,11 @@ function VideoComponent() {
         <VideoContainer>
           <VideoBLock>
             <Video
-                ref={videoRef}
-                style={{ width: '1122px' }}
-                autoPlay
-                loop
-                onClick={() => videoHandler(play)}
-                poster={'./Player/videoPoster.jpg'}
+              ref={videoRef}
+              style={{ width: '1122px' }}
+              loop
+              onClick={() => videoHandler(play)}
+              poster={'./Player/videoPoster.jpg'}
             >
               <source src={'/mp4/Video.mp4'} type={'video/mp4'}/>
             </Video>

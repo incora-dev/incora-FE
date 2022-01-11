@@ -1,15 +1,21 @@
 import { IProjectTechnologies } from "@interfaces";
-import { Strong, Div, Container } from "./Technologies.style";
+import { Strong, A, Container, ButtonContainer } from "./Technologies.style";
+import Link from "next/link";
 
-function Technologies(props: IProjectTechnologies) {
+function Technologies({ technologies }: IProjectTechnologies) {
 
   return (
     <Container>
       {
-        props.technologies.map((technology, index) =>
-          <Div key={index}>
-            <Strong key={index}>{technology}</Strong>
-          </Div>
+        technologies.map((technology, index) =>
+          <Link href={technology} key={index}>
+            <A>
+              <ButtonContainer>
+                <Strong>{technology}</Strong>
+              </ButtonContainer>
+            </A>
+          </Link>
+
         )
       }
     </Container>

@@ -29,15 +29,27 @@ export const Label = styled.p`
 export const Button = styled.div`
   width: max-content;
   display: flex;
+  padding: ${({padding = '23px 35px;'}: IButton) => padding};
   align-items: center;
-  width: max-content;
-  padding: ${({ padding = '23px 35px;' }: IButton) => padding};
   column-gap: 20px;
-  
-  cursor: pointer;
-  background-color: #fec602;
 
+`
+
+export const ButtonContainer = styled.div`
+  display: inline-block;
+  background-color: #fec602;
+  cursor: pointer;
   color: #000;
+
+
+  box-shadow: inset 0 0 0 0 #E5B100FF;
+  -webkit-transition: ease-out 0.4s;
+  -moz-transition: ease-out 0.4s;
+  transition: ease-out 0.4s;
+
+  &:hover {
+    box-shadow: inset 240px 0 0 0 #E5B100FF;
+  }
 `
 
 export const Container = styled.a`

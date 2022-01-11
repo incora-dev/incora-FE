@@ -17,18 +17,36 @@ export const Strong = styled.strong`
   line-height: 28px;
 
   letter-spacing: 0.1em;
-
-  color: #fff;
 `;
 
-export const Div = styled.div`
+export const A = styled.a`
   display: flex;
   align-items: center;
   
   height: 22px;
   left: calc(50% - 69px/2 - 145.5px);
-  top: 0px;
+  top: 0;
+  
+  cursor: pointer;
 
-  background: #454A4D;
+  background-color: #454A4D;
+  color: #fff;
+
   border-radius: 5px;
+
+
+  box-shadow: inset 0 0 0 0 #E5B100FF;
+  -webkit-transition: ease-out 0.4s;
+  -moz-transition: ease-out 0.4s;
+  transition: ease-out 0.4s;
+
+
+
+  &:hover {
+    box-shadow: inset 100px 0 0 0 #E5B100FF;
+  }
 `;
+
+export const ButtonContainer = styled.div`
+  display: inline-block;
+`

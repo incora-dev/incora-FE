@@ -13,11 +13,11 @@ function AboutUs({ backgroundColor, title, text }: IAboutUs) {
           <p>{text}</p>
 
           <PositionDots>
-            <Dots numberOfDots={5} dotColor={'#fff'}/>
+            <Dots numberOfDots={5} dotColor={'#fff'} animation={true}/>
           </PositionDots>
 
           <PositionLoading>
-            <Loading height={75} width={75} viewBox="0 0 96 96"/>
+            <Loading height={75} width={75} viewBox="0 0 112 112"/>
           </PositionLoading>
 
           <PositionHexagon>

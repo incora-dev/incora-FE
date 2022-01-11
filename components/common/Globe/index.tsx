@@ -57,6 +57,20 @@ const Globe = ({ reviewIndex }: IGlobe) => {
     controls.maxPolarAngle = 2.5;
   };
 
+  const updatePoints = points.map((point, index) => {
+    if (index === reviewIndex) {
+      return {
+        ...point,
+        size: 0.06,
+      };
+    } else {
+      return {
+        ...point,
+        size: 0.03,
+      };
+    }
+  });
+
   useEffect(() => {
     setControlsOptions();
   }, []);
@@ -75,7 +89,7 @@ const Globe = ({ reviewIndex }: IGlobe) => {
         globeImageUrl={EarthTexture.src}
         backgroundColor={theme.colors.black}
         showAtmosphere={false}
-        pointsData={points}
+        pointsData={updatePoints}
         pointAltitude={(point: Point) => {
           return point.size;
         }}

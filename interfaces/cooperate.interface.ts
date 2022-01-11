@@ -10,7 +10,7 @@ export interface IDot {
 export interface IDots {
   numberOfDots: number;
   dotColor: string;
-  animation: boolean;
+  animation?: boolean;
 }
 
 export interface INumberOfSlides {

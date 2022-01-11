@@ -1,10 +1,10 @@
 import themeGet from "@styled-system/theme-get";
-import styled, {keyframes} from "styled-components";
+import styled, { keyframes } from "styled-components";
 import Image from "next/image";
 
 export const ReviewBoxWrapper = styled.div`
   width: 1366px;
-  height: 270px;
+  min-height: 270px;
   display: flex;
   justify-content: space-between;
 
@@ -23,7 +23,7 @@ const dash = keyframes`
   to {
     stroke-dashoffset: 0;
   }
-`
+`;
 
 export const Ellipse = styled.div`
   border-radius: 100px;
@@ -37,7 +37,7 @@ export const Ellipse = styled.div`
   .right_arrow {
     transform: rotate(180deg);
   }
-  
+
   svg {
     path {
       stroke-dasharray: 1000;

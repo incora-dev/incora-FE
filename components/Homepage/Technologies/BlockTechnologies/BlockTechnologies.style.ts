@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { homePageTechnologiesHoverDuration } from "../../../../constants";
 
 interface IComponent {
   number: number;
@@ -8,11 +9,18 @@ export const Component = styled.div`
   display: grid;
   grid-template-columns: ${({ number }: IComponent ) => `repeat(${number},1fr)`};
   column-gap: 26px;
+
+  padding-left: 180px;
   
-  overflow: hidden;
+  overflow: scroll;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 `;
 
 export const Technology = styled.div`
+  opacity: 1;
   position: relative;
 
   width: 291px;
@@ -21,6 +29,12 @@ export const Technology = styled.div`
   cursor: pointer;
   
   background: #212125;
+
+  -webkit-transition: opacity ${homePageTechnologiesHoverDuration} ease-in-out;
+  -moz-transition: opacity ${homePageTechnologiesHoverDuration} ease-in-out;
+  -ms-transition: opacity ${homePageTechnologiesHoverDuration} ease-in-out;
+  -o-transition: opacity ${homePageTechnologiesHoverDuration} ease-in-out;
+  transition: opacity ${homePageTechnologiesHoverDuration} ease-in-out;
   
   p {
     font-family: Poppins;
@@ -28,7 +42,6 @@ export const Technology = styled.div`
     font-weight: bold;
     font-size: 18px;
     line-height: 27px;
-    /* identical to box height */
 
     display: flex;
     align-items: center;
@@ -40,21 +53,30 @@ export const Technology = styled.div`
 `;
 
 export const TechnologyHover = styled.div`
-  display: none;
+  position: absolute;
+  opacity: 0;
 
   width: 291px;
   height: 291px;
 
   cursor: pointer;
+
+  -webkit-transition: opacity ${homePageTechnologiesHoverDuration} ease-in-out;
+  -moz-transition: opacity ${homePageTechnologiesHoverDuration} ease-in-out;
+  -ms-transition: opacity ${homePageTechnologiesHoverDuration} ease-in-out;
+  -o-transition: opacity ${homePageTechnologiesHoverDuration} ease-in-out;
+  transition: opacity ${homePageTechnologiesHoverDuration} ease-in-out;
 `;
 
 export const Container = styled.div`
+  position: relative;
+
   &:hover ${TechnologyHover} {
-    display: block;
+    opacity: 1;
   }
 
   &:hover ${Technology} {
-    display: none;
+    opacity: 0;
   }
 `;
 

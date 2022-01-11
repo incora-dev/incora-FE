@@ -21,18 +21,18 @@ export const MarginTop = styled.div`
 export const Div = styled.div`
   position: relative;
 
-  max-width: 1005px;
+  max-width: 1006px;
   margin: 0 auto;
   
   display: flex;
   align-items: center;
   justify-content: space-between;
-`;
-
-export const PositionArrow = styled.div`
-  position: absolute;
-  right: -80px;
-  top: 10px;
+  
+  svg {
+    margin: auto 0;
+    
+    cursor: pointer;
+  }
 `;
 
 export const H2 = styled.h2`

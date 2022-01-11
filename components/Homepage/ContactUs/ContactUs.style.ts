@@ -2,12 +2,14 @@ import styled from "styled-components";
 
 export  const  Block = styled.div`
   height: 724px;
+  
+  overflow: hidden;
 `;
 
 export  const  Container = styled.div`
   position: relative;
 
-  width: max-content;
+  max-width: 1006px;
   
   display: flex;
   column-gap: 242px;
@@ -41,6 +43,7 @@ export  const  H2 = styled.h2`
   line-height: 96px;
 
   letter-spacing: 0.05em;
+  white-space: nowrap;
   text-transform: capitalize;
 
   color: #000;

@@ -5,6 +5,8 @@ interface IPositionInfo  {
 }
 
 export const Cooperate = styled.div`
+  position: relative;
+
   max-width: 1166px;
   height: 89vh;
   margin: 0 auto;
@@ -17,9 +19,9 @@ export const Cooperate = styled.div`
 export const Slider = styled.div`
   display: flex;
   position: relative;
-  height: max-content;
+  height: calc(100vh - 105px);
   margin-right: 23px;
-  margin-top: 23.2vh;
+  padding-top: 23.2vh;
 `
 
 export const Number = styled.div`
@@ -57,10 +59,11 @@ export const ElementsPosition = styled.div`
   display: flex;
   position: relative;
   margin-right: 24px;
+  margin-left: 76px;
 `
 
 export const PositionScrollSlider = styled.div`
-  position: relative;
+  position: absolute;
   top: 37.3vh;
-  right: 11px;
+  left: -10px;
 `

@@ -76,7 +76,7 @@ export const PositionPlaySVG = styled.div`
   width: 33px;
   height: 39px;
 
-  transform: translate(-50%, -50%);
+  transform: translate(-37%, -50%);
 
   svg {
     margin: 0 auto;

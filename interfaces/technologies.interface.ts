@@ -15,4 +15,9 @@ export interface ITechnologiesInfo {
 export interface ITechnology {
   label: string;
   text: string[];
+  icons: JSX.Element[];
+}
+
+export interface ITechnologyContainer {
+  index: number;
 }

@@ -13,8 +13,7 @@ import {
   ScrollText
 } from './styles'
 
-function Header() {
-
+function HeaderComponent() {
   return (
     <Cover>
       <Container>
@@ -38,4 +37,4 @@ function Header() {
   )
 }
 
-export default Header;
+export default HeaderComponent;

@@ -2,9 +2,12 @@ import { IProjects } from "@interfaces";
 import { Container, Text, Block, H3, P, H4 } from "./Projects.style";
 import Technologies from "./Technologies";
 import PictureWithAnimation from "./PictureWithAnimation";
+import {useState} from "react";
 
 function Projects(props: IProjects) {
   const { projects, elementsColor } = props;
+  const [shouldHover, setShouldHover]  = useState(-1);
+
 
   function createProjects(): JSX.Element[] {
     return projects.map(({ title, text, technologies, img}, index) => {
@@ -14,8 +17,8 @@ function Projects(props: IProjects) {
       return (
         <Container key={index} flexDirection={flexDirection}>
           <Text margin={marginText}>
-            <H3>{title}</H3>
-            <P>{text}</P>
+            <H3 onMouseEnter={() => setShouldHover(index)} onMouseLeave={() => setShouldHover(-1)}>{title}</H3>
+            <P onMouseEnter={() => setShouldHover(index)} onMouseLeave={() => setShouldHover(-1)}>{text}</P>
 
             <Block>
               <H4>Technologies</H4>
@@ -24,7 +27,13 @@ function Projects(props: IProjects) {
             </Block>
           </Text>
 
-          <PictureWithAnimation img={img} index={index} elementsColor={elementsColor}/>
+          <PictureWithAnimation
+            img={img}
+            index={index}
+            elementsColor={elementsColor}
+            shouldHover={shouldHover}
+            setShouldHover={setShouldHover}
+          />
         </Container>
       )
     })

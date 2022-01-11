@@ -1,7 +1,8 @@
-import { ISliders } from "@interfaces";
-import { useState } from "react";
+import {ISliderInfo, ISliders} from "@interfaces";
+import {useEffect, useState} from "react";
 import ScrollSlider from "./scrollSlider/scrollSlider";
 import InfoBlock from "./InfoBlock/InfoBlock";
+import ReactPageScroller from 'react-page-scroller';
 import {
   Cooperate,
   Slider,
@@ -13,16 +14,18 @@ import {
   PositionNumber
 } from "./styles"
 import Elements from "./elements/elements";
+import React from "react";
 
 function CooperateComponent(props: ISliders) {
   const { sliders, plusesColor } = props;
   const [currentNumber, setCurrentNumber] = useState(1);
   const [information, setInformation] = useState({...sliders[0]});
+  const [scroll, setScroll] = useState(0)
   const numberOfSlides = sliders.length;
 
   const onClick = () => {
     const setInfo = (number: number) => {
-      setInformation({...sliders[number - 1]});
+      setInformation({...sliders[number]});
       setCurrentNumber(number)
     };
 
@@ -51,26 +54,47 @@ function CooperateComponent(props: ISliders) {
     return ''
   }
 
+  const createSliderElements = (sliders: ISliderInfo[]) => {
+    const sliderElements = [];
+    let count = 1;
+
+    while(sliderElements.length !== sliders.length) {
+      sliderElements.push(
+        <Slider key={count-1}>
+          <ElementsPosition>
+            <Elements elementNumber={count} plusesColor={plusesColor}/>
+          </ElementsPosition>
+
+          <PositionInfo positionRight={getPositionRight(count)}>
+            <InfoContainer>
+              <PositionNumber>
+                <Number>{`0${count}`}</Number>
+              </PositionNumber>
+              <InfoBlock {...sliders[count - 1]}/>
+            </InfoContainer>
+          </PositionInfo>
+        </Slider>
+      )
+
+      count++;
+    }
+    return sliderElements;
+  }
+
+  const sliderElements = createSliderElements(sliders);
+
   return (
     <Cooperate onClick={onClick}>
       <PositionScrollSlider>
         <ScrollSlider currentNumber={currentNumber} numberOfSlides={numberOfSlides} />
       </PositionScrollSlider>
 
-      <Slider>
-        <ElementsPosition>
-          <Elements elementNumber={currentNumber} plusesColor={plusesColor}/>
-        </ElementsPosition>
-
-        <PositionInfo positionRight={getPositionRight(currentNumber)}>
-          <InfoContainer>
-            <PositionNumber>
-              <Number>{`0${currentNumber}`}</Number>
-            </PositionNumber>
-            <InfoBlock {...information}/>
-          </InfoContainer>
-        </PositionInfo>
-      </Slider>
+      <ReactPageScroller
+        containerHeight={"89vh"}
+        pageOnChange={(value) => setCurrentNumber(value + 1)}
+      >
+        {sliderElements}
+      </ReactPageScroller>
     </Cooperate>
   )
 }

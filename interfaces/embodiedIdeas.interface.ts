@@ -25,9 +25,12 @@ export interface IPictureWithAnimation {
   img: string;
   index: number;
   elementsColor: string;
+  shouldHover: number;
+  setShouldHover: Function;
 }
 
 export interface IAnimation {
   index: number;
   elementsColor: string;
+  shouldHover: number;
 }

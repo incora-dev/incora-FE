@@ -147,6 +147,10 @@ export const FollowUsBlock = styled.div`
   display: flex;
   flex-direction: column;
   row-gap: 17px;
+  
+  a {
+    cursor: pointer;
+  }
 `;
 
 export const A = styled.a`
@@ -156,13 +160,13 @@ export const A = styled.a`
   width: 25px;
   background-color: #fff;
   border-radius: 50%;
-  
+
   svg {
     position: absolute;
     top: 50%;
     left: 50%;
 
-    transform: translate(-50%, -50%);
+    transform: translate(-45%, -55%);
   }
 `;
 

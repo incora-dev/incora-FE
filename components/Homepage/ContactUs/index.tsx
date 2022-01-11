@@ -1,4 +1,11 @@
-import { Container, H2, H4, Titles, Block, PositionLoading } from "./ContactUs.style";
+import {
+  Container,
+  H2,
+  H4,
+  Titles,
+  Block,
+  PositionLoading
+} from "./ContactUs.style";
 import { IContactUs } from "@interfaces";
 import Form from "../../Form";
 import Addresses from "./Addresses";

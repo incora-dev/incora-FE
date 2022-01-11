@@ -10,7 +10,7 @@ import TechnologyContainer from "./TechnologyContainer";
 
 function BlockTechnologies({ technologies }: IBlockTechnologies) {
   const setTechnologies = () => {
-    return technologies.map(({ technology: { label }}, index) => {
+    return technologies.map(({ technology: { label,text, icons }}, index) => {
       let icon;
 
       if (index === 0) {
@@ -40,7 +40,7 @@ function BlockTechnologies({ technologies }: IBlockTechnologies) {
       return (
         <Container key={index}>
           <TechnologyHover>
-            <TechnologyContainer/>
+            <TechnologyContainer icons={icons} text={text}/>
           </TechnologyHover>
 
           <Technology>
@@ -54,11 +54,13 @@ function BlockTechnologies({ technologies }: IBlockTechnologies) {
     });
   }
 
-  const technologiesArray = setTechnologies();
+  const technologiesArray = setTechnologies().map((technology) => {
+    return technology;
+  });
 
   return (
     <Component number={technologiesArray.length}>
-      {technologiesArray.map((technology) => technology)}
+      {technologiesArray}
     </Component>
   )
 }

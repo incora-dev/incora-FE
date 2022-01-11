@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 
 interface IDiv {
   backgroundColor: string;
@@ -61,13 +61,24 @@ export const PositionDots = styled.div`
   transform: rotate(60deg);
 `;
 
+const rotation = keyframes`
+  from {
+    transform: rotate(15deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+`
+
 export const PositionLoading = styled.div`
   position: absolute;
 
   right: -60px;
   bottom: -60px;
 
-  transform: rotate(15deg);
+  svg {
+    animation: ${rotation} 1.5s linear;
+  }
 `;
 
 export const PositionHexagon = styled.div`

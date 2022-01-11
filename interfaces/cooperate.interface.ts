@@ -4,12 +4,13 @@ export interface IPlus {
 
 export interface IDot {
   color: string;
-  numberOfDots: number;
+  numberOfDots?: number;
 }
 
 export interface IDots {
   numberOfDots: number;
   dotColor: string;
+  animation: boolean;
 }
 
 export interface INumberOfSlides {

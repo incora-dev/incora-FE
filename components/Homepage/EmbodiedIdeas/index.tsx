@@ -1,4 +1,15 @@
-import { Div, H2, H4, PositionTitle, Container, Block, SeeMoreWorks, HexagonPosition, LoadingPosition, DotsPosition } from "./EmbodiedIdeas.style";
+import {
+  Div,
+  H2,
+  H4,
+  PositionTitle,
+  ProjectsContainer,
+  Block,
+  SeeMoreWorks,
+  HexagonPosition,
+  LoadingPosition,
+  DotsPosition
+} from "./EmbodiedIdeas.style";
 import { IEmbodiedIdeas } from "@interfaces";
 import Projects from "./Projects";
 import ButtonWithArrow from "../../ButtonWithArrow";
@@ -17,9 +28,9 @@ function EmbodiedIdeasComponent(props: IEmbodiedIdeas) {
         </Block>
       </PositionTitle>
 
-      <Container>
+      <ProjectsContainer>
           <Projects projects={projects} elementsColor={elementsColor}/>
-      </Container>
+      </ProjectsContainer>
 
       <SeeMoreWorks>
         <H4>Want to see more works?</H4>

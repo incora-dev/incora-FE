@@ -13,8 +13,7 @@ export const ReviewBoxWrapper = styled.div`
   }
 `;
 
-export const ButtonWrap = styled.div`
-  padding: 0 33px;
+export const CarouselButtonWrapper = styled.div`
   width: 269px;
   display: flex;
   align-items: flex-end;
@@ -102,4 +101,5 @@ export const NameWrap = styled.div`
   span {
     color: ${themeGet("colors.font1")};
   }
+  height: 269px;
 `;

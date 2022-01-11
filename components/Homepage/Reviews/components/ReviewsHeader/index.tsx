@@ -1,10 +1,21 @@
 import { ReviewsHeaderWrapper } from "./ReviewsHeader.style";
 
-const ReviewsHeader = () => {
+interface IReviewsHeader {
+  reviewIndex: number;
+  reviewsLength: number;
+}
+
+const ReviewsHeader = ({ reviewIndex, reviewsLength }: IReviewsHeader) => {
+  const padNumber = (number: number) => {
+    return String(number).padStart(2, "0");
+  };
+
   return (
     <ReviewsHeaderWrapper>
       <h1>reviews</h1>
-      <span>01 / 03</span>
+      <span>
+        {padNumber(reviewIndex + 1)} / {padNumber(reviewsLength)}
+      </span>
     </ReviewsHeaderWrapper>
   );
 };

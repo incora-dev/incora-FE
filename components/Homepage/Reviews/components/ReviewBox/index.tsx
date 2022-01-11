@@ -1,50 +1,50 @@
-import { AvatarWrap, ButtonWrap, Ellipse, NameWrap, Photo, QuoteText, QuoteWrap, ReviewBoxWrapper, ReviewContentWrap } from "./style";
+import { CarouselButtonWrapper, ReviewBoxWrapper } from "./style";
 
-import Arrow from "../../../../../public/Arrow.svg";
-import Quotes from "../../../../../public/Quotes.svg";
-import photo from "../../../../../public/testPhoto.png";
+import ReviewContent from "./components/ReviewContent";
+import CarouselButton from "../../../../common/CarouselButton";
+import { Review } from "../../../interfaces";
+import { useDispatch } from "react-redux";
+import { Dispatch, SetStateAction, useEffect } from "react";
+import { changeCurrentGlobePoint } from "../../../actions";
 
-const ReviewBox = () => {
+interface IReviewBox {
+  reviews: Review[];
+  reviewIndex: number;
+  setReviewIndex: Dispatch<SetStateAction<number>>;
+}
+
+const ReviewBox = ({ reviews, reviewIndex, setReviewIndex }: IReviewBox) => {
+  const dispatch = useDispatch();
+
+  const changeReview = (right: boolean) => {
+    const lastElementIndex = reviews.length - 1;
+
+    if (reviewIndex < lastElementIndex && right) {
+      setReviewIndex(reviewIndex + 1);
+      dispatch(changeCurrentGlobePoint(reviewIndex + 1));
+    } else if (reviewIndex <= lastElementIndex && !right && reviewIndex > 0) {
+      setReviewIndex(reviewIndex - 1);
+      dispatch(changeCurrentGlobePoint(reviewIndex - 1));
+    }
+  };
+
+  const leftCarouselButtonCondition = reviewIndex !== 0 && (
+    <CarouselButton changeReview={changeReview} right={false} />
+  );
+
+  const rightCarouselButtonCondition = reviewIndex !== reviews.length - 1 && (
+    <CarouselButton changeReview={changeReview} right={true} />
+  );
+
   return (
     <ReviewBoxWrapper>
-      <ButtonWrap>
-        <Ellipse>
-          <Arrow />
-        </Ellipse>
-      </ButtonWrap>
-
-      <ReviewContentWrap>
-        <QuoteWrap>
-          <div>
-            <Quotes />
-          </div>
-          <QuoteText>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium
-            neque, accusamus sint dolorum est voluptas deleniti et velit
-            reiciendis nisi iste impedit labore molestiae adipisci sed veniam
-            error cumque, tempora sunt, temporibus itaque atque. Nulla optio ex
-            excepturi, quos debitis magni dolores minima doloremque asperiores
-            modi repellat sed eius, mollitia magnam facere ipsa
-          </QuoteText>
-        </QuoteWrap>
-
-        <AvatarWrap>
-          <div>
-            <Photo src={photo} alt="photo" layout="fixed" />
-
-            <NameWrap>
-              <h3>sven crone</h3>
-              <span>CEO at EnviaYa</span>
-            </NameWrap>
-          </div>
-        </AvatarWrap>
-      </ReviewContentWrap>
-
-      <ButtonWrap className="right_btn">
-        <Ellipse>
-          <Arrow className="right_arrow" />
-        </Ellipse>
-      </ButtonWrap>
+      <CarouselButtonWrapper>
+        {leftCarouselButtonCondition}
+      </CarouselButtonWrapper>
+      <ReviewContent review={reviews[reviewIndex]} />
+      <CarouselButtonWrapper>
+        {rightCarouselButtonCondition}
+      </CarouselButtonWrapper>
     </ReviewBoxWrapper>
   );
 };

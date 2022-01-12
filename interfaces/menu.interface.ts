@@ -6,6 +6,7 @@ export interface IMenu {
 
 export interface INavigation {
   titles: string[];
+  backgroundColor: string;
 }
 
 export interface IBackgroundColor {

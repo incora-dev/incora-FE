@@ -2,10 +2,10 @@ import { Div, HorizontalLine, VerticalLine } from './styles'
 import { IPlus } from "@interfaces";
 
 function Plus(props: IPlus) {
-  const { plusesColor } = props;
+  const { plusesColor, animation, animationDelay } = props;
 
   return (
-    <Div>
+    <Div animation={animation} animationDelay={animationDelay}>
       <HorizontalLine color={plusesColor}/>
       <VerticalLine color={plusesColor}/>
     </Div>

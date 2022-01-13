@@ -1,5 +1,5 @@
 export interface ITechnologies {
-  bgColor: string;
+  bgColor?: string;
   title: string;
   labels: ITechnologiesInfo[];
 }

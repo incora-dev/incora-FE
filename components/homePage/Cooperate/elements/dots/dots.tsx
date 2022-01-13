@@ -7,7 +7,14 @@ function Dots({ numberOfDots, dotColor, animation }: IDots) {
     const dots: JSX.Element[] = [];
 
     while(dots.length !== numberOfDots) {
-      dots.push(<Dot key={dots.length} color={dotColor}/>)
+      dots.push(
+        <Dot
+          key={dots.length}
+          color={dotColor}
+          animation={animation}
+          animationDelay={dots.length * 50}
+        />
+      )
     }
 
     return dots;

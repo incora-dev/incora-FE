@@ -1,5 +1,10 @@
 import styled from "styled-components";
 
+interface IPlus {
+  animation?: boolean;
+  animationDelay?: number;
+}
+
 export const PositionPlus = styled.div`
   position: relative;
   align-items: center;
@@ -8,6 +13,18 @@ export const PositionPlus = styled.div`
 export const Div = styled.div`
   width: max-content;
   height: max-content;
+
+  opacity: ${({animation}: IPlus) => {
+    if (animation) {
+      return '1';
+    } else {
+      return '0';
+    }
+  }
+  };
+
+  transition: all 1s ease-in-out;
+  transition-delay: ${( { animationDelay }: IPlus) => `${animationDelay}ms`};
 `
 
 export const DIV = styled.div`

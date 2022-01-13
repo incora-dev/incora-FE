@@ -2,7 +2,14 @@ import styled from "styled-components";
 
 interface IDiv {
   numberOfDots: number;
+  animation?: boolean
 }
+
+interface ICreateDot {
+  animation?: boolean
+  animationDelay?: number;
+}
+
 
 export const CreateDot = styled.div`
   width: 4px;
@@ -10,6 +17,18 @@ export const CreateDot = styled.div`
 
   border-radius: 50%;
   background-color: ${({color}) => color};
+
+  opacity: ${({animation}: ICreateDot) => {
+      if (animation) {
+        return '1';
+      } else {
+        return '0';
+      }
+    }
+  };
+
+  transition: all 1s ease-in-out;
+  transition-delay: ${( { animationDelay }: ICreateDot) => `${animationDelay}ms`};
 `
 
 export const Div = styled.div`

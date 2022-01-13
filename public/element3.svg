@@ -12,7 +12,6 @@
 <path d="M221.597 55.6075V188.232" stroke="black" stroke-miterlimit="10"/>
 <g style="mix-blend-mode:multiply">
 <g style="mix-blend-mode:multiply">
-<path d="M253.948 170.807C262.961 170.807 270.267 163.463 270.267 154.404C270.267 145.346 262.961 138.002 253.948 138.002C244.936 138.002 237.629 145.346 237.629 154.404C237.629 163.463 244.936 170.807 253.948 170.807Z" fill="#FEC506"/>
 </g>
 </g>
 <g style="mix-blend-mode:multiply">
@@ -22,10 +21,6 @@
 </g>
 <defs>
 <linearGradient id="paint0_linear_582_6062" x1="167" y1="85" x2="166.75" y2="252.5" gradientUnits="userSpaceOnUse">
-<stop stop-color="#FEC506"/>
-<stop offset="1" stop-color="#FEC506" stop-opacity="0"/>
-</linearGradient>
-<linearGradient id="paint1_linear_582_6062" x1="95.6359" y1="155.797" x2="150.542" y2="155.797" gradientUnits="userSpaceOnUse">
 <stop stop-color="#FEC506"/>
 <stop offset="1" stop-color="#FEC506" stop-opacity="0"/>
 </linearGradient>

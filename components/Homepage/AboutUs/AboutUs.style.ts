@@ -4,6 +4,10 @@ interface IDiv {
   backgroundColor: string;
 }
 
+interface IAnimation {
+  animation: boolean;
+}
+
 export const Div = styled.div`
   height: 532px;
   overflow: hidden;
@@ -63,7 +67,7 @@ export const PositionDots = styled.div`
 
 const rotation = keyframes`
   from {
-    transform: rotate(15deg);
+    transform: rotate(180deg);
   }
   to {
     transform: rotate(360deg);
@@ -77,7 +81,18 @@ export const PositionLoading = styled.div`
   bottom: -60px;
 
   svg {
-    animation: ${rotation} 1.5s linear;
+    opacity: ${({ animation }: IAnimation) => {
+      if (animation) {
+        return '1';
+      } else {
+        return '0';
+      }
+    }
+    };
+
+    transition: all 1s ease-in;
+
+    animation: ${rotation} 0.5s linear;
   }
 `;
 

@@ -1,6 +1,14 @@
 import styled from "styled-components";
 
-export const Element = styled.div`
+interface IDiv {
+  element: JSX.Element;
+}
+
+interface IElement {
+  animation: boolean;
+}
+
+export const Div = styled.div`
   position: relative;
   width: 338px;
   height: 293px;
@@ -13,13 +21,18 @@ export const PositionLoading = styled.div`
   z-index: 2;
   right: 10px;
   bottom: -24.5px;
-`
 
-export const Loading = styled.div`
-  width: 96px;
-  height: 96px;
+  svg {
+    opacity: ${({ animation }: IElement) => {
+      if (animation) {
+        return '1';
+      } else {
+        return '0';
+      }
+    }
+    };
 
-  background: center no-repeat url("loading1.svg");
+    transition: all 1s ease-in;
 `
 
 export const PlusesPosition = styled.div`

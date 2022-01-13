@@ -4,24 +4,47 @@ interface IPositionInfo  {
   positionRight: string;
 }
 
+interface IDiv  {
+  slide: number;
+}
+
 export const Cooperate = styled.div`
-  position: relative;
 
-  max-width: 1166px;
   height: 89vh;
-  margin: 0 auto;
 
+  overflow: hidden;
+  
+  section {
+    position: relative;
+
+    max-width: 1166px;
+    margin: 0 auto;
+  }
+`
+
+export const Div = styled.div`
+  position: absolute;
   display: flex;
-  justify-content: space-between;
-  gap: 27px;
+  flex-direction: column;
+  top: ${({slide}: IDiv) => {
+    if (slide) {
+      return `calc((-${slide} * (100vh - 104px)))`
+    }
+    
+    return 0;
+  }};
+
+  transition: all 0.5s ease-in-out;
 `
 
 export const Slider = styled.div`
+  //width: 100vw;
   display: flex;
   position: relative;
   height: calc(100vh - 105px);
   margin-right: 23px;
   padding-top: 23.2vh;
+  padding-bottom: 33.2vh;
 `
 
 export const Number = styled.div`

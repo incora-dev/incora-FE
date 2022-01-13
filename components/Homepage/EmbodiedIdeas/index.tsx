@@ -16,12 +16,13 @@ import ButtonWithArrow from "../../ButtonWithArrow";
 import HexagonFilled from "../../../public/hexagonFilled.svg";
 import Loading from "../../../public/loading1.svg";
 import Dots from "../Cooperate/elements/dots/dots";
+import {useState} from "react";
 
-function EmbodiedIdeasComponent(props: IEmbodiedIdeas) {
-  const { title, bgColor, projects, elementsColor } = props;
+function EmbodiedIdeasComponent({ title, bgColor, projects, elementsColor }: IEmbodiedIdeas) {
+  const [animation, setAnimation] = useState(false);
 
   return(
-    <Div bgColor={bgColor}>
+    <Div bgColor={bgColor} onMouseEnter={() => setAnimation(true)}>
       <PositionTitle>
         <Block>
           <H2>{title}</H2>
@@ -46,7 +47,7 @@ function EmbodiedIdeasComponent(props: IEmbodiedIdeas) {
         </LoadingPosition>
 
         <DotsPosition>
-          <Dots numberOfDots={5} dotColor={'#fff'} />
+          <Dots numberOfDots={5} dotColor={'#fff'} animation={animation}/>
         </DotsPosition>
       </SeeMoreWorks>
     </Div>

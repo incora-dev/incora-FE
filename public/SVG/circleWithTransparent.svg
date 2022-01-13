@@ -1,0 +1,25 @@
+<svg width="70" height="70" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M35 70C54.33 70 70 54.33 70 35C70 15.67 54.33 0 35 0C15.67 0 0 15.67 0 35C0 54.33 15.67 70 35 70Z" fill="url(#paint0_linear_731_682108)"/>
+<defs>
+    <animateTransform attributeType="XML"
+                      attributeName="transform" type="scale"
+                      from="1" to="4 2"
+                      begin="0s" dur="4s" fill="freeze"/>
+<linearGradient id="paint0_linear_731_682108" x1="35" y1="0" x2="35" y2="70" gradientUnits="userSpaceOnUse">
+
+<stop stop-color="#FEC506"/>
+<stop offset="1" stop-color="#FEC506" stop-opacity="0">
+    <animate
+            attributeName="offset"
+            values="0.01; 1"
+            dur="1s"
+    />
+    <animate
+            attributeName="stop-opacity"
+            values="0.01; 0"
+            dur="1s"
+    />
+</stop>
+</linearGradient>
+</defs>
+</svg>

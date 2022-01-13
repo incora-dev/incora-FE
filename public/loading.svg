@@ -7,12 +7,12 @@
     <animate
         attributeName="offset"
         values="0.01; 1"
-        dur="2s"
+        dur="0.5s"
     />
     <animate
         attributeName="stop-opacity"
         values="0.01; 0"
-        dur="2s"
+        dur="0.5s"
     />
 </stop>
 </linearGradient>

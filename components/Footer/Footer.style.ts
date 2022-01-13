@@ -141,6 +141,8 @@ export const Page = styled.p`
   text-transform: capitalize;
 
   color: #FFFFFF;
+  
+  cursor: pointer;
 `;
 
 export const FollowUsBlock = styled.div`

@@ -1,8 +1,8 @@
-import {ISliderInfo, ISliders} from "@interfaces";
-import {useEffect, useState} from "react";
+import { ISliderInfo, ISliders } from "@interfaces";
+import { useEffect, useRef, useState } from "react";
 import ScrollSlider from "./scrollSlider/scrollSlider";
 import InfoBlock from "./InfoBlock/InfoBlock";
-import ReactPageScroller from 'react-page-scroller';
+
 import {
   Cooperate,
   Slider,
@@ -11,28 +11,63 @@ import {
   ElementsPosition,
   PositionScrollSlider,
   PositionInfo,
-  PositionNumber
+  PositionNumber,
+  Div
 } from "./styles"
 import Elements from "./elements/elements";
 import React from "react";
+import { maxSlideNumber, minSlideNumber } from "../../../utils";
 
 function CooperateComponent(props: ISliders) {
-  const { sliders, plusesColor } = props;
-  const [currentNumber, setCurrentNumber] = useState(1);
-  const [information, setInformation] = useState({...sliders[0]});
-  const [scroll, setScroll] = useState(0)
+  const { sliders, plusesColor, setCurrentSlide } = props;
+  const [currentNumber, setCurrentNumber] = useState(0);
   const numberOfSlides = sliders.length;
+  const [checkScroll, setCheckScroll] = useState(0);
+  const [mouseOnBlock, setMouseOnBlock] = useState(false);
+  const [slide, setSlide] = useState(0);
+  const [animation1, setAnimation1] = useState(false);
+  const [animation2, setAnimation2] = useState(false);
+  const [animation3, setAnimation3] = useState(false);
+  const [animation4, setAnimation4] = useState(false);
+  const scrollToRef = (ref) => window.scrollTo(0, ref.current.offsetTop - 104)
 
-  const onClick = () => {
-    const setInfo = (number: number) => {
-      setInformation({...sliders[number]});
-      setCurrentNumber(number)
-    };
+  const myRef = useRef(null)
+  const executeScroll = () => scrollToRef(myRef)
 
-    currentNumber === sliders.length
-      ? setInfo(1)
-      : setInfo(currentNumber + 1)
-  }
+  const handleScroll = () => {
+    if (mouseOnBlock) {
+      setTimeout(() => {
+        const scrollY = window.scrollY;
+        let scrollUp = false;
+        let scrollDown = false;
+
+        checkScroll > scrollY
+          ? scrollUp = true
+          : scrollDown = true;
+
+        if (scrollUp && slide > 0) {
+          setSlide(maxSlideNumber(slide));
+          setCurrentSlide(maxSlideNumber(slide));
+          setCurrentNumber(maxSlideNumber(slide));
+          console.log('Scroll Top');
+        } else if (scrollUp && slide === 0) {
+          console.log('Scroll Top to Header');
+        } else if (scrollDown) {
+          setCurrentSlide(minSlideNumber(slide, sliders.length));
+          setSlide(minSlideNumber(slide, sliders.length));
+          setCurrentNumber(minSlideNumber(slide, sliders.length))
+        }
+
+        setCheckScroll(window.scrollY);
+      }, 500)
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  });
 
   const getPositionRight = (number: number): string => {
     if (number === 1) {
@@ -48,7 +83,7 @@ function CooperateComponent(props: ISliders) {
     }
 
     if (number === 4) {
-      return '51px;'
+      return '46.5px;'
     }
 
     return ''
@@ -60,9 +95,59 @@ function CooperateComponent(props: ISliders) {
 
     while(sliderElements.length !== sliders.length) {
       sliderElements.push(
-        <Slider key={count-1}>
+        <Slider
+          key={count - 1}
+          onMouseEnter={() => {
+            if (slide === 0) {
+              setAnimation1(true)
+            }
+
+            if (slide === 1) {
+              setAnimation2(true)
+            }
+
+            if (slide === 2) {
+              setAnimation3(true)
+            }
+
+            if (slide === 3) {
+              setAnimation4(true)
+            }
+          }}
+        >
           <ElementsPosition>
-            <Elements elementNumber={count} plusesColor={plusesColor}/>
+            {
+              count === 1 &&
+              <Elements
+                elementNumber={count}
+                plusesColor={plusesColor}
+                animation={animation1}
+              />
+            }
+            {
+              count === 2 &&
+              <Elements
+                elementNumber={count}
+                plusesColor={plusesColor}
+                animation={animation2}
+              />
+            }
+            {
+              count === 3 &&
+              <Elements
+                elementNumber={count}
+                plusesColor={plusesColor}
+                animation={animation3}
+              />
+            }
+            {
+              count === 4 &&
+              <Elements
+                elementNumber={count}
+                plusesColor={plusesColor}
+                animation={animation4}
+              />
+            }
           </ElementsPosition>
 
           <PositionInfo positionRight={getPositionRight(count)}>
@@ -76,26 +161,34 @@ function CooperateComponent(props: ISliders) {
         </Slider>
       )
 
+
       count++;
     }
     return sliderElements;
   }
 
-  const sliderElements = createSliderElements(sliders);
-
   return (
-    <Cooperate onClick={onClick}>
-      <PositionScrollSlider>
-        <ScrollSlider currentNumber={currentNumber} numberOfSlides={numberOfSlides} />
-      </PositionScrollSlider>
+    <Cooperate
+      onMouseEnter={() => setMouseOnBlock(true)}
+      onMouseLeave={() => setMouseOnBlock(false)}
+      ref={myRef}
+    >
+      <section>
+        <PositionScrollSlider>
+          <ScrollSlider currentNumber={currentNumber + 1} numberOfSlides={numberOfSlides} />
+        </PositionScrollSlider>
 
-      <ReactPageScroller
-        containerHeight={"89vh"}
-        pageOnChange={(value) => setCurrentNumber(value + 1)}
-      >
-        {sliderElements}
-      </ReactPageScroller>
+        <Div
+          slide={slide}
+          onClick={executeScroll}
+        >
+          {
+            createSliderElements(sliders)
+          }
+        </Div>
+      </section>
     </Cooperate>
+
   )
 }
 

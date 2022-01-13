@@ -1,5 +1,11 @@
 import styled from "styled-components";
 
+interface IChangeColor{
+  bgColor: string;
+  color: string;
+
+}
+
 export const Container = styled.div`
   display: flex;
   gap: 7px;
@@ -22,28 +28,27 @@ export const Strong = styled.strong`
 export const A = styled.a`
   display: flex;
   align-items: center;
-  
-  height: 22px;
-  left: calc(50% - 69px/2 - 145.5px);
-  top: 0;
-  
-  cursor: pointer;
 
-  background-color: #454A4D;
-  color: #fff;
+  height: 22px;
+  left: calc(50% - 69px / 2 - 145.5px);
+  top: 0;
+
+  cursor: pointer;
+  background-color: ${({ bgColor }: IChangeColor) => bgColor ? bgColor : '#454A4D'};
+
+  color: ${({ color }: IChangeColor) => color ? color : '#fff'};
 
   border-radius: 5px;
 
 
-  box-shadow: inset 0 0 0 0 #E5B100FF;
+  box-shadow: inset 0 0 0 0 #ffc400;
   -webkit-transition: ease-out 0.4s;
   -moz-transition: ease-out 0.4s;
   transition: ease-out 0.4s;
 
 
-
   &:hover {
-    box-shadow: inset 100px 0 0 0 #E5B100FF;
+    box-shadow: inset 100px 0 0 0 #ffc400;
   }
 `;
 

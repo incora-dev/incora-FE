@@ -8,20 +8,20 @@ import TechnologiesComponent from "../components/homePage/Technologies";
 import EmbodiedIdeasComponent from "../components/homePage/EmbodiedIdeas";
 import AboutUs from "../components/homePage/AboutUs";
 import ContactUsComponent from "../components/homePage/ContactUs";
+import NewsComponent from "../components/News/index";
 import { IContactUs } from "@interfaces";
 import FooterComponent from "../components/Footer";
 import { IFooter } from "../interfaces/footer.interface";
 
-import Instagram from "../public/SVG/socialNetwork/instagram.svg";
-import Facebook from "../public/SVG/socialNetwork/facebook.svg";
-import LinkedIn from "../public/SVG/socialNetwork/linkedIn.svg";
-import React from "../public/SVG/technologies/react.svg";
-import Angular from "../public/SVG/technologies/angular.svg";
+import Instagram from "../public/SVG/socialNetwork/instagram.svg"
+import Facebook from "../public/SVG/socialNetwork/facebook.svg"
+import LinkedIn from "../public/SVG/socialNetwork/linkedIn.svg"
+import React from "../public/SVG/technologies/react.svg"
+import Angular from "../public/SVG/technologies/angular.svg"
 import VideoComponent from "../components/homePage/Video";
-import AOS from "aos";
-import "aos/dist/aos.css";
-import { useEffect, useState } from "react";
-import ReactPageScroller from "react-page-scroller";
+import ReactPageScroller from 'react-page-scroller';
+import {useEffect, useState} from "react";
+import disableScroll from 'disable-scroll';
 import Reviews from "../components/Homepage/Reviews";
 
 const titles = [
@@ -81,163 +81,170 @@ const technologies = {
   title: "Technologies",
   technologies: [
     {
-      technology: {
-        label: "frontend",
-        text: ["React", "Angular2"],
-        icons: [React, Angular],
-      },
+      technology:
+      {
+        label: 'frontend',
+        text: ['React', 'Angular2'],
+        icons: [React, Angular]
+      }
     },
     {
-      technology: {
-        label: "backend",
-        text: ["Node.js", "Python", "Django", "Flask"],
-        icons: [React, Angular],
-      },
+      technology:
+        {
+          label: 'backend',
+          text: ['Node.js', 'Python', 'Django', 'Flask'],
+          icons: [React, Angular]
+        }
     },
     {
-      technology: {
-        label: "database",
-        text: ["PostgreSQL", "MySQL", "MongoDB", "Apollo", "Redis"],
-        icons: [React, Angular],
-      },
+      technology:
+        {
+          label: 'database',
+          text: ['PostgreSQL', 'MySQL', 'MongoDB', 'Apollo', 'Redis'],
+          icons: [React, Angular]
+        }
     },
     {
-      technology: {
-        label: "mobile apps",
-        text: ["React Native", "Ionic"],
-        icons: [React, Angular],
-      },
+      technology:
+        {
+          label: 'mobile apps',
+          text: ['React Native', 'Ionic'],
+          icons: [React, Angular]
+        }
     },
     {
-      technology: {
-        label: "devOps tools",
-        text: ["Docker", "Kubernetes", "Amazon ECS"],
-        icons: [React, Angular],
-      },
+      technology:
+        {
+          label: 'devOps tools',
+          text: ['Docker', 'Kubernetes', 'Amazon ECS'],
+          icons: [React, Angular]
+        }
     },
     {
-      technology: {
-        label: "cloud Services",
-        text: [
-          "Amazon Web Services",
-          "Google Cloud Platform",
-          "Microsoft Azure",
-          "DigitalOcean",
-        ],
-        icons: [React, Angular],
-      },
+      technology:
+        {
+          label: 'cloud Services',
+          text: ['Amazon Web Services', 'Google Cloud Platform', 'Microsoft Azure', 'DigitalOcean'],
+          icons: [React, Angular]
+        }
     },
   ],
 };
 
 const EmbodiedIdeas = {
-  title: "Embodied Ideas",
+  title: 'Embodied Ideas',
   bgColor: bgColorWhite,
   projects: [
     {
-      title: "DeepDao",
-      text: "Bookety is an online booking system for travelers, which provides access to thousands of tours in more than 2,000 destinations worldwide.",
-      technologies: [
-        "Node.JS",
-        "Express",
-        "PostgreSQL",
-        "Web3",
-        "React",
-        "Saga",
-        "Redux",
-        "MaterialUI",
-        "AWS",
-      ],
-      img: "./project1.jpg",
+      title: 'DeepDao',
+      text: 'Bookety is an online booking system for travelers, which provides access to thousands of tours in more than 2,000 destinations worldwide.',
+      technologies: ['Node.JS', 'Express', 'PostgreSQL', 'Web3', 'React', 'Saga', 'Redux', 'MaterialUI', 'AWS'],
+      img: './project1.jpg'
     },
     {
-      title: "Burgerizzer",
-      text: "Bookety is an online booking system for travelers, which provides access to thousands of tours in more than 2,000 destinations worldwide.",
-      technologies: [
-        "JavaScript",
-        "ReactJS",
-        "React Native",
-        "NodeJS",
-        "Google API",
-        "Foodics API",
-        "Tookan API",
-        "Unifonic API",
-        "Payfort API",
-        "AWS",
-        "PostgreSQL",
-      ],
-      img: "./project2.jpg",
+      title: 'Burgerizzer',
+      text: 'Bookety is an online booking system for travelers, which provides access to thousands of tours in more than 2,000 destinations worldwide.',
+      technologies: ['JavaScript', 'ReactJS', 'React Native', 'NodeJS', 'Google API', 'Foodics API', 'Tookan API', 'Unifonic API', 'Payfort API', 'AWS', 'PostgreSQL'],
+      img: './project2.jpg'
     },
     {
-      title: "HealthApp",
-      text: "It is an application for making quick and convenient doctor appointments and conducting online consultations.",
-      technologies: [
-        "Node.JS",
-        "Express",
-        "PostgreSQL",
-        "Web3",
-        "React",
-        "Saga",
-        "Redux",
-        "MaterialUI",
-        "AWS",
-      ],
-      img: "./project3.jpg",
+      title: 'HealthApp',
+      text: 'It is an application for making quick and convenient doctor appointments and conducting online consultations.',
+      technologies: ['Node.JS', 'Express', 'PostgreSQL', 'Web3', 'React', 'Saga', 'Redux', 'MaterialUI', 'AWS'],
+      img: './project3.jpg'
     },
-  ],
-};
+  ]
+}
 
 const aboutUs = {
-  title: "about us",
-  text: "As a full-service software company, we create a perfect synergy of processes to define, design, and develop cutting-edge solutions from initial ideas. Possessing experience in deploying various challenging features and projects, our Incora team is going to make your idea happen.",
-};
+  title: 'about us',
+  text: 'As a full-service software company, we create a perfect synergy of processes to define, design, and develop cutting-edge solutions from initial ideas. Possessing experience in deploying various challenging features and projects, our Incora team is going to make your idea happen.'
+}
 
 const contactUs: IContactUs = {
-  title: "contact us",
-  text: "Let’s create progress together!",
-  formLabels: ["name", "phone number", "email", "what is you main goal?"],
+  title: 'contact us',
+  text: 'Let’s create progress together!',
+  formLabels: ['name', 'phone number', 'email', 'what is you main goal?'],
   addresses: [
-    { "ukrainian office": "2 Horodotska Str.,\n" + "Lviv 75001 Ukraine" },
-    { "usa office": "16192 Coastal Hwy, Lewes,\n" + "DE 19958 USA" },
+    { 'ukrainian office': '2 Horodotska Str.,\n' + 'Lviv 75001 Ukraine' },
+    { 'usa office': '16192 Coastal Hwy, Lewes,\n' + 'DE 19958 USA' }
   ],
-  buttonLabel: "send",
-};
+  buttonLabel: 'send',
+}
 
 const footer: IFooter = {
-  policies: ["privacy policy", "Cookies Policy"],
+  policies: ['privacy policy', 'Cookies Policy'],
   offices: contactUs.addresses,
-  pages: ["Services", "expertise", "Case Studies", "Company", "Insights"],
+  pages: ['Services', 'expertise', 'Case Studies', 'Company', 'Insights'],
   followUs: [
-    { icon: Facebook, redirectTo: "Facebook" },
-    { icon: LinkedIn, redirectTo: "LinkedIn" },
-    { icon: Instagram, redirectTo: "Instagram" },
+    { icon: Facebook, redirectTo: 'Facebook' },
+    { icon: LinkedIn, redirectTo: 'LinkedIn' },
+    { icon: Instagram, redirectTo: 'Instagram' },
   ],
-  copyright: "© 2015-2021 Incora LLC",
-};
+  copyright: '© 2015-2021 Incora LLC'
+}
+
+const news = {
+  title: 'Insights',
+  articles: [
+    {
+      img: './newsBlock/newImg1.jpg',
+      tags: ['tagtitle', 'tagtitle',],
+      categories: ['category'],
+      title: 'Intro to Microservices Communication [With the Use of Apache Kafka]',
+      redirectTo: '[With the Use of Apache Kafka]',
+    },
+    {
+      img: './newsBlock/newImg2.jpg',
+      tags: ['tagtitle'],
+      categories: ['category', 'category'],
+      title: 'Incora Is Gaining Popularity On Clutch',
+      redirectTo: 'Incora Is Gaining Popularity On Clutch',
+    },
+    {
+      img: './newsBlock/newImg3.jpg',
+      tags: ['tagtitle', 'tagtitle'],
+      categories: ['category'],
+      title: 'Node.js vs Python: What are the Pros, Cons, and Use Cases?',
+      redirectTo: 'Node.js vs Python: What are the Pros, Cons, and Use Cases?',
+    },
+    {
+      img: './newsBlock/newImg1.jpg',
+      tags: ['tagtitle'],
+      categories: ['category', 'category'],
+      title: 'How to Monetize Delivery and Shipping Apps: Methods Screening',
+      redirectTo: 'How to Monetize Delivery and Shipping Apps: Methods Screening',
+    },
+  ]
+}
 
 const plusesColor = "#FEC602";
 
 function Home() {
-  useEffect(() => {
-    AOS.init({
-      offset: 100,
-      delay: 200,
-      disableMutationObserver: true,
-    });
-  }, []);
+  const [ currentPage, setCurrentPage] = useState(0);
+  const [ currentCooperateSlide, setCurrentCooperateSlide] = useState(0);
+  const [ beforeCooperatePageScroll, setBeforeCooperatePageScroll] = useState(0);
+
+  // useEffect(() => {
+  //   disableScroll.on();
+  // }, []);
 
   return (
-    <div>
+    <>
       <Head>
         <title>Create Next App</title>
         <meta name="description" content="Generated by create next app" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+    <div>
       <MainMenu titles={titles} backgroundColor={bgColorBlack}>
-        <ReactPageScroller>
           <HeaderComponent />
-          <CooperateComponent sliders={sliders} plusesColor={plusesColor} />
-        </ReactPageScroller>
+          <CooperateComponent
+            sliders={sliders}
+            plusesColor={plusesColor}
+            setCurrentSlide={setCurrentCooperateSlide}
+            setBeforePageScroll={setBeforeCooperatePageScroll}
+          />
         <section>
           <ServicesComponent
             title={services.title}
@@ -253,34 +260,42 @@ function Home() {
           />
         </section>
         <EmbodiedIdeasComponent
-          title={EmbodiedIdeas.title}
-          bgColor={EmbodiedIdeas.bgColor}
-          projects={EmbodiedIdeas.projects}
-          elementsColor={colorYellow}
+            title={EmbodiedIdeas.title}
+            bgColor={EmbodiedIdeas.bgColor}
+            projects={EmbodiedIdeas.projects}
+            elementsColor={colorYellow}
         />
-        <VideoComponent />
+        <VideoComponent/>
         <AboutUs
-          backgroundColor={bgColorBlack}
-          title={aboutUs.title}
-          text={aboutUs.text}
+            backgroundColor={bgColorBlack}
+            title={aboutUs.title}
+            text={aboutUs.text}
         />
-        <Reviews />
+        <Reviews/>
+        <section>
+          <NewsComponent
+            title={news.title}
+            labels={technologies.technologies}
+            articles={news.articles}
+          />
+        </section>
         <ContactUsComponent
-          title={contactUs.title}
-          text={contactUs.text}
-          formLabels={contactUs.formLabels}
-          addresses={contactUs.addresses}
-          buttonLabel={contactUs.buttonLabel}
+            title={contactUs.title}
+            text={contactUs.text}
+            formLabels={contactUs.formLabels}
+            addresses={contactUs.addresses}
+            buttonLabel={contactUs.buttonLabel}
         />
       </MainMenu>
       <FooterComponent
-        policies={footer.policies}
-        offices={footer.offices}
-        followUs={footer.followUs}
-        pages={footer.pages}
-        copyright={footer.copyright}
+          policies={footer.policies}
+          offices={footer.offices}
+          followUs={footer.followUs}
+          pages={footer.pages}
+          copyright={footer.copyright}
       />
     </div>
+    </>
   );
 }
 

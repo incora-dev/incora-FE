@@ -1,10 +1,14 @@
 export interface IPlus {
   plusesColor: string;
+  animation?: boolean;
+  animationDelay?: number;
 }
 
 export interface IDot {
   color: string;
   numberOfDots?: number;
+  animation?: boolean;
+  animationDelay?: number;
 }
 
 export interface IDots {
@@ -21,6 +25,8 @@ export interface INumberOfSlides {
 export interface ISliders {
   sliders: ISliderInfo[];
   plusesColor: string;
+  setSlide: Function;
+  setBeforePageScroll: Function;
 }
 
 export interface ISliderInfo {
@@ -34,4 +40,9 @@ export interface ISliderInfo {
 export interface IElement {
   elementNumber: number;
   plusesColor: string;
+  animation: boolean;
+}
+
+export interface IElementAnimation {
+  animation: boolean;
 }

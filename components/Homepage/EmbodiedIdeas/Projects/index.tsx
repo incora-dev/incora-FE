@@ -15,12 +15,15 @@ function Projects(props: IProjects) {
       const marginText = (index + 1) % 10 !== 2 ? '0 0 0 180px;' : '0 180px 0 0';
 
       return (
-        <Container key={index} flexDirection={flexDirection}>
+        <Container
+          key={index}
+          flexDirection={flexDirection}
+        >
           <Text margin={marginText}>
             <H3 onMouseEnter={() => setShouldHover(index)} onMouseLeave={() => setShouldHover(-1)}>{title}</H3>
             <P onMouseEnter={() => setShouldHover(index)} onMouseLeave={() => setShouldHover(-1)}>{text}</P>
 
-            <Block>
+            <Block onMouseEnter={() => setShouldHover(index)} onMouseLeave={() => setShouldHover(-1)}>
               <H4>Technologies</H4>
 
               <Technologies technologies={technologies}/>

@@ -29,7 +29,9 @@ function ServicesComponent({ title, text, labels }: IServices) {
   const [ onEnterBlock, setOnEnterBlock] = useState(false)
 
   return (
-    <Component onMouseEnter={() => setOnEnterBlock(true)}>
+    <Component onMouseEnter={() => {
+      setOnEnterBlock(true);
+    }}>
       { onEnterBlock &&
         <PositionLoading>
           <Loading/>

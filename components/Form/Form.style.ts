@@ -25,6 +25,7 @@ export const FormContainer = styled.div`
 `;
 
 export const Input = styled.input`
+  display: inline-block;
   height: 34px;
 
   font-family: Poppins;
@@ -36,12 +37,17 @@ export const Input = styled.input`
   letter-spacing: 0.03em;
   text-transform: capitalize;
 
-  color: #000000;
+  margin: 0;
 
+  text-decoration: none;
   border: none;
-  border-bottom: 1px solid #9CA3A7;
 
-  ::placeholder {
+  box-shadow: inset 0 -1px 0 0 #9CA3A7;
+  -webkit-transition: ease-out 0.4s;
+  -moz-transition: ease-out 0.4s;
+  transition: all ease-out 0.4s;
+
+  &::placeholder {
     font-family: Poppins;
     font-style: normal;
     font-weight: 500;
@@ -50,13 +56,14 @@ export const Input = styled.input`
 
     letter-spacing: 0.03em;
     text-transform: capitalize;
-
-    color: #9CA3A7;
   }
 
   &:focus-visible {
     outline: none;
-    //border:none;
-    border: 1px solid ${yellow};
+
+    box-shadow: inset 0 -2px 0 0 #e5b100;
+    -webkit-transition: ease-out 0.4s;
+    -moz-transition: ease-out 0.4s;
+    transition: all ease-out 0.4s;
   }
 `;

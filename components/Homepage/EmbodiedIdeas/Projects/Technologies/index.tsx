@@ -2,14 +2,13 @@ import { IProjectTechnologies } from "@interfaces";
 import { Strong, A, Container, ButtonContainer } from "./Technologies.style";
 import Link from "next/link";
 
-function Technologies({ technologies }: IProjectTechnologies) {
-
+function Technologies({ technologies, textTagsColor, bgTagsColor }: IProjectTechnologies) {
   return (
     <Container>
       {
         technologies.map((technology, index) =>
           <Link href={technology} key={index}>
-            <A>
+            <A bgColor={bgTagsColor} color={textTagsColor}>
               <ButtonContainer>
                 <Strong>{technology}</Strong>
               </ButtonContainer>

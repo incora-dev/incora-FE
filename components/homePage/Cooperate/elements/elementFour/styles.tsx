@@ -1,5 +1,9 @@
 import styled from "styled-components";
 
+interface IElement {
+  animation: boolean;
+}
+
 export const Element = styled.div`
   position: relative;
   width: 300px;
@@ -8,18 +12,23 @@ export const Element = styled.div`
   background: center no-repeat url("element4.svg");
 `;
 
-export const Loading = styled.div`
-  width: 186.01px;
-  height: 186.01px;
-
-  background: center no-repeat url("loading3.svg");
-`
-
 export const PositionLoading = styled.div`
   position: absolute;
   z-index: 0;
   right: -27px;
   bottom: -20px;
+
+  svg {
+    opacity: ${({ animation }: IElement) => {
+      if (animation) {
+        return '1';
+      } else {
+        return '0';
+      }
+    }
+    };
+
+    transition: all 1s ease-in;
 `;
 
 export const PositionDots = styled.div`
@@ -27,4 +36,31 @@ export const PositionDots = styled.div`
   z-index: 0;
   left: -15px;
   top: 13px;
+`;
+
+export const CircleWithGradient = styled.div`
+  height: 70px;
+  width: 70px;
+  border-radius: 50%;
+
+  background: linear-gradient(180deg, #FEC506 0%, rgba(254, 197, 6, 0) 100%);
+
+  transform: ${({ animation }: IElement) => {
+  if (animation) {
+    return 'scale(1)';
+  } else {
+    return 'scale(0)';
+  }
+}};
+  
+  transition: transform 1s ease-in-out;
+`;
+
+export const PositionCircleWithGradient = styled.div`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  
+  transform: translate(-50%, -50%);
+
 `;

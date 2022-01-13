@@ -19,6 +19,8 @@ export interface IProject {
 
 export interface IProjectTechnologies {
   technologies: string[];
+  textTagsColor?: string;
+  bgTagsColor?: string;
 }
 
 export interface IPictureWithAnimation {

@@ -10,7 +10,7 @@ export const Component = styled.div`
   grid-template-columns: ${({ number }: IComponent ) => `repeat(${number},1fr)`};
   column-gap: 26px;
 
-  padding-left: 180px;
+  padding: 0 180px;
   
   overflow: scroll;
 

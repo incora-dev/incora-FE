@@ -5,39 +5,37 @@ import { PositionElementOne, PositionElementTwo, PositionElementThree, PositionE
 import ElementThree from "./elementThree/elementThree";
 import ElementFour from "./elementFour/elementFour";
 
-function Elements(props: IElement) {
-  const { elementNumber, plusesColor } = props;
-
+function Elements({ elementNumber, plusesColor, animation }: IElement) {
   return (
     <>
       {
         (elementNumber === 1) &&
           <PositionElementOne>
-            <ElementOne plusesColor={plusesColor}/>
+            <ElementOne plusesColor={plusesColor} animation={animation}/>
           </PositionElementOne>
       }
       {
         (elementNumber === 2) &&
           <PositionElementTwo>
-            <ElementTwo/>
+            <ElementTwo animation={animation}/>
           </PositionElementTwo>
       }
 
       {
         (elementNumber === 3) &&
           <PositionElementThree>
-            <ElementThree plusesColor={'#000'}/>
+            <ElementThree plusesColor={'#000'} animation={animation}/>
           </PositionElementThree>
       }
 
       {
         (elementNumber === 4) &&
         <PositionElementFour>
-          <ElementFour/>
+          <ElementFour animation={animation}/>
         </PositionElementFour>
       }
     </>
   )
 }
 
-export default Elements;1
+export default Elements;

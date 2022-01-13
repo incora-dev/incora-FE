@@ -52,5 +52,4 @@ export const H2 = styled.h2`
   text-transform: uppercase;
 
   color: ${({color}) => color};
-  
 `;

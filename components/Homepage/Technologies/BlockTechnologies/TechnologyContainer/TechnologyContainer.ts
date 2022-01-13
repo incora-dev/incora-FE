@@ -30,6 +30,8 @@ export const Container = styled.div`
   
   width: 100%;
   
+  padding: 0 23px;
+  
   justify-content: center;
   align-items: center;
   display: flex;
@@ -46,7 +48,7 @@ export const Block = styled.div`
   align-items: center;
   row-gap: 10px;
   
-  width: 94px;
+  width: max-content;
 `
 
 export const P = styled.p`

@@ -86,7 +86,13 @@ function FooterComponent( { policies, offices, followUs, pages, copyright }: IFo
           <Pages>
             {
               pages.map((page, index) =>
-                <Page key={index}>{page}</Page>
+                <Page key={index}>
+                  <Link href={page}>
+                    <a>
+                      {page}
+                    </a>
+                  </Link>
+                </Page>
               )
             }
           </Pages>

@@ -1,5 +1,9 @@
 import styled from "styled-components";
 
+interface IElement {
+  animation: boolean;
+}
+
 export const Element = styled.div`
   width: 350px;
   height: 182px;
@@ -12,13 +16,18 @@ export const PositionLoading = styled.div`
   z-index: 1;
   right: 41px;
   top: -93px;
-`
 
-export const Loading = styled.div`
-  width: 96px;
-  height: 96px;
+  svg {
+    opacity: ${({ animation }: IElement) => {
+      if (animation) {
+        return '1';
+      } else {
+        return '0';
+      }
+    }
+    };
 
-  background: center no-repeat url("loading2.svg");
+    transition: all 1s ease-in;
 `
 
 export const PositionPointsFirst = styled.div`
@@ -32,5 +41,5 @@ export const PositionPointsSecond = styled.div`
   position: absolute;
   z-index: 1;
   right: 42px;
-  bottom: 116px;
+  bottom: 28px;
 `

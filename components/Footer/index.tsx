@@ -43,11 +43,9 @@ function createFollowUsBlock(followUs: IFollowUs[]) {
 
      return (
        <React.Fragment key={index}>
-          <Link href={redirectTo}>
-            <A>
+            <A href={redirectTo}>
               <el.icon/>
             </A>
-          </Link>
         </React.Fragment>
       )
     }
@@ -87,11 +85,9 @@ function FooterComponent( { policies, offices, followUs, pages, copyright }: IFo
             {
               pages.map((page, index) =>
                 <Page key={index}>
-                  <Link href={page}>
-                    <a>
+                    <a href={page}>
                       {page}
                     </a>
-                  </Link>
                 </Page>
               )
             }

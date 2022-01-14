@@ -7,3 +7,5 @@ export * from './buttonWithArrow.interface';
 export * from './aboutUs.interface';
 export * from './contactUs.interface';
 export * from './form.interface';
+export * from './servicesComponent.interface';
+export * from './reviesComponent.interface';

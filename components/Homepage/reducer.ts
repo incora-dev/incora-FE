@@ -1,6 +1,6 @@
 import { Reducer } from "react";
 import { withLoadable } from "../../services/withLoadebleReducer";
-import { HomepageActions, HomepageState } from "./interfaces";
+import { HomepageActions, HomepageState } from "../../interfaces/reviesComponent.interface";
 import * as ActionTypes from "./actions";
 
 const initialState = {

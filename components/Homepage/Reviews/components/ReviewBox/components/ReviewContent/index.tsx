@@ -11,7 +11,7 @@ import Quotes from "../../../../../../../public/icons/Quotes.svg";
 import testPhoto from "../../../../../../../public/images/testPhoto.png";
 import { useSelector } from "react-redux";
 import { AppState } from "../../../../../../../services/store";
-import { Review } from "../../../../../interfaces";
+import { Review } from "../../../../../../../interfaces/reviesComponent.interface";
 
 interface IReviewContent {
   review: Review;

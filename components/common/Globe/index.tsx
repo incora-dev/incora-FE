@@ -4,7 +4,7 @@ import EarthTexture from "../../../public/images/globe-pattern-2.0.1.png";
 import { Mesh, MeshLambertMaterial, SphereBufferGeometry } from "three";
 import { useSelector } from "react-redux";
 import { pointsSelector } from "../../Homepage/selectors";
-import { Point } from "../../Homepage/interfaces";
+import { Point } from "../../../interfaces/reviesComponent.interface";
 import { theme } from "../../../styles/theme";
 
 let GlobeGl: Function = () => null;

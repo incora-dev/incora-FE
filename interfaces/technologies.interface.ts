@@ -2,6 +2,7 @@ export interface ITechnologies {
   bgColor?: string;
   title: string;
   labels: ITechnologiesInfo[];
+  articles?: Object[];
 }
 
 export interface IBlockTechnologies {

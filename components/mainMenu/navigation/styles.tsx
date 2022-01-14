@@ -1,9 +1,4 @@
 import styled from "styled-components";
-import { themeGet } from "@styled-system/theme-get";
-
-interface INav {
-  backgroundColor: string;
-}
 
 export const Nav = styled.nav`
   display: flex;
@@ -18,11 +13,8 @@ export const Nav = styled.nav`
   letter-spacing: 0.03em;
   text-transform: capitalize;
 
-  color: ${({ backgroundColor }: INav) =>
-    backgroundColor === "#FFFFFF"
-      ? themeGet("colors.black")
-      : themeGet("colors.white")};
-`;
+  color: ${( {color}) => color };
+`
 
 export const Ul = styled.ul`
   width: 100%;
@@ -32,11 +24,7 @@ export const Ul = styled.ul`
 
   white-space: nowrap;
   list-style: none;
-
-  .arrow-black {
-    margin-left: 9.58px;
-  }
-`;
+`
 
 export const UlButton = styled.ul`
   width: 100%;
@@ -45,14 +33,14 @@ export const UlButton = styled.ul`
 
   white-space: nowrap;
   list-style: none;
-`;
+`
 
 export const Li = styled.li`
   font-family: Poppins;
   font-size: 14px;
   font-weight: 700;
   line-height: 21px;
-`;
+`
 
 export const A = styled.a`
   display: flex;
@@ -61,20 +49,14 @@ export const A = styled.a`
 
   background-color: #fec602;
   color: #000;
-`;
+`
 
-export const Arrow = styled.div`
-  width: 9.53px;
-  height: 5px;
+export const PositionArrow = styled.div`
   margin-left: 9.58px;
-
-  background: center no-repeat url("navArrow.svg");
-`;
-
-export const ButtonArrow = styled.div`
-  width: 25px;
-  height: 12px;
-  margin-left: 20px;
-
-  background: center no-repeat url("navButtonArrow.svg");
-`;
+  
+  svg {
+    path {
+      fill: ${({ color }) => color};
+    }
+  }
+`

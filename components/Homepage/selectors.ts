@@ -1,5 +1,5 @@
 import { AppState } from "../../services/store";
-import { Point, Review } from "./interfaces";
+import { Point, Review } from "@interfaces";
 
 export const reviewsSelector = (state: AppState): Review[] => {
   return state.homepageReducer.reviews;

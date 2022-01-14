@@ -1,26 +1,39 @@
 import { IMenu } from "@interfaces";
-import Image from "next/image";
-import { theme } from "../../styles/theme";
 import Navigation from "./navigation/navigation";
 import { Wrapper, Block } from "./styles";
-import LogoWhite from "../../public/SVG/LogoWhite.svg";
+import {theme} from "../../styles/theme";
 
 export default function MainMenu(props: IMenu) {
-  const { titles, backgroundColor, children } = props;
+  const { titles, backgroundColor, titlesColor, children } = props;
+  const colorBlack = theme.colors.black;
+  const colorWhite = theme.colors.white;
 
-  const logoColorCondition =
-    backgroundColor === theme.colors.black ? "/logo.svg" : "/LogoWhite.svg";
+  const getLogo = () => {
+    if (backgroundColor === colorBlack) {
+      return (
+        <img src="/logo.svg" alt="Incora logo" />
+      )
+    }
+
+    if (backgroundColor === colorWhite) {
+      return (
+        <img src="/logoBlack.svg" alt="Incora logo" />
+      )
+    }
+  }
+
+  const logo = getLogo();
 
   return (
     <>
       <Wrapper backgroundColor={backgroundColor}>
         <Block>
-          <img src={logoColorCondition} alt="Incora logo" />
+          {logo}
 
-          <Navigation backgroundColor={backgroundColor} titles={titles} />
+          <Navigation titles={titles} titlesColor={titlesColor}/>
         </Block>
       </Wrapper>
-      {children}
+      { children }
     </>
-  );
+  )
 }

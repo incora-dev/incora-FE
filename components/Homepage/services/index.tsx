@@ -20,7 +20,6 @@ import {
   PositionHexagonEight,
   PositionHexagonNine
 } from "./styles";
-import Link from "next/link";
 import { IServices } from "@interfaces";
 import Loading from "../../../public/loading.svg"
 import {useState} from "react";
@@ -48,9 +47,9 @@ function ServicesComponent({ title, text, labels }: IServices) {
               <Labels>
                 {
                   labels.map((label, index) =>
-                    <Link href={label} key={index}>
+                    <a href={label} key={index}>
                       <Label key={index}>{label}</Label>
-                    </Link>
+                    </a>
                   )
                 }
               </Labels>

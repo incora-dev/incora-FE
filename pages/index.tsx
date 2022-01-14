@@ -19,10 +19,8 @@ import LinkedIn from "../public/SVG/socialNetwork/linkedIn.svg"
 import React from "../public/SVG/technologies/react.svg"
 import Angular from "../public/SVG/technologies/angular.svg"
 import VideoComponent from "../components/homePage/Video";
-import ReactPageScroller from 'react-page-scroller';
 import {useEffect, useState} from "react";
-import disableScroll from 'disable-scroll';
-import Reviews from "../components/Homepage/Reviews";
+// import Reviews from "../components/homePage/Reviews";
 
 const titles = [
   "Services",
@@ -237,7 +235,7 @@ function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
     <div>
-      <MainMenu titles={titles} backgroundColor={bgColorBlack}>
+      <MainMenu titles={titles} backgroundColor={bgColorBlack} titlesColor={bgColorWhite}>
           <HeaderComponent />
           <CooperateComponent
             sliders={sliders}
@@ -271,7 +269,7 @@ function Home() {
             title={aboutUs.title}
             text={aboutUs.text}
         />
-        <Reviews/>
+        {/*<Reviews/>*/}
         <section>
           <NewsComponent
             title={news.title}

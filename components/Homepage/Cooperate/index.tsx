@@ -29,10 +29,6 @@ function CooperateComponent(props: ISliders) {
   const [animation2, setAnimation2] = useState(false);
   const [animation3, setAnimation3] = useState(false);
   const [animation4, setAnimation4] = useState(false);
-  const scrollToRef = (ref) => window.scrollTo(0, ref.current.offsetTop - 104)
-
-  const myRef = useRef(null)
-  const executeScroll = () => scrollToRef(myRef)
 
   const handleScroll = () => {
     if (mouseOnBlock) {
@@ -171,7 +167,6 @@ function CooperateComponent(props: ISliders) {
     <Cooperate
       onMouseEnter={() => setMouseOnBlock(true)}
       onMouseLeave={() => setMouseOnBlock(false)}
-      ref={myRef}
     >
       <section>
         <PositionScrollSlider>
@@ -180,7 +175,6 @@ function CooperateComponent(props: ISliders) {
 
         <Div
           slide={slide}
-          onClick={executeScroll}
         >
           {
             createSliderElements(sliders)

@@ -17,7 +17,7 @@ type IVideo = {
 }
 
 function VideoComponent() {
-  const videoRef: IVideo = useRef(null);
+  const videoRef: any = useRef(null);
   const [play, setPlay] = useState(true);
   const [visibility, setVisibility] = useState('visible');
   const [opacity, setOpacity] = useState(1);

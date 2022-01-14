@@ -2,7 +2,7 @@ import { CarouselButtonWrapper, ReviewBoxWrapper } from "./style";
 
 import ReviewContent from "./components/ReviewContent";
 import CarouselButton from "../../../../common/CarouselButton";
-import { Review } from "../../../interfaces";
+import { Review } from "../../../../../interfaces/reviesComponent.interface";
 import { useDispatch } from "react-redux";
 import { Dispatch, SetStateAction, useEffect } from "react";
 import { changeCurrentGlobePoint } from "../../../actions";

@@ -1,5 +1,5 @@
 import { createApiAction } from "../../services/helpers";
-import * as ActionInterfaces from "./interfaces";
+import * as ActionInterfaces from "../../interfaces/reviesComponent.interface";
 
 export const GET_REVIEWS = "GET_REVIEWS";
 export const GET_REVIEWS_SUCCESS = "GET_REVIEWS_SUCCESS";

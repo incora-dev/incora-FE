@@ -2,14 +2,13 @@ import { Container, NewsContainer, ImgBlock, Element, H3 }  from "./NewsBlock.st
 import Technologies from "../../homePage/EmbodiedIdeas/Projects/Technologies";
 import { theme } from "../../../styles/theme";
 import Categories from "../Categories";
-import Link from "next/link"
 
-const NewsBLock = ({ news }) => {
+const NewsBLock = ({ news }: any) => {
   const bgTagsColor= theme.colors.grey;
   const textTagsColor= theme.colors.black;
 
   const createNews = () => {
-    return news.map(({img, tags, categories, title, redirectTo}, index ) => {
+    return news.map(({img, tags, categories, title, redirectTo}: any, index: number ) => {
       return (
         <NewsContainer key={index}>
           <ImgBlock href={title}>
@@ -23,11 +22,9 @@ const NewsBLock = ({ news }) => {
           />
           <Categories categories={categories}/>
 
-          <Link href={title}>
-            <a>
+            <a href={title}>
               <H3>{title}</H3>
             </a>
-          </Link>
 
         </NewsContainer>
       )

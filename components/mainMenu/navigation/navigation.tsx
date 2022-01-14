@@ -1,15 +1,16 @@
-import Link from "next/link";
-import { Nav, Ul, Li, A, Arrow } from "./styles";
+import {
+  Nav,
+  Ul,
+  Li,
+  PositionArrow
+} from "./styles";
 import { INavigation } from "@interfaces";
 import ButtonWithArrow from "../../ButtonWithArrow";
-import { theme } from "../../../styles/theme";
-import ArrowBlack from "../../../public/SVG/ArrowDownBlack.svg";
+import Arrow from "../../../public/navArrow.svg"
 
-function Navigation(props: INavigation) {
-  const { titles, backgroundColor } = props;
-
+function Navigation({ titles, titlesColor }: INavigation) {
   return (
-    <Nav backgroundColor={backgroundColor}>
+    <Nav color={titlesColor}>
       {titles.map((title: string, index: number) => {
         if (
           title === "Services" ||
@@ -17,24 +18,23 @@ function Navigation(props: INavigation) {
           title === "Company"
         ) {
           return (
-            <Ul key={index}>
-              <Li>{title}</Li>
-              {backgroundColor === theme.colors.black ? (
-                <Arrow />
-              ) : (
-                <ArrowBlack className="arrow-black" />
-              )}
-            </Ul>
+              <Ul key={index}>
+                <Li>{title}</Li>
+
+                <PositionArrow color={titlesColor}>
+                  <Arrow/>
+                </PositionArrow>
+              </Ul>
           );
         }
 
-        if (title === "Contact Us") {
+        if (title === 'Contact Us') {
           return (
             <ButtonWithArrow
               key={index}
-              buttonLabel={"Contact Us"}
-              redirectTo={"Contact Us"}
-              padding={"11.5px 14.5px;"}
+              buttonLabel={'Contact Us'}
+              redirectTo={'Contact Us'}
+              padding={'11.5px 14.5px;'}
             />
           );
         }
@@ -46,7 +46,7 @@ function Navigation(props: INavigation) {
         );
       })}
     </Nav>
-  );
+  )
 }
 
 export default Navigation;

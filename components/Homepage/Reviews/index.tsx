@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getReview } from "../actions";
 import { AppState } from "../../../services/store";
-import { Review } from "../interfaces";
+import { Review } from "@interfaces";
 import { loadingSelector, reviewsSelector } from "../selectors";
 
 const Reviews = () => {

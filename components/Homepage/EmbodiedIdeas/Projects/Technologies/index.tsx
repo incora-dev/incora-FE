@@ -8,9 +8,9 @@ function Technologies({ technologies, textTagsColor, bgTagsColor }: IProjectTech
       {
         technologies.map((technology, index) => {
           return (
-            <A href={technology} bgColor={bgTagsColor} color={textTagsColor} key={index}>
+            <A href={technology} bgColor={bgTagsColor} key={index}>
               <ButtonContainer>
-                <Strong>{technology}</Strong>
+                <Strong color={textTagsColor} >{technology}</Strong>
               </ButtonContainer>
             </A>
           )

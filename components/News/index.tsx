@@ -2,7 +2,6 @@ import { Component, Div, H2, PaddingTop, MarginTop } from "./news.style";
 import { ITechnologies } from "@interfaces";
 import Arrow from "../../public/SVG";
 import { theme } from "../../styles/theme";
-import BlockTechnologies from "../homePage/Technologies/BlockTechnologies";
 import NewsBLock from "./NewsBLock";
 
 function NewsComponent({ title, bgColor, labels, articles }: ITechnologies) {

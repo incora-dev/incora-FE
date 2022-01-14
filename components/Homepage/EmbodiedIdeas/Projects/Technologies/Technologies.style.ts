@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 interface IChangeColor{
-  bgColor: string;
-  color: string;
+  bgColor?: string;
+  color?: string;
 
 }
 
@@ -23,6 +23,8 @@ export const Strong = styled.strong`
   line-height: 28px;
 
   letter-spacing: 0.1em;
+
+  color: ${({ color }: IChangeColor) => color ? color : '#fff'};
 `;
 
 export const A = styled.a`
@@ -35,9 +37,7 @@ export const A = styled.a`
 
   cursor: pointer;
   background-color: ${({ bgColor }: IChangeColor) => bgColor ? bgColor : '#454A4D'};
-
-  color: ${({ color }: IChangeColor) => color ? color : '#fff'};
-
+  
   border-radius: 5px;
 
 

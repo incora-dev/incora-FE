@@ -6,36 +6,27 @@ interface IComponent {
 
 export const Component = styled.div`
   height: 623px;
-  
-  background-color: ${({bgColor}: IComponent) => bgColor};
-`;
-
-export const PaddingTop = styled.div`
+  width: 100%;
   padding-top: 120px;
+
+  background-color: ${({ bgColor }: IComponent) => bgColor};
 `;
 
-export const MarginTop = styled.div`
-  margin-top: 52px;
+export const HeaderContainer = styled.div`
+  width: 100%;
+  padding-left: 180px;
+  padding-right: 80px;
 `;
 
-export const Div = styled.div`
-  position: relative;
-
-  max-width: 1006px;
-  margin: 0 auto;
-  
+export const HeaderWrap = styled.div`
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
 
-  a {
-    position: relative;
-    right: -100px;
-  }
-  
   svg {
     margin: auto 0;
-    
+
     cursor: pointer;
   }
 `;
@@ -51,5 +42,10 @@ export const H2 = styled.h2`
   letter-spacing: 0.05em;
   text-transform: uppercase;
 
-  color: ${({color}) => color};
+  color: ${({ color }) => color};
+`;
+
+export const NewsWrap = styled.div`
+  width: 100%;
+  margin-top: 52px;
 `;

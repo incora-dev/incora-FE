@@ -10,6 +10,14 @@ import { theme } from "../../styles/theme";
 import Instagram from "../../public/SVG/socialNetwork/instagram.svg";
 import Facebook from "../../public/SVG/socialNetwork/facebook.svg";
 import LinkedIn from "../../public/SVG/socialNetwork/linkedIn.svg";
+import NewsComponent from "../../components/News";
+
+import React from "../../public/SVG/technologies/react.svg";
+import Angular from "../../public/SVG/technologies/angular.svg";
+
+import image1 from "../../public/newsBlock/newImg1.jpg";
+import image2 from "../../public/newsBlock/newImg2.jpg";
+import image3 from "../../public/newsBlock/newImg3.jpg";
 
 const titles = [
   "Services",
@@ -43,14 +51,55 @@ const footer: IFooter = {
   copyright: "© 2015-2021 Incora LLC",
 };
 
+const news = {
+  title: "Insights",
+  articles: [
+    {
+      img: image1.src,
+      tags: ["tagtitle", "tagtitle"],
+      categories: ["category"],
+      title:
+        "Intro to Microservices Communication [With the Use of Apache Kafka]",
+      redirectTo: "[With the Use of Apache Kafka]",
+    },
+    {
+      img: image2.src,
+      tags: ["tagtitle"],
+      categories: ["category", "category"],
+      title: "Incora Is Gaining Popularity On Clutch",
+      redirectTo: "Incora Is Gaining Popularity On Clutch",
+    },
+    {
+      img: image3.src,
+      tags: ["tagtitle", "tagtitle"],
+      categories: ["category"],
+      title: "Node.js vs Python: What are the Pros, Cons, and Use Cases?",
+      redirectTo: "Node.js vs Python: What are the Pros, Cons, and Use Cases?",
+    },
+    {
+      img: image3.src,
+      tags: ["tagtitle"],
+      categories: ["category", "category"],
+      title: "How to Monetize Delivery and Shipping Apps: Methods Screening",
+      redirectTo:
+        "How to Monetize Delivery and Shipping Apps: Methods Screening",
+    },
+  ],
+};
+
 const CompanyAbout = () => {
   const { title, text, formLabels, addresses, buttonLabel } = contactUs;
   const { policies, offices, pages, followUs, copyright } = footer;
 
   return (
-    <MainMenu titles={titles} backgroundColor={theme.colors.white}>
+    <MainMenu
+      titlesColor={theme.colors.black}
+      titles={titles}
+      backgroundColor={theme.colors.white}
+    >
       <Introduction />
       <OurTraditions />
+      <NewsComponent title={"recent events"} articles={news.articles} />
       <ContactUsComponent
         title={title}
         text={text}

@@ -14,7 +14,11 @@ const titles = [
 
 const Career = () => {
   return (
-    <MainMenu titles={titles} backgroundColor={theme.colors.black}>
+    <MainMenu
+      titlesColor={theme.colors.white}
+      titles={titles}
+      backgroundColor={theme.colors.black}
+    >
       <Invitation />
       <Vacancies />
     </MainMenu>

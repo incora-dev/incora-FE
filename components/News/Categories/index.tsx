@@ -1,6 +1,6 @@
 import {Div, P} from "./Categories.style";
 
-const Categories = ({ categories }) => {
+const Categories = ({ categories }: any) => {
   return (
     <Div>
       {categories.map((category: string, index: number) => {

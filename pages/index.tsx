@@ -20,7 +20,7 @@ import React from "../public/SVG/technologies/react.svg"
 import Angular from "../public/SVG/technologies/angular.svg"
 import VideoComponent from "../components/homePage/Video";
 import {useEffect, useState} from "react";
-// import Reviews from "../components/homePage/Reviews";
+import Reviews from "../components/homePage/Reviews";
 
 const titles = [
   "Services",
@@ -269,7 +269,7 @@ function Home() {
             title={aboutUs.title}
             text={aboutUs.text}
         />
-        {/*<Reviews/>*/}
+        <Reviews/>
         <section>
           <NewsComponent
             title={news.title}

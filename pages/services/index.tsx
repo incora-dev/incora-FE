@@ -7,6 +7,7 @@ import { footer, titles, servicesPage } from "../../constants";
 import ServicesComponent from "../../components/Services";
 import InformationComponent from "../../components/Services/Information";
 import TechStack from "../../components/Services/TechStack";
+import LetsTalk from "../../components/Services/LetsTalk";
 
 function Services() {
   const colorWhite = theme.colors.white;
@@ -23,6 +24,7 @@ function Services() {
           <ServicesComponent/>
           <InformationComponent bgColor={'#181819'} info={servicesPage.info}/>
           <TechStack stacks={servicesPage.techStacks} stackTitle={servicesPage.techStackTitle}/>
+          <LetsTalk/>
         </MainMenu>
         <FooterComponent {...footer}/>
       </>

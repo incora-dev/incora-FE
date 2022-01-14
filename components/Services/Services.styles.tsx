@@ -86,8 +86,7 @@ export const PositionLoaderBagelTrimmed = styled.span`
       } else {
         return '0';
       }
-    }
-    };
+    }};
 
     transition: all 1s ease-in-out;
     transform: rotate(-180deg);

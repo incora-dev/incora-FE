@@ -2,18 +2,21 @@ import styled from "styled-components";
 
 interface IDiv {
   numberOfDots: number;
-  animation?: boolean
+  animation?: boolean;
+  columnGap: string;
+  rowGap: string;
 }
 
 interface ICreateDot {
   animation?: boolean
   animationDelay?: number;
+  size?: string;
 }
 
 
 export const CreateDot = styled.div`
-  width: 4px;
-  height: 4px;
+  width: ${({ size }) => size};
+  height: ${({ size }) => size};
 
   border-radius: 50%;
   background-color: ${({color}) => color};
@@ -37,8 +40,8 @@ export const Div = styled.div`
 
   display: grid;
   grid-template-columns: ${({ numberOfDots }: IDiv) => `repeat(${numberOfDots / 3}, 1fr)`};
-  grid-column-gap: 20.57px;
-  grid-row-gap: 13px;
+  grid-column-gap: ${({ columnGap }: IDiv) => columnGap};
+  grid-row-gap: ${({ rowGap }: IDiv) => rowGap};
   align-items: center;
   justify-items: center;
 `

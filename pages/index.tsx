@@ -1,13 +1,13 @@
 import Head from "next/head";
 import MainMenu from "../components/mainMenu/mainMenu";
-import HeaderComponent from "../components/homePage/Header";
-import CooperateComponent from "../components/homePage/Cooperate";
-import ServicesComponent from "../components/homePage/Services";
+import HeaderComponent from "../components/HomePage/Header";
+import CooperateComponent from "../components/HomePage/Cooperate/";
+import ServicesComponent from "../components/HomePage/Services";
 import { theme } from "../styles/theme";
-import TechnologiesComponent from "../components/homePage/Technologies";
-import EmbodiedIdeasComponent from "../components/homePage/EmbodiedIdeas";
-import AboutUs from "../components/homePage/AboutUs";
-import ContactUsComponent from "../components/homePage/ContactUs";
+import TechnologiesComponent from "../components/HomePage/Technologies";
+import EmbodiedIdeasComponent from "../components/HomePage/EmbodiedIdeas";
+import AboutUs from "../components/HomePage/AboutUs";
+import ContactUsComponent from "../components/HomePage/ContactUs";
 import NewsComponent from "../components/News/index";
 import { IContactUs } from "@interfaces";
 import FooterComponent from "../components/Footer";
@@ -18,9 +18,9 @@ import Facebook from "../public/SVG/socialNetwork/facebook.svg"
 import LinkedIn from "../public/SVG/socialNetwork/linkedIn.svg"
 import React from "../public/SVG/technologies/react.svg"
 import Angular from "../public/SVG/technologies/angular.svg"
-import VideoComponent from "../components/homePage/Video";
-import {useEffect, useState} from "react";
-import Reviews from "../components/homePage/Reviews";
+import VideoComponent from "../components/HomePage/Video";
+import { useState } from "react";
+import Reviews from "../components/HomePage/Reviews";
 
 const titles = [
   "Services",

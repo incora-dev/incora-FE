@@ -35,7 +35,7 @@ const InformationComponent = ({ bgColor, info  }: IInformationComponent) => {
   }
 
   const getBlockMenuLabels = () => {
-    return info.map(({ title, text, outcomes , estimated_time }, index ) =>
+    return info.map(({ title, text, outcomes , estimated_time }: any, index: number ) =>
       <MenuLabel
         key={index}
         onClick={() => onClick(index, { title, text, outcomes, estimated_time })}
@@ -47,8 +47,8 @@ const InformationComponent = ({ bgColor, info  }: IInformationComponent) => {
   }
 
   const getEstimatedTimeInfo = () => {
-    const title = information[0].estimated_time.find(({title}) => title);
-    const text = information[0].estimated_time.find(({text}) => text);
+    const title = information[0].estimated_time.find(({title}: any ) => title);
+    const text = information[0].estimated_time.find(({text}: any) => text);
 
     return (
       <Block>
@@ -62,8 +62,8 @@ const InformationComponent = ({ bgColor, info  }: IInformationComponent) => {
   }
 
   const getOutcomesInfo = () => {
-    const title = information[0].outcomes.find(({title}) => title);
-    const text = information[0].outcomes.find(({text}) => text);
+    const title = information[0].outcomes.find(({title}: any) => title);
+    const text = information[0].outcomes.find(({text}: any) => text);
 
     return (
         <Block>

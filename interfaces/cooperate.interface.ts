@@ -9,12 +9,16 @@ export interface IDot {
   numberOfDots?: number;
   animation?: boolean;
   animationDelay?: number;
+  size?: string;
 }
 
 export interface IDots {
   numberOfDots: number;
   dotColor: string;
   animation?: boolean;
+  size?: string;
+  columnGap?: string;
+  rowGap?: string;
 }
 
 export interface INumberOfSlides {

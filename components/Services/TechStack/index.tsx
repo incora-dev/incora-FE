@@ -12,12 +12,15 @@ import {
   TextContainer,
   Button,
   ButtonsBlock,
-  DotsPosition
+  DotsPosition,
+  LoaderPosition,
+  PositionButtonWithArrow
 } from "./TechStack.style";
 import { IStacks, ITechStack } from "@interfaces";
 import { useState } from "react";
 import ButtonWithArrow from "../../ButtonWithArrow";
 import Dots from "../../homePage/Cooperate/elements/dots/dots";
+import Loader from "../../../public/loading1.svg"
 
 const getStacksTitle = (stacks: IStacks[], setStack: Function) => {
   return (
@@ -38,12 +41,16 @@ const getStacksInfo = (stack: IStacks) => {
       <TextContainer>
         <H3>{title}</H3>
         <StackText>{text}</StackText>
-        <ButtonWithArrow
-          buttonLabel={'Contact'}
-          redirectTo={title}
-          bgColor={'#000'}
-          textColor={'#fff'}
-        />
+
+        <PositionButtonWithArrow>
+          <ButtonWithArrow
+              buttonLabel={'Contact'}
+              redirectTo={title}
+              bgColor={'#000'}
+              textColor={'#fff'}
+              padding={'23px 35px'}
+          />
+        </PositionButtonWithArrow>
       </TextContainer>
 
       <StacksContainer>
@@ -53,10 +60,10 @@ const getStacksInfo = (stack: IStacks) => {
               const Logo: any = stacksLogo[index];
 
               return (
-                  <LogoAndTitle key={index}>
-                    <Logo/>
-                    <StackTitle>{label}</StackTitle>
-                  </LogoAndTitle>
+                <LogoAndTitle key={index}>
+                  <Logo/>
+                  <StackTitle>{label}</StackTitle>
+                </LogoAndTitle>
               )
             })
           }
@@ -68,18 +75,38 @@ const getStacksInfo = (stack: IStacks) => {
 
 const TechStack = ({ stackTitle, stacks} : ITechStack) => {
   const [stack, setStack] = useState(stacks[0]);
+  const [animation, setAnimation] = useState(false);
   const stacksTitle = getStacksTitle(stacks, setStack);
   const stacksInfo = getStacksInfo(stack);
   return (
-    <Div>
+    <Div onMouseEnter={() => setAnimation(true)}>
       <Container>
         <H2>{stackTitle}</H2>
         {stacksTitle}
         {stacksInfo}
+
+        <DotsPosition>
+          <Dots
+            numberOfDots={5}
+            dotColor={'#FEC602'}
+            animation={animation}
+            size={'5px'}
+            rowGap={'16.7px'}
+          />
+        </DotsPosition>
+
+        {
+          animation &&
+          <LoaderPosition animation={animation}>
+            <Loader
+              width={166}
+              height={166}
+              viewBox="0 0 96 96"
+            />
+          </LoaderPosition>
+        }
+
       </Container>
-      <DotsPosition>
-        <Dots numberOfDots={5} dotColor={'#FEC602'} />
-      </DotsPosition>
     </Div>
   )
 }

@@ -2,7 +2,7 @@ import Dot from "./dot";
 import { Div } from "./styles";
 import { IDots } from "@interfaces";
 
-function Dots({ numberOfDots, dotColor, animation }: IDots) {
+function Dots({ numberOfDots, dotColor, animation, size = '4px', columnGap = '20.57px', rowGap = '13px' }: IDots) {
   const getDots = (): JSX.Element[]  => {
     const dots: JSX.Element[] = [];
 
@@ -13,6 +13,7 @@ function Dots({ numberOfDots, dotColor, animation }: IDots) {
           color={dotColor}
           animation={animation}
           animationDelay={dots.length * 50}
+          size={size}
         />
       )
     }
@@ -21,7 +22,11 @@ function Dots({ numberOfDots, dotColor, animation }: IDots) {
   }
 
   return (
-    <Div numberOfDots={numberOfDots}>
+    <Div
+      numberOfDots={numberOfDots}
+      columnGap={columnGap}
+      rowGap={rowGap}
+    >
       {getDots().map((dot) => dot)}
     </Div>
   )

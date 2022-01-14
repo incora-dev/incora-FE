@@ -10,6 +10,7 @@ interface ISelect {
 
 export const Div = styled.div`
   height: 824px;
+  overflow: hidden;
   
   background-color: ${({ bgColor }: IColors) => bgColor};
 `;

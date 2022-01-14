@@ -1,4 +1,4 @@
-import * as Action from "../components/homePage/actions";
+import * as Action from "../components/HomePage/actions";
 
 export interface Review {
   name: string;

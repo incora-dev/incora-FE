@@ -48,7 +48,7 @@ const CompanyAbout = () => {
   const { policies, offices, pages, followUs, copyright } = footer;
 
   return (
-    <MainMenu titles={titles} backgroundColor={theme.colors.white}>
+    <MainMenu titlesColor={theme.colors.black} titles={titles} backgroundColor={theme.colors.white}>
       <Introduction />
       <OurTraditions />
       <ContactUsComponent

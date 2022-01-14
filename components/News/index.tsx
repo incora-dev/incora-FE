@@ -1,4 +1,4 @@
-import { Component, Div, H2, PaddingTop, MarginTop } from "./news.style";
+import { Component, HeaderWrap, H2, NewsWrap, HeaderContainer } from "./news.style";
 import { ITechnologies } from "@interfaces";
 import Arrow from "../../public/SVG";
 import { theme } from "../../styles/theme";
@@ -8,7 +8,7 @@ function NewsComponent({ title, bgColor, labels, articles }: ITechnologies) {
   const bgColorWhite = theme.colors.white;
   const bgColorBlack = theme.colors.black;
 
-  const getBgColor = () => bgColor ? bgColor : bgColorWhite;
+  const getBgColor = () => (bgColor ? bgColor : bgColorWhite);
   const getTitleColor = () => {
     if (bgColor === bgColorWhite) {
       return bgColorBlack;
@@ -20,21 +20,21 @@ function NewsComponent({ title, bgColor, labels, articles }: ITechnologies) {
   };
 
   return (
-      <Component bgColor={getBgColor()}>
-        <PaddingTop>
-          <Div>
-            <H2 color={getTitleColor()}>{title}</H2>
-            <a href={title}>
-              <Arrow/>
-            </a>
-          </Div>
-        </PaddingTop>
+    <Component bgColor={getBgColor()}>
+      <HeaderContainer>
+        <HeaderWrap>
+          <H2 color={getTitleColor()}>{title}</H2>
+          <a href={title}>
+            <Arrow />
+          </a>
+        </HeaderWrap>
+      </HeaderContainer>
 
-        <MarginTop>
-          <NewsBLock news={articles}/>
-        </MarginTop>
-      </Component>
-  )
+      <NewsWrap>
+        <NewsBLock news={articles} />
+      </NewsWrap>
+    </Component>
+  );
 }
 
 export default NewsComponent;

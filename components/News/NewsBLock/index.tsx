@@ -1,5 +1,5 @@
 import { Container, NewsContainer, ImgBlock, Element, H3 }  from "./NewsBlock.styles";
-import Technologies from "../../homePage/EmbodiedIdeas/Projects/Technologies";
+import Technologies from "../../Homepage/EmbodiedIdeas/Projects/Technologies";
 import { theme } from "../../../styles/theme";
 import Categories from "../Categories";
 

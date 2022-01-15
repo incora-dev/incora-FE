@@ -1,7 +1,7 @@
 import { IMenu } from "@interfaces";
 import Navigation from "./navigation/navigation";
 import { Wrapper, Block } from "./styles";
-import {theme} from "../../styles/theme";
+import { theme } from "../../styles/theme";
 
 export default function MainMenu(props: IMenu) {
   const { titles, backgroundColor, titlesColor, children } = props;
@@ -10,17 +10,13 @@ export default function MainMenu(props: IMenu) {
 
   const getLogo = () => {
     if (backgroundColor === colorBlack) {
-      return (
-        <img src="/logo.svg" alt="Incora logo" />
-      )
+      return <img src="/logo.svg" alt="Incora logo" />;
     }
 
     if (backgroundColor === colorWhite) {
-      return (
-        <img src="/logoBlack.svg" alt="Incora logo" />
-      )
+      return <img src="/logoBlack.svg" alt="Incora logo" />;
     }
-  }
+  };
 
   const logo = getLogo();
 
@@ -30,10 +26,10 @@ export default function MainMenu(props: IMenu) {
         <Block>
           {logo}
 
-          <Navigation titles={titles} titlesColor={titlesColor}/>
+          <Navigation titles={titles} titlesColor={titlesColor} />
         </Block>
       </Wrapper>
-      { children }
+      {children}
     </>
-  )
+  );
 }

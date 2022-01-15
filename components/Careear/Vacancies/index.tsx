@@ -1,11 +1,18 @@
-import VacancyCard from "./components/VacanсyCard";
+import Selector from "../../Selector";
+import VacancyCard from "./components/VacancyCard";
 import {
   ContentWrapper,
   Filter,
   List,
   ListWrap,
+  QuickApplyWrap,
   VacanciesWrapper,
 } from "./style";
+
+import SmallStar from "../../../public/SmallStar.svg";
+import ButtonWithArrow from "../../ButtonWithArrow";
+import { theme } from "../../../styles/theme";
+import Button from "../../Button";
 
 const vacancies = [
   {
@@ -34,6 +41,12 @@ const vacancies = [
   },
 ];
 
+const options = [
+  { value: "1", name: "Option 1" },
+  { value: "2", name: "Option 2" },
+  { value: "3", name: "Option 3" },
+];
+
 const Vacancies = () => {
   const vacanciesCards = vacancies.map((vacancy, index) => (
     <VacancyCard
@@ -51,7 +64,36 @@ const Vacancies = () => {
         <h1>We are looking for</h1>
 
         <ListWrap>
-          <Filter></Filter>
+          <Filter>
+            <Selector
+              placeholder="Specialty"
+              options={options}
+              icon={SmallStar}
+            />
+            <Selector
+              placeholder="Technology"
+              options={options}
+              icon={SmallStar}
+            />
+
+            <QuickApplyWrap>
+              <h2>Quick apply</h2>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio,
+                natus illum alias atque enim ullam.
+              </p>
+
+              <Button
+                textColor={theme.colors.white}
+                backgroundColor={theme.colors.black}
+                width={180}
+                height={67}
+                label={"Apply now"}
+                link={""}
+                arrow={theme.colors.white}
+              />
+            </QuickApplyWrap>
+          </Filter>
 
           <List>{vacanciesCards}</List>
         </ListWrap>

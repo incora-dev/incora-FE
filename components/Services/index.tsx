@@ -2,7 +2,7 @@ import { Container, Div, TextBlock, H1, Strong, PositionDots, PositionLoaderBage
 import Loader from "../../public/loading3.svg";
 import LoaderBagelTrimmed from "../../public/loading1.svg";
 import {theme} from "../../styles/theme";
-import Dots from "../HomePage/Cooperate/elements/dots/dots";
+import Dots from "../Homepage/Cooperate/elements/dots/dots";
 import { useState } from "react";
 
 const ServicesComponent = () => {

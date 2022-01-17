@@ -19,7 +19,7 @@ import {
 import { IStacks, ITechStack } from "@interfaces";
 import { useState } from "react";
 import ButtonWithArrow from "../../ButtonWithArrow";
-import Dots from "../../homePage/Cooperate/elements/dots/dots";
+import Dots from "../../Homepage/Cooperate/elements/dots/dots";
 import Loader from "../../../public/loading1.svg"
 
 const getStacksTitle = (stacks: IStacks[], setStack: Function) => {

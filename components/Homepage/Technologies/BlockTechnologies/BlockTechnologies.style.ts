@@ -87,5 +87,5 @@ export const ContainerTop = styled.div`
   
   display: flex;
   flex-direction: column;
-  row-gap: 32px;
+  row-gap: 28px;
 `;

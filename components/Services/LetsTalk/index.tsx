@@ -6,35 +6,36 @@ import {
   Text,
   Block,
   PositionHexagon,
-  Container
+  Container,
+  PositionButtonWithArrow
 } from "./LetsTalk.style";
 import ButtonWithArrow from "../../ButtonWithArrow";
 import Hexagon from "../../../public/SVG/hexagon1.svg";
 
-const text1 = 'Got no clue where to start?';
-const text2 = 'Why don’t we discuss your idea?';
-
-const LetsTalk = () => {
+const LetsTalk = ({ flexDirection = 'column', title, text }: any) => {
   return (
-    <Div>
+    <Div >
       <Wrapper>
         <Container>
           <Block>
-            <TextBlock>
-              <Text>{text1}<br/>{text2}</Text>
-              <H2>Let’s talk!</H2>
+            <TextBlock flexDirection={flexDirection}>
+              <Text>{text}</Text>
+              <H2>{title}</H2>
             </TextBlock>
-            <ButtonWithArrow
-              buttonLabel={'Contact us'}
-              redirectTo={'Contact us'}
-              padding={'23px 25.5px'}
-            />
           </Block>
 
           <PositionHexagon>
             <Hexagon/>
           </PositionHexagon>
         </Container>
+        <PositionButtonWithArrow>
+          <ButtonWithArrow
+            buttonLabel={'Contact us'}
+            redirectTo={'Contact us'}
+            padding={'23px 25.5px'}
+          />
+        </PositionButtonWithArrow>
+
       </Wrapper>
     </Div>
   )

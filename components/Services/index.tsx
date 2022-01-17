@@ -27,7 +27,11 @@ const ServicesComponent = () => {
       {
         animation &&
         <PositionLoaderBagelTrimmed color={blackColor} animation={animation}>
-          <LoaderBagelTrimmed viewBox="0 0 112 112"/>
+          <LoaderBagelTrimmed
+            width={63}
+            heigh={63}
+            viewBox="0 0 96 96"
+          />
         </PositionLoaderBagelTrimmed>
       }
     </Div>

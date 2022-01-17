@@ -7,7 +7,7 @@ interface IComponent {
 export const Component = styled.div`
   height: 623px;
   width: 100%;
-  padding-top: 120px;
+  padding-top: 100px;
 
   background-color: ${({ bgColor }: IComponent) => bgColor};
 `;
@@ -33,7 +33,7 @@ export const HeaderWrap = styled.div`
 
 export const H2 = styled.h2`
   display: block;
-  font-family: Poppins;
+
   font-style: normal;
   font-weight: 800;
   font-size: 26px;
@@ -47,5 +47,5 @@ export const H2 = styled.h2`
 
 export const NewsWrap = styled.div`
   width: 100%;
-  margin-top: 52px;
+  margin-top: 58px;
 `;

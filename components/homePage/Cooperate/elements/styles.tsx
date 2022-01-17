@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const PositionElementOne = styled.div`
   position: relative;
   z-index: 1;
-  left: 21.5px;
+  left: -2.5px;
   top: 18px;
 `
 

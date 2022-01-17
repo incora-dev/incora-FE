@@ -17,14 +17,14 @@ export const Position = styled.div`
   width: 1006px;
   margin: 0 auto;
   display: flex;
-  padding-top: 40px;
+  padding-top: 36px;
   justify-content: space-between;
 `;
 
 export const LogoBlock = styled.div`
   display: flex;
   flex-direction: column;
-  row-gap: 20px;
+  row-gap: 18px;
 `;
 
 export const PoliciesBlock = styled.div`
@@ -64,9 +64,12 @@ export const Copyright = styled.p`
 `;
 
 export const OfficesBlock = styled.div`
+  position: relative;
+  left: -16px;
+
   display: flex;
   flex-direction: column;
-  row-gap: 20px;
+  row-gap: 15px;
 `;
 
 export const H4 = styled.h4`
@@ -76,7 +79,7 @@ export const H4 = styled.h4`
   font-size: 12px;
   line-height: 18px;
 
-  letter-spacing: 0.05em;
+  letter-spacing: 0.03em;
   text-transform: uppercase;
 
   color: #9CA3A7;
@@ -88,10 +91,10 @@ export const Address = styled.p`
   font-family: Poppins;
   font-style: normal;
   font-weight: 500;
-  font-size: 14px;
+  font-size: 13px;
   line-height: 24px;
 
-  letter-spacing: 0.05em;
+  letter-spacing: 0.06em;
   text-transform: capitalize;
 
   color: #fff;
@@ -104,7 +107,7 @@ export const Country = styled.p`
   font-size: 12px;
   line-height: 24px;
 
-  letter-spacing: 0.1em;
+  letter-spacing: 0.03em;
   text-transform: capitalize;
 
   color: #9CA3A7;
@@ -118,6 +121,9 @@ export const Offices = styled.div`
 `;
 
 export const PagesBlock = styled.div`
+  position: relative;
+  left: -6px;
+  
   display: flex;
   flex-direction: column;
   row-gap: 18px;
@@ -176,6 +182,6 @@ export const FollowUs = styled.div`
   display: flex;
   column-gap: 12px;
   
-  margin-bottom: 36px;
+  margin-bottom: 18px;
 `;
 

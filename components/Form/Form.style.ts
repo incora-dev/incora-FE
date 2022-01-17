@@ -20,13 +20,13 @@ export const FormContainer = styled.div`
   max-width: 400px;
   display: flex;
   flex-direction: column;
-  
-  row-gap: 31px;
+
+  row-gap: 23px;
 `;
 
 export const Input = styled.input`
   display: inline-block;
-  height: 34px;
+  height: 41px;
 
   font-family: Poppins;
   font-style: normal;

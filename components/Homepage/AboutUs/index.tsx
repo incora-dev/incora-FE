@@ -16,12 +16,12 @@ function AboutUs({ backgroundColor, title, text }: IAboutUs) {
           <p>{text}</p>
 
           <PositionDots>
-            <Dots numberOfDots={5} dotColor={'#fff'} animation={animation}/>
+            <Dots numberOfDots={5} dotColor={'#fff'} animation={animation} rowGap={'12px'}/>
           </PositionDots>
 
           { animation &&
             <PositionLoading animation={true}>
-              <Loading height={75} width={75} viewBox="0 0 112 112"/>
+              <Loading height={75} width={75} viewBox="0 0 96 96"/>
             </PositionLoading>
           }
 

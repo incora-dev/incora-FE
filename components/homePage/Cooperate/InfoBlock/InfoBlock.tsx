@@ -29,7 +29,7 @@ function InfoBlock(props: ISliderInfo) {
         </Text>
       </PositionText>
 
-      <ButtonWithArrow buttonLabel={buttonLabel} redirectTo={redirectTo} />
+      <ButtonWithArrow buttonLabel={buttonLabel} redirectTo={redirectTo} padding={'23px 35px'} />
     </Div>
   )
 }

@@ -45,7 +45,7 @@ const getStacksInfo = (stack: IStacks) => {
         <PositionButtonWithArrow>
           <ButtonWithArrow
               buttonLabel={'Contact'}
-              redirectTo={title}
+              redirectTo={`/services/${title}`}
               bgColor={'#000'}
               textColor={'#fff'}
               padding={'23px 35px'}

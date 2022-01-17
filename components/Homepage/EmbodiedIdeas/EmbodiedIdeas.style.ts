@@ -54,7 +54,7 @@ export const H4 = styled.h4`
 export const ProjectsContainer = styled.div`
   display: flex;
   flex-direction: column;
-  row-gap: 180px;
+  row-gap: 174px;
   align-items: center;
 `;
 
@@ -62,7 +62,7 @@ export const SeeMoreWorks = styled.div`
   position: relative;
   
   max-width: 1006px;
-  margin: 174px auto 0;
+  margin: 168px auto 0;
 
   display: flex;
   flex-direction: column;
@@ -74,13 +74,13 @@ export const SeeMoreWorks = styled.div`
 `;
 
 export const HexagonPosition = styled.div`
-  svg {
-    position: absolute;
-    top: -110px;
-    left: -287px;
+  position: absolute;
+  top: -123px;
+  left: -286px;
 
-    z-index: 0;
-    
+  z-index: 0;
+
+  svg {
     path {
       fill: #18181A;
     }
@@ -88,13 +88,13 @@ export const HexagonPosition = styled.div`
 `;
 
 export const LoadingPosition = styled.div`
+  position: absolute;
+  top: -114px;
+  left: -138px;
+
+  z-index: 1;
+
   svg {
-    position: absolute;
-    top: -120px;
-    left: -133px;
-
-    z-index: 1;
-
     transform: rotate(195deg);
     
     path {

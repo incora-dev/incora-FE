@@ -6,13 +6,13 @@ interface IAnimation {
 
 export const Div = styled.div`
   position: relative;
-  height: 565px;
+  height: calc(565px - 104px);
   
   overflow: hidden;
   
   svg {
     position: absolute;
-    bottom: -2px;
+    bottom: -5px;
     right: 0;
   }
 `
@@ -74,11 +74,11 @@ const rotation = keyframes`
   }
 `
 
-export const PositionLoaderBagelTrimmed = styled.span`
+export const PositionLoaderBagelTrimmed = styled.div`
   position: absolute;
-  bottom: 317px;
+  bottom: 300px;
   right: 299px;
-  
+
   svg {
     opacity: ${({ animation }: IAnimation) => {
       if (animation) {

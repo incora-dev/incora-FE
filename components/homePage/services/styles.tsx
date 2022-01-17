@@ -61,6 +61,10 @@ export const Labels = styled.div`
   flex-wrap: wrap;
   column-gap: 120px;
   row-gap: 9px;
+  
+  a {
+    display: block;
+  }
 `
 
 export const Label = styled.a`

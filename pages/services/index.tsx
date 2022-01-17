@@ -24,7 +24,16 @@ function Services() {
           <ServicesComponent/>
           <InformationComponent bgColor={'#181819'} info={servicesPage.info}/>
           <TechStack stacks={servicesPage.techStacks} stackTitle={servicesPage.techStackTitle}/>
-          <LetsTalk/>
+          <LetsTalk
+            flexDirection={'column'}
+            title={'Let’s talk!'}
+            text={
+              <>
+                <p>Got no clue where to start?</p>
+                <p> Why don’t we discuss your idea?</p>
+              </>
+            }
+          />
         </MainMenu>
         <FooterComponent {...footer}/>
       </>

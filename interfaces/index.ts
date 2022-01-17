@@ -9,3 +9,5 @@ export * from './contactUs.interface';
 export * from './form.interface';
 export * from './servicesComponent.interface';
 export * from './reviesComponent.interface';
+export * from './servicesPage.interface';
+

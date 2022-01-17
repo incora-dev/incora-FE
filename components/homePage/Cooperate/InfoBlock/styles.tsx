@@ -15,6 +15,7 @@ export const H2 = styled.h2`
   line-height: 54px;
 
   letter-spacing: 0.05em;
+  text-transform: capitalize;
 
   color: #000;
 `

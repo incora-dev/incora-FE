@@ -9,13 +9,13 @@ interface IAnimation {
 }
 
 export const Div = styled.div`
-  height: 532px;
   overflow: hidden;
   
   background-color: ${({ backgroundColor }: IDiv) => backgroundColor};
 `;
 
 export const Container = styled.div`
+  padding-bottom: 175px;
 `;
 
 export const Text = styled.div`
@@ -26,7 +26,7 @@ export const Text = styled.div`
   display: flex;
   column-gap: 209px;
   margin: 0 auto;
-  padding-top: 182px;
+  padding-top: 104px;
 
   h2 {
     font-family: Poppins;
@@ -42,6 +42,8 @@ export const Text = styled.div`
   }
   
   p {
+    margin-top: -2px;
+
     max-width: 473px;
 
     font-family: Poppins;
@@ -59,8 +61,8 @@ export const Text = styled.div`
 export const PositionDots = styled.div`
   position: absolute;
 
-  right: -70px;
-  bottom: -10px;
+  right: -66px;
+  bottom: -3px;
 
   transform: rotate(60deg);
 `;
@@ -77,17 +79,19 @@ const rotation = keyframes`
 export const PositionLoading = styled.div`
   position: absolute;
 
-  right: -60px;
-  bottom: -60px;
+  right: -62px;
+  bottom: -48px;
+
+  transform: rotate(10deg);
 
   svg {
     opacity: ${({ animation }: IAnimation) => {
-      if (animation) {
-        return '1';
-      } else {
-        return '0';
+        if (animation) {
+          return '1';
+        } else {
+          return '0';
+        }
       }
-    }
     };
 
     transition: all 1s ease-in;
@@ -99,6 +103,6 @@ export const PositionLoading = styled.div`
 export const PositionHexagon = styled.div`
   position: absolute;
 
-  top: 96px;
-  right: -275px;
+  top: 22px;
+  right: -278px;
 `;

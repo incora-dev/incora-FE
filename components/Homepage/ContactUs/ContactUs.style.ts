@@ -14,7 +14,7 @@ export  const  Container = styled.div`
   display: flex;
   column-gap: 242px;
   
-  margin: 120px auto auto;
+  margin: 85px auto auto;
 `;
 
 export  const  PositionLoading = styled.div`
@@ -32,11 +32,10 @@ export  const  PositionLoading = styled.div`
 `;
 
 export  const  Titles = styled.div`
-  margin-bottom: 50px;
+  margin-bottom: 38px;
 `;
 
 export  const  H2 = styled.h2`
-  font-family: Poppins;
   font-style: normal;
   font-weight: 800;
   font-size: 64px;
@@ -50,7 +49,8 @@ export  const  H2 = styled.h2`
 `;
 
 export  const  H4 = styled.h4`
-  font-family: Poppins;
+  margin-top: -4px;
+
   font-style: normal;
   font-weight: bold;
   font-size: 18px;

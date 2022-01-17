@@ -101,7 +101,7 @@ const InformationComponent = ({ bgColor, info  }: IInformationComponent) => {
           <PositionButtonWithArrow>
             <ButtonWithArrow
               buttonLabel={'read more'}
-              redirectTo={information[0].title}
+              redirectTo={`/services/${information[0].title}`}
               padding={'23px 35px;'}
             />
           </PositionButtonWithArrow>

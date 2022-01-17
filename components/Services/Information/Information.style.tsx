@@ -9,7 +9,8 @@ interface ISelect {
 }
 
 export const Div = styled.div`
-  height: 824px;
+  font-family: Poppins, serif;
+
   overflow: hidden;
   
   background-color: ${({ bgColor }: IColors) => bgColor};
@@ -19,7 +20,7 @@ export const Container = styled.div`
   position: relative;
 
   max-width: 1006px;
-  padding-top: 120px;
+  padding: 120px  0 130px 0;
   margin: auto;
   
   display: flex;
@@ -70,13 +71,12 @@ export const TextBlock = styled.div`
 
   display: flex;
   flex-direction: column;
-  row-gap: 15px;
+  row-gap: 16px;
 `;
 
 export const H2 = styled.h2`
   width: 490px;
 
-  font-family: Poppins;
   font-style: normal;
   font-weight: 800;
   font-size: 36px;
@@ -87,7 +87,6 @@ export const H2 = styled.h2`
 `;
 
 export const H3 = styled.h3`
-  font-family: Poppins;
   font-style: normal;
   font-weight: 800;
   font-size: 12px;
@@ -100,7 +99,6 @@ export const H3 = styled.h3`
 `;
 
 export const P = styled.p`
-  font-family: Poppins;
   font-style: normal;
   font-weight: normal;
   font-size: 14px;
@@ -113,8 +111,7 @@ export const P = styled.p`
 
 export const Text = styled.p`
   max-width: 382px;
-
-  font-family: Poppins;
+  
   font-style: normal;
   font-weight: normal;
   font-size: 12px;
@@ -127,8 +124,7 @@ export const Text = styled.p`
 
 export const MenuLabel = styled.button`
   padding: 8px 30px;
-
-  font-family: Poppins;
+  
   font-style: normal;
   font-weight: bold;
   font-size: 16px;
@@ -184,6 +180,6 @@ export const PositionText = styled.div`
 
 export const PositionCircleBlock = styled.div`
   position: absolute;
-  bottom: 12px;
+  bottom: 135px;
   right: -40px;
 `;

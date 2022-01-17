@@ -36,7 +36,7 @@ function EmbodiedIdeasComponent({ title, bgColor, projects, elementsColor }: IEm
       <SeeMoreWorks>
         <H4>Want to see more works?</H4>
 
-        <ButtonWithArrow buttonLabel={'see portfolio'} redirectTo={'see_portfolio'}/>
+        <ButtonWithArrow buttonLabel={'see portfolio'} redirectTo={'see_portfolio'} padding={'23px 35px'}/>
 
         <HexagonPosition>
           <HexagonFilled width={350} height={404} viewBox="0 0 195 225"/>

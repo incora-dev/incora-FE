@@ -9,7 +9,7 @@ export const Container = styled.div`
   grid-template-columns: ${({ number }: IComponent ) => `repeat(${number},1fr)`};
   column-gap: 70px;
 
-  padding: 0 180px;
+  padding: 0 164px;
 
   overflow: scroll;
 
@@ -21,7 +21,13 @@ export const Container = styled.div`
 export const NewsContainer = styled.div`
   display: flex;
   flex-direction: column;
-  row-gap: 15px;
+  row-gap: 14px;
+  
+  a {
+    h3 {
+      margin-top: -10px;
+    }
+  }
 `
 
 export const ImgBlock = styled.a`
@@ -34,7 +40,6 @@ export const ImgBlock = styled.a`
 `
 
 export const H3 = styled.h3`
-  font-family: Poppins;
   font-style: normal;
   font-weight: bold;
   font-size: 18px;

@@ -67,7 +67,7 @@ function CooperateComponent(props: ISliders) {
 
   const getPositionRight = (number: number): string => {
     if (number === 1) {
-      return '48px;'
+      return '70px;'
     }
 
     if (number === 2) {

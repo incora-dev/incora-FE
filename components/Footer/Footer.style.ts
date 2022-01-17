@@ -17,7 +17,7 @@ export const Position = styled.div`
   width: 1006px;
   margin: 0 auto;
   display: flex;
-  padding-top: 36px;
+  padding-top: 41px;
   justify-content: space-between;
 `;
 
@@ -174,7 +174,7 @@ export const A = styled.a`
     top: 50%;
     left: 50%;
 
-    transform: translate(-45%, -55%);
+    transform: translate(-50%, -50%);
   }
 `;
 

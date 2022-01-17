@@ -1,8 +1,6 @@
 import styled from "styled-components";
 
 export  const  Block = styled.div`
-  height: 724px;
-  
   overflow: hidden;
 `;
 
@@ -14,13 +12,14 @@ export  const  Container = styled.div`
   display: flex;
   column-gap: 242px;
   
-  margin: 85px auto auto;
+  margin: 0 auto;
+  padding: 85px 0 122px;
 `;
 
 export  const  PositionLoading = styled.div`
   position: absolute;
-  top: 0;
-  right: -90px;
+  top: 101px;
+  right: -114px;
   
   svg {
     transform: rotate(-45deg);

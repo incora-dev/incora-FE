@@ -11,6 +11,7 @@ export const theme = {
 
   letterSpacing: {
     h1: "1.5px",
+    h2: "1px",
     span: "0.9px",
   },
 

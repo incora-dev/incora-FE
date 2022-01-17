@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Btn, ButtonWrapper } from "./style";
+import { Btn } from "./style";
 import Arrow from "../../public/navButtonArrow.svg";
 
 export interface IButton {

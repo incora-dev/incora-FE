@@ -47,7 +47,11 @@ const options = [
   { value: "3", name: "Option 3" },
 ];
 
-const Vacancies = () => {
+interface IVacancies {
+  title: string;
+}
+
+const Vacancies = ({ title }: IVacancies) => {
   const vacanciesCards = vacancies.map((vacancy, index) => (
     <VacancyCard
       key={index * Math.random()}
@@ -61,7 +65,7 @@ const Vacancies = () => {
   return (
     <VacanciesWrapper>
       <ContentWrapper>
-        <h1>We are looking for</h1>
+        <h1>{title}</h1>
 
         <ListWrap>
           <Filter>

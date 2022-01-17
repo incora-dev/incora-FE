@@ -9,11 +9,7 @@ interface IBtn {
   arrow?: string;
 }
 
-export const ButtonWrapper = styled.div``;
-
 export const Btn = styled.button`
-  width: 100%;
-  height: 100%;
   width: ${({ width }: IBtn) => `${width}px`};
   height: ${({ height }: IBtn) => `${height}px`};
   background-color: ${({ backgroundColor }: IBtn) =>

@@ -53,7 +53,7 @@ const Career = () => {
       backgroundColor={theme.colors.black}
     >
       <Invitation />
-      <Vacancies />
+      <Vacancies title={"We are looking for"} />
       <OurBenefits />
       <OurPhotos />
       <LetsAcquainted />

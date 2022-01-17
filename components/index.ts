@@ -1,6 +1,6 @@
 export * from './mainMenu/mainMenu';
 export * from './mainMenu/navigation/navigation';
-export * from './homePage/Header';
+export * from './Homepage/Header';
 export * from './homePage/Cooperate/InfoBlock/InfoBlock';
 export * from './homePage/Cooperate';
 export * from './homePage/Cooperate/scrollSlider/scrollSlider';

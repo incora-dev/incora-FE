@@ -1,6 +1,6 @@
 import { HexagonsWrap, Position } from "./style";
-import HexagonBordered from "../../../../../../../public/hexagonBordered.svg";
-import HexagonFilled from "../../../../../../../public/hexagonFilled.svg";
+import HexagonBordered from "../../public/hexagonBordered.svg";
+import HexagonFilled from "../../public/hexagonFilled.svg";
 
 const HexagonsBackground = () => {
   return (

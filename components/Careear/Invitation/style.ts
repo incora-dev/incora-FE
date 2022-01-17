@@ -6,6 +6,19 @@ export const InvitationWrapper = styled.div`
   height: 1180px;
   background-color: ${themeGet("colors.black")};
   padding-top: 36px;
+  position: relative;
+
+  .semicircle {
+    position: absolute;
+    top: 380px;
+  }
+`;
+
+export const DotsWrap = styled.div`
+  position: absolute;
+  top: 430px;
+  left: 25px;
+  transform: rotate(63deg);
 `;
 
 export const CareersWrap = styled.div`
@@ -58,7 +71,16 @@ export const Rectangle = styled.div`
   z-index: 1;
 `;
 
-export const PhotoWrap = styled.div``;
+export const PhotoWrap = styled.div`
+  position: relative;
+
+  .semicircle2 {
+    position: absolute;
+    left: -43px;
+    top: 55px;
+    z-index: 1;
+  }
+`;
 
 export const ProcessWrap = styled.div`
   height: 385px;

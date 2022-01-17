@@ -1,4 +1,4 @@
-import HexagonsBackground from "./components/HexagonsBackground";
+import HexagonsBackground from "../../../../HexagonsBackground";
 import MemberCard from "./components/Member";
 import NumbersHeader from "./components/NumbersHeader";
 import {

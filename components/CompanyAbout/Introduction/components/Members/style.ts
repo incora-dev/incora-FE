@@ -16,6 +16,7 @@ export const ContentWrapper = styled.div`
   width: 1005px;
   display: flex;
   justify-content: space-between;
+  position: absolute;
 `;
 
 export const NumbersWrap = styled.div`

@@ -20,7 +20,7 @@ export default function MainMenu(props: IMenu) {
         <img src="/logoBlack.svg" alt="Incora logo" />
       )
     }
-  }
+  };
 
   const logo = getLogo();
 
@@ -30,10 +30,10 @@ export default function MainMenu(props: IMenu) {
         <Block>
           {logo}
 
-          <Navigation titles={titles} titlesColor={titlesColor}/>
+          <Navigation titles={titles} titlesColor={titlesColor} />
         </Block>
       </Wrapper>
-      { children }
+      {children}
     </>
-  )
+  );
 }

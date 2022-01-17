@@ -4,7 +4,9 @@ export const theme = {
     black: "#18181A",
     white: "#FFFFFF",
     grey: "#EFEFEF",
+    grey2: "#9CA3A7",
     font1: "#BCBCC0",
+    font2: "#454A4D",
   },
 
   letterSpacing: {

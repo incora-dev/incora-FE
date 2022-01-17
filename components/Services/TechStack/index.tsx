@@ -10,27 +10,18 @@ import {
   StackTitle,
   InfoBlock,
   TextContainer,
-  Button,
-  ButtonsBlock,
   DotsPosition,
   LoaderPosition,
-  PositionButtonWithArrow
+  PositionButtonWithArrow,
 } from "./TechStack.style";
 import { IStacks, ITechStack } from "@interfaces";
 import { useState } from "react";
 import ButtonWithArrow from "../../ButtonWithArrow";
 import Dots from "../../Homepage/Cooperate/elements/dots/dots";
 import Loader from "../../../public/loading1.svg"
-
-const getStacksTitle = (stacks: IStacks[], setStack: Function) => {
-  return (
-    <ButtonsBlock>
-      { stacks.map(({title}, index) =>
-        <Button key={index} onClick={() => setStack(stacks[index])}>{title}</Button>
-      )}
-    </ButtonsBlock>
-  )
-}
+import Link from "next/link";
+import RadioButtons from "../../RadioButtons";
+import { theme } from "../../../styles/theme";
 
 const getStacksInfo = (stack: IStacks) => {
   const { title, text, stacks, stacksLogo } = stack;
@@ -60,10 +51,12 @@ const getStacksInfo = (stack: IStacks) => {
               const Logo: any = stacksLogo[index];
 
               return (
-                <LogoAndTitle key={index}>
-                  <Logo/>
-                  <StackTitle>{label}</StackTitle>
-                </LogoAndTitle>
+                <Link key={index} href={label.toLowerCase()} >
+                  <LogoAndTitle>
+                    <Logo/>
+                    <StackTitle>{label}</StackTitle>
+                  </LogoAndTitle>
+                </Link>
               )
             })
           }
@@ -75,14 +68,27 @@ const getStacksInfo = (stack: IStacks) => {
 
 const TechStack = ({ stackTitle, stacks} : ITechStack) => {
   const [stack, setStack] = useState(stacks[0]);
+  const [stackIndex, setStackIndex] = useState(0);
   const [animation, setAnimation] = useState(false);
-  const stacksTitle = getStacksTitle(stacks, setStack);
   const stacksInfo = getStacksInfo(stack);
+  const onChangeStack = (index: number) => {
+    setStackIndex(index);
+    setStack(stacks[index]);
+  }
+
   return (
     <Div onMouseEnter={() => setAnimation(true)}>
       <Container>
         <H2>{stackTitle}</H2>
-        {stacksTitle}
+        <RadioButtons
+          labels={stacks}
+          currentIndex={stackIndex}
+          onChange={onChangeStack}
+          bgColor={theme.colors.yellow}
+          border={'1px solid #EFEFEF'}
+          textColor={theme.colors.black}
+          padding={'8px 30px'}
+        />
         {stacksInfo}
 
         <DotsPosition>

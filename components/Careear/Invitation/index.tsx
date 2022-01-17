@@ -13,7 +13,7 @@ import careerPhoto from "../../../public/careerPhoto.png";
 import Image from "next/image";
 import CareerSteps from "../../../public/SVG/careerSteps.svg";
 import CareerDots from "../../../public/SVG/careerDots.svg";
-import Dots from "../../homePage/Cooperate/elements/dots/dots";
+import Dots from "../../Homepage/Cooperate/elements/dots/dots";
 import { theme } from "../../../styles/theme";
 import { useState } from "react";
 import Semicircle from "../../../public/loading4.svg";

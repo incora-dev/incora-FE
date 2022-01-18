@@ -7,51 +7,57 @@ const RadioButtons = ({
     labels,
     currentIndex,
     onChange,
+    preventChange,
     bgColor = theme.colors.white,
     border = theme.colors.yellow,
     textColor = theme.colors.black,
+    fontWeight = 'normal',
     padding,
+    flexDirection = 'row',
     columnGap = '18px',
-    rowGap = '0'
+    rowGap = '0',
+    isHover = true,
+    cursor = 'pointer'
     }: IRadioButtons
   ) => {
-
   return (
-      <ButtonsBlock columnGap={columnGap} rowGap={rowGap}>
+      <ButtonsBlock
+        flexDirection={flexDirection}
+        columnGap={columnGap}
+        rowGap={rowGap}
+      >
         {
-          labels.map(({ title }, index) => {
-            return (
+          labels.map(({ title, id }, index) => {
+              console.log(index, currentIndex);
+
+              return (
                 <RadioButton
-                  key={index}
+                  key={id}
                   bgColor={bgColor}
                   border={border}
                   textColor={textColor}
+                  fontWeight={fontWeight}
                   padding={padding}
+                  isHover={isHover}
+                  cursor={cursor}
                 >
-                  {
-                    (index === currentIndex) &&
-                    <>
                       <input
                           type='radio'
                           value={title}
-                          id={title}
-                          onClick={() => onChange(index)}
-                          checked
-                      />
-                      <label htmlFor={title}>{title}</label>
-                    </>
-                  } {
-                    (index !== currentIndex) &&
-                      <>
-                        <input
-                            type='radio'
-                            value={title}
-                            id={title}
-                            onClick={() => onChange(index)}
-                        />
-                        <label htmlFor={title}>{title}</label>
-                      </>
-                  }
+                          id={id}
+                          onChange={(event) => {
+                              if (preventChange)  {
+                                  event.preventDefault();
+                                  return;
+                              }
+
+                              if (onChange) {
+                                  onChange(index);
+                              }
+                          }}
+                          checked={index === currentIndex}
+                    />
+                      <label htmlFor={id}>{title}</label>
                 </RadioButton>
             )
           })

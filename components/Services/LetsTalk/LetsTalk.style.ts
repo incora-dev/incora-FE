@@ -12,7 +12,7 @@ export const Div = styled.div`
 `;
 
 export const Wrapper = styled.div`
-  padding: 87px 0 100px 0;
+  padding: 87px 0 90px 0;
 
   max-width: 1006px;
   margin: 0 auto;
@@ -58,7 +58,7 @@ export const PositionHexagon = styled.div`
 `;
 
 export const PositionButtonWithArrow = styled.div`
-  margin-top: 40px;
+  margin-top: 43px;
 `;
 
 export const Container = styled.div`

@@ -22,7 +22,7 @@ export const Container = styled.div`
 
   display: flex;
   flex-direction: column;
-  row-gap: 22px;
+  row-gap: 30px;
 `
 
 export const H2 = styled.h2`
@@ -74,9 +74,12 @@ export const StacksContainer = styled.div`
 
 export const StacksBlock = styled.div`
   display: grid;
-  grid-template-columns: ${({ columns }: IStacksBlock) => `repeat(${columns}, max-content)`};
+  grid-template-columns: ${({ columns }: IStacksBlock) => `repeat(${columns}, 1fr)`};
+  grid-template-rows: 1fr min-content;
   grid-row-gap: 35px;
-  grid-column-gap: 55px;
+  grid-column-gap: 58px;
+
+  white-space: nowrap;
 `
 
 export const LogoAndTitle = styled.a`

@@ -168,13 +168,16 @@ export const A = styled.a`
   width: 25px;
   background-color: #fff;
   border-radius: 50%;
-
+  
   svg {
     position: absolute;
     top: 50%;
     left: 50%;
 
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -55%);
+    path {
+
+    }
   }
 `;
 

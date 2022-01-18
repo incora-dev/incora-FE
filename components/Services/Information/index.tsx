@@ -18,7 +18,6 @@ import React, { useEffect } from "react"
 import { useState } from "react";
 import OutcomesIcon from "../../../public/SVG/estimatedTimeIco.svg"
 import EstimatedTimeIcon from "../../../public/SVG/OutcomesLogo.svg"
-import TextAroundCircle from "../../../public/SVG/aroundTheCircle.svg"
 import ButtonWithArrow from "../../ButtonWithArrow";
 import { maxSlideNumber, minSlideNumber } from "../../../utils";
 import RadioButtons from "../../RadioButtons";

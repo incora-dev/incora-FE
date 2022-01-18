@@ -1,6 +1,7 @@
-import Dot from "./dot";
+
 import { Div } from "./styles";
 import { IDots } from "@interfaces";
+import Dot from "./dot";
 
 function Dots({ numberOfDots, dotColor, animation, size = '4px', columnGap = '20.57px', rowGap = '13px' }: IDots) {
   const getDots = (): JSX.Element[]  => {

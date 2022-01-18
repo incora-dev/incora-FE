@@ -32,8 +32,7 @@ export const TextBlock = styled.div`
 
 export const H1 = styled.h1`
   max-width: 560px;
-
-  font-family: Poppins;
+  
   font-style: normal;
   font-weight: 800;
   font-size: 64px;
@@ -48,19 +47,17 @@ export const H1 = styled.h1`
 export const Strong = styled.strong`
   max-width: 560px;
   
-  font-family: Poppins;
   font-style: normal;
   font-weight: normal;
   font-size: 14px;
   line-height: 30px;
-  /* or 214% */
 
   letter-spacing: 0.1em;
 
   color: #454A4D;
 `
 
-export const PositionDots = styled.span`
+export const PositionDots = styled.div`
   position: absolute;
   bottom: 117px;
   right: 0;
@@ -72,6 +69,24 @@ const rotation = keyframes`
   to {
     transform: rotate(-180deg);
   }
+`
+
+export const PositionCube1 = styled.div`
+  position: absolute;
+  bottom: 154px;
+  right: 331px;
+`
+
+export const PositionCube2 = styled.div`
+  position: absolute;
+  bottom: 252px;
+  right: 34px;
+`
+
+export const PositionCube3 = styled.div`
+  position: absolute;
+  bottom: 94px;
+  right: 148px;
 `
 
 export const PositionLoaderBagelTrimmed = styled.div`

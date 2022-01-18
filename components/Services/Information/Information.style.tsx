@@ -4,10 +4,6 @@ interface IColors {
   bgColor: string;
 }
 
-interface ISelect {
-  select: number;
-}
-
 export const Div = styled.div`
   font-family: Poppins, serif;
 
@@ -30,6 +26,7 @@ export const Container = styled.div`
 export const MenuBlock = styled.div`
   min-width: 307px;
   position: relative;
+  top: 9px;
   left: -30px;
 
   display: flex;
@@ -123,7 +120,7 @@ export const Text = styled.p`
 `;
 
 export const MenuLabel = styled.button`
-  padding: 8px 30px;
+  //padding: 8px 30px;
   
   font-style: normal;
   font-weight: bold;
@@ -135,7 +132,7 @@ export const MenuLabel = styled.button`
   letter-spacing: 0.05em;
   border: none;
 
-  color: #FFFFFF;
+  //color: #FFFFFF;
   background: ${({bgColor}: IColors) => {
     if (bgColor === '#FEC602') {
       return '#FEC602';
@@ -146,40 +143,13 @@ export const MenuLabel = styled.button`
 
   transition: all 0.3s ease-in-out;
 
-  :focus {
-    background-color: #FEC602;
-
-    color: black;
-  }
+  //:focus {
+  //  background-color: #FEC602;
+  //
+  //  color: black;
+  //}
 `;
 
 export const PositionButtonWithArrow = styled.div`
   margin-top: 22px;
-`;
-
-export const Circle = styled.div`
-  position: absolute;
-  top: 15px;
-  left: 15px;
-
-  width: 54px;
-  height: 54px;
-
-  border-radius: 50%;
-  background: #FEC506;
-`;
-
-export const CircleBlock = styled.div`
-  position: relative;
-`;
-
-export const PositionText = styled.div`
-  position: absolute;
-  top: 0;
-`;
-
-export const PositionCircleBlock = styled.div`
-  position: absolute;
-  bottom: 135px;
-  right: -40px;
 `;

@@ -2,7 +2,7 @@ import {IFooter} from "../interfaces/footer.interface";
 import Facebook from "../public/SVG/socialNetwork/facebook.svg";
 import LinkedIn from "../public/SVG/socialNetwork/linkedIn.svg";
 import Instagram from "../public/SVG/socialNetwork/instagram.svg";
-import {IContactUs, IWorkflowSetUp, IWorkflowSetUpContent} from "@interfaces";
+import { IContactUs, IWorkflowSetUp } from "@interfaces";
 import EstimatedTimeIcon from "../public/SVG/estimatedTimeIco.svg"
 import Outcomes from "../public/SVG/OutcomesLogo.svg"
 import Docker from "../public/SVG/technologies/docker.svg"
@@ -49,6 +49,7 @@ export const footer: IFooter = {
 export const servicesPage = {
   info: [
     {
+      id: 'Info1',
       title: 'Research & Development',
       text: 'R&D is the preparatory stage of development, which includes the market research with the competitors analysis, and discovering insights on your target audience. At this stage we also define what strategies, technologies and development nuances would be better for your idea. As a whole, we will create the most optimal roadmap of your project.',
       estimated_time: [{ title: 'estimated time'},{ text: 'Up to 2 weeks' }, { icon: Outcomes }],
@@ -65,6 +66,7 @@ export const servicesPage = {
       ],
     },
     {
+      id: 'Info2',
       title: 'Web App Development',
       text: 'R&D is the preparatory stage of development, which includes the market research with the competitors analysis, and discovering insights on your target audience. At this stage we also define what strategies, technologies and development nuances would be better for your idea. As a whole, we will create the most optimal roadmap of your project.',
       estimated_time: [{ title: 'estimated time'},{ text: 'Up to 2 weeks' }, { icon: Outcomes }],
@@ -81,6 +83,7 @@ export const servicesPage = {
       ],
     },
     {
+      id: 'Info3',
       title: 'Mobile App Development',
       text: 'R&D is the preparatory stage of development, which includes the market research with the competitors analysis, and discovering insights on your target audience. At this stage we also define what strategies, technologies and development nuances would be better for your idea. As a whole, we will create the most optimal roadmap of your project.',
       estimated_time: [{ title: 'estimated time'}, { text: 'Up to 2 weeks' }, { icon: Outcomes }],
@@ -97,6 +100,7 @@ export const servicesPage = {
       ],
     },
     {
+      id: 'Info4',
       title: 'Team Extension',
       text: 'R&D is the preparatory stage of development, which includes the market research with the competitors analysis, and discovering insights on your target audience. At this stage we also define what strategies, technologies and development nuances would be better for your idea. As a whole, we will create the most optimal roadmap of your project.',
       estimated_time: [{ title: 'estimated time'}, { text: 'Up to 2 weeks' }, { icon: Outcomes }],
@@ -113,6 +117,7 @@ export const servicesPage = {
       ],
     },
     {
+      id: 'Info5',
       title: 'Dedicated Team',
       text: 'R&D is the preparatory stage of development, which includes the market research with the competitors analysis, and discovering insights on your target audience. At this stage we also define what strategies, technologies and development nuances would be better for your idea. As a whole, we will create the most optimal roadmap of your project.',
       estimated_time: [{ title: 'estimated time'},{ text: 'Up to 2 weeks' }, { icon: Outcomes }],
@@ -129,6 +134,7 @@ export const servicesPage = {
       ],
     },
     {
+      id: 'Info6',
       title: 'DevOps',
       text: 'R&D is the preparatory stage of development, which includes the market research with the competitors analysis, and discovering insights on your target audience. At this stage we also define what strategies, technologies and development nuances would be better for your idea. As a whole, we will create the most optimal roadmap of your project.',
       estimated_time: [{ title: 'estimated time'},{ text: 'Up to 2 weeks' }, { icon: Outcomes }],
@@ -145,6 +151,7 @@ export const servicesPage = {
       ],
     },
     {
+      id: 'Info7',
       title: 'Software QA & Testing',
       text: 'R&D is the preparatory stage of development, which includes the market research with the competitors analysis, and discovering insights on your target audience. At this stage we also define what strategies, technologies and development nuances would be better for your idea. As a whole, we will create the most optimal roadmap of your project.',
       estimated_time: [{ title: 'estimated time'},{ text: 'Up to 2 weeks' }, { icon: Outcomes }],
@@ -161,6 +168,7 @@ export const servicesPage = {
       ],
     },
     {
+      id: 'Info8',
       title: 'UI/UX Design',
       text: 'R&D is the preparatory stage of development, which includes the market research with the competitors analysis, and discovering insights on your target audience. At this stage we also define what strategies, technologies and development nuances would be better for your idea. As a whole, we will create the most optimal roadmap of your project.',
       estimated_time: [{ title: 'estimated time'},{ text: 'Up to 2 weeks' }],
@@ -177,18 +185,21 @@ export const servicesPage = {
   techStackTitle: 'Tech stack',
   techStacks: [
     {
+      id: 'tech1',
       title: 'DevOps',
       text: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.',
       stacks: ['Docker', 'Kubernetes', 'Amazon ECS', 'CircleCI', 'Jenkins', 'Gitlab'],
-      stacksLogo: [Docker, Kubernetes, AmazonECS, Gitlab, Jenkins, CircleCI]
+      stacksLogo: [Docker, Kubernetes, AmazonECS, Gitlab, Jenkins, CircleCI],
     },
     {
+      id: 'tech2',
       title: 'Frontend',
       text: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.',
       stacks: ['React', 'Angular2', 'Kubernetes'],
       stacksLogo: [React, Angular, Kubernetes]
     },
     {
+      id: 'tech3',
       title: 'Backend',
       text: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.',
       stacks: ['Docker', 'Kubernetes', 'Amazon ECS', 'CircleCI', 'Jenkins',],

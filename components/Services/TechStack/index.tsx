@@ -45,7 +45,7 @@ const getStacksInfo = (stack: IStacks) => {
       </TextContainer>
 
       <StacksContainer>
-        <StacksBlock columns={columns}>
+        <StacksBlock columns={3}>
           {
             stacks.map((label, index) => {
               const Logo: any = stacksLogo[index];
@@ -67,8 +67,8 @@ const getStacksInfo = (stack: IStacks) => {
 }
 
 const TechStack = ({ stackTitle, stacks} : ITechStack) => {
-  const [stack, setStack] = useState(stacks[0]);
   const [stackIndex, setStackIndex] = useState(0);
+  const [stack, setStack] = useState(stacks[stackIndex]);
   const [animation, setAnimation] = useState(false);
   const stacksInfo = getStacksInfo(stack);
   const onChangeStack = (index: number) => {
@@ -88,6 +88,8 @@ const TechStack = ({ stackTitle, stacks} : ITechStack) => {
           border={'1px solid #EFEFEF'}
           textColor={theme.colors.black}
           padding={'8px 30px'}
+          flexDirection={'row'}
+          isHover={true}
         />
         {stacksInfo}
 

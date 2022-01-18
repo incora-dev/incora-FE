@@ -1,7 +1,6 @@
 import { Input, SelectorWrapper } from "./style";
 import SelectSearch, { ValueProps } from "react-select-search-nextjs";
 import ArrowBlackDown from "../../public/SVG/ArrowDownBlack.svg";
-import Image from "next/image";
 import { useRef } from "react";
 
 interface IOptions {
@@ -22,8 +21,8 @@ const Selector = ({ placeholder, options, icon }: ISelector) => {
   const Select = (valueProps: any) => {
     return (
       <SelectorWrapper>
-          <Icon className="icon" />
-          <ArrowBlackDown className="arrow" />
+        <Icon className="icon" />
+        <ArrowBlackDown className="arrow" />
         <Input {...valueProps} ref={inputRef} />
       </SelectorWrapper>
     );

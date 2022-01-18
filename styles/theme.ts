@@ -7,6 +7,8 @@ export const theme = {
     grey2: "#9CA3A7",
     font1: "#BCBCC0",
     font2: "#454A4D",
+    background: "#F9F9F9",
+    background2: "#222222",
   },
 
   letterSpacing: {

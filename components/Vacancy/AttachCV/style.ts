@@ -1,38 +1,48 @@
 import themeGet from "@styled-system/theme-get";
 import styled from "styled-components";
 
+interface IAttachCvWrapper {
+  big?: boolean;
+}
+
 export const AttachCvWrapper = styled.div`
-  width: 297px;
-  position: relative;
-  top: -13px;
+  width: 100%;
 
   h3 {
     font-weight: 800;
-    font-size: 18px;
+    font-size: ${({ big }: IAttachCvWrapper) => (big ? "24px" : "18px")};
     line-height: 27px;
-    letter-spacing: ${themeGet("letterSpacing.span")};
+    letter-spacing: 0.05em;
     margin-bottom: 20px;
+    color: ${({ big }: IAttachCvWrapper) =>
+      big ? themeGet("colors.white") : "black"};
+  }
+
+  .attach {
+    margin-bottom: ${({ big }: IAttachCvWrapper) => (big ? "51px" : "0")};
   }
 
   .personal {
-    margin-bottom: 11px;
+    margin-bottom: ${({ big }: IAttachCvWrapper) => (big ? "16px" : "11px")};
   }
 `;
 
 export const DragAndDropBox = styled.div`
-  width: 297px;
-  height: 103px;
+  width: 100%;
+  height: ${({ big }: IAttachCvWrapper) => (big ? "136px" : "103px")};
   border: 1px solid ${themeGet("colors.grey2")};
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  margin-bottom: 30px;
+  margin-top: ${({ big }: IAttachCvWrapper) => (big ? "50px" : "0")};
+  margin-bottom: ${({ big }: IAttachCvWrapper) => (big ? "75px" : "30px")};
 
-  span {
+  > span {
     font-weight: 600;
-    font-size: 12px;
-    line-height: 18px;
+    font-size: ${({ big }: IAttachCvWrapper) => (big ? "14px" : "12px")};
+    line-height: ${({ big }: IAttachCvWrapper) => (big ? "21px" : "18px")};
+    letter-spacing: 0.05em;
   }
 
   .clickable {

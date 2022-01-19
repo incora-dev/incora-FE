@@ -1,5 +1,6 @@
 import AttachCv from "../AttachCV";
 import {
+  AttachCvWrap,
   ContentWrap,
   Description,
   DescriptionAndCv,
@@ -77,7 +78,10 @@ const VacancyDescription = () => {
               </li>
             </ul>
           </Description>
-          <AttachCv />
+
+          <AttachCvWrap>
+            <AttachCv />
+          </AttachCvWrap>
         </DescriptionAndCv>
       </ContentWrap>
     </VacancyDescriptionWrapper>

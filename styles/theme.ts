@@ -5,6 +5,8 @@ export const theme = {
     white: "#FFFFFF",
     grey: "#EFEFEF",
     font1: "#BCBCC0",
+    greyCheckbox: '#FBFBFB',
+    grey2: '#9CA3A7',
   },
 
   letterSpacing: {

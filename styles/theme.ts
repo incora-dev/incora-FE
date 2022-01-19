@@ -7,10 +7,14 @@ export const theme = {
     grey2: "#9CA3A7",
     font1: "#BCBCC0",
     font2: "#454A4D",
+    background: "#F9F9F9",
+    background2: "#222222",
+    background3: "#212125",
   },
 
   letterSpacing: {
     h1: "1.5px",
+    h2: "1px",
     span: "0.9px",
   },
 

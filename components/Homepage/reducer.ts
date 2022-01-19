@@ -1,7 +1,7 @@
 import { Reducer } from "react";
-import { withLoadable } from "../../services/withLoadebleReducer";
+import { withLoadable } from "../../services/withLoadableReducer";
 import { HomepageActions, HomepageState } from "@interfaces";
-import * as ActionTypes from "./actions";
+import * as Action from "./actions";
 
 const initialState = {
   reviews: [
@@ -40,7 +40,7 @@ const reducer: Reducer<HomepageState, HomepageActions> = (
   action
 ) => {
   switch (action.type) {
-    case ActionTypes.GET_REVIEWS_SUCCESS: {
+    case Action.GET_REVIEWS_SUCCESS: {
       const points = state.reviews.map((review, index) => {
         const size = index === 0 ? 0.06 : 0.03;
         const radius = index === 0 ? 1 : 0.6;
@@ -60,7 +60,7 @@ const reducer: Reducer<HomepageState, HomepageActions> = (
       };
     }
 
-    case ActionTypes.CHANGE_CURRENT_GLOBE_POINT: {
+    case Action.CHANGE_CURRENT_GLOBE_POINT: {
       const points = state.points.map((point, index) => {
         if (index === action.index) {
           return {

@@ -6,7 +6,7 @@ export const VacanciesWrapper = styled.div`
   height: 1069px;
   display: flex;
   justify-content: center;
-  padding-top: 120px;
+  /* padding-top: 120px; */
 `;
 
 export const ContentWrapper = styled.div`

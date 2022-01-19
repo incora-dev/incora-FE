@@ -7,6 +7,7 @@ export const InvitationWrapper = styled.div`
   background-color: ${themeGet("colors.black")};
   padding-top: 36px;
   position: relative;
+  margin-bottom: 120px;
 
   .semicircle {
     position: absolute;

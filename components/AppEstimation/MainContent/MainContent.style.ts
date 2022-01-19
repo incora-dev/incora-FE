@@ -14,6 +14,8 @@ export const Content = styled.div`
 export const LeftColumn = styled.div`
   display: flex;
   flex-direction: column;
+  width: 100%;
+  padding-right: 20px;
 `;
 
 export const RightColumn = styled.div`

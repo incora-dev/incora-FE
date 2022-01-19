@@ -71,3 +71,9 @@ export const Description = styled.div`
     letter-spacing: 1.4px;
   }
 `;
+
+export const AttachCvWrap = styled.div`
+  width: 297px;
+  position: relative;
+  top: -13px;
+`;

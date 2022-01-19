@@ -3,40 +3,40 @@ import Technologies from "../../Homepage/EmbodiedIdeas/Projects/Technologies";
 import { theme } from "../../../styles/theme";
 import Categories from "../Categories";
 
-const NewsBLock = ({ news }: any) => {
-  const bgTagsColor= theme.colors.grey;
-  const textTagsColor= theme.colors.black;
+const bgTagsColor= theme.colors.grey;
+const textTagsColor= theme.colors.black;
 
-  const createNews = () => {
-    return news.map(({img, tags, categories, title, redirectTo}: any, index: number ) => {
-      return (
-        <NewsContainer key={index}>
-          <ImgBlock href={title}>
-            <Element/>
-            <img src={img}/>
-          </ImgBlock>
-          <Technologies
+const createNews = (news: any) => {
+  return news.map(({img, tags, categories, title, redirectTo}: any, index: number ) => {
+    return (
+      <NewsContainer key={index}>
+        <ImgBlock href={title}>
+          <Element/>
+          <img src={img}/>
+        </ImgBlock>
+        <Technologies
             technologies={tags}
             textTagsColor={textTagsColor}
             bgTagsColor={bgTagsColor}
-          />
-          <Categories categories={categories}/>
+        />
+        <Categories categories={categories}/>
 
-            <a href={title}>
-              <H3>{title}</H3>
-            </a>
+        <a href={title}>
+          <H3>{title}</H3>
+        </a>
 
-        </NewsContainer>
-      )
-    })
-  }
+      </NewsContainer>
+    )
+  })
+}
 
+const NewsBLock = ({ news }: any) => {
+  const newsCreated = createNews(news)
 
   return (
     <Container number={news.length}>
-      {createNews()}
+      {newsCreated}
     </Container>
-
   )
 }
 

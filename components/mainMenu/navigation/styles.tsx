@@ -55,6 +55,7 @@ export const PositionArrow = styled.div`
   margin-left: 9.58px;
   
   svg {
+    display: block;
     path {
       fill: ${({ color }) => color};
     }

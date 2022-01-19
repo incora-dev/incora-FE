@@ -1,13 +1,21 @@
 import styled from "styled-components";
-import { IBackgroundColor } from "@interfaces";
+import { theme } from "../../styles/theme";
+const colorBlack = theme.colors.black;
+const colorWhite = theme.colors.white;
+
+interface IMenu {
+  backgroundColor: string;
+  positionType: string;
+}
 
 export const Wrapper = styled.div`
-  position: sticky;
+  position: ${({ positionType }: IMenu) => positionType};
   top: 0;
   z-index: 10;
   padding: 0 100px;
 
-  background-color: ${(props: IBackgroundColor) => props.backgroundColor};
+  background-color: ${({ backgroundColor }: IMenu) => backgroundColor};
+  transition: background-color 0.5s ease-in-out;
 `;
 
 export const Block = styled.div`

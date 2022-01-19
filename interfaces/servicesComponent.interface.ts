@@ -29,7 +29,8 @@ export interface ITechStack{
 
 export interface IStacks{
   title: string;
-  text: string;
-  stacks: string[];
-  stacksLogo: JSX.Element[];
+  text?: string;
+  stacks?: string[];
+  stacksLogo?: JSX.Element[];
+  id?: string;
 }

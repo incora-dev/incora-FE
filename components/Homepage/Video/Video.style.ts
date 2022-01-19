@@ -15,20 +15,20 @@ export const Container = styled.div`
 `;
 
 export const BGTop = styled.div`
-  height: 45%;
+  height: 37%;
   
   background-color: #fff;
 `;
 
 export const BGBottom = styled.div`
-  height: 55%;
+  height: 63%;
 
   background-color: #18181A;
 `;
 
 export const VideoContainer = styled.div`
   position: absolute;
-  top: 28px;
+  top: -3px;
   right: 0;
 
   z-index: 1;

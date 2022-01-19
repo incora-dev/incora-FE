@@ -4,7 +4,7 @@ import Arrow from "../../public/SVG";
 import { theme } from "../../styles/theme";
 import NewsBLock from "./NewsBLock";
 
-function NewsComponent({ title, bgColor, labels, articles }: ITechnologies) {
+function NewsComponent({ title, bgColor, articles }: ITechnologies) {
   const bgColorWhite = theme.colors.white;
   const bgColorBlack = theme.colors.black;
 

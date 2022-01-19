@@ -3,19 +3,20 @@ import styled from "styled-components";
 export const Container = styled.div`
   position: relative;
 
-  margin: auto;
+  margin-top: 47px;
+  margin-left: 4px;
 `;
 
 export const AddressesContainer = styled.div`
   position: absolute;
-  top: 120px;
+  top: 131px;
   left: -51px;
   
   max-width: 302px;
   
   display: flex;
   flex-direction: column;
-  row-gap: 36px;
+  row-gap: 27px;
 
   margin: auto;
 `;

@@ -7,10 +7,11 @@ interface IChangeColor{
 }
 
 export const Container = styled.div`
-  display: flex;
-  gap: 7px;
-  flex-wrap: wrap;
   max-width: 410px;
+
+  display: flex;
+  gap: 7.4px;
+  flex-wrap: wrap;
 `;
 
 export const Strong = styled.strong`

@@ -47,10 +47,10 @@ function VideoComponent() {
           <VideoBLock>
             <Video
               ref={videoRef}
-              style={{ width: '1122px' }}
+              style={{ width: '1122px', height: '671px' }}
               loop
               onClick={() => videoHandler(play)}
-              poster={'./Player/videoPoster.jpg'}
+              poster={'./Player/PosterVideo.jpg'}
             >
               <source src={'/mp4/Video.mp4'} type={'video/mp4'}/>
             </Video>

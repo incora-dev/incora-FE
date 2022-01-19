@@ -6,13 +6,13 @@ interface IAnimation {
 
 export const Div = styled.div`
   position: relative;
-  height: 565px;
+  height: calc(565px - 104px);
   
   overflow: hidden;
   
   svg {
     position: absolute;
-    bottom: -2px;
+    bottom: -5px;
     right: 0;
   }
 `
@@ -32,8 +32,7 @@ export const TextBlock = styled.div`
 
 export const H1 = styled.h1`
   max-width: 560px;
-
-  font-family: Poppins;
+  
   font-style: normal;
   font-weight: 800;
   font-size: 64px;
@@ -48,19 +47,17 @@ export const H1 = styled.h1`
 export const Strong = styled.strong`
   max-width: 560px;
   
-  font-family: Poppins;
   font-style: normal;
   font-weight: normal;
   font-size: 14px;
   line-height: 30px;
-  /* or 214% */
 
   letter-spacing: 0.1em;
 
   color: #454A4D;
 `
 
-export const PositionDots = styled.span`
+export const PositionDots = styled.div`
   position: absolute;
   bottom: 117px;
   right: 0;
@@ -74,11 +71,29 @@ const rotation = keyframes`
   }
 `
 
-export const PositionLoaderBagelTrimmed = styled.span`
+export const PositionCube1 = styled.div`
   position: absolute;
-  bottom: 317px;
+  bottom: 154px;
+  right: 331px;
+`
+
+export const PositionCube2 = styled.div`
+  position: absolute;
+  bottom: 252px;
+  right: 34px;
+`
+
+export const PositionCube3 = styled.div`
+  position: absolute;
+  bottom: 94px;
+  right: 148px;
+`
+
+export const PositionLoaderBagelTrimmed = styled.div`
+  position: absolute;
+  bottom: 300px;
   right: 299px;
-  
+
   svg {
     opacity: ${({ animation }: IAnimation) => {
       if (animation) {
@@ -86,8 +101,7 @@ export const PositionLoaderBagelTrimmed = styled.span`
       } else {
         return '0';
       }
-    }
-    };
+    }};
 
     transition: all 1s ease-in-out;
     transform: rotate(-180deg);

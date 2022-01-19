@@ -3,11 +3,11 @@ export interface IMenu {
   titlesColor: string;
   children: any;
   titles: string[];
+  positionType?: string;
 }
 
 export interface INavigation {
   titles: string[];
-  backgroundColor: string;
   titlesColor: string;
 }
 

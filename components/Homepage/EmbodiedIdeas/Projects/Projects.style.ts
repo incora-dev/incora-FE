@@ -17,15 +17,16 @@ export const Container = styled.div`
 export const Text = styled.div`
   display: flex;
   flex-direction: column;
-  row-gap: 25px;
+  row-gap: 21px;
   
   margin: ${({ margin }: IText) => margin};
 `;
 
 export const Block = styled.div`
+  margin-top: 9px;
   display: flex;
   flex-direction: column;
-  row-gap: 15px;
+  row-gap: 14px;
 `;
 
 export const H3 = styled.h3`

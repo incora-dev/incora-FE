@@ -1,8 +1,6 @@
 import styled from "styled-components";
 
 export  const  Block = styled.div`
-  height: 724px;
-  
   overflow: hidden;
 `;
 
@@ -14,13 +12,14 @@ export  const  Container = styled.div`
   display: flex;
   column-gap: 242px;
   
-  margin: 120px auto auto;
+  margin: 0 auto;
+  padding: 85px 0 122px;
 `;
 
 export  const  PositionLoading = styled.div`
   position: absolute;
-  top: 0;
-  right: -90px;
+  top: 101px;
+  right: -114px;
   
   svg {
     transform: rotate(-45deg);
@@ -32,11 +31,10 @@ export  const  PositionLoading = styled.div`
 `;
 
 export  const  Titles = styled.div`
-  margin-bottom: 50px;
+  margin-bottom: 38px;
 `;
 
 export  const  H2 = styled.h2`
-  font-family: Poppins;
   font-style: normal;
   font-weight: 800;
   font-size: 64px;
@@ -50,7 +48,9 @@ export  const  H2 = styled.h2`
 `;
 
 export  const  H4 = styled.h4`
-  font-family: Poppins;
+  max-width: 361px;
+  margin-top: -4px;
+
   font-style: normal;
   font-weight: bold;
   font-size: 18px;

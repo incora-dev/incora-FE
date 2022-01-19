@@ -2,17 +2,23 @@ import styled from "styled-components";
 
 interface IDiv {
   bgColor: string;
+  height?: number;
+}
+
+interface IPositionTitle {
+  disablePadding?: boolean;
 }
 
 export const Div = styled.div`
-  height: 2666px;
+  height: ${({ height }: IDiv) => (height ? `${height}px` : "2666px")};
   background-color: ${({ bgColor }: IDiv) => bgColor};
-  
+
   overflow: hidden;
 `;
 
 export const PositionTitle = styled.div`
-  padding-top: 120px;
+  padding-top: ${({ disablePadding }: IPositionTitle) =>
+    disablePadding ? "0" : "120px"};
   margin-bottom: 46px;
 `;
 
@@ -32,7 +38,7 @@ export const H2 = styled.h2`
   letter-spacing: 0.05em;
   text-transform: uppercase;
 
-  color: #FEC506;
+  color: #fec506;
 `;
 
 export const H4 = styled.h4`
@@ -54,51 +60,51 @@ export const H4 = styled.h4`
 export const ProjectsContainer = styled.div`
   display: flex;
   flex-direction: column;
-  row-gap: 180px;
+  row-gap: 174px;
   align-items: center;
 `;
 
 export const SeeMoreWorks = styled.div`
   position: relative;
-  
+
   max-width: 1006px;
-  margin: 174px auto 0;
+  margin: 168px auto 0;
 
   display: flex;
   flex-direction: column;
   row-gap: 26px;
-  
+
   a {
     z-index: 1;
   }
 `;
 
 export const HexagonPosition = styled.div`
-  svg {
-    position: absolute;
-    top: -110px;
-    left: -287px;
+  position: absolute;
+  top: -123px;
+  left: -286px;
 
-    z-index: 0;
-    
+  z-index: 0;
+
+  svg {
     path {
-      fill: #18181A;
+      fill: #18181a;
     }
   }
 `;
 
 export const LoadingPosition = styled.div`
+  position: absolute;
+  top: -114px;
+  left: -138px;
+
+  z-index: 1;
+
   svg {
-    position: absolute;
-    top: -120px;
-    left: -133px;
-
-    z-index: 1;
-
     transform: rotate(195deg);
-    
+
     path {
-      background: #18181A;
+      background: #18181a;
     }
   }
 `;

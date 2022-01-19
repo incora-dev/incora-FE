@@ -6,7 +6,7 @@ export const VacanciesWrapper = styled.div`
   height: 1069px;
   display: flex;
   justify-content: center;
-  padding-top: 120px;
+  /* padding-top: 120px; */
 `;
 
 export const ContentWrapper = styled.div`
@@ -29,10 +29,34 @@ export const ListWrap = styled.div`
 
 export const Filter = styled.div`
   width: 300px;
-  border: 1px solid red;
+  display: flex;
+  flex-flow: column;
+  gap: 31px;
 `;
 
 export const List = styled.div`
   width: 598px;
   padding-right: 39px;
+`;
+
+export const QuickApplyWrap = styled.div`
+  width: 100%;
+  margin-top: 20px;
+
+  h2 {
+    font-style: normal;
+    font-weight: 800;
+    font-size: 21px;
+    line-height: 31px;
+    letter-spacing: ${themeGet("letterSpacing.span")};
+    margin-bottom: 6px;
+  }
+
+  p {
+    font-size: 14px;
+    line-height: 30px;
+    letter-spacing: ${themeGet("letterSpacing.span")};
+    color: ${themeGet("color.font2")};
+    margin-bottom: 20px;
+  }
 `;

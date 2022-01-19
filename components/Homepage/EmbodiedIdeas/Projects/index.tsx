@@ -12,7 +12,7 @@ function Projects(props: IProjects) {
   function createProjects(): JSX.Element[] {
     return projects.map(({ title, text, technologies, img}, index) => {
       const flexDirection = (index + 1) % 10 !== 2 ? 'row' : 'row-reverse';
-      const marginText = (index + 1) % 10 !== 2 ? '0 0 0 180px;' : '0 180px 0 0';
+      const marginText = (index + 1) % 10 !== 2 ? '81px 0 0 180px;' : '81px 180px 0 0';
 
       return (
         <Container

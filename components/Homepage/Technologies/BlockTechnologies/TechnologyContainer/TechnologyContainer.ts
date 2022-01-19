@@ -36,7 +36,7 @@ export const Container = styled.div`
   align-items: center;
   display: flex;
   flex-wrap: wrap;
-  column-gap: 35px;
+  column-gap: 53px;
   row-gap: 35px;
   
   z-index: 1;
@@ -46,7 +46,7 @@ export const Block = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  row-gap: 10px;
+  row-gap: 11px;
   
   width: max-content;
 `

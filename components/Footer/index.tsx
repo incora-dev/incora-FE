@@ -19,9 +19,8 @@ import {
 } from "./Footer.style";
 import IncoraLogo from "../../public/logo.svg"
 import { IFollowUs, IFooter} from "../../interfaces/footer.interface";
-import  Link from "next/link";
 import React from "react";
-import ClutchcoLogo from "../../public/SVG/logoClutchco.svg"
+import ClutchLogo from "../../public/SVG/logoClutchco.svg"
 import { clutchLink } from "../../constants";
 
 function createOfficesBlock(offices: object[]) {
@@ -44,7 +43,7 @@ function createFollowUsBlock(followUs: IFollowUs[]) {
      return (
        <React.Fragment key={index}>
             <A href={redirectTo}>
-              <el.icon/>
+              <el.icon viewBox={"0 0 1"}/>
             </A>
         </React.Fragment>
       )
@@ -100,7 +99,7 @@ function FooterComponent( { policies, offices, followUs, pages, copyright }: IFo
           </FollowUs>
 
             <a target="_blank" href={clutchLink} rel="noopener noreferrer">
-              <ClutchcoLogo/>
+              <ClutchLogo/>
             </a>
         </FollowUsBlock>
       </Position>

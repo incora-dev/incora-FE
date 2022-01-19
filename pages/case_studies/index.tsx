@@ -12,6 +12,8 @@ import { theme } from "../../styles/theme";
 import Instagram from "../../public/SVG/socialNetwork/instagram.svg";
 import Facebook from "../../public/SVG/socialNetwork/facebook.svg";
 import LinkedIn from "../../public/SVG/socialNetwork/linkedIn.svg";
+import { LetsReactOutWrapper } from "../../components/CaseStudies/LetsReachOut/style";
+import LetsReachOut from "../../components/CaseStudies/LetsReachOut";
 
 const titles = [
   "Services",
@@ -116,7 +118,7 @@ const CaseStudies = () => {
         disablePadding
         disableSeeMore
       />
-
+      <LetsReachOut />
       <FooterComponent
         policies={footer.policies}
         offices={footer.offices}

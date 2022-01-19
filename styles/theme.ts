@@ -9,6 +9,7 @@ export const theme = {
     font2: "#454A4D",
     background: "#F9F9F9",
     background2: "#222222",
+    background3: "#212125",
   },
 
   letterSpacing: {

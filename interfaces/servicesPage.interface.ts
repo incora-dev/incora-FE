@@ -17,7 +17,12 @@ export interface IServiceQuery{
 
 export interface IHeaderService {
   title: string;
+  titleSize?: string;
   text: string;
+  label?: string;
+  textWidth: string;
+  bgColor?: string;
+  hexagonColor?: string;
 }
 
 export interface IServiceContents {

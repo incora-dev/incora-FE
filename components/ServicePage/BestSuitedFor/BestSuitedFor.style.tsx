@@ -1,5 +1,10 @@
 import styled from "styled-components";
 
+interface IAnimation {
+  animation: boolean;
+  delay: number;
+}
+
 export const Div = styled.div`
   font-family: Poppins, serif;
 
@@ -25,6 +30,8 @@ export const H1 = styled.h1`
 `
 
 export const Content = styled.div`
+  min-height: 50vh;
+
   max-width: 1166px;
   padding: 63px 0 158px 0;
   margin: 0 auto;
@@ -41,11 +48,18 @@ export const Content = styled.div`
 `
 
 export const ContentWrapper = styled.div`
+  position: relative;
   display: flex;
 
   svg {
     transform: rotate(195deg);
   }
+  
+  opacity: ${({ animation }: IAnimation) => animation ? '1' : '0'};
+
+  transition: opacity 1s ease-in-out;
+  transition-delay: ${({ delay }: IAnimation) => `${delay}ms`};
+
 `
 
 export const Text = styled.p`
@@ -61,4 +75,12 @@ export const Text = styled.p`
   line-height: 27px;
   letter-spacing: 0.05em;
   text-transform: capitalize;
+`
+
+export const PositionDots = styled.div`
+  position: absolute;
+  top: 29px;
+  left: 38px;
+  
+  transform: rotate(60deg);
 `

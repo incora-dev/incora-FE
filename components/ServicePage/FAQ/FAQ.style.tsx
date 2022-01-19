@@ -1,7 +1,9 @@
 import styled from "styled-components";
+import { theme } from "../../../styles/theme";
 
-interface IVisible {
-  animation: boolean;
+interface IAccordion {
+  isOpen: boolean;
+  lastBlock: boolean;
 }
 
 export const Div = styled.div`
@@ -13,31 +15,28 @@ export const Wrapper = styled.div`
 `;
 
 export const ContentWrapper = styled.div`
-  padding: 15.62vh 0 19.53vh;
+  padding: 15.3vh 0 15.8vh;
   
   display: flex;
   justify-content: space-between;
 `;
 
 export const Text = styled.p`
-  display: none;
-  opacity: 0;
-  
-  font-family: Poppins;
   font-style: normal;
   font-weight: normal;
   font-size: 14px;
   line-height: 30px;
-  /* or 214% */
 
   letter-spacing: 0.1em;
+
+  color: ${({ isOpen }: IAccordion) => isOpen ? theme.colors.white : theme.colors.black};
+  transition: all 0.3s linear;
 `;
 
 export const Title = styled.p`
   max-width: 580px;
   width: 42.46vw;
 
-  font-family: Poppins;
   font-style: normal;
   font-weight: 800;
   font-size: 18px;
@@ -58,52 +57,40 @@ export const MinusIconVisible = styled.div`
   }
 `;
 
-export const AccordionWrapper = styled.a`
-  display: block;
+export const AccordionWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  row-gap: 21px;
 
-  padding: 30px 50px;
+  padding: ${({ isOpen }: IAccordion) => isOpen ? '50px' : '30px 50px'};
   max-width: 745px;
   width: 54.75vw;
-
-  &:hover {
-    padding: 50px;
-
-    display: flex;
-    flex-direction: column;
-    row-gap: 25px;
-
-    background-color: black;
-    color: white;
-  }
-
-  &:hover ${Text} {
-    display: block;
-    opacity: 1;
-  }
-
-  &:hover ${Title} {
-    color: white;
-  }
-
-  transition: all 0.3s linear;
+  
+  color: ${({ isOpen }: IAccordion) => isOpen ? theme.colors.white : theme.colors.black};
+  background-color: ${({ isOpen }: IAccordion) => isOpen ? theme.colors.black : 'none'};
+  border-bottom: ${({ lastBlock }: IAccordion) => lastBlock ? 'none' : '1px solid #EFEFEF'};
 `;
 
 export const Accordion = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-
-  color: black;
   
 `;
 
 export const TextBlock = styled.div`
+  height: max-content;
   display: flex;
   flex-direction: column;
 `;
 
 export const FAQWrapper = styled.div`
-  background-color: white;
+  display: flex;
+  flex-direction: column;
+  
+  & :last-child {
+    border: none;
+  }
 `;
 
 export const H2 = styled.h2`

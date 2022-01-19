@@ -15,51 +15,65 @@ import {
 import PlusIcon from "../../../public/icons/plusIcon.svg";
 import MinusIcon from "../../../public/icons/minusIcon.svg";
 import { useState } from "react";
+import { theme } from "../../../styles/theme";
 
-const getIcon = (openFAQ: boolean, setOpenFAQ: Function, index: number,  setBlockIndex: Function) => {
-  if (!openFAQ) {
-    return (
-        <PlusIconVisible>
-          <PlusIcon onClick={() => {
-            setOpenFAQ(!openFAQ);
-            setBlockIndex(index);
-          }}/>
-        </PlusIconVisible>
-    )
-  } else {
-    return (
-        <MinusIconVisible>
-          <MinusIcon onClick={() => {
-            setOpenFAQ(!openFAQ);
-            setBlockIndex(index);
-          }}/>
-        </MinusIconVisible>
-    )
-  }
+interface IFAQ {
+  title: string;
+  titles: string[];
 }
 
-const FAQ = () => {
-  const [openFAQ, setOpenFAQ] = useState(false);
-  const [blockIndex, setBlockIndex] = useState(-1);
+const getIcon = (blockIndex: number, index: number) => {
+  return (blockIndex !== index)
+    ? <PlusIconVisible>
+        <PlusIcon/>
+      </PlusIconVisible>
 
+    : <MinusIconVisible>
+        <MinusIcon/>
+      </MinusIconVisible>
+}
+
+const FAQ = ({ title, titles }: IFAQ) => {
+  const [blockIndex, setBlockIndex] = useState(0);
   const p = 'Surely the time frame depends on the complexity of the project. But considering our expertise we might say that it takes up to 2 weeks in average to fulfill the Discovery phase.';
-  const titles = ['How long does it take to undertake the Discovery phase?', 'Which team members should be involved in the Discovery phase?', 'How much will it cost?', 'What are the deliverables of this service?', 'Which tools and methods are used for the process?']
 
   const getTitle = () => {
-    return titles.map((title, index) =>
-      <AccordionWrapper key={index}>
-        <Accordion>
-          <Title>{title}</Title>
-          {getIcon(openFAQ,setOpenFAQ, index, setBlockIndex)}
-        </Accordion>
+    return titles.map((title, index) => {
+      const icon = getIcon(blockIndex, index);
+      const openedFAQ = index === blockIndex;
 
-        { index === blockIndex &&
-          <TextBlock>
-            <Text>{p}</Text>
-          </TextBlock>
+      return (
+            <AccordionWrapper
+              key={title + index}
+              isOpen={openedFAQ}
+              lastBlock={index === titles.length - 1}
+            >
+              <Accordion
+                onClick={() => {
+                  if (blockIndex === index) {
+                    return setBlockIndex(-1);
+                  }
+                  setBlockIndex(index);
+                }}
+              >
+                <Title>{title}</Title>
+                {icon}
+              </Accordion>
+              {index === blockIndex &&
+                <TextBlock
+                  onClick={() => {
+                    if (blockIndex === index) {
+                      return setBlockIndex(-1);
+                    }
+                    setBlockIndex(index);
+                  }}
+                >
+                  <Text isOpen={openedFAQ}>{p}</Text>
+                </TextBlock>
+              }
+            </AccordionWrapper>
+          )
         }
-
-      </AccordionWrapper>
     )
   }
 
@@ -67,7 +81,7 @@ const FAQ = () => {
     <Div>
       <Wrapper>
         <ContentWrapper>
-          <H2>sadsa</H2>
+          <H2>{title}</H2>
           <FAQWrapper>
             {getTitle()}
           </FAQWrapper>

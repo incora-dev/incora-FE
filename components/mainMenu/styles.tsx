@@ -1,4 +1,7 @@
 import styled from "styled-components";
+import { theme } from "../../styles/theme";
+const colorBlack = theme.colors.black;
+const colorWhite = theme.colors.white;
 
 interface IMenu {
   backgroundColor: string;

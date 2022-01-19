@@ -12,7 +12,7 @@ export const Div = styled.div`
 `;
 
 export const Wrapper = styled.div`
-  padding: 87px 0 90px 0;
+  padding: 87px 0 99px 0;
 
   max-width: 1006px;
   margin: 0 auto;
@@ -39,7 +39,7 @@ export const H2 = styled.h2`
   line-height: 96px;
 
   letter-spacing: 0.05em;
-  text-transform: capitalize;
+  //text-transform: capitalize;
 `;
 
 export const Text = styled.p`

@@ -1,6 +1,6 @@
-import {footer, IServicesDataInfoBestSuitedFor, IServicesDataInfoContent, servicesData, titles} from "../../constants";
+import { faq ,footer, IServicesDataInfoBestSuitedFor, IServicesDataInfoContent, servicesData, titles } from "../../constants";
 import MainMenu from "../../components/mainMenu/mainMenu";
-import {theme} from "../../styles/theme";
+import { theme } from "../../styles/theme";
 import HeaderService from "../../components/ServicePage/HeaderService";
 import { IService, IServiceCTX } from "@interfaces";
 import Head from "next/head";
@@ -11,7 +11,7 @@ import Information from "../../components/ServicePage/Information";
 import BestSuitedFor from "../../components/ServicePage/BestSuitedFor";
 import WorkflowSetUp from "../../components/ServicePage/WorkflowSetUp";
 import FAQ from "../../components/ServicePage/FAQ";
-import {useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 
 const colorWhite = theme.colors.white;
 const colorBlack = theme.colors.black;
@@ -19,7 +19,7 @@ const colorBlack = theme.colors.black;
 const Service = ({ title, text, content, bestSuitedFor, workflowSetUp }: IService) => {
   const [menuColor, setMenuColor] = useState('none');
   const handleScroll = () => {
-    window.scrollY >= 50
+    window.scrollY >= 20
       ? setMenuColor(colorBlack)
       : setMenuColor('none')
   }
@@ -43,14 +43,19 @@ const Service = ({ title, text, content, bestSuitedFor, workflowSetUp }: IServic
           titlesColor={colorWhite}
           titles={titles}
         >
-          <HeaderService title={title} text={text}/>
+          <HeaderService
+            title={title}
+            titleSize={'48px'}
+            text={text}
+            textWidth={'657px'}
+          />
           <Information content={content}/>
           <BestSuitedFor title={bestSuitedFor.title} info={bestSuitedFor.info}/>
           <WorkflowSetUp title={workflowSetUp.title} content={workflowSetUp.content}/>
-          <FAQ/>
+          <FAQ title={faq.title} titles={faq.titles}/>
           <LetsTalk
             flexDirection={'column-reverse'}
-            title={'ready to start?'}
+            title={'Ready to Start?'}
             text={'Get everything you need for the project initiation.'}
           />
         </MainMenu>

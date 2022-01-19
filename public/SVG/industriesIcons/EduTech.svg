@@ -1,0 +1,27 @@
+<svg width="361" height="375" viewBox="0 0 361 375" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M36.8131 187.64L108.834 312.384L252.742 312.461L324.629 187.795L252.608 63.0511L108.7 62.9738L36.8131 187.64Z" stroke="black" stroke-width="2" stroke-miterlimit="10"/>
+<path d="M37 187.5H181M181 187.5L252.5 63M181 187.5L252.5 311.5" stroke="black" stroke-width="2"/>
+<circle cx="323.5" cy="186.5" r="23.5" fill="white"/>
+<circle cx="323.5" cy="186.5" r="23.5" fill="white"/>
+<circle cx="323.5" cy="186.5" r="23.5" fill="white"/>
+<circle cx="323.5" cy="186.5" r="23.5" stroke="black" stroke-width="2"/>
+<path d="M183.5 259C223.541 259 256 227.212 256 188C256 148.788 223.541 117 183.5 117C143.459 117 111 148.788 111 188C111 227.212 143.459 259 183.5 259Z" fill="url(#paint0_linear_790_686329)"/>
+<circle cx="38" cy="188" r="14" fill="white"/>
+<circle cx="38" cy="188" r="14" fill="white"/>
+<circle cx="38" cy="188" r="14" fill="white"/>
+<circle cx="38" cy="188" r="14" stroke="black" stroke-width="2"/>
+<circle cx="111" cy="312" r="18" fill="white"/>
+<circle cx="111" cy="312" r="18" fill="white"/>
+<circle cx="111" cy="312" r="18" fill="white"/>
+<circle cx="111" cy="312" r="18" stroke="black" stroke-width="2"/>
+<circle cx="111" cy="63" r="18" fill="white"/>
+<circle cx="111" cy="63" r="18" fill="white"/>
+<circle cx="111" cy="63" r="18" fill="white"/>
+<circle cx="111" cy="63" r="18" stroke="black" stroke-width="2"/>
+<defs>
+<linearGradient id="paint0_linear_790_686329" x1="182.818" y1="136.468" x2="182.818" y2="258.142" gradientUnits="userSpaceOnUse">
+<stop stop-color="#FEC506"/>
+<stop offset="1" stop-color="#FEC506" stop-opacity="0.2"/>
+</linearGradient>
+</defs>
+</svg>

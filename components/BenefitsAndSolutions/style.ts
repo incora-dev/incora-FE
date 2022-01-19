@@ -9,12 +9,18 @@ interface IGrid {
   rowGap: number;
 }
 
+interface IBackground {
+  bgColor: string;
+}
+
 export const BenefitsAndSolutionsWrap = styled.div`
   width: 100%;
   height: 100%;
   display: flex;
   justify-content: center;
   position: relative;
+
+  background-color: ${({ bgColor }: IBackground) => bgColor};
 `;
 
 export const ContentWrap = styled.div`
@@ -42,16 +48,34 @@ export const Grid = styled.div`
 
 export const GridItemWrap = styled.div`
   width: ${({ width }: IGridItemWrap) => `${width}px`};
+  display: flex;
+  flex-direction: column;
+  row-gap: 15px;
 
   svg {
-    margin-bottom: 10px;
+    margin-bottom: 5px;
   }
 
   h3 {
     font-weight: 800;
     font-size: 18px;
+    font-style: normal;
     line-height: 27px;
     letter-spacing: ${themeGet("letterSpacing.span")};
     color: ${themeGet("colors.white")};
+  }
+  
+  p {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 30px;
+    /* or 214% */
+
+    letter-spacing: 0.05em;
+    text-transform: capitalize;
+
+    //color: #BCBCC0;
+    color: ${themeGet("colors.font1")};
   }
 `;

@@ -210,7 +210,7 @@ const footer: IFooter = {
     { icon: LinkedIn, redirectTo: "LinkedIn" },
     { icon: Instagram, redirectTo: "Instagram" },
   ],
-  copyright: "© 2015-2021 Incora LLC",
+  copyright: "© 2015-2022 Incora LLC",
 };
 
 const news = {

@@ -7,8 +7,13 @@ import SoftwareQATesting from "../../../public/SVG/services/SoftwareQA&Testing.s
 import TeamExtension from "../../../public/SVG/services/TeamExtension.svg";
 import UIUXdesign from "../../../public/SVG/services/UI:UXdesign.svg";
 
+import BookingSystems from "../../../public/SVG/industriesIcons/BookingSystems.svg"
+import DeliveryShipping from "../../../public/SVG/industriesIcons/Delivery&Shipping.svg"
+import EduTech from "../../../public/SVG/industriesIcons/EduTech.svg"
+import Healthcare from "../../../public/SVG/industriesIcons/Healthcare.svg"
+import LegalServices from "../../../public/SVG/industriesIcons/LegalServices.svg"
+
 const GetIcon = (title: string) => {
-  console.log(title)
   let icon;
 
   if (title === 'Research & Development') {
@@ -41,6 +46,26 @@ const GetIcon = (title: string) => {
 
   if (title === 'UI/UX Design') {
     icon = <UIUXdesign/>;
+  }
+
+  if (title === 'Booking Systems') {
+    icon = <BookingSystems/>;
+  }
+
+  if (title === 'Delivery Shipping') {
+    icon = <DeliveryShipping/>;
+  }
+
+  if (title === 'EduTech') {
+    icon = <EduTech/>;
+  }
+
+  if (title === 'Healthcare') {
+    icon = <Healthcare/>;
+  }
+
+  if (title === 'Legal Services') {
+    icon = <LegalServices/>;
   }
 
   return icon;

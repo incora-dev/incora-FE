@@ -17,11 +17,11 @@ export const TextBlock = styled.div`
 `;
 
 export const Content = styled.div`
-  width: 523px;
+  min-width: 523px;
   
   display: flex;
   flex-direction: column;
-  row-gap: 60px;
+  row-gap: 63px;
 `;
 
 export const ContentWrapper = styled.div`

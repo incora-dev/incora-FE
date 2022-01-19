@@ -48,6 +48,7 @@ export  const  H2 = styled.h2`
 `;
 
 export  const  H4 = styled.h4`
+  max-width: 361px;
   margin-top: -4px;
 
   font-style: normal;

@@ -227,6 +227,10 @@ export interface IServicesDataInfo {
   workflowSetUp: IWorkflowSetUp;
 }
 
+export interface IFaq {
+
+}
+
 export interface IServicesDataInfoContent {
   title: string;
   text: string;
@@ -243,7 +247,7 @@ export const servicesData: IServicesData = {
     title: 'Why do you need a Discovery phase?',
     content: [
       {
-        title: 'Clear vision ensures targeted focus. Planned context reduces costly and unnecessary mistakes. Accurate estimation conserves expenses.',
+        title: 'Clear vision ensures targeted focus.',
         text: 'Defining your focus in the market is going to influence all subsequent decisions throughout the product life cycle. To succeed, you need to make sure your product idea is going to address your target’s needs, so that you offer them a reliable solution. This would be a core of your vision, so let us discover the market beforehand.'
       },
       {
@@ -262,22 +266,6 @@ export const servicesData: IServicesData = {
     workflowSetUp: {
       title: 'workflow Set-Up',
       content: [
-        {
-          title: 'Idea Examination',
-          text: 'First, we set up a call with all stakeholders in order to define goals, objectives and preferable methods. At this stage we need to clearly identify the vision of the future software in order to deliver efficient results by aligning expectations and deadlines.'
-        },
-        {
-          title: 'Business Analysis',
-          text: 'Together with you, we create ICP (Ideal Customer Persona) by specifying the needs and image of the target audience. Then, we conduct market research, exploring competitors\' offers in parallel. '
-        },
-        {
-          title: 'Project estimation',
-          text: 'Relying on previous examinations, we generate the features necessary to target. By combining them altogether we determine the scope of work. The next thing to do is to estimate the development time needed for each sprint on the backend and frontend. And with this data we calculate the time and cost of the idea.'
-        },
-        {
-          title: 'Technical documentation',
-          text: 'Lastly, all the gathered information goes to the technical documentation, including architecture schemes, DevOps services overview, Agile methodology and technologies’ list. This documentation then serves as a basis for the development start.'
-        },
         {
           title: 'Idea Examination',
           text: 'First, we set up a call with all stakeholders in order to define goals, objectives and preferable methods. At this stage we need to clearly identify the vision of the future software in order to deliver efficient results by aligning expectations and deadlines.'
@@ -596,6 +584,11 @@ export const servicesData: IServicesData = {
           text: 'Lastly, all the gathered information goes to the technical documentation, including architecture schemes, DevOps services overview, Agile methodology and technologies’ list. This documentation then serves as a basis for the development start.'
         },
       ]
-    }
+    },
   },
+}
+
+export const faq = {
+  title: 'faq',
+  titles: ['How long does it take to undertake the Discovery phase?', 'Which team members should be involved in the Discovery phase?', 'How much will it cost?', 'What are the deliverables of this service?', 'Which tools and methods are used for the process?'],
 }

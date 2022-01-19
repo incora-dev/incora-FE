@@ -5,8 +5,10 @@ import {
   Grid,
   GridItemWrap,
 } from "./style";
+import React from "react";
+import {theme} from "../../styles/theme";
 
-interface GridData {
+export interface GridData {
   title: string;
   icon: React.ComponentClass<any>;
   text?: string;
@@ -17,6 +19,7 @@ interface IBenefitsAndSolutions {
   gridData: GridData[];
   gridItemWidth: number;
   rowGap: number;
+  bgColor?: string;
 }
 
 const BenefitsAndSolutions = ({
@@ -24,6 +27,7 @@ const BenefitsAndSolutions = ({
   gridData,
   gridItemWidth,
   rowGap,
+  bgColor = theme.colors.black,
 }: IBenefitsAndSolutions) => {
   const gridItems = gridData.map((item, index) => {
     const { icon, title, text } = item;
@@ -31,7 +35,7 @@ const BenefitsAndSolutions = ({
     const textCondition = text && <p>{text}</p>;
 
     return (
-      <GridItemWrap width={gridItemWidth} key={index * Math.random()}>
+      <GridItemWrap key={index * Math.random()} width={gridItemWidth}>
         <Icon />
         <h3>{title}</h3>
         {textCondition}
@@ -40,7 +44,7 @@ const BenefitsAndSolutions = ({
   });
 
   return (
-    <BenefitsAndSolutionsWrap>
+    <BenefitsAndSolutionsWrap bgColor={bgColor}>
       <HexagonsBackground />
       <ContentWrap>
         <h1>{header}</h1>

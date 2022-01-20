@@ -12,6 +12,23 @@ export const Div = styled.div`
   display: ${({ shouldShowNotice }: IDisplay) => shouldShowNotice ? 'none' : 'block'};
 
   background-color: ${themeGet("colors.white")};
+  
+  a {
+    position: relative;
+    &:after {
+      position: absolute;
+      bottom: 5px;
+      right: -8px;
+
+      z-index: -1;
+
+      content: '';
+      height: 7px;
+      width: 94px;
+      background-color: ${themeGet("colors.yellow")};
+    }
+  }
+  
 `;
 
 export const Wrapper = styled.div`
@@ -31,8 +48,6 @@ export const TextBlock = styled.div`
 `;
 
 export const H3 = styled.h3`
-  position: relative;
-
   font-style: normal;
   font-weight: normal;
   font-size: 16px;
@@ -41,22 +56,9 @@ export const H3 = styled.h3`
   letter-spacing: 0.05em;
 
   color: ${themeGet("colors.black")};
-
-  &:after {
-    position: absolute;
-    bottom: 5px;
-    right: -8px;
-
-    z-index: -1;
-
-    content: '';
-    height: 7px;
-    width: 94px;
-    background-color: ${themeGet("colors.yellow")};
-  }
 `;
 
-export const Button = styled.a`
+export const Button = styled.div`
   padding: 23px 61.5px;
 
   font-style: normal;

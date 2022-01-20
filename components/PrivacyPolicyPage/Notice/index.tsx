@@ -9,10 +9,10 @@ const Notice = () => {
       <Wrapper>
         <TextBlock>
           <H3>This site uses cookies to improve your user experience.
-            <a href={'https://www.google.com/search?q=cookies'}> Read More</a>
+            <a href={'https://www.google.com/search?q=cookies'}>Read More</a>
           </H3>
           <Button onClick={() => setShouldClose(true)}>
-            <p>Accept</p>
+            <a>Accept</a>
           </Button>
         </TextBlock>
       </Wrapper>

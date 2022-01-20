@@ -10,16 +10,16 @@ export const Div = styled.div`
 export const Wrapper = styled.div`
   max-width: 1006px;
   margin: 0 auto;
-  padding: 181px 0 239px;
+  padding: 181px 0 237px;
 `;
 
 export const MainBlock = styled.div`
   position: relative;
-  right: -10px;
+  right: -11px;
   
   display: flex;
   flex-direction: column;
-  row-gap: 66px;
+  row-gap: 68px;
 `;
 
 export const IconBlock = styled.div`
@@ -50,7 +50,7 @@ export const Text = styled.p`
   
   &:after {
     position: absolute;
-    bottom: 5px;
+    bottom: 7px;
     right: -6px;
     
     z-index: -1;

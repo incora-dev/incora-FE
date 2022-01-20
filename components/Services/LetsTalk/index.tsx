@@ -7,14 +7,27 @@ import {
   Block,
   PositionHexagon,
   Container,
-  PositionButtonWithArrow
+  PositionButtonWithArrow,
 } from "./LetsTalk.style";
 import ButtonWithArrow from "../../ButtonWithArrow";
 import Hexagon from "../../../public/SVG/hexagon1.svg";
+import { ReactElement } from "react";
 
-const LetsTalk = ({ flexDirection = 'column', title, text }: any) => {
+interface ILetsTalk {
+  title: string;
+  text: string | ReactElement<string>;
+  isWhite?: boolean;
+  flexDirection?: string;
+}
+
+const LetsTalk = ({
+  flexDirection = "column",
+  title,
+  text,
+  isWhite,
+}: ILetsTalk) => {
   return (
-    <Div >
+    <Div isWhite={isWhite}>
       <Wrapper>
         <Container>
           <Block>
@@ -24,21 +37,20 @@ const LetsTalk = ({ flexDirection = 'column', title, text }: any) => {
             </TextBlock>
           </Block>
 
-          <PositionHexagon>
-            <Hexagon/>
+          <PositionHexagon isWhite={isWhite} >
+            <Hexagon />
           </PositionHexagon>
         </Container>
         <PositionButtonWithArrow>
           <ButtonWithArrow
-            buttonLabel={'Contact us'}
-            redirectTo={'Contact us'}
-            padding={'23px 25.5px'}
+            buttonLabel={"Contact us"}
+            redirectTo={"Contact us"}
+            padding={"23px 25.5px"}
           />
         </PositionButtonWithArrow>
-
       </Wrapper>
     </Div>
-  )
-}
+  );
+};
 
 export default LetsTalk;

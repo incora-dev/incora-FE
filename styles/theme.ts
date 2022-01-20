@@ -12,9 +12,11 @@ export const theme = {
     grey3: "#FBFBFB",
     font1: "#BCBCC0",
     font2: "#454A4D",
+    font3: "#666666",
     background: "#F9F9F9",
     background2: "#222222",
     background3: "#212125",
+    background4: "#FBFBFB",
   },
 
   letterSpacing: {
@@ -24,6 +26,7 @@ export const theme = {
   },
 
   boxShadow: {
+    initial: "inset 0 0 0 0 #e5b100ff",
     hover: "inset 240px 0 0 0 #e5b100ff",
   },
 
@@ -33,5 +36,5 @@ export const theme = {
   elements: {
     hexagonBorderedBlack: "#212121",
     hexagonBorderedGrey: "#FAFAFA",
-  }
+  },
 };

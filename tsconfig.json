@@ -20,7 +20,7 @@
       "@components/*": ["components/index/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/_document.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/_document.js", "apollo.config.js"],
   "exclude": ["node_modules"],
   "files": ["custom.d.ts"]
 }

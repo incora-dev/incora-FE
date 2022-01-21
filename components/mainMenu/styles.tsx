@@ -1,7 +1,4 @@
 import styled from "styled-components";
-import { theme } from "../../styles/theme";
-const colorBlack = theme.colors.black;
-const colorWhite = theme.colors.white;
 
 interface IMenu {
   backgroundColor: string;
@@ -15,7 +12,7 @@ export const Wrapper = styled.div`
   padding: 0 100px;
 
   background-color: ${({ backgroundColor }: IMenu) => backgroundColor};
-  transition: background-color 0.5s ease-in-out;
+  transition: background-color 0.3s ease-in-out;
 `;
 
 export const Block = styled.div`

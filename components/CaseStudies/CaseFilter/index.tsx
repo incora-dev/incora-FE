@@ -16,7 +16,7 @@ import {
   GlobeWrap,
 } from "./style";
 
-const CaseFilter = () => {
+const   CaseFilter = () => {
   const dispatch = useDispatch();
 
   const filterByFlag: boolean = useSelector(filterByFlagSelector);

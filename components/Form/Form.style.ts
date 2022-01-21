@@ -1,7 +1,5 @@
 import themeGet from "@styled-system/theme-get";
 import styled from "styled-components";
-import { theme } from "../../styles/theme";
-const yellow = theme.colors.yellow;
 
 interface IInput {
   formBlack: boolean;
@@ -28,26 +26,6 @@ export const FormContainer = styled.div`
 
   row-gap: 21px;
 `;
-
-// export const SelectBlock = styled.div`
-//   max-width: 400px;
-//   position: relative;
-//
-//   select {
-//     display: none;
-//
-//     &:after {
-//       position: absolute;
-//       content: "";
-//       top: 14px;
-//       right: 10px;
-//       width: 0;
-//       height: 0;
-//       border: 6px solid transparent;
-//       border-color: #fff transparent transparent transparent;
-//     }
-//   }
-// `;
 
 export const FormInputFile = styled.div`
   margin-top: -4px;
@@ -114,7 +92,6 @@ export const Input = styled.input`
 
   text-decoration: none;
   border: none;
-  //border-bottom: 1px solid #9ca3a7;
 
   box-shadow: inset 0 -1px 0 0 #9ca3a7;
   -webkit-transition: ease-in-out 0.4s;
@@ -136,7 +113,7 @@ export const Input = styled.input`
     outline: none;
 
     box-shadow: inset 0 -2px 0 0 #e5b100;
-    //border-bottom: 3px solid #e5b100;
+
     -webkit-transition: ease-in-out 0.4s;
     -moz-transition: ease-in-out 0.4s;
     transition: all ease-in-out 0.4s;

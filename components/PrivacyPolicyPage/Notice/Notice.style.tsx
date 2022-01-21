@@ -7,6 +7,7 @@ interface IDisplay {
 
 export const Div = styled.div`
   position: fixed;
+  z-index: 10;
   bottom: 0;
 
   display: ${({ shouldShowNotice }: IDisplay) => shouldShowNotice ? 'none' : 'block'};

@@ -1,14 +1,21 @@
+import themeGet from "@styled-system/theme-get";
 import styled from "styled-components";
 
 interface ILetsTalk {
   flexDirection: string;
 }
 
+interface IDiv {
+  isWhite?: boolean;
+}
+
 export const Div = styled.div`
-  background-color: #18181A;
+  background-color: ${({ isWhite }: IDiv) =>
+    isWhite ? themeGet("colors.white") : themeGet("colors.black")};
   overflow: hidden;
 
-  color: white;
+  color: ${({ isWhite }: IDiv) =>
+    isWhite ? "black" : themeGet("colors.white")};
 `;
 
 export const Wrapper = styled.div`
@@ -39,7 +46,7 @@ export const H2 = styled.h2`
   line-height: 96px;
 
   letter-spacing: 0.05em;
-  //text-transform: capitalize;
+  text-transform: capitalize;
 `;
 
 export const Text = styled.p`
@@ -53,7 +60,7 @@ export const Text = styled.p`
 
 export const PositionHexagon = styled.div`
   position: absolute;
-  top: -239px;
+  top: ${({ isWhite }: IDiv) => (isWhite ? "70px" : "-239px")};
   right: -47px;
 `;
 

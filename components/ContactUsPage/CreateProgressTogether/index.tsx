@@ -4,17 +4,23 @@ import {
   MainBLock,
   H2,
   PositionHexagon,
-  FormPosition
+  FormPosition,
+  PositionSemiCircle
 } from "./CreateProgressTogether.style";
 import { firstLetterBig } from "../../../utils";
 import Form from "../../Form";
 import Hexagon from "../../../public/hexBig.svg";
+import SemiCircle from "../../../public/blackSemicircle.svg"
 
 interface ICreateProgressTogether {
   title: string;
 }
 
 const formLabels = ['name', 'phone number', 'email', 'linkedIn link', 'Tell us about your goals?', 'What\'s your purpose?'];
+const uploadFilesLabel = () =>
+    <>
+      <span style={{color: '#FEC506'}}>Upload your Project Description</span> or anything that might be valuable for our cooperation
+    </>
 
 const CreateProgressTogether = ({ title }: ICreateProgressTogether) => {
   return (
@@ -27,7 +33,7 @@ const CreateProgressTogether = ({ title }: ICreateProgressTogether) => {
                 fieldsLabels={formLabels}
                 buttonLabel={'send'}
                 isUploadFiles={true}
-                uploadFilesLabel={<><span style={{color: '#FEC506'}}>Upload your Project Description</span> or anything that might be valuable for our cooperation</>}
+                uploadFilesLabel={uploadFilesLabel()}
             />
           </FormPosition>
         </MainBLock>
@@ -39,6 +45,10 @@ const CreateProgressTogether = ({ title }: ICreateProgressTogether) => {
             viewBox="0 0 261 300"
           />
         </PositionHexagon>
+
+        <PositionSemiCircle>
+          <SemiCircle/>
+        </PositionSemiCircle>
       </Wrapper>
     </Div>
   )

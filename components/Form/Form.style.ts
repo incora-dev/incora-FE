@@ -10,6 +10,10 @@ export const Container = styled.div`
   flex-direction: column;
 
   row-gap: 35.5px;
+  
+  a {
+    margin-top: 5px;
+  }
 `;
 
 export const InputBlock = styled.div`
@@ -37,7 +41,7 @@ export const FormInputFile = styled.div`
 
   input {
     padding-top: 5px;
-    height: 63px;
+    height: 56px;
     opacity: 0;
 
     ::file-selector-button {
@@ -55,8 +59,8 @@ export const FormInputFile = styled.div`
 
     transform: translate(-50%, -50%);
     width: 400px;
-    
-    padding: 7px 36px 14px 35px;
+
+    padding: 14px 35px;
 
     font-style: normal;
     font-weight: 600;
@@ -99,7 +103,6 @@ export const Input = styled.input`
   transition: all ease-in-out 0.4s;
 
   &::placeholder {
-    font-family: Poppins;
     font-style: normal;
     font-weight: 500;
     font-size: 12px;

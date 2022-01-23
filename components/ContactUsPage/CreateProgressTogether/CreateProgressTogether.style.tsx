@@ -8,11 +8,25 @@ export const Div = styled.div`
 `;
 
 export const Wrapper = styled.div`
+  position: relative;
+
   max-width: 1006px;
   margin: 0 auto;
-  padding: 43px 0 143px;
-  
-  position: relative;
+  padding: 43px 0 144px;
+`;
+
+export const PositionSemiCircle = styled.div`
+  position: absolute;
+  top: 39px;
+  right: -141px;
+
+  svg {
+    transform: rotate(315deg);
+
+    path {
+      fill: ${themeGet("colors.yellow")};
+    }
+  }
 `;
 
 export const MainBLock = styled.div`
@@ -33,7 +47,7 @@ export const H2 = styled.h2`
 
 export const PositionHexagon = styled.div`
   position: absolute;
-  bottom: -131px;
+  bottom: -135px;
   left: -127px;
 `;
 

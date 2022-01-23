@@ -6,6 +6,10 @@ interface IAccordion {
   lastBlock: boolean;
 }
 
+interface IText {
+  isOpen: boolean;
+}
+
 export const Div = styled.div`
 `;
 
@@ -29,7 +33,7 @@ export const Text = styled.p`
 
   letter-spacing: 0.1em;
 
-  color: ${({ isOpen }: IAccordion) => isOpen ? theme.colors.white : theme.colors.black};
+  color: ${({ isOpen }: IText) => isOpen ? theme.colors.white : theme.colors.black};
   transition: all 0.3s linear;
 `;
 
@@ -43,6 +47,8 @@ export const Title = styled.p`
   line-height: 27px;
 
   letter-spacing: 0.05em;
+  
+  cursor: pointer;
 `;
 
 export const PlusIconVisible = styled.div`

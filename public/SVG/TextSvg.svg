@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="85" height="85" viewBox="0 0 85 85">
+  <defs>
+    <style>
+      .cls-1, .cls-2 {
+        font-size: 10.583px;
+      }
+
+      .cls-2 {
+        fill: #fff;
+        font-family: Poppins;
+      }
+    </style>
+    <path id="text-path" d="Z"/>
+  </defs>
+  <text class="cls-1"><textPath xlink:href="#text-path"><tspan class="cls-2">Estimate ann App   Estimate ann App</tspan></textPath></text>
+</svg>

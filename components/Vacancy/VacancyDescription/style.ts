@@ -14,7 +14,7 @@ export const ContentWrap = styled.div`
 
   h2 {
     font-weight: 800;
-    font-size: 20px;
+    font-size: var(--fs-20);
     text-transform: uppercase;
     line-height: 30px;
     letter-spacing: ${themeGet("letterSpacing.h2")};
@@ -25,7 +25,7 @@ export const ContentWrap = styled.div`
 
   h1 {
     font-weight: 800;
-    font-size: 64px;
+    font-size: var(--fs-64);
     line-height: 83px;
     text-transform: capitalize;
     letter-spacing: 3px;
@@ -44,7 +44,7 @@ export const Description = styled.div`
 
   p {
     padding-left: 0.3px;
-    font-size: 14px;
+    font-size: var(--fs-14);
     line-height: 30px;
     color: ${themeGet("colors.font2")};
     letter-spacing: 1.4px;
@@ -54,7 +54,7 @@ export const Description = styled.div`
   h3 {
     text-transform: uppercase;
     font-weight: 800;
-    font-size: 16px;
+    font-size: var(--fs-16);
     line-height: 24px;
     letter-spacing: ${themeGet("letterSpacing.h2")};
   }
@@ -65,7 +65,7 @@ export const Description = styled.div`
   }
 
   li {
-    font-size: 14px;
+    font-size: var(--fs-14);
     line-height: 30px;
     color: ${themeGet("colors.font2")};
     letter-spacing: 1.4px;

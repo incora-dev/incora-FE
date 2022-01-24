@@ -28,7 +28,7 @@ export const Country = styled.div`
   font-family: Poppins;
   font-style: normal;
   font-weight: 400;
-  font-size: 14px;
+  font-size: var(--fs-14);
   line-height: 28px;
 
   letter-spacing: 0.1em;
@@ -41,7 +41,7 @@ export const Street = styled.div`
   font-family: Poppins;
   font-style: normal;
   font-weight: 600;
-  font-size: 16px;
+  font-size: var(--fs-16);
   line-height: 30px;
 
   letter-spacing: 0.1em;

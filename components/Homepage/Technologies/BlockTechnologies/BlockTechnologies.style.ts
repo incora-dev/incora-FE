@@ -40,7 +40,7 @@ export const Technology = styled.div`
     font-family: Poppins;
     font-style: normal;
     font-weight: bold;
-    font-size: 18px;
+    font-size: var(--fs-18);
     line-height: 27px;
 
     display: flex;

@@ -14,16 +14,16 @@ export const ContentWrap = styled.div`
   width: 1006px;
 
   span {
-    font-size: 18px;
+    font-size: var(--fs-18);
     font-weight: 300;
-    font-size: 18px;
+    font-size: var(--fs-18);
     line-height: 35px;
     letter-spacing: 1px;
   }
 
   h1 {
     font-weight: 800;
-    font-size: 64px;
+    font-size: var(--fs-64);
     line-height: 96px;
     letter-spacing: 3px;
     text-transform: capitalize;
@@ -39,7 +39,7 @@ export const DropAlineWrap = styled.div`
   span {
     display: block;
     font-weight: bold;
-    font-size: 18px;
+    font-size: var(--fs-18);
     line-height: 27px;
     letter-spacing: ${themeGet("letterSpacing.span")};
     position: absolute;

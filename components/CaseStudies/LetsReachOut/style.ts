@@ -17,7 +17,7 @@ export const ContentWrap = styled.div`
 
   > h1 {
     font-weight: 800;
-    font-size: 64px;
+    font-size: var(--fs-64);
     line-height: 90px;
     letter-spacing: 0.05em;
     text-transform: capitalize;
@@ -26,7 +26,7 @@ export const ContentWrap = styled.div`
 
   > span {
     font-weight: 800;
-    font-size: 18px;
+    font-size: var(--fs-18);
     line-height: 27px;
     letter-spacing: 0.05em;
     color: ${themeGet("colors.white")};
@@ -58,7 +58,7 @@ export const UploadBox = styled.div`
 
   > span {
     font-weight: 600;
-    font-size: 14px;
+    font-size: var(--fs-14);
     line-height: 21px;
     text-align: center;
     letter-spacing: 0.05em;

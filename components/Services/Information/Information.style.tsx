@@ -76,7 +76,7 @@ export const H2 = styled.h2`
 
   font-style: normal;
   font-weight: 800;
-  font-size: 36px;
+  font-size: var(--fs-36);
   line-height: 54px;
   letter-spacing: 0.05em;
 
@@ -86,7 +86,7 @@ export const H2 = styled.h2`
 export const H3 = styled.h3`
   font-style: normal;
   font-weight: 800;
-  font-size: 12px;
+  font-size: var(--fs-12);
   line-height: 18px;
 
   letter-spacing: 0.05em;
@@ -98,7 +98,7 @@ export const H3 = styled.h3`
 export const P = styled.p`
   font-style: normal;
   font-weight: normal;
-  font-size: 14px;
+  font-size: var(--fs-14);
   line-height: 30px;
 
   letter-spacing: 0.1em;
@@ -111,7 +111,7 @@ export const Text = styled.p`
   
   font-style: normal;
   font-weight: normal;
-  font-size: 12px;
+  font-size: var(--fs-12);
   line-height: 23px;
 
   letter-spacing: 0.1em;
@@ -124,7 +124,7 @@ export const MenuLabel = styled.button`
   
   font-style: normal;
   font-weight: bold;
-  font-size: 16px;
+  font-size: var(--fs-16);
   line-height: 24px;
   
   text-align: left;

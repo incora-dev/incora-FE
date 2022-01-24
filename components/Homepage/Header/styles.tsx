@@ -32,7 +32,7 @@ export const Titles = styled.div`
 `
 
 export const Title1 = styled.h1`
-  font-size: 120px;
+  font-size: var(--fs-120);
   font-weight: 900;
   line-height: 127px;
   letter-spacing: 0.05em;
@@ -41,7 +41,7 @@ export const Title1 = styled.h1`
 export const Title2 = styled.h1`
   margin-left: 52.5px;
 
-  font-size: 120px;
+  font-size: var(--fs-120);
   font-weight: 900;
   line-height: 127px;
   letter-spacing: 0.05em;
@@ -52,7 +52,7 @@ export const Title3 = styled.h1`
   z-index: 1;
   margin-left: 237.5px;
 
-  font-size: 120px;
+  font-size: var(--fs-120);
   font-weight: 900;
   line-height: 127px;
   letter-spacing: 0.05em;
@@ -64,7 +64,7 @@ export const Title4 = styled.h1`
   left: 5px;
   margin-left: 240px;
 
-  font-size: 120px;
+  font-size: var(--fs-120);
   font-weight: 900;
   line-height: 127px;
   letter-spacing: 0.05em;
@@ -91,7 +91,7 @@ export const ScrollContainer = styled.div`
 `;
 
 export const ScrollText = styled.p`
-  font-size: 12px;
+  font-size: var(--fs-12);
   line-height: 18px;
 
   font-weight: 700;

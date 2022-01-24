@@ -6,7 +6,7 @@ export const Nav = styled.nav`
   font-family: Poppins;
   font-style: normal;
   font-weight: 700;
-  font-size: 14px;
+  font-size: var(--fs-14);
   line-height: 21px;
 
   text-align: center;
@@ -37,7 +37,7 @@ export const UlButton = styled.ul`
 
 export const Li = styled.li`
   font-family: Poppins;
-  font-size: 14px;
+  font-size: var(--fs-14);
   font-weight: 700;
   line-height: 21px;
 `

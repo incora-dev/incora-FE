@@ -64,7 +64,7 @@ export const FormInputFile = styled.div`
 
     font-style: normal;
     font-weight: 600;
-    font-size: 12px;
+    font-size: var(--fs-12);
     line-height: 18px;
     text-align: center;
     letter-spacing: 0.05em;
@@ -86,7 +86,7 @@ export const Input = styled.input`
 
   font-style: normal;
   font-weight: 500;
-  font-size: 12px;
+  font-size: var(--fs-12);
   line-height: 18px;
 
   letter-spacing: 0.03em;
@@ -105,7 +105,7 @@ export const Input = styled.input`
   &::placeholder {
     font-style: normal;
     font-weight: 500;
-    font-size: 12px;
+    font-size: var(--fs-12);
     line-height: 18px;
 
     letter-spacing: 0.03em;
@@ -128,7 +128,7 @@ export const SelectedFile = styled.p`
 
   font-style: normal;
   font-weight: 600;
-  font-size: 12px;
+  font-size: var(--fs-12);
   line-height: 18px;
 
   color: ${themeGet("colors.black")};

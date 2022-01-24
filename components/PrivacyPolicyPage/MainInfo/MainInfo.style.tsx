@@ -8,7 +8,7 @@ export const Div = styled.div`
     margin: 0;
     font-style: normal;
     font-weight: 800;
-    font-size: 16px;
+    font-size: var(--fs-16);
     line-height: 24px;
 
     letter-spacing: 0.05em;
@@ -29,7 +29,7 @@ export const Div = styled.div`
 
     font-style: normal;
     font-weight: normal;
-    font-size: 14px;
+    font-size: var(--fs-14);
     line-height: 30px;
 
     letter-spacing: 0.1em;
@@ -41,7 +41,7 @@ export const Div = styled.div`
     max-width: 653px;
     font-style: normal;
     font-weight: normal;
-    font-size: 14px;
+    font-size: var(--fs-14);
     line-height: 30px;
     
     cursor: pointer;
@@ -55,7 +55,7 @@ export const Div = styled.div`
     max-width: 653px;
 
     font-weight: 600;
-    font-size: 14px;
+    font-size: var(--fs-14);
     line-height: 30px;
 
     letter-spacing: 0.05em;

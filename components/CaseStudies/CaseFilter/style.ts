@@ -25,7 +25,7 @@ export const FilterWrap = styled.div`
 
   h1 {
     font-weight: 800;
-    font-size: 64px;
+    font-size: var(--fs-64);
     line-height: 96px;
     text-transform: capitalize;
     letter-spacing: 3px;
@@ -36,7 +36,7 @@ export const FilterWrap = styled.div`
 
   p {
     width: 560px;
-    font-size: 14px;
+    font-size: var(--fs-14);
     line-height: 30px;
     color: ${({ filterByFlag }: ICaseFilterWrapper) =>
       filterByFlag ? themeGet("colors.font2") : themeGet("colors.font1")};
@@ -53,7 +53,7 @@ export const FilterSwitchWrap = styled.div`
 
   > span {
     font-weight: 800;
-    font-size: 14px;
+    font-size: var(--fs-14);
     line-height: 21px;
     letter-spacing: 0.05em;
     margin-right: 15px;

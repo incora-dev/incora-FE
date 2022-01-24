@@ -56,7 +56,7 @@ export const DragAndDropBox = styled.div`
 
   p {
     width: 167.8px;
-    font-size: 11px;
+    font-size: var(--fs-11);
     line-height: 16px;
     text-align: center;
     color: ${themeGet("colors.font1")};

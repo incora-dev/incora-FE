@@ -39,7 +39,7 @@ export const PolicyLabel = styled.div`
   font-family: Poppins;
   font-style: normal;
   font-weight: 300;
-  font-size: 11px;
+  font-size: var(--fs-11);
   line-height: 18px;
 
   letter-spacing: 0.1em;
@@ -52,7 +52,7 @@ export const Copyright = styled.p`
   font-family: Poppins;
   font-style: normal;
   font-weight: 300;
-  font-size: 11px;
+  font-size: var(--fs-11);
   line-height: 18px;
 
   letter-spacing: 0.1em;
@@ -76,7 +76,7 @@ export const H4 = styled.h4`
   font-family: Poppins;
   font-style: normal;
   font-weight: 600;
-  font-size: 12px;
+  font-size: var(--fs-12);
   line-height: 18px;
 
   letter-spacing: 0.03em;
@@ -91,7 +91,7 @@ export const Address = styled.p`
   font-family: Poppins;
   font-style: normal;
   font-weight: 500;
-  font-size: 13px;
+  font-size: var(--fs-13);
   line-height: 24px;
 
   letter-spacing: 0.06em;
@@ -104,7 +104,7 @@ export const Country = styled.p`
   font-family: Poppins;
   font-style: normal;
   font-weight: 600;
-  font-size: 12px;
+  font-size: var(--fs-12);
   line-height: 24px;
 
   letter-spacing: 0.03em;
@@ -140,7 +140,7 @@ export const Page = styled.p`
   font-family: Poppins;
   font-style: normal;
   font-weight: normal;
-  font-size: 12px;
+  font-size: var(--fs-12);
   line-height: 18px;
 
   letter-spacing: 0.1em;

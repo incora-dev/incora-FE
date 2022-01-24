@@ -30,7 +30,7 @@ export const ContentWrap = styled.div`
 
   h1 {
     font-weight: 800;
-    font-size: 36px;
+    font-size: var(--fs-36);
     line-height: 54px;
     color: ${themeGet("colors.white")};
     letter-spacing: ${themeGet("letterSpacing.h1")};
@@ -58,7 +58,7 @@ export const GridItemWrap = styled.div`
 
   h3 {
     font-weight: 800;
-    font-size: 18px;
+    font-size: var(--fs-18);
     font-style: normal;
     line-height: 27px;
     letter-spacing: ${themeGet("letterSpacing.span")};
@@ -68,7 +68,7 @@ export const GridItemWrap = styled.div`
   p {
     font-style: normal;
     font-weight: 500;
-    font-size: 14px;
+    font-size: var(--fs-14);
     line-height: 30px;
     /* or 214% */
 

@@ -13,7 +13,7 @@ export const Label = styled.p`
   font-family: Poppins;
   font-style: normal;
   font-weight: bold;
-  font-size: 14px;
+  font-size: var(--fs-14);
   line-height: 21px;
   
   text-align: center;

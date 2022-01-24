@@ -29,7 +29,7 @@ export const H2 = styled.h2`
   font-family: Poppins;
   font-style: normal;
   font-weight: 800;
-  font-size: 64px;
+  font-size: var(--fs-64);
   line-height: 96px;
 
   letter-spacing: 0.05em;
@@ -42,7 +42,7 @@ export const H3 = styled.h3`
   font-family: Poppins;
   font-style: normal;
   font-weight: 800;
-  font-size: 36px;
+  font-size: var(--fs-36);
   line-height: 54px;
 
   letter-spacing: 0.05em;
@@ -56,7 +56,7 @@ export const StackText = styled.p`
   font-family: Poppins;
   font-style: normal;
   font-weight: normal;
-  font-size: 14px;
+  font-size: var(--fs-14);
   line-height: 30px;
 
   letter-spacing: 0.1em;
@@ -100,7 +100,7 @@ export const StackTitle = styled.p`
   font-family: Poppins;
   font-style: normal;
   font-weight: 500;
-  font-size: 11px;
+  font-size: var(--fs-11);
   line-height: 16px;
 
   text-align: center;

@@ -22,7 +22,7 @@ export const SwitchWrap = styled.div`
   span {
     z-index: 1;
     font-weight: 500;
-    font-size: 14px;
+    font-size: var(--fs-14);
     line-height: 21px;
     letter-spacing: 0.05em;
     text-transform: capitalize;

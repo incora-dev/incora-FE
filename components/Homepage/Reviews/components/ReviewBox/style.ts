@@ -70,7 +70,7 @@ export const QuoteText = styled.p`
   font-family: Poppins;
   font-style: normal;
   font-weight: normal;
-  font-size: 14px;
+  font-size: var(--fs-14);
   line-height: 30px;
   color: ${themeGet("colors.font1")};
 `;
@@ -90,7 +90,7 @@ export const Photo = styled(Image)`
 export const NameWrap = styled.div`
   padding-top: 10px;
   color: ${themeGet("colors.white")};
-  font-size: 13px;
+  font-size: var(--fs-13);
   letter-spacing: 1px;
 
   h3 {

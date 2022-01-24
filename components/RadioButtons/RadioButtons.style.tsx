@@ -58,7 +58,7 @@ export const RadioButton = styled.div`
 
     font-style: normal;
     font-weight: ${({ fontWeight }: IButtons) => fontWeight};
-    font-size: 16px;
+    font-size: var(--fs-16);
     line-height: 24px;
 
     letter-spacing: 0.05em;

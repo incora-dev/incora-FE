@@ -32,7 +32,7 @@ export const Text = styled.div`
     font-family: Poppins;
     font-style: normal;
     font-weight: 800;
-    font-size: 64px;
+    font-size: var(--fs-64);
     line-height: 96px;
 
     letter-spacing: 0.05em;
@@ -49,7 +49,7 @@ export const Text = styled.div`
     font-family: Poppins;
     font-style: normal;
     font-weight: normal;
-    font-size: 14px;
+    font-size: var(--fs-14);
     line-height: 30px;
 
     letter-spacing: 0.1em;

@@ -51,7 +51,7 @@ export const Number = styled.div`
   font-family: Poppins;
   font-style: normal;
   font-weight: 800;
-  font-size: 150px;
+  font-size: var(--fs-150);
   line-height: 225px;
 
   letter-spacing: 0.05em;

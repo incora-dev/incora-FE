@@ -12,6 +12,10 @@ import { theme } from "../../styles/theme";
 import Instagram from "../../public/SVG/socialNetwork/instagram.svg";
 import Facebook from "../../public/SVG/socialNetwork/facebook.svg";
 import LinkedIn from "../../public/SVG/socialNetwork/linkedIn.svg";
+import { useQuery } from "@apollo/client";
+import { GET_CAREERS_PAGE } from "../../graphql/careers/queries";
+import { GetCareersPage } from "../../graphql/careers/__generated__/GetCareersPage";
+import Custom404 from "../404";
 
 const titles = [
   "Services",
@@ -46,25 +50,36 @@ const footer: IFooter = {
 };
 
 const Career = () => {
+  const { data, loading, error } = useQuery<GetCareersPage>(GET_CAREERS_PAGE);
+  const entry = data?.careersPage?.data?.attributes;
+
+  const errorCondition = error && <Custom404 />;
+
   return (
-    <MainMenu
-      titlesColor={theme.colors.white}
-      titles={titles}
-      backgroundColor={theme.colors.black}
-    >
-      <Invitation />
-      <Vacancies title={"We are looking for"} />
-      <OurBenefits />
-      <OurPhotos />
-      <LetsAcquainted />
-      <FooterComponent
-        policies={footer.policies}
-        offices={footer.offices}
-        pages={footer.pages}
-        followUs={footer.followUs}
-        copyright={footer.copyright}
-      />
-    </MainMenu>
+    <>
+      {!loading && entry && !error && (
+        <MainMenu
+          titlesColor={theme.colors.white}
+          titles={titles}
+          backgroundColor={theme.colors.black}
+        >
+          <Invitation banner={entry.banner} process={entry.process} />
+          <Vacancies currentVacancies={entry.currentVacancies} />
+          <OurBenefits />
+          <OurPhotos />
+          <LetsAcquainted />
+          <FooterComponent
+            policies={footer.policies}
+            offices={footer.offices}
+            pages={footer.pages}
+            followUs={footer.followUs}
+            copyright={footer.copyright}
+          />
+        </MainMenu>
+      )}
+
+      {error && errorCondition}
+    </>
   );
 };
 

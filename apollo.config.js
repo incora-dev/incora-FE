@@ -5,6 +5,7 @@ module.exports = {
     includes: [
       "./graphql/companyAbout/queries.ts",
       "./graphql/homepage/queries.ts",
+      "./graphql/careers/queries.ts"
     ],
     tagName: "gql",
     addTypename: true,

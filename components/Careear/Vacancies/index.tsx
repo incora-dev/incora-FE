@@ -10,9 +10,9 @@ import {
 } from "./style";
 
 import SmallStar from "../../../public/SmallStar.svg";
-import ButtonWithArrow from "../../ButtonWithArrow";
 import { theme } from "../../../styles/theme";
 import Button from "../../Button";
+import { GetCareersPage_careersPage_data_attributes_currentVacancies } from "../../../graphql/careers/__generated__/GetCareersPage";
 
 const vacancies = [
   {
@@ -48,10 +48,13 @@ const options = [
 ];
 
 interface IVacancies {
-  title: string;
+  currentVacancies: GetCareersPage_careersPage_data_attributes_currentVacancies;
 }
 
-const Vacancies = ({ title }: IVacancies) => {
+const Vacancies = ({ currentVacancies }: IVacancies) => {
+  const { intro, filterText1, filterText2, header, text, buttonText } =
+    currentVacancies;
+
   const vacanciesCards = vacancies.map((vacancy, index) => (
     <VacancyCard
       key={index * Math.random()}
@@ -65,34 +68,31 @@ const Vacancies = ({ title }: IVacancies) => {
   return (
     <VacanciesWrapper>
       <ContentWrapper>
-        <h1>{title}</h1>
+        <h1>{intro}</h1>
 
         <ListWrap>
           <Filter>
             <Selector
-              placeholder="Specialty"
+              placeholder={filterText1}
               options={options}
               icon={SmallStar}
             />
             <Selector
-              placeholder="Technology"
+              placeholder={filterText2}
               options={options}
               icon={SmallStar}
             />
 
             <QuickApplyWrap>
-              <h2>Quick apply</h2>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio,
-                natus illum alias atque enim ullam.
-              </p>
+              <h2>{header}</h2>
+              <p>{text}</p>
 
               <Button
                 textColor={theme.colors.white}
                 backgroundColor={theme.colors.black}
                 width={180}
                 height={67}
-                label={"Apply now"}
+                label={buttonText}
                 link={""}
                 arrow={theme.colors.white}
               />

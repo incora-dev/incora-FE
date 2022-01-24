@@ -13,8 +13,8 @@ interface IMemberCard {
   photo: string;
   name: string;
   position: string;
-  facebook: string;
-  instagram: string;
+  facebook: string | null;
+  linkedin: string | null;
 }
 
 const MemberCard = ({
@@ -22,11 +22,17 @@ const MemberCard = ({
   name,
   position,
   facebook,
-  instagram,
+  linkedin,
 }: IMemberCard) => {
   return (
     <MemberCardWrapper>
-      <Image src={photo} width={236} height={236} alt="member photo" />
+      <Image
+        loader={() => photo}
+        src={photo}
+        width={236}
+        height={236}
+        alt="member photo"
+      />
 
       <MemberInfoWrap>
         <Name>

@@ -5,9 +5,10 @@ import { theme } from "../styles/theme";
 import { Provider } from "react-redux";
 import store from "../services/store";
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
+import { GRAPH_QL_LINK } from "../constants";
 
 const client = new ApolloClient({
-  uri: "https://incora-be.herokuapp.com/graphql",
+  uri: GRAPH_QL_LINK,
   cache: new InMemoryCache(),
 });
 

@@ -18,6 +18,9 @@ import Angular from "../../public/SVG/technologies/angular.svg";
 import image1 from "../../public/newsBlock/newImg1.jpg";
 import image2 from "../../public/newsBlock/newImg2.jpg";
 import image3 from "../../public/newsBlock/newImg3.jpg";
+import { useQuery } from "@apollo/client";
+import { GetContactUs } from "../../graphql/companyAbout/__generated__/GetContactUs";
+import { GET_CONTACT_US } from "../../graphql/companyAbout/queries";
 
 const titles = [
   "Services",
@@ -88,8 +91,13 @@ const news = {
 };
 
 const CompanyAbout = () => {
-  const { title, text, formLabels, addresses, buttonLabel } = contactUs;
+  const { text, formLabels, addresses, buttonLabel } = contactUs;
   const { policies, offices, pages, followUs, copyright } = footer;
+
+  const { data } = useQuery<GetContactUs>(GET_CONTACT_US);
+  const entry = data?.aboutPage?.data?.attributes?.contactUs;
+  const title = entry?.title || "";
+  const subtitle = entry?.subtitle || "";
 
   return (
     <MainMenu
@@ -102,7 +110,7 @@ const CompanyAbout = () => {
       <NewsComponent title={"recent events"} articles={news.articles} />
       <ContactUsComponent
         title={title}
-        text={text}
+        text={subtitle}
         formLabels={formLabels}
         addresses={addresses}
         buttonLabel={buttonLabel}

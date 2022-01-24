@@ -12,4 +12,7 @@ module.exports = {
 
     return config;
   },
+  images: {
+    domains: ["https://incora-be.herokuapp.com"],
+  },
 };

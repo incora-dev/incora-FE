@@ -7,39 +7,42 @@ import {
 } from "./style";
 import { useQuery } from "@apollo/client";
 
-import teamPhoto1 from "../../../public/teamPhoto1.jpg";
-import teamPhoto2 from "../../../public/teamPhoto2.jpg";
-import teamPhoto3 from "../../../public/teamPhoto3.jpg";
-import teamPhoto4 from "../../../public/teamPhoto4.jpg";
 import Image from "next/image";
 import { GET_OUR_TRADITIONS } from "../../../graphql/companyAbout/queries";
 import { GetOurTraditions } from "../../../graphql/companyAbout/__generated__/GetOurTraditions";
-
-const teamPhotos = [
-  teamPhoto1,
-  teamPhoto2,
-  teamPhoto3,
-  teamPhoto4,
-  teamPhoto1,
-  teamPhoto2,
-  teamPhoto3,
-  teamPhoto4,
-];
+import { IMAGES_LINK } from "../../../constants";
 
 const OurTraditions = () => {
   const { data, loading } = useQuery<GetOurTraditions>(GET_OUR_TRADITIONS);
-  const title = data?.aboutPage?.data?.attributes?.ourTraditions.title;
-  const text = data?.aboutPage?.data?.attributes?.ourTraditions.text;
+  const entry = data?.aboutPage?.data?.attributes?.ourTraditions;
+  const title = entry?.title;
+  const text = entry?.text;
+  const gallery = entry?.gallery.data;
 
-  const photos = teamPhotos.map((photo, index) => (
-    <Image
-      src={photo.src}
-      width={327}
-      height={220}
-      key={index * Math.random()}
-      alt="team photo"
-    />
-  ));
+  let textArray: string[] = [];
+
+  const photos =
+    gallery &&
+    gallery.map((photo, index) => {
+      const src = IMAGES_LINK + photo.attributes?.url || "";
+      return (
+        <Image
+          loader={() => src}
+          src={src}
+          width={327}
+          height={220}
+          key={index * Math.random()}
+          alt="team photo"
+        />
+      );
+    });
+
+  if (text) {
+    const sectionLength = Math.ceil(text.length / 2);
+    for (let index = 0; index < text.length; index += sectionLength) {
+      textArray.push(text.slice(index, index + sectionLength));
+    }
+  }
 
   return (
     <>
@@ -49,26 +52,8 @@ const OurTraditions = () => {
             <TextWrap>
               <h1>{title}</h1>
               <Paragraphs>
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Incidunt laboriosam sapiente eveniet nemo dicta earum in quam,
-                  quod optio fugit officiis ex, doloremque vel repellendus at
-                  cumque modi, odio magni. Facilis, iste natus officia cumque
-                  repellat dignissimos culpa maiores officiis odio
-                  necessitatibus laborum incidunt nam totam. Autem, cupiditate
-                  perferendis cumque quisquam molestias natus illo
-                  exercitationem, aperiam, voluptatem ipsa voluptate sit
-                </p>
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Molestias cupiditate perspiciatis totam soluta nesciunt
-                  expedita eligendi omnis inventore harum vel laboriosam et,
-                  excepturi reprehenderit sapiente officia veniam, sed
-                  perferendis culpa aspernatur ad pariatur ipsa tenetur. Aliquid
-                  ab quis vero nostrum consectetur adipisci necessitatibus
-                  eveniet possimus culpa, est ad ullam quaerat beatae, quam
-                  doloribus totam. Cum aliquid exercitationem
-                </p>
+                <p>{textArray[0]}</p>
+                <p>{textArray[1]}</p>
               </Paragraphs>
             </TextWrap>
           </OurTraditionsTextWrap>

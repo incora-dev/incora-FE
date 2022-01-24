@@ -60,7 +60,7 @@ export const FormInputFile = styled.div`
     transform: translate(-50%, -50%);
     width: 400px;
 
-    padding: 14px 35px;
+    padding: 0 35px;
 
     font-style: normal;
     font-weight: 600;
@@ -121,4 +121,19 @@ export const Input = styled.input`
     -moz-transition: ease-in-out 0.4s;
     transition: all ease-in-out 0.4s;
   }
+`;
+
+export const SelectedFile = styled.p`
+  text-align: left;
+
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 18px;
+
+  color: ${themeGet("colors.black")};
+`;
+
+export const FilesSelected = styled.div`
+  margin-top: 35.5px;
 `;

@@ -5,7 +5,8 @@ import {
   InputBlock,
   Input,
   FormInputFile,
-  // SelectBlock
+  SelectedFile,
+  FilesSelected
 } from "./Form.style";
 import ButtonWithArrow from "../ButtonWithArrow";
 import { ReactElement, useState } from "react";
@@ -54,27 +55,41 @@ function createFormFields(fields: string[], formBlack = false) {
   );
 }
 
-function CreateUploadFilesInput(LabelComponent: ReactElement, formBlack = false) {
-  const [labelText, setLabelText]  = useState(LabelComponent)
+function CreateUploadFilesInput(filesLabel: ReactElement, formBlack = false) {
+  const [uploadFilesName, setUploadFilesName]  = useState([]);
 
   const handleOnchange = ({ target }: any) => {
+    console.log(target.files)
+
     if (target.files) {
-      setLabelText(target.files[0].name);
+      const filesName = () =>
+        Object.values(target.files).map(({ name }: any, index) =>
+          <SelectedFile key={index}>
+            {index + 1}. {name}
+          </SelectedFile>
+        )
+
+      setUploadFilesName(filesName);
     }
 
-    target.value = null;
+    // target.value = null;
   };
 
   return (
-    <FormInputFile>
-      <Input
-        formBlack={formBlack}
-        type={'file'}
-        id={'inputUploadFiles'}
-        onChange={handleOnchange}
-      />
-      <label htmlFor={'inputUploadFiles'}>{labelText}</label>
-    </FormInputFile>
+    <div>
+      <FormInputFile>
+        <Input
+          formBlack={formBlack}
+          type={'file'}
+          id={'inputUploadFiles'}
+          multiple={true}
+          onChange={handleOnchange}
+        />
+        <label htmlFor={'inputUploadFiles'}>{filesLabel}</label>
+      </FormInputFile>
+
+      <FilesSelected>{uploadFilesName}</FilesSelected>
+    </div>
   )
 }
 

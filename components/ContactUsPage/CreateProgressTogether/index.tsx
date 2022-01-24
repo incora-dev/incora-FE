@@ -23,17 +23,19 @@ const uploadFilesLabel = () =>
     </>
 
 const CreateProgressTogether = ({ title }: ICreateProgressTogether) => {
+  const titleFirstLetterBig = firstLetterBig(title);
+
   return (
     <Div>
       <Wrapper>
         <MainBLock>
-          <H2>{firstLetterBig(title)}</H2>
+          <H2>{titleFirstLetterBig}</H2>
           <FormPosition>
             <Form
-                fieldsLabels={formLabels}
-                buttonLabel={'send'}
-                isUploadFiles={true}
-                uploadFilesLabel={uploadFilesLabel()}
+              fieldsLabels={formLabels}
+              buttonLabel={'send'}
+              isUploadFiles={true}
+              uploadFilesLabel={uploadFilesLabel()}
             />
           </FormPosition>
         </MainBLock>

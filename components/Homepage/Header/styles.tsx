@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { theme } from "../../../styles/theme";
 
 export const Cover = styled.header`
   background-color: #18181A;
@@ -12,6 +13,11 @@ export const Container = styled.div`
   margin: 0 auto;
 
   text-align: left;
+
+  --line-height: 127px;
+  @media (max-width: ${theme.breakpoints.mobile}) {
+    --line-height: 80px;
+  }
 `
 
 export const Div = styled.div`
@@ -29,12 +35,16 @@ export const VideoContainer = styled.video`
 export const Titles = styled.div`
   padding-top: 11vh;
   margin-left: -47px;
+  @media (max-width: ${theme.breakpoints.mobile}) {
+    margin-left: -80px;
+    padding-top: 3vh;
+  }
 `
 
 export const Title1 = styled.h1`
   font-size: var(--fs-120);
   font-weight: 900;
-  line-height: 127px;
+  line-height: var(--line-height);
   letter-spacing: 0.05em;
 `
 
@@ -43,7 +53,7 @@ export const Title2 = styled.h1`
 
   font-size: var(--fs-120);
   font-weight: 900;
-  line-height: 127px;
+  line-height: var(--line-height);
   letter-spacing: 0.05em;
 `
 
@@ -54,8 +64,12 @@ export const Title3 = styled.h1`
 
   font-size: var(--fs-120);
   font-weight: 900;
-  line-height: 127px;
+  line-height: var(--line-height);
   letter-spacing: 0.05em;
+
+  @media (max-width: ${theme.breakpoints.mobile}) {
+    margin-left: 105.5px;
+  }
 `
 
 export const Title4 = styled.h1`
@@ -66,11 +80,15 @@ export const Title4 = styled.h1`
 
   font-size: var(--fs-120);
   font-weight: 900;
-  line-height: 127px;
+  line-height: var(--line-height);
   letter-spacing: 0.05em;
 
   -webkit-text-stroke: 1px #fec506;
   color: rgba(0,0,0,0);
+
+  @media (max-width: ${theme.breakpoints.mobile}) {
+    margin-left: 108px;
+  }
 `
 
 export const TitleContainer = styled.div`

@@ -39,7 +39,7 @@ const Service = ({ title, text, content, bestSuitedFor, workflowSetUp }: IServic
     window.addEventListener('scroll', handleScroll)
 
     return () => window.removeEventListener('scroll', handleScroll);
-  })
+  }, [])
 
   return (
     <>

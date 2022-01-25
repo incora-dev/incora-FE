@@ -15,33 +15,6 @@ interface IPrivacyPolicy {
 
 const title = 'privacy policy';
 const text = 'Incora values the confidentiality of your information that is why our privacy policy is oriented at the client’s data safety. We protect the information provided through this website according to the following stances of Incora privacy policy.'
-const privacyText = [
-  { title: 'What data is collected during the client visit?', text: 'While browsing our site – www.incorainc.com, we may collect three types of data:\n' +
-        'Aggregate consumer data – number of visits per web page or per week.\n' +
-        'Customer data directly provided by the very client (contact information and name) in the fill-in forms and filled out forms in e-mail messages.\n' +
-        'The web pages that you open while navigating the site.'
-  },
-  { title: 'Incora cares about the customer’s information', text: 'All information that you indicate at the site is provided directly to the Incora exclusively with no third parties.'},
-  { title: 'Cookies', text: 'Like any other website, we use ‘cookies’. Cookies are used to store information about visitors’ preferences, and the pages on the website that the visitor accessed. Collected information is used to optimize the users’ experience by customizing our web page content based on visitors’ browser type and/or other information.\n' +
-        '\n' +
-        'For more general information on cookies, please read What Are Cookies.'},
-  { title: 'What do we do with your information?', text: 'Incora does not share any information provided by the client with the third parties. This is how Incora uses your information:\n' +
-        '\n' +
-        'We use the information that you provide directly to respond to your requests.\n' +
-        '\n' +
-        'All information that we take from the e-mail communication, along with the clicks from the hyperlinks and subscriptions, is used to reconstruct the further communication to your preferences.\n' +
-        '\n' +
-        'Such data as the one collected from the website visits per week and per month is used by our developers to refine the user experience.'},
-  { title: 'What do we do with your information?', text: 'Incora does not share any information provided by the client with the third parties. This is how Incora uses your information:\n' +
-        '\n' +
-        'We use the information that you provide directly to respond to your requests.\n' +
-        '\n' +
-        'All information that we take from the e-mail communication, along with the clicks from the hyperlinks and subscriptions, is used to reconstruct the further communication to your preferences.\n' +
-        '\n' +
-        'Such data as the one collected from the website visits per week and per month is used by our developers to refine the user experience.'},
-  { title: 'External links on Incora website', text: 'Our site contains the links to the external websites that belong to the third parties and do not fall under the Incora governance. Any information you provide to the external link websites would fall under their own principles of the privacy policy. Incora does not claim any responsibility for the procedures related to the data handling on the independent sites.'},
-  { title: 'Privacy policy revisions', text: 'The changes turn effective as soon as they are posted on this page. Using the Incora website, you indicate that you accept and understand the terms and conditions of the Incora privacy policy posted at the time of use.'},
-]
 
 const PrivacyPolicyText = () => {
   return (

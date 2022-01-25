@@ -1,13 +1,3 @@
-export interface IEmbodiedIdeas {
-  title?: string;
-  bgColor: string;
-  projects: IProject[];
-  elementsColor: string;
-  height?: number;
-  disablePadding?: boolean;
-  disableSeeMore?: boolean;
-}
-
 export interface IProjects {
   projects: IProject[];
   elementsColor: string;

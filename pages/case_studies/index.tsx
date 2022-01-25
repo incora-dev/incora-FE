@@ -1,19 +1,19 @@
-import { useSelector } from "react-redux";
 import CaseFilter from "../../components/CaseStudies/CaseFilter";
-import { filterByFlagSelector } from "../../components/CaseStudies/selectors";
 import FooterComponent from "../../components/Footer";
 import EmbodiedIdeasComponent from "../../components/Homepage/EmbodiedIdeas";
-import ServicesComponent from "../../components/Homepage/services";
 import MainMenu from "../../components/mainMenu/mainMenu";
 import { IFooter } from "../../interfaces/footer.interface";
-import { AppState } from "../../services/store";
 import { theme } from "../../styles/theme";
 
 import Instagram from "../../public/SVG/socialNetwork/instagram.svg";
 import Facebook from "../../public/SVG/socialNetwork/facebook.svg";
 import LinkedIn from "../../public/SVG/socialNetwork/linkedIn.svg";
-import { LetsReactOutWrapper } from "../../components/CaseStudies/LetsReachOut/style";
 import LetsReachOut from "../../components/CaseStudies/LetsReachOut";
+import { useQuery } from "@apollo/client";
+import { GetCaseStudies } from "../../graphql/caseStudies/__generated__/GetCaseStudies";
+import { GET_CASE_STUDIES } from "../../graphql/caseStudies/queries";
+import Custom404 from "../404";
+import { useState } from "react";
 
 const titles = [
   "Services",
@@ -23,63 +23,6 @@ const titles = [
   "Insights",
   "Contact Us",
 ];
-
-const EmbodiedIdeas = {
-  title: "Embodied Ideas",
-  bgColor: theme.colors.white,
-  projects: [
-    {
-      title: "DeepDao",
-      text: "Bookety is an online booking system for travelers, which provides access to thousands of tours in more than 2,000 destinations worldwide.",
-      technologies: [
-        "Node.JS",
-        "Express",
-        "PostgreSQL",
-        "Web3",
-        "React",
-        "Saga",
-        "Redux",
-        "MaterialUI",
-        "AWS",
-      ],
-      img: "./project1.jpg",
-    },
-    {
-      title: "Burgerizzer",
-      text: "Bookety is an online booking system for travelers, which provides access to thousands of tours in more than 2,000 destinations worldwide.",
-      technologies: [
-        "JavaScript",
-        "ReactJS",
-        "React Native",
-        "NodeJS",
-        "Google API",
-        "Foodics API",
-        "Tookan API",
-        "Unifonic API",
-        "Payfort API",
-        "AWS",
-        "PostgreSQL",
-      ],
-      img: "./project2.jpg",
-    },
-    {
-      title: "HealthApp",
-      text: "It is an application for making quick and convenient doctor appointments and conducting online consultations.",
-      technologies: [
-        "Node.JS",
-        "Express",
-        "PostgreSQL",
-        "Web3",
-        "React",
-        "Saga",
-        "Redux",
-        "MaterialUI",
-        "AWS",
-      ],
-      img: "./project3.jpg",
-    },
-  ],
-};
 
 const footer: IFooter = {
   policies: ["privacy policy", "Cookies Policy"],
@@ -97,36 +40,52 @@ const footer: IFooter = {
 };
 
 const CaseStudies = () => {
-  const filterByFlag: boolean = useSelector(filterByFlagSelector);
-  const { black, white } = theme.colors;
+  const { data, loading, error } = useQuery<GetCaseStudies>(GET_CASE_STUDIES);
+  const entry = data?.caseStudiesPage?.data?.attributes;
+  const projectsEntry = entry?.projects;
 
+  const [filterByFlag, setFilterByFlag] = useState(false);
+  const { black, white } = theme.colors;
   const menuBackgroundCondition = filterByFlag ? black : white;
   const titlesColorCondition = filterByFlag ? white : black;
 
+  const errorCondition = error && <Custom404 />;
+
   return (
-    <MainMenu
-      backgroundColor={menuBackgroundCondition}
-      titlesColor={titlesColorCondition}
-      titles={titles}
-    >
-      <CaseFilter />
-      <EmbodiedIdeasComponent
-        bgColor={EmbodiedIdeas.bgColor}
-        projects={EmbodiedIdeas.projects}
-        elementsColor={theme.colors.yellow}
-        height={2144}
-        disablePadding
-        disableSeeMore
-      />
-      <LetsReachOut />
-      <FooterComponent
-        policies={footer.policies}
-        offices={footer.offices}
-        pages={footer.pages}
-        followUs={footer.followUs}
-        copyright={footer.copyright}
-      />
-    </MainMenu>
+    <>
+      {!loading && !error && entry && projectsEntry && (
+        <MainMenu
+          backgroundColor={menuBackgroundCondition}
+          titlesColor={titlesColorCondition}
+          titles={titles}
+        >
+          <CaseFilter
+            filterByFlag={filterByFlag}
+            setFilterByFlag={setFilterByFlag}
+            title={entry.title}
+            description={entry.description}
+          />
+          <EmbodiedIdeasComponent
+            bgColor={white}
+            projects={projectsEntry}
+            elementsColor={theme.colors.yellow}
+            height={2144}
+            disablePadding
+            disableSeeMore
+          />
+          <LetsReachOut contactUs={entry.contactUs} />
+          <FooterComponent
+            policies={footer.policies}
+            offices={footer.offices}
+            pages={footer.pages}
+            followUs={footer.followUs}
+            copyright={footer.copyright}
+          />
+        </MainMenu>
+      )}
+
+      {errorCondition}
+    </>
   );
 };
 

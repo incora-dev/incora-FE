@@ -8,6 +8,7 @@ import {
 
 import FacebookIcon from "../../../../../../../public/SVG/socialNetwork/facebookWhite.svg";
 import LinkedInIcon from "../../../../../../../public/SVG/socialNetwork/linkedInWhite.svg";
+import Link from "next/link";
 
 interface IMemberCard {
   photo: string;
@@ -41,8 +42,17 @@ const MemberCard = ({
         </Name>
 
         <SocialLinks>
-          <FacebookIcon />
-          <LinkedInIcon />
+          {facebook && (
+            <Link href={facebook} passHref>
+              <FacebookIcon />
+            </Link>
+          )}
+
+          {linkedin && (
+            <Link href={linkedin} passHref>
+              <LinkedInIcon />
+            </Link>
+          )}
         </SocialLinks>
       </MemberInfoWrap>
     </MemberCardWrapper>

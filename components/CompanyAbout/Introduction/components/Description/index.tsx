@@ -1,29 +1,23 @@
 import { DescriptionWrapper, Paragraphs, HeaderText, TextWrap } from "./style";
-import { useQuery } from "@apollo/client";
-import { GET_DESCRIPTION } from "../../../../../graphql/companyAbout/queries";
-import { GetDescription } from "../../../../../graphql/companyAbout/__generated__/GetDescription";
 
-const Description = () => {
-  const { data, loading } = useQuery<GetDescription>(GET_DESCRIPTION);
-  const description = data?.aboutPage?.data?.attributes?.mainInfo.description;
-  const text = data?.aboutPage?.data?.attributes?.mainInfo.text;
+interface IDescription {
+  description: string;
+  text: string;
+}
 
+const Description = ({ description, text }: IDescription) => {
   return (
-    <>
-      {!loading && (
-        <DescriptionWrapper>
-          <TextWrap>
-            <HeaderText>
-              <h1>{description}</h1>
-            </HeaderText>
+    <DescriptionWrapper>
+      <TextWrap>
+        <HeaderText>
+          <h1>{description}</h1>
+        </HeaderText>
 
-            <Paragraphs>
-              <p>{text}</p>
-            </Paragraphs>
-          </TextWrap>
-        </DescriptionWrapper>
-      )}
-    </>
+        <Paragraphs>
+          <p>{text}</p>
+        </Paragraphs>
+      </TextWrap>
+    </DescriptionWrapper>
   );
 };
 

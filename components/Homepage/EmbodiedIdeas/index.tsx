@@ -10,13 +10,23 @@ import {
   LoadingPosition,
   DotsPosition,
 } from "./EmbodiedIdeas.style";
-import { IEmbodiedIdeas } from "@interfaces";
 import Projects from "./Projects";
 import ButtonWithArrow from "../../ButtonWithArrow";
 import HexagonFilled from "../../../public/hexagonFilled.svg";
 import Loading from "../../../public/loading1.svg";
 import Dots from "../Cooperate/elements/dots/dots";
 import { useState } from "react";
+import { GetCaseStudies_caseStudiesPage_data_attributes_projects } from "../../../graphql/caseStudies/__generated__/GetCaseStudies";
+
+interface IEmbodiedIdeas {
+  title?: string;
+  bgColor: string;
+  projects: GetCaseStudies_caseStudiesPage_data_attributes_projects;
+  elementsColor: string;
+  height?: number;
+  disablePadding?: boolean;
+  disableSeeMore?: boolean;
+}
 
 function EmbodiedIdeasComponent({
   title,
@@ -30,7 +40,11 @@ function EmbodiedIdeasComponent({
   const [animation, setAnimation] = useState(false);
 
   return (
-    <Div height={height} bgColor={bgColor} onMouseEnter={() => setAnimation(true)}>
+    <Div
+      height={height}
+      bgColor={bgColor}
+      onMouseEnter={() => setAnimation(true)}
+    >
       <PositionTitle disablePadding={disablePadding}>
         <Block>
           <H2>{title}</H2>

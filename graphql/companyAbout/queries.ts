@@ -1,49 +1,18 @@
 import { gql } from "@apollo/client";
 
-export const GET_DESCRIPTION = gql`
-  query GetDescription {
+export const GET_ABOUT_PAGE = gql`
+  query GetAboutPage {
     aboutPage(publicationState: LIVE) {
       data {
         attributes {
           mainInfo {
-            description
             text
-          }
-        }
-      }
-    }
-  }
-`;
-
-export const GET_BANNER_IMAGE = gql`
-  query GetBannerImage {
-    aboutPage(publicationState: LIVE) {
-      data {
-        attributes {
-          bannerImage {
-            data {
-              attributes {
-                url
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-`;
-
-export const GET_MEMBERS = gql`
-  query GetMembers {
-    aboutPage(publicationState: LIVE) {
-      data {
-        attributes {
-          mainInfo {
             statistics {
               id
               label
               number
             }
+            description
             incora_workers {
               data {
                 id
@@ -63,20 +32,20 @@ export const GET_MEMBERS = gql`
               }
             }
           }
-        }
-      }
-    }
-  }
-`;
-
-export const GET_OUR_TRADITIONS = gql`
-  query GetOurTraditions {
-    aboutPage(publicationState: LIVE) {
-      data {
-        attributes {
-          ourTraditions {
+          contactUs {
             title
+            subtitle
+          }
+          bannerImage {
+            data {
+              attributes {
+                url
+              }
+            }
+          }
+          ourTraditions {
             text
+            title
             gallery {
               data {
                 attributes {
@@ -84,21 +53,6 @@ export const GET_OUR_TRADITIONS = gql`
                 }
               }
             }
-          }
-        }
-      }
-    }
-  }
-`;
-
-export const GET_CONTACT_US = gql`
-  query GetContactUs {
-    aboutPage(publicationState: LIVE) {
-      data {
-        attributes {
-          contactUs {
-            title
-            subtitle
           }
         }
       }

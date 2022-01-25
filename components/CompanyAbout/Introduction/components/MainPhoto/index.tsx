@@ -1,35 +1,27 @@
 import Image from "next/image";
 import { MainPhotoWrapper } from "./style";
-import { useQuery } from "@apollo/client";
 
-import AboutMainPhoto from "../../../../../public/images/AboutMainPhoto.png";
-import { GetBannerImage } from "../../../../../graphql/companyAbout/__generated__/GetBannerImage";
-import { GET_BANNER_IMAGE } from "../../../../../graphql/companyAbout/queries";
 import { IMAGES_LINK } from "../../../../../constants";
-import loader from "../../../../../public/project3.jpg";
+import { GetAboutPage_aboutPage_data_attributes_bannerImage } from "../../../../../graphql/companyAbout/__generated__/GetAboutPage";
 
-const MainPhoto = () => {
-  const { data, loading } = useQuery<GetBannerImage>(GET_BANNER_IMAGE);
-  const bannerImage =
-    IMAGES_LINK +
-      data?.aboutPage?.data?.attributes?.bannerImage.data?.attributes?.url ||
-    "";
+interface IBannerImage {
+  bannerImage: GetAboutPage_aboutPage_data_attributes_bannerImage;
+}
+
+const MainPhoto = ({ bannerImage }: IBannerImage) => {
+  const src = IMAGES_LINK + bannerImage.data?.attributes?.url;
 
   return (
-    <>
-      {!loading && (
-        <MainPhotoWrapper>
-          <Image
-            loader={() => bannerImage}
-            src={bannerImage}
-            width={1366}
-            height={460}
-            layout="responsive"
-            alt="main photo"
-          />
-        </MainPhotoWrapper>
-      )}
-    </>
+    <MainPhotoWrapper>
+      <Image
+        loader={() => src}
+        src={src}
+        width={1366}
+        height={460}
+        layout="responsive"
+        alt="main photo"
+      />
+    </MainPhotoWrapper>
   );
 };
 

@@ -5,19 +5,19 @@ import {
   Photos,
   TextWrap,
 } from "./style";
-import { useQuery } from "@apollo/client";
 
 import Image from "next/image";
-import { GET_OUR_TRADITIONS } from "../../../graphql/companyAbout/queries";
-import { GetOurTraditions } from "../../../graphql/companyAbout/__generated__/GetOurTraditions";
 import { IMAGES_LINK } from "../../../constants";
+import { GetAboutPage_aboutPage_data_attributes_ourTraditions } from "../../../graphql/companyAbout/__generated__/GetAboutPage";
 
-const OurTraditions = () => {
-  const { data, loading } = useQuery<GetOurTraditions>(GET_OUR_TRADITIONS);
-  const entry = data?.aboutPage?.data?.attributes?.ourTraditions;
-  const title = entry?.title;
-  const text = entry?.text;
-  const gallery = entry?.gallery.data;
+interface IOurTraditions {
+  ourTraditions: GetAboutPage_aboutPage_data_attributes_ourTraditions;
+}
+
+const OurTraditions = ({ ourTraditions }: IOurTraditions) => {
+  const title = ourTraditions.title;
+  const text = ourTraditions.text;
+  const gallery = ourTraditions.gallery.data;
 
   let textArray: string[] = [];
 
@@ -45,22 +45,18 @@ const OurTraditions = () => {
   }
 
   return (
-    <>
-      {!loading && (
-        <OurTraditionsWrapper>
-          <OurTraditionsTextWrap>
-            <TextWrap>
-              <h1>{title}</h1>
-              <Paragraphs>
-                <p>{textArray[0]}</p>
-                <p>{textArray[1]}</p>
-              </Paragraphs>
-            </TextWrap>
-          </OurTraditionsTextWrap>
-          <Photos>{photos}</Photos>
-        </OurTraditionsWrapper>
-      )}
-    </>
+    <OurTraditionsWrapper>
+      <OurTraditionsTextWrap>
+        <TextWrap>
+          <h1>{title}</h1>
+          <Paragraphs>
+            <p>{textArray[0]}</p>
+            <p>{textArray[1]}</p>
+          </Paragraphs>
+        </TextWrap>
+      </OurTraditionsTextWrap>
+      <Photos>{photos}</Photos>
+    </OurTraditionsWrapper>
   );
 };
 

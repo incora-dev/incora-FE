@@ -39,9 +39,9 @@ export const footer: IFooter = {
   offices: contactUs.addresses,
   pages: ['Services', 'expertise', 'Case Studies', 'Company', 'Insights'],
   followUs: [
-    { icon: Facebook, redirectTo: 'Facebook' },
-    { icon: LinkedIn, redirectTo: 'LinkedIn' },
-    { icon: Instagram, redirectTo: 'Instagram' },
+    { icon: Facebook, redirectTo: 'www.Facebook.com' },
+    { icon: LinkedIn, redirectTo: 'www.LinkedIn.com' },
+    { icon: Instagram, redirectTo: 'www.Instagram.com' },
   ],
   copyright: '© 2015-2021 Incora LLC'
 };

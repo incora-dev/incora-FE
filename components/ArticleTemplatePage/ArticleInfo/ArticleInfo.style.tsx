@@ -8,11 +8,11 @@ interface ISelect {
 
 export const Div = styled.div`
   //overflow: hidden;
+  margin-top: -49px;
 `;
 
 export const Wrapper = styled.div`
   margin: 0 auto;
-  padding: 60px 0 100px;
   max-width: 1366px;
   
   display: flex;
@@ -27,23 +27,26 @@ export const ScrollLabels = styled.div`
   display: flex;
   flex-direction: column;
   row-gap: 15px;
-
-  height: 70vh;
 `;
 
 export const StickyWrapper = styled.div`
+  margin-top: 5px;
+
   display: block;
 `;
 
 export const Line = styled.div`
+  position: absolute;
+
   width: 7px;
   height: 100%;
 
-  background: #FEC506;
+  background: ${({ selected }: ISelect) => selected ? theme.colors.yellow2 : 'none'};
 `;
 
-export const Label = styled.p`
+export const Label = styled.div`
   max-width: 264px;
+  margin-left: 20px;
 
   font-style: normal;
   font-weight: ${({ selected }: ISelect) => selected ? '700' : 'normal'};
@@ -53,9 +56,30 @@ export const Label = styled.p`
   letter-spacing: 0.05em;
 
   color: ${themeGet("colors.black")};
+
+  h1, h2, h3 {
+    color: ${({ selected }: ISelect) => selected ? theme.colors.black : theme.colors.grey2};
+  }
+
+  h4, h5, h6 {
+    font-style: normal;
+    font-weight: ${({ selected }: ISelect) => selected ? '700': 'normal' };
+    font-size: 12px;
+    line-height: 18px;
+
+    letter-spacing: 0.05em;
+
+    color: ${themeGet("colors.black")};
+  }
+`;
+
+export const PreBlock = styled.div`
+
 `;
 
 export const ScrollLabel = styled.div`
+  position: relative;
+
   width: max-content;
 
   display: flex;
@@ -68,6 +92,10 @@ export const SocialTitleAndTagsBlock = styled.div`
   position: -webkit-sticky;
   position: sticky;
   top: 150px;
+  
+  display: flex;
+  flex-direction: column;
+  row-gap: 30px;
 `;
 
 export const Tags = styled.div`
@@ -174,9 +202,18 @@ export const MainText = styled.div`
 `;
 
 export const PollBlock = styled.div`
+  padding: 63px 0 88px;
+  margin: 0 auto;
+  max-width: 653px;
+
   display: flex;
   flex-direction: column;
   row-gap: 30px;
+`;
+
+export const CodeBlock = styled.div`
+  font-size: 14px;
+  line-height: 16px;
 `;
 
 export const PollTitle = styled.h3`
@@ -204,12 +241,18 @@ export const Element = styled.div`
   padding: 0 15px;
 
   display: flex;
-  row-gap: 5px;
+  column-gap: 5px;
+  align-items: center;
 
   cursor: pointer;
 
   border-radius: 7px;
   background-color: ${({ selected }: ISelect) => selected ? theme.colors.yellow2 : theme.colors.grey };
+  
+  svg {
+    display: block;
+    z-index: 1;
+  }
 
   &:after {
     position: absolute;
@@ -243,4 +286,21 @@ export const ElementTitle = styled.p`
   letter-spacing: 0.1em;
 
   color: ${themeGet("colors.black")};
+`;
+
+export const SocialTitle = styled.div`
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+`;
+
+export const SocialIcons = styled.div`
+  max-width: 200px;
+  display: flex;
+  column-gap: 10px;
+  
+  a {
+    height: 25px;
+    width: 25px
+  }
 `;

@@ -2,13 +2,53 @@ import Head from "next/head";
 import React from "../../public/SVG/technologies/react.svg";
 import MainMenu from "../../components/mainMenu/mainMenu";
 import {theme} from "../../styles/theme";
-import { titles } from "../../constants";
+import { footer, titles } from "../../constants";
 import { useEffect, useState } from "react";
 import HeaderArticleTemplate from "../../components/ArticleTemplatePage/HeaderArticleTemplate";
 import TetianaStoyko from "../../public/images/TetianaStoyko.svg";
 import ArticleInfo from "../../components/ArticleTemplatePage/ArticleInfo";
 import FacebookSVG from "../../public/SVG/socialNetwork/FacebookSVG.svg";
 import InstagramSVG from "../../public/SVG/socialNetwork/InstagramSvg.svg";
+import News from "../../components/News";
+import LetsTalk from "../../components/Services/LetsTalk";
+import FooterComponent from "../../components/Footer";
+import GoToTop from "../../components/GoToTop";
+
+const news = {
+  title: 'You may also like',
+  articles: [
+    {
+      img: "./../../newsBlock/newImg1.jpg",
+      tags: ["tagtitle", "tagtitle"],
+      categories: ["category"],
+      title:
+          "Intro to Microservices Communication [With the Use of Apache Kafka]",
+      redirectTo: "[With the Use of Apache Kafka]",
+    },
+    {
+      img: "./../../newsBlock/newImg2.jpg",
+      tags: ["tagtitle"],
+      categories: ["category", "category"],
+      title: "Incora Is Gaining Popularity On Clutch",
+      redirectTo: "Incora Is Gaining Popularity On Clutch",
+    },
+    {
+      img: "./../../newsBlock/newImg3.jpg",
+      tags: ["tagtitle", "tagtitle"],
+      categories: ["category"],
+      title: "Node.js vs Python: What are the Pros, Cons, and Use Cases?",
+      redirectTo: "Node.js vs Python: What are the Pros, Cons, and Use Cases?",
+    },
+    {
+      img: "./../../newsBlock/newImg1.jpg",
+      tags: ["tagtitle"],
+      categories: ["category", "category"],
+      title: "How to Monetize Delivery and Shipping Apps: Methods Screening",
+      redirectTo:
+          "How to Monetize Delivery and Shipping Apps: Methods Screening",
+    },
+  ],
+};
 
 const headerData = {
   category: 'category',
@@ -21,11 +61,6 @@ const headerData = {
     role: 'CTO'
   },
 };
-
-
-
-
-
 
 const ArticleText = () => {
   return (
@@ -73,16 +108,35 @@ const ArticleText = () => {
   )
 }
 
-const socialTitles = [FacebookSVG, InstagramSVG];
+const socialTitles = [{ Icon: FacebookSVG, href: 'www.facebook.com' }, { Icon: InstagramSVG, href: 'www.instagram.com' }];
 const scrollLabels = ['Microservices Use Cases', 'How does Microservices Communication work?', 'Practical Application of Microservices Communication using Apache Kafka', 'Running Apache Kafka instance locally (Using Docker images)'];
 const tags = ['tagtitle', 'tagtitle', 'tagtitle name', 'tag', 'tag', 'tagtitle'];
+const code = `  const handleScroll = () => {
+    const sideBarElements = document.querySelectorAll('#scrollsLabels h1,#scrollsLabels h2, #scrollsLabels h3, #scrollsLabels h4, #scrollsLabels h5, #scrollsLabels h6');
+
+    sideBarElements.forEach((el, index) => {
+      if (el.getBoundingClientRect().top > 120 && el.getBoundingClientRect().top < 500) {
+        setElementIndex(index);
+      }
+
+      if (window.scrollY <= 100 ) {
+        setElementIndex(0);
+      }
+    })
+  }`
 
 const ArticleTemplate = () => {
   const [menuColor, setMenuColor] = useState('none');
+  const [goToTopVisible, setGoToTopVisible] = useState(false);
+
   const handleScroll = () => {
     window.scrollY >= 20
-        ? setMenuColor(theme.colors.black)
-        : setMenuColor('none')
+      ? setMenuColor(theme.colors.black)
+      : setMenuColor('none')
+
+    window.scrollY >= 400
+      ? setGoToTopVisible(true)
+      : setGoToTopVisible(false)
   }
 
   useEffect(() => {
@@ -107,22 +161,35 @@ const ArticleTemplate = () => {
           <HeaderArticleTemplate {...headerData}/>
           <ArticleInfo
             mainText={ArticleText()}
-            scrollLabels={scrollLabels}
+            codeText={code}
             socialTitles={socialTitles}
             tags={tags}
           />
+          <News
+            title={news.title}
+            articles={news.articles}
+          />
+          <LetsTalk
+            title={'lets talk!'}
+            text={
+              <>
+                <p>Got no clue where to start?</p>
+                <p> Why don’t we discuss your idea?</p>
+              </>
+            }
+          />
+          <GoToTop isVisible={goToTopVisible}/>
         </MainMenu>
+        <FooterComponent
+          policies={footer.policies}
+          offices={footer.offices}
+          followUs={footer.followUs}
+          pages={footer.pages}
+          copyright={footer.copyright}
+        />
       </>
     </>
   )
 }
 
 export default ArticleTemplate;
-
-ArticleTemplate.getInitialProps = async ({ query }) => {
-  const title = await query;
-
-  return {
-    title
-  }
-}

@@ -63,7 +63,7 @@ function CooperateComponent(props: ISliders) {
     window.addEventListener('scroll', handleScroll);
 
     return () => window.removeEventListener('scroll', handleScroll);
-  });
+  }, []);
 
   const getPositionRight = (number: number): string => {
     if (number === 1) {

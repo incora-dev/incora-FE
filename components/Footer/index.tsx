@@ -22,6 +22,7 @@ import { IFollowUs, IFooter} from "../../interfaces/footer.interface";
 import React from "react";
 import ClutchLogo from "../../public/SVG/logoClutchco.svg"
 import { clutchLink } from "../../constants";
+import Link from "next/link";
 
 function createOfficesBlock(offices: object[]) {
   return offices.map((office) =>
@@ -41,11 +42,9 @@ function createFollowUsBlock(followUs: IFollowUs[]) {
     const { redirectTo } = el;
 
      return (
-       <React.Fragment key={index}>
-            <A href={redirectTo}>
-              <el.icon viewBox={"0 0 1"}/>
-            </A>
-        </React.Fragment>
+         <A target={'_blank'} href={`${redirectTo}`} key={index}>
+           <el.icon viewBox={"0 0 1"}/>
+         </A>
       )
     }
   )
@@ -73,7 +72,6 @@ function FooterComponent( { policies, offices, followUs, pages, copyright }: IFo
         </LogoBlock>
         <OfficesBlock>
           <H4>offices</H4>
-
           <Offices>
             {officesBlock}
           </Offices>
@@ -84,9 +82,12 @@ function FooterComponent( { policies, offices, followUs, pages, copyright }: IFo
             {
               pages.map((page, index) =>
                 <Page key={index}>
-                    <a href={page}>
+                  <Link href={page.toLowerCase()}>
+                    <a>
                       {page}
                     </a>
+                  </Link>
+
                 </Page>
               )
             }
@@ -94,13 +95,16 @@ function FooterComponent( { policies, offices, followUs, pages, copyright }: IFo
         </PagesBlock>
         <FollowUsBlock>
           <H4>follow us</H4>
+
           <FollowUs>
             {followUsBlock}
           </FollowUs>
 
-            <a target="_blank" href={clutchLink} rel="noopener noreferrer">
+          <Link href={clutchLink} >
+            <a target="_blank" rel="noopener noreferrer">
               <ClutchLogo/>
             </a>
+          </Link>
         </FollowUsBlock>
       </Position>
     </Container>

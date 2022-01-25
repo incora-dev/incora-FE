@@ -1,17 +1,18 @@
-import CaseIntroduction from "../../components/Case/CaseIntroduction";
-import FooterComponent from "../../components/Footer";
-import MainMenu from "../../components/mainMenu/mainMenu";
-import { theme } from "../../styles/theme";
+import CaseIntroduction from "../../../components/Case/CaseIntroduction";
+import FooterComponent from "../../../components/Footer";
+import MainMenu from "../../../components/mainMenu/mainMenu";
+import { theme } from "../../../styles/theme";
 
-import Instagram from "../../public/SVG/socialNetwork/instagram.svg";
-import Facebook from "../../public/SVG/socialNetwork/facebook.svg";
-import LinkedIn from "../../public/SVG/socialNetwork/linkedIn.svg";
-import CaseDescription from "../../components/Case/CaseDescription";
-import ProjectOverview from "../../components/Case/ProjectOverview";
-import InsideTheProject from "../../components/Case/InsideTheProject";
-import ClientsFeedback from "../../components/Case/ClientsFeedback";
-import NextProject from "../../components/Case/NextProject";
-import LetsTalk from "../../components/Services/LetsTalk";
+import Instagram from "../../../public/SVG/socialNetwork/instagram.svg";
+import Facebook from "../../../public/SVG/socialNetwork/facebook.svg";
+import LinkedIn from "../../../public/SVG/socialNetwork/linkedIn.svg";
+import CaseDescription from "../../../components/Case/CaseDescription";
+import ProjectOverview from "../../../components/Case/ProjectOverview";
+import InsideTheProject from "../../../components/Case/InsideTheProject";
+import ClientsFeedback from "../../../components/Case/ClientsFeedback";
+import NextProject from "../../../components/Case/NextProject";
+import LetsTalk from "../../../components/Services/LetsTalk";
+import { useRouter } from "next/router";
 
 const titles = [
   "Services",
@@ -40,6 +41,9 @@ const footer = {
 const { policies, offices, pages, followUs, copyright } = footer;
 
 const Case = () => {
+  const router = useRouter();
+  const { name } = router.query;
+
   return (
     <MainMenu
       backgroundColor={theme.colors.black}

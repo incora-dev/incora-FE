@@ -3,6 +3,7 @@ export const theme = {
     yellow: "#FEC602",
     yellow2: "#FEC506",
     yellow3: "#FCE599",
+    yellow4: "#e7b301",
     black: "#18181A",
     backgroundBlack: "#181819",
     backgroundBlack2: "#212125",
@@ -18,6 +19,7 @@ export const theme = {
     background3: "#212125",
     background4: "#FBFBFB",
     background5: "#FAFAFA",
+    hexagonBorderedGrey: "#FAFAFA",
   },
 
   letterSpacing: {
@@ -32,7 +34,7 @@ export const theme = {
   },
 
   transition: {
-    button: "ease-out 0.4s",
+    button: "ease-in-out 0.4s",
   },
   elements: {
     hexagonBorderedBlack: "#212121",

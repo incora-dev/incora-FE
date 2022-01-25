@@ -7,16 +7,21 @@ import {
   MembersWrapper,
   NumbersWrap,
 } from "./style";
-import { GET_MEMBERS } from "../../../../../graphql/companyAbout/queries";
 import { useQuery } from "@apollo/client";
 import { GetMembers } from "../../../../../graphql/companyAbout/__generated__/GetMembers";
 import { IMAGES_LINK } from "../../../../../constants";
+import {
+  GetAboutPage_aboutPage_data_attributes_mainInfo_incora_workers,
+  GetAboutPage_aboutPage_data_attributes_mainInfo,
+} from "../../../../../graphql/companyAbout/__generated__/GetAboutPage";
 
-const Members = () => {
-  const { data, loading } = useQuery<GetMembers>(GET_MEMBERS);
-  const entry = data?.aboutPage?.data?.attributes?.mainInfo;
-  const statistics = entry?.statistics;
-  const members = entry?.incora_workers?.data;
+interface IMembers {
+  mainInfo: GetAboutPage_aboutPage_data_attributes_mainInfo;
+}
+
+const Members = ({ mainInfo }: IMembers) => {
+  const statistics = mainInfo?.statistics;
+  const members = mainInfo?.incora_workers?.data;
 
   const statisticsNumbers =
     statistics &&
@@ -50,18 +55,14 @@ const Members = () => {
     });
 
   return (
-    <>
-      {!loading && (
-        <MembersWrapper>
-          <HexagonsBackground />
-          <ContentWrapper>
-            <NumbersWrap>{statisticsNumbers}</NumbersWrap>
+    <MembersWrapper>
+      <HexagonsBackground />
+      <ContentWrapper>
+        <NumbersWrap>{statisticsNumbers}</NumbersWrap>
 
-            <MembersPhotosWrap>{membersCards}</MembersPhotosWrap>
-          </ContentWrapper>
-        </MembersWrapper>
-      )}
-    </>
+        <MembersPhotosWrap>{membersCards}</MembersPhotosWrap>
+      </ContentWrapper>
+    </MembersWrapper>
   );
 };
 

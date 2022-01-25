@@ -29,7 +29,6 @@ export default function MainMenu(props: IMenu) {
       <Wrapper backgroundColor={backgroundColor} positionType={positionType}>
         <Block>
           {logo}
-
           <Navigation titles={titles} titlesColor={titlesColor} />
         </Block>
       </Wrapper>

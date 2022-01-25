@@ -27,7 +27,23 @@ interface IHeaderInsights {
 }
 
 const HeaderInsights = ({ title, text, inputPlaceholder, news }: IHeaderInsights) => {
-  const filterTags: string[] = useSelector(filterTagsSelector);
+  // const filterTags: string[] = useSelector(filterTagsSelector);
+  const filterTags: string[] = [
+    "all",
+    "real estate",
+    "e-learning",
+    "e-commerce",
+    "food industry",
+    "health and wellness",
+    "task management",
+    "process management",
+    "recruitment",
+    "screening",
+    "recruitment",
+    "keyword research",
+    "food industry",
+    "environment",
+  ];
 
   return (
     <Div>

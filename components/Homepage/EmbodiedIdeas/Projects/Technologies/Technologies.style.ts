@@ -17,7 +17,6 @@ export const Container = styled.div`
 export const Strong = styled.strong`
   margin: 7px 10px;
 
-  font-family: Poppins;
   font-style: normal;
   font-weight: 600;
   font-size: var(--fs-10);

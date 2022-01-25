@@ -16,16 +16,16 @@ import OfferedSolutions from "../../../components/ExpertisePage/OfferedSolutions
 import { useEffect, useState } from "react";
 import NewsComponent from "../../../components/News";
 import ContactUsComponent from "../../../components/Homepage/ContactUs";
-import {IContactUs} from "@interfaces";
+import { IContactUs } from "@interfaces";
 import FooterComponent from "../../../components/Footer";
-import {IFooter} from "../../../interfaces/footer.interface";
+import { IFooter } from "../../../interfaces/footer.interface";
 import Facebook from "../../../public/SVG/socialNetwork/facebook.svg";
 import LinkedIn from "../../../public/SVG/socialNetwork/linkedIn.svg";
 import Instagram from "../../../public/SVG/socialNetwork/instagram.svg";
 
 const colorWhite = theme.colors.white;
 const colorBlack = theme.colors.black;
-const hexagonColorGrey = theme.elements.hexagonBorderedGrey;
+const hexagonColorGrey = theme.elements.hexagonBorderedBlack;
 
 const benefitsAndSolutionsData: GridData[] = [
   {
@@ -123,7 +123,7 @@ const Industry = ({ title, text }) => {
     window.addEventListener('scroll', handleScroll)
 
     return () => window.removeEventListener('scroll', handleScroll);
-  })
+  }, [])
 
   return (
       <>

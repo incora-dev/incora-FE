@@ -98,7 +98,7 @@ const Insights = () => {
     window.addEventListener('scroll', handleScroll)
 
     return () => window.removeEventListener('scroll', handleScroll);
-  })
+  }, [])
 
   return (
     <>
@@ -109,9 +109,9 @@ const Insights = () => {
       </Head>
       <>
         <MainMenu
-            backgroundColor={menuColor}
-            titlesColor={theme.colors.black}
-            titles={titles}
+          backgroundColor={menuColor}
+          titlesColor={theme.colors.black}
+          titles={titles}
         >
           <HeaderInsights
             title={header.title}

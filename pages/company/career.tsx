@@ -53,7 +53,7 @@ const Career = () => {
   const { data, loading, error } = useQuery<GetCareersPage>(GET_CAREERS_PAGE);
   const entry = data?.careersPage?.data?.attributes;
 
-  const errorCondition = error && <Custom404 />;
+  const errorCondition = error || (!entry && <Custom404 />);
 
   return (
     <>
@@ -78,7 +78,7 @@ const Career = () => {
         </MainMenu>
       )}
 
-      {error && errorCondition}
+      {errorCondition}
     </>
   );
 };

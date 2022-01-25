@@ -13,7 +13,7 @@ import { useQuery } from "@apollo/client";
 import { GetCaseStudies } from "../../graphql/caseStudies/__generated__/GetCaseStudies";
 import { GET_CASE_STUDIES } from "../../graphql/caseStudies/queries";
 import Custom404 from "../404";
-import { useState } from "react";
+import { createContext, useState } from "react";
 
 const titles = [
   "Services",
@@ -40,9 +40,10 @@ const footer: IFooter = {
 };
 
 const CaseStudies = () => {
+  const [currentIndustryTag, setCurrentIndustryTag] = useState<string>("all");
+
   const { data, loading, error } = useQuery<GetCaseStudies>(GET_CASE_STUDIES);
   const entry = data?.caseStudiesPage?.data?.attributes;
-  const projectsEntry = entry?.projects;
 
   const [filterByFlag, setFilterByFlag] = useState(false);
   const { black, white } = theme.colors;
@@ -53,7 +54,7 @@ const CaseStudies = () => {
 
   return (
     <>
-      {!loading && !error && entry && projectsEntry && (
+      {!loading && !error && entry && (
         <MainMenu
           backgroundColor={menuBackgroundCondition}
           titlesColor={titlesColorCondition}
@@ -64,14 +65,14 @@ const CaseStudies = () => {
             setFilterByFlag={setFilterByFlag}
             title={entry.title}
             description={entry.description}
+            setCurrentIndustryTag={setCurrentIndustryTag}
           />
           <EmbodiedIdeasComponent
             bgColor={white}
-            projects={projectsEntry}
             elementsColor={theme.colors.yellow}
-            height={2144}
             disablePadding
             disableSeeMore
+            currentIndustryTag={currentIndustryTag}
           />
           <LetsReachOut contactUs={entry.contactUs} />
           <FooterComponent

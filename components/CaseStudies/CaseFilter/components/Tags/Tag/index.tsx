@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction } from "react";
+import { Dispatch, SetStateAction, useContext } from "react";
 import { TagWrapper } from "./style";
 
 interface ITag {
@@ -6,10 +6,18 @@ interface ITag {
   index: number;
   currentIndex: number;
   setCurrentIndex: Dispatch<SetStateAction<number>>;
+  setCurrentIndustryTag: Dispatch<SetStateAction<string>>;
 }
 
-const Tag = ({ label, index, currentIndex, setCurrentIndex }: ITag) => {
+const Tag = ({
+  label,
+  index,
+  currentIndex,
+  setCurrentIndex,
+  setCurrentIndustryTag,
+}: ITag) => {
   const onClick = () => {
+    setCurrentIndustryTag(label);
     setCurrentIndex(index);
   };
 

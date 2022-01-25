@@ -2,14 +2,13 @@ import { Container, Text, Block, H3, P, H4 } from "./Projects.style";
 import Technologies from "./Technologies";
 import PictureWithAnimation from "./PictureWithAnimation";
 import { useEffect, useState } from "react";
-import {
-  GetCaseStudies,
-  GetCaseStudies_caseStudiesPage_data_attributes_projects,
-} from "../../../../graphql/caseStudies/__generated__/GetCaseStudies";
+import { GetCaseStudies } from "../../../../graphql/caseStudies/__generated__/GetCaseStudies";
 import { IMAGES_LINK } from "../../../../constants";
+import Link from "next/link";
+import { GetProjects_projects } from "../../../../graphql/caseStudies/__generated__/getProjects";
 
 interface IProjects {
-  projects: GetCaseStudies_caseStudiesPage_data_attributes_projects;
+  projects: GetProjects_projects;
   elementsColor: string;
 }
 
@@ -37,12 +36,14 @@ function Projects({ projects, elementsColor }: IProjects) {
           {mainInfoEntry && imageEntry && technologies && (
             <Container key={id} flexDirection={flexDirection}>
               <Text margin={marginText}>
-                <H3
-                  onMouseEnter={() => setShouldHover(index)}
-                  onMouseLeave={() => setShouldHover(-1)}
-                >
-                  {mainInfoEntry.title}
-                </H3>
+                <Link href={`/case_studies/case/${url}`} passHref>
+                  <H3
+                    onMouseEnter={() => setShouldHover(index)}
+                    onMouseLeave={() => setShouldHover(-1)}
+                  >
+                    {mainInfoEntry.title}
+                  </H3>
+                </Link>
                 <P
                   onMouseEnter={() => setShouldHover(index)}
                   onMouseLeave={() => setShouldHover(-1)}
@@ -71,6 +72,7 @@ function Projects({ projects, elementsColor }: IProjects) {
                 elementsColor={elementsColor}
                 shouldHover={shouldHover}
                 setShouldHover={setShouldHover}
+                url={url}
               />
             </Container>
           )}
@@ -82,8 +84,6 @@ function Projects({ projects, elementsColor }: IProjects) {
   const projectsArray = createProjects().map((project) => project);
 
   return <>{projectsArray}</>;
-
-  return <></>;
 }
 
 export default Projects;

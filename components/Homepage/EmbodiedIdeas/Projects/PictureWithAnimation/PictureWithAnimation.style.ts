@@ -193,6 +193,7 @@ export const PositionElement9 = styled.div`
 export const Container = styled.div`
   position: relative;
   overflow: hidden;
+  cursor: pointer;
 
   border-radius: ${({ borderRadius} : IImg) => borderRadius};
 `;

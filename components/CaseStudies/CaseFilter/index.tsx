@@ -1,10 +1,13 @@
+import { useQuery } from "@apollo/client";
 import themeGet from "@styled-system/theme-get";
 import { Dispatch, SetStateAction, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { GET_INDUSTRIES_NAMES } from "../../../graphql/caseStudies/queries";
 import {
   GetCaseStudies_caseStudiesPage,
   GetCaseStudies_caseStudiesPage_data_attributes,
 } from "../../../graphql/caseStudies/__generated__/GetCaseStudies";
+import { GetIndustriesNames } from "../../../graphql/caseStudies/__generated__/GetIndustriesNames";
 import { IStacks } from "../../../interfaces/servicesComponent.interface";
 import { theme } from "../../../styles/theme";
 import Globe from "../../common/Globe";
@@ -25,6 +28,7 @@ interface ICaseFilter {
   setFilterByFlag: Dispatch<SetStateAction<boolean>>;
   title: string;
   description: string | null;
+  setCurrentIndustryTag: Dispatch<SetStateAction<string>>;
 }
 
 const CaseFilter = ({
@@ -32,10 +36,12 @@ const CaseFilter = ({
   setFilterByFlag,
   title,
   description,
+  setCurrentIndustryTag,
 }: ICaseFilter) => {
-  const dispatch = useDispatch();
+  const { data, loading } = useQuery<GetIndustriesNames>(GET_INDUSTRIES_NAMES);
+  const industriesEntry = data?.industries;
 
-  const filterTags: string[] = useSelector(filterTagsSelector);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getReview.success()); // replace real backend data later
@@ -49,7 +55,9 @@ const CaseFilter = ({
     ? theme.colors.background2
     : undefined;
 
-  const tagsCondition = !filterByFlag && <Tags labels={filterTags} />;
+  const tagsCondition = !filterByFlag && industriesEntry && (
+    <Tags setCurrentIndustryTag={setCurrentIndustryTag} labels={industriesEntry} />
+  );
 
   const globeCondition = filterByFlag && <Globe reviewIndex={0} />;
 

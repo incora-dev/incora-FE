@@ -111,7 +111,7 @@ const ArticleText = () => {
 const socialTitles = [{ Icon: FacebookSVG, href: 'www.facebook.com' }, { Icon: InstagramSVG, href: 'www.instagram.com' }];
 const scrollLabels = ['Microservices Use Cases', 'How does Microservices Communication work?', 'Practical Application of Microservices Communication using Apache Kafka', 'Running Apache Kafka instance locally (Using Docker images)'];
 const tags = ['tagtitle', 'tagtitle', 'tagtitle name', 'tag', 'tag', 'tagtitle'];
-const code = `  const handleScroll = () => {
+const code = `const handleScroll = () => {
     const sideBarElements = document.querySelectorAll('#scrollsLabels h1,#scrollsLabels h2, #scrollsLabels h3, #scrollsLabels h4, #scrollsLabels h5, #scrollsLabels h6');
 
     sideBarElements.forEach((el, index) => {

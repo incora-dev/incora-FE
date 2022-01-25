@@ -48,8 +48,7 @@ const pollIcons = [LoveItIcon, ValuableIcon, ExcitingIcon, UnsatisfiedIcon];
 function getScrollLabels(sideBarElements: NodeListOf<Element>, elementIndex: number) {
   return (Array.from(sideBarElements).map((el, index) => {
     const selected = elementIndex === index;
-
-    const element = React.createElement(el.tagName, {}, el.innerHTML);
+    const element = React.createElement(el.tagName.toLowerCase(), {}, el.innerHTML);
 
     return (
       <ScrollLabel key={index}>

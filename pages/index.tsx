@@ -265,13 +265,12 @@ function Home() {
   // }, []);
 
   const { data, loading, error } = useQuery<GetCaseStudies>(GET_CASE_STUDIES); // replace data from homepage
-  const entry = data?.caseStudiesPage?.data?.attributes?.projects;
 
   const errorCondition = error && <Custom404 />;
 
   return (
     <>
-      {!loading && !error && entry && (
+      {!loading && !error && (
         <>
           <Head>
             <title>Create Next App</title>
@@ -308,7 +307,6 @@ function Home() {
               <EmbodiedIdeasComponent
                 title={EmbodiedIdeas.title}
                 bgColor={EmbodiedIdeas.bgColor}
-                projects={entry}
                 elementsColor={colorYellow}
               />
               <VideoComponent />

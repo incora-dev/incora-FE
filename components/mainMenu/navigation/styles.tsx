@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { theme } from "../../../styles/theme";
 
 export const Nav = styled.nav`
   display: flex;
@@ -14,6 +15,13 @@ export const Nav = styled.nav`
   text-transform: capitalize;
 
   color: ${( {color}) => color };
+
+  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: auto auto;
+    grid-template-rows: 1fr 1fr 1fr;
+  }
 `
 
 export const Ul = styled.ul`

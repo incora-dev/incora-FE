@@ -9,8 +9,9 @@ import {
   PlayerPosition,
   PositionPlaySVG
 } from "./Video.style";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import PlaySVG from "../../../public/Player/Play.svg"
+import { theme } from "../../../styles/theme";
 
 type IVideo = {
   readonly current: HTMLVideoElement;
@@ -21,6 +22,14 @@ function VideoComponent() {
   const [play, setPlay] = useState(true);
   const [visibility, setVisibility] = useState('visible');
   const [opacity, setOpacity] = useState(1);
+  const [isMobile, setIsMobile] = useState<boolean>();
+
+  useEffect(() => {
+    const width = window.innerWidth;
+    const mobileWidth = +theme.breakpoints.mobile.replace('px', '');
+    const isMobile = mobileWidth > width;
+    setIsMobile(isMobile);
+  },[]);
 
   const videoHandler = (play: boolean) => {
     if (play) {
@@ -47,7 +56,7 @@ function VideoComponent() {
           <VideoBLock>
             <Video
               ref={videoRef}
-              style={{ width: '1122px', height: '671px' }}
+              style={{ width: isMobile ? '100%' : '1122px', height: '671px' }}
               loop
               onClick={() => videoHandler(play)}
               poster={'./Player/PosterVideo.jpg'}

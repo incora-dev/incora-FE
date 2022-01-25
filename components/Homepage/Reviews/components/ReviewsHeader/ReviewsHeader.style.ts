@@ -1,5 +1,6 @@
 import { themeGet } from "@styled-system/theme-get";
 import styled from "styled-components";
+import { theme } from "../../../../../styles/theme";
 
 export const ReviewsHeaderWrapper = styled.div`
   width: 1006px;
@@ -8,6 +9,10 @@ export const ReviewsHeaderWrapper = styled.div`
   justify-content: space-between;
   align-items: center;
   margin-bottom: 50px;
+
+  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    width: 90%;
+  }
 
   h1 {
     text-transform: uppercase;

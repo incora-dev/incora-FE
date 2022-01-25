@@ -1,4 +1,5 @@
 import styled, { keyframes } from "styled-components";
+import { theme } from "../../../styles/theme";
 
 interface IDiv {
   backgroundColor: string;
@@ -16,6 +17,11 @@ export const Div = styled.div`
 
 export const Container = styled.div`
   padding-bottom: 175px;
+
+  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    padding-bottom: 0;
+    margin-left: 10px;
+  }
 `;
 
 export const Text = styled.div`
@@ -27,6 +33,10 @@ export const Text = styled.div`
   column-gap: 209px;
   margin: 0 auto;
   padding-top: 104px;
+
+  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    padding-top: 0;
+  }
 
   h2 {
     font-family: Poppins;

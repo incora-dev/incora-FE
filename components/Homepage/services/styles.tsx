@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { theme } from "../../../styles/theme";
 
 export const Component = styled.div`
   position: relative;
@@ -7,13 +8,20 @@ export const Component = styled.div`
   overflow: hidden;
 
   background-color: #18181A;
+
+  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    height: 690px;
+  }
 `
 
 export const Position = styled.div`
   position: relative;
-
   margin: auto;
   width: 1006px;
+
+  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    width: 90%;
+  }
 `
 
 export const Div = styled.div`

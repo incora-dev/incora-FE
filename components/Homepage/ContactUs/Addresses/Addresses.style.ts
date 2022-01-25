@@ -1,10 +1,17 @@
 import styled from "styled-components";
+import { theme } from "../../../../styles/theme";
 
 export const Container = styled.div`
   position: relative;
 
   margin-top: 47px;
   margin-left: 4px;
+  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    svg {
+      position: relative;
+      left: 55px;
+    }
+  }
 `;
 
 export const AddressesContainer = styled.div`
@@ -19,6 +26,10 @@ export const AddressesContainer = styled.div`
   row-gap: 27px;
 
   margin: auto;
+  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    left: 10px;
+
+  }
 `;
 
 export const Address = styled.div`

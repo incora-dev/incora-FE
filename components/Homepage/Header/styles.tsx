@@ -106,6 +106,10 @@ export const ScrollContainer = styled.div`
   justify-content: center;
   
   transform: rotate(-90deg);
+
+  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    left: -15%;
+  }
 `;
 
 export const ScrollText = styled.p`

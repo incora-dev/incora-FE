@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { theme } from "../../../styles/theme";
 
 export  const  Block = styled.div`
   overflow: hidden;
@@ -14,6 +15,11 @@ export  const  Container = styled.div`
   
   margin: 0 auto;
   padding: 85px 0 122px;
+
+  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    padding: 85px 10px 122px;
+    flex-wrap: wrap;
+  }
 `;
 
 export  const  PositionLoading = styled.div`

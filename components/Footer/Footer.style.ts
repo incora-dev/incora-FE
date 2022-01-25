@@ -11,6 +11,9 @@ export const Container = styled.footer`
   height: 270px;
 
   background-color: ${({ backgroundColor = color }: IContainer) => backgroundColor};
+  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    height: auto;
+  }
 `;
 
 export const Position = styled.div`
@@ -19,6 +22,12 @@ export const Position = styled.div`
   display: flex;
   padding-top: 41px;
   justify-content: space-between;
+
+  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    width: 90%;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
 `;
 
 export const LogoBlock = styled.div`
@@ -33,6 +42,10 @@ export const PoliciesBlock = styled.div`
   display: flex;
   flex-direction: column;
   row-gap: 5px;
+
+  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    padding-top: 0;
+  }
 `;
 
 export const PolicyLabel = styled.div`
@@ -70,6 +83,10 @@ export const OfficesBlock = styled.div`
   display: flex;
   flex-direction: column;
   row-gap: 15px;
+
+  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    left: 0;
+  }
 `;
 
 export const H4 = styled.h4`
@@ -127,6 +144,10 @@ export const PagesBlock = styled.div`
   display: flex;
   flex-direction: column;
   row-gap: 18px;
+
+  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    left: 0;
+  }
 `;
 
 export const Pages = styled.div`

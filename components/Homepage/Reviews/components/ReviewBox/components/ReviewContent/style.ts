@@ -1,11 +1,16 @@
 import themeGet from "@styled-system/theme-get";
 import styled from "styled-components";
 import Image from "next/image";
+import { theme } from "../../../../../../../styles/theme";
 
 export const ReviewContentWrap = styled.div`
   width: 816.99px;
   display: flex;
   justify-content: space-between;
+  
+  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    width: 100%;
+  }
 `;
 
 export const QuoteWrap = styled.div`

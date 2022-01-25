@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { theme } from "../../../../styles/theme";
 
 interface IContainer {
   flexDirection: string;
@@ -12,6 +13,11 @@ export const Container = styled.div`
   display: flex;
   column-gap: 77px;
   flex-direction: ${({ flexDirection }: IContainer) => flexDirection};
+
+  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    flex-wrap: wrap-reverse;
+    max-width: 100%;
+  }
 `;
 
 export const Text = styled.div`

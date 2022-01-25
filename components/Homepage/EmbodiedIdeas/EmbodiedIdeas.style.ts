@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { theme } from "../../../styles/theme";
 
 interface IDiv {
   bgColor: string;
@@ -14,6 +15,11 @@ export const Div = styled.div`
   background-color: ${({ bgColor }: IDiv) => bgColor};
 
   overflow: hidden;
+
+  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+      height: ${({ height }: IDiv) => (height ? `${height}px` : "max-content")};
+      padding-bottom: 120px;
+  }
 `;
 
 export const PositionTitle = styled.div`
@@ -39,6 +45,11 @@ export const H2 = styled.h2`
   text-transform: uppercase;
 
   color: #fec506;
+
+  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    width: 90%;
+    margin-left: 10px;
+  }
 `;
 
 export const H4 = styled.h4`

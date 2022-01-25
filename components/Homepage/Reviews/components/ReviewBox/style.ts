@@ -1,6 +1,7 @@
 import themeGet from "@styled-system/theme-get";
 import styled, { keyframes } from "styled-components";
 import Image from "next/image";
+import { theme } from "../../../../../styles/theme";
 
 export const ReviewBoxWrapper = styled.div`
   width: 1366px;
@@ -10,6 +11,10 @@ export const ReviewBoxWrapper = styled.div`
 
   .right_btn {
     justify-content: flex-end;
+  }
+
+  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    width: 90%;
   }
 `;
 
@@ -51,6 +56,10 @@ export const ReviewContentWrap = styled.div`
   width: 816.99px;
   display: flex;
   justify-content: space-between;
+
+  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    width: 90%;
+  }
 `;
 
 export const QuoteWrap = styled.div`

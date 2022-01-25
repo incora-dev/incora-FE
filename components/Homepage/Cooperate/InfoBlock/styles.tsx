@@ -1,8 +1,11 @@
 import styled from "styled-components";
+import { theme } from "../../../../styles/theme";
 
 export const Div = styled.div`
   display: flex;
   flex-direction: column;
+  max-width: 100%;
+  padding: 20px;
 `
 
 export const H2 = styled.h2`
@@ -57,4 +60,8 @@ export const Text = styled.strong`
   letter-spacing: 0.1em;
 
   color: #454A4D;
+
+  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    width: 90%;
+  }
 `

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { theme } from "../../../styles/theme";
 
 interface IComponent {
   bgColor: string;
@@ -37,6 +38,10 @@ export const Div = styled.div`
     margin: auto 0;
     
     cursor: pointer;
+  }
+
+  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    width: 90%;
   }
 `;
 

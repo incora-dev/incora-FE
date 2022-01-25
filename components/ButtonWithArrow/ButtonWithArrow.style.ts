@@ -28,7 +28,7 @@ export const Button = styled.div`
   padding: ${({padding = '23px 35px;'}: IButton) => padding};
   align-items: center;
   column-gap: 20px;
-
+  justify-self: baseline;
 `
 
 export const ButtonContainer = styled.div`
@@ -55,6 +55,7 @@ export const ButtonContainer = styled.div`
 `
 
 export const Container = styled.a`
+  justify-self: baseline;
   a {
     min-width: 180px;
   }

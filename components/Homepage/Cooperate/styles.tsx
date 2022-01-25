@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { theme } from "../../../styles/theme";
 
 interface IPositionInfo  {
   positionRight: string;
@@ -19,6 +20,10 @@ export const Cooperate = styled.div`
 
     max-width: 1166px;
     margin: 0 auto;
+  }
+
+  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    height: 105vh;
   }
 `
 
@@ -45,6 +50,10 @@ export const Slider = styled.div`
   margin-right: 23px;
   padding-top: 23.2vh;
   padding-bottom: 33.2vh;
+  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    flex-wrap: wrap;
+    padding-top: 8.2vh;
+  }
 `
 
 export const Number = styled.div`
@@ -64,11 +73,21 @@ export const PositionNumber = styled.div`
   position: relative;
   z-index: 1;
   margin-top: 20px;
+
+  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    left: 55vw;
+    margin-top: -70px;
+  }
 `
 
 export const InfoContainer = styled.div`
   display: flex;
   gap: 25px;
+
+  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    flex-wrap: wrap;
+    gap: 0;
+  }
 `
 
 export const PositionInfo = styled.div`
@@ -76,6 +95,11 @@ export const PositionInfo = styled.div`
   right: ${({ positionRight }: IPositionInfo) => positionRight};
 
   margin-top: 6px;
+
+  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    right: 0;
+    max-width: 100vw;
+  }
 `
 
 export const ElementsPosition = styled.div`

@@ -24,6 +24,7 @@ import CooperateComponent from "../components/Homepage/Cooperate";
 import { GetCaseStudies } from "../graphql/caseStudies/__generated__/GetCaseStudies";
 import { useQuery } from "@apollo/client";
 import { GET_CASE_STUDIES } from "../graphql/caseStudies/queries";
+import Custom404 from "./404";
 
 const titles = [
   "Services",
@@ -266,6 +267,8 @@ function Home() {
   const { data, loading, error } = useQuery<GetCaseStudies>(GET_CASE_STUDIES); // replace data from homepage
   const entry = data?.caseStudiesPage?.data?.attributes?.projects;
 
+  const errorCondition = error && <Custom404 />;
+
   return (
     <>
       {!loading && !error && entry && (
@@ -340,6 +343,8 @@ function Home() {
           </>
         </>
       )}
+
+      {errorCondition}
     </>
   );
 }

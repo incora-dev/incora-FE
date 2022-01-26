@@ -1,5 +1,6 @@
 import themeGet from "@styled-system/theme-get";
 import styled from "styled-components";
+import { theme } from "../../../styles/theme";
 
 interface IButton {
   right: boolean;
@@ -15,6 +16,11 @@ export const ButtonWrap = styled.div`
 
   svg {
     transform: ${({ right }: IButton) => (right ? "rotate(180deg)" : "none")};
+  }
+
+  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    justify-content: center;
+    padding: 20px 33px;
   }
 `;
 

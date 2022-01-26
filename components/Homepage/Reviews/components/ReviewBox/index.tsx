@@ -1,10 +1,10 @@
-import { CarouselButtonWrapper, ReviewBoxWrapper } from "./style";
+import { CarouselButtonWrapper, CarouselReviewWrapper, ReviewBoxWrapper } from "./style";
 
 import ReviewContent from "./components/ReviewContent";
 import CarouselButton from "../../../../common/CarouselButton";
 import { Review } from "../../../../../interfaces/reviesComponent.interface";
 import { useDispatch } from "react-redux";
-import { Dispatch, SetStateAction, useEffect } from "react";
+import React, { Dispatch, SetStateAction, useEffect } from "react";
 import { changeCurrentGlobePoint } from "../../../actions";
 
 interface IReviewBox {
@@ -38,6 +38,7 @@ const ReviewBox = ({ reviews, reviewIndex, setReviewIndex }: IReviewBox) => {
 
   return (
     <ReviewBoxWrapper>
+      <CarouselReviewWrapper>
       <CarouselButtonWrapper>
         {leftCarouselButtonCondition}
       </CarouselButtonWrapper>
@@ -45,6 +46,7 @@ const ReviewBox = ({ reviews, reviewIndex, setReviewIndex }: IReviewBox) => {
       <CarouselButtonWrapper>
         {rightCarouselButtonCondition}
       </CarouselButtonWrapper>
+      </CarouselReviewWrapper>
     </ReviewBoxWrapper>
   );
 };

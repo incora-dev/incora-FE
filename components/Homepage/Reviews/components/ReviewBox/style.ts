@@ -15,6 +15,7 @@ export const ReviewBoxWrapper = styled.div`
 
   @media only screen and (max-width: ${theme.breakpoints.mobile}) {
     width: 90%;
+    min-height: 70vh;
   }
 `;
 
@@ -22,6 +23,15 @@ export const CarouselButtonWrapper = styled.div`
   width: 269px;
   display: flex;
   align-items: flex-end;
+`;
+export const CarouselReviewWrapper = styled.div`
+  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 100%;
+    height: 60vh;
+  }
 `;
 
 const dash = keyframes`

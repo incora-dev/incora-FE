@@ -7,16 +7,21 @@ import {
 import { INavigation } from "@interfaces";
 import ButtonWithArrow from "../../ButtonWithArrow";
 import Arrow from "../../../public/navArrow.svg"
-import { useState } from "react";
+import {useEffect, useState} from "react";
 import Link from "next/link";
 
 function Navigation({ titles, titlesColor, setOnHoverElement, onSelectedMenu, setOnSelectedMenu }: INavigation) {
   const [selectedTitle, setSelectedTitle] = useState<string | null>(null);
+  const  [urlTitle, setUrlTitle] = useState<string | null | undefined>(null)
+
+  useEffect(() => {
+    setUrlTitle(titles.find((title) => window.location.pathname.includes(title.toLowerCase())));
+  }, [])
 
   return (
     <Nav color={titlesColor}>
       {titles.map((title: string, index: number) => {
-        const shouldAddLine = selectedTitle === title && onSelectedMenu === title;
+        const shouldAddLine = selectedTitle === title && onSelectedMenu === title || title === urlTitle;
 
         if (
           title === "Services" ||

@@ -2,7 +2,7 @@ import { IMenu } from "@interfaces";
 import Navigation from "./navigation/navigation";
 import { Wrapper, Block, HoverMenu, Div } from "./styles";
 import { theme } from "../../styles/theme";
-import { useState } from "react";
+import {useEffect, useState} from "react";
 import HoverElements from "./HoverElements";
 import Link from "next/link";
 

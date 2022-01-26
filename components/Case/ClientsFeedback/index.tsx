@@ -7,8 +7,17 @@ import {
 import Quotes from "../../../public/icons/Quotes.svg";
 import Image from "next/image";
 import clientPhoto from "../../../public/images/clientPhoto2.png";
+import { GetProjectPage_projects_data_attributes_feedback_data_attributes } from "../../../graphql/caseStudies/__generated__/GetProjectPage";
+import { IMAGES_LINK } from "../../../constants";
 
-const ClientsFeedback = () => {
+interface IClientFeedBack {
+  feedback: GetProjectPage_projects_data_attributes_feedback_data_attributes;
+}
+
+const ClientsFeedback = ({ feedback }: IClientFeedBack) => {
+  const { text, clientName, clientPhoto, clientPosition } = feedback;
+  const src = IMAGES_LINK + clientPhoto.data?.attributes?.url;
+
   return (
     <ClientsFeedbackWrapper>
       <HeadingWrap>
@@ -16,24 +25,18 @@ const ClientsFeedback = () => {
       </HeadingWrap>
       <FeedbackWrap>
         <Quotes />
-        <p>
-          Incora supports our web development projects that involve Ruby on
-          Rails and Node. They assign us a project manager, product manager, and
-          two full stack developers per project. Incora is one of the fastest
-          teams we’ve worked with. Incora is meeting our demanding requirements,
-          and we’re very happy with them. Our communication has worked well so
-          far.
-        </p>
+        <p>{text}</p>
         <ClientInfoWrap>
           <Image
-            src={clientPhoto.src}
+            loader={() => src}
+            src={src}
             width={53}
             height={53}
             alt="client photo"
           />
           <div>
-            <h3>ralph wutscher</h3>
-            <span>COO and Chief Legal Officer at Incubator LLC</span>
+            <h3>{clientName}</h3>
+            <span>{clientPosition}</span>
           </div>
         </ClientInfoWrap>
       </FeedbackWrap>

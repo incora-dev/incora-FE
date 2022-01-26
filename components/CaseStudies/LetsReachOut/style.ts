@@ -1,5 +1,6 @@
 import themeGet from "@styled-system/theme-get";
 import styled from "styled-components";
+import { theme } from "../../../styles/theme";
 
 export const LetsReactOutWrapper = styled.div`
   width: 100%;
@@ -14,6 +15,10 @@ export const ContentWrap = styled.div`
   padding-top: 140px;
   padding-left: 12px;
   position: relative;
+
+  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    width: 90%;
+  }
 
   > h1 {
     font-weight: 800;
@@ -36,6 +41,10 @@ export const ContentWrap = styled.div`
     position: absolute;
     right: -12px;
     top: 135px;
+
+    @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+      display: none;
+    }
   }
 
   .semicircle {
@@ -55,6 +64,10 @@ export const UploadBox = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+
+  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    width: 100%;
+  }
 
   > span {
     font-weight: 600;

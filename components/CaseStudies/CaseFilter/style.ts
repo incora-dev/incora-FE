@@ -1,5 +1,6 @@
 import { themeGet } from "@styled-system/theme-get";
 import styled from "styled-components";
+import { theme } from "../../../styles/theme";
 
 interface ICaseFilterWrapper {
   filterByFlag: boolean;
@@ -17,11 +18,19 @@ export const CaseFilterWrapper = styled.div`
     filterByFlag ? themeGet("colors.black") : themeGet("colors.white")};
   transition: all 0.5s ease-in-out;
   overflow: hidden;
+
+  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    height: unset;
+  }
 `;
 
 export const FilterWrap = styled.div`
   width: 1006px;
   transition: background-color 0.5s ease-in-out;
+
+  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    width: 90%;
+  }
 
   h1 {
     font-weight: 800;
@@ -42,6 +51,10 @@ export const FilterWrap = styled.div`
       filterByFlag ? themeGet("colors.font2") : themeGet("colors.font1")};
     letter-spacing: 0.1em;
     margin-bottom: 35px;
+
+    @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+      width: 90%;
+    }
   }
 `;
 

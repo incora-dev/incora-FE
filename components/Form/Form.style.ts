@@ -1,5 +1,6 @@
 import themeGet from "@styled-system/theme-get";
 import styled from "styled-components";
+import { theme } from "../../styles/theme";
 
 interface IInput {
   formBlack: boolean;
@@ -101,6 +102,10 @@ export const Input = styled.input`
   -webkit-transition: ease-in-out 0.4s;
   -moz-transition: ease-in-out 0.4s;
   transition: all ease-in-out 0.4s;
+
+  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    width: 100%;
+  }
 
   &::placeholder {
     font-style: normal;

@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { theme } from "../../../styles/theme";
+import themeGet from "@styled-system/theme-get";
 
 export const Component = styled.div`
   position: relative;
@@ -33,6 +34,100 @@ export const Div = styled.div`
   row-gap: 20px;
 
   max-width: 632px;
+`
+
+export const PositionCube1 = styled.div`
+  position: absolute;
+
+  bottom: 79px;
+  right: 97px;
+  
+  svg {
+    path {
+      stroke: ${themeGet("colors.black")};
+    }
+  }
+`
+
+export const PositionCube2 = styled.div`
+  position: absolute;
+
+  bottom: 17px;
+  right: 82px;
+  
+  svg {
+    path {
+      stroke: ${themeGet("colors.yellow")};
+    }
+  }
+`
+
+export const PositionCube3 = styled.div`
+  position: absolute;
+
+  bottom: 115px;
+  right: -216px;
+
+  svg {
+    path {
+      stroke: ${themeGet("colors.yellow")};
+    }
+
+  }
+`
+
+export const PositionCube4 = styled.div`
+  position: absolute;
+
+  bottom: 17px;
+  right: -84px;
+
+  svg {
+    path {
+      stroke: ${themeGet("colors.black")};
+    }
+
+  }
+`
+
+export const PositionCube5 = styled.div`
+  position: absolute;
+
+  bottom: -44px;
+  right: -100px;
+
+  svg {
+    path {
+      stroke: ${themeGet("colors.yellow")};
+    }
+
+  }
+`
+
+export const PositionSphere = styled.div`
+  position: absolute;
+  width: 237px;
+  height: 237px;
+
+  border-radius: 50%;
+  bottom: 0;
+  right: 0;
+  
+  overflow: hidden;
+`
+
+export const Sphere = styled.div`
+  position: absolute;
+  width: 237px;
+  height: 237px;
+
+  border-radius: 50%;
+  bottom: -61px;
+  right: -16px;
+
+  overflow: hidden;
+
+  background-color: ${themeGet("colors.white")};
 `
 
 export const PositionTextBlock = styled.div`
@@ -98,20 +193,6 @@ export const PositionLoading = styled.div`
   position: absolute;
   top: -54px;
   right: -5px;
-`
-
-export const HexagonBordered = styled.div`
-  width: 143px;
-  height: 163.84px;
-
-  background: center no-repeat url("./hexagonBordered.svg");
-`
-
-export const HexagonFilled = styled.div`
-  width: 194.31px;
-  height: 224.47px;
-
-  background: center no-repeat url("./hexagonFilled.svg");
 `
 
 export const PositionHexagonOne = styled.div`

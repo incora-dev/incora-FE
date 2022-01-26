@@ -2,31 +2,70 @@ import {
   Cover,
   Container,
   Div,
-  Titles,
-  Title1,
-  Title2,
-  TitleContainer,
-  Title3,
-  Title4,
   ScrollContainer,
   Line,
-  ScrollText
+  ScrollText,
+  PositionVideoSVG,
+  VideoBlock,
+  PositionHexagon1,
+  PositionHexagon2,
+  PositionHexagon3,
+  PositionHexagon4
 } from './styles'
+import SVG from "../../../public/SVG/deepen-to-the-core.svg"
+import Hexagon from "../../../public/SVG/hexagon1.svg"
+import { useRef } from "react";
+
 
 function HeaderComponent() {
+  const videoEl: any = useRef(null);
+
   return (
-    <Cover>
+    <Cover onMouseEnter={() => videoEl.current.play()}>
       <Container>
         <Div>
-          <Titles>
-            <Title1>Deepen to</Title1>
-            <Title2>the Core</Title2>
-            <TitleContainer>
-              <Title3>of Idea</Title3>
-              <Title4>of Idea</Title4>
-            </TitleContainer>
-          </Titles>
+          <VideoBlock>
+            <video
+              style={{ width: '710px', height: '380px' }}
+              autoPlay
+              loop
+              ref={videoEl}
+            >
+              <source src="DeepenToTheCoreOfIdeaVideo.mp4" type="video/mp4"/>
+            </video>
 
+            <PositionVideoSVG>
+              <SVG/>
+            </PositionVideoSVG>
+          </VideoBlock>
+
+            <PositionHexagon1>
+              <Hexagon
+                width="235"
+                viewBox="0 0 391 450"
+              />
+            </PositionHexagon1>
+
+            <PositionHexagon2>
+              <Hexagon
+                width="235"
+                viewBox="0 0 391 450"
+              />
+            </PositionHexagon2>
+
+          <PositionHexagon3>
+            <Hexagon
+              width="235"
+              viewBox="0 0 391 450"
+            />
+          </PositionHexagon3>
+
+          <PositionHexagon4>
+            <Hexagon
+              width="235"
+              viewBox="0 0 391 450"
+            />
+          </PositionHexagon4>
           <ScrollContainer>
             <Line/>
             <ScrollText>scroll</ScrollText>

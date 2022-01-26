@@ -23,6 +23,9 @@ export const Cooperate = styled.div`
   }
 
   @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    height: 110vh;
+  }
+  @media only screen and (max-width: ${theme.breakpoints.xsMobile}) {
     height: 150vh;
   }
 `
@@ -52,8 +55,9 @@ export const Slider = styled.div`
   padding-bottom: 33.2vh;
   @media only screen and (max-width: ${theme.breakpoints.mobile}) {
     flex-wrap: wrap;
-    padding-top: 8.2vh;
+    padding-top: 53px;
     height: 150vh;
+    padding-bottom: 53px;
   }
 `
 
@@ -76,8 +80,11 @@ export const PositionNumber = styled.div`
   margin-top: 20px;
 
   @media only screen and (max-width: ${theme.breakpoints.mobile}) {
-    left: 40vw;
-    margin-top: -70px;
+    left: 50%;
+  }
+  @media only screen and (max-width: ${theme.breakpoints.xsMobile}) {
+    left: 40%;
+    margin-top: -50vw;
   }
 `
 
@@ -100,6 +107,10 @@ export const PositionInfo = styled.div`
   @media only screen and (max-width: ${theme.breakpoints.mobile}) {
     right: 0;
     max-width: 100vw;
+    top: -25vh;
+  }
+  @media only screen and (max-width: ${theme.breakpoints.xsMobile}) {
+    top: 0;
   }
 `
 

@@ -14,9 +14,10 @@ export const Container = styled.div`
 
   text-align: left;
 
-  --line-height: 127px;
+  --line-height: calc(11vw + 0.1rem);
   @media (max-width: ${theme.breakpoints.mobile}) {
-    --line-height: 80px;
+    --line-height: calc(11vw + 0.1rem);
+    height: 85vw;
   }
 `
 
@@ -24,6 +25,10 @@ export const Div = styled.div`
   margin: 0 100px;
 
   text-align: left;
+
+  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    margin: 0 70px;
+  }
 `
 
 export const VideoContainer = styled.video`
@@ -36,22 +41,22 @@ export const Titles = styled.div`
   padding-top: 11vh;
   margin-left: -47px;
   @media (max-width: ${theme.breakpoints.mobile}) {
-    margin-left: -80px;
+    margin-left: -50px;
     padding-top: 3vh;
   }
 `
 
 export const Title1 = styled.h1`
-  font-size: var(--fs-120);
+  font-size: calc(10vw + 0.05rem);
   font-weight: 900;
   line-height: var(--line-height);
   letter-spacing: 0.05em;
 `
 
 export const Title2 = styled.h1`
-  margin-left: 52.5px;
+  margin-left: calc(10vw + 0.05rem);
 
-  font-size: var(--fs-120);
+  font-size: calc(10vw + 0.05rem);
   font-weight: 900;
   line-height: var(--line-height);
   letter-spacing: 0.05em;
@@ -60,15 +65,15 @@ export const Title2 = styled.h1`
 export const Title3 = styled.h1`
   position: relative;
   z-index: 1;
-  margin-left: 237.5px;
+  margin-left: calc(25vw + 1rem);
 
-  font-size: var(--fs-120);
+  font-size: calc(10vw + 0.05rem);
   font-weight: 900;
   line-height: var(--line-height);
   letter-spacing: 0.05em;
 
   @media (max-width: ${theme.breakpoints.mobile}) {
-    margin-left: 105.5px;
+    margin-left: calc(25vw + 1rem);
   }
 `
 
@@ -76,9 +81,9 @@ export const Title4 = styled.h1`
   position: absolute;
   top: 10.5px;
   left: 5px;
-  margin-left: 240px;
+  margin-left: calc(25vw + 1rem);
 
-  font-size: var(--fs-120);
+  font-size: calc(10vw + 0.05rem);
   font-weight: 900;
   line-height: var(--line-height);
   letter-spacing: 0.05em;
@@ -87,7 +92,8 @@ export const Title4 = styled.h1`
   color: rgba(0,0,0,0);
 
   @media (max-width: ${theme.breakpoints.mobile}) {
-    margin-left: 108px;
+    margin-left: calc(26vw + 1rem);
+    top: 6%;
   }
 `
 
@@ -109,6 +115,8 @@ export const ScrollContainer = styled.div`
 
   @media only screen and (max-width: ${theme.breakpoints.mobile}) {
     left: -15%;
+    width: 40%;
+    bottom: 20%;
   }
 `;
 

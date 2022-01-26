@@ -25,6 +25,10 @@ export const PositionTitle = styled.div`
   padding-top: ${({ disablePadding }: IPositionTitle) =>
     disablePadding ? "0" : "120px"};
   margin-bottom: 46px;
+
+  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    padding-top: 53px;
+  }
 `;
 
 export const Block = styled.div`
@@ -46,8 +50,8 @@ export const H2 = styled.h2`
   color: #fec506;
 
   @media only screen and (max-width: ${theme.breakpoints.mobile}) {
-    width: 90%;
-    margin-left: 10px;
+    width: 100%;
+    padding-left: 20px;
   }
 `;
 
@@ -72,6 +76,10 @@ export const ProjectsContainer = styled.div`
   flex-direction: column;
   row-gap: 174px;
   align-items: center;
+
+  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    row-gap: 53px;
+  }
 `;
 
 export const SeeMoreWorks = styled.div`

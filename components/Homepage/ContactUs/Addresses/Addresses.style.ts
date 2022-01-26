@@ -11,6 +11,8 @@ export const Container = styled.div`
       position: relative;
       left: 55px;
     }
+
+    margin-left: 0;
   }
 `;
 
@@ -27,8 +29,7 @@ export const AddressesContainer = styled.div`
 
   margin: auto;
   @media only screen and (max-width: ${theme.breakpoints.mobile}) {
-    left: 10px;
-
+    left: 0px;
   }
 `;
 

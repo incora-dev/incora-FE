@@ -78,4 +78,8 @@ export const FilterSwitchWrap = styled.div`
 export const GlobeWrap = styled.div`
   width: 100%;
   padding: 43px;
+
+  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    height: 100vh;
+  }
 `;

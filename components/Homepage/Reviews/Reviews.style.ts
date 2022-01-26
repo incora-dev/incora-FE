@@ -12,6 +12,6 @@ export const ReviewsWrapper = styled.div`
   align-items: center;
 
   @media only screen and (max-width: ${theme.breakpoints.mobile}) {
-    height: 1465px;
+    height: fit-content;
   }
 `;

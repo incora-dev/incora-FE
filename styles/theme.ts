@@ -43,6 +43,7 @@ export const theme = {
     hexagonBorderedGrey: "#FAFAFA",
   },
   breakpoints: {
+    xsMobile: '280px',
     mobile:'481px', 
     tablet: '768px', 
     smallDesk:'992px', 

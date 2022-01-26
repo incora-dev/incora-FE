@@ -9,10 +9,18 @@ export const Component = styled.div`
   height: 623px;
   
   background-color: ${({bgColor}: IComponent) => bgColor};
+
+  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    height: 500px;
+  }
 `;
 
 export const PaddingTop = styled.div`
   padding-top: 120px;
+
+  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    padding-top: 53px;
+  }
 `;
 
 export const MarginTop = styled.div`
@@ -41,7 +49,8 @@ export const Div = styled.div`
   }
 
   @media only screen and (max-width: ${theme.breakpoints.mobile}) {
-    width: 90%;
+    width: 100%;
+    padding-left: 20px;
   }
 `;
 

@@ -14,10 +14,14 @@ const Reviews = () => {
   const loading: boolean = useSelector(loadingSelector);
   const reviews: Review[] = useSelector(reviewsSelector);
   const [reviewIndex, setReviewIndex] = useState(0);
+  const [isMobDevice, setIsMobDevice] = useState<boolean>();
 
   const dispatch = useDispatch();
 
   useEffect(() => {
+    if (typeof screen.orientation !== 'undefined') {
+      setIsMobDevice(true);
+    }
     dispatch(getReview.success()); // replace real backend data later
   }, []);
 
@@ -29,7 +33,7 @@ const Reviews = () => {
         reviewIndex={reviewIndex}
         setReviewIndex={setReviewIndex}
       />
-      {!loading && <Globe reviewIndex={reviewIndex} />}
+      {!loading && !isMobDevice && <Globe reviewIndex={reviewIndex} />}
     </ReviewsWrapper>
   );
 };

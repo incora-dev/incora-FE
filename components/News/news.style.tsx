@@ -18,8 +18,7 @@ export const HeaderContainer = styled.div`
   padding-left: 180px;
   padding-right: 80px;
   @media only screen and (max-width: ${theme.breakpoints.mobile}) {
-    padding-left: 20%;
-    padding-right: 10%;
+    padding: 0 20px;
   }
 `;
 

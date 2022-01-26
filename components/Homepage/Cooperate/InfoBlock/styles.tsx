@@ -21,10 +21,18 @@ export const H2 = styled.h2`
   text-transform: capitalize;
 
   color: #000;
+
+  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    width: 100%;
+  }
 `
 
 export const PositionH2 = styled.div`
   margin-bottom: 16px;
+
+  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    width: 100%;
+  }
 `
 
 export const H3 = styled.h3`

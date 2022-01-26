@@ -20,7 +20,9 @@ export const Container = styled.div`
 
   @media only screen and (max-width: ${theme.breakpoints.mobile}) {
     padding-bottom: 0;
-    margin-left: 10px;
+    padding-right: 20px;
+    padding-left: 20px;
+    width: 100%;
   }
 `;
 

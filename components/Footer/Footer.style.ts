@@ -24,7 +24,9 @@ export const Position = styled.div`
   justify-content: space-between;
 
   @media only screen and (max-width: ${theme.breakpoints.mobile}) {
-    width: 90%;
+    width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
     flex-wrap: wrap;
     gap: 10px;
   }

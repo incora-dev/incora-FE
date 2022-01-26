@@ -10,7 +10,8 @@ export const Component = styled.div`
   background-color: #18181A;
 
   @media only screen and (max-width: ${theme.breakpoints.mobile}) {
-    height: 130vh;
+    height: fit-content;
+    padding-bottom: 53px;
   }
 `
 
@@ -20,7 +21,9 @@ export const Position = styled.div`
   width: 1006px;
 
   @media only screen and (max-width: ${theme.breakpoints.mobile}) {
-    width: 90%;
+    width: 100%;
+    padding-right: 20px;
+    padding-left: 20px;
   }
 `
 

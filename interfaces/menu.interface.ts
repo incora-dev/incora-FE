@@ -10,7 +10,8 @@ export interface INavigation {
   titles: string[];
   titlesColor: string;
   setOnHoverElement: Function;
-  onHoverElement: string | null;
+  onSelectedMenu: string | null;
+  setOnSelectedMenu: Function;
 }
 
 export interface IBackgroundColor {

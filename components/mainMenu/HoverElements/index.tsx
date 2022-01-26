@@ -6,18 +6,22 @@ interface IHoverElements {
   title: string | null;
   titleColor: string;
   setOnHoverElement: Function;
+  setOnSelectedMenu: Function
 }
 
-function getElement(title: string | null, titleColor: string, setOnHoverElement: Function) {
+function getElement(title: string | null, titleColor: string, setOnHoverElement: Function, setOnSelectedMenu: Function) {
   if (title?.toLowerCase() === 'services') {
+    setOnSelectedMenu(title);
+
     return (
       <ServicesHoverElement
         titleColor={titleColor}
-        // className={title?.toLowerCase() === 'services' && 'selected'}
         isShow={title?.toLowerCase() === 'services'}
       />
     )
   } else if (title?.toLowerCase() === 'expertise') {
+    setOnSelectedMenu(title);
+
     return (
       <ExpertiseHoverElements
         titleColor={titleColor}
@@ -25,21 +29,23 @@ function getElement(title: string | null, titleColor: string, setOnHoverElement:
       />
     )
   } else if (title?.toLowerCase() === 'company') {
+    setOnSelectedMenu(title);
+
     return (
       <CompanyHoverElement
         titleColor={titleColor}
       />
     )
-
   }
 
   if (title?.toLowerCase() === 'case studies' || title?.toLowerCase() === 'insights') {
     setOnHoverElement(null);
+    setOnSelectedMenu(title);
   }
 }
 
-const HoverElements = ({ title, titleColor, setOnHoverElement }: IHoverElements) => {
-  const element = getElement(title, titleColor, setOnHoverElement);
+const HoverElements = ({ title, titleColor, setOnHoverElement, setOnSelectedMenu }: IHoverElements) => {
+  const element = getElement(title, titleColor, setOnHoverElement, setOnSelectedMenu);
 
   return (
     <>{element}</>

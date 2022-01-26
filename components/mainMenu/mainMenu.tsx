@@ -25,6 +25,7 @@ function getLogo(titlesColor: string) {
 
 export default function MainMenu(props: IMenu) {
   const [onHoverElement, setOnHoverElement] = useState<null | string>(null);
+  const [onSelectedMenu, setOnSelectedMenu] = useState<null | string>(null);
   const { titles, backgroundColor, titlesColor, children, positionType = 'sticky' } = props;
   const logo = getLogo(titlesColor);
 
@@ -43,19 +44,24 @@ export default function MainMenu(props: IMenu) {
             titles={titles}
             titlesColor={titlesColor}
             setOnHoverElement={setOnHoverElement}
-            onHoverElement={onHoverElement}
+            onSelectedMenu={onSelectedMenu}
+            setOnSelectedMenu={setOnSelectedMenu}
           />
         </Block>
 
         <HoverMenu
           isShow={Boolean(onHoverElement)}
           titlesColor={titlesColor}
-          onMouseLeave={() => setOnHoverElement(null)}
+          onMouseLeave={() => {
+            setOnHoverElement(null);
+            setOnSelectedMenu(null);
+          }}
         >
           <HoverElements
             title={onHoverElement}
             titleColor={titlesColor}
             setOnHoverElement={setOnHoverElement}
+            setOnSelectedMenu={setOnSelectedMenu}
           />
         </HoverMenu>
       </Wrapper>

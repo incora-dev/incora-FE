@@ -9,13 +9,13 @@ import ButtonWithArrow from "../../ButtonWithArrow";
 import Arrow from "../../../public/navArrow.svg"
 import { useState } from "react";
 
-function Navigation({ titles, titlesColor, setOnHoverElement, onHoverElement }: INavigation) {
+function Navigation({ titles, titlesColor, setOnHoverElement, onSelectedMenu, setOnSelectedMenu }: INavigation) {
   const [selectedTitle, setSelectedTitle] = useState<string | null>(null);
 
   return (
     <Nav color={titlesColor}>
       {titles.map((title: string, index: number) => {
-        const shouldAddLine = selectedTitle === title && onHoverElement === title;
+        const shouldAddLine = selectedTitle === title && onSelectedMenu === title;
 
         if (
           title === "Services" ||
@@ -59,6 +59,8 @@ function Navigation({ titles, titlesColor, setOnHoverElement, onHoverElement }: 
               setOnHoverElement(title);
               setSelectedTitle(title);
             }}
+
+            onMouseLeave={() => setOnSelectedMenu(null)}
           >
             <Li>{title}</Li>
           </Ul>

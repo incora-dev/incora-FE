@@ -56,7 +56,7 @@ function VideoComponent() {
           <VideoBLock>
             <Video
               ref={videoRef}
-              style={{ width: isMobile ? '100%' : '1122px', height: '671px' }}
+              style={{ width: isMobile ? '100%' : '1122px', height: isMobile ? '370px' : '671px' }}
               loop
               onClick={() => videoHandler(play)}
               poster={'./Player/PosterVideo.jpg'}

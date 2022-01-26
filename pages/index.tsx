@@ -307,7 +307,7 @@ function Home() {
               <EmbodiedIdeasComponent
                 title={EmbodiedIdeas.title}
                 bgColor={EmbodiedIdeas.bgColor}
-                elementsColor={colorYellow} projects={[]}              />
+                elementsColor={colorYellow}              />
               <VideoComponent />
               <AboutUs
                 backgroundColor={bgColorBlack}

@@ -113,4 +113,8 @@ export const PositionScrollSlider = styled.div`
   position: absolute;
   top: 37.3vh;
   left: -10px;
+
+  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    left: 5%;
+  }
 `

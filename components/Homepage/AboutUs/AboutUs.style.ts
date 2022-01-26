@@ -36,6 +36,8 @@ export const Text = styled.div`
 
   @media only screen and (max-width: ${theme.breakpoints.mobile}) {
     padding-top: 0;
+    flex-direction: column;
+    margin: 20px 0;
   }
 
   h2 {

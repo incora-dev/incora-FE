@@ -4,6 +4,7 @@ export const theme = {
     yellow2: "#FEC506",
     yellow3: "#FCE599",
     yellow4: "#e7b301",
+    yellow5: "#c79d08",
     black: "#18181A",
     backgroundBlack: "#181819",
     backgroundBlack2: "#212125",
@@ -35,6 +36,7 @@ export const theme = {
 
   transition: {
     button: "ease-in-out 0.4s",
+    menu: "ease-in-out 0.4s"
   },
   elements: {
     hexagonBorderedBlack: "#212121",

@@ -7,7 +7,10 @@ interface GoToTop {
 
 const GoToTop = ({ isVisible }: GoToTop) => {
   return (
-    <Wrapper isVisible={isVisible} onClick={() => window.scrollTo(0, 0)}>
+    <Wrapper
+      isVisible={isVisible}
+      onClick={() => window.scrollTo(0, 0)}
+    >
       <GoToTopIcon/>
     </Wrapper>
   )

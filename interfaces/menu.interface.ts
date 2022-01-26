@@ -9,6 +9,8 @@ export interface IMenu {
 export interface INavigation {
   titles: string[];
   titlesColor: string;
+  setOnHoverElement: Function;
+  onHoverElement: string | null;
 }
 
 export interface IBackgroundColor {

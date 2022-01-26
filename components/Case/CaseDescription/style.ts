@@ -34,6 +34,7 @@ export const TextWrap = styled.div`
     line-height: 30px;
     letter-spacing: 0.1em;
     color: ${themeGet("colors.font2")};
+    margin-bottom: 120px;
   }
 
   .first {

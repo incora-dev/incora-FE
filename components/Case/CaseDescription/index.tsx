@@ -1,3 +1,11 @@
+import Link from "next/link";
+import {
+  GetProjectPage_projects_data_attributes_industry_data_attributes,
+  GetProjectPage_projects_data_attributes_location_data_attributes,
+  GetProjectPage_projects_data_attributes_mainInfo,
+  GetProjectPage_projects_data_attributes_services,
+  GetProjectPage_projects_data_attributes_technologies,
+} from "../../../graphql/caseStudies/__generated__/GetProjectPage";
 import {
   CaseDescriptionWrapper,
   ContentWrapper,
@@ -10,66 +18,76 @@ import {
   TextWrap,
 } from "./style";
 
-const technologies = [
-  "JavaScript",
-  "React",
-  "Node.js",
-  "WebRTC",
-  "MySQL",
-  "PostgreSQL",
-  "PHP",
-  "WooCommerce",
-  "AWS",
-];
+interface ICaseDescription {
+  mainInfo: GetProjectPage_projects_data_attributes_mainInfo;
+  location: GetProjectPage_projects_data_attributes_location_data_attributes;
+  technologies: GetProjectPage_projects_data_attributes_technologies;
+  services: GetProjectPage_projects_data_attributes_services;
+  industry: GetProjectPage_projects_data_attributes_industry_data_attributes;
+}
 
-const services = ["frontend", "backend"];
+const CaseDescription = ({
+  mainInfo,
+  location,
+  technologies,
+  services,
+  industry,
+}: ICaseDescription) => {
+  const info = mainInfo.item.map((item, index) => {
+    if (index !== 0) {
+      return (
+        <>
+          <h2>{item?.title}</h2>
+          <p>{item?.description}</p>
+        </>
+      );
+    }
+  });
 
-const CaseDescription = () => {
-  const technologiesTags = technologies.map((technology, index) => (
-    <TagBox key={index * Math.random()}>
-      <span>{technology}</span>
+  const locationTag = location && (
+    <TagBox>
+      <span>
+        {location.city}, {location.country}
+      </span>
     </TagBox>
+  );
+
+  const technologiesTags = technologies.data.map(({ id, attributes }) => (
+    <Link href={attributes?.url || ""} passHref key={id}>
+      <TagBox>
+        <span>{attributes?.name}</span>
+      </TagBox>
+    </Link>
   ));
 
-  const servicesTags = services.map((service, index) => (
-    <TagBox key={index * Math.random()}>
-      <span>{service}</span>
-    </TagBox>
+  const servicesTags = services.data.map(({ id, attributes }) => (
+    <Link href={attributes?.url || ""} passHref key={id}>
+      <TagBox>
+        <span>{attributes?.name}</span>
+      </TagBox>
+    </Link>
   ));
 
   return (
     <CaseDescriptionWrapper>
       <ContentWrapper>
-        <TextWrap>
-          <h2>{"Challenges"}</h2>
-          <p className="first">
-            {
-              "To eliminate different business risks, verification methods should be constantly updated and improved. Widget’s goal was to enhance the functionality and add new verification options to fit the needs of both small and big enterprises."
-            }
-          </p>
-          <h2>{"scope of work"}</h2>
-          <p>
-            {
-              "The client provided us with detailed requirements and specific design. Our team enlarged the widget’s functionality on admin’s and clients side. Our developers were responsible for integration of social networks, adding multiple features, and verification options. Moreover, we enhanced the widget’s design for mobile users and added different widget icons to match each client’s taste."
-            }
-          </p>
-        </TextWrap>
+        <TextWrap>{info}</TextWrap>
 
         <TagsWrap>
           <LocationAndIndustryWrap>
             <TagsCategory>
               <TagsHeading>location</TagsHeading>
-              <TagBox>
-                <span>Chicago, USA</span>
-              </TagBox>
+              {locationTag}
             </TagsCategory>
 
             <TagsCategory>
               <TagsHeading>industry</TagsHeading>
 
-              <TagBox>
-                <span>legal services</span>
-              </TagBox>
+              <Link href={industry.url || ""} passHref>
+                <TagBox>
+                  <span>{industry.name}</span>
+                </TagBox>
+              </Link>
             </TagsCategory>
           </LocationAndIndustryWrap>
 

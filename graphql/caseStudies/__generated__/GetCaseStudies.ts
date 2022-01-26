@@ -8,7 +8,7 @@
 // ====================================================
 
 export interface GetCaseStudies_caseStudiesPage_data_attributes_contactUs {
-  __typename: "ComponentCommonContactUsForm";
+  __typename: "ComponentCommonContactUs";
   title: string;
   subtitle: string;
 }
@@ -16,7 +16,7 @@ export interface GetCaseStudies_caseStudiesPage_data_attributes_contactUs {
 export interface GetCaseStudies_caseStudiesPage_data_attributes {
   __typename: "CaseStudiesPage";
   title: string;
-  description: string | null;
+  description: string;
   contactUs: GetCaseStudies_caseStudiesPage_data_attributes_contactUs;
 }
 

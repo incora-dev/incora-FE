@@ -13,9 +13,21 @@ import DecorTwo from "../../../public/nextProjectBtnDecor2.svg";
 import DecorThree from "../../../public/nextProjectBtnDecor3.svg";
 import ArrowRight from "../../../public/SVG/ArrowRightBig.svg";
 import { useState } from "react";
+import { GetProjectPage_projects_data_attributes_nextProjectButton } from "../../../graphql/caseStudies/__generated__/GetProjectPage";
+import { IMAGES_LINK } from "../../../constants";
+import Link from "next/link";
 
-const NextProject = () => {
+interface INextProject {
+  nextProjectButton: GetProjectPage_projects_data_attributes_nextProjectButton;
+}
+
+const NextProject = ({ nextProjectButton }: INextProject) => {
   const [isAnimate, setIsAnimate] = useState<boolean>(false);
+
+  const { intro, project } = nextProjectButton;
+  const projectEntry = project?.data?.attributes;
+  const src =
+    IMAGES_LINK + projectEntry?.mainInfo.item[0]?.image?.data?.attributes?.url;
 
   const onMouseEnter = () => {
     setIsAnimate(true);
@@ -27,31 +39,34 @@ const NextProject = () => {
 
   return (
     <NextProjectWrapper>
-      <NextProjectButton
-        onMouseEnter={onMouseEnter}
-        onMouseLeave={onMouseLeave}
-      >
-        <ContentWrap>
-          <ImageWrap isAnimate={isAnimate}>
-            <DecorOne className="one" />
-            <DecorTwo className="two" />
-            <DecorThree className="three" />
-            <Image
-              src={project.src}
-              width={141}
-              height={108.17}
-              alt="next project image"
-            />
-          </ImageWrap>
+      <Link href={`/case_studies/case/${projectEntry?.url}`} passHref>
+        <NextProjectButton
+          onMouseEnter={onMouseEnter}
+          onMouseLeave={onMouseLeave}
+        >
+          <ContentWrap>
+            <ImageWrap isAnimate={isAnimate}>
+              <DecorOne className="one" />
+              <DecorTwo className="two" />
+              <DecorThree className="three" />
+              <Image
+                loader={() => src}
+                src={src}
+                width={141}
+                height={108.17}
+                alt="next project image"
+              />
+            </ImageWrap>
 
-          <TextWrap>
-            <span>next project</span>
-            <h3>HealthApp</h3>
-          </TextWrap>
+            <TextWrap>
+              <span>{intro}</span>
+              <h3>{projectEntry?.name}</h3>
+            </TextWrap>
 
-          <ArrowRight />
-        </ContentWrap>
-      </NextProjectButton>
+            <ArrowRight />
+          </ContentWrap>
+        </NextProjectButton>
+      </Link>
     </NextProjectWrapper>
   );
 };

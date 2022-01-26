@@ -5,7 +5,7 @@ import {theme} from "../../styles/theme";
 interface IMenu {
   backgroundColor: string;
   positionType: string;
-  titlesColor: string;
+  titlesColor?: string;
 }
 
 interface IHoverMenu {

@@ -1,5 +1,6 @@
 import themeGet from "@styled-system/theme-get";
 import styled from "styled-components";
+import { theme } from "../../../styles/theme";
 
 interface ILetsTalk {
   flexDirection: string;
@@ -23,6 +24,10 @@ export const Wrapper = styled.div`
 
   max-width: 1006px;
   margin: 0 auto;
+
+  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    padding: 53px 20px;
+  }
 `;
 
 export const Block = styled.div`
@@ -62,6 +67,10 @@ export const PositionHexagon = styled.div`
   position: absolute;
   top: ${({ isWhite }: IDiv) => (isWhite ? "70px" : "-239px")};
   right: -47px;
+
+  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    display: none;
+  }
 `;
 
 export const PositionButtonWithArrow = styled.div`

@@ -1,4 +1,5 @@
 import styled, {keyframes} from "styled-components";
+import { theme } from "../../styles/theme";
 
 interface IAnimation {
   animation: boolean;
@@ -15,6 +16,16 @@ export const Div = styled.div`
     bottom: -5px;
     right: 0;
   }
+
+  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    height: 80vh;
+  }
+  @media only screen and (max-width: ${theme.breakpoints.mMobile}) {
+    height: 95vh;
+  }
+  @media only screen and (max-width: ${theme.breakpoints.xsMobile}) {
+    height: 120vh;
+  }
 `
 
 export const Container = styled.div`
@@ -28,6 +39,9 @@ export const TextBlock = styled.div`
   display: flex;
   flex-direction: column;
   row-gap: 20px;
+  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    padding: 25px 20px;
+  }
 `
 
 export const H1 = styled.h1`

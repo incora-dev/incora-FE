@@ -32,6 +32,11 @@ export const ButtonsBlock = styled.div`
   flex-wrap: wrap;
 
   transition: all 0.3s ease-in-out;
+
+  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    gap: 30px;
+    flex-direction: column;
+  }
 `
 
 export const RadioButton = styled.div`

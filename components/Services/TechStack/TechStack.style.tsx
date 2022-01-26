@@ -1,4 +1,5 @@
 import styled, {keyframes} from "styled-components";
+import { theme } from "../../../styles/theme";
 
 interface IStacksBlock {
   columns: number;
@@ -23,6 +24,11 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   row-gap: 30px;
+
+  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    margin-top: 53px;
+    padding: 0 20px;
+  }
 `
 
 export const H2 = styled.h2`
@@ -70,6 +76,11 @@ export const StacksContainer = styled.div`
   
   padding: 50px;
   background: #FBFBFB;
+
+  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    width: 100%;
+    padding: 20px;
+  }
 `
 
 export const StacksBlock = styled.div`
@@ -116,6 +127,12 @@ export const InfoBlock = styled.div`
 
   display: flex;
   justify-content: space-between;
+
+  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    flex-direction: column;
+    gap: 30px;
+    margin-bottom: 53px;
+  }
 `
 
 export const TextContainer = styled.div`

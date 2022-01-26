@@ -9,6 +9,7 @@ import { getReview } from "../actions";
 import { AppState } from "../../../services/store";
 import { Review } from "@interfaces";
 import { loadingSelector, reviewsSelector } from "../selectors";
+import { theme } from "../../../styles/theme";
 
 const Reviews = () => {
   const loading: boolean = useSelector(loadingSelector);
@@ -17,11 +18,13 @@ const Reviews = () => {
   const [isMobDevice, setIsMobDevice] = useState<boolean>();
 
   const dispatch = useDispatch();
+  console.log('isMobDevice', isMobDevice);
 
   useEffect(() => {
-    if (typeof screen.orientation !== 'undefined') {
+    const mobileWidth = +theme.breakpoints.mobile.replace('px', '');
+    if (window.innerWidth <= mobileWidth) {
       setIsMobDevice(true);
-    }
+    } else setIsMobDevice(false);
     dispatch(getReview.success()); // replace real backend data later
   }, []);
 

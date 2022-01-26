@@ -32,12 +32,13 @@ const ServicesComponent = () => {
         </TextBlock>
       </Container>
 
+
+      <Container>
       <Loader
         width={338}
         height={338}
         viewBox="0 0 187 187"
       />
-
       <PositionDots>
         <Dots numberOfDots={18} dotColor={blackColor} animation={animation}/>
       </PositionDots>
@@ -64,6 +65,7 @@ const ServicesComponent = () => {
           />
         </PositionLoaderBagelTrimmed>
       }
+      </Container>
     </Div>
   )
 }

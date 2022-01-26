@@ -29,7 +29,7 @@ export const AddressesContainer = styled.div`
 
   margin: auto;
   @media only screen and (max-width: ${theme.breakpoints.mobile}) {
-    left: 0px;
+    left: 20px;
   }
 `;
 

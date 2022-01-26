@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { theme } from "../../../styles/theme";
 
 interface IColors {
   bgColor: string;
@@ -16,11 +17,17 @@ export const Container = styled.div`
   position: relative;
 
   max-width: 1006px;
-  padding: 120px  0 130px 0;
+  padding: 120px 0 130px 0;
   margin: auto;
   
   display: flex;
   column-gap: 20px;
+
+  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    flex-direction: column;
+    padding: 25px 20px;
+    gap: 25px;
+  }
 `;
 
 export const MenuBlock = styled.div`
@@ -42,6 +49,11 @@ export const EstimatedTimeAndOutcomesBlock = styled.div`
   justify-content: space-between;
 
   background: #212125;
+
+  @media only screen and (max-width: ${theme.breakpoints.xsMobile}) {
+    flex-direction: column;
+    gap: 20px;
+  }
 `;
 
 export const Block = styled.div`
@@ -81,6 +93,10 @@ export const H2 = styled.h2`
   letter-spacing: 0.05em;
 
   color: #FFFFFF;
+
+  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    width: 100%;
+  }
 `;
 
 export const H3 = styled.h3`

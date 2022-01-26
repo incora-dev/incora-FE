@@ -71,3 +71,134 @@ export const GET_PROJECTS = gql`
     }
   }
 `;
+
+export const GET_PROJECT_PAGE = gql`
+  query GetProjectPage($url: String) {
+    projects(filters: { url: { eq: $url } }) {
+      data {
+        attributes {
+          name
+          description
+
+          location {
+            data {
+              id
+              attributes {
+                city
+                country
+              }
+            }
+          }
+          technologies {
+            data {
+              id
+              attributes {
+                name
+                url
+              }
+            }
+          }
+          services {
+            data {
+              id
+              attributes {
+                url
+                name
+              }
+            }
+          }
+          industry {
+            data {
+              attributes {
+                url
+                name
+              }
+            }
+          }
+
+          mainInfo {
+            item {
+              id
+              title
+              description
+            }
+          }
+          projectOverview {
+            title
+            item {
+              id
+              title
+              description
+              image {
+                data {
+                  id
+                  attributes {
+                    url
+                    width
+                    height
+                  }
+                }
+              }
+            }
+          }
+          feedback {
+            data {
+              id
+              attributes {
+                text
+                clientName
+                clientPosition
+                clientPhoto {
+                  data {
+                    attributes {
+                      url
+                    }
+                  }
+                }
+              }
+            }
+          }
+          nextProjectButton {
+            intro
+            project {
+              data {
+                id
+                attributes {
+                  url
+                  name
+                  mainInfo {
+                    item {
+                      image {
+                        data {
+                          attributes {
+                            url
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+          gallery {
+            intro
+            pictures {
+              data {
+                id
+                attributes {
+                  url
+                }
+              }
+            }
+          }
+
+          contactUs {
+            title
+            subtitle
+          }
+        }
+      }
+    }
+  }
+`;

@@ -18,9 +18,11 @@ import Dots from "../../../Homepage/Cooperate/elements/dots/dots";
 import DecorationItem from "../../../../public/decorationItem.svg";
 import DecorationItem2 from "../../../../public/decorationItem2.svg";
 import DecorTransparentSemicircle from "../../../../public/decorTransparentSemicircle.svg";
+import { GetProjectPage_projects_data_attributes_projectOverview_item_image_data_attributes } from "../../../../graphql/caseStudies/__generated__/GetProjectPage";
+import { IMAGES_LINK } from "../../../../constants";
 
 interface IProjectOverviewItem {
-  image: string;
+  image: GetProjectPage_projects_data_attributes_projectOverview_item_image_data_attributes;
   heading: string;
   text: string;
   list?: string[];
@@ -56,7 +58,7 @@ const DecorationThree = () => {
   return (
     <DecorationWrapper>
       <DecorationItem className="decoration2" />
-      <DecorationItem2 className="decoration_black"/>
+      <DecorationItem2 className="decoration_black" />
       <DecorTransparentSemicircle className="decoration_semicircle" />
     </DecorationWrapper>
   );
@@ -70,6 +72,8 @@ const ProjectOverviewItem = ({
   index,
 }: IProjectOverviewItem) => {
   const [isAnimate, setIsAnimate] = useState<boolean>(false);
+
+  const src = IMAGES_LINK + image.url;
 
   const listCondition =
     list &&
@@ -103,7 +107,13 @@ const ProjectOverviewItem = ({
       <ImageWrap index={index}>
         {decoration(index, isAnimate)}
         <ImageBackground isLeft={isLeft} className="background">
-          <Image src={image} width={506} height={292} alt="case photo" />
+          <Image
+            loader={() => src}
+            src={src}
+            width={506}
+            height={292}
+            alt="case photo"
+          />
         </ImageBackground>
       </ImageWrap>
 

@@ -13,6 +13,11 @@ import ClientsFeedback from "../../../components/Case/ClientsFeedback";
 import NextProject from "../../../components/Case/NextProject";
 import LetsTalk from "../../../components/Services/LetsTalk";
 import { useRouter } from "next/router";
+import { useQuery } from "@apollo/client";
+import { GET_PROJECT_PAGE } from "../../../graphql/caseStudies/queries";
+import { GetProjectPage } from "../../../graphql/caseStudies/__generated__/GetProjectPage";
+import { useEffect } from "react";
+import Custom404 from "../../404";
 
 const titles = [
   "Services",
@@ -44,37 +49,66 @@ const Case = () => {
   const router = useRouter();
   const { name } = router.query;
 
-  return (
-    <MainMenu
-      backgroundColor={theme.colors.black}
-      titlesColor={theme.colors.white}
-      titles={titles}
-    >
-      <CaseIntroduction />
-      <CaseDescription />
-      <ProjectOverview />
-      <InsideTheProject />
-      <ClientsFeedback />
-      <NextProject />
-      <LetsTalk
-        title={"Let's Talk!"}
-        isWhite
-        text={
-          <>
-            <p>Got no clue where to start?</p>
-            <p> Why don’t we discuss your idea?</p>
-          </>
-        }
-      />
+  const { data, loading, error } = useQuery<GetProjectPage>(GET_PROJECT_PAGE, {
+    variables: { url: name },
+  });
+  const entry = data?.projects?.data[0].attributes;
+  const location = entry?.location?.data?.attributes;
+  const technologies = entry?.technologies;
+  const services = entry?.services;
+  const industry = entry?.industry?.data?.attributes;
+  const feedback = entry?.feedback?.data?.attributes;
+  const nextProjectButton = entry?.nextProjectButton;
+  const contactUs = entry?.contactUs;
 
-      <FooterComponent
-        policies={policies}
-        offices={offices}
-        pages={pages}
-        followUs={followUs}
-        copyright={copyright}
-      />
-    </MainMenu>
+  const renderCondition =
+    !loading &&
+    !error &&
+    entry &&
+    location &&
+    technologies &&
+    services &&
+    industry &&
+    feedback &&
+    nextProjectButton &&
+    contactUs;
+
+  const errorCondition = error && <Custom404 />;
+
+  return (
+    <>
+      {renderCondition && (
+        <MainMenu
+          backgroundColor={theme.colors.black}
+          titlesColor={theme.colors.white}
+          titles={titles}
+        >
+          <CaseIntroduction name={entry.name} description={entry.description} />
+          <CaseDescription
+            mainInfo={entry.mainInfo}
+            location={location}
+            technologies={technologies}
+            services={services}
+            industry={industry}
+          />
+          <ProjectOverview projectOverview={entry.projectOverview} />
+          <InsideTheProject />
+          <ClientsFeedback feedback={feedback} />
+          <NextProject nextProjectButton={nextProjectButton} />
+          <LetsTalk title={contactUs.title} isWhite text={contactUs.subtitle} />
+
+          <FooterComponent
+            policies={policies}
+            offices={offices}
+            pages={pages}
+            followUs={followUs}
+            copyright={copyright}
+          />
+        </MainMenu>
+      )}
+
+      {errorCondition}
+    </>
   );
 };
 

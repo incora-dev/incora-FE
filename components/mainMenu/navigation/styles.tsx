@@ -1,5 +1,10 @@
 import styled from "styled-components";
-import { theme } from "../../../styles/theme";
+import themeGet from "@styled-system/theme-get";
+import {theme} from "../../../styles/theme";
+
+interface IAddLine {
+  shouldAddLine: boolean;
+}
 
 export const Nav = styled.nav`
   display: flex;
@@ -25,6 +30,8 @@ export const Nav = styled.nav`
 `
 
 export const Ul = styled.ul`
+  position: relative;
+
   width: 100%;
   display: flex;
   margin-right: 49px;
@@ -32,6 +39,25 @@ export const Ul = styled.ul`
 
   white-space: nowrap;
   list-style: none;
+  
+  cursor: pointer;
+
+  &:after {
+    position: absolute;
+    top: 23px;
+    left: 6px;
+
+    z-index: -1;
+
+    content: '';
+
+    width: ${({ shouldAddLine }: IAddLine) => shouldAddLine ? '100%' : '0'};
+    height: 7px;
+
+    background-color: ${themeGet("colors.yellow")};
+
+    transition: all ${themeGet("transition.button")};
+  }
 `
 
 export const UlButton = styled.ul`
@@ -44,7 +70,6 @@ export const UlButton = styled.ul`
 `
 
 export const Li = styled.li`
-  font-family: Poppins;
   font-size: var(--fs-14);
   font-weight: 700;
   line-height: 21px;

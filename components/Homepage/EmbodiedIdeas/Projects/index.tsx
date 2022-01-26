@@ -3,7 +3,6 @@ import Technologies from "./Technologies";
 import PictureWithAnimation from "./PictureWithAnimation";
 import {useEffect, useState} from "react";
 import { theme } from "../../../../styles/theme";
-import { GetCaseStudies } from "../../../../graphql/caseStudies/__generated__/GetCaseStudies";
 import { IMAGES_LINK } from "../../../../constants";
 import Link from "next/link";
 import { GetProjects_projects } from "../../../../graphql/caseStudies/__generated__/getProjects";

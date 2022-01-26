@@ -8,6 +8,7 @@ import { INavigation } from "@interfaces";
 import ButtonWithArrow from "../../ButtonWithArrow";
 import Arrow from "../../../public/navArrow.svg"
 import { useState } from "react";
+import Link from "next/link";
 
 function Navigation({ titles, titlesColor, setOnHoverElement, onSelectedMenu, setOnSelectedMenu }: INavigation) {
   const [selectedTitle, setSelectedTitle] = useState<string | null>(null);
@@ -62,7 +63,11 @@ function Navigation({ titles, titlesColor, setOnHoverElement, onSelectedMenu, se
 
             onMouseLeave={() => setOnSelectedMenu(null)}
           >
-            <Li>{title}</Li>
+            <Li>
+              <Link href={`/${title.toLowerCase()}`}>
+                {title}
+              </Link>
+              </Li>
           </Ul>
         );
       })}

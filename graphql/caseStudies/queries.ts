@@ -134,6 +134,8 @@ export const GET_PROJECT_PAGE = gql`
                   id
                   attributes {
                     url
+                    width
+                    height
                   }
                 }
               }
@@ -189,6 +191,11 @@ export const GET_PROJECT_PAGE = gql`
                 }
               }
             }
+          }
+
+          contactUs {
+            title
+            subtitle
           }
         }
       }

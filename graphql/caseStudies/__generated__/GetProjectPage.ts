@@ -223,6 +223,12 @@ export interface GetProjectPage_projects_data_attributes_gallery {
   pictures: GetProjectPage_projects_data_attributes_gallery_pictures;
 }
 
+export interface GetProjectPage_projects_data_attributes_contactUs {
+  __typename: "ComponentCommonContactUs";
+  title: string;
+  subtitle: string;
+}
+
 export interface GetProjectPage_projects_data_attributes {
   __typename: "Project";
   name: string;
@@ -236,6 +242,7 @@ export interface GetProjectPage_projects_data_attributes {
   feedback: GetProjectPage_projects_data_attributes_feedback | null;
   nextProjectButton: GetProjectPage_projects_data_attributes_nextProjectButton;
   gallery: (GetProjectPage_projects_data_attributes_gallery | null)[];
+  contactUs: GetProjectPage_projects_data_attributes_contactUs;
 }
 
 export interface GetProjectPage_projects_data {

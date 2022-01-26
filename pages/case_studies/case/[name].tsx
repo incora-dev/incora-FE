@@ -59,6 +59,7 @@ const Case = () => {
   const industry = entry?.industry?.data?.attributes;
   const feedback = entry?.feedback?.data?.attributes;
   const nextProjectButton = entry?.nextProjectButton;
+  const contactUs = entry?.contactUs;
 
   const renderCondition =
     !loading &&
@@ -69,7 +70,8 @@ const Case = () => {
     services &&
     industry &&
     feedback &&
-    nextProjectButton;
+    nextProjectButton &&
+    contactUs;
 
   const errorCondition = error && <Custom404 />;
 
@@ -93,16 +95,7 @@ const Case = () => {
           <InsideTheProject />
           <ClientsFeedback feedback={feedback} />
           <NextProject nextProjectButton={nextProjectButton} />
-          <LetsTalk
-            title={"Let's Talk!"}
-            isWhite
-            text={
-              <>
-                <p>Got no clue where to start?</p>
-                <p> Why don’t we discuss your idea?</p>
-              </>
-            }
-          />
+          <LetsTalk title={contactUs.title} isWhite text={contactUs.subtitle} />
 
           <FooterComponent
             policies={policies}

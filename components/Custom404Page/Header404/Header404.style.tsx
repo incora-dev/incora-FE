@@ -28,10 +28,6 @@ export const IconBlock = styled.div`
 
 export const TextBlock = styled.div`
   margin-left: 24px;
-  
-  span {
-    cursor: pointer;
-  }
 `;
 
 export const Text = styled.p`
@@ -47,17 +43,43 @@ export const Text = styled.p`
   letter-spacing: 0.1em;
   
   color: ${themeGet("colors.white")};
+
+  span {
+    cursor: pointer;
+  }
   
-  &:after {
+  &:before {
     position: absolute;
     bottom: 7px;
     right: -6px;
+
+    width: 79px;
+    height: 10px;
     
     z-index: -1;
 
     content: '';
-    height: 10px;
-    width: 79px;
     background-color: ${themeGet("colors.yellow")};
+  }
+
+  &:after {
+    position: absolute;
+    bottom: 7px;
+    right: -6px;
+
+    z-index: -1;
+
+    width: 0;
+    height: 10px;
+
+    content: '';
+
+    background-color: ${themeGet("colors.yellow5")};
+
+    transition: width ${themeGet("transition.button")};
+  }
+
+  &:hover :after{
+    width: 79px;
   }
 `;

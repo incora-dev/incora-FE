@@ -29,6 +29,7 @@ function ButtonWithArrow({
           <ButtonContainer bgColor={bgColor} textColor={textColor}>
             <Button padding={padding}>
               <Label>{buttonLabel}</Label>
+
               <Arrow />
             </Button>
           </ButtonContainer>

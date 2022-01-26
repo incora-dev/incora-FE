@@ -10,6 +10,7 @@ export const ReviewContentWrap = styled.div`
   
   @media only screen and (max-width: ${theme.breakpoints.mobile}) {
     width: 100%;
+    flex-direction: column-reverse;
   }
 `;
 
@@ -22,6 +23,10 @@ export const QuoteWrap = styled.div`
       position: relative;
       right: 6px;
     }
+  }
+
+  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    width: 100%;
   }
 `;
 

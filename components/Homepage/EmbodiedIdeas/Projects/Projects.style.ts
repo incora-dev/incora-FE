@@ -47,6 +47,10 @@ export const H3 = styled.h3`
 
   color: #000;
   cursor: pointer;
+
+  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    font-size: var(--fs-28);
+  }
 `;
 
 export const P = styled.p`

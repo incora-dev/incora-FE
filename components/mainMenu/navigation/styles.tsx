@@ -19,8 +19,8 @@ export const Nav = styled.nav`
   @media only screen and (max-width: ${theme.breakpoints.mobile}) {
     display: grid;
     gap: 10px;
-    grid-template-columns: auto auto;
-    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: repeat(2, 50%);
+    grid-template-rows: repeat(3, 1fr);
   }
 `
 

@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import themeGet from "@styled-system/theme-get";
+import { theme } from "../../styles/theme";
 
 interface IButton {
   padding?: string;
@@ -51,6 +52,12 @@ export const Button = styled.div`
 
   &:hover :after {
     width: 100%;
+  }
+
+  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    svg {
+      display: none;
+    }
   }
 `
 

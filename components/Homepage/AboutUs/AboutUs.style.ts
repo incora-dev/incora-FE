@@ -38,6 +38,7 @@ export const Text = styled.div`
     padding-top: 0;
     flex-direction: column;
     margin: 20px 0;
+    width: 100%;
   }
 
   h2 {

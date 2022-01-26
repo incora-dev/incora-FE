@@ -15,7 +15,7 @@ export const Container = styled.div`
   height: 742px;
 
   @media only screen and (max-width: ${theme.breakpoints.mobile}) {
-    height: 500px;
+    height: 400px;
   }
 `;
 

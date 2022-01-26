@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { homePageTechnologiesHoverDuration } from "../../../../constants";
+import { theme } from "../../../../styles/theme";
 
 interface IComponent {
   number: number;
@@ -16,6 +17,10 @@ export const Component = styled.div`
 
   &::-webkit-scrollbar {
     display: none;
+  }
+
+  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    padding: 0 35%;
   }
 `;
 

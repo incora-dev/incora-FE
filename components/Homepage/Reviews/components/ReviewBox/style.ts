@@ -15,7 +15,7 @@ export const ReviewBoxWrapper = styled.div`
 
   @media only screen and (max-width: ${theme.breakpoints.mobile}) {
     width: 90%;
-    min-height: 70vh;
+    min-height: 140vh;
   }
 `;
 

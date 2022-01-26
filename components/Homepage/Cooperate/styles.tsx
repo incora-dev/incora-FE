@@ -23,7 +23,7 @@ export const Cooperate = styled.div`
   }
 
   @media only screen and (max-width: ${theme.breakpoints.mobile}) {
-    height: 105vh;
+    height: 150vh;
   }
 `
 
@@ -53,6 +53,7 @@ export const Slider = styled.div`
   @media only screen and (max-width: ${theme.breakpoints.mobile}) {
     flex-wrap: wrap;
     padding-top: 8.2vh;
+    height: 150vh;
   }
 `
 
@@ -75,7 +76,7 @@ export const PositionNumber = styled.div`
   margin-top: 20px;
 
   @media only screen and (max-width: ${theme.breakpoints.mobile}) {
-    left: 55vw;
+    left: 40vw;
     margin-top: -70px;
   }
 `

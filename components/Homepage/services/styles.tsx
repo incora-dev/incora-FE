@@ -10,7 +10,7 @@ export const Component = styled.div`
   background-color: #18181A;
 
   @media only screen and (max-width: ${theme.breakpoints.mobile}) {
-    height: 690px;
+    height: 130vh;
   }
 `
 

@@ -59,7 +59,12 @@ export const Div = styled.div`
   text-align: left;
 
   @media only screen and (max-width: ${theme.breakpoints.mobile}) {
-    margin: 0 70px;
+    margin: 0 20px;
+    padding-top: 20px;
+  }
+  @media only screen and (max-width: ${theme.breakpoints.xsMobile}) {
+    margin: 0 15px;
+    padding-top: 20px;
   }
 `
 
@@ -68,6 +73,11 @@ export const VideoBlock = styled.div`
   
   width: 710px;
   height: 380px;
+
+  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    position: static;
+    width: 90vw;
+  }
 `
 
 export const PositionVideoSVG = styled.div`
@@ -78,6 +88,11 @@ export const PositionVideoSVG = styled.div`
   
   width: 710px;
   height: 380px;
+
+  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    width: 96vw;
+    top: 20px;
+  }
 `
 
 export const VideoContainer = styled.video`

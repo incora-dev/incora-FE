@@ -39,13 +39,13 @@ export interface GetVacancy_filterSpecialities_data_attributes {
 }
 
 export interface GetVacancy_filterSpecialities_data {
-  __typename: "FilterSpecialityEntity";
+  __typename?: "FilterSpecialityEntity";
   id: string | null;
   attributes: GetVacancy_filterSpecialities_data_attributes | null;
 }
 
 export interface GetVacancy_filterSpecialities {
-  __typename: "FilterSpecialityEntityResponseCollection";
+  __typename?: "FilterSpecialityEntityResponseCollection";
   data: GetVacancy_filterSpecialities_data[];
 }
 

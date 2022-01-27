@@ -68,7 +68,7 @@ export interface GetCareersPage_careersPage_data_attributes_process {
 }
 
 export interface GetCareersPage_careersPage_data_attributes_currentVacancies {
-  __typename: "ComponentCommonCurrentVacancies";
+  __typename?: "ComponentCommonCurrentVacancies";
   intro: string;
   filterText1: string;
   filterText2: string;

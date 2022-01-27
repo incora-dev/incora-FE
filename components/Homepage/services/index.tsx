@@ -9,8 +9,6 @@ import {
   P,
   PositionLoading,
   PositionHexagonOne,
-  HexagonBordered,
-  HexagonFilled,
   PositionHexagonTwo,
   PositionHexagonThree,
   PositionHexagonFour,
@@ -18,19 +16,30 @@ import {
   PositionHexagonSix,
   PositionHexagonSeven,
   PositionHexagonEight,
-  PositionHexagonNine
+  PositionHexagonNine,
+  PositionCube1,
+  PositionCube2,
+  PositionCube3,
+  PositionCube4,
+  PositionCube5,
+  Sphere,
 } from "./styles";
 import { IServices } from "@interfaces";
 import Loading from "../../../public/loading.svg"
-import {useState} from "react";
+import { useState } from "react";
+import Cube1 from "../../../public/SVG/Cube1.svg"
+import Cube2 from "../../../public/SVG/Cube2.svg"
+import Cube3 from "../../../public/SVG/Cube3.svg"
+import HexagonBordered from "../../../public/hexagonBordered.svg"
+import HexagonFilled from "../../../public/hexagonFilled.svg"
 
 function ServicesComponent({ title, text, labels }: IServices) {
-  const [ onEnterBlock, setOnEnterBlock] = useState(false)
+  const [ onEnterBlock, setOnEnterBlock] = useState(false);
 
   return (
-    <Component onMouseEnter={() => {
-      setOnEnterBlock(true);
-    }}>
+    <Component
+     onMouseEnter={() => setOnEnterBlock(true)}
+    >
       { onEnterBlock &&
         <PositionLoading>
           <Loading/>
@@ -91,6 +100,36 @@ function ServicesComponent({ title, text, labels }: IServices) {
             <HexagonBordered/>
           </PositionHexagonNine>
         </Div>
+
+        <PositionCube2>
+          <Cube1/>
+        </PositionCube2>
+
+
+        <PositionCube3>
+          <Cube2/>
+        </PositionCube3>
+
+        <PositionCube5>
+          <Cube3/>
+        </PositionCube5>
+
+        <Sphere>
+          <PositionCube1>
+            <Cube1/>
+          </PositionCube1>
+
+          <PositionCube4>
+            <Cube3/>
+          </PositionCube4>
+        </Sphere>
+
+
+
+        {/*<PositionCube2>*/}
+        {/*  <Cube2/>*/}
+        {/*</PositionCube2>*/}
+
       </Position>
     </Component>
   )

@@ -2,10 +2,11 @@ import styled from "styled-components";
 
 export const Cover = styled.header`
   background-color: #18181A;
+
+  overflow: hidden;
 `
 
 export const Container = styled.div`
-  height: calc(100vh - 104px);
   max-width: 1166px;
 
   position: relative;
@@ -14,10 +15,58 @@ export const Container = styled.div`
   text-align: left;
 `
 
+export const PositionHexagon1 = styled.div`
+  position: absolute;
+
+  bottom: -216px;
+  right: 134px;
+`
+
+export const PositionHexagon2 = styled.div`
+  position: absolute;
+
+  bottom: -13px;
+  right: 18px;
+`
+
+export const PositionHexagon3 = styled.div`
+  position: absolute;
+
+  bottom: -216px;
+  right: -100px;
+`
+
+export const PositionHexagon4 = styled.div`
+  position: absolute;
+
+  bottom: 123px;
+  right: -216px;
+`
+
 export const Div = styled.div`
-  margin: 0 100px;
+  margin-left: 50px;
+  margin-top: 1px;
+
+  padding: 79px 0 205px;
 
   text-align: left;
+`
+
+export const VideoBlock = styled.div`
+  position: relative;
+  
+  width: 710px;
+  height: 380px;
+`
+
+export const PositionVideoSVG = styled.div`
+  position: absolute;
+  
+  right: 0;
+  top: 0;
+  
+  width: 710px;
+  height: 380px;
 `
 
 export const VideoContainer = styled.video`
@@ -27,7 +76,6 @@ export const VideoContainer = styled.video`
 `
 
 export const Titles = styled.div`
-  padding-top: 11vh;
   margin-left: -47px;
 `
 

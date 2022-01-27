@@ -9,7 +9,6 @@ import {
   SchemeWrap,
   TextBlock,
 } from "./style";
-import careerPhoto from "../../../public/careerPhoto.png";
 import Image from "next/image";
 import CareerSteps from "../../../public/SVG/careerSteps.svg";
 import CareerDots from "../../../public/SVG/careerDots.svg";
@@ -18,9 +17,24 @@ import { theme } from "../../../styles/theme";
 import { useState } from "react";
 import Semicircle from "../../../public/loading4.svg";
 import Semicircle2 from "../../../public/loading5.svg";
+import {
+  GetCareersPage_careersPage_data_attributes_banner,
+  GetCareersPage_careersPage_data_attributes_process,
+} from "../../../graphql/careers/__generated__/GetCareersPage";
+import Link from "next/link";
+import { IMAGES_LINK } from "../../../constants";
 
-const Invitation = () => {
+interface Invitation {
+  banner: GetCareersPage_careersPage_data_attributes_banner;
+  process: GetCareersPage_careersPage_data_attributes_process;
+}
+
+const Invitation = ({ banner, process }: Invitation) => {
   const [isAnimate, setIsAnimate] = useState<boolean>(false);
+  const { title, description, button, image } = banner;
+  const { intro, items } = process;
+
+  const bannerImage = IMAGES_LINK + image.data?.attributes?.url;
 
   const semicircleCondition = isAnimate && (
     <Semicircle className="semicircle" />
@@ -43,23 +57,29 @@ const Invitation = () => {
 
       <CareersWrap>
         <TextBlock>
-          <h1>Careers</h1>
-          <p>
-            We welcome proficient talents, who strive to do more and be more
-          </p>
-          <span>Join the team of diligent minds!</span>
+          <h1>{title}</h1>
+          <p>{description}</p>
+          <Link href={button.url} passHref>
+            <span>{button.label}</span>
+          </Link>
           <Rectangle />
         </TextBlock>
 
         <PhotoWrap>
           <Semicircle2 className="semicircle2" />
-          <Image src={careerPhoto.src} width={503} height={456} alt="photo" />
+          <Image
+            loader={() => bannerImage}
+            src={bannerImage}
+            width={503}
+            height={456}
+            alt="photo"
+          />
         </PhotoWrap>
       </CareersWrap>
 
       <ProcessWrap>
         <HeaderWrap>
-          <h1>How the process goes?</h1>
+          <h1>{intro}</h1>
         </HeaderWrap>
         <SchemeWrap>
           <div>

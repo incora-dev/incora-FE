@@ -13,11 +13,14 @@ import LinkedIn from "../../public/SVG/socialNetwork/linkedIn.svg";
 import NewsComponent from "../../components/News";
 
 import React from "../../public/SVG/technologies/react.svg";
-import Angular from "../../public/SVG/technologies/angular.svg";
 
 import image1 from "../../public/newsBlock/newImg1.jpg";
 import image2 from "../../public/newsBlock/newImg2.jpg";
 import image3 from "../../public/newsBlock/newImg3.jpg";
+import { useQuery } from "@apollo/client";
+import { GET_ABOUT_PAGE } from "../../graphql/companyAbout/queries";
+import { GetAboutPage } from "../../graphql/companyAbout/__generated__/GetAboutPage";
+import Custom404 from "../404";
 
 const titles = [
   "Services",
@@ -88,33 +91,49 @@ const news = {
 };
 
 const CompanyAbout = () => {
-  const { title, text, formLabels, addresses, buttonLabel } = contactUs;
+  const { text, formLabels, addresses, buttonLabel } = contactUs;
   const { policies, offices, pages, followUs, copyright } = footer;
 
+  const { data, loading, error } = useQuery<GetAboutPage>(GET_ABOUT_PAGE);
+  const entry = data?.aboutPage?.data?.attributes;
+  const title = entry?.contactUs.title || "";
+  const subtitle = entry?.contactUs.subtitle || "";
+
+  const errorCondition = error && <Custom404 />;
+
   return (
-    <MainMenu
-      titlesColor={theme.colors.black}
-      titles={titles}
-      backgroundColor={theme.colors.white}
-    >
-      <Introduction />
-      <OurTraditions />
-      <NewsComponent title={"recent events"} articles={news.articles} />
-      <ContactUsComponent
-        title={title}
-        text={text}
-        formLabels={formLabels}
-        addresses={addresses}
-        buttonLabel={buttonLabel}
-      />
-      <FooterComponent
-        policies={policies}
-        offices={offices}
-        pages={pages}
-        followUs={followUs}
-        copyright={copyright}
-      />
-    </MainMenu>
+    <>
+      {!loading && !error && entry && (
+        <MainMenu
+          titlesColor={theme.colors.black}
+          titles={titles}
+          backgroundColor={theme.colors.white}
+        >
+          <Introduction
+            mainInfo={entry.mainInfo}
+            bannerImage={entry.bannerImage}
+          />
+          <OurTraditions ourTraditions={entry.ourTraditions} />
+          <NewsComponent title={"recent events"} articles={news.articles} />
+          <ContactUsComponent
+            title={entry.contactUs.title}
+            text={entry.contactUs.subtitle}
+            formLabels={formLabels}
+            addresses={addresses}
+            buttonLabel={buttonLabel}
+          />
+          <FooterComponent
+            policies={policies}
+            offices={offices}
+            pages={pages}
+            followUs={followUs}
+            copyright={copyright}
+          />
+        </MainMenu>
+      )}
+
+      {errorCondition}
+    </>
   );
 };
 

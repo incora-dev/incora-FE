@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 interface IDiv {
   bgColor: string;
-  height?: number;
 }
 
 interface IPositionTitle {
@@ -10,10 +9,10 @@ interface IPositionTitle {
 }
 
 export const Div = styled.div`
-  height: ${({ height }: IDiv) => (height ? `${height}px` : "2666px")};
   background-color: ${({ bgColor }: IDiv) => bgColor};
 
   overflow: hidden;
+  padding-bottom: 120px;
 `;
 
 export const PositionTitle = styled.div`

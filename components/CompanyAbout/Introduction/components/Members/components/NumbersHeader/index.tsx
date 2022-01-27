@@ -1,15 +1,15 @@
 import { NumbersHeaderWrapper } from "./style";
 
 interface INumbersHeader {
-  number: number;
-  text: string;
+  number: number | undefined;
+  label: string | undefined;
 }
 
-const NumbersHeader = ({ number, text }: INumbersHeader) => {
+const NumbersHeader = ({ number, label }: INumbersHeader) => {
   return (
     <NumbersHeaderWrapper>
       <h1>{number}+</h1>
-      <span>{text}</span>
+      <span>{label}</span>
     </NumbersHeaderWrapper>
   );
 };

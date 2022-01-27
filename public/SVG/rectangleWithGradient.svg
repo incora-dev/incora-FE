@@ -1,0 +1,15 @@
+<svg width="173" height="49" viewBox="0 0 173 49" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 0L0 49L173 49V0L0 0Z" fill="url(#paint0_linear_727_7973)"/>
+<defs>
+<linearGradient id="paint0_linear_727_7973" x1="0" y1="24.5" x2="173" y2="24.5" gradientUnits="userSpaceOnUse">
+<stop stop-color="#FEC506" stop-opacity="0">
+    <animate
+        attributeName="offset"
+        values="1; 0.01"
+        dur="0.5s"
+    />
+</stop>
+<stop offset="1" stop-color="#FEC506"/>
+</linearGradient>
+</defs>
+</svg>

@@ -39,9 +39,12 @@ export const Input = styled.input`
 
   &::placeholder {
     position: absolute;
+
     letter-spacing: 0.5px;
     font-weight: 500;
     font-size: 12px;
+    text-transform: capitalize;
+  
     color: ${themeGet("colors.grey2")};
   }
 `;

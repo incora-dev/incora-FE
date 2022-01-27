@@ -59,6 +59,7 @@ export const TextBlock = styled.div`
     color: ${themeGet("colors.white")};
     letter-spacing: ${themeGet("letterSpacing.span")};
     z-index: 0;
+    cursor: pointer;
   }
 `;
 

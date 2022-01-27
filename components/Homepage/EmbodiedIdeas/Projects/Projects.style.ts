@@ -18,7 +18,7 @@ export const Text = styled.div`
   display: flex;
   flex-direction: column;
   row-gap: 21px;
-  
+
   margin: ${({ margin }: IText) => margin};
 `;
 
@@ -27,6 +27,7 @@ export const Block = styled.div`
   display: flex;
   flex-direction: column;
   row-gap: 14px;
+  cursor: pointer;
 `;
 
 export const H3 = styled.h3`
@@ -39,6 +40,7 @@ export const H3 = styled.h3`
   letter-spacing: 0.05em;
 
   color: #000;
+  cursor: pointer;
 `;
 
 export const P = styled.p`
@@ -52,7 +54,7 @@ export const P = styled.p`
 
   letter-spacing: 0.1em;
 
-  color: #454A4D;
+  color: #454a4d;
 `;
 
 export const H4 = styled.h4`

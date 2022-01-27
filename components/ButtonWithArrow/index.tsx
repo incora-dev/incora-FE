@@ -24,14 +24,17 @@ function ButtonWithArrow({
 }: IButtonWithArrow) {
   return (
     <Container>
-      <a href={redirectTo}>
-        <ButtonContainer bgColor={bgColor} textColor={textColor}>
-          <Button padding={padding}>
-            <Label>{buttonLabel}</Label>
-            <Arrow />
-          </Button>
-        </ButtonContainer>
-      </a>
+      <Link href={redirectTo}>
+        <a>
+          <ButtonContainer bgColor={bgColor} textColor={textColor}>
+            <Button padding={padding}>
+              <Label>{buttonLabel}</Label>
+
+              <Arrow />
+            </Button>
+          </ButtonContainer>
+        </a>
+      </Link>
     </Container>
   );
 }

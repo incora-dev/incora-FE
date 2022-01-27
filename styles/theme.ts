@@ -3,6 +3,8 @@ export const theme = {
     yellow: "#FEC602",
     yellow2: "#FEC506",
     yellow3: "#FCE599",
+    yellow4: "#e7b301",
+    yellow5: "#c79d08",
     black: "#18181A",
     backgroundBlack: "#181819",
     backgroundBlack2: "#212125",
@@ -12,9 +14,13 @@ export const theme = {
     grey3: "#FBFBFB",
     font1: "#BCBCC0",
     font2: "#454A4D",
+    font3: "#666666",
     background: "#F9F9F9",
     background2: "#222222",
     background3: "#212125",
+    background4: "#FBFBFB",
+    background5: "#FAFAFA",
+    hexagonBorderedGrey: "#FAFAFA",
   },
 
   letterSpacing: {
@@ -24,14 +30,16 @@ export const theme = {
   },
 
   boxShadow: {
+    initial: "inset 0 0 0 0 #e5b100ff",
     hover: "inset 240px 0 0 0 #e5b100ff",
   },
 
   transition: {
-    button: "ease-out 0.4s",
+    button: "ease-in-out 0.4s",
+    menu: "ease-in-out 0.4s"
   },
   elements: {
     hexagonBorderedBlack: "#212121",
     hexagonBorderedGrey: "#FAFAFA",
-  }
+  },
 };

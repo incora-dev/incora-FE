@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import themeGet from "@styled-system/theme-get";
 
 interface IButton {
   padding?: string;
@@ -10,7 +11,8 @@ interface IButtonColor {
 }
 
 export const Label = styled.p`
-  font-family: Poppins;
+  z-index: 1;
+
   font-style: normal;
   font-weight: bold;
   font-size: 14px;
@@ -23,12 +25,32 @@ export const Label = styled.p`
 `
 
 export const Button = styled.div`
+  position: relative;
+
   width: max-content;
   display: flex;
   padding: ${({padding = '23px 35px;'}: IButton) => padding};
   align-items: center;
   column-gap: 20px;
 
+
+  &:after {
+    position: absolute;
+    left: 0;
+
+    width: 0;
+    height: 100%;
+
+    content: '';
+
+    background-color: ${themeGet("colors.yellow4")};
+
+    transition: width ${themeGet("transition.button")};
+  }
+
+  &:hover :after {
+    width: 100%;
+  }
 `
 
 export const ButtonContainer = styled.div`
@@ -38,19 +60,11 @@ export const ButtonContainer = styled.div`
   color: ${({ textColor }: IButtonColor) => textColor};
   
   svg {
+    z-index: 1;
+
     path {
       fill: ${({ textColor }: IButtonColor) => textColor};
     }
-  }
-
-
-  box-shadow: inset 0 0 0 0 #E5B100FF;
-  -webkit-transition: ease-out 0.4s;
-  -moz-transition: ease-out 0.4s;
-  transition: ease-out 0.4s;
-
-  &:hover {
-    box-shadow: inset 240px 0 0 0 #E5B100FF;
   }
 `
 

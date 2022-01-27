@@ -21,6 +21,10 @@ import { useState } from "react";
 import Reviews from "../components/Homepage/Reviews";
 import HeaderComponent from "../components/Homepage/Header";
 import CooperateComponent from "../components/Homepage/Cooperate";
+import { GetCaseStudies } from "../graphql/caseStudies/__generated__/GetCaseStudies";
+import { useQuery } from "@apollo/client";
+import { GET_CASE_STUDIES } from "../graphql/caseStudies/queries";
+import Custom404 from "./404";
 
 const titles = [
   "Services",
@@ -297,7 +301,6 @@ function Home() {
           <EmbodiedIdeasComponent
             title={EmbodiedIdeas.title}
             bgColor={EmbodiedIdeas.bgColor}
-            projects={EmbodiedIdeas.projects}
             elementsColor={colorYellow}
           />
           <VideoComponent />

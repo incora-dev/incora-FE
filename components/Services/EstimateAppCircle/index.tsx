@@ -1,5 +1,5 @@
 import { PositionCircleBlock, Circle, CircleBlock, PositionText } from "./EstimateAppCircle.style";
-import TextAroundCircle from "../../../public/SVG/aroundTheCircle.svg";
+import TextAroundCircle from "../../../public/SVG/textAroundTheCircle.svg";
 
 const EstimateAppCircle = () => {
   return (

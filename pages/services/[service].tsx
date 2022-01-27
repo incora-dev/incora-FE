@@ -1,4 +1,10 @@
-import { faq ,footer, IServicesDataInfoBestSuitedFor, IServicesDataInfoContent, servicesData, titles } from "../../constants";
+import {
+  footer,
+  IServicesDataInfoBestSuitedFor,
+  IServicesDataInfoContent,
+  servicesData,
+  titles
+} from "../../constants";
 import MainMenu from "../../components/mainMenu/mainMenu";
 import { theme } from "../../styles/theme";
 import HeaderService from "../../components/ServicePage/HeaderService";
@@ -16,6 +22,11 @@ import { useEffect, useState } from "react";
 const colorWhite = theme.colors.white;
 const colorBlack = theme.colors.black;
 
+const faq = {
+  title: 'faq',
+  titles: ['How long does it take to undertake the Discovery phase?', 'Which team members should be involved in the Discovery phase?', 'How much will it cost?', 'What are the deliverables of this service?', 'Which tools and methods are used for the process?'],
+}
+
 const Service = ({ title, text, content, bestSuitedFor, workflowSetUp }: IService) => {
   const [menuColor, setMenuColor] = useState('none');
   const handleScroll = () => {
@@ -28,7 +39,7 @@ const Service = ({ title, text, content, bestSuitedFor, workflowSetUp }: IServic
     window.addEventListener('scroll', handleScroll)
 
     return () => window.removeEventListener('scroll', handleScroll);
-  })
+  }, [])
 
   return (
     <>

@@ -4,30 +4,72 @@ import {
   Paragraphs,
   Photos,
   TextWrap,
+  PhotosBlock
 } from "./style";
-
 import Image from "next/image";
 import { IMAGES_LINK } from "../../../constants";
-import { GetAboutPage_aboutPage_data_attributes_ourTraditions } from "../../../graphql/companyAbout/__generated__/GetAboutPage";
+import {
+  GetAboutPage_aboutPage_data_attributes_ourTraditions,
+  GetAboutPage_aboutPage_data_attributes_ourTraditions_gallery_data
+} from "../../../graphql/companyAbout/__generated__/GetAboutPage";
+import { useEffect, useRef, useState } from "react";
 
 interface IOurTraditions {
   ourTraditions: GetAboutPage_aboutPage_data_attributes_ourTraditions;
 }
 
 const OurTraditions = ({ ourTraditions }: IOurTraditions) => {
+  const [onEnterBlock, setOnEnterBlock] = useState(false);
+  const refGalleryOne = useRef<any>(null);
+  const refGalleryTwo = useRef<any>(null);
+
+
+
+  const handleWheel = (event: any) => {
+    if (onEnterBlock) {
+      event.preventDefault();
+
+      refGalleryOne.current.scrollLeft += 5;
+      refGalleryTwo.current.scrollLeft -= 5;
+    }
+
+  }
+
+  useEffect(() => {
+    const wheelElement = document.getElementById('OurTraditionsWrapper');
+
+    wheelElement && (wheelElement.onwheel = handleWheel);
+  }, [handleWheel])
+
+  useEffect(() => {
+    refGalleryTwo.current.scrollLeft = 10000;
+  }, [])
+
   const title = ourTraditions.title;
   const text = ourTraditions.text;
   const gallery = ourTraditions.gallery.data;
+  const slicedGallery = (gallery: Array<any>, firstNum: number, secondNum: number) => gallery.slice(firstNum, secondNum);
+
+  const checkGalleryLength = (gallery: Array<any>) => {
+    if (gallery.length % 2 === 0) {
+      return gallery.length / 2;
+    } else {
+      return (gallery.length - 1) / 2;
+    }
+  }
+
+  const galleryLength = checkGalleryLength(gallery);
+  const galleryOne = slicedGallery(gallery, 0, galleryLength);
+  const galleryTwo = slicedGallery(gallery, galleryLength, gallery.length);
 
   let textArray: string[] = [];
 
-  const photos =
+  const photos = (gallery: GetAboutPage_aboutPage_data_attributes_ourTraditions_gallery_data[]) =>
     gallery &&
     gallery.map((photo, index) => {
       const src = IMAGES_LINK + photo.attributes?.url || "";
       return (
-        <Image
-          loader={() => src}
+        <img
           src={src}
           width={327}
           height={220}
@@ -55,7 +97,15 @@ const OurTraditions = ({ ourTraditions }: IOurTraditions) => {
           </Paragraphs>
         </TextWrap>
       </OurTraditionsTextWrap>
-      <Photos>{photos}</Photos>
+
+      <PhotosBlock
+        id={'OurTraditionsWrapper'}
+        onMouseEnter={() => setOnEnterBlock(true)}
+        onMouseLeave={() => setOnEnterBlock(false)}
+      >
+        <Photos ref={refGalleryOne}>{photos(galleryOne)}</Photos>
+        <Photos ref={refGalleryTwo}>{photos(galleryTwo)}</Photos>
+      </PhotosBlock>
     </OurTraditionsWrapper>
   );
 };

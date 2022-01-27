@@ -19,8 +19,8 @@ export const ButtonWrap = styled.div`
   }
 
   @media only screen and (max-width: ${theme.breakpoints.mobile}) {
-    justify-content: center;
-    padding: 20px 33px;
+    padding: 20px;
+    justify-content: ${({ right }: IButton) => (right ? "flex-start" : "flex-end")};
   }
 `;
 
@@ -33,4 +33,12 @@ export const Ellipse = styled.div`
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    width: 50px;
+    height: 50px;
+
+    svg {
+      width: 60%;
+    }
+  }
 `;

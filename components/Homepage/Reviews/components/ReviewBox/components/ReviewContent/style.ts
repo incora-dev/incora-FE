@@ -11,6 +11,7 @@ export const ReviewContentWrap = styled.div`
   @media only screen and (max-width: ${theme.breakpoints.mobile}) {
     width: 100%;
     flex-direction: column-reverse;
+    align-items: center;
   }
 `;
 
@@ -45,6 +46,16 @@ export const AvatarWrap = styled.div`
   margin-top: 14px;
   display: flex;
   justify-content: flex-end;
+
+  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    justify-content: center;
+    >div {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+  }
 `;
 
 export const Photo = styled(Image)`

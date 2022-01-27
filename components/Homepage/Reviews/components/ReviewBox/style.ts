@@ -25,6 +25,11 @@ export const CarouselButtonWrapper = styled.div`
   display: flex;
   align-items: flex-end;
 `;
+export const CarouselButtonsContainer = styled.div`
+  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    display: flex;
+  }
+`;
 export const CarouselReviewWrapper = styled.div`
   @media only screen and (max-width: ${theme.breakpoints.mobile}) {
     display: flex;

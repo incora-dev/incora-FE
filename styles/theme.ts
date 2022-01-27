@@ -13,6 +13,7 @@ export const theme = {
     grey2: "#9CA3A7",
     grey3: "#FBFBFB",
     font1: "#BCBCC0",
+    greyCheckbox: '#FBFBFB',
     font2: "#454A4D",
     font3: "#666666",
     background: "#F9F9F9",

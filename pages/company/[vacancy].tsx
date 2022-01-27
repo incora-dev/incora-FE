@@ -14,7 +14,7 @@ import { GET_VACANCY } from "../../graphql/careers/queries";
 import Custom404 from "../404";
 import { GetVacancy } from "../../graphql/careers/__generated__/GetVacancy";
 import { useRouter } from "next/router";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const titles = [
   "Services",

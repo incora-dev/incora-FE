@@ -37,6 +37,7 @@ const Vacancies = ({
   const [technologyId, setTechnologyId] = useState<string | undefined>(
     undefined
   );
+  const [limit, setLimit] = useState<number>(4);
 
   const [getVacanciesList, { data, loading }] = useLazyQuery<GetVacanciesList>(
     GET_VACANCIES_LIST,
@@ -44,6 +45,7 @@ const Vacancies = ({
       variables: {
         specialtyId,
         technologyId,
+        limit,
       },
       fetchPolicy: "network-only",
     }
@@ -52,7 +54,7 @@ const Vacancies = ({
 
   useEffect(() => {
     getVacanciesList();
-  }, []);
+  }, [limit]);
 
   const { intro, filterText1, filterText2, header, text, buttonText } =
     currentVacancies;

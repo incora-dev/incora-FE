@@ -18,6 +18,7 @@ interface ISelector {
 
 const Selector = ({ placeholder, options, icon, value, setValue }: any) => {
   const onChange = (value: any) => {
+    
     setValue(value);
   };
 

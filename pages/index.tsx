@@ -25,6 +25,14 @@ import { GetCaseStudies } from "../graphql/caseStudies/__generated__/GetCaseStud
 import { useQuery } from "@apollo/client";
 import { GET_CASE_STUDIES } from "../graphql/caseStudies/queries";
 import Custom404 from "./404";
+import VerticalFullPageSlider from "../components/common/VerticalFullPageSlider";
+
+interface ISlide {
+  title: string;
+  mainTitle: string;
+  text: string;
+  redirectTo: string;
+};
 
 const titles = [
   "Services",
@@ -37,7 +45,7 @@ const titles = [
 const bgColorBlack = theme.colors.black;
 const bgColorWhite = theme.colors.white;
 const colorYellow = theme.colors.yellow;
-const sliders = [
+const sliders: ISlide[] = [
   {
     title: "How to Cooperate?",
     mainTitle: "Outline your idea",
@@ -256,13 +264,13 @@ const news = {
 const plusesColor = "#FEC602";
 
 function Home() {
-  const [currentPage, setCurrentPage] = useState(0);
-  const [currentCooperateSlide, setCurrentCooperateSlide] = useState(0);
-  const [beforeCooperatePageScroll, setBeforeCooperatePageScroll] = useState(0);
-
   // useEffect(() => {
   //   disableScroll.on();
   // }, []);
+
+  const renderSlide = (slide: ISlide, index: number) => (
+    <CooperateComponent slide={slide} index={index} plusesColor={plusesColor} />
+  );
 
   return (
     <>
@@ -278,12 +286,7 @@ function Home() {
           titlesColor={bgColorWhite}
         >
           <HeaderComponent />
-          <CooperateComponent
-            sliders={sliders}
-            plusesColor={plusesColor}
-            setCurrentSlide={setCurrentCooperateSlide}
-            setBeforePageScroll={setBeforeCooperatePageScroll}
-          />
+          <VerticalFullPageSlider<ISlide> slides={sliders} renderSlide={renderSlide}/>
           <section>
             <ServicesComponent
               title={services.title}

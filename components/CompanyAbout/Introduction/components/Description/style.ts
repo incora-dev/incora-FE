@@ -21,7 +21,7 @@ export const HeaderText = styled.div`
 
   h1 {
     font-weight: 800;
-    font-size: 36px;
+    font-size: var(--fs-36);
   }
 `;
 
@@ -33,7 +33,7 @@ export const Paragraphs = styled.div`
   }
 
   p {
-    font-size: 14px;
+    font-size: var(--fs-14);
     font-family: Poppins;
     letter-spacing: 0.5px;
     line-height: 30px;

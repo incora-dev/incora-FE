@@ -1,6 +1,7 @@
 import themeGet from "@styled-system/theme-get";
 import styled, { keyframes } from "styled-components";
 import Image from "next/image";
+import { theme } from "../../../../../styles/theme";
 
 export const ReviewBoxWrapper = styled.div`
   width: 1366px;
@@ -11,12 +12,32 @@ export const ReviewBoxWrapper = styled.div`
   .right_btn {
     justify-content: flex-end;
   }
+
+  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    width: 90%;
+    min-height: fit-content;
+    padding-bottom: 53px;
+  }
 `;
 
 export const CarouselButtonWrapper = styled.div`
   width: 269px;
   display: flex;
   align-items: flex-end;
+`;
+export const CarouselButtonsContainer = styled.div`
+  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    display: flex;
+  }
+`;
+export const CarouselReviewWrapper = styled.div`
+  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 100%;
+    height: fit-content;
+  }
 `;
 
 const dash = keyframes`
@@ -51,6 +72,10 @@ export const ReviewContentWrap = styled.div`
   width: 816.99px;
   display: flex;
   justify-content: space-between;
+
+  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    width: 90%;
+  }
 `;
 
 export const QuoteWrap = styled.div`
@@ -70,7 +95,7 @@ export const QuoteText = styled.p`
   font-family: Poppins;
   font-style: normal;
   font-weight: normal;
-  font-size: 14px;
+  font-size: var(--fs-14);
   line-height: 30px;
   color: ${themeGet("colors.font1")};
 `;
@@ -90,7 +115,7 @@ export const Photo = styled(Image)`
 export const NameWrap = styled.div`
   padding-top: 10px;
   color: ${themeGet("colors.white")};
-  font-size: 13px;
+  font-size: var(--fs-13);
   letter-spacing: 1px;
 
   h3 {

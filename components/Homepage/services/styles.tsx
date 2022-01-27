@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { theme } from "../../../styles/theme";
 import themeGet from "@styled-system/theme-get";
 
 export const Component = styled.div`
@@ -8,13 +9,23 @@ export const Component = styled.div`
   overflow: hidden;
 
   background-color: #18181A;
+
+  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    height: fit-content;
+    padding-bottom: 53px;
+  }
 `
 
 export const Position = styled.div`
   position: relative;
-
   margin: auto;
   width: 1006px;
+
+  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    width: 100%;
+    padding-right: 20px;
+    padding-left: 20px;
+  }
 `
 
 export const Div = styled.div`
@@ -127,7 +138,7 @@ export const H2 = styled.h2`
   font-family: Poppins;
   font-style: normal;
   font-weight: 800;
-  font-size: 26px;
+  font-size: var(--fs-26);
   line-height: 39px;
 
   letter-spacing: 0.05em;
@@ -140,7 +151,7 @@ export const P = styled.p`
   font-family: Poppins;
   font-style: normal;
   font-weight: 400;
-  font-size: 14px;
+  font-size: var(--fs-14);
   line-height: 30px;
 
   letter-spacing: 0.1em;
@@ -167,7 +178,7 @@ export const Label = styled.a`
   font-family: Poppins;
   font-style: normal;
   font-weight: 600;
-  font-size: 16px;
+  font-size: var(--fs-16);
   line-height: 24px;
 
   letter-spacing: 0.05em;

@@ -43,4 +43,15 @@ export const theme = {
     hexagonBorderedBlack: "#212121",
     hexagonBorderedGrey: "#FAFAFA",
   },
+  breakpoints: {
+    xsMobile: '280px',
+    mMobile: '360px',
+    mobile:'481px', 
+    tablet: '768px', 
+    smallDesk:'992px', 
+    mediumDesk: '1201px', 
+    largeDesk: '1441px'
+  },
+
 };
+

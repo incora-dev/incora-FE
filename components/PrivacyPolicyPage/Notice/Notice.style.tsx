@@ -51,7 +51,7 @@ export const TextBlock = styled.div`
 export const H3 = styled.h3`
   font-style: normal;
   font-weight: normal;
-  font-size: 16px;
+  font-size: var(--fs-16);
   line-height: 24px;
 
   letter-spacing: 0.05em;
@@ -64,7 +64,7 @@ export const Button = styled.div`
 
   font-style: normal;
   font-weight: bold;
-  font-size: 14px;
+  font-size: var(--fs-14);
   line-height: 21px;
 
   text-align: center;

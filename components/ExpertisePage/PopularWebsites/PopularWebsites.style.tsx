@@ -21,7 +21,7 @@ export const TextBlock = styled.div`
 export const H2 = styled.h2`
   font-style: normal;
   font-weight: 800;
-  font-size: 36px;
+  font-size: var(--fs-36);
   line-height: 54px;
 
   letter-spacing: 0.05em;

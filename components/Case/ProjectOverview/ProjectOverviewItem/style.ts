@@ -73,7 +73,7 @@ export const TextWrap = styled.div`
 
   > h2 {
     font-weight: 800;
-    font-size: 28px;
+    font-size: var(--fs-28);
     line-height: 42px;
     letter-spacing: 0.05em;
     text-transform: capitalize;
@@ -82,7 +82,7 @@ export const TextWrap = styled.div`
 
   > p {
     width: 100%;
-    font-size: 14px;
+    font-size: var(--fs-14);
     line-height: 30px;
     letter-spacing: 0.1em;
     color: ${themeGet("colors.font2")};

@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { homePageTechnologiesHoverDuration } from "../../../../constants";
+import { theme } from "../../../../styles/theme";
 
 interface IComponent {
   number: number;
@@ -16,6 +17,10 @@ export const Component = styled.div`
 
   &::-webkit-scrollbar {
     display: none;
+  }
+
+  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    padding: 0 35%;
   }
 `;
 
@@ -40,7 +45,7 @@ export const Technology = styled.div`
     font-family: Poppins;
     font-style: normal;
     font-weight: bold;
-    font-size: 18px;
+    font-size: var(--fs-18);
     line-height: 27px;
 
     display: flex;

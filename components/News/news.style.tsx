@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { theme } from "../../styles/theme";
 
 interface IComponent {
   bgColor: string;
@@ -16,6 +17,9 @@ export const HeaderContainer = styled.div`
   width: 100%;
   padding-left: 180px;
   padding-right: 80px;
+  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    padding: 0 20px;
+  }
 `;
 
 export const HeaderWrap = styled.div`
@@ -36,7 +40,7 @@ export const H2 = styled.h2`
 
   font-style: normal;
   font-weight: 800;
-  font-size: 26px;
+  font-size: var(--fs-26);
   line-height: 39px;
 
   letter-spacing: 0.05em;

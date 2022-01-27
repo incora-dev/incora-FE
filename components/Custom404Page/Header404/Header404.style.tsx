@@ -37,7 +37,7 @@ export const Text = styled.p`
 
   font-style: normal;
   font-weight: bold;
-  font-size: 16px;
+  font-size: var(--fs-16);
   line-height: 30px;
 
   letter-spacing: 0.1em;

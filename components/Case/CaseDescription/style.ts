@@ -22,7 +22,7 @@ export const TextWrap = styled.div`
 
   h2 {
     font-weight: 800;
-    font-size: 21px;
+    font-size: var(--fs-21);
     line-height: 31px;
     letter-spacing: 0.05em;
     text-transform: uppercase;
@@ -30,7 +30,7 @@ export const TextWrap = styled.div`
   }
 
   p {
-    font-size: 14px;
+    font-size: var(--fs-14);
     line-height: 30px;
     letter-spacing: 0.1em;
     color: ${themeGet("colors.font2")};
@@ -56,7 +56,7 @@ export const TagsCategory = styled.div`
 
 export const TagsHeading = styled.h3`
   font-weight: 800;
-  font-size: 12px;
+  font-size: var(--fs-12);
   line-height: 18px;
   letter-spacing: 0.05em;
   text-transform: uppercase;
@@ -89,7 +89,7 @@ export const TagBox = styled.div`
 
   > span {
     font-weight: 600;
-    font-size: 10px;
+    font-size: var(--fs-10);
     line-height: 28px;
     letter-spacing: 0.1em;
     text-transform: capitalize;

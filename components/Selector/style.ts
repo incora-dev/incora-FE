@@ -72,9 +72,9 @@ export const Input = styled.input`
 
     letter-spacing: 0.5px;
     font-weight: 500;
-    font-size: 12px;
     text-transform: capitalize;
-
+    font-size: var(--fs-12);
+  
     color: ${themeGet("colors.grey2")};
   }
 `;

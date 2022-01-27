@@ -29,6 +29,8 @@ export const ContentWrap = styled.div`
     line-height: 83px;
     text-transform: capitalize;
     letter-spacing: 3px;
+    width: 908px;
+    margin-bottom: 48px;
   }
 `;
 
@@ -38,8 +40,7 @@ export const DescriptionAndCv = styled.div`
 `;
 
 export const Description = styled.div`
-  padding-top: 45px;
-  width: 654px;
+  width: 653px;
   padding-bottom: 64px;
 
   p {
@@ -48,7 +49,7 @@ export const Description = styled.div`
     line-height: 30px;
     color: ${themeGet("colors.font2")};
     letter-spacing: 1.4px;
-    margin-bottom: 8px;
+    margin-bottom: 30px;
   }
 
   h3 {
@@ -57,11 +58,12 @@ export const Description = styled.div`
     font-size: 16px;
     line-height: 24px;
     letter-spacing: ${themeGet("letterSpacing.h2")};
+    margin-bottom: 30px;
   }
 
   ul {
     padding-left: 22px;
-    margin-bottom: 11px;
+    margin-bottom: 30px;
   }
 
   li {
@@ -75,5 +77,5 @@ export const Description = styled.div`
 export const AttachCvWrap = styled.div`
   width: 297px;
   position: relative;
-  top: -13px;
+  top: 197px;
 `;

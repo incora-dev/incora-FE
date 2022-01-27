@@ -1,7 +1,7 @@
 import { Input, SelectorWrapper } from "./style";
-import SelectSearch, { ValueProps } from "react-select-search-nextjs";
+import SelectSearch from "react-select-search-nextjs";
 import ArrowBlackDown from "../../public/SVG/ArrowDownBlack.svg";
-import { useRef } from "react";
+import { Dispatch, SetStateAction, useRef } from "react";
 
 interface IOptions {
   value: string;
@@ -12,9 +12,17 @@ interface ISelector {
   placeholder: string;
   options: IOptions[];
   icon: React.ComponentClass<any>;
+  value: string | undefined;
+  setValue: Dispatch<SetStateAction<string | undefined>>;
 }
 
-const Selector = ({ placeholder, options, icon }: ISelector) => {
+const Selector = ({
+  placeholder,
+  options,
+  icon,
+  value,
+  setValue,
+}: ISelector) => {
   const Icon = icon;
   const inputRef = useRef<any>();
 
@@ -28,8 +36,14 @@ const Selector = ({ placeholder, options, icon }: ISelector) => {
     );
   };
 
+  const onChange = (value: any) => {
+    setValue(value);
+  };
+
   return (
     <SelectSearch
+      value={value}
+      onChange={onChange}
       placeholder={placeholder}
       renderValue={Select}
       options={options}

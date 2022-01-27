@@ -26,13 +26,16 @@ function Projects({ projects, elementsColor }: IProjects) {
 
       const url = attributes?.url;
       const technologies = attributes?.technologies;
-      const mainInfoEntry = attributes?.mainInfo.item[0];
-      const imageEntry = mainInfoEntry?.image?.data?.attributes;
+      const name = attributes?.name;
+      const description = attributes?.description;
+      const imageEntry = attributes?.featuredImage.data[0].attributes;
       const image = IMAGES_LINK + imageEntry?.url;
+      const width = imageEntry?.width;
+      const height = imageEntry?.height;
 
       return (
         <>
-          {mainInfoEntry && imageEntry && technologies && (
+          {name && description && technologies && image && width && height && (
             <Container key={id} flexDirection={flexDirection}>
               <Text margin={marginText}>
                 <Link href={`/case_studies/case/${url}`} passHref>
@@ -40,14 +43,14 @@ function Projects({ projects, elementsColor }: IProjects) {
                     onMouseEnter={() => setShouldHover(index)}
                     onMouseLeave={() => setShouldHover(-1)}
                   >
-                    {mainInfoEntry.title}
+                    {name}
                   </H3>
                 </Link>
                 <P
                   onMouseEnter={() => setShouldHover(index)}
                   onMouseLeave={() => setShouldHover(-1)}
                 >
-                  {mainInfoEntry.description}
+                  {description}
                 </P>
 
                 <Block
@@ -65,8 +68,8 @@ function Projects({ projects, elementsColor }: IProjects) {
 
               <PictureWithAnimation
                 img={image}
-                width={imageEntry.width || 0}
-                height={imageEntry.height || 0}
+                width={700}
+                height={537}
                 index={index}
                 elementsColor={elementsColor}
                 shouldHover={shouldHover}

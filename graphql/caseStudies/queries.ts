@@ -49,20 +49,15 @@ export const GET_PROJECTS = gql`
               }
             }
           }
+          name
+          description
           url
-          mainInfo {
-            item {
-              title
-              description
-              image {
-                data {
-                  id
-                  attributes {
-                    url
-                    width
-                    height
-                  }
-                }
+          featuredImage {
+            data {
+              attributes {
+                width
+                height
+                url
               }
             }
           }

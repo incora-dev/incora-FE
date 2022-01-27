@@ -1,21 +1,20 @@
-import { IContactUs } from "@interfaces";
-import Invitation from "../../components/Careear/Invitation";
-import LetsAcquainted from "../../components/Careear/LetsAcquainted";
-import OurBenefits from "../../components/Careear/OurBenefits";
-import OurPhotos from "../../components/Careear/OurPhotos";
-import Vacancies from "../../components/Careear/Vacancies";
 import FooterComponent from "../../components/Footer";
 import MainMenu from "../../components/mainMenu/mainMenu";
+import VacancyDescription from "../../components/Vacancy/VacancyDescription";
+import { IContactUs } from "../../interfaces/contactUs.interface";
 import { IFooter } from "../../interfaces/footer.interface";
 import { theme } from "../../styles/theme";
 
 import Instagram from "../../public/SVG/socialNetwork/instagram.svg";
 import Facebook from "../../public/SVG/socialNetwork/facebook.svg";
 import LinkedIn from "../../public/SVG/socialNetwork/linkedIn.svg";
+import CheckAlso from "../../components/Vacancy/CheckAlso";
 import { useQuery } from "@apollo/client";
-import { GET_CAREERS_PAGE } from "../../graphql/careers/queries";
-import { GetCareersPage } from "../../graphql/careers/__generated__/GetCareersPage";
+import { GET_VACANCY } from "../../graphql/careers/queries";
 import Custom404 from "../404";
+import { GetVacancy } from "../../graphql/careers/__generated__/GetVacancy";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
 
 const titles = [
   "Services",
@@ -32,7 +31,7 @@ const contactUs: IContactUs = {
   formLabels: ["name", "phone number", "email", "what is you main goal?"],
   addresses: [
     { "ukrainian office": "2 Horodotska Str.,\n" + "Lviv 75001 Ukraine" },
-    { "usa office": "16192 Coastal Hwy, Lewes,\n" + "DE 19958 USA" },
+    { "Usa office": "16192 Coastal Hwy, Lewes,\n" + "DE 19958 USA" },
   ],
   buttonLabel: "send",
 };
@@ -49,31 +48,42 @@ const footer: IFooter = {
   copyright: "© 2015-2021 Incora LLC",
 };
 
-const Career = () => {
-  const { data, loading, error } = useQuery<GetCareersPage>(GET_CAREERS_PAGE);
-  const entry = data?.careersPage?.data?.attributes;
+const Vacancy = () => {
+  const router = useRouter();
+  const { vacancy } = router.query;
+
+  const { data, loading, error } = useQuery<GetVacancy>(GET_VACANCY, {
+    variables: { url: vacancy },
+  });
+  const description = data?.vacancies?.data[0].attributes?.description;
+  const currentVacancies =
+    data?.vacancies?.data[0].attributes?.currentVacancies;
   const specialties = data?.filterSpecialities;
   const technologies = data?.filterTechnologies;
 
-  const errorCondition = error || <Custom404 />;
+  const renderCondition =
+    !loading &&
+    !error &&
+    description &&
+    currentVacancies &&
+    specialties &&
+    technologies;
+  const errorCondition = error && <Custom404 />;
 
   return (
     <>
-      {!loading && entry && !error && specialties && technologies && (
+      {renderCondition && (
         <MainMenu
-          titlesColor={theme.colors.white}
+          backgroundColor={theme.colors.white}
+          titlesColor={theme.colors.black}
           titles={titles}
-          backgroundColor={theme.colors.black}
         >
-          <Invitation banner={entry.banner} process={entry.process} />
-          <Vacancies
+          <VacancyDescription description={description} />
+          <CheckAlso
             specialties={specialties}
             technologies={technologies}
-            currentVacancies={entry.currentVacancies}
+            currentVacancies={currentVacancies}
           />
-          <OurBenefits />
-          <OurPhotos />
-          <LetsAcquainted />
           <FooterComponent
             policies={footer.policies}
             offices={footer.offices}
@@ -89,4 +99,4 @@ const Career = () => {
   );
 };
 
-export default Career;
+export default Vacancy;

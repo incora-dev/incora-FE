@@ -20,6 +20,10 @@ export  const  Container = styled.div`
     padding: 53px 20px 53px;
     flex-wrap: wrap;
     justify-content: center;
+
+    >div:first-of-type {
+      width: 100%;
+    }
   }
 `;
 

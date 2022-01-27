@@ -14,6 +14,9 @@ export const Container = styled.div`
 
     margin-left: 0;
   }
+  @media only screen and (max-width: ${theme.breakpoints.xsMobile}) {
+    margin-left: 110px;
+  }
 `;
 
 export const AddressesContainer = styled.div`

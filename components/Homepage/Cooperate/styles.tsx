@@ -25,6 +25,9 @@ export const Cooperate = styled.div`
   @media only screen and (max-width: ${theme.breakpoints.mobile}) {
     height: 110vh;
   }
+  @media only screen and (max-width: ${theme.breakpoints.mMobile}) {
+    height: 120vh;
+  }
   @media only screen and (max-width: ${theme.breakpoints.xsMobile}) {
     height: 150vh;
   }

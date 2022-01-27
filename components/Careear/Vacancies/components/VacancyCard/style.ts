@@ -15,7 +15,7 @@ export const TextWrap = styled.div`
 
   span {
     font-weight: 800;
-    font-size: 14px;
+    font-size: var(--fs-14);
     line-height: 21px;
     text-transform: uppercase;
     color: ${themeGet("colors.font1")};
@@ -28,7 +28,7 @@ export const TextWrap = styled.div`
 
   h3 {
     font-weight: 800;
-    font-size: 21px;
+    font-size: var(--fs-21);
     line-height: 31px;
     text-transform: capitalize;
     letter-spacing: ${themeGet("letterSpacing.h1")};

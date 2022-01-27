@@ -21,7 +21,7 @@ export const TagWrapper = styled.div`
 
   span {
     font-weight: 600;
-    font-size: 12px;
+    font-size: var(--fs-12);
     line-height: 18px;
     letter-spacing: 0.05em;
     color: ${({ currentIndex, index }) =>

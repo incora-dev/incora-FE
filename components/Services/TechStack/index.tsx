@@ -15,7 +15,7 @@ import {
   PositionButtonWithArrow,
 } from "./TechStack.style";
 import { IStacks, ITechStack } from "@interfaces";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ButtonWithArrow from "../../ButtonWithArrow";
 import Dots from "../../Homepage/Cooperate/elements/dots/dots";
 import Loader from "../../../public/loading1.svg"
@@ -26,6 +26,15 @@ import { theme } from "../../../styles/theme";
 const getStacksInfo = (stack: IStacks) => {
   const { title, text, stacks, stacksLogo } = stack;
   const columns = Math.ceil(stacksLogo.length / 2);
+
+  const [isMobile, setIsMobile] = useState<boolean>();
+
+  useEffect(() => {
+    const width = window.innerWidth;
+    const mobileWidth = +theme.breakpoints.mobile.replace('px', '');
+    const isMobile = mobileWidth > width;
+    setIsMobile(isMobile);
+  },[]);
 
   return (
     <InfoBlock>
@@ -45,7 +54,7 @@ const getStacksInfo = (stack: IStacks) => {
       </TextContainer>
 
       <StacksContainer>
-        <StacksBlock columns={3}>
+        <StacksBlock columns={isMobile ? 2 : 3}>
           {
             stacks.map((label, index) => {
               const Logo: any = stacksLogo[index];

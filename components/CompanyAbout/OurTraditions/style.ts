@@ -25,7 +25,7 @@ export const TextWrap = styled.div`
   h1 {
     text-transform: uppercase;
     font-weight: 800;
-    font-size: 26px;
+    font-size: var(--fs-26);
     letter-spacing: ${themeGet("letterSpacing.h1")};
   }
 `;
@@ -36,7 +36,7 @@ export const Paragraphs = styled.div`
   justify-content: space-between;
 
   p {
-    font-size: 14px;
+    font-size: var(--fs-14);
     width: 463px;
     line-height: 30px;
   }

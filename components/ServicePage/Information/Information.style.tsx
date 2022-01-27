@@ -40,7 +40,7 @@ export const H1 = styled.h1`
   font-family: Poppins;
   font-style: normal;
   font-weight: 800;
-  font-size: 64px;
+  font-size: var(--fs-64);
   line-height: 96px;
   letter-spacing: 0.05em;
 
@@ -68,7 +68,7 @@ export const H2 = styled.h2`
   font-family: Poppins;
   font-style: normal;
   font-weight: 800;
-  font-size: 23px;
+  font-size: var(--fs-23);
   line-height: 34px;
 
   letter-spacing: 0.05em;
@@ -82,7 +82,7 @@ export const Text = styled.p`
   font-family: Poppins;
   font-style: normal;
   font-weight: normal;
-  font-size: 14px;
+  font-size: var(--fs-14);
   line-height: 30px;
   /* or 214% */
 

@@ -17,7 +17,7 @@ export const HeadingWrap = styled.div`
 
   h1 {
     font-weight: 800;
-    font-size: 36px;
+    font-size: var(--fs-36);
     line-height: 54px;
     letter-spacing: 0.05em;
     text-transform: capitalize;
@@ -37,7 +37,7 @@ export const FeedbackWrap = styled.div`
   }
 
   > p {
-    font-size: 14px;
+    font-size: var(--fs-14);
     line-height: 30px;
     letter-spacing: 0.1em;
     color: ${themeGet("colors.font1")};
@@ -56,7 +56,7 @@ export const ClientInfoWrap = styled.div`
 
     > h3 {
       font-weight: 600;
-      font-size: 14px;
+      font-size: var(--fs-14);
       line-height: 22px;
       letter-spacing: 0.1em;
       text-transform: uppercase;
@@ -64,7 +64,7 @@ export const ClientInfoWrap = styled.div`
     }
 
     > span {
-      font-size: 12px;
+      font-size: var(--fs-12);
       line-height: 30px;
       letter-spacing: 0.1em;
       color: ${themeGet("colors.font1")};

@@ -1,5 +1,6 @@
 import themeGet from "@styled-system/theme-get";
 import styled from "styled-components";
+import { theme } from "../../../styles/theme";
 
 interface IButton {
   right: boolean;
@@ -16,6 +17,11 @@ export const ButtonWrap = styled.div`
   svg {
     transform: ${({ right }: IButton) => (right ? "rotate(180deg)" : "none")};
   }
+
+  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    padding: 20px;
+    justify-content: ${({ right }: IButton) => (right ? "flex-start" : "flex-end")};
+  }
 `;
 
 export const Ellipse = styled.div`
@@ -27,4 +33,12 @@ export const Ellipse = styled.div`
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    width: 50px;
+    height: 50px;
+
+    svg {
+      width: 60%;
+    }
+  }
 `;

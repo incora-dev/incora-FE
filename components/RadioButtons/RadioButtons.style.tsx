@@ -32,6 +32,11 @@ export const ButtonsBlock = styled.div`
   flex-wrap: wrap;
 
   transition: all 0.3s ease-in-out;
+
+  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    gap: 30px;
+    flex-direction: column;
+  }
 `
 
 export const RadioButton = styled.div`
@@ -58,7 +63,7 @@ export const RadioButton = styled.div`
 
     font-style: normal;
     font-weight: ${({ fontWeight }: IButtons) => fontWeight};
-    font-size: 16px;
+    font-size: var(--fs-16);
     line-height: 24px;
 
     letter-spacing: 0.05em;

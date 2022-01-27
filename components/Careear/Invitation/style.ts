@@ -37,7 +37,7 @@ export const TextBlock = styled.div`
 
   h1 {
     font-weight: 800;
-    font-size: 64px;
+    font-size: var(--fs-64);
     line-height: 96px;
     color: ${themeGet("colors.white")};
     letter-spacing: ${themeGet("letterSpacing.h1")};
@@ -45,7 +45,7 @@ export const TextBlock = styled.div`
   }
 
   p {
-    font-size: 14px;
+    font-size: var(--fs-14);
     line-height: 30px;
     color: ${themeGet("colors.font1")};
     letter-spacing: ${themeGet("letterSpacing.h1")};
@@ -53,7 +53,7 @@ export const TextBlock = styled.div`
   }
 
   span {
-    font-size: 18px;
+    font-size: var(--fs-18);
     font-weight: bold;
     line-height: 27px;
     color: ${themeGet("colors.white")};
@@ -98,7 +98,7 @@ export const HeaderWrap = styled.div`
 
   h1 {
     font-weight: 800;
-    font-size: 36px;
+    font-size: var(--fs-36);
     line-height: 54px;
     letter-spacing: ${themeGet("letterSpacing.h1")};
     color: ${themeGet("colors.white")};

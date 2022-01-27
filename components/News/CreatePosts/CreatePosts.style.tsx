@@ -27,7 +27,7 @@ export const H3 = styled.h3`
 
   font-style: normal;
   font-weight: bold;
-  font-size: 18px;
+  font-size: var(--fs-18);
   line-height: 22px;
 
   letter-spacing: 0.05em;

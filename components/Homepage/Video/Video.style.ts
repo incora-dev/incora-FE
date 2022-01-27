@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { theme } from "../../../styles/theme";
 
 interface IPlayerPosition {
   visibility: string;
@@ -12,6 +13,10 @@ export const Container = styled.div`
   position: relative;
 
   height: 742px;
+
+  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    height: 300px;
+  }
 `;
 
 export const BGTop = styled.div`

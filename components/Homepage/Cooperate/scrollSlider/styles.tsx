@@ -13,7 +13,7 @@ export const TopText = styled.p`
   font-family: Poppins;
   font-style: normal;
   font-weight: 800;
-  font-size: 20px;
+  font-size: var(--fs-20);
   line-height: 30px;
 
   letter-spacing: 0.05em;
@@ -24,7 +24,7 @@ export const BottomText = styled.p`
   font-family: Poppins;
   font-style: normal;
   font-weight: 800;
-  font-size: 14px;
+  font-size: var(--fs-14);
   line-height: 21px;
 
   letter-spacing: 0.05em;

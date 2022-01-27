@@ -19,7 +19,7 @@ export const Strong = styled.strong`
 
   font-style: normal;
   font-weight: 600;
-  font-size: 10px;
+  font-size: var(--fs-10);
   line-height: 28px;
 
   letter-spacing: 0.1em;

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { theme } from "../../../../styles/theme";
 
 interface IContainer {
   flexDirection: string;
@@ -12,6 +13,11 @@ export const Container = styled.div`
   display: flex;
   column-gap: 77px;
   flex-direction: ${({ flexDirection }: IContainer) => flexDirection};
+
+  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    flex-wrap: wrap-reverse;
+    max-width: 100%;
+  }
 `;
 
 export const Text = styled.div`
@@ -34,13 +40,17 @@ export const H3 = styled.h3`
   font-family: Poppins;
   font-style: normal;
   font-weight: 800;
-  font-size: 36px;
+  font-size: var(--fs-36);
   line-height: 54px;
 
   letter-spacing: 0.05em;
 
   color: #000;
   cursor: pointer;
+
+  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    font-size: var(--fs-28);
+  }
 `;
 
 export const P = styled.p`
@@ -49,7 +59,7 @@ export const P = styled.p`
   font-family: Poppins;
   font-style: normal;
   font-weight: normal;
-  font-size: 14px;
+  font-size: var(--fs-14);
   line-height: 30px;
 
   letter-spacing: 0.1em;
@@ -61,7 +71,7 @@ export const H4 = styled.h4`
   font-family: Poppins;
   font-style: normal;
   font-weight: 800;
-  font-size: 12px;
+  font-size: var(--fs-12);
   line-height: 18px;
 
   letter-spacing: 0.05em;

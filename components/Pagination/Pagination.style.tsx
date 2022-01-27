@@ -36,7 +36,7 @@ export const Number = styled.div`
 
   font-style: normal;
   font-weight: 600;
-  font-size: 12px;
+  font-size: var(--fs-12);
   line-height: 18px;
 
   letter-spacing: 0.05em;

@@ -14,14 +14,10 @@ import {
 } from './styles'
 import SVG from "../../../public/SVG/deepen-to-the-core.svg"
 import Hexagon from "../../../public/SVG/hexagon1.svg"
-import { useRef } from "react";
-
 
 function HeaderComponent() {
-  const videoEl: any = useRef(null);
-
   return (
-    <Cover onMouseEnter={() => videoEl.current.play()}>
+    <Cover>
       <Container>
         <Div>
           <VideoBlock>
@@ -29,7 +25,7 @@ function HeaderComponent() {
               style={{ width: '710px', height: '380px' }}
               autoPlay
               loop
-              ref={videoEl}
+              muted
             >
               <source src="DeepenToTheCoreOfIdeaVideo.mp4" type="video/mp4"/>
             </video>

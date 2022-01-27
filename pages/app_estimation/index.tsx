@@ -1,16 +1,16 @@
 import { useState } from "react";
 import { IContactUs } from "@interfaces";
-import FooterComponent from "../components/Footer";
-import { Platforms } from "../components/AppEstimation/AppEstimations.types";
-import Header from "../components/AppEstimation/Header";
-import MainContent from "../components/AppEstimation/MainContent";
-import MainMenu from "../components/mainMenu/mainMenu";
-import { IFooter } from "../interfaces/footer.interface";
-import { theme } from "../styles/theme";
-import Instagram from "../public/SVG/socialNetwork/instagram.svg";
-import Facebook from "../public/SVG/socialNetwork/facebook.svg";
-import LinkedIn from "../public/SVG/socialNetwork/linkedIn.svg";
-import React from "../public/SVG/technologies/react.svg";
+import FooterComponent from "../../components/Footer";
+import { Platforms } from "../../components/AppEstimation/AppEstimations.types";
+import Header from "../../components/AppEstimation/Header";
+import MainContent from "../../components/AppEstimation/MainContent";
+import MainMenu from "../../components/mainMenu/mainMenu";
+import { IFooter } from "../../interfaces/footer.interface";
+import { theme } from "../../styles/theme";
+import Instagram from "../../public/SVG/socialNetwork/instagram.svg";
+import Facebook from "../../public/SVG/socialNetwork/facebook.svg";
+import LinkedIn from "../../public/SVG/socialNetwork/linkedIn.svg";
+import React from "../../public/SVG/technologies/react.svg";
 
 const titles = [
   "Services",
@@ -44,7 +44,7 @@ const footer: IFooter = {
   copyright: "© 2015-2021 Incora LLC",
 };
 
-const AppEstimation = () => {
+const Index = () => {
   const [platform, setPlatform] = useState<Platforms>(Platforms.WEB);
   return (
     <MainMenu
@@ -64,4 +64,4 @@ const AppEstimation = () => {
   );
 };
 
-export default AppEstimation;
+export default Index;

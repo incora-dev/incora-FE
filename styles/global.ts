@@ -37,7 +37,6 @@ const GlobalStyle = createGlobalStyle`
      font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
       Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
       max-width: 100vw;
-      overflow-x: hidden;
     }
 
     html,

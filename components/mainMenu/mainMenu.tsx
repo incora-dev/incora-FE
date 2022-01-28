@@ -2,9 +2,13 @@ import { IMenu } from "@interfaces";
 import Navigation from "./navigation/navigation";
 import { Wrapper, Block, HoverMenu, Div, IncoraLogo, ContentWrapper } from "./styles";
 import { theme } from "../../styles/theme";
-import React, { useState} from "react";
+import React, { useContext, useEffect, useRef, useState} from "react";
 import HoverElements from "./HoverElements";
 import Link from "next/link";
+import HamburgerButton from "../BurgerMenuButton";
+import { SideMenu } from "./sideMainMenu";
+import { MenuContext } from "../../services/context/mainMenu";
+import {useOnClickOutside} from '../../services/hooks';
 
 function getLogo(titlesColor: string) {
   const colorBlack = theme.colors.black;
@@ -35,6 +39,7 @@ export default function MainMenu(props: IMenu) {
         positionType={positionType}
         titlesColor={titlesColor}
       >
+      <ContentWrapper>
         <Block>
           <Link href={'/'}>
             {logo}
@@ -63,6 +68,7 @@ export default function MainMenu(props: IMenu) {
             setOnSelectedMenu={setOnSelectedMenu}
           />
         </HoverMenu>
+      </ContentWrapper>
       </Wrapper>
       <ContentWrapper>
         {children}

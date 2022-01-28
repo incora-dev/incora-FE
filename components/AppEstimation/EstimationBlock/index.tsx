@@ -21,10 +21,9 @@ const EstimationBlock = ({ estimations }: IEstimationsBlockProps) => (
     <Title>Your Title Here</Title>
     <Content>
       {Object.keys(estimations).map((key) => <TimeBlock key={key}>
-          <Label>{key}</Label>
-          <TimeValue>{estimations[key]}h</TimeValue>
-        </TimeBlock>)
-      }
+        <Label>{key}</Label>
+        <TimeValue>{estimations[key as keyof IEstimation]}h</TimeValue>
+      </TimeBlock>)}
       <Button>Calculate</Button>
     </Content>
   </>

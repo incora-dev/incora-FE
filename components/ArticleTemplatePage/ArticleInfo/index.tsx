@@ -20,7 +20,7 @@ import {
   SocialIcons,
   CodeBlock
 } from "./ArticleInfo.style";
-import React, {ReactElement, useCallback, useEffect, useState} from "react";
+import React, { useCallback, useEffect, useState} from "react";
 import Technologies from "../../Homepage/EmbodiedIdeas/Projects/Technologies";
 import LoveItIcon from "../../../public/SVG/LoveIt.svg";
 import ValuableIcon from "../../../public/SVG/Valuable.svg";
@@ -37,7 +37,7 @@ interface IArticleInfo {
 }
 
 interface ISocialTitles {
-  Icon: ReactElement;
+  Icon: React.FunctionComponent;
   href: string;
 }
 
@@ -45,7 +45,8 @@ const pollTitle = 'What’s your impression after reading this article?';
 const pollLabels = ['Love it!', 'Valuable', 'Exciting', 'Unsatisfied'];
 const pollIcons = [LoveItIcon, ValuableIcon, ExcitingIcon, UnsatisfiedIcon];
 
-function getScrollLabels(sideBarElements: NodeListOf<Element>, elementIndex: number) {
+function getScrollLabels(elementIndex: number, sideBarElements?: NodeListOf<Element>) {
+  if (!sideBarElements?.length) return;
   return (Array.from(sideBarElements).map((el, index) => {
     const selected = elementIndex === index;
 
@@ -85,7 +86,7 @@ function getSocialIcons(icons: ISocialTitles[]) {
     icons.map(({ Icon, href }, index) =>
       <Link key={index} href={`https://${href}`}>
         <a>
-          <Icon/>
+          <Icon />
         </a>
       </Link>
 
@@ -94,15 +95,15 @@ function getSocialIcons(icons: ISocialTitles[]) {
 
 const ArticleInfo = ({ mainText, socialTitles, tags, codeText }: IArticleInfo) => {
   const [selectedElementIndex, setElementIndex] = useState(0);
-  const [sideBarElements, setSideBarElements] = useState<NodeListOf<Element>>([]);
+  const [sideBarElements, setSideBarElements] = useState<NodeListOf<HTMLElement>>();
   const [selected, setSelect] = useState(-1);
 
-  const scrollTitles = getScrollLabels(sideBarElements, selectedElementIndex);
+  const scrollTitles = getScrollLabels(selectedElementIndex, sideBarElements);
   const elements = getElements(pollLabels, selected, setSelect);
   const icons = getSocialIcons(socialTitles);
 
   const handleScroll = useCallback(() => {
-    sideBarElements.forEach((el, index) => {
+    sideBarElements?.forEach((el, index) => {
       if (el.getBoundingClientRect().top > 120 && el.getBoundingClientRect().top < 500) {
         setElementIndex(index);
       }

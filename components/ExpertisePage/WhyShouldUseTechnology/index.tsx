@@ -15,6 +15,12 @@ interface ITechnology {
   text: string;
 }
 
+interface IWhyShouldUseTechnology {
+  title: string;
+  bgColor: string;
+  titleColor: string;
+}
+
 const aboutTechnology: ITechnology[] = [
   { title: 'Decreased development time', text: 'React.js allows you to create reusable UI components, which cuts down on development time. By modifying just one page chunk at a time, you omit reloading the full page for each update.'},
   { title: 'Support from the majority of browsers', text: 'React.js is compatible with all major browsers, namely Internet Explorer 9, Chrome, Firefox and others. As soon as a new version of React.js is released, they enhance their engines.'},
@@ -30,7 +36,7 @@ const getArguments = (technology: ITechnology[]) => {
   )
 }
 
-const WhyShouldUseTechnology = ({ title, bgColor, titleColor }) => {
+const WhyShouldUseTechnology = ({ title, bgColor, titleColor }: IWhyShouldUseTechnology) => {
   const h1Title = firstLetterBig('why should you use ') + firstLetterBig(title) +'?';
   const argumentsTechnology = getArguments(aboutTechnology);
 

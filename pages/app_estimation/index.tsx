@@ -55,8 +55,6 @@ const Index = () => {
       <Header
         title="How Much Does It Cost to Create an App?"
         text="Learn what it takes to create your app! Fulcrum calculator makes a rough* estimate of all app development costs. Ready?"
-        platform={platform}
-        setPlatform={setPlatform}
       />
       <MainContent platform={platform} />
       <FooterComponent {...footer}/>

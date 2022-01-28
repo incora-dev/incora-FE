@@ -1,6 +1,6 @@
 import MainMenu from "../../../components/mainMenu/mainMenu";
-import {useEffect, useState} from "react";
-import {theme} from "../../../styles/theme";
+import { useEffect, useState } from "react";
+import { theme } from "../../../styles/theme";
 import Head from "next/head";
 import React from "../../../public/SVG/technologies/react.svg";
 import HeaderService from "../../../components/ServicePage/HeaderService";
@@ -34,7 +34,7 @@ const news = {
       tags: ["tagtitle", "tagtitle"],
       categories: ["category"],
       title:
-          "Intro to Microservices Communication [With the Use of Apache Kafka]",
+        "Intro to Microservices Communication [With the Use of Apache Kafka]",
       redirectTo: "[With the Use of Apache Kafka]",
     },
     {
@@ -57,7 +57,7 @@ const news = {
       categories: ["category", "category"],
       title: "How to Monetize Delivery and Shipping Apps: Methods Screening",
       redirectTo:
-          "How to Monetize Delivery and Shipping Apps: Methods Screening",
+        "How to Monetize Delivery and Shipping Apps: Methods Screening",
     },
   ],
 };
@@ -82,18 +82,39 @@ const contactUs: IContactUs = {
   buttonLabel: "send",
 };
 
-const WebSites = [Facebook, Instagram, CodeAcademy, NewYorkTimes, YahooMail, Netflix, Dropbox, Flipboard];
+const WebSites = [
+  Facebook,
+  Instagram,
+  CodeAcademy,
+  NewYorkTimes,
+  YahooMail,
+  Netflix,
+  Dropbox,
+  Flipboard,
+];
 
 const whyDevelopWithUs = {
-  title: 'why develop with us?',
+  title: "why develop with us?",
   reasons: [
-    { title: 'Extensive market research for the clear goals', text: 'ICP / Business Analysis / Time & Cost Estimation / Project Roadmap' },
-    { title: 'Development with the focus on every angle', text: 'QA & Testing / Architecture scheme /  Source Code' },
-    { title: 'Agile approach through each phase', text: 'CI/CD Pipeline / DevOps services integration' },
-    { title: 'Guaranteed safety with the NDA signing', text: 'Legally recognized Confidential agreement' },
+    {
+      title: "Extensive market research for the clear goals",
+      text: "ICP / Business Analysis / Time & Cost Estimation / Project Roadmap",
+    },
+    {
+      title: "Development with the focus on every angle",
+      text: "QA & Testing / Architecture scheme /  Source Code",
+    },
+    {
+      title: "Agile approach through each phase",
+      text: "CI/CD Pipeline / DevOps services integration",
+    },
+    {
+      title: "Guaranteed safety with the NDA signing",
+      text: "Legally recognized Confidential agreement",
+    },
   ],
-  rotateText1: 'Thorough supervision',
-  rotateText2: 'custom solution developmet',
+  rotateText1: "Thorough supervision",
+  rotateText2: "custom solution developmet",
 };
 
 const footer: IFooter = {
@@ -113,19 +134,23 @@ const colorBlack = theme.colors.black;
 const colorBackgroundBlack = theme.colors.backgroundBlack;
 const hexagonColorGrey = theme.elements.hexagonBorderedGrey;
 
-const Technology = ({ title, headerText, label }) => {
-  const [menuColor, setMenuColor] = useState('none');
+interface ITechnology {
+  title: string;
+  headerText: string;
+  label: string;
+}
+
+const Technology = ({ title, headerText, label }: ITechnology) => {
+  const [menuColor, setMenuColor] = useState("none");
   const handleScroll = () => {
-    window.scrollY >= 50
-        ? setMenuColor(colorBlack)
-        : setMenuColor('none')
-  }
+    window.scrollY >= 50 ? setMenuColor(colorBlack) : setMenuColor("none");
+  };
 
   useEffect(() => {
-    window.addEventListener('scroll', handleScroll)
+    window.addEventListener("scroll", handleScroll);
 
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [])
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <>
@@ -135,15 +160,15 @@ const Technology = ({ title, headerText, label }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <MainMenu
-          backgroundColor={menuColor}
-          titlesColor={colorWhite}
-          titles={MainMenuTitles}
+        backgroundColor={menuColor}
+        titlesColor={colorWhite}
+        titles={MainMenuTitles}
       >
         <HeaderService
           title={title}
-          titleSize={'64px'}
+          titleSize={"64px"}
           text={headerText}
-          textWidth={'435px'}
+          textWidth={"435px"}
           label={label}
           bgColor={colorBlack}
         />
@@ -152,40 +177,29 @@ const Technology = ({ title, headerText, label }) => {
           bgColor={colorBackgroundBlack}
           titleColor={colorWhite}
         />
-        <PopularWebsites title={title} webSites={WebSites}/>
-        <WhyDevelopWithUs title={whyDevelopWithUs.title} info={whyDevelopWithUs.reasons}/>
-        <News
-          title={news.title}
-          articles={news.articles}
+        <PopularWebsites title={title} webSites={WebSites} />
+        <WhyDevelopWithUs
+          title={whyDevelopWithUs.title}
+          info={whyDevelopWithUs.reasons}
         />
+        <News title={news.title} articles={news.articles} />
         <ContactUsComponent
-            title={contactUs.title}
-            text={contactUs.text}
-            formLabels={contactUs.formLabels}
-            addresses={contactUs.addresses}
-            buttonLabel={contactUs.buttonLabel}
+          title={contactUs.title}
+          text={contactUs.text}
+          formLabels={contactUs.formLabels}
+          addresses={contactUs.addresses}
+          buttonLabel={contactUs.buttonLabel}
         />
       </MainMenu>
       <FooterComponent
-          policies={footer.policies}
-          offices={footer.offices}
-          followUs={footer.followUs}
-          pages={footer.pages}
-          copyright={footer.copyright}
+        policies={footer.policies}
+        offices={footer.offices}
+        followUs={footer.followUs}
+        pages={footer.pages}
+        copyright={footer.copyright}
       />
     </>
-  )
-}
+  );
+};
 
 export default Technology;
-
-Technology.getInitialProps = async ({ query }) => {
-  const headerText = 'One of the most commonly used and prospective frameworks among front-end developers.';
-  const label = 'frontend';
-
-  return {
-    title: query.technology,
-    headerText,
-    label
-  }
-}

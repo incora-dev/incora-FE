@@ -5,7 +5,7 @@ import CreateNews from "../CreatePosts";
 const NewsBLock = ({ news }: any) => {
   return (
     <Container number={news.length}>
-      <CreateNews news={news}/>
+      <CreateNews id={""} title={""} url={""} tags={[]} categories={[]} image={""} />
     </Container>
   )
 }

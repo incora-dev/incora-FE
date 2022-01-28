@@ -1,4 +1,10 @@
-import { Component, Div, H2, PaddingTop, MarginTop } from "./Technologies.style";
+import {
+  Component,
+  Div,
+  H2,
+  PaddingTop,
+  MarginTop,
+} from "./Technologies.style";
 import { ITechnologies } from "@interfaces";
 import Arrow from "../../../public/SVG";
 import BlockTechnologies from "./BlockTechnologies";
@@ -8,7 +14,7 @@ function TechnologiesComponent({ title, bgColor, labels }: ITechnologies) {
   const bgColorWhite = theme.colors.white;
   const bgColorBlack = theme.colors.black;
 
-  const getBgColor = () => bgColor ? bgColor : bgColorWhite;
+  const getBgColor = () => (bgColor ? bgColor : bgColorWhite);
   const getTitleColor = () => {
     if (bgColor === bgColorWhite) {
       return bgColorBlack;
@@ -25,16 +31,16 @@ function TechnologiesComponent({ title, bgColor, labels }: ITechnologies) {
         <Div>
           <H2 color={getTitleColor()}>{title}</H2>
           <a href={title}>
-            <Arrow/>
+            <Arrow />
           </a>
         </Div>
       </PaddingTop>
 
       <MarginTop>
-        <BlockTechnologies technologies={labels}/>
+        {labels && <BlockTechnologies technologies={labels} />}
       </MarginTop>
     </Component>
-  )
+  );
 }
 
 export default TechnologiesComponent;

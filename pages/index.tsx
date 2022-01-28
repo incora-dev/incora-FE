@@ -314,11 +314,11 @@ function Home() {
           />
           <Reviews />
           <section>
-            <NewsComponent
+            {/* <NewsComponent
               title={news.title}
               labels={technologies.technologies}
               articles={news.articles}
-            />
+            /> */}
           </section>
           <ContactUsComponent
             title={contactUs.title}

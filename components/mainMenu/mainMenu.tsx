@@ -25,7 +25,7 @@ function getLogo(titlesColor: string) {
 export default function MainMenu(props: IMenu) {
   const [onHoverElement, setOnHoverElement] = useState<null | string>(null);
   const [onSelectedMenu, setOnSelectedMenu] = useState<null | string>(null);
-  const { titles, backgroundColor, titlesColor, children, positionType = 'sticky' } = props;
+  const { titles, backgroundColor, titlesColor, children, positionType = 'fixed' } = props;
   const logo = getLogo(titlesColor);
 
   return (

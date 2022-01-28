@@ -7,7 +7,7 @@ import { Slide, SliderContent, SliderContainer } from "./style";
 
 interface IVerticalFullPageSliderProps<T> {
   slides: Array<T>;
-  scrollListType: ScrollListTypes;
+  scrollListType?: ScrollListTypes;
   renderSlide: (slide: T, index: number) => ReactNode;
   bgColor?: string;
   stickyTopPosition?: number;
@@ -16,7 +16,7 @@ interface IVerticalFullPageSliderProps<T> {
 
 function VerticalFullPageSlider<T>({
   slides,
-  scrollListType,
+  scrollListType = ScrollListTypes.NUMBER,
   renderSlide,
   bgColor,
   stickyTopPosition,
@@ -43,7 +43,7 @@ function VerticalFullPageSlider<T>({
       const direction = lastScrollTop < offset ? "down" : "up";
 
       const scrollTopPosition =
-        allSlides[currentSection].getBoundingClientRect().top;
+        allSlides[currentSection]?.getBoundingClientRect().top;
 
       if (
         (currentSection === 0 && scrollTopPosition > MENU_HEIGHT) ||
@@ -56,15 +56,13 @@ function VerticalFullPageSlider<T>({
       }
       if (
         direction === "down" &&
-        allSlides[currentSection + 1] &&
-        allSlides[currentSection + 1].getBoundingClientRect().top < 250
+        allSlides[currentSection + 1]?.getBoundingClientRect().top < 250
       ) {
         setCurrentSection(Math.min(currentSection + 1, allSlides.length - 1));
       }
       if (
         direction === "up" &&
-        allSlides[currentSection - 1] &&
-        allSlides[currentSection - 1].getBoundingClientRect().top > -250
+        allSlides[currentSection - 1]?.getBoundingClientRect().top > -250
       ) {
         setCurrentSection(Math.max(currentSection - 1, 0));
       }

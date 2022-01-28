@@ -11,7 +11,7 @@ import {
   PositionHexagon2,
   PositionHexagon3,
   PositionHexagon4
-} from './styles'
+} from './styles';
 import SVG from "../../../public/SVG/deepen-to-the-core.svg"
 import Hexagon from "../../../public/SVG/hexagon1.svg"
 import { useEffect, useRef, useState } from "react";

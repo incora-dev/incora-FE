@@ -39,7 +39,7 @@ function Projects({ projects, elementsColor }: IProjects) {
           : '81px 180px 0 0';
 
       const url = attributes?.url;
-      const technologies = attributes?.technologies;
+      const technologies = attributes?.technologies?.data;
       const name = attributes?.name;
       const description = attributes?.description;
       const imageEntry = attributes?.featuredImage.data[0].attributes;
@@ -71,7 +71,7 @@ function Projects({ projects, elementsColor }: IProjects) {
                   onMouseEnter={() => setShouldHover(index)}
                   onMouseLeave={() => setShouldHover(-1)}
                 >
-                  {technologies.data.length > 0 && (
+                  {technologies.length > 0 && (
                     <>
                       <H4>Technologies</H4>
                       <Technologies technologies={technologies} />

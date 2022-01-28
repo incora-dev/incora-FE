@@ -1,8 +1,11 @@
-import { GetCaseStudies_caseStudiesPage_data_attributes_projects_data_attributes_technologies } from "../../../../../graphql/caseStudies/__generated__/GetCaseStudies";
+import { GetProjects_projects_data_attributes_technologies_data } from "../../../../../graphql/caseStudies/__generated__/getProjects";
+import { GetArticle_articles_data_attributes_tags_data } from "../../../../../graphql/insights/__generated__/GetArticle";
 import { Strong, A, Container, ButtonContainer } from "./Technologies.style";
 
 export interface IProjectTechnologies {
-  technologies: GetCaseStudies_caseStudiesPage_data_attributes_projects_data_attributes_technologies;
+  technologies:
+    | GetProjects_projects_data_attributes_technologies_data[]
+    | GetArticle_articles_data_attributes_tags_data[];
   textTagsColor?: string;
   bgTagsColor?: string;
 }
@@ -14,7 +17,7 @@ function Technologies({
 }: IProjectTechnologies) {
   return (
     <Container>
-      {technologies?.data?.map(({ id, attributes }) => {
+      {technologies.map(({ id, attributes }) => {
         return (
           <A href={attributes?.url || ""} bgColor={bgTagsColor} key={id}>
             <ButtonContainer>

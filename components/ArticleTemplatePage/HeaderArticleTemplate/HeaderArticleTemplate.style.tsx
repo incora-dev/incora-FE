@@ -8,13 +8,13 @@ export const Div = styled.div`
   overflow: hidden;
 
   background-color: ${themeGet("colors.black")};
-`
+`;
 
 export const Wrapper = styled.div`
   margin: 0 auto;
   max-width: 1006px;
   height: max-content;
-`
+`;
 
 export const InfoBlock = styled.div`
   position: relative;
@@ -24,13 +24,13 @@ export const InfoBlock = styled.div`
 
   display: flex;
   justify-content: space-between;
-`
+`;
 
 export const TextBlock = styled.div`
   display: flex;
   flex-direction: column;
   row-gap: 8px;
-`
+`;
 
 export const Category = styled.p`
   font-style: normal;
@@ -42,7 +42,7 @@ export const Category = styled.p`
   text-transform: uppercase;
 
   color: ${themeGet("colors.yellow")};
-`
+`;
 
 export const Title = styled.h1`
   max-width: 792px;
@@ -56,7 +56,7 @@ export const Title = styled.h1`
   text-transform: capitalize;
 
   color: ${themeGet("colors.white")};
-`
+`;
 
 export const DatePublishedAndViews = styled.p`
   margin-top: 4px;
@@ -70,8 +70,7 @@ export const DatePublishedAndViews = styled.p`
   text-transform: capitalize;
 
   color: ${themeGet("colors.white")};
-`
-
+`;
 
 export const ArticleOwnerBlock = styled.div`
   position: relative;
@@ -82,19 +81,23 @@ export const ArticleOwnerBlock = styled.div`
   flex-direction: column;
   row-gap: 16px;
   align-items: flex-end;
-  
+
   text-align: right;
-`
+`;
 
 export const OwnerPhoto = styled.div`
   width: 60px;
   height: 60px;
-`
+
+  img {
+    border-radius: 100px;
+  }
+`;
 
 export const ArticleOwnerTextBlock = styled.div`
   display: flex;
   flex-direction: column;
-`
+`;
 
 export const Name = styled.p`
   font-style: normal;
@@ -106,7 +109,7 @@ export const Name = styled.p`
   text-transform: capitalize;
 
   color: ${themeGet("colors.white")};
-`
+`;
 
 export const Role = styled.p`
   font-style: normal;
@@ -118,4 +121,4 @@ export const Role = styled.p`
   text-transform: capitalize;
 
   color: ${themeGet("colors.font2")};
-`
+`;

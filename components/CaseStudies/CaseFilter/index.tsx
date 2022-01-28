@@ -39,7 +39,7 @@ const CaseFilter = ({
   setCurrentIndustryTag,
 }: ICaseFilter) => {
   const { data, loading } = useQuery<GetIndustriesNames>(GET_INDUSTRIES_NAMES);
-  const industriesEntry = data?.industries;
+  const industriesEntry = data?.industries?.data;
 
   const dispatch = useDispatch();
 

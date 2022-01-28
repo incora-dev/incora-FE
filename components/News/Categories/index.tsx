@@ -1,21 +1,31 @@
-import {Div, P} from "./Categories.style";
-import Link from "next/link"
+import { Div, P } from "./Categories.style";
+import Link from "next/link";
+import { GetArticlesList_articles_data_attributes_industries_data } from "../../../graphql/insights/__generated__/GetArticlesList";
 
+interface ICategories {
+  categories: GetArticlesList_articles_data_attributes_industries_data[];
+}
 
-const Categories = ({ categories }: any) => {
+const Categories = ({ categories }: ICategories) => {
   return (
     <Div>
-      {categories.map((category: string, index: number) => {
+      {categories.map(({ id, attributes }, index) => {
+        const url = attributes?.url;
+        const name = attributes?.name;
+
         return (
-          <Link href={`/technologies/${category}`} key={index}>
+          <Link href={`/technologies/${url}`} key={id}>
             <a>
-              <P>{category}{(categories.length - 1 !== index) && ','}</P>
+              <P>
+                {name}
+                {categories.length - 1 !== index && ","}
+              </P>
             </a>
           </Link>
-        )
+        );
       })}
     </Div>
-  )
+  );
 };
 
 export default Categories;

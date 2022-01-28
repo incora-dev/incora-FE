@@ -26,6 +26,7 @@ export const Nav = styled.nav`
     gap: 10px;
     grid-template-columns: repeat(2, 50%);
     grid-template-rows: repeat(3, 1fr);
+    column-gap: 40px;
   }
 `
 

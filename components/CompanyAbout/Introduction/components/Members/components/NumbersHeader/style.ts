@@ -6,13 +6,13 @@ export const NumbersHeaderWrapper = styled.div`
 
   h1 {
     color: ${themeGet("colors.yellow")};
-    font-size: 72px;
+    font-size: var(--fs-72);
     font-weight: 800;
   }
 
   span {
     color: ${themeGet("colors.white")};
-    font-size: 23px;
+    font-size: var(--fs-23);
     font-weight: 800;
     text-transform: capitalize;
   }

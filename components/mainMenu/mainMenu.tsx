@@ -1,26 +1,25 @@
 import { IMenu } from "@interfaces";
 import Navigation from "./navigation/navigation";
-import { Wrapper, Block, HoverMenu, Div } from "./styles";
+import { Wrapper, Block, HoverMenu, Div, IncoraLogo } from "./styles";
 import { theme } from "../../styles/theme";
-import {useEffect, useState} from "react";
+import { useState} from "react";
 import HoverElements from "./HoverElements";
 import Link from "next/link";
 
 function getLogo(titlesColor: string) {
   const colorBlack = theme.colors.black;
   const colorWhite = theme.colors.white;
+    if (titlesColor === colorWhite) {
+      return (
+        <IncoraLogo src="/logo.svg" alt="Incora logo"/>
+      )
+    }
 
-  if (titlesColor === colorWhite) {
-    return (
-        <img src="/logo.svg" alt="Incora logo"/>
-    )
-  }
-
-  if (titlesColor === colorBlack) {
-    return (
-        <img src="/logoBlack.svg" alt="Incora logo" />
-    )
-  }
+    if (titlesColor === colorBlack) {
+      return (
+        <IncoraLogo src="/logoBlack.svg" alt="Incora logo" />
+      )
+    }
 };
 
 export default function MainMenu(props: IMenu) {

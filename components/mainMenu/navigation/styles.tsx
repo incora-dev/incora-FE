@@ -12,7 +12,7 @@ export const Nav = styled.nav`
   font-family: Poppins;
   font-style: normal;
   font-weight: 700;
-  font-size: 14px;
+  font-size: var(--fs-14);
   line-height: 21px;
 
   text-align: center;
@@ -20,6 +20,13 @@ export const Nav = styled.nav`
   text-transform: capitalize;
 
   color: ${( {color}) => color };
+
+  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(2, 50%);
+    grid-template-rows: repeat(3, 1fr);
+  }
 `
 
 export const Ul = styled.ul`
@@ -63,7 +70,7 @@ export const UlButton = styled.ul`
 `
 
 export const Li = styled.li`
-  font-size: 14px;
+  font-size: var(--fs-14);
   font-weight: 700;
   line-height: 21px;
 `

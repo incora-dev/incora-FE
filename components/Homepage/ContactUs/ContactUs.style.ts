@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { theme } from "../../../styles/theme";
 
 export  const  Block = styled.div`
   overflow: hidden;
@@ -14,6 +15,16 @@ export  const  Container = styled.div`
   
   margin: 0 auto;
   padding: 85px 0 122px;
+
+  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    padding: 53px 20px 53px;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    >div:first-of-type {
+      width: 100%;
+    }
+  }
 `;
 
 export  const  PositionLoading = styled.div`
@@ -37,7 +48,7 @@ export  const  Titles = styled.div`
 export  const  H2 = styled.h2`
   font-style: normal;
   font-weight: 800;
-  font-size: 64px;
+  font-size: var(--fs-64);
   line-height: 96px;
 
   letter-spacing: 0.05em;
@@ -53,7 +64,7 @@ export  const  H4 = styled.h4`
 
   font-style: normal;
   font-weight: bold;
-  font-size: 18px;
+  font-size: var(--fs-18);
   line-height: 27px;
 
   letter-spacing: 0.05em;
@@ -65,7 +76,7 @@ export  const  Form = styled.form`
   font-family: Poppins;
   font-style: normal;
   font-weight: bold;
-  font-size: 18px;
+  font-size: var(--fs-18);
   line-height: 27px;
 
   letter-spacing: 0.05em;

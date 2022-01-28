@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { theme } from "../../../styles/theme";
 
 interface IComponent {
   bgColor: string;
@@ -8,10 +9,18 @@ export const Component = styled.div`
   height: 623px;
   
   background-color: ${({bgColor}: IComponent) => bgColor};
+
+  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    height: 500px;
+  }
 `;
 
 export const PaddingTop = styled.div`
   padding-top: 120px;
+
+  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    padding-top: 53px;
+  }
 `;
 
 export const MarginTop = styled.div`
@@ -38,6 +47,11 @@ export const Div = styled.div`
     
     cursor: pointer;
   }
+
+  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    width: 100%;
+    padding-left: 20px;
+  }
 `;
 
 export const H2 = styled.h2`
@@ -45,7 +59,7 @@ export const H2 = styled.h2`
   font-family: Poppins;
   font-style: normal;
   font-weight: 800;
-  font-size: 26px;
+  font-size: var(--fs-26);
   line-height: 39px;
 
   letter-spacing: 0.05em;

@@ -1,5 +1,6 @@
 import themeGet from "@styled-system/theme-get";
 import styled from "styled-components";
+import { theme } from "../../../styles/theme";
 
 interface ILetsTalk {
   flexDirection: string;
@@ -23,6 +24,10 @@ export const Wrapper = styled.div`
 
   max-width: 1006px;
   margin: 0 auto;
+
+  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    padding: 53px 20px;
+  }
 `;
 
 export const Block = styled.div`
@@ -42,7 +47,7 @@ export const TextBlock = styled.div`
 export const H2 = styled.h2`
   font-style: normal;
   font-weight: 800;
-  font-size: 64px;
+  font-size: var(--fs-64);
   line-height: 96px;
 
   letter-spacing: 0.05em;
@@ -52,7 +57,7 @@ export const H2 = styled.h2`
 export const Text = styled.p`
   font-style: normal;
   font-weight: 300;
-  font-size: 18px;
+  font-size: var(--fs-18);
   line-height: 30px;
 
   letter-spacing: 0.05em;
@@ -62,6 +67,10 @@ export const PositionHexagon = styled.div`
   position: absolute;
   top: ${({ isWhite }: IDiv) => (isWhite ? "70px" : "-239px")};
   right: -47px;
+
+  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    display: none;
+  }
 `;
 
 export const PositionButtonWithArrow = styled.div`

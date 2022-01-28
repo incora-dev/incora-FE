@@ -16,7 +16,7 @@ export const ContentWrap = styled.div`
 
   > h3 {
     font-weight: 600;
-    font-size: 12px;
+    font-size: var(--fs-12);
     line-height: 9px;
     letter-spacing: 0.16em;
     text-transform: uppercase;
@@ -25,7 +25,7 @@ export const ContentWrap = styled.div`
 
   > h2 {
     font-weight: 800;
-    font-size: 21px;
+    font-size: var(--fs-21);
     line-height: 31px;
     letter-spacing: 0.05em;
     text-transform: uppercase;
@@ -36,7 +36,7 @@ export const ContentWrap = styled.div`
   > h1 {
     width: 761px;
     font-weight: 800;
-    font-size: 48px;
+    font-size: var(--fs-48);
     line-height: 72px;
     letter-spacing: 0.05em;
     text-transform: capitalize;
@@ -46,7 +46,7 @@ export const ContentWrap = styled.div`
 
   > p {
     width: 657px;
-    font-size: 14px;
+    font-size: var(--fs-14);
     line-height: 30px;
     letter-spacing: 0.1em;
     color: ${themeGet("colors.font1")};

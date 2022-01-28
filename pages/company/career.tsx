@@ -52,19 +52,25 @@ const footer: IFooter = {
 const Career = () => {
   const { data, loading, error } = useQuery<GetCareersPage>(GET_CAREERS_PAGE);
   const entry = data?.careersPage?.data?.attributes;
+  const specialties = data?.filterSpecialities;
+  const technologies = data?.filterTechnologies;
 
-  const errorCondition = error || (!entry && <Custom404 />);
+  const errorCondition = error || <Custom404 />;
 
   return (
     <>
-      {!loading && entry && !error && (
+      {!loading && entry && !error && specialties && technologies && (
         <MainMenu
           titlesColor={theme.colors.white}
           titles={titles}
           backgroundColor={theme.colors.black}
         >
           <Invitation banner={entry.banner} process={entry.process} />
-          <Vacancies currentVacancies={entry.currentVacancies} />
+          <Vacancies
+            specialties={specialties}
+            technologies={technologies}
+            currentVacancies={entry.currentVacancies}
+          />
           <OurBenefits />
           <OurPhotos />
           <LetsAcquainted />

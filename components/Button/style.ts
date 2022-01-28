@@ -28,7 +28,7 @@ export const Btn = styled.button`
   label {
     cursor: pointer;
     font-weight: bold;
-    font-size: 14px;
+    font-size: var(--fs-14);
     line-height: 21px;
     text-transform: capitalize;
     letter-spacing: ${themeGet("letterSpacing.span")};

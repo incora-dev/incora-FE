@@ -9,7 +9,7 @@ export const P = styled.p`
   font-family: Poppins;
   font-style: normal;
   font-weight: 600;
-  font-size: 12px;
+  font-size: var(--fs-12);
   line-height: 22px;
 
   letter-spacing: 0.1em;

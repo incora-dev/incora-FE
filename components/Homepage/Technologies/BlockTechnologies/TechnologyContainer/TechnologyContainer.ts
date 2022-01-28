@@ -57,7 +57,7 @@ export const P = styled.p`
   font-family: Poppins;
   font-style: normal;
   font-weight: 500;
-  font-size: 11px;
+  font-size: var(--fs-11);
   line-height: 16px;
 
   text-align: center;

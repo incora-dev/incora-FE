@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import themeGet from "@styled-system/theme-get";
+import { theme } from "../../styles/theme";
 
 interface IButton {
   padding?: string;
@@ -15,7 +16,7 @@ export const Label = styled.p`
 
   font-style: normal;
   font-weight: bold;
-  font-size: 14px;
+  font-size: var(--fs-14);
   line-height: 21px;
   
   text-align: center;
@@ -32,6 +33,7 @@ export const Button = styled.div`
   padding: ${({padding = '23px 35px;'}: IButton) => padding};
   align-items: center;
   column-gap: 20px;
+  justify-self: baseline;
 
 
   &:after {
@@ -51,6 +53,12 @@ export const Button = styled.div`
   &:hover :after {
     width: 100%;
   }
+
+  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    svg {
+      display: none;
+    }
+  }
 `
 
 export const ButtonContainer = styled.div`
@@ -69,6 +77,7 @@ export const ButtonContainer = styled.div`
 `
 
 export const Container = styled.a`
+  justify-self: baseline;
   a {
     min-width: 180px;
   }

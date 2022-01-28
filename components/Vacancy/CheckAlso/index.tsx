@@ -2,11 +2,30 @@ import Vacancies from "../../Careear/Vacancies";
 import { CheckAlsoWrapper } from "./style";
 import Hex from "../../../public/hexBig.svg";
 import HexCropped from "../../../public/hexSmallCropped.svg";
+import {
+  GetVacancy_filterSpecialities,
+  GetVacancy_filterTechnologies,
+  GetVacancy_vacancies_data_attributes_currentVacancies,
+} from "../../../graphql/careers/__generated__/GetVacancy";
 
-const CheckAlso = () => {
+interface ICheckAlso {
+  currentVacancies: GetVacancy_vacancies_data_attributes_currentVacancies;
+  specialties: GetVacancy_filterSpecialities;
+  technologies: GetVacancy_filterTechnologies;
+}
+
+const CheckAlso = ({
+  currentVacancies,
+  specialties,
+  technologies,
+}: ICheckAlso) => {
   return (
     <CheckAlsoWrapper>
-      <Vacancies title={"Check Also"} />
+      <Vacancies
+        specialties={specialties}
+        technologies={technologies}
+        currentVacancies={currentVacancies}
+      />
       <Hex className="hex" />
       <HexCropped className="hex_cropped" />
     </CheckAlsoWrapper>

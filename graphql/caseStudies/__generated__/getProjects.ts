@@ -24,41 +24,30 @@ export interface GetProjects_projects_data_attributes_technologies {
   data: GetProjects_projects_data_attributes_technologies_data[];
 }
 
-export interface GetProjects_projects_data_attributes_mainInfo_item_image_data_attributes {
+export interface GetProjects_projects_data_attributes_featuredImage_data_attributes {
   __typename: "UploadFile";
-  url: string;
   width: number | null;
   height: number | null;
+  url: string;
 }
 
-export interface GetProjects_projects_data_attributes_mainInfo_item_image_data {
+export interface GetProjects_projects_data_attributes_featuredImage_data {
   __typename: "UploadFileEntity";
-  id: string | null;
-  attributes: GetProjects_projects_data_attributes_mainInfo_item_image_data_attributes | null;
+  attributes: GetProjects_projects_data_attributes_featuredImage_data_attributes | null;
 }
 
-export interface GetProjects_projects_data_attributes_mainInfo_item_image {
-  __typename: "UploadFileEntityResponse";
-  data: GetProjects_projects_data_attributes_mainInfo_item_image_data | null;
-}
-
-export interface GetProjects_projects_data_attributes_mainInfo_item {
-  __typename: "ComponentCommonItem";
-  title: string;
-  description: string | null;
-  image: GetProjects_projects_data_attributes_mainInfo_item_image | null;
-}
-
-export interface GetProjects_projects_data_attributes_mainInfo {
-  __typename: "ComponentProjectMainInfo";
-  item: (GetProjects_projects_data_attributes_mainInfo_item | null)[];
+export interface GetProjects_projects_data_attributes_featuredImage {
+  __typename: "UploadFileRelationResponseCollection";
+  data: GetProjects_projects_data_attributes_featuredImage_data[];
 }
 
 export interface GetProjects_projects_data_attributes {
   __typename: "Project";
   technologies: GetProjects_projects_data_attributes_technologies | null;
+  name: string;
+  description: string;
   url: string | null;
-  mainInfo: GetProjects_projects_data_attributes_mainInfo;
+  featuredImage: GetProjects_projects_data_attributes_featuredImage;
 }
 
 export interface GetProjects_projects_data {

@@ -69,7 +69,7 @@ export const TextWrap = styled.div`
 
   > span {
     font-weight: 800;
-    font-size: 12px;
+    font-size: var(--fs-12);
     line-height: 18px;
     letter-spacing: 0.05em;
     text-transform: uppercase;
@@ -78,7 +78,7 @@ export const TextWrap = styled.div`
 
   > h3 {
     font-weight: 800;
-    font-size: 21px;
+    font-size: var(--fs-21);
     line-height: 31px;
     letter-spacing: 0.05em;
   }

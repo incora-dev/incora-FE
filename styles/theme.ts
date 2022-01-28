@@ -13,6 +13,7 @@ export const theme = {
     grey2: "#9CA3A7",
     grey3: "#FBFBFB",
     font1: "#BCBCC0",
+    greyCheckbox: '#FBFBFB',
     font2: "#454A4D",
     font3: "#666666",
     background: "#F9F9F9",
@@ -42,4 +43,15 @@ export const theme = {
     hexagonBorderedBlack: "#212121",
     hexagonBorderedGrey: "#FAFAFA",
   },
+  breakpoints: {
+    xsMobile: '280px',
+    mMobile: '360px',
+    mobile:'481px', 
+    tablet: '768px', 
+    smallDesk:'992px', 
+    mediumDesk: '1201px', 
+    largeDesk: '1441px'
+  },
+
 };
+

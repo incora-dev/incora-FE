@@ -28,7 +28,7 @@ export const ContentWrapper = styled.div`
 export const Text = styled.p`
   font-style: normal;
   font-weight: normal;
-  font-size: 14px;
+  font-size: var(--fs-14);
   line-height: 30px;
 
   letter-spacing: 0.1em;
@@ -43,7 +43,7 @@ export const Title = styled.p`
 
   font-style: normal;
   font-weight: 800;
-  font-size: 18px;
+  font-size: var(--fs-18);
   line-height: 27px;
 
   letter-spacing: 0.05em;
@@ -102,7 +102,7 @@ export const FAQWrapper = styled.div`
 export const H2 = styled.h2`
   font-style: normal;
   font-weight: 800;
-  font-size: 36px;
+  font-size: var(--fs-36);
   line-height: 54px;
   /* identical to box height */
 

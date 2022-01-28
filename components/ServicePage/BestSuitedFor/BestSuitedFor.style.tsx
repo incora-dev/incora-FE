@@ -23,7 +23,7 @@ export const H1 = styled.h1`
 
   font-style: normal;
   font-weight: 800;
-  font-size: 36px;
+  font-size: var(--fs-36);
   line-height: 54px;
 
   letter-spacing: 0.05em;
@@ -71,7 +71,7 @@ export const Text = styled.p`
 
   font-style: normal;
   font-weight: bold;
-  font-size: 18px;
+  font-size: var(--fs-18);
   line-height: 27px;
   letter-spacing: 0.05em;
   text-transform: capitalize;

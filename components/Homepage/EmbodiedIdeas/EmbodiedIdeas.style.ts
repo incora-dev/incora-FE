@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { theme } from "../../../styles/theme";
 
 interface IDiv {
   bgColor: string;
@@ -12,6 +13,11 @@ export const Div = styled.div`
   background-color: ${({ bgColor }: IDiv) => bgColor};
 
   overflow: hidden;
+
+  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+      height: ${({ height }: IDiv) => (height ? `${height}px` : "max-content")};
+      padding-bottom: 120px;
+  }
   padding-bottom: 120px;
 `;
 
@@ -19,6 +25,10 @@ export const PositionTitle = styled.div`
   padding-top: ${({ disablePadding }: IPositionTitle) =>
     disablePadding ? "0" : "120px"};
   margin-bottom: 46px;
+
+  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    padding-top: 53px;
+  }
 `;
 
 export const Block = styled.div`
@@ -31,13 +41,18 @@ export const H2 = styled.h2`
   font-family: Poppins;
   font-style: normal;
   font-weight: 800;
-  font-size: 26px;
+  font-size: var(--fs-26);
   line-height: 39px;
 
   letter-spacing: 0.05em;
   text-transform: uppercase;
 
   color: #fec506;
+
+  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    width: 100%;
+    padding-left: 20px;
+  }
 `;
 
 export const H4 = styled.h4`
@@ -46,7 +61,7 @@ export const H4 = styled.h4`
   font-family: Poppins;
   font-style: normal;
   font-weight: bold;
-  font-size: 20px;
+  font-size: var(--fs-20);
   line-height: 30px;
 
   letter-spacing: 0.05em;
@@ -61,6 +76,10 @@ export const ProjectsContainer = styled.div`
   flex-direction: column;
   row-gap: 174px;
   align-items: center;
+
+  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    row-gap: 53px;
+  }
 `;
 
 export const SeeMoreWorks = styled.div`

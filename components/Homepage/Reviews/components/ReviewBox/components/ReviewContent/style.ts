@@ -1,11 +1,18 @@
 import themeGet from "@styled-system/theme-get";
 import styled from "styled-components";
 import Image from "next/image";
+import { theme } from "../../../../../../../styles/theme";
 
 export const ReviewContentWrap = styled.div`
   width: 816.99px;
   display: flex;
   justify-content: space-between;
+  
+  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    width: 100%;
+    flex-direction: column-reverse;
+    align-items: center;
+  }
 `;
 
 export const QuoteWrap = styled.div`
@@ -18,6 +25,10 @@ export const QuoteWrap = styled.div`
       right: 6px;
     }
   }
+
+  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    width: 100%;
+  }
 `;
 
 export const QuoteText = styled.p`
@@ -25,7 +36,7 @@ export const QuoteText = styled.p`
   font-family: Poppins;
   font-style: normal;
   font-weight: normal;
-  font-size: 14px;
+  font-size: var(--fs-14);
   line-height: 30px;
   color: ${themeGet("colors.font1")};
 `;
@@ -35,6 +46,16 @@ export const AvatarWrap = styled.div`
   margin-top: 14px;
   display: flex;
   justify-content: flex-end;
+
+  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    justify-content: center;
+    >div {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+  }
 `;
 
 export const Photo = styled(Image)`
@@ -45,7 +66,7 @@ export const Photo = styled(Image)`
 export const NameWrap = styled.div`
   padding-top: 10px;
   color: ${themeGet("colors.white")};
-  font-size: 13px;
+  font-size: var(--fs-13);
   letter-spacing: 1px;
 
   h3 {

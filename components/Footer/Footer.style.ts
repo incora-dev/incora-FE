@@ -11,6 +11,9 @@ export const Container = styled.footer`
   height: 270px;
 
   background-color: ${({ backgroundColor = color }: IContainer) => backgroundColor};
+  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    height: auto;
+  }
 `;
 
 export const Position = styled.div`
@@ -19,6 +22,14 @@ export const Position = styled.div`
   display: flex;
   padding-top: 41px;
   justify-content: space-between;
+
+  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
 `;
 
 export const LogoBlock = styled.div`
@@ -33,13 +44,17 @@ export const PoliciesBlock = styled.div`
   display: flex;
   flex-direction: column;
   row-gap: 5px;
+
+  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    padding-top: 0;
+  }
 `;
 
 export const PolicyLabel = styled.div`
   font-family: Poppins;
   font-style: normal;
   font-weight: 300;
-  font-size: 11px;
+  font-size: var(--fs-11);
   line-height: 18px;
 
   letter-spacing: 0.1em;
@@ -52,7 +67,7 @@ export const Copyright = styled.p`
   font-family: Poppins;
   font-style: normal;
   font-weight: 300;
-  font-size: 11px;
+  font-size: var(--fs-11);
   line-height: 18px;
 
   letter-spacing: 0.1em;
@@ -70,13 +85,17 @@ export const OfficesBlock = styled.div`
   display: flex;
   flex-direction: column;
   row-gap: 15px;
+
+  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    left: 0;
+  }
 `;
 
 export const H4 = styled.h4`
   font-family: Poppins;
   font-style: normal;
   font-weight: 600;
-  font-size: 12px;
+  font-size: var(--fs-12);
   line-height: 18px;
 
   letter-spacing: 0.03em;
@@ -91,7 +110,7 @@ export const Address = styled.p`
   font-family: Poppins;
   font-style: normal;
   font-weight: 500;
-  font-size: 13px;
+  font-size: var(--fs-13);
   line-height: 24px;
 
   letter-spacing: 0.06em;
@@ -104,7 +123,7 @@ export const Country = styled.p`
   font-family: Poppins;
   font-style: normal;
   font-weight: 600;
-  font-size: 12px;
+  font-size: var(--fs-12);
   line-height: 24px;
 
   letter-spacing: 0.03em;
@@ -127,6 +146,10 @@ export const PagesBlock = styled.div`
   display: flex;
   flex-direction: column;
   row-gap: 18px;
+
+  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    left: 0;
+  }
 `;
 
 export const Pages = styled.div`
@@ -140,7 +163,7 @@ export const Page = styled.p`
   font-family: Poppins;
   font-style: normal;
   font-weight: normal;
-  font-size: 12px;
+  font-size: var(--fs-12);
   line-height: 18px;
 
   letter-spacing: 0.1em;

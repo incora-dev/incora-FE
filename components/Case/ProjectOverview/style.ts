@@ -14,7 +14,7 @@ export const HeadingWrap = styled.div`
 
   h1 {
     font-weight: 800;
-    font-size: 64px;
+    font-size: var(--fs-64);
     line-height: 96px;
     letter-spacing: 0.05em;
     text-transform: capitalize;

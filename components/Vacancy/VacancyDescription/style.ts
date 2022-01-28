@@ -14,7 +14,7 @@ export const ContentWrap = styled.div`
 
   h2 {
     font-weight: 800;
-    font-size: 20px;
+    font-size: var(--fs-20);
     text-transform: uppercase;
     line-height: 30px;
     letter-spacing: ${themeGet("letterSpacing.h2")};
@@ -25,10 +25,12 @@ export const ContentWrap = styled.div`
 
   h1 {
     font-weight: 800;
-    font-size: 64px;
+    font-size: var(--fs-64);
     line-height: 83px;
     text-transform: capitalize;
     letter-spacing: 3px;
+    width: 908px;
+    margin-bottom: 48px;
   }
 `;
 
@@ -38,34 +40,34 @@ export const DescriptionAndCv = styled.div`
 `;
 
 export const Description = styled.div`
-  padding-top: 45px;
-  width: 654px;
+  width: 653px;
   padding-bottom: 64px;
 
   p {
     padding-left: 0.3px;
-    font-size: 14px;
+    font-size: var(--fs-14);
     line-height: 30px;
     color: ${themeGet("colors.font2")};
     letter-spacing: 1.4px;
-    margin-bottom: 8px;
+    margin-bottom: 30px;
   }
 
   h3 {
     text-transform: uppercase;
     font-weight: 800;
-    font-size: 16px;
+    font-size: var(--fs-16);
     line-height: 24px;
     letter-spacing: ${themeGet("letterSpacing.h2")};
+    margin-bottom: 30px;
   }
 
   ul {
     padding-left: 22px;
-    margin-bottom: 11px;
+    margin-bottom: 30px;
   }
 
   li {
-    font-size: 14px;
+    font-size: var(--fs-14);
     line-height: 30px;
     color: ${themeGet("colors.font2")};
     letter-spacing: 1.4px;
@@ -75,5 +77,5 @@ export const Description = styled.div`
 export const AttachCvWrap = styled.div`
   width: 297px;
   position: relative;
-  top: -13px;
+  top: 197px;
 `;

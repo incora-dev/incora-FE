@@ -22,13 +22,13 @@ export const Name = styled.div`
     color: ${themeGet("colors.white")};
     font-weight: 600;
     text-transform: uppercase;
-    font-size: 14px;
+    font-size: var(--fs-14);
   }
 
   span {
     color: ${themeGet("colors.font1")};
     text-transform: capitalize;
-    font-size: 13px;
+    font-size: var(--fs-13);
   }
 `;
 

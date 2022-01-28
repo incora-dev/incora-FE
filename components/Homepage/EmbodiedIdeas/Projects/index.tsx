@@ -1,7 +1,8 @@
 import { Container, Text, Block, H3, P, H4 } from "./Projects.style";
 import Technologies from "./Technologies";
 import PictureWithAnimation from "./PictureWithAnimation";
-import { useEffect, useState } from "react";
+import {useEffect, useState} from "react";
+import { theme } from "../../../../styles/theme";
 import { IMAGES_LINK } from "../../../../constants";
 import Link from "next/link";
 import { GetProjects_projects } from "../../../../graphql/caseStudies/__generated__/getProjects";
@@ -13,6 +14,14 @@ interface IProjects {
 
 function Projects({ projects, elementsColor }: IProjects) {
   const [shouldHover, setShouldHover] = useState(-1);
+  const [isMobile, setIsMobile] = useState<boolean>();
+
+  useEffect(() => {
+    const width = window.innerWidth;
+    const mobileWidth = +theme.breakpoints.mobile.replace('px', '');
+    const isMobile = mobileWidth > width;
+    setIsMobile(isMobile);
+  },[]);
 
   useEffect(() => {
     console.log("projects", projects);
@@ -21,18 +30,26 @@ function Projects({ projects, elementsColor }: IProjects) {
   function createProjects(): JSX.Element[] {
     return projects.data.map(({ id, attributes }, index) => {
       const flexDirection = (index + 1) % 10 !== 2 ? "row" : "row-reverse";
-      const marginText =
-        (index + 1) % 10 !== 2 ? "81px 0 0 180px;" : "81px 180px 0 0";
+      const marginText = (index + 1) % 10 !== 2 
+        ? isMobile 
+          ? '53px 20px;'
+          : '81px 0 0 180px;' 
+        : isMobile 
+          ? '53px 20px;' 
+          : '81px 180px 0 0';
 
       const url = attributes?.url;
       const technologies = attributes?.technologies;
-      const mainInfoEntry = attributes?.mainInfo.item[0];
-      const imageEntry = mainInfoEntry?.image?.data?.attributes;
+      const name = attributes?.name;
+      const description = attributes?.description;
+      const imageEntry = attributes?.featuredImage.data[0].attributes;
       const image = IMAGES_LINK + imageEntry?.url;
+      const width = imageEntry?.width;
+      const height = imageEntry?.height;
 
       return (
         <>
-          {mainInfoEntry && imageEntry && technologies && (
+          {name && description && technologies && image && width && height && (
             <Container key={id} flexDirection={flexDirection}>
               <Text margin={marginText}>
                 <Link href={`/case_studies/case/${url}`} passHref>
@@ -40,14 +57,14 @@ function Projects({ projects, elementsColor }: IProjects) {
                     onMouseEnter={() => setShouldHover(index)}
                     onMouseLeave={() => setShouldHover(-1)}
                   >
-                    {mainInfoEntry.title}
+                    {name}
                   </H3>
                 </Link>
                 <P
                   onMouseEnter={() => setShouldHover(index)}
                   onMouseLeave={() => setShouldHover(-1)}
                 >
-                  {mainInfoEntry.description}
+                  {description}
                 </P>
 
                 <Block
@@ -65,8 +82,8 @@ function Projects({ projects, elementsColor }: IProjects) {
 
               <PictureWithAnimation
                 img={image}
-                width={imageEntry.width || 0}
-                height={imageEntry.height || 0}
+                width={700}
+                height={537}
                 index={index}
                 elementsColor={elementsColor}
                 shouldHover={shouldHover}

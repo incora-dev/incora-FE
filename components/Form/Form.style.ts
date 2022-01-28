@@ -1,5 +1,6 @@
 import themeGet from "@styled-system/theme-get";
 import styled from "styled-components";
+import { theme } from "../../styles/theme";
 
 interface IInput {
   formBlack: boolean;
@@ -64,7 +65,7 @@ export const FormInputFile = styled.div`
 
     font-style: normal;
     font-weight: 600;
-    font-size: 12px;
+    font-size: var(--fs-12);
     line-height: 18px;
     text-align: center;
     letter-spacing: 0.05em;
@@ -86,7 +87,7 @@ export const Input = styled.input`
 
   font-style: normal;
   font-weight: 500;
-  font-size: 12px;
+  font-size: var(--fs-12);
   line-height: 18px;
 
   letter-spacing: 0.03em;
@@ -102,10 +103,14 @@ export const Input = styled.input`
   -moz-transition: ease-in-out 0.4s;
   transition: all ease-in-out 0.4s;
 
+  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    width: 100%;
+  }
+
   &::placeholder {
     font-style: normal;
     font-weight: 500;
-    font-size: 12px;
+    font-size: var(--fs-12);
     line-height: 18px;
 
     letter-spacing: 0.03em;
@@ -128,7 +133,7 @@ export const SelectedFile = styled.p`
 
   font-style: normal;
   font-weight: 600;
-  font-size: 12px;
+  font-size: var(--fs-12);
   line-height: 18px;
 
   color: ${themeGet("colors.black")};

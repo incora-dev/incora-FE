@@ -33,7 +33,7 @@ export const H1 = styled.h1`
 
   font-style: normal;
   font-weight: 800;
-  font-size: 36px;
+  font-size: var(--fs-36);
   line-height: 54px;
 
   letter-spacing: 0.05em;
@@ -61,7 +61,7 @@ export const TechnologyWrapper = styled.div`
 export const H3 = styled.h3`
   font-style: normal;
   font-weight: 800;
-  font-size: 23px;
+  font-size: var(--fs-23);
   line-height: 34px;
   letter-spacing: 0.05em;
   
@@ -71,7 +71,7 @@ export const H3 = styled.h3`
 export const Text = styled.p`
   font-style: normal;
   font-weight: normal;
-  font-size: 14px;
+  font-size: var(--fs-14);
   line-height: 30px;
 
   letter-spacing: 0.1em;

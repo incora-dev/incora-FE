@@ -46,7 +46,7 @@ export const H1 = styled.h1`
 
   font-style: normal;
   font-weight: 800;
-  font-size: 64px;
+  font-size: var(--fs-64);
   line-height: 81px;
 
   letter-spacing: 0.05em; 
@@ -60,7 +60,7 @@ export const Text = styled.p`
 
   font-style: normal;
   font-weight: 600;
-  font-size: 21px;
+  font-size: var(--fs-21);
   line-height: 32px;
 
   letter-spacing: 0.1em;
@@ -106,7 +106,7 @@ export const Search = styled.input`
   &::placeholder {
     font-style: normal;
     font-weight: 500;
-    font-size: 12px;
+    font-size: var(--fs-12);
     line-height: 18px;
 
     letter-spacing: 0.03em;

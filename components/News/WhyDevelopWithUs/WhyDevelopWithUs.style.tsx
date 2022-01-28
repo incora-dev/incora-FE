@@ -28,7 +28,7 @@ export const H2 = styled.h2`
 
   font-style: normal;
   font-weight: 800;
-  font-size: 64px;
+  font-size: var(--fs-64);
   line-height: 96px;
   letter-spacing: 0.05em;
 `;
@@ -40,7 +40,7 @@ export const H3 = styled.h3`
 
   font-style: normal;
   font-weight: 800;
-  font-size: 21px;
+  font-size: var(--fs-21);
   line-height: 27px;
 
   letter-spacing: 0.05em;
@@ -54,7 +54,7 @@ export const Text = styled.p`
 
   font-style: normal;
   font-weight: 500;
-  font-size: 14px;
+  font-size: var(--fs-14);
   line-height: 21px;
 
   letter-spacing: 0.05em;
@@ -64,7 +64,7 @@ export const Text = styled.p`
 export const TextRotated = styled.p`
   font-style: normal;
   font-weight: 800;
-  font-size: 12px;
+  font-size: var(--fs-12);
   line-height: 18px;
   text-align: center;
   letter-spacing: 0.05em;
@@ -172,7 +172,7 @@ export const Number = styled.p`
 
   font-style: normal;
   font-weight: 800;
-  font-size: 23px;
+  font-size: var(--fs-23);
   line-height: 34px;
 
   text-align: center;

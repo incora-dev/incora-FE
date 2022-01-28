@@ -1,4 +1,5 @@
 import styled, {keyframes} from "styled-components";
+import { theme } from "../../../styles/theme";
 
 interface IStacksBlock {
   columns: number;
@@ -23,13 +24,18 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   row-gap: 30px;
+
+  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    margin-top: 53px;
+    padding: 0 20px;
+  }
 `
 
 export const H2 = styled.h2`
   font-family: Poppins;
   font-style: normal;
   font-weight: 800;
-  font-size: 64px;
+  font-size: var(--fs-64);
   line-height: 96px;
 
   letter-spacing: 0.05em;
@@ -42,7 +48,7 @@ export const H3 = styled.h3`
   font-family: Poppins;
   font-style: normal;
   font-weight: 800;
-  font-size: 36px;
+  font-size: var(--fs-36);
   line-height: 54px;
 
   letter-spacing: 0.05em;
@@ -56,7 +62,7 @@ export const StackText = styled.p`
   font-family: Poppins;
   font-style: normal;
   font-weight: normal;
-  font-size: 14px;
+  font-size: var(--fs-14);
   line-height: 30px;
 
   letter-spacing: 0.1em;
@@ -70,6 +76,11 @@ export const StacksContainer = styled.div`
   
   padding: 50px;
   background: #FBFBFB;
+
+  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    width: 100%;
+    padding: 20px;
+  }
 `
 
 export const StacksBlock = styled.div`
@@ -100,7 +111,7 @@ export const StackTitle = styled.p`
   font-family: Poppins;
   font-style: normal;
   font-weight: 500;
-  font-size: 11px;
+  font-size: var(--fs-11);
   line-height: 16px;
 
   text-align: center;
@@ -116,6 +127,12 @@ export const InfoBlock = styled.div`
 
   display: flex;
   justify-content: space-between;
+
+  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    flex-direction: column;
+    gap: 30px;
+    margin-bottom: 53px;
+  }
 `
 
 export const TextContainer = styled.div`

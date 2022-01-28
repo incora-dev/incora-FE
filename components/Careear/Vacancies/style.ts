@@ -14,7 +14,7 @@ export const ContentWrapper = styled.div`
 
   h1 {
     font-weight: 800;
-    font-size: 36px;
+    font-size: var(--fs-36);
     line-height: 54px;
     letter-spacing: ${themeGet("letterSpacing.h1")};
     margin-bottom: 65.5px;
@@ -46,14 +46,14 @@ export const QuickApplyWrap = styled.div`
   h2 {
     font-style: normal;
     font-weight: 800;
-    font-size: 21px;
+    font-size: var(--fs-21);
     line-height: 31px;
     letter-spacing: ${themeGet("letterSpacing.span")};
     margin-bottom: 6px;
   }
 
   p {
-    font-size: 14px;
+    font-size: var(--fs-14);
     line-height: 30px;
     letter-spacing: ${themeGet("letterSpacing.span")};
     color: ${themeGet("color.font2")};

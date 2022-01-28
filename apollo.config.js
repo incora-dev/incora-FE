@@ -1,7 +1,7 @@
 module.exports = {
   client: {
     name: "incora",
-    url: "https://incora-be.herokuapp.com/graphql",
+    url: "http://35.171.193.21:1337/graphql",
     includes: [
       "./graphql/companyAbout/queries.ts",
       "./graphql/homepage/queries.ts",

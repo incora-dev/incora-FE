@@ -19,6 +19,7 @@ import { useState } from "react";
 import { useQuery } from "@apollo/client";
 import { GET_PROJECTS } from "../../../graphql/caseStudies/queries";
 import { GetProjects } from "../../../graphql/caseStudies/__generated__/getProjects";
+import { theme } from "../../../styles/theme";
 
 interface IEmbodiedIdeas {
   title?: string;
@@ -49,6 +50,7 @@ function EmbodiedIdeasComponent({
   });
   const projects = data?.projects;
 
+console.log('loading && projects', loading, projects, !loading && projects)
   return (
     <>
       {!loading && projects && (

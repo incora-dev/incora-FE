@@ -27,10 +27,9 @@ export interface INumberOfSlides {
 }
 
 export interface ISliders {
-  sliders: ISliderInfo[];
+  slide: ISliderInfo;
+  index: number;
   plusesColor: string;
-  setBeforePageScroll: Function;
-  setCurrentSlide: Function;
 }
 
 export interface ISliderInfo {

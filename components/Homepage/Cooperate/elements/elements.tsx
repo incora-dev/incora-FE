@@ -9,27 +9,27 @@ function Elements({ elementNumber, plusesColor, animation }: IElement) {
   return (
     <>
       {
-        (elementNumber === 1) &&
+        (elementNumber === 0) &&
           <PositionElementOne>
             <ElementOne plusesColor={plusesColor} animation={animation}/>
           </PositionElementOne>
       }
       {
-        (elementNumber === 2) &&
+        (elementNumber === 1) &&
           <PositionElementTwo>
             <ElementTwo animation={animation}/>
           </PositionElementTwo>
       }
 
       {
-        (elementNumber === 3) &&
+        (elementNumber === 2) &&
           <PositionElementThree>
             <ElementThree plusesColor={'#000'} animation={animation}/>
           </PositionElementThree>
       }
 
       {
-        (elementNumber === 4) &&
+        (elementNumber === 3) &&
         <PositionElementFour>
           <ElementFour animation={animation}/>
         </PositionElementFour>

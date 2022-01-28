@@ -10,10 +10,15 @@ import TechStack from "../../components/Services/TechStack";
 import LetsTalk from "../../components/Services/LetsTalk";
 import EstimateAppCircle from "../../components/Services/EstimateAppCircle";
 import Link from "next/link";
+import VerticalFullPageSlider from "../../components/common/VerticalFullPageSlider";
+import { ScrollListTypes } from "../../components/common/VerticalFullPageSlider/types";
+import { IInfoBlock } from "@interfaces";
 
 function Services() {
   const colorWhite = theme.colors.white;
   const colorBlack = theme.colors.black;
+
+  const renderSlide = (slide: IInfoBlock) => <InformationComponent slide={slide} />;
 
   return (
       <div id='Services'>
@@ -28,7 +33,14 @@ function Services() {
           titlesColor={colorBlack}
         >
           <ServicesComponent/>
-          <InformationComponent bgColor={'#181819'} info={servicesPage.info}/>
+          <VerticalFullPageSlider<IInfoBlock>
+            slides={servicesPage.info}
+            renderSlide={renderSlide}
+            stickyTopPosition={120}
+            scrollListType={ScrollListTypes.STRING}
+            maxWidth={1006}
+            bgColor="#181819"
+          />
           <TechStack stacks={servicesPage.techStacks} stackTitle={servicesPage.techStackTitle}/>
           <LetsTalk
             flexDirection={'column'}

@@ -1,13 +1,15 @@
 export interface IInformationComponent {
-  bgColor: string;
-  info: any;
+  slide: IInfoBlock;
 }
 
 export interface IInfoBlock {
+  id: string;
   title: string;
   text: string;
   estimated_time: IEstimatedTime[];
   outcomes: IOutcomes[];
+  estimated_time_icon: SVGAElement;
+  outcomes_icon: SVGAElement;
 }
 
 export interface IEstimatedTime {

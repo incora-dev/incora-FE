@@ -15,9 +15,9 @@
     "jsx": "preserve",
     "incremental": true,
     "paths": {
-      "@interfaces": ["interfaces/index"],
-      "@svg": ["public/SVG/svg"],
-      "@components/*": ["components/index/*"]
+      "@interfaces": ["./interfaces/index"],
+      "@svg": ["./public/SVG/svg"],
+      "@components/*": ["./components/index/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/_document.js", "apollo.config.js"],

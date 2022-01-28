@@ -54,7 +54,7 @@ export const Button = styled.div`
     width: 100%;
   }
 
-  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+  @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
     svg {
       display: none;
     }

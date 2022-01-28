@@ -23,7 +23,7 @@ export const Wrapper = styled.div`
   z-index: 10;
   padding: 0 100px;
 
-  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+  @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
       padding: 0 20px;
   }
 
@@ -43,7 +43,7 @@ export const Block = styled.div`
   width: 100%;
   gap: 20px;
 
-  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+  @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
     flex-direction: column;
   }
 `;
@@ -51,7 +51,7 @@ export const Block = styled.div`
 export const IncoraLogo = styled.img`
   max-width: 120px;
 
- @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+ @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
     max-width: 60px;
   }
   

@@ -1,3 +1,4 @@
+import themeGet from "@styled-system/theme-get";
 import styled from "styled-components";
 import { theme } from "../../styles/theme";
 
@@ -10,8 +11,9 @@ const color = theme.colors.black;
 export const Container = styled.footer`
   height: 270px;
 
-  background-color: ${({ backgroundColor = color }: IContainer) => backgroundColor};
-  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+  background-color: ${({ backgroundColor = color }: IContainer) =>
+    backgroundColor};
+  @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
     height: auto;
   }
 `;
@@ -23,7 +25,7 @@ export const Position = styled.div`
   padding-top: 41px;
   justify-content: space-between;
 
-  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+  @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
     width: 100%;
     padding-left: 20px;
     padding-right: 20px;
@@ -45,7 +47,7 @@ export const PoliciesBlock = styled.div`
   flex-direction: column;
   row-gap: 5px;
 
-  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+  @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
     padding-top: 0;
   }
 `;
@@ -60,7 +62,7 @@ export const PolicyLabel = styled.div`
   letter-spacing: 0.1em;
   text-transform: capitalize;
 
-  color: #FFFFFF;
+  color: #ffffff;
 `;
 
 export const Copyright = styled.p`
@@ -72,7 +74,7 @@ export const Copyright = styled.p`
 
   letter-spacing: 0.1em;
 
-  color: #FFFFFF;
+  color: #ffffff;
   text-transform: capitalize;
 
   opacity: 0.5;
@@ -86,7 +88,7 @@ export const OfficesBlock = styled.div`
   flex-direction: column;
   row-gap: 15px;
 
-  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+  @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
     left: 0;
   }
 `;
@@ -101,7 +103,7 @@ export const H4 = styled.h4`
   letter-spacing: 0.03em;
   text-transform: uppercase;
 
-  color: #9CA3A7;
+  color: #9ca3a7;
 
   opacity: 0.6;
 `;
@@ -129,25 +131,25 @@ export const Country = styled.p`
   letter-spacing: 0.03em;
   text-transform: capitalize;
 
-  color: #9CA3A7;
+  color: #9ca3a7;
 `;
 
 export const Offices = styled.div`
   display: flex;
   flex-direction: column;
-  
+
   row-gap: 12px;
 `;
 
 export const PagesBlock = styled.div`
   position: relative;
   left: -6px;
-  
+
   display: flex;
   flex-direction: column;
   row-gap: 18px;
 
-  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+  @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
     left: 0;
   }
 `;
@@ -155,7 +157,7 @@ export const PagesBlock = styled.div`
 export const Pages = styled.div`
   display: flex;
   flex-direction: column;
-  
+
   row-gap: 11px;
 `;
 
@@ -169,8 +171,8 @@ export const Page = styled.p`
   letter-spacing: 0.1em;
   text-transform: capitalize;
 
-  color: #FFFFFF;
-  
+  color: #ffffff;
+
   cursor: pointer;
 `;
 
@@ -178,7 +180,7 @@ export const FollowUsBlock = styled.div`
   display: flex;
   flex-direction: column;
   row-gap: 17px;
-  
+
   a {
     cursor: pointer;
   }
@@ -191,7 +193,7 @@ export const A = styled.a`
   width: 25px;
   background-color: #fff;
   border-radius: 50%;
-  
+
   svg {
     position: absolute;
     top: 50%;
@@ -199,7 +201,6 @@ export const A = styled.a`
 
     transform: translate(-50%, -55%);
     path {
-
     }
   }
 `;
@@ -207,7 +208,6 @@ export const A = styled.a`
 export const FollowUs = styled.div`
   display: flex;
   column-gap: 12px;
-  
+
   margin-bottom: 18px;
 `;
-

@@ -1,14 +1,8 @@
-import {
-  footer,
-  IServicesDataInfoBestSuitedFor,
-  IServicesDataInfoContent,
-  servicesData,
-  titles
-} from "../../constants";
+import { footer, titles } from "../../constants";
 import MainMenu from "../../components/mainMenu/mainMenu";
 import { theme } from "../../styles/theme";
 import HeaderService from "../../components/ServicePage/HeaderService";
-import { IService, IServiceCTX } from "@interfaces";
+import { IService } from "@interfaces";
 import Head from "next/head";
 import React from "../../public/SVG/technologies/react.svg";
 import FooterComponent from "../../components/Footer";
@@ -61,9 +55,9 @@ const Service = ({ title, text, content, bestSuitedFor, workflowSetUp }: IServic
             textWidth={'657px'}
           />
           <Information content={content}/>
-          <BestSuitedFor title={bestSuitedFor.title} info={bestSuitedFor.info}/>
-          <WorkflowSetUp title={workflowSetUp.title} content={workflowSetUp.content}/>
-          <FAQ title={faq.title} titles={faq.titles}/>
+          <BestSuitedFor title={bestSuitedFor?.title} info={bestSuitedFor?.info}/>
+          <WorkflowSetUp title={workflowSetUp?.title} content={workflowSetUp?.content}/>
+          <FAQ title={faq?.title} titles={faq?.titles}/>
           <LetsTalk
             flexDirection={'column-reverse'}
             title={'Ready to Start?'}
@@ -71,11 +65,11 @@ const Service = ({ title, text, content, bestSuitedFor, workflowSetUp }: IServic
           />
         </MainMenu>
         <FooterComponent
-            policies={footer.policies}
-            offices={footer.offices}
-            followUs={footer.followUs}
-            pages={footer.pages}
-            copyright={footer.copyright}
+            policies={footer?.policies}
+            offices={footer?.offices}
+            followUs={footer?.followUs}
+            pages={footer?.pages}
+            copyright={footer?.copyright}
         />
       </>
     </>
@@ -83,20 +77,3 @@ const Service = ({ title, text, content, bestSuitedFor, workflowSetUp }: IServic
 }
 
 export default Service;
-
-Service.getInitialProps = async({ query : { service }}: IServiceCTX) => {
-  const text = servicesData[service]?.text;
-  const content: IServicesDataInfoContent[] = servicesData[service]?.content;
-  const bestSuitedFor: IServicesDataInfoBestSuitedFor = servicesData[service]?.bestSuitedFor;
-  const workflowSetUp: IServicesDataInfoBestSuitedFor = servicesData[service]?.workflowSetUp;
-
-  const res = {
-    title: service,
-    text,
-    content,
-    bestSuitedFor,
-    workflowSetUp,
-  }
-
-  return res;
-}

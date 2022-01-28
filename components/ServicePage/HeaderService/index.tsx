@@ -7,7 +7,7 @@ import {
   H2,
   Text,
   PositionIcon
-} from "../../../pages/services/service.style";
+} from "../styles";
 import GetIcon from "../GetIcon";
 import { IHeaderService } from "@interfaces";
 import { theme } from "../../../styles/theme";

@@ -34,6 +34,7 @@ function Services() {
         >
           <ServicesComponent/>
           <VerticalFullPageSlider<IInfoBlock>
+            //@ts-ignore
             slides={servicesPage.info}
             renderSlide={renderSlide}
             stickyTopPosition={120}

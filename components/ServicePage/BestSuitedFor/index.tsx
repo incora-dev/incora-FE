@@ -14,7 +14,7 @@ import Dots from "../../Homepage/Cooperate/elements/dots/dots";
 import { theme } from "../../../styles/theme";
 import { useState } from "react";
 
-const getContent = (labels: string[], onBlockEnter = false) => {
+const getContent = (labels: string[] = [], onBlockEnter = false) => {
   return labels.map((label, index) => {
         return (
           // onBlockEnter &&

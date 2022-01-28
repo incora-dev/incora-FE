@@ -29,7 +29,7 @@ const getIcon = (index: number) => {
   return icon(index);
 }
 
-const getContent = (content: IWorkflowSetUpContent[]) => {
+const getContent = (content: IWorkflowSetUpContent[] = []) => {
   return content.map(({ title, text }, index) => {
     const numberTitle = index < 10 ? `0${index + 1}.` : `${index + 1}.`;
     const Icon = getIcon(index);

@@ -55,7 +55,7 @@ const Career = () => {
   const specialties = data?.filterSpecialities;
   const technologies = data?.filterTechnologies;
 
-  const errorCondition = error || <Custom404 />;
+  const errorCondition = error && <Custom404 />;
 
   return (
     <>

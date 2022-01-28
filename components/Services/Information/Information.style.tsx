@@ -77,6 +77,8 @@ export const EstimatedTime = styled.div`
 
 export const TextBlock = styled.div`
   max-width: 679px;
+  margin-left: 300px;
+  padding: 120px 0;
 
   display: flex;
   flex-direction: column;

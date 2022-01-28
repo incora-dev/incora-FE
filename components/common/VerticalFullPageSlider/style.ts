@@ -17,7 +17,7 @@ export const Slide = styled.div`
 `;
 
 export const SliderContent = styled.div`
-  max-width: ${({ maxWidth }: IMaxWidth) => `${maxWidth}px` || '1166px'}
+  max-width: ${({ maxWidth }: IMaxWidth) => `${maxWidth}px` || '1166px'};
   margin: 0 auto;
   position: relative;
 `;

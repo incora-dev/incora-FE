@@ -21,7 +21,7 @@ export const Nav = styled.nav`
 
   color: ${( {color}) => color };
 
-  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+  @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
     display: grid;
     gap: 10px;
     grid-template-columns: repeat(2, 50%);

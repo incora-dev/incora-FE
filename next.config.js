@@ -13,6 +13,6 @@ module.exports = {
     return config;
   },
   images: {
-    domains: ["https://incora-be.herokuapp.com"],
+    domains: ["http://35.171.193.21:1337"],
   },
 };

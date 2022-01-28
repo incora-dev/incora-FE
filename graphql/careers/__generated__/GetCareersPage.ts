@@ -94,6 +94,40 @@ export interface GetCareersPage_careersPage {
   data: GetCareersPage_careersPage_data | null;
 }
 
+export interface GetCareersPage_filterSpecialities_data_attributes {
+  __typename: "FilterSpeciality";
+  name: string | null;
+}
+
+export interface GetCareersPage_filterSpecialities_data {
+  __typename: "FilterSpecialityEntity";
+  id: string | null;
+  attributes: GetCareersPage_filterSpecialities_data_attributes | null;
+}
+
+export interface GetCareersPage_filterSpecialities {
+  __typename: "FilterSpecialityEntityResponseCollection";
+  data: GetCareersPage_filterSpecialities_data[];
+}
+
+export interface GetCareersPage_filterTechnologies_data_attributes {
+  __typename: "FilterTechnology";
+  name: string;
+}
+
+export interface GetCareersPage_filterTechnologies_data {
+  __typename: "FilterTechnologyEntity";
+  id: string | null;
+  attributes: GetCareersPage_filterTechnologies_data_attributes | null;
+}
+
+export interface GetCareersPage_filterTechnologies {
+  __typename: "FilterTechnologyEntityResponseCollection";
+  data: GetCareersPage_filterTechnologies_data[];
+}
+
 export interface GetCareersPage {
   careersPage: GetCareersPage_careersPage | null;
+  filterSpecialities: GetCareersPage_filterSpecialities | null;
+  filterTechnologies: GetCareersPage_filterTechnologies | null;
 }

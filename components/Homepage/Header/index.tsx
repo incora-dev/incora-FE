@@ -31,7 +31,7 @@ function HeaderComponent() {
   },[]);
 
   return (
-    <Cover onMouseEnter={() => videoEl.current.play()}>
+    <Cover>
       <Container>
         <Div>
           <VideoBlock>
@@ -42,7 +42,7 @@ function HeaderComponent() {
                       top: '1px' }}
               autoPlay
               loop
-              ref={videoEl}
+              muted
             >
               <source src="DeepenToTheCoreOfIdeaVideo.mp4" type="video/mp4"/>
             </video>

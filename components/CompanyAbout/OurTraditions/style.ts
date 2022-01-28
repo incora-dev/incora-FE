@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 export const OurTraditionsWrapper = styled.div`
   width: 100%;
-  height: 981px;
+
   padding-top: 100px;
   display: flex;
   justify-content: center;
@@ -42,10 +42,26 @@ export const Paragraphs = styled.div`
   }
 `;
 
-export const Photos = styled.div`
-  width: 1366px;
+export const PhotosBlock = styled.div`
+  width: 100%;
+
   display: flex;
-  justify-content: space-between;
-  flex-flow: wrap;
-  gap: 19px;
+  flex-direction: column;
+  row-gap: 20px;
+  
+  overflow: hidden;
+`;
+
+
+export const Photos = styled.div`
+  display: flex;
+  //justify-content: space-between;
+  //flex-flow: wrap;
+  column-gap: 19px;
+
+  overflow: scroll;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 `;

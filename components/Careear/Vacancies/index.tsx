@@ -13,57 +13,93 @@ import SmallStar from "../../../public/SmallStar.svg";
 import { theme } from "../../../styles/theme";
 import Button from "../../Button";
 import { GetCareersPage_careersPage_data_attributes_currentVacancies } from "../../../graphql/careers/__generated__/GetCareersPage";
-
-const vacancies = [
-  {
-    department: "sales & marketing",
-    title: "business development manager",
-    link: "",
-    isHot: true,
-  },
-  {
-    department: "js stack",
-    title: "senior full stack developer",
-    link: "",
-    isHot: true,
-  },
-  {
-    department: "node.js",
-    title: "senior back-end developer",
-    link: "",
-    isHot: false,
-  },
-  {
-    department: "title",
-    title: "team lead front-end engineer",
-    link: "",
-    isHot: false,
-  },
-];
-
-const options = [
-  { value: "1", name: "Option 1" },
-  { value: "2", name: "Option 2" },
-  { value: "3", name: "Option 3" },
-];
+import {
+  GetVacancy_filterSpecialities,
+  GetVacancy_filterTechnologies,
+} from "../../../graphql/careers/__generated__/GetVacancy";
+import { useLazyQuery, useQuery } from "@apollo/client";
+import { GET_VACANCIES_LIST } from "../../../graphql/careers/queries";
+import { GetVacanciesList } from "../../../graphql/careers/__generated__/GetVacanciesList";
+import { useEffect, useState } from "react";
 
 interface IVacancies {
   currentVacancies: GetCareersPage_careersPage_data_attributes_currentVacancies;
+  specialties: GetVacancy_filterSpecialities;
+  technologies: GetVacancy_filterTechnologies;
 }
 
-const Vacancies = ({ currentVacancies }: IVacancies) => {
+const Vacancies = ({
+  currentVacancies,
+  specialties,
+  technologies,
+}: IVacancies) => {
+  const [specialtyId, setSpecialtyId] = useState<string | undefined>(undefined);
+  const [technologyId, setTechnologyId] = useState<string | undefined>(
+    undefined
+  );
+  const [limit, setLimit] = useState<number>(4);
+
+  const [getVacanciesList, { data, loading }] = useLazyQuery<GetVacanciesList>(
+    GET_VACANCIES_LIST,
+    {
+      variables: {
+        specialtyId,
+        technologyId,
+        limit,
+      },
+      fetchPolicy: "network-only",
+    }
+  );
+  const vacancies = data?.vacancies?.data;
+
+  useEffect(() => {
+    getVacanciesList();
+  }, [limit]);
+
   const { intro, filterText1, filterText2, header, text, buttonText } =
     currentVacancies;
 
-  const vacanciesCards = vacancies.map((vacancy, index) => (
-    <VacancyCard
-      key={index * Math.random()}
-      department={vacancy.department}
-      title={vacancy.title}
-      link={vacancy.link}
-      isHot={vacancy.isHot}
-    />
-  ));
+  const vacanciesCards = vacancies ? (
+    vacancies.map((vacancy) => {
+      const id = vacancy.id;
+      const url = vacancy.attributes?.url;
+      const isHot = vacancy.attributes?.isHot || false;
+      const technology =
+        vacancy.attributes?.filter_technologies?.data[0].attributes?.name;
+      const specialty =
+        vacancy.attributes?.filter_specialities?.data[0].attributes?.name;
+
+      return (
+        <>
+          {url && specialty && technology && (
+            <VacancyCard
+              key={id}
+              technology={technology}
+              specialty={specialty}
+              url={url}
+              isHot={isHot}
+            />
+          )}
+        </>
+      );
+    })
+  ) : (
+    <span>Not found</span>
+  );
+
+  const specialtiesOptions = specialties.data.map((specialty) => {
+    const id = specialty.id || "";
+    const name = specialty.attributes?.name || "";
+
+    return { value: id, name };
+  });
+
+  const technologiesOptions = technologies.data.map((technology) => {
+    const id = technology.id || "";
+    const name = technology.attributes?.name || "";
+
+    return { value: id, name };
+  });
 
   return (
     <VacanciesWrapper>
@@ -73,13 +109,17 @@ const Vacancies = ({ currentVacancies }: IVacancies) => {
         <ListWrap>
           <Filter>
             <Selector
+              value={specialtyId}
+              setValue={setSpecialtyId}
               placeholder={filterText1}
-              options={options}
+              options={specialtiesOptions}
               icon={SmallStar}
             />
             <Selector
+              value={specialtyId}
+              setValue={setTechnologyId}
               placeholder={filterText2}
-              options={options}
+              options={technologiesOptions}
               icon={SmallStar}
             />
 
@@ -93,8 +133,8 @@ const Vacancies = ({ currentVacancies }: IVacancies) => {
                 width={180}
                 height={67}
                 label={buttonText}
-                link={""}
                 arrow={theme.colors.white}
+                onClick={() => getVacanciesList()}
               />
             </QuickApplyWrap>
           </Filter>

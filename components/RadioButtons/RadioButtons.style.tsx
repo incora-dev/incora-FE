@@ -35,7 +35,7 @@ export const ButtonsBlock = styled.div`
 
   @media only screen and (max-width: ${theme.breakpoints.mobile}) {
     gap: 30px;
-    flex-direction: column;
+    flex-direction: row;
   }
 `
 

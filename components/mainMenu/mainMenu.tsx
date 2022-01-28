@@ -1,8 +1,8 @@
 import { IMenu } from "@interfaces";
 import Navigation from "./navigation/navigation";
-import { Wrapper, Block, HoverMenu, Div, IncoraLogo } from "./styles";
+import { Wrapper, Block, HoverMenu, Div, IncoraLogo, ContentWrapper } from "./styles";
 import { theme } from "../../styles/theme";
-import { useState} from "react";
+import React, { useState} from "react";
 import HoverElements from "./HoverElements";
 import Link from "next/link";
 
@@ -64,7 +64,9 @@ export default function MainMenu(props: IMenu) {
           />
         </HoverMenu>
       </Wrapper>
-      {children}
+      <ContentWrapper>
+        {children}
+      </ContentWrapper>
     </Div>
   );
 }

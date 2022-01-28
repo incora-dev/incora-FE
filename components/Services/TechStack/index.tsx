@@ -39,8 +39,7 @@ const GetStacksInfo = (stack: IStacks) => {
       <TextContainer>
         <H3>{title}</H3>
         <StackText>{text}</StackText>
-
-        <PositionButtonWithArrow>
+        {!isMobile && <PositionButtonWithArrow>
           <ButtonWithArrow
             buttonLabel={"Contact"}
             redirectTo={`/services/${title}`}
@@ -48,7 +47,7 @@ const GetStacksInfo = (stack: IStacks) => {
             textColor={"#fff"}
             padding={"23px 35px"}
           />
-        </PositionButtonWithArrow>
+        </PositionButtonWithArrow>}
       </TextContainer>
 
       <StacksContainer>
@@ -67,6 +66,15 @@ const GetStacksInfo = (stack: IStacks) => {
           })}
         </StacksBlock>
       </StacksContainer>
+        {isMobile && <PositionButtonWithArrow>
+          <ButtonWithArrow
+              buttonLabel={'Contact'}
+              redirectTo={`/services/${title}`}
+              bgColor={'#000'}
+              textColor={'#fff'}
+              padding={'23px 35px'}
+          />
+        </PositionButtonWithArrow>}
     </InfoBlock>
   );
 };

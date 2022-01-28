@@ -22,7 +22,16 @@ const faq = {
 }
 
 const Service = ({ title, text, content, bestSuitedFor, workflowSetUp }: IService) => {
-  const [menuColor, setMenuColor] = useState('none');
+  const [isMobile, setIsMobile] = useState<boolean>();
+
+  useEffect(() => {
+    const width = window.innerWidth;
+    const mobileWidth = +theme.breakpoints.mobile.replace('px', '');
+    const isMobile = mobileWidth > width;
+    setIsMobile(isMobile);
+  },[]);
+
+  const [menuColor, setMenuColor] = useState(isMobile ? colorBlack : 'none');
   const handleScroll = () => {
     window.scrollY >= 20
       ? setMenuColor(colorBlack)
@@ -30,10 +39,15 @@ const Service = ({ title, text, content, bestSuitedFor, workflowSetUp }: IServic
   }
 
   useEffect(() => {
-    window.addEventListener('scroll', handleScroll)
-
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [])
+    if (!isMobile && isMobile !== undefined) {
+      console.log('setting ev listener');
+      window.addEventListener('scroll', handleScroll)
+  
+      return () => window.removeEventListener('scroll', handleScroll);
+    } else {
+      setMenuColor(colorBlack);
+    }
+  }, [isMobile])
 
   return (
     <>

@@ -1,15 +1,14 @@
 import { Div, Wrapper, TextBlock, H2, IconsBlock } from "./PopularWebsites.style";
 import React from "react";
-import { ReactElement } from "react";
 import Link from "next/link";
 import {firstLetterBig} from "../../../utils";
 
 interface IPopularWebsites {
   title: string;
-  webSites: ReactElement[];
+  webSites: React.FunctionComponent[];
 }
 
-const getIcons = (icons: ReactElement[]) => {
+const getIcons = (icons: React.FunctionComponent[]) => {
   return icons.map(( Icon , index) =>
     <React.Fragment key={index + 3000}>
       <Link href={`${index}`}>

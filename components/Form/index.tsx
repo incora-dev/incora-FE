@@ -56,7 +56,7 @@ function createFormFields(fields: string[], formBlack = false) {
 }
 
 function CreateUploadFilesInput(filesLabel: ReactElement, formBlack = false) {
-  const [uploadFilesName, setUploadFilesName]  = useState([]);
+  const [uploadFilesName, setUploadFilesName]  = useState<JSX.Element[]>([]);
 
   const handleOnchange = ({ target }: any) => {
     console.log(target.files)

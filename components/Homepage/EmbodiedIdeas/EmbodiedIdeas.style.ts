@@ -3,6 +3,7 @@ import { theme } from "../../../styles/theme";
 
 interface IDiv {
   bgColor: string;
+  height?: number;
 }
 
 interface IPositionTitle {

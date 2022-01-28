@@ -20,13 +20,7 @@ import {
   SocialIcons,
   CodeBlock,
 } from "./ArticleInfo.style";
-import React, {
-  ReactElement,
-  ReactSVGElement,
-  useCallback,
-  useEffect,
-  useState,
-} from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import Technologies from "../../Homepage/EmbodiedIdeas/Projects/Technologies";
 import LoveItIcon from "../../../public/SVG/LoveIt.svg";
 import ValuableIcon from "../../../public/SVG/Valuable.svg";
@@ -45,7 +39,7 @@ interface IArticleInfo {
 }
 
 interface ISocialTitles {
-  Icon: React.ComponentClass;
+  Icon: React.FunctionComponent;
   href: string;
 }
 
@@ -54,9 +48,10 @@ const pollLabels = ["Love it!", "Valuable", "Exciting", "Unsatisfied"];
 const pollIcons = [LoveItIcon, ValuableIcon, ExcitingIcon, UnsatisfiedIcon];
 
 function getScrollLabels(
-  sideBarElements: NodeListOf<Element>,
-  elementIndex: number
+  elementIndex: number,
+  sideBarElements?: NodeListOf<Element>
 ) {
+  if (!sideBarElements?.length) return;
   return Array.from(sideBarElements).map((el, index) => {
     const selected = elementIndex === index;
 
@@ -106,15 +101,16 @@ const ArticleInfo = ({
   codeText,
 }: IArticleInfo) => {
   const [selectedElementIndex, setElementIndex] = useState(0);
-  const [sideBarElements, setSideBarElements] = useState<any>([]);
+  const [sideBarElements, setSideBarElements] =
+    useState<NodeListOf<HTMLElement>>();
   const [selected, setSelect] = useState(-1);
 
-  const scrollTitles = getScrollLabels(sideBarElements, selectedElementIndex);
+  const scrollTitles = getScrollLabels(selectedElementIndex, sideBarElements);
   const elements = getElements(pollLabels, selected, setSelect);
   const icons = getSocialIcons(socialTitles);
 
   const handleScroll = useCallback(() => {
-    sideBarElements.forEach((el: any, index: any) => {
+    sideBarElements?.forEach((el, index) => {
       if (
         el.getBoundingClientRect().top > 120 &&
         el.getBoundingClientRect().top < 500

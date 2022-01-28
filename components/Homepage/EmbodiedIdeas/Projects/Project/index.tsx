@@ -5,7 +5,7 @@ import { Container, Text, Block, H3, P, H4 } from "../Projects.style";
 import { IMAGES_LINK } from "../../../../../constants";
 import { useState } from "react";
 
-const Project = ({ id, project, index, elementsColor}) => {
+const Project = ({ id, project, index, elementsColor}: any) => {
   const [shouldHover, setShouldHover] = useState(-1);
   
   const flexDirection = (index + 1) % 10 !== 2 ? "row" : "row-reverse";

@@ -2,9 +2,10 @@ import React from 'react';
 import RadioButtons from "../../../RadioButtons";
 import { theme } from '../../../../styles/theme';
 import { MenuBlock, MenuLabel } from './style';
+import { IStacks } from '@interfaces';
 
 interface ITextElementProps {
-  // labels: string[];
+  labels: IStacks[];
   currentSlide: number;
   bgColor: string;
 };

@@ -1,9 +1,13 @@
-import BenefitsAndSolutions from "../../BenefitsAndSolutions";
+import BenefitsAndSolutions, { GridData } from "../../BenefitsAndSolutions";
 import { theme } from "../../../styles/theme";
 import React from "../../../public/SVG/technologies/react.svg";
 import {Div} from "./OfferedSolutions.style";
 
-const OfferedSolutions = ({ data }) => {
+interface IOfferedSolutionsProps {
+  data: GridData[];
+};
+
+const OfferedSolutions = ({ data }: IOfferedSolutionsProps) => {
   return (
     <Div>
       <BenefitsAndSolutions

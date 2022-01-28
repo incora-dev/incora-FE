@@ -13,11 +13,9 @@ import {
 interface IHeaderProps {
   title: string,
   text: string,
-  platform: Platforms,
-  setPlatform: (platform: Platforms) => void,
 };
 
-const Header = ({ platform, title, text, setPlatform }: IHeaderProps) => (
+const Header = ({ title, text }: IHeaderProps) => (
   <MainContainer>
     <Container>
       <div>

@@ -1,6 +1,15 @@
 import styled from "styled-components";
+import themeGet from "@styled-system/theme-get";
 
-export const SlideSS = styled.div`
+interface IColors {
+  bgColor?: string;
+};
+
+interface IMaxWidth {
+  maxWidth?: number;
+};
+
+export const Slide = styled.div`
   display: flex;
   position: relative;
   height: calc(100vh - 105px);
@@ -8,7 +17,11 @@ export const SlideSS = styled.div`
 `;
 
 export const SliderContent = styled.div`
-  max-width: 1166px;
+  max-width: ${({ maxWidth }: IMaxWidth) => `${maxWidth}px` || '1166px'}
   margin: 0 auto;
   position: relative;
 `;
+
+export const SliderContainer = styled.div`
+  background: ${({ bgColor }: IColors) => bgColor || `${themeGet("colors.white")}`};
+`

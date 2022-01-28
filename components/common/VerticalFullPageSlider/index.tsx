@@ -1,67 +1,105 @@
 import { ReactNode, useCallback, useEffect, useState } from 'react';
-import ScrollSlider from '../../Homepage/Cooperate/scrollSlider/scrollSlider';
 import { MENU_HEIGHT } from '../../../constants/global';
-import { SlideSS, SliderContent } from './style';
+import NumberElement from './NumberElement';
+import TextElement from './TextElement';
+import { ScrollListTypes } from './types';
+import { Slide, SliderContent, SliderContainer } from './style';
 
 interface IVerticalFullPageSliderProps<T> {
   slides: Array<T>;
+  scrollListType: ScrollListTypes;
   renderSlide: (slide: T, index: number) => ReactNode;
+  bgColor?: string;
+  stickyTopPosition?: number;
+  maxWidth?: number;
 }
 
-function VerticalFullPageSlider<T>({ slides, renderSlide }: IVerticalFullPageSliderProps<T>) {
-  const position = `calc((100vh - ${MENU_HEIGHT}px) / 2 - 55px)`;
+function VerticalFullPageSlider<T>({ slides, scrollListType, renderSlide, bgColor, stickyTopPosition, maxWidth }: IVerticalFullPageSliderProps<T>) {
+  const [scrollItemHeight, setScrollItemHeight] = useState(0);
+  const position = stickyTopPosition || `calc((100vh - ${MENU_HEIGHT}px) / 2 - ${scrollItemHeight / 2}px)`;
 
   const [lastScrollTop, setLastScrollTop] = useState(0);
   const [currentSection, setCurrentSection] = useState(0);
   const [scrollBlockPosition, setScrollBlockPosition] = useState('absolute');
   
   const handleScroll = useCallback((event) => {
-      const allSlides = document.querySelectorAll('.slide');
+    const allSlides = document.querySelectorAll('.slide');
+    setScrollItemHeight(document.getElementById('scroll-item')?.getBoundingClientRect().height || 0);
 
-      const offset = window.pageYOffset;
-      const direction = lastScrollTop < offset ? 'down' : 'up';
+    const offset = window.pageYOffset;
+    const direction = lastScrollTop < offset ? 'down' : 'up';
 
-      const scrollTopPosition = allSlides[currentSection].getBoundingClientRect().top;
+    const scrollTopPosition = allSlides[currentSection].getBoundingClientRect().top;
 
-      if ((currentSection === 0 && scrollTopPosition > MENU_HEIGHT) || (currentSection === allSlides.length - 1 && scrollTopPosition < MENU_HEIGHT)) {
-        setScrollBlockPosition('absolute');
-      } else {
-        setScrollBlockPosition('fixed');
-      }
-      if (direction === 'down' && allSlides[currentSection + 1] && allSlides[currentSection + 1].getBoundingClientRect().top < 250) {
-        setCurrentSection(Math.min(currentSection + 1, allSlides.length - 1));
-      }
-      if (direction === 'up' && allSlides[currentSection - 1] && allSlides[currentSection - 1].getBoundingClientRect().top > -250) {
-        setCurrentSection(Math.max(currentSection - 1, 0));
-      }
-      setLastScrollTop(offset);
-    }, [currentSection, lastScrollTop]
-    )
+    if ((currentSection === 0 && scrollTopPosition > MENU_HEIGHT) || (currentSection === allSlides.length - 1 && scrollTopPosition < MENU_HEIGHT)) {
+      setScrollBlockPosition('absolute');
+    } else {
+      setScrollBlockPosition('fixed');
+    }
+    if (direction === 'down' && allSlides[currentSection + 1] && allSlides[currentSection + 1].getBoundingClientRect().top < 250) {
+      setCurrentSection(Math.min(currentSection + 1, allSlides.length - 1));
+    }
+    if (direction === 'up' && allSlides[currentSection - 1] && allSlides[currentSection - 1].getBoundingClientRect().top > -250) {
+      setCurrentSection(Math.max(currentSection - 1, 0));
+    }
+    setLastScrollTop(offset);
+  }, [currentSection, lastScrollTop]);
+
   useEffect(() => {
     window.onscroll = handleScroll;
   }, [handleScroll]);
 
+  const renderScrollItem = () => {
+    switch (scrollListType) {
+      case ScrollListTypes.NUMBER:
+        return <NumberElement currentNumber={currentSection + 1} numberOfSlides={slides.length} />;
+
+      case ScrollListTypes.STRING:
+        return <TextElement currentSlide={currentSection} labels={slides} />;
+
+      default:
+        return <NumberElement currentNumber={currentSection + 1} numberOfSlides={slides.length} />;
+    }
+  }
+
+  const getTopPosition = () => {
+    if (stickyTopPosition && scrollBlockPosition === 'fixed') return `${stickyTopPosition + MENU_HEIGHT}px`;
+    if (scrollBlockPosition === 'fixed' || currentSection === slides.length - 1) return 'auto';
+    return position;
+  };
+
+  const getBottomPosition = () => {
+    if (scrollBlockPosition === 'fixed') return position;
+    if (currentSection === slides.length - 1) {
+      if (stickyTopPosition) return `calc(100vh - ${stickyTopPosition + MENU_HEIGHT + scrollItemHeight}px)`;
+      return position;
+    }
+    return 'auto';
+  };
+
   return (
-    <div>
-      <SliderContent>
+    <SliderContainer bgColor={bgColor}>
+      <SliderContent maxWidth={maxWidth}>
         <div style={{
           position: scrollBlockPosition,
-          bottom: scrollBlockPosition === 'fixed' ? position : currentSection === slides.length - 1 ? position : 'auto',
-          top: scrollBlockPosition === 'fixed' ? 'auto' : currentSection === slides.length - 1 ? 'auto' : position
+          bottom: getBottomPosition(),
+          top: getTopPosition()
         }}>
-          <ScrollSlider currentNumber={currentSection + 1} numberOfSlides={slides.length} />
+          <div id="scroll-item">
+            {renderScrollItem()}
+          </div>
         </div>
         <div>
           {slides.map((slide, index) => (
             <div key={`slide-${index}`} className="slide">
-              <SlideSS>
+              <Slide>
                 {renderSlide(slide, index)}
-              </SlideSS>
+              </Slide>
             </div>
           ))}
         </div>
       </SliderContent>
-    </div>
+    </SliderContainer>
   )
 }
 

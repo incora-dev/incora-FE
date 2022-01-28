@@ -108,8 +108,8 @@ const OurTraditions = ({ ourTraditions }: IOurTraditions) => {
   }
 
   const galleryLength = checkGalleryLength(gallery);
-  const galleryOne = [...slicedGallery(gallery, 0, galleryLength), ...slicedGallery(gallery, 0, galleryLength)];
-  const galleryTwo = [...slicedGallery(gallery, galleryLength, gallery.length), ...slicedGallery(gallery, galleryLength, gallery.length)];
+  const galleryOne = slicedGallery(gallery, 0, galleryLength);
+  const galleryTwo = slicedGallery(gallery, galleryLength, gallery.length);
 
   let textArray: string[] = [];
 

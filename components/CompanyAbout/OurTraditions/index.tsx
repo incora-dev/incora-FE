@@ -7,7 +7,7 @@ import {
   PhotosBlock
 } from "./style";
 import Image from "next/image";
-import { IMAGES_LINK } from "../../../constants";
+import {IMAGES_LINK, scrollPhotosBlockPX} from "../../../constants";
 import {
   GetAboutPage_aboutPage_data_attributes_ourTraditions,
   GetAboutPage_aboutPage_data_attributes_ourTraditions_gallery_data
@@ -20,8 +20,55 @@ interface IOurTraditions {
 
 const OurTraditions = ({ ourTraditions }: IOurTraditions) => {
   const [onEnterBlock, setOnEnterBlock] = useState(false);
+  const [galleryOneMaxWidth, setGalleryOneMaxWidth] = useState(0);
+  const [galleryTwoMaxWidth, setGalleryTwoMaxWidth] = useState(0);
+  const [positionScrollGalleryOne, setPositionScrollGalleryOne] = useState(false);
+  const [positionScrollGalleryTwo, setPositionScrollGalleryTwo] = useState(false);
+
   const refGalleryOne = useRef<any>(null);
   const refGalleryTwo = useRef<any>(null);
+
+  function changeGalleriesOnePosition(
+    gallery: any,
+    positionScrollGallery: boolean,
+    galleryMaxWidth: number,
+    setPositionGallery: Function)
+    {
+      if (positionScrollGallery) {
+        gallery.current.scrollLeft -= scrollPhotosBlockPX;
+      } else {
+        gallery.current.scrollLeft += scrollPhotosBlockPX;
+      }
+
+      if (gallery.current.scrollLeft === galleryMaxWidth && !positionScrollGallery) {
+        setPositionGallery(true);
+      }
+
+      if (gallery.current.scrollLeft === 0 && positionScrollGallery) {
+        setPositionGallery(false);
+      }
+  }
+
+  function changeGalleriesTwoPosition(
+      gallery: any,
+      positionScrollGallery: boolean,
+      galleryMaxWidth: number,
+      setPositionGallery: Function)
+  {
+    if (positionScrollGallery) {
+      gallery.current.scrollLeft += scrollPhotosBlockPX;
+    } else {
+      gallery.current.scrollLeft -= scrollPhotosBlockPX;
+    }
+
+    if (gallery.current.scrollLeft === 0 && !positionScrollGallery) {
+      setPositionGallery(true);
+    }
+
+    if (gallery.current.scrollLeft === galleryMaxWidth && positionScrollGallery) {
+      setPositionGallery(false);
+    }
+  }
 
 
 
@@ -29,8 +76,8 @@ const OurTraditions = ({ ourTraditions }: IOurTraditions) => {
     if (onEnterBlock) {
       event.preventDefault();
 
-      refGalleryOne.current.scrollLeft += 5;
-      refGalleryTwo.current.scrollLeft -= 5;
+      changeGalleriesOnePosition(refGalleryOne, positionScrollGalleryOne, galleryOneMaxWidth, setPositionScrollGalleryOne);
+      changeGalleriesTwoPosition(refGalleryTwo, positionScrollGalleryTwo, galleryTwoMaxWidth, setPositionScrollGalleryTwo);
     }
 
   }
@@ -42,7 +89,9 @@ const OurTraditions = ({ ourTraditions }: IOurTraditions) => {
   }, [handleWheel])
 
   useEffect(() => {
-    refGalleryTwo.current.scrollLeft = 10000;
+    refGalleryTwo.current.scrollLeft = 100000;
+    setGalleryOneMaxWidth(refGalleryTwo.current.scrollLeft);
+    setGalleryTwoMaxWidth(refGalleryTwo.current.scrollLeft);
   }, [])
 
   const title = ourTraditions.title;
@@ -59,8 +108,8 @@ const OurTraditions = ({ ourTraditions }: IOurTraditions) => {
   }
 
   const galleryLength = checkGalleryLength(gallery);
-  const galleryOne = slicedGallery(gallery, 0, galleryLength);
-  const galleryTwo = slicedGallery(gallery, galleryLength, gallery.length);
+  const galleryOne = [...slicedGallery(gallery, 0, galleryLength), ...slicedGallery(gallery, 0, galleryLength)];
+  const galleryTwo = [...slicedGallery(gallery, galleryLength, gallery.length), ...slicedGallery(gallery, galleryLength, gallery.length)];
 
   let textArray: string[] = [];
 

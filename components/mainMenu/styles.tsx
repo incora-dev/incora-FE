@@ -35,6 +35,10 @@ export const Wrapper = styled.div`
   }
 `;
 
+export const ContentWrapper = styled.div`
+  overflow-x: hidden;
+`;
+
 export const Block = styled.div`
   margin: 0 auto;
   padding: 30px 0;

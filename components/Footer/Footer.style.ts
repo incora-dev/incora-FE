@@ -29,6 +29,7 @@ export const Position = styled.div`
     width: 100%;
     padding-left: 20px;
     padding-right: 20px;
+    padding-bottom: 20px;
     flex-wrap: wrap;
     gap: 10px;
   }

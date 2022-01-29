@@ -25,7 +25,7 @@ export const Wrapper = styled.div`
   max-width: 1006px;
   margin: 0 auto;
 
-  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+  @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
     padding: 53px 20px;
   }
 `;
@@ -68,7 +68,7 @@ export const PositionHexagon = styled.div`
   top: ${({ isWhite }: IDiv) => (isWhite ? "70px" : "-239px")};
   right: -47px;
 
-  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+  @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
     display: none;
   }
 `;

@@ -37,6 +37,10 @@ export const VideoContainer = styled.div`
 
 export const VideoBLock = styled.div`
   position: relative;
+
+  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    width: 418px;
+  }
 `;
 
 export const PosterVideoPosition = styled.div`

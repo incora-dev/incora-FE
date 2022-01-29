@@ -6,6 +6,7 @@ import { Provider } from "react-redux";
 import store from "../services/store";
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 import { GRAPH_QL_LINK } from "../constants";
+import NavState from "../services/context/mainMenu";
 
 const client = new ApolloClient({
   uri: GRAPH_QL_LINK,
@@ -15,6 +16,7 @@ const client = new ApolloClient({
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
+    <NavState>
       <GlobalStyle />
       <ThemeProvider theme={theme}>
         <Provider store={store}>
@@ -23,6 +25,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           </ApolloProvider>
         </Provider>
       </ThemeProvider>
+      </NavState>
     </>
   );
 }

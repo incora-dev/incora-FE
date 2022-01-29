@@ -7,12 +7,30 @@ import {
 import { INavigation } from "@interfaces";
 import ButtonWithArrow from "../../ButtonWithArrow";
 import Arrow from "../../../public/navArrow.svg"
-import {useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import Link from "next/link";
+import { theme } from "../../../styles/theme";
+import HamburgerButton from "../../BurgerMenuButton";
+import { SideMenu } from "../sideMainMenu";
 
-function Navigation({ titles, titlesColor, setOnHoverElement, onSelectedMenu, setOnSelectedMenu }: INavigation) {
+function Navigation({ 
+  titles, 
+  titlesColor, 
+  setOnHoverElement, 
+  onSelectedMenu, 
+  setOnSelectedMenu, 
+  backgroundColor }: INavigation) 
+  {
   const [selectedTitle, setSelectedTitle] = useState<string | null>(null);
-  const  [urlTitle, setUrlTitle] = useState<string | null | undefined>(null)
+  const  [urlTitle, setUrlTitle] = useState<string | null | undefined>(null);
+  const [isMobile, setIsMobile] = useState<boolean>();
+
+  useEffect(() => {
+    const width = window.innerWidth;
+    const mobileWidth = +theme.breakpoints.mobile.replace('px', '');
+    const isMobile = mobileWidth > width;
+    setIsMobile(isMobile);
+  },[]);
 
   useEffect(() => {
     setUrlTitle(titles.find((title) => window.location.pathname.includes(title.toLowerCase())));
@@ -28,22 +46,22 @@ function Navigation({ titles, titlesColor, setOnHoverElement, onSelectedMenu, se
           title === "Expertise" ||
           title === "Company"
         ) {
-          return (
-            <Ul
-              shouldAddLine={shouldAddLine}
-              key={index}
-              onMouseEnter={() => {
-                setOnHoverElement(title);
-                setSelectedTitle(title);
-              }}
-            >
-              <Li>{title}</Li>
-
-              <PositionArrow color={titlesColor}>
-                <Arrow/>
-              </PositionArrow>
-            </Ul>
-          );
+            return (
+              <Ul
+                shouldAddLine={shouldAddLine}
+                key={index}
+                onMouseEnter={() => {
+                  setOnHoverElement(title);
+                  setSelectedTitle(title);
+                }}
+              >
+                <Li>{title}</Li>
+  
+                <PositionArrow color={titlesColor}>
+                  <Arrow/>
+                </PositionArrow>
+              </Ul>
+            );
         }
 
         if (title === 'Contact Us') {

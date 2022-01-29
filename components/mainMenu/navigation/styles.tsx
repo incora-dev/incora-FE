@@ -23,10 +23,8 @@ export const Nav = styled.nav`
 
   @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
     display: grid;
-    gap: 10px;
-    grid-template-columns: repeat(2, 50%);
-    grid-template-rows: repeat(3, 1fr);
-    column-gap: 40px;
+    gap: 20px;
+    padding-left: 30px;
   }
 `
 

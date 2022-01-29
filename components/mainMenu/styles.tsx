@@ -46,10 +46,6 @@ export const Block = styled.div`
   justify-content: space-between;
   width: 100%;
   gap: 20px;
-
-  @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
-    flex-direction: column;
-  }
 `;
 
 export const IncoraLogo = styled.img`

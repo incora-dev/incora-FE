@@ -18,7 +18,7 @@ export const Container = styled.div`
   --line-height: calc(11vw + 0.1rem);
   @media (max-width: ${theme.breakpoints.mobile}) {
     --line-height: calc(11vw + 0.1rem);
-    height: 85vw;
+    height: 70vw;
   }
 `
 
@@ -90,8 +90,9 @@ export const PositionVideoSVG = styled.div`
   height: 380px;
 
   @media only screen and (max-width: ${theme.breakpoints.mobile}) {
-    width: 96vw;
+    width: 92vw;
     top: 20px;
+    right: 3vw;
   }
 `
 

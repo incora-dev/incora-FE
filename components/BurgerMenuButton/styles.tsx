@@ -20,7 +20,7 @@ export const Bar = styled.span`
 export const MenuButton = styled.button`
   display: block;
   border: 0;
-  padding: 12px;
+  padding: 10px 0;
   background: none;
   width: fit-content;
 

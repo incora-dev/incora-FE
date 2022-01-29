@@ -36,7 +36,9 @@ export const Wrapper = styled.div`
 `;
 
 export const ContentWrapper = styled.div`
-  overflow-x: hidden;
+  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    overflow-x: hidden;
+  }
 `;
 
 export const Block = styled.div`
@@ -46,6 +48,10 @@ export const Block = styled.div`
   justify-content: space-between;
   width: 100%;
   gap: 20px;
+
+  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    padding: 10px 0;
+  }
 `;
 
 export const IncoraLogo = styled.img`

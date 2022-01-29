@@ -1,6 +1,6 @@
 import { useQuery } from "@apollo/client";
 import themeGet from "@styled-system/theme-get";
-import { Dispatch, SetStateAction, useEffect } from "react";
+import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { GET_INDUSTRIES_NAMES } from "../../../graphql/caseStudies/queries";
 import {
@@ -40,6 +40,14 @@ const CaseFilter = ({
 }: ICaseFilter) => {
   const { data, loading } = useQuery<GetIndustriesNames>(GET_INDUSTRIES_NAMES);
   const industriesEntry = data?.industries?.data;
+  const [isMobile, setIsMobile] = useState<boolean>();
+
+  useEffect(() => {
+    const width = window.innerWidth;
+    const mobileWidth = +theme.breakpoints.mobile.replace('px', '');
+    const isMobile = mobileWidth > width;
+    setIsMobile(isMobile);
+  },[]);
 
   const dispatch = useDispatch();
 
@@ -59,7 +67,7 @@ const CaseFilter = ({
     <Tags setCurrentIndustryTag={setCurrentIndustryTag} labels={industriesEntry} />
   );
 
-  const globeCondition = filterByFlag && <Globe reviewIndex={0} />;
+  const globeCondition = <Globe reviewIndex={0} />;
 
   return (
     <CaseFilterWrapper filterByFlag={filterByFlag}>
@@ -77,8 +85,9 @@ const CaseFilter = ({
         </FilterSwitchWrap>
         {tagsCondition}
       </FilterWrap>
-
-      <GlobeWrap>{globeCondition}</GlobeWrap>
+      {filterByFlag && !isMobile && (
+        <GlobeWrap>{globeCondition}</GlobeWrap>
+      )}
     </CaseFilterWrapper>
   );
 };

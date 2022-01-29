@@ -15,6 +15,7 @@ export const Bar = styled.span`
   height: 2px;
   margin-bottom: 7px;
   background-color: #fff;
+  mix-blend-mode: difference;
 `;
 
 export const MenuButton = styled.button`

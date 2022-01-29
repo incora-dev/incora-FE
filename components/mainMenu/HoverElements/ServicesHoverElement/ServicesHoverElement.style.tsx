@@ -17,7 +17,7 @@ export const Div = styled.div`
   margin: 0 auto;
   z-index: 25;
 
-  background-color: ${themeGet("colors.black")};
+  background-color: ${({backgroundColor}: {backgroundColor: string}) => backgroundColor};
 `;
 
 export const PositionLoader = styled.div`
@@ -79,11 +79,19 @@ export const BlockWithIcons = styled.div`
 export const BlockWithIconsTop = styled.div`
   display: flex;
   column-gap: 30px;
+
+  @media only screen and (max-width: ${theme.breakpoints.xsMobile}) {
+    flex-direction: column;
+  }
 `;
 
 export const BlockWithIconsBottom = styled.div`
   display: flex;
   column-gap: 50px;
+
+  @media only screen and (max-width: ${theme.breakpoints.xsMobile}) {
+    flex-direction: column;
+  }
 `;
 
 export const ArrowWithTextBlock = styled.div`

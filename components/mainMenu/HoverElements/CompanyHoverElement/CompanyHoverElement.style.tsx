@@ -20,7 +20,7 @@ export const Div = styled.div`
   color: ${({ titleColor }: IChangeColor) => titleColor === theme.colors.black ? theme.colors.black : theme.colors.white};
   z-index: 25;
 
-  background-color: ${themeGet("colors.black")};
+  background-color: ${({backgroundColor}: {backgroundColor: string}) => backgroundColor};
 `;
 
 export const PositionLoader = styled.div`

@@ -35,6 +35,7 @@ import { forwardRef } from "react";
 interface IServicesHoverElement {
   titleColor: string;
   isShow: boolean;
+  backgroundColor: string;
 }
 
 const servicesLabel = [
@@ -157,7 +158,7 @@ function getAllServices(text: string) {
     )
 }
 
-const ServicesHoverElement = forwardRef(({ titleColor, isShow }: IServicesHoverElement, ref) => {
+const ServicesHoverElement = forwardRef(({ titleColor, isShow, backgroundColor }: IServicesHoverElement, ref) => {
   const elementsTop = getElementsTop(titleColor);
   const elementsBottom = getElementsBottom(titleColor);
   const services = getServices(servicesLabel);
@@ -170,7 +171,7 @@ const ServicesHoverElement = forwardRef(({ titleColor, isShow }: IServicesHoverE
 
   return (
     <MainWrapper titleColor={titleColor}>
-      <Div ref={ref as any}>
+      <Div ref={ref as any} backgroundColor={backgroundColor}>
         <Wrapper titleColor={titleColor}>
           <BlockWithIcons>
             <BlockWithIconsTop>

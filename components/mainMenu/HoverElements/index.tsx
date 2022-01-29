@@ -7,10 +7,17 @@ interface IHoverElements {
   title: string | null;
   titleColor: string;
   setOnHoverElement: Function;
-  setOnSelectedMenu: Function
+  setOnSelectedMenu: Function;
+  backgroundColor: string;
 }
 
-function getElement(title: string | null, titleColor: string, setOnHoverElement: Function, setOnSelectedMenu: Function, ref: any) {
+function getElement(
+  title: string | null, 
+  titleColor: string, 
+  setOnHoverElement: Function, 
+  setOnSelectedMenu: Function, 
+  ref: any, 
+  backgroundColor: string) {
   if (title?.toLowerCase() === 'services') {
     setOnSelectedMenu(title);
 
@@ -18,6 +25,7 @@ function getElement(title: string | null, titleColor: string, setOnHoverElement:
       <ServicesHoverElement
         titleColor={titleColor}
         isShow={title?.toLowerCase() === 'services'}
+        backgroundColor={backgroundColor}
         ref={ref}
       />
     )
@@ -27,6 +35,7 @@ function getElement(title: string | null, titleColor: string, setOnHoverElement:
     return (
       <ExpertiseHoverElements
         titleColor={titleColor}
+        backgroundColor={backgroundColor}
         isShow={title?.toLowerCase() === 'expertise'}
         ref={ref}
       />
@@ -37,6 +46,7 @@ function getElement(title: string | null, titleColor: string, setOnHoverElement:
     return (
       <CompanyHoverElement
         titleColor={titleColor}
+        backgroundColor={backgroundColor}
         ref={ref}
       />
     )
@@ -48,8 +58,13 @@ function getElement(title: string | null, titleColor: string, setOnHoverElement:
   }
 }
 
-const HoverElements = forwardRef(({ title, titleColor, setOnHoverElement, setOnSelectedMenu }: IHoverElements, ref) => {
-  const element = getElement(title, titleColor, setOnHoverElement, setOnSelectedMenu, ref);
+const HoverElements = forwardRef(({ 
+  title, 
+  titleColor, 
+  setOnHoverElement, 
+  setOnSelectedMenu, 
+  backgroundColor }: IHoverElements, ref) => {
+  const element = getElement(title, titleColor, setOnHoverElement, setOnSelectedMenu, ref, backgroundColor);
 
   return (
     <>{element}</>

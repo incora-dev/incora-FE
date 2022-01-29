@@ -30,7 +30,7 @@ function getLogo(titlesColor: string) {
 export default function MainMenu(props: IMenu) {
   const [onHoverElement, setOnHoverElement] = useState<null | string>(null);
   const [onSelectedMenu, setOnSelectedMenu] = useState<null | string>(null);
-  const { titles, backgroundColor, titlesColor, children, positionType = 'sticky' } = props;
+  const { titles, backgroundColor = '#fffff', titlesColor, children, positionType = 'sticky' } = props;
   const logo = getLogo(titlesColor);
   const [isMobile, setIsMobile] = useState<boolean>();
 
@@ -106,6 +106,7 @@ export default function MainMenu(props: IMenu) {
             titleColor={titlesColor}
             setOnHoverElement={setOnHoverElement}
             setOnSelectedMenu={setOnSelectedMenu}
+            backgroundColor={backgroundColor}
           />
         </HoverMenu>
       </ContentWrapper>

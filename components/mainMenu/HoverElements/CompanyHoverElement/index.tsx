@@ -26,6 +26,7 @@ import {forwardRef, useState} from "react";
 
 interface ICompanyHoverElement {
   titleColor: string;
+  backgroundColor: string;
 }
 
 interface ICompanyInfo {
@@ -77,7 +78,7 @@ function getCompanyBlock(companyInfo: ICompanyInfo[], titleColor: string) {
   )
 }
 
-const CompanyHoverElement = forwardRef(({ titleColor }: ICompanyHoverElement, ref) => {
+const CompanyHoverElement = forwardRef(({ titleColor, backgroundColor }: ICompanyHoverElement, ref) => {
   const [shouldAnimate, setAnimate] = useState(false);
   const companyBlock = getCompanyBlock(companyInfo, titleColor);
 
@@ -87,7 +88,7 @@ const CompanyHoverElement = forwardRef(({ titleColor }: ICompanyHoverElement, re
       onMouseEnter={() => setAnimate(true)}
       onMouseLeave={() => setAnimate(false)}
     >
-      <Div ref={ref as any} titleColor={titleColor}>
+      <Div ref={ref as any} titleColor={titleColor} backgroundColor={backgroundColor}>
         <PositionLoader>
           <Loader
             width="181.74"

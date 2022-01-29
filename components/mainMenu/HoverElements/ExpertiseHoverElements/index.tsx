@@ -42,6 +42,7 @@ interface ITechnologiesLabels {
 interface IExpertiseHoverElements {
   titleColor: string;
   isShow: boolean;
+  backgroundColor: string;
 }
 
 const industriesLabels = [
@@ -108,13 +109,13 @@ function getTechnologies(labels: ITechnologiesLabels[], titleColor: string) {
   })
 }
 
-const ExpertiseHoverElements = forwardRef(({ titleColor, isShow }:IExpertiseHoverElements, ref) => {
+const ExpertiseHoverElements = forwardRef(({ titleColor, isShow, backgroundColor }:IExpertiseHoverElements, ref) => {
   const industries = getIndustries(industriesLabels);
   const technologies = getTechnologies(technologiesLabels, titleColor);
 
   return (
     <MainWrapper titleColor={titleColor}>
-      <Div ref={ref as any} titleColor={titleColor}>
+      <Div ref={ref as any} titleColor={titleColor} backgroundColor={backgroundColor}>
         <PositionSphere>
           <Sphere titleColor={titleColor}/>
         </PositionSphere>

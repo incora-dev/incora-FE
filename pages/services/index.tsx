@@ -21,6 +21,7 @@ function Services() {
   const renderSlide = (slide: IInfoBlock) => <InformationComponent slide={slide} />;
 
   return (
+    <>
       <div id='Services'>
         <Head>
           <title>Incora | Services</title>
@@ -53,14 +54,15 @@ function Services() {
               </>
             }
           />
+        </MainMenu>
           <Link href={'estimate'}>
             <a>
               <EstimateAppCircle/>
             </a>
           </Link>
-        </MainMenu>
-        <FooterComponent {...footer}/>
       </div>
+        <FooterComponent {...footer}/>
+    </>
   )
 }
 

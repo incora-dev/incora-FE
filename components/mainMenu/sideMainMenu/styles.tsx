@@ -11,7 +11,7 @@ export const Menu = styled.nav`
   top: 0px;
   left: 0px;
   bottom: 0px;
-  z-index: 10000;
+  z-index: 20;
   display: block;
   width: 60%;
   height: 100vh;

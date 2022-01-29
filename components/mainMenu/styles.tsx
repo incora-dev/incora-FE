@@ -81,4 +81,8 @@ export const HoverMenu = styled.div`
   height: 461px;
 
   transition: opacity ${themeGet("transition.menu")};
+
+  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    margin: 65px auto 0 auto;
+  }
 `;

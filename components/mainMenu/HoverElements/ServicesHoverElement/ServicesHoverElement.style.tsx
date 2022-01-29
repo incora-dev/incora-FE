@@ -15,12 +15,16 @@ export const Div = styled.div`
 
   max-width: 1366px;
   margin: 0 auto;
+  z-index: 25;
+
+  background-color: ${themeGet("colors.black")};
 `;
 
 export const PositionLoader = styled.div`
   position: absolute;
   top: 63px;
   left: -51px;
+  z-index: -1;
   
   svg {
     transform: rotate(196deg);
@@ -56,6 +60,13 @@ export const Wrapper = styled.div`
   column-gap: 110px;
 
   color: ${({ titleColor }: IChangeColor) => titleColor === theme.colors.black ? theme.colors.black : theme.colors.white};
+
+  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    padding: 20px;
+    flex-direction: column;
+    overflow: scroll;
+    height: 93vh;
+  }
 `;
 
 export const BlockWithIcons = styled.div`

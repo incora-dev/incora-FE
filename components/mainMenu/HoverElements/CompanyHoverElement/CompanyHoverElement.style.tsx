@@ -18,12 +18,16 @@ export const Div = styled.div`
   margin: 0 auto;
 
   color: ${({ titleColor }: IChangeColor) => titleColor === theme.colors.black ? theme.colors.black : theme.colors.white};
+  z-index: 25;
+
+  background-color: ${themeGet("colors.black")};
 `;
 
 export const PositionLoader = styled.div`
   position: absolute;
   left: -6px;
   bottom: 76px;
+  z-index: -1;
 `;
 
 export const PositionPluses = styled.div`
@@ -36,6 +40,10 @@ export const PositionSquare = styled.div`
   position: absolute;
   left: -68px;
   top: 113px;
+
+  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    display: none;
+  }
 `;
 
 export const Square = styled.div`
@@ -51,6 +59,13 @@ export const Wrapper = styled.div`
   
   display: flex;
   column-gap: 79px;
+
+  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    padding: 20px;
+    flex-direction: column;
+    overflow: scroll;
+    height: 93vh;
+  }
 `;
 
 export const InfoWrapper = styled.div`

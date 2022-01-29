@@ -18,12 +18,16 @@ export const Div = styled.div`
   margin: 0 auto;
 
   color: ${({ titleColor }: IChangeColor) => titleColor === theme.colors.black ? theme.colors.black : theme.colors.white};
+  z-index: 25;
+
+  background-color: ${themeGet("colors.black")};
 `;
 
 export const PositionLoader = styled.div`
   position: absolute;
   top: 131px;
   right: 127px;
+  z-index: -1;
   
   svg {
     transform: rotate(225deg);
@@ -61,6 +65,13 @@ export const Wrapper = styled.div`
   
   display: flex;
   column-gap: 110px;
+
+  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    padding: 20px;
+    flex-direction: column;
+    overflow: scroll;
+    height: 93vh;
+  }
 `;
 
 export const IndustriesBlock = styled.div`
@@ -97,6 +108,10 @@ export const TechnologiesText = styled.div`
 export const TextBlock = styled.div`
   display: flex;
   column-gap: 5px;
+  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    width: 100%;
+    flex-wrap: wrap;
+  }
 `;
 
 export const Slash = styled.div`

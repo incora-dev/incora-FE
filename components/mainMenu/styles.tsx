@@ -51,6 +51,7 @@ export const Block = styled.div`
 
   @media only screen and (max-width: ${theme.breakpoints.mobile}) {
     padding: 10px 0;
+    flex-direction: row-reverse;
   }
 `;
 

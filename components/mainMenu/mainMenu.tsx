@@ -5,10 +5,7 @@ import { theme } from "../../styles/theme";
 import React, { useContext, useEffect, useRef, useState} from "react";
 import HoverElements from "./HoverElements";
 import Link from "next/link";
-import HamburgerButton from "../BurgerMenuButton";
-import { SideMenu } from "./sideMainMenu";
-import { MenuContext } from "../../services/context/mainMenu";
-import {useOnClickOutside} from '../../services/hooks';
+
 
 function getLogo(titlesColor: string) {
   const colorBlack = theme.colors.black;

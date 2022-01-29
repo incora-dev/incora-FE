@@ -1,6 +1,7 @@
 import ServicesHoverElement from "./ServicesHoverElement";
 import ExpertiseHoverElements from "./ExpertiseHoverElements";
 import CompanyHoverElement from "./CompanyHoverElement";
+import { forwardRef } from "react";
 
 interface IHoverElements {
   title: string | null;
@@ -9,7 +10,7 @@ interface IHoverElements {
   setOnSelectedMenu: Function
 }
 
-function getElement(title: string | null, titleColor: string, setOnHoverElement: Function, setOnSelectedMenu: Function) {
+function getElement(title: string | null, titleColor: string, setOnHoverElement: Function, setOnSelectedMenu: Function, ref: any) {
   if (title?.toLowerCase() === 'services') {
     setOnSelectedMenu(title);
 
@@ -17,6 +18,7 @@ function getElement(title: string | null, titleColor: string, setOnHoverElement:
       <ServicesHoverElement
         titleColor={titleColor}
         isShow={title?.toLowerCase() === 'services'}
+        ref={ref}
       />
     )
   } else if (title?.toLowerCase() === 'expertise') {
@@ -26,6 +28,7 @@ function getElement(title: string | null, titleColor: string, setOnHoverElement:
       <ExpertiseHoverElements
         titleColor={titleColor}
         isShow={title?.toLowerCase() === 'expertise'}
+        ref={ref}
       />
     )
   } else if (title?.toLowerCase() === 'company') {
@@ -34,6 +37,7 @@ function getElement(title: string | null, titleColor: string, setOnHoverElement:
     return (
       <CompanyHoverElement
         titleColor={titleColor}
+        ref={ref}
       />
     )
   }
@@ -44,12 +48,12 @@ function getElement(title: string | null, titleColor: string, setOnHoverElement:
   }
 }
 
-const HoverElements = ({ title, titleColor, setOnHoverElement, setOnSelectedMenu }: IHoverElements) => {
-  const element = getElement(title, titleColor, setOnHoverElement, setOnSelectedMenu);
+const HoverElements = forwardRef(({ title, titleColor, setOnHoverElement, setOnSelectedMenu }: IHoverElements, ref) => {
+  const element = getElement(title, titleColor, setOnHoverElement, setOnSelectedMenu, ref);
 
   return (
     <>{element}</>
   )
-}
+});
 
 export default HoverElements;

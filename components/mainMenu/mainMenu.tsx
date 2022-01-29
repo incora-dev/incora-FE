@@ -36,6 +36,11 @@ export default function MainMenu(props: IMenu) {
 
   const node = useRef<any>();
   const { isMenuOpen, toggleMenuMode } = useContext(MenuContext);
+  const nodeHoverMenu = useRef();
+
+  useOnClickOutside(node, () => {
+    setOnHoverElement(null);
+  });
 
   useOnClickOutside(node, () => {
     if (isMenuOpen) {
@@ -94,8 +99,9 @@ export default function MainMenu(props: IMenu) {
             setOnHoverElement(null);
             setOnSelectedMenu(null);
           }}
-        >
+          >
           <HoverElements
+            ref={nodeHoverMenu}
             title={onHoverElement}
             titleColor={titlesColor}
             setOnHoverElement={setOnHoverElement}

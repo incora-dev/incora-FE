@@ -22,7 +22,7 @@ import Arrow from "../../../../public/navButtonArrow.svg"
 import Loader from "../../../../public/loading2.svg"
 import Pluses from "../../../Homepage/Cooperate/elements/pluses/pluses";
 import {theme} from "../../../../styles/theme";
-import {useState} from "react";
+import {forwardRef, useState} from "react";
 
 interface ICompanyHoverElement {
   titleColor: string;
@@ -77,7 +77,7 @@ function getCompanyBlock(companyInfo: ICompanyInfo[], titleColor: string) {
   )
 }
 
-const CompanyHoverElement = ({ titleColor }: ICompanyHoverElement) => {
+const CompanyHoverElement = forwardRef(({ titleColor }: ICompanyHoverElement, ref) => {
   const [shouldAnimate, setAnimate] = useState(false);
   const companyBlock = getCompanyBlock(companyInfo, titleColor);
 
@@ -87,7 +87,7 @@ const CompanyHoverElement = ({ titleColor }: ICompanyHoverElement) => {
       onMouseEnter={() => setAnimate(true)}
       onMouseLeave={() => setAnimate(false)}
     >
-      <Div titleColor={titleColor}>
+      <Div ref={ref as any} titleColor={titleColor}>
         <PositionLoader>
           <Loader
             width="181.74"
@@ -114,6 +114,6 @@ const CompanyHoverElement = ({ titleColor }: ICompanyHoverElement) => {
       </Div>
     </MainWrapper>
   )
-}
+});
 
 export default CompanyHoverElement;

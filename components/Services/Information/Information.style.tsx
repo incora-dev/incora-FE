@@ -1,3 +1,4 @@
+import themeGet from "@styled-system/theme-get";
 import styled from "styled-components";
 import { theme } from "../../../styles/theme";
 
@@ -83,6 +84,11 @@ export const TextBlock = styled.div`
   display: flex;
   flex-direction: column;
   row-gap: 16px;
+
+  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    margin: 0;
+    padding: 50px 0;
+  }
 `;
 
 export const H2 = styled.h2`
@@ -98,6 +104,7 @@ export const H2 = styled.h2`
 
   @media only screen and (max-width: ${theme.breakpoints.mobile}) {
     width: 100%;
+    color: ${themeGet('colors.black')};
   }
 `;
 

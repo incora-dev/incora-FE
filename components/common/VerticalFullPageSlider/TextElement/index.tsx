@@ -8,9 +8,10 @@ interface ITextElementProps {
   labels: IStacks[];
   currentSlide: number;
   bgColor: string;
+  onChange?: (e:any) => void;
 };
 
-const TextElement = ({ labels, currentSlide, bgColor }: ITextElementProps) => (
+const TextElement = ({ labels, currentSlide, bgColor, onChange }: ITextElementProps) => (
   <MenuBlock>
     <MenuLabel
       bgColor={bgColor}
@@ -25,9 +26,10 @@ const TextElement = ({ labels, currentSlide, bgColor }: ITextElementProps) => (
         rowGap={'28.5px'}
         flexDirection={'column'}
         isHover={false}
-        preventChange={true}
+        preventChange={false}
         fontWeight={'700'}
         cursor={'default'}
+        onChange={onChange}
       />
     </MenuLabel>
   </MenuBlock>

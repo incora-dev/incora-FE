@@ -17,7 +17,7 @@ const RadioButtons = ({
     columnGap = '18px',
     rowGap = '0',
     isHover = true,
-    cursor = 'pointer'
+    cursor = 'pointer',
     }: IRadioButtons
   ) => {
   return (

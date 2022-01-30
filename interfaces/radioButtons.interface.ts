@@ -1,7 +1,8 @@
+import { GetServicesPage_servicesPage_data_attributes_services_data } from "../graphql/services/__generated__/GetServicesPage";
 import { IStacks } from "./servicesComponent.interface";
 
 export interface IRadioButtons {
-  labels: IStacks[];
+  labels: GetServicesPage_servicesPage_data_attributes_services_data[];
   currentIndex: number;
   onChange?: Function;
   preventChange?: boolean;

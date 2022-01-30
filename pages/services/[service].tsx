@@ -22,6 +22,8 @@ const faq = {
 }
 
 const Service = ({ title, text, content, bestSuitedFor, workflowSetUp }: IService) => {
+  
+
   const [menuColor, setMenuColor] = useState('none');
   const handleScroll = () => {
     window.scrollY >= 20

@@ -1,69 +1,91 @@
-import { IRadioButtons} from "@interfaces";
 import { ButtonsBlock, RadioButton } from "./RadioButtons.style";
 import { theme } from "../../styles/theme";
 import React from "react";
+import {
+  GetServicesPage_servicesPage_data_attributes_services_data,
+  GetServicesPage_servicesPage_data_attributes_techStack_tech_stacks_data,
+} from "../../graphql/services/__generated__/GetServicesPage";
+
+interface IRadioButtons {
+  labels:
+    | GetServicesPage_servicesPage_data_attributes_services_data[]
+    | GetServicesPage_servicesPage_data_attributes_techStack_tech_stacks_data[];
+  currentIndex: number;
+  onChange?: Function;
+  preventChange?: boolean;
+  bgColor: string;
+  border: string;
+  textColor: string;
+  padding: string;
+  fontWeight?: string;
+  flexDirection?: string;
+  columnGap?: string;
+  rowGap?: string;
+  isHover?: boolean;
+  cursor?: string;
+}
 
 const RadioButtons = ({
-    labels,
-    currentIndex,
-    onChange,
-    preventChange,
-    bgColor = theme.colors.white,
-    border = theme.colors.yellow,
-    textColor = theme.colors.black,
-    fontWeight = 'normal',
-    padding,
-    flexDirection = 'row',
-    columnGap = '18px',
-    rowGap = '0',
-    isHover = true,
-    cursor = 'pointer'
-    }: IRadioButtons
-  ) => {
+  labels,
+  currentIndex,
+  onChange,
+  preventChange,
+  bgColor = theme.colors.white,
+  border = theme.colors.yellow,
+  textColor = theme.colors.black,
+  fontWeight = "normal",
+  padding,
+  flexDirection = "row",
+  columnGap = "18px",
+  rowGap = "0",
+  isHover = true,
+  cursor = "pointer",
+}: IRadioButtons) => {
   return (
-      <ButtonsBlock
-        flexDirection={flexDirection}
-        columnGap={columnGap}
-        rowGap={rowGap}
-      >
-        {
-          labels.map(({ title, id }, index) => {
-              console.log(index, currentIndex);
+    <ButtonsBlock
+      flexDirection={flexDirection}
+      columnGap={columnGap}
+      rowGap={rowGap}
+    >
+      {labels.map(({ id, attributes }, index) => {
+        return (
+          <>
+            {attributes?.name && (
+              <RadioButton
+                key={id}
+                bgColor={bgColor}
+                border={border}
+                textColor={textColor}
+                fontWeight={fontWeight}
+                padding={padding}
+                isHover={isHover}
+                cursor={cursor}
+              >
+                <input
+                  type="radio"
+                  value={attributes.name}
+                  onChange={(event) => {
+                    if (preventChange) {
+                      event.preventDefault();
+                      return;
+                    }
 
-              return (
-                <RadioButton
-                  key={id}
-                  bgColor={bgColor}
-                  border={border}
-                  textColor={textColor}
-                  fontWeight={fontWeight}
-                  padding={padding}
-                  isHover={isHover}
-                  cursor={cursor}
-                >
-                      <input
-                          type='radio'
-                          value={title}
-                          id={id}
-                          onChange={(event) => {
-                              if (preventChange)  {
-                                  event.preventDefault();
-                                  return;
-                              }
+                    if (onChange) {
+                      onChange(index);
+                    }
 
-                              if (onChange) {
-                                  onChange(index);
-                              }
-                          }}
-                          checked={index === currentIndex}
-                    />
-                      <label htmlFor={id}>{title}</label>
-                </RadioButton>
-            )
-          })
-        }
-      </ButtonsBlock>
-  )
-}
+                    console.log(index);
+                  }}
+                  checked={index === currentIndex}
+                />
+                <label>{attributes?.name}</label>
+              </RadioButton>
+            )}
+          </>
+        );
+      })}
+    </ButtonsBlock>
+  );
+};
 
 export default RadioButtons;

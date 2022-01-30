@@ -36,7 +36,9 @@ export const Wrapper = styled.div`
 `;
 
 export const ContentWrapper = styled.div`
-  overflow-x: hidden;
+  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    overflow-x: hidden;
+  }
 `;
 
 export const Block = styled.div`

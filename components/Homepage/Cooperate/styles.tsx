@@ -59,7 +59,6 @@ export const Slider = styled.div`
   @media only screen and (max-width: ${theme.breakpoints.mobile}) {
     flex-wrap: wrap;
     padding-top: 53px;
-    height: 150vh;
     padding-bottom: 53px;
   }
 `
@@ -85,8 +84,11 @@ export const PositionNumber = styled.div`
   @media only screen and (max-width: ${theme.breakpoints.mobile}) {
     left: 50%;
   }
-  @media only screen and (max-width: ${theme.breakpoints.xsMobile}) {
+  @media only screen and (max-width: ${theme.breakpoints.mMobile}) {
     left: 40%;
+  }
+  @media only screen and (max-width: ${theme.breakpoints.xsMobile}) {
+    left: 25%;
     margin-top: -50vw;
   }
 `

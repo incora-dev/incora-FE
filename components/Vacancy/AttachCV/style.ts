@@ -25,6 +25,10 @@ export const AttachCvWrapper = styled.div`
   .personal {
     margin-bottom: ${({ big }: IAttachCvWrapper) => (big ? "16px" : "11px")};
   }
+
+  @media only screen and (max-width: ${themeGet("breakpoints.smallDesk")}) {
+    display: flex;
+  }
 `;
 
 export const DragAndDropBox = styled.div`
@@ -60,5 +64,17 @@ export const DragAndDropBox = styled.div`
     line-height: 16px;
     text-align: center;
     color: ${themeGet("colors.font1")};
+  }
+`;
+
+export const Block = styled.div`
+  :nth-child(1) {
+    @media only screen and (max-width: ${themeGet("breakpoints.smallDesk")}) {
+      padding-right: 20px;
+    }
+  }
+
+  @media only screen and (max-width: ${themeGet("breakpoints.smallDesk")}) {
+    width: 50%;
   }
 `;

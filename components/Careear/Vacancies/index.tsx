@@ -1,6 +1,7 @@
 import Selector from "../../Selector";
 import VacancyCard from "./components/VacancyCard";
 import {
+  Block,
   ContentWrapper,
   Filter,
   List,
@@ -108,20 +109,22 @@ const Vacancies = ({
 
         <ListWrap>
           <Filter>
-            <Selector
-              value={specialtyId}
-              setValue={setSpecialtyId}
-              placeholder={filterText1}
-              options={specialtiesOptions}
-              icon={SmallStar}
-            />
-            <Selector
-              value={specialtyId}
-              setValue={setTechnologyId}
-              placeholder={filterText2}
-              options={technologiesOptions}
-              icon={SmallStar}
-            />
+            <Block>
+              <Selector
+                value={specialtyId}
+                setValue={setSpecialtyId}
+                placeholder={filterText1}
+                options={specialtiesOptions}
+                icon={SmallStar}
+              />
+              <Selector
+                value={specialtyId}
+                setValue={setTechnologyId}
+                placeholder={filterText2}
+                options={technologiesOptions}
+                icon={SmallStar}
+              />
+            </Block>
 
             <QuickApplyWrap>
               <h2>{header}</h2>

@@ -1,3 +1,4 @@
+import themeGet from "@styled-system/theme-get";
 import styled from "styled-components";
 
 export const CheckAlsoWrapper = styled.div`
@@ -8,6 +9,10 @@ export const CheckAlsoWrapper = styled.div`
   padding-top: 70px;
   position: relative;
   overflow: hidden;
+
+  @media only screen and (max-width: ${themeGet("breakpoints.smallDesk")}) {
+    padding: 0 30px;
+  }
 
   .hex {
     position: absolute;

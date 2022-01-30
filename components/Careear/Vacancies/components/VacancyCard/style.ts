@@ -8,6 +8,10 @@ export const VacancyCardWrapper = styled.div`
   justify-content: space-between;
   align-items: center;
   margin-bottom: 91px;
+
+  @media only screen and (max-width: ${themeGet("breakpoints.smallDesk")}) {
+    margin-bottom: 30px;
+  }
 `;
 
 export const TextWrap = styled.div`

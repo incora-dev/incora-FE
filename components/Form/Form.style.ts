@@ -30,6 +30,10 @@ export const FormContainer = styled.div`
   flex-direction: column;
 
   row-gap: 21px;
+
+  @media only screen and (max-width: ${themeGet("breakpoints.smallDesk")}) {
+    max-width: 450px;
+  }
 `;
 
 export const FormInputFile = styled.div`

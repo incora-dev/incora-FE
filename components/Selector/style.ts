@@ -5,6 +5,16 @@ export const SelectorWrapper = styled.div`
   width: 300px;
   height: 33px;
 
+  @media only screen and (max-width: ${themeGet("breakpoints.smallDesk")}) {
+    width: 50%;
+  }
+
+  :nth-child(1) {
+    @media only screen and (max-width: ${themeGet("breakpoints.smallDesk")}) {
+      padding-right: 20px;
+    }
+  }
+
   .react-select-container,
   .react-select__control {
     width: 100%;

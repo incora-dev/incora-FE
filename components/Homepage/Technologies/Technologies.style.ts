@@ -17,6 +17,9 @@ export const Component = styled.div`
 
 export const PaddingTop = styled.div`
   padding-top: 120px;
+ @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    padding-top: 50px;
+  }
 
   @media only screen and (max-width: ${theme.breakpoints.mobile}) {
     padding-top: 53px;

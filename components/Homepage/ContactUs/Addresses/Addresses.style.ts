@@ -34,9 +34,19 @@ export const AddressesContainer = styled.div`
   @media only screen and (max-width: ${theme.breakpoints.mobile}) {
     left: 20px;
   }
+  @media only screen and (max-width: ${theme.breakpoints.mMobile}) {
+    left: 40px;
+  }
+  @media only screen and (max-width: ${theme.breakpoints.xsMobile}) {
+    left: 20px;
+    width: 90%;
+  }
 `;
 
 export const Address = styled.div`
+@media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    width: inherit;
+  }
 `;
 
 export const Country = styled.div`

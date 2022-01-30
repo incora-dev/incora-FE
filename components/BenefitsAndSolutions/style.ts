@@ -1,5 +1,6 @@
 import themeGet from "@styled-system/theme-get";
 import styled from "styled-components";
+import { theme } from "../../styles/theme";
 
 interface IGridItemWrap {
   width: number;
@@ -21,12 +22,31 @@ export const BenefitsAndSolutionsWrap = styled.div`
   position: relative;
 
   background-color: ${({ bgColor }: IBackground) => bgColor};
+
+  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    height: 210vh;
+  }
+  @media only screen and (max-width: ${theme.breakpoints.mMobile}) {
+    height: 260vh;
+  }
+  @media only screen and (max-width: ${theme.breakpoints.xsMobile}) {
+    height: 350vh;
+  }
 `;
 
 export const ContentWrap = styled.div`
   padding-top: 120px;
+ @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    padding-top: 50px;
+  }
   position: absolute;
   width: 1006px;
+
+  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
 
   h1 {
     font-weight: 800;
@@ -44,6 +64,11 @@ export const Grid = styled.div`
   flex-flow: wrap;
   column-gap: 70px;
   row-gap: ${({ rowGap }: IGrid) => `${rowGap}px`};
+
+    @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    padding: 0 20px;
+    row-gap: 50px;
+  }
 `;
 
 export const GridItemWrap = styled.div`

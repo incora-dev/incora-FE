@@ -15,7 +15,7 @@ export const Container = styled.div`
 export const Title = styled.div`
   color: ${themeGet("colors.white")};
   font-weight: 800;
-  font-size: 64px;
+  font-size: var(--fs-64);
   line-height: 96px;
 @media only screen and (max-width: ${theme.breakpoints.mobile}) {
   line-height: 50px;

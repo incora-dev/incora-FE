@@ -6,6 +6,9 @@ export const SendCvHeaderWrapper = styled.div`
   width: 100%;
   height: 409px;
   padding-top: 120px;
+ @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    padding-top: 50px;
+  }
   display: flex;
   justify-content: center;
 `;

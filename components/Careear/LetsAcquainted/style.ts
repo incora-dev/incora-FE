@@ -8,6 +8,9 @@ export const LetsAcquaintedWrapper = styled.div`
   display: flex;
   justify-content: center;
   padding-top: 120px;
+ @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    padding-top: 50px;
+  }
   position: relative;
 `;
 

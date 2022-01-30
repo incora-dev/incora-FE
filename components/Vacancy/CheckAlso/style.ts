@@ -12,6 +12,15 @@ export const CheckAlsoWrapper = styled.div`
 
   @media only screen and (max-width: ${themeGet("breakpoints.smallDesk")}) {
     padding: 0 30px;
+    height: 800px;
+  }
+
+  @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
+    height: auto;
+  }
+
+  @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
+    padding: 0 15px;
   }
 
   .hex {
@@ -24,5 +33,11 @@ export const CheckAlsoWrapper = styled.div`
     position: absolute;
     left: 0;
     bottom: 165px;
+  }
+
+  .hex, .hex_cropped {
+    @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
+      display: none;
+    }
   }
 `;

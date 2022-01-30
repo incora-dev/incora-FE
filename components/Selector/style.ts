@@ -9,9 +9,17 @@ export const SelectorWrapper = styled.div`
     width: 50%;
   }
 
+  @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
+    width: 100%;
+  }
+
   :nth-child(1) {
     @media only screen and (max-width: ${themeGet("breakpoints.smallDesk")}) {
       padding-right: 20px;
+    }
+
+    @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
+      padding-right: 0;
     }
   }
 

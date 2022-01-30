@@ -34,6 +34,10 @@ export const FormContainer = styled.div`
   @media only screen and (max-width: ${themeGet("breakpoints.smallDesk")}) {
     max-width: 450px;
   }
+
+  @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
+    row-gap: 10px;
+  }
 `;
 
 export const FormInputFile = styled.div`
@@ -80,7 +84,7 @@ export const FormInputFile = styled.div`
 
 export const Input = styled.input`
   box-sizing: content-box;
-  width: 400px;
+  max-width: 400px;
 
   padding-bottom: 2px;
   display: inline-block;
@@ -107,7 +111,7 @@ export const Input = styled.input`
   -moz-transition: ease-in-out 0.4s;
   transition: all ease-in-out 0.4s;
 
-  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+  @media only screen and (max-width: ${themeGet("breakpoints.smallDesk")}) {
     width: 100%;
   }
 

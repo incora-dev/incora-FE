@@ -6,6 +6,10 @@ export const Block = styled.div`
   @media only screen and (max-width: ${themeGet("breakpoints.smallDesk")}) {
     display: flex;
   }
+
+  @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
+    flex-direction: column;
+  }
 `;
 
 export const VacanciesWrapper = styled.div`
@@ -14,6 +18,10 @@ export const VacanciesWrapper = styled.div`
   display: flex;
   justify-content: center;
   /* padding-top: 120px; */
+
+  @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
+    height: auto;
+  }
 `;
 
 export const ContentWrapper = styled.div`
@@ -31,11 +39,16 @@ export const ContentWrapper = styled.div`
     letter-spacing: ${themeGet("letterSpacing.h1")};
     margin-bottom: 65.5px;
 
-    @media only screen and (max-width: $${themeGet("breakpoints.smallDesk")}) {
+    @media only screen and (max-width: ${themeGet("breakpoints.mDesk")}) {
       margin-top: 20px;
       font-size: 34px;
       line-height: 44px;
       margin-bottom: 20px;
+    }
+
+    @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
+      font-size: 17px;
+      line-height: 24px;
     }
   }
 `;
@@ -45,8 +58,9 @@ export const ListWrap = styled.div`
   justify-content: space-between;
   height: 827px;
 
-  @media only screen and (max-width: ${themeGet("breakpoints.mDesk")}) {
+  @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
     flex-direction: column;
+    height: auto;
   }
 `;
 
@@ -56,7 +70,7 @@ export const Filter = styled.div`
   flex-flow: column;
   gap: 31px;
 
-  @media only screen and (max-width: ${themeGet("breakpoints.smallDesk")}) {
+  @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
     width: 100%;
   }
 `;
@@ -66,13 +80,16 @@ export const List = styled.div`
   padding-right: 39px;
 
   @media only screen and (max-width: ${themeGet("breakpoints.mDesk")}) {
-    width: 100%;
     padding-right: 0;
     padding-left: 20px;
   }
 
   @media only screen and (max-width: ${themeGet("breakpoints.smallDesk")}) {
     padding-left: 0;
+  }
+
+  @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
+    width: 100%;
   }
 `;
 
@@ -84,6 +101,11 @@ export const QuickApplyWrap = styled.div`
     margin-bottom: 40px;
   }
 
+  @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
+    margin-bottom: 20px;
+    margin-top: 0;
+  }
+
   h2 {
     font-style: normal;
     font-weight: 800;
@@ -91,6 +113,10 @@ export const QuickApplyWrap = styled.div`
     line-height: 31px;
     letter-spacing: ${themeGet("letterSpacing.span")};
     margin-bottom: 6px;
+
+    @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
+      font-size: 16px;
+    }
   }
 
   p {
@@ -99,5 +125,25 @@ export const QuickApplyWrap = styled.div`
     letter-spacing: ${themeGet("letterSpacing.span")};
     color: ${themeGet("color.font2")};
     margin-bottom: 20px;
+
+    @media only screen and (max-width: ${themeGet("breakpoints.smallDesk")}) {
+      line-height: 28px;
+    }
+
+    @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
+      font-size: 14px;
+      line-height: 24px;
+    }
+
+    @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
+      font-size: 12px;
+      line-height: 18px;
+    }
+  }
+
+  button {
+    @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
+      height: 45px;
+    }
   }
 `;

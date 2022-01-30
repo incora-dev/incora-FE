@@ -21,6 +21,7 @@ export const CaseFilterWrapper = styled.div`
 
   @media only screen and (max-width: ${theme.breakpoints.mobile}) {
     height: unset;
+    padding-top: 53px;
   }
 `;
 
@@ -36,11 +37,18 @@ export const FilterWrap = styled.div`
     font-weight: 800;
     font-size: var(--fs-64);
     line-height: 96px;
+@media only screen and (max-width: ${theme.breakpoints.mobile}) {
+  line-height: 50px;
+}
     text-transform: capitalize;
     letter-spacing: 3px;
     margin-bottom: 21px;
     color: ${({ filterByFlag }: ICaseFilterWrapper) =>
       filterByFlag ? themeGet("colors.white") : themeGet("colors.black")};
+
+      @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+        line-height: 50px;
+      }
   }
 
   p {

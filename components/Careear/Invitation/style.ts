@@ -1,5 +1,6 @@
 import themeGet from "@styled-system/theme-get";
 import styled from "styled-components";
+import { theme } from "../../../styles/theme";
 
 export const InvitationWrapper = styled.div`
   width: 100%;
@@ -39,6 +40,9 @@ export const TextBlock = styled.div`
     font-weight: 800;
     font-size: var(--fs-64);
     line-height: 96px;
+@media only screen and (max-width: ${theme.breakpoints.mobile}) {
+  line-height: 50px;
+}
     color: ${themeGet("colors.white")};
     letter-spacing: ${themeGet("letterSpacing.h1")};
     margin-bottom: 14px;

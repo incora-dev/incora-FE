@@ -30,6 +30,9 @@ export const H2 = styled.h2`
   font-weight: 800;
   font-size: var(--fs-64);
   line-height: 96px;
+@media only screen and (max-width: ${theme.breakpoints.mobile}) {
+  line-height: 50px;
+}
   letter-spacing: 0.05em;
 `;
 

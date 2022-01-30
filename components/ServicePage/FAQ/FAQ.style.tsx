@@ -23,6 +23,11 @@ export const ContentWrapper = styled.div`
   
   display: flex;
   justify-content: space-between;
+
+  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    padding: 53px 20px;
+    flex-direction: column;
+  }
 `;
 
 export const Text = styled.p`
@@ -75,6 +80,9 @@ export const AccordionWrapper = styled.div`
   color: ${({ isOpen }: IAccordion) => isOpen ? theme.colors.white : theme.colors.black};
   background-color: ${({ isOpen }: IAccordion) => isOpen ? theme.colors.black : 'none'};
   border-bottom: ${({ lastBlock }: IAccordion) => lastBlock ? 'none' : '1px solid #EFEFEF'};
+  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+        width: 100%;
+  }
 `;
 
 export const Accordion = styled.div`

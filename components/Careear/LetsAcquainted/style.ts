@@ -1,5 +1,6 @@
 import themeGet from "@styled-system/theme-get";
 import styled from "styled-components";
+import { theme } from "../../../styles/theme";
 
 export const LetsAcquaintedWrapper = styled.div`
   width: 100%;
@@ -25,6 +26,9 @@ export const ContentWrap = styled.div`
     font-weight: 800;
     font-size: var(--fs-64);
     line-height: 96px;
+@media only screen and (max-width: ${theme.breakpoints.mobile}) {
+  line-height: 50px;
+}
     letter-spacing: 3px;
     text-transform: capitalize;
     margin-bottom: 30px;

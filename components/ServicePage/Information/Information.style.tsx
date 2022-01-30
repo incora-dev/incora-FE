@@ -1,4 +1,6 @@
+import themeGet from "@styled-system/theme-get";
 import styled from "styled-components";
+import { theme } from "../../../styles/theme";
 
 export const Div = styled.div`
   margin-top: -104px;
@@ -14,6 +16,10 @@ export const TextBlock = styled.div`
 
   display: flex;
   justify-content: space-between;
+
+  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    padding: 53px 20px;
+  }
 `;
 
 export const Content = styled.div`
@@ -42,9 +48,16 @@ export const H1 = styled.h1`
   font-weight: 800;
   font-size: var(--fs-64);
   line-height: 96px;
+@media only screen and (max-width: ${theme.breakpoints.mobile}) {
+  line-height: 50px;
+}
   letter-spacing: 0.05em;
 
   color: #000000;
+
+  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    line-height: 50px;
+  }
 `;
 
 export const Sphere = styled.div`

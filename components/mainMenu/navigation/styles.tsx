@@ -56,6 +56,10 @@ export const Ul = styled.ul`
     background-color: ${themeGet("colors.yellow")};
 
     transition: all ${themeGet("transition.button")};
+
+    @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+      left: -10px;
+    }
   }
 `
 

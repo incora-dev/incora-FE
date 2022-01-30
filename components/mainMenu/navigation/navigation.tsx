@@ -10,8 +10,6 @@ import Arrow from "../../../public/navArrow.svg"
 import React, {useEffect, useState} from "react";
 import Link from "next/link";
 import { theme } from "../../../styles/theme";
-import HamburgerButton from "../../BurgerMenuButton";
-import { SideMenu } from "../sideMainMenu";
 
 function Navigation({ 
   titles, 
@@ -19,7 +17,8 @@ function Navigation({
   setOnHoverElement, 
   onSelectedMenu, 
   setOnSelectedMenu, 
-  backgroundColor }: INavigation) 
+  backgroundColor,
+  toggleHoverMenuMode }: INavigation) 
   {
   const [selectedTitle, setSelectedTitle] = useState<string | null>(null);
   const  [urlTitle, setUrlTitle] = useState<string | null | undefined>(null);
@@ -53,6 +52,7 @@ function Navigation({
                 onMouseEnter={() => {
                   setOnHoverElement(title);
                   setSelectedTitle(title);
+                  toggleHoverMenuMode();
                 }}
               >
                 <Li>{title}</Li>
@@ -82,6 +82,7 @@ function Navigation({
             onMouseEnter={() => {
               setOnHoverElement(title);
               setSelectedTitle(title);
+              toggleHoverMenuMode();
             }}
 
             onMouseLeave={() => setOnSelectedMenu(null)}

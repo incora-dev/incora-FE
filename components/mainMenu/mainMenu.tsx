@@ -35,7 +35,7 @@ export default function MainMenu(props: IMenu) {
   const [isMobile, setIsMobile] = useState<boolean>();
 
   const node = useRef<any>();
-  const { isMenuOpen, toggleMenuMode } = useContext(MenuContext);
+  const { isMenuOpen, toggleMenuMode, isHoverMenuOpen, toggleHoverMenuMode  } = useContext(MenuContext);
   const nodeHoverMenu = useRef();
 
   useOnClickOutside(node, () => {
@@ -43,7 +43,7 @@ export default function MainMenu(props: IMenu) {
   });
 
   useOnClickOutside(node, () => {
-    if (isMenuOpen) {
+    if (isMenuOpen && !isHoverMenuOpen) {
       toggleMenuMode();
     }
   });
@@ -77,7 +77,8 @@ export default function MainMenu(props: IMenu) {
                 setOnHoverElement={setOnHoverElement} 
                 onSelectedMenu={onSelectedMenu} 
                 setOnSelectedMenu={setOnSelectedMenu}
-                ref={node} />
+                ref={node}
+                toggleHoverMenuMode={toggleHoverMenuMode} />
             </>
           ) 
           : (
@@ -88,12 +89,13 @@ export default function MainMenu(props: IMenu) {
               onSelectedMenu={onSelectedMenu}
               setOnSelectedMenu={setOnSelectedMenu}
               backgroundColor={backgroundColor}
+              toggleHoverMenuMode={toggleHoverMenuMode}
               />
           )}
         </Block>
 
         <HoverMenu
-          isShow={Boolean(onHoverElement)}
+          isShow={Boolean(onHoverElement)|| isHoverMenuOpen}
           titlesColor={titlesColor}
           onMouseLeave={() => {
             setOnHoverElement(null);

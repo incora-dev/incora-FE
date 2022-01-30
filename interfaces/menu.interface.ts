@@ -13,6 +13,7 @@ export interface INavigation {
   onSelectedMenu: string | null;
   setOnSelectedMenu: Function;
   backgroundColor: string;
+  toggleHoverMenuMode: () => void;
 }
 
 export interface IBackgroundColor {

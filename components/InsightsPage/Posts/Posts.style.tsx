@@ -16,6 +16,11 @@ export const Wrapper = styled.div`
   flex-direction: column;
   row-gap: 100px;
 
+  @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
+    padding: 50px 25px 50px;
+    row-gap: 45px;
+  }
+
   @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
     padding: 35px 15px 40px;
     row-gap: 45px;

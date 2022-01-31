@@ -26,7 +26,7 @@ export const ScrollLabels = styled.div`
 
   display: flex;
   flex-direction: column;
-  row-gap: 15px;
+  row-gap: 25px;
 `;
 
 export const StickyWrapper = styled.div`
@@ -57,11 +57,17 @@ export const Label = styled.div`
 
   color: ${themeGet("colors.black")};
 
-  h1, h2, h3 {
+  h1, h2 {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 21px;
+    letter-spacing: 0.05em;
+
     color: ${({ selected }: ISelect) => selected ? theme.colors.black : theme.colors.grey2};
   }
 
-  h4, h5, h6 {
+  h3, h4, h5, h6 {
     font-style: normal;
     font-weight: ${({ selected }: ISelect) => selected ? '700': 'normal' };
     font-size: 12px;
@@ -136,7 +142,7 @@ export const MainText = styled.div`
   flex-direction: column;
   row-gap: 30px;
   
-  h1, h2, h3 {
+  h1, h2 {
     font-style: normal;
     font-weight: 800;
     font-size: 28px;
@@ -148,7 +154,7 @@ export const MainText = styled.div`
     color: ${themeGet("colors.black")};
   }
 
-  h4, h5, h6 {
+  h3, h4, h5, h6 {
     font-style: normal;
     font-weight: bold;
     font-size: 18px;
@@ -198,6 +204,15 @@ export const MainText = styled.div`
     letter-spacing: 0.1em;
 
     color: ${themeGet("colors.yellow2")};
+  }
+
+
+  pre {
+    padding: 20px;
+    overflow: scroll;
+    
+    color: ${themeGet("colors.codeText")};
+    background-color: ${themeGet("colors.codeBg")};
   }
 `;
 

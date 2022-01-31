@@ -40,6 +40,10 @@ export const Div = styled.div`
 
     color: ${themeGet("colors.font1")};
 
+    @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+      line-height: 27px;
+    }
+
     @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
       line-height: 24px;
     }
@@ -86,6 +90,11 @@ export const TextBlock = styled.div`
   display: flex;
   flex-direction: column;
   row-gap: 30px;
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+    row-gap: 20px;
+    padding: 0 25px;
+  }
 
   @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     row-gap: 15px;

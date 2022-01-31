@@ -17,7 +17,7 @@ export const Div = styled.div`
   a {
     position: relative;
 
-    @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+    @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
       font-weight: 600;
       padding-left: 7px;
     }
@@ -48,6 +48,10 @@ export const Wrapper = styled.div`
   width: 100vw;
   padding: 16.5px 0;
 
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+    padding: 10px 25px;
+  }
+
   @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     padding: 5px 15px;
   }
@@ -62,6 +66,10 @@ export const TextBlock = styled.div`
   justify-content: center;
   column-gap: 37px;
   color: ${themeGet("colors.black")};
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+    width: 100%;
+  }
 
   @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     display: block;

@@ -12,6 +12,10 @@ export const Wrapper = styled.div`
   margin: 0 auto;
   padding: 181px 0 237px;
 
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+    padding: 181px 25px 237px;
+  }
+
   @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     width: 100%;
     padding: 70px 15px 99px;
@@ -45,7 +49,7 @@ export const IconBlock = styled.div`
 export const TextBlock = styled.div`
   margin-left: 24px;
 
-  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
     margin-left: 0;
   }
 `;

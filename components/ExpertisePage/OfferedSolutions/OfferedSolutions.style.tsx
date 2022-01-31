@@ -16,6 +16,6 @@ export const Div = styled.div`
     height: 260vh;
   }
   @media only screen and (max-width: ${themeGet('breakpoints.xsMobile')}) {
-    height: 350vh;
+    height: 310vh;
   }
 `;

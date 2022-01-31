@@ -30,7 +30,7 @@ export const BenefitsAndSolutionsWrap = styled.div`
     height: 260vh;
   }
   @media only screen and (max-width:  ${themeGet('breakpoints.xsMobile')}) {
-    height: 350vh;
+    height: 310vh;
   }
 `;
 
@@ -68,7 +68,7 @@ export const Grid = styled.div`
   column-gap: 70px;
   row-gap: ${({ rowGap }: IGrid) => `${rowGap}px`};
 
-    @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     row-gap: 50px;
   }
 `;

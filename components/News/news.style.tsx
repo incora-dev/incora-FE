@@ -14,6 +14,7 @@ export const Component = styled.div`
   background-color: ${({ bgColor }: IComponent) => bgColor};
   @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     height: fit-content;
+    padding-top: 40px;
   }
 `;
 

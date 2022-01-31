@@ -9,6 +9,7 @@ module.exports = {
       "./graphql/caseStudies/queries.ts",
       "./graphql/insights/queries.ts",
       "./graphql/services/queries.ts",
+      "./graphql/industries/queries.ts",
     ],
     tagName: "gql",
     addTypename: true,

@@ -16,17 +16,7 @@ import HexagonFilled from "../../../public/hexagonFilled.svg";
 import Loading from "../../../public/loading1.svg";
 import Dots from "../Cooperate/elements/dots/dots";
 import { useState } from "react";
-import { useQuery } from "@apollo/client";
-import { GET_PROJECTS } from "../../../graphql/caseStudies/queries";
-import {
-  GetProjects,
-  GetProjects_projects_data,
-} from "../../../graphql/caseStudies/__generated__/getProjects";
-import { theme } from "../../../styles/theme";
-import {
-  GetService_services_data_attributes,
-  GetService_services_data_attributes_projects_data,
-} from "../../../graphql/services/__generated__/GetService";
+import { GetProjects_projects_data } from "../../../graphql/caseStudies/__generated__/getProjects";
 
 interface IEmbodiedIdeas {
   title?: string;

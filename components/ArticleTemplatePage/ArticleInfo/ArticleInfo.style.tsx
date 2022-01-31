@@ -22,6 +22,11 @@ export const Wrapper = styled.div`
   display: flex;
   column-gap: 63px;
 
+  @media only screen and (max-width: ${themeGet("breakpoints.tabletPro")}) {
+    max-width: 100%;
+    column-gap: 34px;
+  }
+
   @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
     row-gap: 10px;
     flex-direction: column;
@@ -36,6 +41,10 @@ export const ScrollLabels = styled.div`
   display: flex;
   flex-direction: column;
   row-gap: 25px;
+
+  @media only screen and (max-width: ${themeGet("breakpoints.tabletPro")}) {
+    max-width: 240px;
+  }
   @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
     display: none;
   }
@@ -105,6 +114,10 @@ export const ScrollLabel = styled.div`
   column-gap: 20px;
   justify-content: flex-start;
   align-items: center;
+
+  @media only screen and (max-width: ${themeGet("breakpoints.tabletPro")}) {
+    width: 100%;
+  }
 `;
 
 export const SocialTitleAndTagsBlock = styled.div`
@@ -162,6 +175,10 @@ export const MainText = styled.div`
   display: flex;
   flex-direction: column;
   row-gap: 30px;
+
+  @media only screen and (max-width: ${themeGet("breakpoints.tabletPro")}) {
+    max-width: 580px;
+  }
 
   @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
     padding: 0 25px 0;
@@ -279,10 +296,16 @@ export const PollBlock = styled.div`
   flex-direction: column;
   row-gap: 30px;
 
+  @media only screen and (max-width: ${themeGet("breakpoints.tabletPro")}) {
+    max-width: 580px;
+    margin-left: 274px;
+  }
+
   @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
     padding: 30px 25px 50px;
     row-gap: 20px;
     max-width: 100%;
+    margin-left: 0;
   }
 
   @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {

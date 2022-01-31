@@ -5,6 +5,14 @@ export const Div = styled.div`
   overflow: hidden;
   
   background-color: ${themeGet("colors.black")};
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tabletPro')}) {
+    height: calc(100vh - 374px);
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+    height: auto;
+  }
 `;
 
 export const Wrapper = styled.div`

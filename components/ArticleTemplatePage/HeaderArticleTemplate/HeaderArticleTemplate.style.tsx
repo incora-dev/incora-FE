@@ -15,6 +15,10 @@ export const Wrapper = styled.div`
   margin: 0 auto;
   max-width: 1006px;
   height: max-content;
+
+  @media only screen and (max-width: ${themeGet("breakpoints.tabletPro")}) {
+    max-width: 100%;
+  }
 `;
 
 export const InfoBlock = styled.div`
@@ -25,6 +29,10 @@ export const InfoBlock = styled.div`
 
   display: flex;
   justify-content: space-between;
+
+  @media only screen and (max-width: ${themeGet("breakpoints.tabletPro")}) {
+    padding: 147px 25px 78px;
+  }
 
   @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
     padding: 147px 25px 45px;
@@ -68,7 +76,7 @@ export const Title = styled.h1`
 
   color: ${themeGet("colors.white")};
 
-  @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
+  @media only screen and (max-width: ${themeGet("breakpoints.tabletPro")}) {
     font-size: 32px;
     line-height: 50px;
   }
@@ -104,6 +112,10 @@ export const ArticleOwnerBlock = styled.div`
   align-items: flex-end;
 
   text-align: right;
+
+  @media only screen and (max-width: ${themeGet("breakpoints.tabletPro")}) {
+    right: 0;
+  }
 
   @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
     top: 0;

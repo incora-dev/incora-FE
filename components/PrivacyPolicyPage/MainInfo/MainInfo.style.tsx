@@ -91,6 +91,10 @@ export const TextBlock = styled.div`
   flex-direction: column;
   row-gap: 30px;
 
+  @media only screen and (max-width: ${themeGet('breakpoints.tabletPro')}) {
+    padding: 0 25px;
+  }
+
   @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
     row-gap: 20px;
     padding: 0 25px;

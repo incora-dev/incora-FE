@@ -14,6 +14,10 @@ export const Wrapper = styled.div`
   max-width: 1006px;
   margin: 0 auto;
   padding: 43px 0 144px;
+  
+  @media only screen and (max-width: ${themeGet("breakpoints.tabletPro")}) {
+    padding: 43px 25px 144px;
+  }
 `;
 
 export const PositionSemiCircle = styled.div`

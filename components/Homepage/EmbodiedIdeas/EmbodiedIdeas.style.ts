@@ -97,6 +97,11 @@ export const SeeMoreWorks = styled.div`
   a {
     z-index: 1;
   }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+    width: 100%;
+    padding-left: 20px;
+  }
 `;
 
 export const HexagonPosition = styled.div`
@@ -111,6 +116,10 @@ export const HexagonPosition = styled.div`
       fill: #18181a;
     }
   }
+
+@media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+    left: -40%;
+  }  
 `;
 
 export const LoadingPosition = styled.div`
@@ -127,6 +136,10 @@ export const LoadingPosition = styled.div`
       background: #18181a;
     }
   }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+    left: -10%;
+  } 
 `;
 
 export const DotsPosition = styled.div`

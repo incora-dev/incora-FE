@@ -69,7 +69,6 @@ export const Grid = styled.div`
   row-gap: ${({ rowGap }: IGrid) => `${rowGap}px`};
 
     @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
-    padding: 0 20px;
     row-gap: 50px;
   }
 `;

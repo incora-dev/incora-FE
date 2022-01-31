@@ -17,7 +17,7 @@ export const TextBlock = styled.div`
   display: flex;
   justify-content: space-between;
 
-  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     padding: 53px 20px;
   }
 `;
@@ -48,14 +48,14 @@ export const H1 = styled.h1`
   font-weight: 800;
   font-size: var(--fs-64);
   line-height: 96px;
-@media only screen and (max-width: ${theme.breakpoints.mobile}) {
+@media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
   line-height: 50px;
 }
   letter-spacing: 0.05em;
 
   color: #000000;
 
-  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     line-height: 50px;
   }
 `;

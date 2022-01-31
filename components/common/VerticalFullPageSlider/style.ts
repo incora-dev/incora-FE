@@ -15,13 +15,13 @@ export const Slide = styled.div`
   position: relative;
   height: calc(100vh - 105px);
 
-  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     height: 90vh;
   }
-  @media only screen and (max-width: ${theme.breakpoints.mMobile}) {
+  @media only screen and (max-width: ${themeGet('breakpoints.mMobile')}) {
     height: 120vh;
   }
-  @media only screen and (max-width: ${theme.breakpoints.xsMobile}) {
+  @media only screen and (max-width: ${themeGet('breakpoints.xsMobile')}) {
     height: 150vh;
   }
 `;

@@ -61,7 +61,7 @@ export const Wrapper = styled.div`
 
   color: ${({ titleColor }: IChangeColor) => titleColor === theme.colors.black ? theme.colors.black : theme.colors.white};
 
-  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     padding: 20px;
     flex-direction: column;
     overflow: scroll;
@@ -80,7 +80,7 @@ export const BlockWithIconsTop = styled.div`
   display: flex;
   column-gap: 30px;
 
-  @media only screen and (max-width: ${theme.breakpoints.xsMobile}) {
+  @media only screen and (max-width: ${themeGet('breakpoints.xsMobile')}) {
     flex-direction: column;
   }
 `;
@@ -89,7 +89,7 @@ export const BlockWithIconsBottom = styled.div`
   display: flex;
   column-gap: 50px;
 
-  @media only screen and (max-width: ${theme.breakpoints.xsMobile}) {
+  @media only screen and (max-width: ${themeGet('breakpoints.xsMobile')}) {
     flex-direction: column;
   }
 `;

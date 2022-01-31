@@ -15,7 +15,7 @@ export const Div = styled.div`
 
   overflow: hidden;
 
-  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
       height: ${({ height }: IDiv) => (height ? `${height}px` : "max-content")};
       padding-bottom: 120px;
   }
@@ -27,7 +27,7 @@ export const PositionTitle = styled.div`
     disablePadding ? "0" : "120px"};
   margin-bottom: 46px;
 
-  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     padding-top: 53px;
   }
 `;
@@ -50,7 +50,7 @@ export const H2 = styled.h2`
 
   color: #fec506;
 
-  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     width: 100%;
     padding-left: 20px;
   }
@@ -78,7 +78,7 @@ export const ProjectsContainer = styled.div`
   row-gap: 174px;
   align-items: center;
 
-  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     row-gap: 53px;
   }
 `;

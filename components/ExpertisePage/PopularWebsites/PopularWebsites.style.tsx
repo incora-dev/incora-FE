@@ -11,7 +11,7 @@ export const Wrapper = styled.div`
   margin: 0 auto;
   padding: 120px 0;
 
-  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     padding: 30px 0;
     max-width: 100%;
   }
@@ -22,7 +22,7 @@ export const TextBlock = styled.div`
   flex-direction: column;
   
   row-gap: 90px;
-  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     row-gap: 30px;
   }
 `;
@@ -32,14 +32,14 @@ export const H2 = styled.h2`
   font-weight: 800;
   font-size: var(--fs-36);
   line-height: 54px;
- @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+ @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
      line-height: 40px;
   }
 
   letter-spacing: 0.05em;
   
   color: ${themeGet("colors.black")};
-  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     padding: 0 20px;
   }
 `;
@@ -56,7 +56,7 @@ export const IconsBlock = styled.div`
     cursor: pointer;
   }
 
-  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     display: flex;
     flex-direction: column;
     gap: 35px;

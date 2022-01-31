@@ -19,7 +19,7 @@ export const Component = styled.div`
     display: none;
   }
 
-  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     padding: 0 8%;
   }
 `;
@@ -47,7 +47,7 @@ export const Technology = styled.div`
     font-weight: bold;
     font-size: var(--fs-18);
     line-height: 27px;
-@media only screen and (max-width: ${theme.breakpoints.mobile}) {
+@media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     line-height: 23px;
   }
 

@@ -52,7 +52,7 @@ export const Title = styled.h1`
   font-weight: 800;
   font-size: 36px;
   line-height: 54px;
- @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+ @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
      line-height: 40px;
   }
 

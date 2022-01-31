@@ -18,7 +18,7 @@ export const Container = styled.div`
     display: none;
   }
 
-  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     padding: 0 15%;
   }
 `

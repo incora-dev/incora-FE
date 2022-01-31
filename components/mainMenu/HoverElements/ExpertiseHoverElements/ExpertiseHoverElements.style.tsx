@@ -66,7 +66,7 @@ export const Wrapper = styled.div`
   display: flex;
   column-gap: 110px;
 
-  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     padding: 20px;
     flex-direction: column;
     overflow: scroll;
@@ -108,7 +108,7 @@ export const TechnologiesText = styled.div`
 export const TextBlock = styled.div`
   display: flex;
   column-gap: 5px;
-  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     width: 100%;
     flex-wrap: wrap;
   }

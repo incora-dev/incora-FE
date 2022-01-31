@@ -1,5 +1,5 @@
+import themeGet from "@styled-system/theme-get";
 import styled from "styled-components";
-import { theme } from "../../../styles/theme";
 
 export const ProjectOverviewWrapper = styled.div`
   width: 100%;
@@ -17,7 +17,7 @@ export const HeadingWrap = styled.div`
     font-weight: 800;
     font-size: var(--fs-64);
     line-height: 96px;
-@media only screen and (max-width: ${theme.breakpoints.mobile}) {
+@media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
   line-height: 50px;
 }
     letter-spacing: 0.05em;

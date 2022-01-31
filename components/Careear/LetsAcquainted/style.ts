@@ -8,7 +8,7 @@ export const LetsAcquaintedWrapper = styled.div`
   display: flex;
   justify-content: center;
   padding-top: 120px;
- @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+ @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     padding-top: 50px;
   }
   position: relative;
@@ -29,7 +29,7 @@ export const ContentWrap = styled.div`
     font-weight: 800;
     font-size: var(--fs-64);
     line-height: 96px;
-@media only screen and (max-width: ${theme.breakpoints.mobile}) {
+@media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
   line-height: 50px;
 }
     letter-spacing: 3px;
@@ -48,7 +48,7 @@ export const DropAlineWrap = styled.div`
     font-weight: bold;
     font-size: var(--fs-18);
     line-height: 27px;
-@media only screen and (max-width: ${theme.breakpoints.mobile}) {
+@media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     line-height: 23px;
   }
     letter-spacing: ${themeGet("letterSpacing.span")};

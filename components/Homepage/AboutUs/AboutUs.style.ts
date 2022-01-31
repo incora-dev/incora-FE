@@ -18,7 +18,7 @@ export const Div = styled.div`
 export const Container = styled.div`
   padding-bottom: 175px;
 
-  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     padding-bottom: 0;
     padding-right: 20px;
     padding-left: 20px;
@@ -36,7 +36,7 @@ export const Text = styled.div`
   margin: 0 auto;
   padding-top: 104px;
 
-  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     padding-top: 0;
     flex-direction: column;
     margin: 20px 0;
@@ -49,7 +49,7 @@ export const Text = styled.div`
     font-weight: 800;
     font-size: var(--fs-64);
     line-height: 96px;
-@media only screen and (max-width: ${theme.breakpoints.mobile}) {
+@media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
   line-height: 50px;
 }
 

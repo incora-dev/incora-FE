@@ -17,7 +17,7 @@ export const Wrapper = styled.div`
   padding: 120px 0;
   margin: 0 auto;
 
-  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     padding: 30px 20px;
   }
 `;
@@ -26,7 +26,7 @@ export const TextBlock = styled.div`
   display: flex;
   column-gap: 107px;
 
-  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     flex-direction: column;
   }
 `;
@@ -38,7 +38,7 @@ export const H2 = styled.h2`
   font-weight: 800;
   font-size: var(--fs-64);
   line-height: 96px;
-@media only screen and (max-width: ${theme.breakpoints.mobile}) {
+@media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
   line-height: 50px;
 }
   letter-spacing: 0.05em;
@@ -53,7 +53,7 @@ export const H3 = styled.h3`
   font-weight: 800;
   font-size: var(--fs-21);
   line-height: 27px;
-@media only screen and (max-width: ${theme.breakpoints.mobile}) {
+@media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     line-height: 23px;
   }
 
@@ -112,7 +112,7 @@ export const ReasonsWrapper = styled.div`
   flex-direction: column;
   row-gap: 27px;
 
-  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     padding: 27px 0 0 20px;
     width: 65%;
   }
@@ -136,7 +136,7 @@ export const BlockReason = styled.div`
     : theme.colors.yellow3
   };
 
-   @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+   @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     width: 100%;
     height: fit-content;
     padding: 15px 0;

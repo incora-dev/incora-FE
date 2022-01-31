@@ -13,7 +13,7 @@ export const AttachCvWrapper = styled.div`
     font-weight: 800;
     font-size: ${({ big }: IAttachCvWrapper) => (big ? "24px" : "18px")};
     line-height: 27px;
-@media only screen and (max-width: ${theme.breakpoints.mobile}) {
+@media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     line-height: 23px;
   }
     letter-spacing: 0.05em;

@@ -28,7 +28,7 @@ export const InfoBlock = styled.div`
   flex-direction: column;
   row-gap: 50px;
 
-  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     padding: 30px 0;
     row-gap: 30px;
   }
@@ -41,7 +41,7 @@ export const H1 = styled.h1`
   font-weight: 800;
   font-size: var(--fs-36);
   line-height: 54px;
- @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+ @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
      line-height: 40px;
   }
 
@@ -49,7 +49,7 @@ export const H1 = styled.h1`
   
   color: ${({ color }: ITitleColor) => color};
 
-  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     width: 100%;
     padding: 0 20px;
   }
@@ -60,7 +60,7 @@ export const ArgumentsBlock = styled.div`
   justify-content: space-between;
   flex-wrap: wrap;
 
-  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     justify-content: center;
   }
 `
@@ -75,7 +75,7 @@ export const TechnologyWrapper = styled.div`
   
   background-color: ${themeGet("colors.backgroundBlack2")};
 
-  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     padding: 20px;
     max-width: 90%;
   }

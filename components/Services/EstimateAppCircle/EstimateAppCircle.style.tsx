@@ -1,3 +1,4 @@
+import themeGet from "@styled-system/theme-get";
 import styled, { keyframes } from "styled-components";
 import { theme } from "../../../styles/theme";
 
@@ -41,7 +42,7 @@ export const PositionCircleBlock = styled.div`
     animation: ${rotation} 5s linear infinite;
   }
 
-  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     margin-right: 5vw;
   }
 `;

@@ -1,5 +1,6 @@
 import themeGet from "@styled-system/theme-get";
 import styled from "styled-components";
+import { theme } from "../../../styles/theme";
 
 export const VacanciesWrapper = styled.div`
   width: 100%;
@@ -17,6 +18,9 @@ export const ContentWrapper = styled.div`
     font-weight: 800;
     font-size: var(--fs-36);
     line-height: 54px;
+ @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+     line-height: 40px;
+  }
     letter-spacing: ${themeGet("letterSpacing.h1")};
     margin-bottom: 65.5px;
   }

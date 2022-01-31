@@ -169,7 +169,7 @@ const Technology = ({ title, headerText, label }: ITechnology) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <MainMenu
-        backgroundColor={menuColor}
+        backgroundColor={isMobile ? colorBlack : menuColor}
         titlesColor={colorWhite}
         titles={MainMenuTitles}
       >

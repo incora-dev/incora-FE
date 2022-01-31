@@ -144,7 +144,7 @@ const Industry = () => {
         </Head>
         <>
           <MainMenu
-            backgroundColor={menuColor}
+            backgroundColor={isMobile ? colorWhite : menuColor}
             titlesColor={colorBlack}
             titles={titles}
           >

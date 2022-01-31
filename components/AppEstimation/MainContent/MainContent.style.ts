@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import themeGet from "@styled-system/theme-get";
+import { theme } from "../../../styles/theme";
 
 export const Container = styled.div`
   max-width: 1006px;
@@ -52,6 +53,9 @@ export const Title = styled.div`
   font-size: 36px;
   font-weight: 800;
   line-height: 54px;
+ @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+     line-height: 40px;
+  }
   letter-spacing: 1.8px;
   margin-bottom: 25px;
 `;

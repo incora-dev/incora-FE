@@ -33,6 +33,9 @@ export const ContentWrap = styled.div`
     font-weight: 800;
     font-size: var(--fs-18);
     line-height: 27px;
+@media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    line-height: 23px;
+  }
     letter-spacing: 0.05em;
     color: ${themeGet("colors.white")};
   }

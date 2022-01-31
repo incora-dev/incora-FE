@@ -19,12 +19,23 @@ const Insights = () => {
   const text = insightsEntry?.description;
   const inputPlaceholder = insightsEntry?.searchBarText;
 
+  const [isMobile, setIsMobile] = useState<boolean>();
+
+  useEffect(() => {
+    const width = window.innerWidth;
+    const mobileWidth = +theme.breakpoints.mobile.replace('px', '');
+    const isMobile = mobileWidth > width;
+    setIsMobile(isMobile);
+  },[]);
+
   const [menuColor, setMenuColor] = useState("none");
   const handleScroll = () => {
     window.scrollY >= 25
       ? setMenuColor(theme.colors.white)
       : setMenuColor("none");
   };
+
+  
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
@@ -48,7 +59,7 @@ const Insights = () => {
           </Head>
           <>
             <MainMenu
-              backgroundColor={menuColor}
+              backgroundColor={isMobile ? theme.colors.white : menuColor}
               titlesColor={theme.colors.black}
               titles={titles}
             >

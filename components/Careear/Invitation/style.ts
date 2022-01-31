@@ -60,6 +60,9 @@ export const TextBlock = styled.div`
     font-size: var(--fs-18);
     font-weight: bold;
     line-height: 27px;
+@media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    line-height: 23px;
+  }
     color: ${themeGet("colors.white")};
     letter-spacing: ${themeGet("letterSpacing.span")};
     z-index: 0;
@@ -104,6 +107,9 @@ export const HeaderWrap = styled.div`
     font-weight: 800;
     font-size: var(--fs-36);
     line-height: 54px;
+ @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+     line-height: 40px;
+  }
     letter-spacing: ${themeGet("letterSpacing.h1")};
     color: ${themeGet("colors.white")};
     margin-bottom: 71px;

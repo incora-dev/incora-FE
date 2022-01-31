@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { theme } from "../../../styles/theme";
 
 interface IAnimation {
   animation: boolean;
@@ -25,6 +26,9 @@ export const H1 = styled.h1`
   font-weight: 800;
   font-size: var(--fs-36);
   line-height: 54px;
+ @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+     line-height: 40px;
+  }
 
   letter-spacing: 0.05em;
 `
@@ -73,6 +77,9 @@ export const Text = styled.p`
   font-weight: bold;
   font-size: var(--fs-18);
   line-height: 27px;
+@media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    line-height: 23px;
+  }
   letter-spacing: 0.05em;
   text-transform: capitalize;
 `

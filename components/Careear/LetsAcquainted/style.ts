@@ -48,6 +48,9 @@ export const DropAlineWrap = styled.div`
     font-weight: bold;
     font-size: var(--fs-18);
     line-height: 27px;
+@media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    line-height: 23px;
+  }
     letter-spacing: ${themeGet("letterSpacing.span")};
     position: absolute;
     z-index: -1;

@@ -16,11 +16,19 @@ export const Wrapper = styled.div`
   max-width: 1006px;
   padding: 120px 0;
   margin: 0 auto;
+
+  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    padding: 30px 20px;
+  }
 `;
 
 export const TextBlock = styled.div`
   display: flex;
   column-gap: 107px;
+
+  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    flex-direction: column;
+  }
 `;
 
 export const H2 = styled.h2`
@@ -45,6 +53,9 @@ export const H3 = styled.h3`
   font-weight: 800;
   font-size: var(--fs-21);
   line-height: 27px;
+@media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    line-height: 23px;
+  }
 
   letter-spacing: 0.05em;
   text-transform: capitalize;
@@ -100,6 +111,11 @@ export const ReasonsWrapper = styled.div`
   display: flex;
   flex-direction: column;
   row-gap: 27px;
+
+  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    padding: 27px 0 0 20px;
+    width: 65%;
+  }
 `;
 
 export const BlockReason = styled.div`
@@ -119,6 +135,12 @@ export const BlockReason = styled.div`
     ? theme.colors.yellow2
     : theme.colors.yellow3
   };
+
+   @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    width: 100%;
+    height: fit-content;
+    padding: 15px 0;
+  }
 `;
 
 export const PositionNumberBlock = styled.div`

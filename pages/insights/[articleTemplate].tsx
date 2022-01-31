@@ -107,6 +107,15 @@ const ArticleTemplate = () => {
     window.scrollY >= 400 ? setGoToTopVisible(true) : setGoToTopVisible(false);
   };
 
+  const [isMobile, setIsMobile] = useState<boolean>();
+
+  useEffect(() => {
+    const width = window.innerWidth;
+    const mobileWidth = +theme.breakpoints.mobile.replace('px', '');
+    const isMobile = mobileWidth > width;
+    setIsMobile(isMobile);
+  },[]);
+
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
 
@@ -130,7 +139,7 @@ const ArticleTemplate = () => {
           </Head>
           <>
             <MainMenu
-              backgroundColor={menuColor}
+              backgroundColor={isMobile ? theme.colors.black : menuColor}
               titlesColor={theme.colors.white}
               titles={titles}
             >

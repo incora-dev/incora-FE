@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import themeGet from "@styled-system/theme-get";
+import { theme } from "../../../styles/theme";
 
 export const Div = styled.div`
   position: relative;
@@ -51,6 +52,9 @@ export const Title = styled.h1`
   font-weight: 800;
   font-size: 36px;
   line-height: 54px;
+ @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+     line-height: 40px;
+  }
 
   letter-spacing: 0.05em;
   text-transform: capitalize;

@@ -1,5 +1,6 @@
 import themeGet from "@styled-system/theme-get";
 import styled from "styled-components";
+import { theme } from "../../../styles/theme";
 
 interface IAttachCvWrapper {
   big?: boolean;
@@ -12,6 +13,9 @@ export const AttachCvWrapper = styled.div`
     font-weight: 800;
     font-size: ${({ big }: IAttachCvWrapper) => (big ? "24px" : "18px")};
     line-height: 27px;
+@media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    line-height: 23px;
+  }
     letter-spacing: 0.05em;
     margin-bottom: 20px;
     color: ${({ big }: IAttachCvWrapper) =>

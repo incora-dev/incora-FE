@@ -52,6 +52,9 @@ export const ContentWrap = styled.div`
     font-weight: 800;
     font-size: var(--fs-36);
     line-height: 54px;
+ @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+     line-height: 40px;
+  }
     color: ${themeGet("colors.white")};
     letter-spacing: ${themeGet("letterSpacing.h1")};
     text-transform: capitalize;
@@ -86,6 +89,9 @@ export const GridItemWrap = styled.div`
     font-size: var(--fs-18);
     font-style: normal;
     line-height: 27px;
+@media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    line-height: 23px;
+  }
     letter-spacing: ${themeGet("letterSpacing.span")};
     color: ${themeGet("colors.white")};
   }

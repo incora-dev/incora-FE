@@ -69,6 +69,9 @@ export  const  H4 = styled.h4`
   font-weight: bold;
   font-size: var(--fs-18);
   line-height: 27px;
+@media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    line-height: 23px;
+  }
 
   letter-spacing: 0.05em;
 
@@ -81,6 +84,9 @@ export  const  Form = styled.form`
   font-weight: bold;
   font-size: var(--fs-18);
   line-height: 27px;
+@media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    line-height: 23px;
+  }
 
   letter-spacing: 0.05em;
 

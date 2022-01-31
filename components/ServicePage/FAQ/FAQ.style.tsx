@@ -50,6 +50,9 @@ export const Title = styled.p`
   font-weight: 800;
   font-size: var(--fs-18);
   line-height: 27px;
+@media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    line-height: 23px;
+  }
 
   letter-spacing: 0.05em;
   
@@ -112,6 +115,9 @@ export const H2 = styled.h2`
   font-weight: 800;
   font-size: var(--fs-36);
   line-height: 54px;
+ @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+     line-height: 40px;
+  }
   /* identical to box height */
 
   letter-spacing: 0.05em;

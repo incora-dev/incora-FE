@@ -47,6 +47,9 @@ export const Technology = styled.div`
     font-weight: bold;
     font-size: var(--fs-18);
     line-height: 27px;
+@media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    line-height: 23px;
+  }
 
     display: flex;
     align-items: center;

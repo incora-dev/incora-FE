@@ -31,10 +31,10 @@ import {
 interface IEmbodiedIdeas {
   title?: string;
   bgColor: string;
+  projects: GetProjects_projects_data[];
   elementsColor: string;
   disablePadding?: boolean;
   disableSeeMore?: boolean;
-  projects: GetProjects_projects_data[];
 }
 
 function EmbodiedIdeasComponent({

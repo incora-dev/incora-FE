@@ -1,9 +1,12 @@
-import {ReactElement} from "react";
+import { ReactElement } from "react";
 
 export interface IForm {
-  fieldsLabels: string[];
   buttonLabel: string;
+  dropListLabels?: string[];
+  linkedIn?: boolean;
+  dropList?: boolean;
   formBlack?: boolean;
   isUploadFiles?: boolean;
   uploadFilesLabel?: ReactElement;
+  selectedFiles?: File | File[] | null;
 }

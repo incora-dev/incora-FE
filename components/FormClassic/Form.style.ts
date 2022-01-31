@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { theme } from "../../styles/theme";
 
 interface IInput {
-  formBlack: boolean;
+  formTheme: boolean;
 }
 
 export const Container = styled.div`
@@ -24,7 +24,7 @@ export const InputBlock = styled.div`
   row-gap: 31px;
 `;
 
-export const FormContainer = styled.div`
+export const FormContainer = styled.form`
   max-width: 400px;
   display: flex;
   flex-direction: column;
@@ -32,58 +32,19 @@ export const FormContainer = styled.div`
   row-gap: 21px;
 `;
 
-export const FormInputFile = styled.div`
-  margin-top: -4px;
-  box-sizing: border-box;
-  height: max-content;
-
-  position: relative;
-  border: 1px solid ${themeGet("colors.grey2")};
-
-  input {
-    padding-top: 5px;
-    height: 56px;
-    opacity: 0;
-
-    ::file-selector-button {
-      display: none;
-    }
-    ::-webkit-file-upload-button {
-      display: none;
-    }
-  }
-  
-  label {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-
-    transform: translate(-50%, -50%);
-    width: 400px;
-
-    padding: 0 35px;
-
-    font-style: normal;
-    font-weight: 600;
-    font-size: var(--fs-12);
-    line-height: 18px;
-    text-align: center;
-    letter-spacing: 0.05em;
-
-    color: ${themeGet("colors.black")};
-  }
-`;
-
 export const Input = styled.input`
   box-sizing: content-box;
-  width: 400px;
+  width: 100%;
 
   padding-bottom: 2px;
   display: inline-block;
   height: 41px;
 
-  background-color: ${({ formBlack }: IInput) =>
-    formBlack ? themeGet("colors.black") : themeGet("colors.white")};
+  background-color: ${({ formTheme }: IInput) =>
+    formTheme ? themeGet("colors.black") : themeGet("colors.white")};
+
+  color: ${({ formTheme }: IInput) =>
+    formTheme ? themeGet("colors.white") : themeGet("colors.black") };
 
   font-style: normal;
   font-weight: 500;
@@ -102,6 +63,16 @@ export const Input = styled.input`
   -webkit-transition: ease-in-out 0.4s;
   -moz-transition: ease-in-out 0.4s;
   transition: all ease-in-out 0.4s;
+
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  &[type=number] {
+    -moz-appearance: textfield;
+  }
 
   @media only screen and (max-width: ${theme.breakpoints.mobile}) {
     width: 100%;
@@ -126,19 +97,4 @@ export const Input = styled.input`
     -moz-transition: ease-in-out 0.4s;
     transition: all ease-in-out 0.4s;
   }
-`;
-
-export const SelectedFile = styled.p`
-  text-align: left;
-
-  font-style: normal;
-  font-weight: 600;
-  font-size: var(--fs-12);
-  line-height: 18px;
-
-  color: ${themeGet("colors.black")};
-`;
-
-export const FilesSelected = styled.div`
-  margin-top: 35.5px;
 `;

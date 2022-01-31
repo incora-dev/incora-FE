@@ -205,7 +205,6 @@ const aboutUs = {
 const contactUs: IContactUs = {
   title: "contact us",
   text: "Let’s create progress together!",
-  formLabels: ["name", "phone number", "email", "what is you main goal?"],
   addresses: [
     { "ukrainian office": "2 Horodotska Str.,\n" + "Lviv 75001 Ukraine" },
     { "Usa office": "16192 Coastal Hwy, Lewes,\n" + "DE 19958 USA" },
@@ -312,7 +311,7 @@ function Home() {
             title={aboutUs.title}
             text={aboutUs.text}
           />
-          <Reviews />
+          {/*<Reviews />*/}
           <section>
             {/* <NewsComponent
               title={news.title}
@@ -323,18 +322,17 @@ function Home() {
           <ContactUsComponent
             title={contactUs.title}
             text={contactUs.text}
-            formLabels={contactUs.formLabels}
             addresses={contactUs.addresses}
             buttonLabel={contactUs.buttonLabel}
           />
+          <FooterComponent
+              policies={footer.policies}
+              offices={footer.offices}
+              followUs={footer.followUs}
+              pages={footer.pages}
+              copyright={footer.copyright}
+          />
         </MainMenu>
-        <FooterComponent
-          policies={footer.policies}
-          offices={footer.offices}
-          followUs={footer.followUs}
-          pages={footer.pages}
-          copyright={footer.copyright}
-        />
       </>
     </>
   );

@@ -24,12 +24,12 @@ export const BenefitsAndSolutionsWrap = styled.div`
   background-color: ${({ bgColor }: IBackground) => bgColor};
 
   @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
-    height: 210vh;
+    height: 220vh;
   }
-  @media only screen and (max-width: ${theme.breakpoints.mMobile}) {
+  @media only screen and (max-width:  ${themeGet('breakpoints.mMobile')}) {
     height: 260vh;
   }
-  @media only screen and (max-width: ${theme.breakpoints.xsMobile}) {
+  @media only screen and (max-width:  ${themeGet('breakpoints.xsMobile')}) {
     height: 350vh;
   }
 `;
@@ -69,7 +69,6 @@ export const Grid = styled.div`
   row-gap: ${({ rowGap }: IGrid) => `${rowGap}px`};
 
     @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
-    padding: 0 20px;
     row-gap: 50px;
   }
 `;

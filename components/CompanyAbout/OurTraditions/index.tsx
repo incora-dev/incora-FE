@@ -4,15 +4,15 @@ import {
   Paragraphs,
   Photos,
   TextWrap,
-  PhotosBlock
+  PhotosBlock,
 } from "./style";
 import Image from "next/image";
-import {IMAGES_LINK, scrollPhotosBlockPX} from "../../../constants";
+import { IMAGES_LINK, scrollPhotosBlockPX } from "../../../constants";
 import {
   GetAboutPage_aboutPage_data_attributes_ourTraditions,
-  GetAboutPage_aboutPage_data_attributes_ourTraditions_gallery_data
+  GetAboutPage_aboutPage_data_attributes_ourTraditions_gallery_data,
 } from "../../../graphql/companyAbout/__generated__/GetAboutPage";
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 interface IOurTraditions {
   ourTraditions: GetAboutPage_aboutPage_data_attributes_ourTraditions;
@@ -22,8 +22,10 @@ const OurTraditions = ({ ourTraditions }: IOurTraditions) => {
   const [onEnterBlock, setOnEnterBlock] = useState(false);
   const [galleryOneMaxWidth, setGalleryOneMaxWidth] = useState(0);
   const [galleryTwoMaxWidth, setGalleryTwoMaxWidth] = useState(0);
-  const [positionScrollGalleryOne, setPositionScrollGalleryOne] = useState(false);
-  const [positionScrollGalleryTwo, setPositionScrollGalleryTwo] = useState(false);
+  const [positionScrollGalleryOne, setPositionScrollGalleryOne] =
+    useState(false);
+  const [positionScrollGalleryTwo, setPositionScrollGalleryTwo] =
+    useState(false);
 
   const refGalleryOne = useRef<any>(null);
   const refGalleryTwo = useRef<any>(null);
@@ -32,29 +34,32 @@ const OurTraditions = ({ ourTraditions }: IOurTraditions) => {
     gallery: any,
     positionScrollGallery: boolean,
     galleryMaxWidth: number,
-    setPositionGallery: Function)
-    {
-      if (positionScrollGallery) {
-        gallery.current.scrollLeft -= scrollPhotosBlockPX;
-      } else {
-        gallery.current.scrollLeft += scrollPhotosBlockPX;
-      }
+    setPositionGallery: Function
+  ) {
+    if (positionScrollGallery) {
+      gallery.current.scrollLeft -= scrollPhotosBlockPX;
+    } else {
+      gallery.current.scrollLeft += scrollPhotosBlockPX;
+    }
 
-      if (gallery.current.scrollLeft === galleryMaxWidth && !positionScrollGallery) {
-        setPositionGallery(true);
-      }
+    if (
+      gallery.current.scrollLeft === galleryMaxWidth &&
+      !positionScrollGallery
+    ) {
+      setPositionGallery(true);
+    }
 
-      if (gallery.current.scrollLeft === 0 && positionScrollGallery) {
-        setPositionGallery(false);
-      }
+    if (gallery.current.scrollLeft === 0 && positionScrollGallery) {
+      setPositionGallery(false);
+    }
   }
 
   function changeGalleriesTwoPosition(
-      gallery: any,
-      positionScrollGallery: boolean,
-      galleryMaxWidth: number,
-      setPositionGallery: Function)
-  {
+    gallery: any,
+    positionScrollGallery: boolean,
+    galleryMaxWidth: number,
+    setPositionGallery: Function
+  ) {
     if (positionScrollGallery) {
       gallery.current.scrollLeft += scrollPhotosBlockPX;
     } else {
@@ -65,39 +70,62 @@ const OurTraditions = ({ ourTraditions }: IOurTraditions) => {
       setPositionGallery(true);
     }
 
-    if (gallery.current.scrollLeft === galleryMaxWidth && positionScrollGallery) {
+    if (
+      gallery.current.scrollLeft === galleryMaxWidth &&
+      positionScrollGallery
+    ) {
       setPositionGallery(false);
     }
   }
 
+  const handleWheel = useCallback(
+    (event: any) => {
+      if (onEnterBlock) {
+        event.preventDefault();
 
-
-  const handleWheel = (event: any) => {
-    if (onEnterBlock) {
-      event.preventDefault();
-
-      changeGalleriesOnePosition(refGalleryOne, positionScrollGalleryOne, galleryOneMaxWidth, setPositionScrollGalleryOne);
-      changeGalleriesTwoPosition(refGalleryTwo, positionScrollGalleryTwo, galleryTwoMaxWidth, setPositionScrollGalleryTwo);
-    }
-
-  }
+        changeGalleriesOnePosition(
+          refGalleryOne,
+          positionScrollGalleryOne,
+          galleryOneMaxWidth,
+          setPositionScrollGalleryOne
+        );
+        changeGalleriesTwoPosition(
+          refGalleryTwo,
+          positionScrollGalleryTwo,
+          galleryTwoMaxWidth,
+          setPositionScrollGalleryTwo
+        );
+      }
+    },
+    [
+      galleryOneMaxWidth,
+      galleryTwoMaxWidth,
+      onEnterBlock,
+      positionScrollGalleryOne,
+      positionScrollGalleryTwo,
+    ]
+  );
 
   useEffect(() => {
-    const wheelElement = document.getElementById('OurTraditionsWrapper');
+    const wheelElement = document.getElementById("OurTraditionsWrapper");
 
     wheelElement && (wheelElement.onwheel = handleWheel);
-  }, [handleWheel])
+  }, [handleWheel]);
 
   useEffect(() => {
     refGalleryTwo.current.scrollLeft = 100000;
     setGalleryOneMaxWidth(refGalleryTwo.current.scrollLeft);
     setGalleryTwoMaxWidth(refGalleryTwo.current.scrollLeft);
-  }, [])
+  }, []);
 
   const title = ourTraditions.title;
   const text = ourTraditions.text;
   const gallery = ourTraditions.gallery.data;
-  const slicedGallery = (gallery: Array<any>, firstNum: number, secondNum: number) => gallery.slice(firstNum, secondNum);
+  const slicedGallery = (
+    gallery: Array<any>,
+    firstNum: number,
+    secondNum: number
+  ) => gallery.slice(firstNum, secondNum);
 
   const checkGalleryLength = (gallery: Array<any>) => {
     if (gallery.length % 2 === 0) {
@@ -105,7 +133,7 @@ const OurTraditions = ({ ourTraditions }: IOurTraditions) => {
     } else {
       return (gallery.length - 1) / 2;
     }
-  }
+  };
 
   const galleryLength = checkGalleryLength(gallery);
   const galleryOne = slicedGallery(gallery, 0, galleryLength);
@@ -113,16 +141,19 @@ const OurTraditions = ({ ourTraditions }: IOurTraditions) => {
 
   let textArray: string[] = [];
 
-  const photos = (gallery: GetAboutPage_aboutPage_data_attributes_ourTraditions_gallery_data[]) =>
+  const photos = (
+    gallery: GetAboutPage_aboutPage_data_attributes_ourTraditions_gallery_data[]
+  ) =>
     gallery &&
     gallery.map((photo, index) => {
-      const src = IMAGES_LINK + photo.attributes?.url || "";
+      const src = IMAGES_LINK + photo.attributes?.url;
       return (
-        <img
+        <Image
+          loader={() => src}
           src={src}
           width={327}
           height={220}
-          key={index * Math.random()}
+          key={index}
           alt="team photo"
         />
       );
@@ -148,7 +179,7 @@ const OurTraditions = ({ ourTraditions }: IOurTraditions) => {
       </OurTraditionsTextWrap>
 
       <PhotosBlock
-        id={'OurTraditionsWrapper'}
+        id={"OurTraditionsWrapper"}
         onMouseEnter={() => setOnEnterBlock(true)}
         onMouseLeave={() => setOnEnterBlock(false)}
       >

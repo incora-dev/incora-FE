@@ -12,6 +12,9 @@ export const Component = styled.div`
   padding-top: 100px;
 
   background-color: ${({ bgColor }: IComponent) => bgColor};
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+    height: fit-content;
+  }
 `;
 
 export const HeaderContainer = styled.div`

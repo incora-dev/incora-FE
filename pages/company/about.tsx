@@ -21,6 +21,7 @@ import { useQuery } from "@apollo/client";
 import { GET_ABOUT_PAGE } from "../../graphql/companyAbout/queries";
 import { GetAboutPage } from "../../graphql/companyAbout/__generated__/GetAboutPage";
 import Custom404 from "../404";
+import { useEffect } from "react";
 
 const titles = [
   "Services",
@@ -96,14 +97,13 @@ const CompanyAbout = () => {
 
   const { data, loading, error } = useQuery<GetAboutPage>(GET_ABOUT_PAGE);
   const entry = data?.aboutPage?.data?.attributes;
-  const title = entry?.contactUs.title || "";
-  const subtitle = entry?.contactUs.subtitle || "";
 
-  const errorCondition = error && <Custom404 />;
+  if (loading) return null;
+  if (error) return <Custom404 />;
 
   return (
     <>
-      {!loading && !error && entry && (
+      {entry && (
         <MainMenu
           titlesColor={theme.colors.black}
           titles={titles}
@@ -131,8 +131,6 @@ const CompanyAbout = () => {
           />
         </MainMenu>
       )}
-
-      {errorCondition}
     </>
   );
 };

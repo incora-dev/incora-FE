@@ -23,7 +23,9 @@ export const ContentWrap = styled.div`
   > h1 {
     font-weight: 800;
     font-size: var(--fs-64);
-    line-height: 90px;
+    @media only screen and (max-width: ${themeGet('breakpoints.mobile')} ) {
+    line-height: 60px;
+}
     letter-spacing: 0.05em;
     text-transform: capitalize;
     color: ${themeGet("colors.white")};

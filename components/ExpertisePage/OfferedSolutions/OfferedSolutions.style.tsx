@@ -10,12 +10,12 @@ export const Div = styled.div`
   position: relative;
 
   @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
-    height: 210vh;
+    height: 220vh;
   }
-  @media only screen and (max-width: ${theme.breakpoints.mMobile}) {
+  @media only screen and (max-width: ${themeGet('breakpoints.mMobile')}) {
     height: 260vh;
   }
-  @media only screen and (max-width: ${theme.breakpoints.xsMobile}) {
+  @media only screen and (max-width: ${themeGet('breakpoints.xsMobile')}) {
     height: 350vh;
   }
 `;

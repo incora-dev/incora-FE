@@ -16,9 +16,7 @@ const NavState = ({ children }: {children: React.ReactElement[]}) => {
     toggleMenu(!isMenuOpen);
   }
   const toggleHoverMenuMode = () => {
-    if (!isHoverMenuOpen) {
-      toggleHoverMenu(!isHoverMenuOpen);
-    }
+    toggleHoverMenu(!isHoverMenuOpen);
   }
 
   return (

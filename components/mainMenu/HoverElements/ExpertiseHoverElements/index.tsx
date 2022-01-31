@@ -31,7 +31,8 @@ import DevOpsTools from "../../../../public/SVG/menuIcons/DevOpsToolsMini.svg";
 import CloudServices from "../../../../public/SVG/menuIcons/CloudServices.svg";
 import Loader from "../../../../public/loading5.svg"
 import Rectangle from "../../../../public/SVG/rectangleWithGradient.svg"
-import { forwardRef } from "react";
+import { forwardRef, useContext } from "react";
+import { MenuContext } from "../../../../services/context/mainMenu";
 
 interface ITechnologiesLabels {
   title: string;
@@ -65,9 +66,9 @@ const technologiesLabels: ITechnologiesLabels[] = [
   { title: 'cloud services', technologies: ['Amazon Web Services', 'Google Cloud Platform', 'Microsoft Azure', 'DigitalOcean'], Icon: CloudServices },
 ]
 
-function getIndustries(labels: string[]) {
+function getIndustries(labels: string[], linkClickHandler: () => void) {
   return labels.map((label, index) =>
-    <Industry key={index}>
+    <Industry key={index} onClick={linkClickHandler}>
       <Link href={`/expertise/industries/${label.toLowerCase()}`}>
         { label }
       </Link>
@@ -75,7 +76,7 @@ function getIndustries(labels: string[]) {
   )
 }
 
-function getTechnologies(labels: ITechnologiesLabels[], titleColor: string) {
+function getTechnologies(labels: ITechnologiesLabels[], titleColor: string, linkClickHandler: () => void) {
   return labels.map(({ title, technologies, Icon}, index) =>{
 
     return (
@@ -93,7 +94,7 @@ function getTechnologies(labels: ITechnologiesLabels[], titleColor: string) {
 
               return (
                 <>
-                  <Text key={index}>
+                  <Text key={index} onClick={linkClickHandler}>
                     <Link href={`/expertise/technologies/${technology.toLowerCase()}`}>
                       {technology}
                     </Link>
@@ -110,8 +111,13 @@ function getTechnologies(labels: ITechnologiesLabels[], titleColor: string) {
 }
 
 const ExpertiseHoverElements = forwardRef(({ titleColor, isShow, backgroundColor }:IExpertiseHoverElements, ref) => {
-  const industries = getIndustries(industriesLabels);
-  const technologies = getTechnologies(technologiesLabels, titleColor);
+  const { toggleHoverMenuMode, toggleMenuMode  } = useContext(MenuContext);
+  const linkClickHandler = () => {
+    toggleMenuMode();
+    toggleHoverMenuMode();
+  }
+  const industries = getIndustries(industriesLabels, linkClickHandler);
+  const technologies = getTechnologies(technologiesLabels, titleColor, linkClickHandler);
 
   return (
     <MainWrapper titleColor={titleColor}>

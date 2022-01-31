@@ -13,7 +13,7 @@ export const Menu = styled.nav`
   bottom: 0px;
   z-index: 20;
   display: block;
-  width: 60%;
+  width: 100%;
   height: 100vh;
   max-width: 100%;
   margin-top: 0px;

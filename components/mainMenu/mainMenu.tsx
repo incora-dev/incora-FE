@@ -1,6 +1,6 @@
 import { IMenu } from "@interfaces";
 import Navigation from "./navigation/navigation";
-import { Wrapper, Block, HoverMenu, Div, IncoraLogo, ContentWrapper } from "./styles";
+import { Wrapper, Block, HoverMenu, Div, IncoraLogo, ContentWrapper, CloseBtn } from "./styles";
 import { theme } from "../../styles/theme";
 import React, { useContext, useEffect, useRef, useState} from "react";
 import HoverElements from "./HoverElements";
@@ -8,7 +8,6 @@ import Link from "next/link";
 import HamburgerButton from "../BurgerMenuButton";
 import { SideMenu } from "./sideMainMenu";
 import { MenuContext } from "../../services/context/mainMenu";
-import {useOnClickOutside} from '../../services/hooks';
 
 
 function getLogo(titlesColor: string) {
@@ -38,16 +37,6 @@ export default function MainMenu(props: IMenu) {
   const { isMenuOpen, toggleMenuMode, isHoverMenuOpen, toggleHoverMenuMode  } = useContext(MenuContext);
   const nodeHoverMenu = useRef();
 
-  useOnClickOutside(node, () => {
-    setOnHoverElement(null);
-  });
-
-  useOnClickOutside(node, () => {
-    if (isMenuOpen && !isHoverMenuOpen) {
-      toggleMenuMode();
-    }
-  });
-
   useEffect(() => {
     const width = window.outerWidth;
     const mobileWidth = +theme.breakpoints.tablet.replace('px', '');
@@ -62,6 +51,20 @@ export default function MainMenu(props: IMenu) {
         positionType={positionType}
         titlesColor={titlesColor}
       >
+       {(isMenuOpen || isHoverMenuOpen) && (
+       <CloseBtn
+        onClick={() => {
+          if (isMenuOpen && !isHoverMenuOpen) {
+            toggleMenuMode();
+          }
+          if (isHoverMenuOpen) {
+            toggleHoverMenuMode();
+            setOnHoverElement(null);
+          }
+        }}
+        >&#9587;
+        </CloseBtn>
+       )}
       <ContentWrapper>
         <Block>
           <Link href={'/'}>
@@ -77,8 +80,7 @@ export default function MainMenu(props: IMenu) {
                 setOnHoverElement={setOnHoverElement} 
                 onSelectedMenu={onSelectedMenu} 
                 setOnSelectedMenu={setOnSelectedMenu}
-                ref={node}
-                toggleHoverMenuMode={toggleHoverMenuMode} />
+                ref={node} />
             </>
           ) 
           : (
@@ -89,13 +91,14 @@ export default function MainMenu(props: IMenu) {
               onSelectedMenu={onSelectedMenu}
               setOnSelectedMenu={setOnSelectedMenu}
               backgroundColor={backgroundColor}
-              toggleHoverMenuMode={toggleHoverMenuMode}
               />
           )}
         </Block>
 
         <HoverMenu
-          isShow={Boolean(onHoverElement)|| isHoverMenuOpen}
+          isShow={isMobile 
+            ? (Boolean(onHoverElement) && isHoverMenuOpen) 
+            : Boolean(onHoverElement)}
           titlesColor={titlesColor}
           onMouseLeave={() => {
             setOnHoverElement(null);

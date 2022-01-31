@@ -91,3 +91,17 @@ export const HoverMenu = styled.div`
     margin: 65px auto 0 auto;
   }
 `;
+
+export const CloseBtn = styled.button`
+  mix-blend-mode: difference;
+    background: black;
+    border: none;
+    color: white;
+    width: 30px;
+    height: 30px;
+    font-size: 20px;
+    position: fixed;
+    margin: 10px;
+    right: 0;
+    z-index: 21;
+`;

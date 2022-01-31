@@ -24,7 +24,6 @@ export const SideMenu = forwardRef(({
     setOnHoverElement,
     onSelectedMenu,
     setOnSelectedMenu,
-    toggleHoverMenuMode
 }:ISideMenu & INavigation, ref ) => {
   const { isMenuOpen } = useContext(MenuContext);
 
@@ -37,7 +36,6 @@ export const SideMenu = forwardRef(({
             onSelectedMenu={onSelectedMenu}
             setOnSelectedMenu={setOnSelectedMenu}
             backgroundColor={backgroundColor}
-            toggleHoverMenuMode={toggleHoverMenuMode}
             />
     </Menu>
     );

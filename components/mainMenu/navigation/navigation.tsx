@@ -7,9 +7,10 @@ import {
 import { INavigation } from "@interfaces";
 import ButtonWithArrow from "../../ButtonWithArrow";
 import Arrow from "../../../public/navArrow.svg"
-import React, {useEffect, useState} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import Link from "next/link";
 import { theme } from "../../../styles/theme";
+import { MenuContext } from "../../../services/context/mainMenu";
 
 function Navigation({ 
   titles, 
@@ -18,11 +19,12 @@ function Navigation({
   onSelectedMenu, 
   setOnSelectedMenu, 
   backgroundColor,
-  toggleHoverMenuMode }: INavigation) 
+ }: INavigation) 
   {
   const [selectedTitle, setSelectedTitle] = useState<string | null>(null);
   const  [urlTitle, setUrlTitle] = useState<string | null | undefined>(null);
   const [isMobile, setIsMobile] = useState<boolean>();
+  const { toggleHoverMenuMode  } = useContext(MenuContext);
 
   useEffect(() => {
     const width = window.outerWidth;

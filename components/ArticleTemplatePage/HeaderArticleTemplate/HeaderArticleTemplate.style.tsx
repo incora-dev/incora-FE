@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import themeGet from "@styled-system/theme-get";
+import { theme } from "../../../styles/theme";
 
 export const Div = styled.div`
   position: relative;
@@ -24,6 +25,11 @@ export const InfoBlock = styled.div`
 
   display: flex;
   justify-content: space-between;
+
+  @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
+    padding: 120px 15px 45px;
+    flex-direction: column;
+  }
 `;
 
 export const TextBlock = styled.div`
@@ -51,11 +57,19 @@ export const Title = styled.h1`
   font-weight: 800;
   font-size: 36px;
   line-height: 54px;
+ @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+     line-height: 40px;
+  }
 
   letter-spacing: 0.05em;
   text-transform: capitalize;
 
   color: ${themeGet("colors.white")};
+
+  @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
+    font-size: var(--fs-24);
+    line-height: 36px;
+  }
 `;
 
 export const DatePublishedAndViews = styled.p`
@@ -83,6 +97,17 @@ export const ArticleOwnerBlock = styled.div`
   align-items: flex-end;
 
   text-align: right;
+
+  @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
+    top: 0;
+    right: 0;
+    left: 0;
+    align-items: flex-start;
+    text-align: LEFT;
+    flex-direction: initial;
+    column-gap: 16px;
+    margin-top: 10px;
+  }
 `;
 
 export const OwnerPhoto = styled.div`
@@ -97,6 +122,10 @@ export const OwnerPhoto = styled.div`
 export const ArticleOwnerTextBlock = styled.div`
   display: flex;
   flex-direction: column;
+
+  @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
+    padding-top: 13px;
+  }
 `;
 
 export const Name = styled.p`

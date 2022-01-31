@@ -21,4 +21,9 @@ export const Wrapper = styled.div`
   &:hover {
     transform: scale(1.2);
   }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+    bottom: 20px;
+    right:  20px;
+ }
 `;

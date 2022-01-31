@@ -8,12 +8,15 @@ interface IBtn {
   textColor?: string;
   arrow?: string;
 }
+interface IBar {
+  noMargin?: boolean;
+}
 
 export const Bar = styled.span`
   display: block;
   width: 40px;
   height: 2px;
-  margin-bottom: 7px;
+  margin-bottom: ${({noMargin}: IBar) => noMargin ? 0 : '7px'};
   background-color: #fff;
   mix-blend-mode: difference;
 `;

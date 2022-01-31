@@ -17,7 +17,7 @@ const HamburgerButton = () => {
     >
       <Bar />
       <Bar />
-      <Bar />
+      <Bar noMargin />
     </MenuButton>
   );
 };

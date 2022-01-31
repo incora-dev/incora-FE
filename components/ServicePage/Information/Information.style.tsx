@@ -24,7 +24,7 @@ export const TextBlock = styled.div`
 
 export const Content = styled.div`
   min-width: 523px;
-  
+
   display: flex;
   flex-direction: column;
   row-gap: 63px;
@@ -69,7 +69,11 @@ export const Sphere = styled.div`
   height: 50px;
 
   border-radius: 50%;
-  background: linear-gradient(132.16deg, #FEC506 14.9%, rgba(254, 197, 6, 0.2) 85.57%);
+  background: linear-gradient(
+    132.16deg,
+    #fec506 14.9%,
+    rgba(254, 197, 6, 0.2) 85.57%
+  );
 `;
 
 export const H2 = styled.h2`
@@ -77,7 +81,7 @@ export const H2 = styled.h2`
   width: 493px;
 
   align-self: flex-end;
-  
+
   font-family: Poppins;
   font-style: normal;
   font-weight: 800;
@@ -101,5 +105,5 @@ export const Text = styled.p`
 
   letter-spacing: 0.1em;
 
-  color: #454A4D;
+  color: #454a4d;
 `;

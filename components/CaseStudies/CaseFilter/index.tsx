@@ -9,6 +9,7 @@ import {
 } from "../../../graphql/caseStudies/__generated__/GetCaseStudies";
 import { GetIndustriesNames } from "../../../graphql/caseStudies/__generated__/GetIndustriesNames";
 import { IStacks } from "../../../interfaces/servicesComponent.interface";
+import { useIsMobile } from "../../../services/hooks";
 import { theme } from "../../../styles/theme";
 import Globe from "../../common/Globe";
 import { getReview } from "../../Homepage/actions";
@@ -40,14 +41,7 @@ const CaseFilter = ({
 }: ICaseFilter) => {
   const { data, loading } = useQuery<GetIndustriesNames>(GET_INDUSTRIES_NAMES);
   const industriesEntry = data?.industries?.data;
-  const [isMobile, setIsMobile] = useState<boolean>();
-
-  useEffect(() => {
-    const width = window.innerWidth;
-    const mobileWidth = +theme.breakpoints.mobile.replace('px', '');
-    const isMobile = mobileWidth > width;
-    setIsMobile(isMobile);
-  },[]);
+  const isMobile = useIsMobile();
 
   const dispatch = useDispatch();
 

@@ -23,6 +23,7 @@ import {
   GetServicesPage_servicesPage_data_attributes_services_data,
 } from "../../graphql/services/__generated__/GetServicesPage";
 import Custom404 from "../404";
+import { useIsMobile } from "../../services/hooks";
 
 function Services() {
   const { data, loading, error } = useQuery<GetServicesPage>(GET_SERVICES_PAGE);
@@ -36,14 +37,7 @@ function Services() {
   const colorBlack = theme.colors.black;
   const [showModal, setShowModal] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [isMobile, setIsMobile] = useState<boolean>();
-
-  useEffect(() => {
-    const width = window.innerWidth;
-    const mobileWidth = +theme.breakpoints.mobile.replace('px', '');
-    const isMobile = mobileWidth > width;
-    setIsMobile(isMobile);
-  },[]);
+  const isMobile = useIsMobile();
 
   const renderSlide = (slide: GetServicesPage_servicesPage_data_attributes_services_data) => 
     <InformationComponent slide={slide} />;

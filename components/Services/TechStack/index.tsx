@@ -26,6 +26,7 @@ import { GetServicesPage_servicesPage_data_attributes_techStack_tech_stacks_data
 import { ROUTES } from "../../../constants/routes";
 import Image from "next/image";
 import { IMAGES_LINK } from "../../../constants";
+import { useIsMobile } from "../../../services/hooks";
 
 interface ITechStack {
   stackTitle: string;
@@ -39,15 +40,7 @@ const GetStacksInfo = (
   const name = attributes?.name;
   const description = attributes?.description;
   const technologies = attributes?.technologies?.data;
-
-  const [isMobile, setIsMobile] = useState<boolean>(false);
-
-  useEffect(() => {
-    const width = window.innerWidth;
-    const mobileWidth = +theme.breakpoints.mobile.replace("px", "");
-    const isMobile = mobileWidth > width;
-    setIsMobile(isMobile);
-  }, []);
+  const isMobile = useIsMobile();
 
   return (
     <InfoBlock>

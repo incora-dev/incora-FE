@@ -6,6 +6,7 @@ import { theme } from "../../../../styles/theme";
 import { IMAGES_LINK } from "../../../../constants";
 import Link from "next/link";
 import { GetProjects_projects } from "../../../../graphql/caseStudies/__generated__/getProjects";
+import { useIsMobile } from "../../../../services/hooks";
 
 interface IProjects {
   projects: GetProjects_projects;
@@ -14,14 +15,8 @@ interface IProjects {
 
 function Projects({ projects, elementsColor }: IProjects) {
   const [shouldHover, setShouldHover] = useState(-1);
-  const [isMobile, setIsMobile] = useState<boolean>();
+    const isMobile = useIsMobile();
 
-  useEffect(() => {
-    const width = window.innerWidth;
-    const mobileWidth = +theme.breakpoints.mobile.replace('px', '');
-    const isMobile = mobileWidth > width;
-    setIsMobile(isMobile);
-  },[]);
 
   useEffect(() => {
     console.log("projects", projects);

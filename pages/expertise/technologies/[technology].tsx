@@ -25,6 +25,7 @@ import Instagram1 from "../../../public/SVG/socialNetwork/instagram.svg";
 import Facebook1 from "../../../public/SVG/socialNetwork/facebook.svg";
 import LinkedIn1 from "../../../public/SVG/socialNetwork/linkedIn.svg";
 import WhyDevelopWithUs from "../../../components/News/WhyDevelopWithUs";
+import { useIsMobile } from "../../../services/hooks";
 
 const news = {
   title: "Insights",
@@ -145,15 +146,7 @@ const Technology = ({ title, headerText, label }: ITechnology) => {
   const handleScroll = () => {
     window.scrollY >= 50 ? setMenuColor(colorBlack) : setMenuColor("none");
   };
-
-  const [isMobile, setIsMobile] = useState<boolean>();
-
-  useEffect(() => {
-    const width = window.innerWidth;
-    const mobileWidth = +theme.breakpoints.mobile.replace('px', '');
-    const isMobile = mobileWidth > width;
-    setIsMobile(isMobile);
-  },[]);
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
@@ -169,7 +162,7 @@ const Technology = ({ title, headerText, label }: ITechnology) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <MainMenu
-        backgroundColor={menuColor}
+        backgroundColor={isMobile ? colorBlack : menuColor}
         titlesColor={colorWhite}
         titles={MainMenuTitles}
       >

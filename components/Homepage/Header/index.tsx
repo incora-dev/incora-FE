@@ -17,18 +17,13 @@ import Hexagon from "../../../public/SVG/hexagon1.svg"
 import { useEffect, useRef, useState } from "react";
 import { theme } from '../../../styles/theme';
 import { relative } from 'path/posix';
+import { useIsMobile } from '../../../services/hooks';
 
 
 function HeaderComponent() {
   const videoEl: any = useRef(null);
-  const [isMobile, setIsMobile] = useState<boolean>();
+    const isMobile = useIsMobile();
 
-  useEffect(() => {
-    const width = window.innerWidth;
-    const mobileWidth = +theme.breakpoints.mobile.replace('px', '');
-    const isMobile = mobileWidth > width;
-    setIsMobile(isMobile);
-  },[]);
 
   return (
     <Cover>

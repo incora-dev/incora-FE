@@ -32,6 +32,7 @@ import Dots from "../../../Homepage/Cooperate/elements/dots/dots";
 import { theme } from "../../../../styles/theme";
 import { forwardRef, useContext, useEffect, useState } from "react";
 import { MenuContext } from "../../../../services/context/mainMenu";
+import { useIsMobile } from "../../../../services/hooks";
 
 interface IServicesHoverElement {
   titleColor: string;
@@ -70,14 +71,8 @@ function arrowWithText(text: string, linkClickHandler: () => void) {
 }
 
 function getElementsTop(titleColor: string, linkClickHandler: () => void) {
-    const [isMobile, setIsMobile] = useState<boolean>();
+    const isMobile = useIsMobile();
 
-  useEffect(() => {
-    const width = window.innerWidth;
-    const mobileWidth = +theme.breakpoints.mobile.replace('px', '');
-    const isMobile = mobileWidth > width;
-    setIsMobile(isMobile);
-  },[]);
   return (
     <>
       <IconBlock>
@@ -118,14 +113,8 @@ function getElementsTop(titleColor: string, linkClickHandler: () => void) {
 }
 
 function getElementsBottom(titleColor: string, linkClickHandler: () => void) {
-    const [isMobile, setIsMobile] = useState<boolean>();
+      const isMobile = useIsMobile();
 
-  useEffect(() => {
-    const width = window.innerWidth;
-    const mobileWidth = +theme.breakpoints.mobile.replace('px', '');
-    const isMobile = mobileWidth > width;
-    setIsMobile(isMobile);
-  },[]);
   return (
     <>
       <IconBlock>
@@ -190,16 +179,7 @@ const ServicesHoverElement = forwardRef(({ titleColor, isShow, backgroundColor }
       ? theme.colors.black
       : theme.colors.white
   ;
-
-
-  const [isMobile, setIsMobile] = useState<boolean>();
-
-  useEffect(() => {
-    const width = window.innerWidth;
-    const mobileWidth = +theme.breakpoints.mobile.replace('px', '');
-    const isMobile = mobileWidth > width;
-    setIsMobile(isMobile);
-  },[]);
+  const isMobile = useIsMobile();
 
 
   return (

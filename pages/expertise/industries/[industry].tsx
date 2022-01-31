@@ -22,6 +22,7 @@ import { IFooter } from "../../../interfaces/footer.interface";
 import Facebook from "../../../public/SVG/socialNetwork/facebook.svg";
 import LinkedIn from "../../../public/SVG/socialNetwork/linkedIn.svg";
 import Instagram from "../../../public/SVG/socialNetwork/instagram.svg";
+import { useIsMobile } from "../../../services/hooks";
 
 const colorWhite = theme.colors.white;
 const colorBlack = theme.colors.black;
@@ -120,14 +121,7 @@ const Industry = () => {
         ? setMenuColor(colorWhite)
         : setMenuColor('none')
   }
-  const [isMobile, setIsMobile] = useState<boolean>();
-
-  useEffect(() => {
-    const width = window.innerWidth;
-    const mobileWidth = +theme.breakpoints.mobile.replace('px', '');
-    const isMobile = mobileWidth > width;
-    setIsMobile(isMobile);
-  },[]);
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll)

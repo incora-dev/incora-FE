@@ -10,6 +10,7 @@ import { useQuery } from "@apollo/client";
 import { GET_INSIGHTS_PAGE } from "../../graphql/insights/queries";
 import Custom404 from "../404";
 import { GetInsightsPage } from "../../graphql/insights/__generated__/GetInsightsPage";
+import { useIsMobile } from "../../services/hooks";
 
 const Insights = () => {
   const { data, loading, error } = useQuery<GetInsightsPage>(GET_INSIGHTS_PAGE);
@@ -20,6 +21,7 @@ const Insights = () => {
   const inputPlaceholder = insightsEntry?.searchBarText;
 
   const [menuColor, setMenuColor] = useState("none");
+  const isMobile = useIsMobile();
   const handleScroll = () => {
     window.scrollY >= 25
       ? setMenuColor(theme.colors.white)
@@ -48,7 +50,7 @@ const Insights = () => {
           </Head>
           <>
             <MainMenu
-              backgroundColor={menuColor}
+              backgroundColor={isMobile ? theme.colors.white : menuColor}
               titlesColor={theme.colors.black}
               titles={titles}
             >

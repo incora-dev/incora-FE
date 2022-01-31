@@ -8,6 +8,7 @@ import Link from "next/link";
 import HamburgerButton from "../BurgerMenuButton";
 import { SideMenu } from "./sideMainMenu";
 import { MenuContext } from "../../services/context/mainMenu";
+import { useIsMobile } from "../../services/hooks";
 
 
 function getLogo(titlesColor: string) {
@@ -31,18 +32,11 @@ export default function MainMenu(props: IMenu) {
   const [onSelectedMenu, setOnSelectedMenu] = useState<null | string>(null);
   const { titles, backgroundColor = '#fffff', titlesColor, children, positionType = 'sticky' } = props;
   const logo = getLogo(titlesColor);
-  const [isMobile, setIsMobile] = useState<boolean>();
+  const isMobile = useIsMobile();
 
   const node = useRef<any>();
   const { isMenuOpen, toggleMenuMode, isHoverMenuOpen, toggleHoverMenuMode  } = useContext(MenuContext);
   const nodeHoverMenu = useRef();
-
-  useEffect(() => {
-    const width = window.outerWidth;
-    const mobileWidth = +theme.breakpoints.tablet.replace('px', '');
-    const isMobile = mobileWidth >= width;
-    setIsMobile(isMobile);
-  },[]);
 
   return (
     <Div>

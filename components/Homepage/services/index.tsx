@@ -33,17 +33,11 @@ import Cube3 from "../../../public/SVG/Cube3.svg"
 import HexagonBordered from "../../../public/hexagonBordered.svg"
 import HexagonFilled from "../../../public/hexagonFilled.svg"
 import { theme } from "../../../styles/theme";
+import { useIsMobile } from "../../../services/hooks";
 
 function ServicesComponent({ title, text, labels }: IServices) {
   const [ onEnterBlock, setOnEnterBlock] = useState(false);
-  const [isMobile, setIsMobile] = useState<boolean>();
-
-  useEffect(() => {
-    const width = window.innerWidth;
-    const mobileWidth = +theme.breakpoints.mobile.replace('px', '');
-    const isMobile = mobileWidth > width;
-    setIsMobile(isMobile);
-  },[]);
+    const isMobile = useIsMobile();
 
   return (
     <Component

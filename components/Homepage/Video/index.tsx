@@ -13,17 +13,11 @@ import { useEffect, useRef, useState } from "react";
 import PlaySVG from "../../../public/Player/Play.svg"
 import { theme } from "../../../styles/theme";
 import {HOME_PAGE_VIDEO_LINK} from "../../../constants";
+import { useIsMobile } from "../../../services/hooks";
 
 function VideoComponent() {
   const [play, setPlay] = useState(false);
-  const [isMobile, setIsMobile] = useState<boolean>();
-
-  useEffect(() => {
-    const width = window.innerWidth;
-    const mobileWidth = +theme.breakpoints.mobile.replace('px', '');
-    const isMobile = mobileWidth > width;
-    setIsMobile(isMobile);
-  },[]);
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     const player = document.getElementById('youTubeVideo') as HTMLIFrameElement;

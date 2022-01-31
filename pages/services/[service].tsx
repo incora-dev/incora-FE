@@ -12,6 +12,7 @@ import BestSuitedFor from "../../components/ServicePage/BestSuitedFor";
 import WorkflowSetUp from "../../components/ServicePage/WorkflowSetUp";
 import FAQ from "../../components/ServicePage/FAQ";
 import { useEffect, useState } from "react";
+import { useIsMobile } from "../../services/hooks";
 
 const colorWhite = theme.colors.white;
 const colorBlack = theme.colors.black;
@@ -22,14 +23,7 @@ const faq = {
 }
 
 const Service = ({ title, text, content, bestSuitedFor, workflowSetUp }: IService) => {
-  const [isMobile, setIsMobile] = useState<boolean>();
-
-  useEffect(() => {
-    const width = window.innerWidth;
-    const mobileWidth = +theme.breakpoints.mobile.replace('px', '');
-    const isMobile = mobileWidth > width;
-    setIsMobile(isMobile);
-  },[]);
+  const isMobile = useIsMobile();
 
   const [menuColor, setMenuColor] = useState(isMobile ? colorBlack : 'none');
   const handleScroll = () => {
@@ -40,7 +34,6 @@ const Service = ({ title, text, content, bestSuitedFor, workflowSetUp }: IServic
 
   useEffect(() => {
     if (!isMobile && isMobile !== undefined) {
-      console.log('setting ev listener');
       window.addEventListener('scroll', handleScroll)
   
       return () => window.removeEventListener('scroll', handleScroll);
@@ -58,7 +51,7 @@ const Service = ({ title, text, content, bestSuitedFor, workflowSetUp }: IServic
       </Head>
       <>
         <MainMenu
-          backgroundColor={menuColor}
+          backgroundColor={isMobile ? colorBlack : menuColor}
           titlesColor={colorWhite}
           titles={titles}
         >

@@ -17,6 +17,7 @@ import Custom404 from "../404";
 import { useQuery } from "@apollo/client";
 import { GetArticle } from "../../graphql/insights/__generated__/GetArticle";
 import { GET_ARTICLE } from "../../graphql/insights/queries";
+import { useIsMobile } from "../../services/hooks";
 
 const news = {
   title: "You may also like",
@@ -98,6 +99,7 @@ const ArticleTemplate = () => {
 
   const [menuColor, setMenuColor] = useState("none");
   const [goToTopVisible, setGoToTopVisible] = useState(false);
+  const isMobile = useIsMobile();
 
   const handleScroll = () => {
     window.scrollY >= 20
@@ -130,7 +132,7 @@ const ArticleTemplate = () => {
           </Head>
           <>
             <MainMenu
-              backgroundColor={menuColor}
+              backgroundColor={isMobile ? theme.colors.black : menuColor}
               titlesColor={theme.colors.white}
               titles={titles}
             >

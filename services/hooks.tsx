@@ -1,4 +1,5 @@
-import { useEffect } from 'react';
+import { useCallback, useEffect, useState } from 'react';
+import { theme } from '../styles/theme';
 
 export const useOnClickOutside = (ref: any, handler: (e: any) => void) => {
   useEffect(() => {
@@ -17,4 +18,27 @@ export const useOnClickOutside = (ref: any, handler: (e: any) => void) => {
       // document.removeEventListener('touchstart', listener);
     };
   }, [ref, handler]);
+};
+
+export const useIsMobile = () => {
+  const [isMobile, setIsMobile] = useState<boolean>();
+    const [width, setWidth] = useState<number>();
+
+  useEffect(() => {
+    const onHandleResize = () => {
+      setWidth(window.innerWidth);
+    };
+    window.addEventListener('resize', onHandleResize);
+    return () => window.removeEventListener('resize', onHandleResize);
+  }, []);
+
+  useEffect(() => {
+    if (width) {
+      const mobileWidth = +theme.breakpoints.tablet.replace('px', '');
+      const isMobile = mobileWidth >= width;
+      setIsMobile(isMobile);
+    }
+  }, [width])
+
+  return isMobile;
 };

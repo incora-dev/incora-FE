@@ -38,36 +38,40 @@ const NextProject = ({ nextProjectButton }: INextProject) => {
   };
 
   return (
-    <NextProjectWrapper>
-      <Link href={`/case_studies/case/${projectEntry?.url}`} passHref>
-        <NextProjectButton
-          onMouseEnter={onMouseEnter}
-          onMouseLeave={onMouseLeave}
-        >
-          <ContentWrap>
-            <ImageWrap isAnimate={isAnimate}>
-              <DecorOne className="one" />
-              <DecorTwo className="two" />
-              <DecorThree className="three" />
-              <Image
-                loader={() => src}
-                src={src}
-                width={141}
-                height={108.17}
-                alt="next project image"
-              />
-            </ImageWrap>
+    <>
+      {projectEntry && (
+        <NextProjectWrapper>
+          <Link href={`/case_studies/case/${projectEntry.url}`} passHref>
+            <NextProjectButton
+              onMouseEnter={onMouseEnter}
+              onMouseLeave={onMouseLeave}
+            >
+              <ContentWrap>
+                <ImageWrap isAnimate={isAnimate}>
+                  <DecorOne className="one" />
+                  <DecorTwo className="two" />
+                  <DecorThree className="three" />
+                  <Image
+                    loader={() => src}
+                    src={src}
+                    width={141}
+                    height={108.17}
+                    alt="next project image"
+                  />
+                </ImageWrap>
 
-            <TextWrap>
-              <span>{intro}</span>
-              <h3>{projectEntry?.name}</h3>
-            </TextWrap>
+                <TextWrap>
+                  <span>{intro}</span>
+                  <h3>{projectEntry?.name}</h3>
+                </TextWrap>
 
-            <ArrowRight />
-          </ContentWrap>
-        </NextProjectButton>
-      </Link>
-    </NextProjectWrapper>
+                <ArrowRight />
+              </ContentWrap>
+            </NextProjectButton>
+          </Link>
+        </NextProjectWrapper>
+      )}
+    </>
   );
 };
 

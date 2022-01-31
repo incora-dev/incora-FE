@@ -19,7 +19,8 @@ export const ButtonWrap = styled.div`
   }
 
   @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
-    padding: 20px;
+    padding: 10px;
+    width: 50%;
     justify-content: ${({ right }: IButton) => (right ? "flex-start" : "flex-end")};
   }
 `;

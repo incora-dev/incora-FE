@@ -4,6 +4,7 @@ import { theme } from "../../../styles/theme";
 
 interface IPositionInfo  {
   positionRight: string;
+  withGap?: boolean;
 }
 
 interface IDiv  {
@@ -91,16 +92,17 @@ export const PositionNumber = styled.div`
   @media only screen and (max-width: ${theme.breakpoints.xsMobile}) {
     left: 25%;
     margin-top: -50vw;
+
   }
 `
 
-export const InfoContainer = styled.div`
+export const InfoContainer = styled.div<IPositionInfo>`
   display: flex;
-  gap: 25px;
+  gap: ${({withGap}) => withGap ? '100px' : '25px'};
+
 
   @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     flex-wrap: wrap;
-    gap: 0;
   }
 `
 

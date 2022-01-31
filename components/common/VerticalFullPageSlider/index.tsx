@@ -130,6 +130,7 @@ function VerticalFullPageSlider<T>({
             position: scrollBlockPosition === "absolute" ? "absolute" : "fixed",
             bottom: getBottomPosition(),
             top: getTopPosition(),
+            left: '3px',
           }}
         >
           <div id="scroll-item">{renderScrollItem()}</div>

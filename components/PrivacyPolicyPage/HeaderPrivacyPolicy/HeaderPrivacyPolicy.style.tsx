@@ -10,6 +10,10 @@ export const Wrapper = styled.div`
   margin: 0 auto;
   padding: 118px 0 58px;
 
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+    padding: 48px 25px 41px;
+  }
+
   @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     padding: 20px 15px 50px;
   }
@@ -19,6 +23,10 @@ export const TextBlock = styled.div`
   display: flex;
   flex-direction: column;
   row-gap: 27px;
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+    row-gap: 20px;
+  }
 
   @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     row-gap: 15px;
@@ -38,7 +46,7 @@ export const H1 = styled.h1`
 
   color: ${themeGet("colors.white")};
 
-  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
     font-size: var(--fs-36);
     line-height: 50px;
   }

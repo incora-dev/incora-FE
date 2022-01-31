@@ -42,6 +42,9 @@ export const H3 = styled.h3`
   font-weight: 800;
   font-size: var(--fs-36);
   line-height: 54px;
+@media only screen and (max-width: ${theme.breakpoints.mobile}) {
+  line-height: 40px;
+}
 
   letter-spacing: 0.05em;
 

@@ -104,6 +104,9 @@ export const HeaderWrap = styled.div`
     font-weight: 800;
     font-size: var(--fs-36);
     line-height: 54px;
+@media only screen and (max-width: ${theme.breakpoints.mobile}) {
+  line-height: 40px;
+}
     letter-spacing: ${themeGet("letterSpacing.h1")};
     color: ${themeGet("colors.white")};
     margin-bottom: 71px;

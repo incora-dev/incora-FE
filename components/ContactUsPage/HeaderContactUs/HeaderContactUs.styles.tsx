@@ -16,6 +16,12 @@ export const Wrapper = styled.div`
 
   max-width: 1006px;
 
+  @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
+    padding: 40px 25px 65px;
+    width: 80%;
+    margin: 0;
+  }
+
   @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
     padding: 20px 15px 55px;
   }
@@ -64,10 +70,14 @@ export const H1 = styled.h1`
   font-weight: 800;
   font-size: var(--fs-64);
   line-height: 96px;
-@media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
-  font-size: var(--fs-36);
-  line-height: 50px;
-}
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+    font-size: var(--fs-48);
+    line-height: 70px;
+  }
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+    font-size: var(--fs-36);
+    line-height: 50px;
+  }
 
   letter-spacing: 0.05em;
   text-transform: capitalize;

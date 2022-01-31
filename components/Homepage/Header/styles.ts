@@ -93,7 +93,7 @@ export const PositionVideoSVG = styled.div`
   @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     width: 92vw;
     top: 20px;
-    right: 3vw;
+    right: 4vw;
   }
 `
 

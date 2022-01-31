@@ -15,6 +15,10 @@ export const Container = styled.div`
   a {
     margin-top: 5px;
   }
+
+  @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
+    padding-bottom: 20px;
+  }
 `;
 
 export const InputBlock = styled.div`
@@ -95,8 +99,8 @@ export const Input = styled.input`
 
   font-style: normal;
   font-weight: 500;
-  font-size: var(--fs-12);
-  line-height: 18px;
+  font-size: var(--fs-14);
+  line-height: 28px;
 
   letter-spacing: 0.03em;
   text-transform: capitalize;

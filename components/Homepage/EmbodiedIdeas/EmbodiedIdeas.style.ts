@@ -13,23 +13,27 @@ interface IPositionTitle {
 
 export const Div = styled.div`
   background-color: ${({ bgColor }: IDiv) => bgColor};
-
+  padding-bottom: 120px;
   overflow: hidden;
 
-  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
-      height: ${({ height }: IDiv) => (height ? `${height}px` : "max-content")};
-      padding-bottom: 120px;
+  @media only screen and (max-width: ${themeGet('breakpoints.smallDesk')}) {
+    padding: 0 30px 53px;
   }
-  padding-bottom: 120px;
+
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+    height: ${({ height }: IDiv) => (height ? `${height}px` : "max-content")};
+    padding: 0 15px 30px;
+  }
 `;
 
 export const PositionTitle = styled.div`
   padding-top: ${({ disablePadding }: IPositionTitle) =>
-    disablePadding ? "0" : "120px"};
+  disablePadding ? "0" : "120px"};
   margin-bottom: 46px;
 
   @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
-    padding-top: 53px;
+    padding-top: 20px;
+    margin-bottom: 20px;
   }
 `;
 
@@ -53,7 +57,9 @@ export const H2 = styled.h2`
 
   @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     width: 100%;
-    padding-left: 20px;
+    padding-left: 0;
+    font-size: var(--fs-24);
+    line-height: 34px;
   }
 `;
 

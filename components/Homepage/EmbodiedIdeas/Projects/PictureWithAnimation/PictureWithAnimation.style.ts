@@ -1,3 +1,4 @@
+import themeGet from "@styled-system/theme-get";
 import styled from "styled-components";
 import { transitionTimeProjectsHoverDuration } from "../../../../../constants";
 
@@ -13,12 +14,12 @@ interface IElement {
 export const PositionElement1 = styled.div`
   position: absolute;
   bottom: ${({ index }: IElement) => {
-  if (index === 0) {
-    return '-310px';
-  } else {
-    return '0';
-  }
-}};
+    if (index === 0) {
+      return '-310px';
+    } else {
+      return '0';
+    }
+  }};
   right: 0;
 
   transition: ${transitionTimeProjectsHoverDuration};
@@ -28,17 +29,21 @@ export const PositionElement1 = styled.div`
       fill: ${({ elementsColor }: IElement) => elementsColor};
     }
   }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+    display: none;
+  }
 `;
 
 export const PositionElement2 = styled.div`
   position: absolute;
   top: ${({ index }: IElement) => {
-  if (index === 0) {
-    return '-220px';
-  } else {
-    return '0';
-  }
-}};
+    if (index === 0) {
+      return '-220px';
+    } else {
+      return '0';
+    }
+  }};
   right: 0;
 
   transition: ${transitionTimeProjectsHoverDuration};
@@ -47,6 +52,10 @@ export const PositionElement2 = styled.div`
     path {
       fill: ${({ elementsColor }: IElement) => elementsColor};
     }
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+    display: none;
   }
 `;
 
@@ -68,6 +77,10 @@ export const PositionElement3 = styled.div`
       fill: ${({ elementsColor }: IElement) => elementsColor};
     }
   }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+    display: none;
+  }
 `;
 
 export const PositionElement4 = styled.div`
@@ -87,6 +100,10 @@ export const PositionElement4 = styled.div`
     path {
       fill: ${({ elementsColor }: IElement) => elementsColor};
     }
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+    display: none;
   }
 `;
 
@@ -108,6 +125,10 @@ export const PositionElement5 = styled.div`
       fill: ${({ elementsColor }: IElement) => elementsColor};
     }
   }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+    display: none;
+  }
 `;
 
 export const PositionElement6 = styled.div`
@@ -127,6 +148,10 @@ export const PositionElement6 = styled.div`
     path {
       fill: ${({ elementsColor }: IElement) => elementsColor};
     }
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+    display: none;
   }
 `;
 
@@ -148,6 +173,10 @@ export const PositionElement7 = styled.div`
       fill: ${({ elementsColor }: IElement) => elementsColor};
     }
   }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+    display: none;
+  }
 `;
 
 export const PositionElement8 = styled.div`
@@ -168,6 +197,10 @@ export const PositionElement8 = styled.div`
       fill: ${({ elementsColor }: IElement) => elementsColor};
     }
   }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+    display: none;
+  }
 `;
 
 export const PositionElement9 = styled.div`
@@ -187,6 +220,10 @@ export const PositionElement9 = styled.div`
     path {
       fill: ${({ elementsColor }: IElement) => elementsColor};
     }
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+    display: none;
   }
 `;
 

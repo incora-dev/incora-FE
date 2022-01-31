@@ -19,9 +19,12 @@ export const CaseFilterWrapper = styled.div`
   transition: all 0.5s ease-in-out;
   overflow: hidden;
 
-  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+  @media only screen and (max-width: ${themeGet('breakpoints.smallDesk')}) {
     height: unset;
-    padding-top: 53px;
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+    padding-top: 30px;
   }
 `;
 
@@ -29,26 +32,39 @@ export const FilterWrap = styled.div`
   width: 1006px;
   transition: background-color 0.5s ease-in-out;
 
+  @media only screen and (max-width: ${themeGet("breakpoints.mDesk")}) {
+    max-width: 900px;
+    width: 100%;
+  }
+
+  @media only screen and (max-width: ${themeGet("breakpoints.smallDesk")}) {
+    padding: 0 30px;
+  }
+
   @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
-    width: 90%;
+    padding: 0 15px;
   }
 
   h1 {
     font-weight: 800;
     font-size: var(--fs-64);
     line-height: 96px;
-@media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
-  line-height: 50px;
-}
     text-transform: capitalize;
     letter-spacing: 3px;
     margin-bottom: 21px;
     color: ${({ filterByFlag }: ICaseFilterWrapper) =>
-      filterByFlag ? themeGet("colors.white") : themeGet("colors.black")};
+    filterByFlag ? themeGet("colors.white") : themeGet("colors.black")};
 
-      @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
-        line-height: 50px;
-      }
+    @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+      line-height: 38px;
+      font-size: var(--fs-28);
+    }
+
+    @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+      line-height: 34px;
+      font-size: var(--fs-24);
+      margin-bottom: 10px;
+    }
   }
 
   p {
@@ -60,8 +76,14 @@ export const FilterWrap = styled.div`
     letter-spacing: 0.1em;
     margin-bottom: 35px;
 
+    @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+      width: 80%;
+      line-height: 28px;
+    }
+
     @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
-      width: 90%;
+      width: 100%;
+      margin-bottom: 20px;
     }
   }
 `;
@@ -80,6 +102,15 @@ export const FilterSwitchWrap = styled.div`
     margin-right: 15px;
     color: ${({ filterByFlag }: ICaseFilterWrapper) =>
       filterByFlag ? themeGet("colors.white") : themeGet("colors.black")};
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+    margin-bottom: 35px;
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+    justify-content: space-between;
+    margin-bottom: 20px;
   }
 `;
 

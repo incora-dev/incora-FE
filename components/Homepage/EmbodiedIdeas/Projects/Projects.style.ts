@@ -15,6 +15,10 @@ export const Container = styled.div`
   column-gap: 77px;
   flex-direction: ${({ flexDirection }: IContainer) => flexDirection};
 
+  @media only screen and (max-width: ${themeGet('breakpoints.smallDesk')}) {
+    column-gap: 30px;
+  }
+
   @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     flex-wrap: wrap-reverse;
     max-width: 100%;
@@ -27,6 +31,32 @@ export const Text = styled.div`
   row-gap: 21px;
 
   margin: ${({ margin }: IText) => margin};
+
+  @media only screen and (max-width: ${themeGet('breakpoints.smallDesk')}) {
+    margin: 20px 0 0;
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+    row-gap: 12px;
+  }
+
+  h3 {
+    @media only screen and (max-width: ${themeGet('breakpoints.smallDesk')}) {
+      font-size: var(--fs-28);
+      line-height: 38px;
+    }
+
+    @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+      font-size: var(--fs-24);
+      line-height: 34px;
+    }
+  }
+
+  p {
+    @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+      line-height: 28px;
+    }
+  }
 `;
 
 export const Block = styled.div`

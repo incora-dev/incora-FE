@@ -15,6 +15,11 @@
     "static/development/_middlewareManifest.js"
   ],
   "pages": {
+    "/": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/index.js"
+    ],
     "/_app": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
@@ -25,10 +30,10 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/expertise/industries/[industry]": [
+    "/expertise/technologies/[technology]": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/expertise/industries/[industry].js"
+      "static/chunks/pages/expertise/technologies/[technology].js"
     ]
   },
   "ampFirstPages": []

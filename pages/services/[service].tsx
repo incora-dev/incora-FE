@@ -35,6 +35,7 @@ const Service = () => {
   const faqIntro = entry?.faq.intro;
   const faqItems = entry?.faq.items;
   const projects = entry?.projects?.data;
+  const icon = entry?.icon.data?.attributes;
 
   const [menuColor, setMenuColor] = useState("none");
   const handleScroll = () => {
@@ -54,7 +55,8 @@ const Service = () => {
     workflow &&
     faqIntro &&
     faqItems &&
-    projects;
+    projects &&
+    icon;
 
   if (loading) return null;
   if (error) return <Custom404 />;
@@ -79,6 +81,7 @@ const Service = () => {
                 titleSize={"48px"}
                 text={entry.description}
                 textWidth={"657px"}
+                icon={icon}
               />
               <Information content={content} />
               <BestSuitedFor

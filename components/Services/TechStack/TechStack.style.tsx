@@ -29,6 +29,7 @@ export const Container = styled.div`
   @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     margin-top: 53px;
     padding: 0 20px;
+      row-gap: 15px;
   }
 `
 
@@ -139,6 +140,8 @@ export const InfoBlock = styled.div`
     flex-direction: column;
     gap: 30px;
     margin-bottom: 53px;
+      margin-top: 20px;
+
   }
 `
 

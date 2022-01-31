@@ -35,7 +35,10 @@ export const ButtonsBlock = styled.div`
 
   @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     gap: 30px;
-    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+    height: 59px;
+    align-items: center;
   }
 `
 

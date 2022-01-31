@@ -23,7 +23,7 @@ export const Wrapper = styled.div`
   z-index: 10;
   padding: 0 100px;
 
-  @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
+  @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
       padding: 0 20px;
   }
 
@@ -36,7 +36,7 @@ export const Wrapper = styled.div`
 `;
 
 export const ContentWrapper = styled.div`
-  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
     overflow-x: hidden;
   }
 `;
@@ -49,7 +49,7 @@ export const Block = styled.div`
   width: 100%;
   gap: 20px;
 
-  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
     padding: 10px 0;
     flex-direction: row-reverse;
   }
@@ -58,7 +58,7 @@ export const Block = styled.div`
 export const IncoraLogo = styled.img`
   max-width: 120px;
 
- @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
+ @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
     max-width: 100px; 
   }
   
@@ -83,7 +83,7 @@ export const HoverMenu = styled.div`
 
   transition: opacity ${themeGet("transition.menu")};
 
-  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
     margin: 65px auto 0 auto;
   }
 `;

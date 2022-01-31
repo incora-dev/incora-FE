@@ -49,9 +49,9 @@ export default function MainMenu(props: IMenu) {
   });
 
   useEffect(() => {
-    const width = window.innerWidth;
-    const mobileWidth = +theme.breakpoints.mobile.replace('px', '');
-    const isMobile = mobileWidth > width;
+    const width = window.outerWidth;
+    const mobileWidth = +theme.breakpoints.tablet.replace('px', '');
+    const isMobile = mobileWidth >= width;
     setIsMobile(isMobile);
   },[]);
 

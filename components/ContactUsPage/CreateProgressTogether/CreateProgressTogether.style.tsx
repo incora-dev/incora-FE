@@ -32,6 +32,11 @@ export const PositionSemiCircle = styled.div`
 
 export const MainBLock = styled.div`
   display: flex;
+
+  @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
+    flex-direction: column;
+    padding: 0 15px;
+  }
 `;
 
 export const H2 = styled.h2`
@@ -41,9 +46,11 @@ export const H2 = styled.h2`
   font-weight: 800;
   font-size: var(--fs-64);
   line-height: 96px;
-@media only screen and (max-width: ${theme.breakpoints.mobile}) {
-  line-height: 50px;
-}
+
+  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    font-size: var(--fs-28);
+    line-height: 39px;
+  }
   letter-spacing: 0.05em;
 
   color: ${themeGet("colors.black")};
@@ -53,6 +60,13 @@ export const PositionHexagon = styled.div`
   position: absolute;
   bottom: -135px;
   left: -127px;
+
+  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    right: -154px;
+    bottom: -166px;
+    left: auto;
+    transform: scale(0.7);
+  }
 `;
 
 export const FormPosition = styled.div`

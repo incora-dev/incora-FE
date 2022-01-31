@@ -24,7 +24,7 @@ function Navigation({
   const [selectedTitle, setSelectedTitle] = useState<string | null>(null);
   const  [urlTitle, setUrlTitle] = useState<string | null | undefined>(null);
   const [isMobile, setIsMobile] = useState<boolean>();
-  const { toggleHoverMenuMode  } = useContext(MenuContext);
+  const { toggleHoverMenuMode, toggleMenuMode  } = useContext(MenuContext);
 
   useEffect(() => {
     const width = window.outerWidth;
@@ -37,6 +37,11 @@ function Navigation({
   useEffect(() => {
     setUrlTitle(titles.find((title) => window.location.pathname.includes(title.toLowerCase())));
   }, [])
+
+  const linkClickHandler = () => {
+    toggleMenuMode();
+    toggleHoverMenuMode();
+  }
 
   return (
     <Nav color={titlesColor}>
@@ -74,6 +79,7 @@ function Navigation({
               buttonLabel={'Contact Us'}
               redirectTo={'/contacts'}
               padding={'11.5px 14.5px;'}
+              // onClick={linkClickHandler}
             />
           );
         }
@@ -90,7 +96,7 @@ function Navigation({
 
             onMouseLeave={() => setOnSelectedMenu(null)}
           >
-            <Li>
+            <Li onClick={linkClickHandler}>
               <Link href={`/${title.toLowerCase()}`}>
                 {title}
               </Link>

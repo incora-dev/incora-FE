@@ -47,7 +47,7 @@ export const theme = {
     xsMobile: '280px',
     mMobile: '360px',
     mobile:'481px', 
-    tablet: '768px',  
+    tablet: '912px',  
     smallDesk:'992px', 
     tabletPro: '1024px',
     mediumDesk: '1201px', 

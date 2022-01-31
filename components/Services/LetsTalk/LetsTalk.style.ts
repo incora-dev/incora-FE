@@ -25,6 +25,10 @@ export const Wrapper = styled.div`
   max-width: 1006px;
   margin: 0 auto;
 
+  @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
+    padding: 60px 25px 40px;
+  }
+
   @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
     padding: 53px 20px 20px;
   }
@@ -50,6 +54,12 @@ export const H2 = styled.h2`
   font-size: var(--fs-64);
   line-height: 96px;
 
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+    font-size: var(--fs-36);
+    line-height: 50px;
+    z-index: 1;
+  }
+
   @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     font-size: var(--fs-28);
     line-height: 39px;
@@ -72,6 +82,10 @@ export const PositionHexagon = styled.div`
   position: absolute;
   top: ${({ isWhite }: IDiv) => (isWhite ? "70px" : "-239px")};
   right: -47px;
+
+  @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
+    right: -207px;
+  }
 
   @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
     display: none;

@@ -71,6 +71,7 @@ export const Wrapper = styled.div`
     flex-direction: column;
     overflow: scroll;
     height: 93vh;
+    gap: 20px;
   }
 `;
 
@@ -78,6 +79,9 @@ export const IndustriesBlock = styled.div`
   display: flex;
   flex-direction: column;
   row-gap: 30px;
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+    row-gap: 20px;
+  }
 `;
 
 export const Industries = styled.div`
@@ -138,6 +142,10 @@ export const TechnologiesIconsBlock = styled.div`
   display: flex;
   flex-direction: column;
   row-gap: 38px;
+
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+    row-gap: 20px;
+  }
 `;
 
 export const Technologies = styled.div`
@@ -165,6 +173,10 @@ export const IconBlock = styled.div`
         stroke: ${({ titleColor }: IChangeColor) => titleColor === theme.colors.black ? theme.colors.black : theme.colors.white};
       }
     }
+  }
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+    flex-wrap: wrap;
+  }
 `;
 
 export const Industry = styled.h5`

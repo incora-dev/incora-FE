@@ -66,6 +66,7 @@ export const Wrapper = styled.div`
     flex-direction: column;
     overflow: scroll;
     height: 93vh;
+    gap: 20px;
   }
 `;
 

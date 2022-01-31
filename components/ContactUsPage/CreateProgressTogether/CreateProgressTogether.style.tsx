@@ -33,6 +33,14 @@ export const PositionSemiCircle = styled.div`
 export const MainBLock = styled.div`
   display: flex;
 
+  @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
+    padding: 0 25px;
+  }
+
+  @media only screen and (max-width: 600px) {
+    flex-direction: column;
+  }
+
   @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
     flex-direction: column;
     padding: 0 15px;
@@ -46,6 +54,18 @@ export const H2 = styled.h2`
   font-weight: 800;
   font-size: var(--fs-64);
   line-height: 96px;
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+    font-size: var(--fs-48);
+    line-height: 62px;
+    margin-top: 25px;
+  }
+
+  @media only screen and (max-width: 600px) {
+    font-size: var(--fs-36);
+    line-height: 50px;
+    margin-top: 25px;
+  }
 
   @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     font-size: var(--fs-28);
@@ -61,7 +81,14 @@ export const PositionHexagon = styled.div`
   bottom: -135px;
   left: -127px;
 
-  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+  @media only screen and (max-width: 600px) {
+    right: -154px;
+    bottom: -166px;
+    left: auto;
+    transform: scale(0.7);
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     right: -154px;
     bottom: -166px;
     left: auto;

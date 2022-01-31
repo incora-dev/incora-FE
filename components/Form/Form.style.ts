@@ -30,6 +30,10 @@ export const FormContainer = styled.div`
   flex-direction: column;
 
   row-gap: 21px;
+
+  @media only screen and (max-width: 600px) {
+    max-width: 100%;
+  }
 `;
 
 export const FormInputFile = styled.div`
@@ -103,7 +107,7 @@ export const Input = styled.input`
   -moz-transition: ease-in-out 0.4s;
   transition: all ease-in-out 0.4s;
 
-  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+  @media only screen and (max-width: 600px) {
     width: 100%;
   }
 
@@ -143,6 +147,6 @@ export const FilesSelected = styled.div`
   margin-top: 35.5px;
 
   @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
-    margin-top: 0;
+    margin-top: 35.5px;
   }
 `;

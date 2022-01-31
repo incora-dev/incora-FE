@@ -26,6 +26,7 @@ const NextProject = ({ nextProjectButton }: INextProject) => {
 
   const { intro, project } = nextProjectButton;
   const projectEntry = project?.data?.attributes;
+  const url = projectEntry?.url;
   const src =
     IMAGES_LINK + projectEntry?.mainInfo.item[0]?.image?.data?.attributes?.url;
 
@@ -39,7 +40,7 @@ const NextProject = ({ nextProjectButton }: INextProject) => {
 
   return (
     <>
-      {projectEntry && (
+      {projectEntry && url && (
         <NextProjectWrapper>
           <Link href={`/case_studies/case/${projectEntry.url}`} passHref>
             <NextProjectButton

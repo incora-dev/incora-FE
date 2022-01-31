@@ -1,15 +1,17 @@
 import { Container, Text, Block, H3, P, H4 } from "./Projects.style";
 import Technologies from "./Technologies";
 import PictureWithAnimation from "./PictureWithAnimation";
-import {useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 import { theme } from "../../../../styles/theme";
 import { IMAGES_LINK } from "../../../../constants";
 import Link from "next/link";
 import { GetProjects_projects } from "../../../../graphql/caseStudies/__generated__/getProjects";
 import { useIsMobile } from "../../../../services/hooks";
+import { GetProjects_projects_data } from "../../../../graphql/caseStudies/__generated__/getProjects";
+import { GetService_services_data_attributes_projects_data } from "../../../../graphql/services/__generated__/GetService";
 
 interface IProjects {
-  projects: GetProjects_projects;
+  projects: GetProjects_projects_data[];
   elementsColor: string;
 }
 
@@ -23,7 +25,7 @@ function Projects({ projects, elementsColor }: IProjects) {
   });
 
   function createProjects(): JSX.Element[] {
-    return projects.data.map(({ id, attributes }, index) => {
+    return projects.map(({ id, attributes }, index) => {
       const flexDirection = (index + 1) % 10 !== 2 ? "row" : "row-reverse";
       const marginText = (index + 1) % 10 !== 2 
         ? isMobile 
@@ -39,12 +41,10 @@ function Projects({ projects, elementsColor }: IProjects) {
       const description = attributes?.description;
       const imageEntry = attributes?.featuredImage.data[0].attributes;
       const image = IMAGES_LINK + imageEntry?.url;
-      const width = imageEntry?.width;
-      const height = imageEntry?.height;
 
       return (
         <>
-          {name && description && technologies && image && width && height && (
+          {name && description && technologies && image && (
             <Container key={id} flexDirection={flexDirection}>
               <Text margin={marginText}>
                 <Link href={`/case_studies/case/${url}`} passHref>

@@ -67,13 +67,13 @@ const CaseStudies = () => {
             description={entry.description}
             setCurrentIndustryTag={setCurrentIndustryTag}
           />
-          <EmbodiedIdeasComponent
+          {/* <EmbodiedIdeasComponent
             bgColor={white}
             elementsColor={theme.colors.yellow}
             disablePadding
             disableSeeMore
             currentIndustryTag={currentIndustryTag}
-          />
+          /> */}
           <LetsReachOut contactUs={entry.contactUs} />
           <FooterComponent
             policies={footer.policies}

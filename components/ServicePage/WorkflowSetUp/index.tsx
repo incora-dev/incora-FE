@@ -7,49 +7,65 @@ import {
   ContentWrapper,
   Text,
   Number,
-  Title
+  Title,
 } from "./WorkflowSetUp.style";
-import { IWorkflowSetUp, IWorkflowSetUpContent } from "@interfaces";
 import { firstLetterBig } from "../../../utils";
-import IconWorkflow1 from "../../../public/SVG/workflowSetUp/01workflowIcon.svg"
-import IconWorkflow2 from "../../../public/SVG/workflowSetUp/02workflowIcon.svg"
-import IconWorkflow3 from "../../../public/SVG/workflowSetUp/03workflowIcon.svg"
-import IconWorkflow4 from "../../../public/SVG/workflowSetUp/04workflowIcon.svg"
+import IconWorkflow1 from "../../../public/SVG/workflowSetUp/01workflowIcon.svg";
+import IconWorkflow2 from "../../../public/SVG/workflowSetUp/02workflowIcon.svg";
+import IconWorkflow3 from "../../../public/SVG/workflowSetUp/03workflowIcon.svg";
+import IconWorkflow4 from "../../../public/SVG/workflowSetUp/04workflowIcon.svg";
+import { GetService_services_data_attributes_workflow_items } from "../../../graphql/services/__generated__/GetService";
+import { IMAGES_LINK } from "../../../constants";
+import Image from "next/image";
 
-const getIcon = (index: number) => {
-  const icons = [IconWorkflow1, IconWorkflow2, IconWorkflow3, IconWorkflow4]
-  const icon = (number: number) => {
-    if (number > icons.length - 1) {
-      return icons[Math.ceil(number / icons.length - 1)];
-    }
-
-    return icons[number];
-  };
-
-  return icon(index);
+interface IWorkflowSetUp {
+  title: string;
+  content: (GetService_services_data_attributes_workflow_items | null)[];
 }
 
-const getContent = (content: IWorkflowSetUpContent[] = []) => {
-  return content.map(({ title, text }, index) => {
+interface IGetContent {
+  content: (GetService_services_data_attributes_workflow_items | null)[];
+}
+
+const GetContent = ({ content }: IGetContent) => {
+  const createContent = content.map((item, index) => {
+    const id = item?.id;
+    const title = item?.title;
+    const description = item?.description;
+    const icon = item?.image?.data?.attributes;
+    const src = IMAGES_LINK + icon?.url;
+    const width = icon?.width;
+    const height = icon?.height;
+
     const numberTitle = index < 10 ? `0${index + 1}.` : `${index + 1}.`;
-    const Icon = getIcon(index);
 
     return (
-      <ContentWrapper key={index}>
-        <Icon/>
-        <Title>
-          <Number>{numberTitle}</Number>
-          <H2>{title}</H2>
-        </Title>
-        <Text>{text}</Text>
-      </ContentWrapper>
-    )
-  })
-}
+      <>
+        {width && height && (
+          <ContentWrapper key={id}>
+            <Title>
+              <Image
+                loader={() => src}
+                src={src}
+                width={width}
+                height={height}
+                alt="icon"
+              />
+              <Number>{numberTitle}</Number>
+              <H2>{title}</H2>
+            </Title>
+            <Text>{description}</Text>
+          </ContentWrapper>
+        )}
+      </>
+    );
+  });
+
+  return <>{createContent}</>;
+};
 
 const WorkflowSetUp = ({ title, content }: IWorkflowSetUp) => {
   const titleFirstLetterBig = firstLetterBig(title);
-  const contents = getContent(content);
 
   return (
     <Div>
@@ -57,12 +73,11 @@ const WorkflowSetUp = ({ title, content }: IWorkflowSetUp) => {
         <H1>{titleFirstLetterBig}</H1>
       </Wrapper>
 
-
       <Content>
-        {contents}
+        <GetContent content={content} />
       </Content>
     </Div>
-  )
-}
+  );
+};
 
 export default WorkflowSetUp;

@@ -1,3 +1,4 @@
+import themeGet from "@styled-system/theme-get";
 import styled from "styled-components";
 import { homePageTechnologiesHoverDuration } from "../../../../constants";
 import { theme } from "../../../../styles/theme";

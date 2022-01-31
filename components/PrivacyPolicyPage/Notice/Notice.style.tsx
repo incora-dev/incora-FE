@@ -17,7 +17,7 @@ export const Div = styled.div`
   a {
     position: relative;
 
-    @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+    @media only screen and (max-width: ${themeGet('breakpoints.tabletPro')}) {
       font-weight: 600;
       padding-left: 7px;
     }

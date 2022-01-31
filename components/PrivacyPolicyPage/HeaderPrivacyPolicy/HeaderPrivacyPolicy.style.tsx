@@ -10,6 +10,10 @@ export const Wrapper = styled.div`
   margin: 0 auto;
   padding: 118px 0 58px;
 
+  @media only screen and (max-width: ${themeGet('breakpoints.tabletPro')}) {
+    padding: 68px 25px 41px;
+  }
+
   @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
     padding: 48px 25px 41px;
   }

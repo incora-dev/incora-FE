@@ -41,6 +41,10 @@ export const Ul = styled.ul`
   
   cursor: pointer;
 
+  @media only screen and (max-width: ${themeGet('breakpoints.tabletPro')}) {
+    margin-right: 35px;
+  }
+
   &:after {
     position: absolute;
     top: 23px;

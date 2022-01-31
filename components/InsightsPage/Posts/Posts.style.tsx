@@ -16,6 +16,10 @@ export const Wrapper = styled.div`
   flex-direction: column;
   row-gap: 100px;
 
+  @media only screen and (max-width: ${themeGet("breakpoints.tabletPro")}) {
+    padding: 70px 25px 90px;
+  }
+
   @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
     padding: 50px 25px 50px;
     row-gap: 45px;
@@ -32,6 +36,10 @@ export const NewsBlock = styled.div`
   flex-wrap: wrap;
   column-gap: 50px;
   row-gap: 50px;
+
+  @media only screen and (max-width: ${themeGet("breakpoints.tabletPro")}) {
+    column-gap: 25px;
+  }
 `;
 
 export const Pagination = styled.div`

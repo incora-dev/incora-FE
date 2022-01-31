@@ -4,15 +4,11 @@ import NumberElement from "./NumberElement";
 import TextElement from "./TextElement";
 import { ScrollListTypes } from "./types";
 import { Slide, SliderContent, SliderContainer } from "./style";
-import { GetServicesPage_servicesPage_data_attributes_services_data } from "../../../graphql/services/__generated__/GetServicesPage";
 
 interface IVerticalFullPageSliderProps<T> {
-  slides: GetServicesPage_servicesPage_data_attributes_services_data[];
+  slides: Array<T>;
   scrollListType?: ScrollListTypes;
-  renderSlide: (
-    slide: GetServicesPage_servicesPage_data_attributes_services_data,
-    index: number
-  ) => ReactNode;
+  renderSlide: (slide: T, index: number) => ReactNode;
   bgColor?: string;
   stickyTopPosition?: number;
   maxWidth?: number;
@@ -90,6 +86,7 @@ function VerticalFullPageSlider<T>({
         );
 
       case ScrollListTypes.STRING:
+        //@ts-ignore
         return <TextElement currentSlide={currentSection} labels={slides} />;
 
       default:
@@ -136,7 +133,7 @@ function VerticalFullPageSlider<T>({
         </div>
         <div>
           {slides.map((slide, index) => (
-            <div key={slide.id} className="slide">
+            <div key={`slide-${index}`} className="slide">
               <Slide>{renderSlide(slide, index)}</Slide>
             </div>
           ))}

@@ -1,12 +1,9 @@
+import themeGet from "@styled-system/theme-get";
 import styled from "styled-components";
 import { theme } from "../../../styles/theme";
 
-interface IPlayerPosition {
-  visibility: string;
-}
-
-interface IPlayer {
-  opacity: number;
+interface IShowVideo {
+  display: boolean;
 }
 
 export const Container = styled.div`
@@ -14,7 +11,7 @@ export const Container = styled.div`
 
   height: 742px;
 
-  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     height: 300px;
   }
 `;
@@ -41,6 +38,20 @@ export const VideoContainer = styled.div`
 
 export const VideoBLock = styled.div`
   position: relative;
+
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+    width: 418px;
+  }
+`;
+
+export const PosterVideoPosition = styled.div`
+  position: absolute;
+  top: 0;
+
+  opacity: ${( { display }: IShowVideo) => display ? 0 : 1};
+
+  transition: opacity 1s linear;
+  transition-delay: 1s;
 `;
 
 export const Video = styled.video`
@@ -55,7 +66,8 @@ export const PlayerPosition = styled.div`
 
   transform: translate(-50%, -50%);
 
-  visibility: ${({ visibility }: IPlayerPosition ) => visibility};
+  opacity: ${( { display }: IShowVideo) => display ? 0 : 1};
+  transition: opacity 1s linear;
 `;
 
 export const Player = styled.div`
@@ -66,10 +78,10 @@ export const Player = styled.div`
 
   background: rgba(24, 24, 26, 0.2);
   backdrop-filter: blur(15px);
-  
-  border-radius: 50%;
 
-  opacity: ${({ opacity }: IPlayer ) => opacity};
+  cursor: pointer;
+
+  border-radius: 50%;
   transition: 0.15s linear;
 `;
 

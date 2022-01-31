@@ -1,3 +1,4 @@
+import themeGet from "@styled-system/theme-get";
 import styled from "styled-components";
 
 export const Div = styled.div`
@@ -38,7 +39,7 @@ export const ContentWrapper = styled.div`
 `;
 
 export const Title = styled.div`
-  img {
+  svg {
     display: block;
   }
 `;
@@ -51,6 +52,9 @@ export const H1 = styled.h1`
   font-weight: 800;
   font-size: var(--fs-36);
   line-height: 54px;
+@media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+  line-height: 40px;
+}
 
   letter-spacing: 0.05em;
 `;

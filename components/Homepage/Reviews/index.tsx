@@ -18,7 +18,6 @@ const Reviews = () => {
   const [isMobDevice, setIsMobDevice] = useState<boolean>();
 
   const dispatch = useDispatch();
-  console.log('isMobDevice', isMobDevice);
 
   useEffect(() => {
     const mobileWidth = +theme.breakpoints.mobile.replace('px', '');

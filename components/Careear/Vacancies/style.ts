@@ -3,10 +3,11 @@ import styled from "styled-components";
 
 export const VacanciesWrapper = styled.div`
   width: 100%;
-  height: 1069px;
+
   display: flex;
   justify-content: center;
-  /* padding-top: 120px; */
+
+  padding-bottom: 120px;
 `;
 
 export const ContentWrapper = styled.div`
@@ -16,6 +17,9 @@ export const ContentWrapper = styled.div`
     font-weight: 800;
     font-size: var(--fs-36);
     line-height: 54px;
+@media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+  line-height: 40px;
+}
     letter-spacing: ${themeGet("letterSpacing.h1")};
     margin-bottom: 65.5px;
   }
@@ -24,7 +28,14 @@ export const ContentWrapper = styled.div`
 export const ListWrap = styled.div`
   display: flex;
   justify-content: space-between;
-  height: 827px;
+`;
+
+export const PositionFilter = styled.div`
+  z-index: 1;
+  position: sticky;
+  top: 150px;
+
+  align-self: flex-start;
 `;
 
 export const Filter = styled.div`
@@ -35,6 +46,8 @@ export const Filter = styled.div`
 `;
 
 export const List = styled.div`
+  margin-top: 122px;
+
   width: 598px;
   padding-right: 39px;
 `;

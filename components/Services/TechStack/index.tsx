@@ -14,7 +14,7 @@ import {
   LoaderPosition,
   PositionButtonWithArrow,
 } from "./TechStack.style";
-import { IStacks } from "@interfaces";
+import { IStacks, ITechStack } from "@interfaces";
 import { useEffect, useState } from "react";
 import ButtonWithArrow from "../../ButtonWithArrow";
 import Dots from "../../Homepage/Cooperate/elements/dots/dots";
@@ -22,24 +22,9 @@ import Loader from "../../../public/loading1.svg";
 import Link from "next/link";
 import RadioButtons from "../../RadioButtons";
 import { theme } from "../../../styles/theme";
-import { GetServicesPage_servicesPage_data_attributes_techStack_tech_stacks_data } from "../../../graphql/services/__generated__/GetServicesPage";
-import { ROUTES } from "../../../constants/routes";
-import Image from "next/image";
-import { IMAGES_LINK } from "../../../constants";
 
-interface ITechStack {
-  stackTitle: string;
-  stacks: GetServicesPage_servicesPage_data_attributes_techStack_tech_stacks_data[];
-}
-
-const GetStacksInfo = (
-  stack: GetServicesPage_servicesPage_data_attributes_techStack_tech_stacks_data
-) => {
-  const { id, attributes } = stack;
-  const name = attributes?.name;
-  const description = attributes?.description;
-  const technologies = attributes?.technologies?.data;
-
+const GetStacksInfo = (stack: IStacks) => {
+  const { title, text, stacks, stacksLogo } = stack;
   const [isMobile, setIsMobile] = useState<boolean>(false);
 
   useEffect(() => {
@@ -52,57 +37,44 @@ const GetStacksInfo = (
   return (
     <InfoBlock>
       <TextContainer>
-        <H3>{name}</H3>
-        <StackText>{description}</StackText>
-
-        <PositionButtonWithArrow>
+        <H3>{title}</H3>
+        <StackText>{text}</StackText>
+        {!isMobile && <PositionButtonWithArrow>
           <ButtonWithArrow
             buttonLabel={"Contact"}
-            redirectTo={`/services/`}
+            redirectTo={`/services/${title}`}
             bgColor={"#000"}
             textColor={"#fff"}
             padding={"23px 35px"}
           />
-        </PositionButtonWithArrow>
+        </PositionButtonWithArrow>}
       </TextContainer>
 
       <StacksContainer>
         <StacksBlock columns={isMobile ? 2 : 3}>
-          {technologies?.map((technology) => {
-            const id = technology.id;
-            const url = technology.attributes?.url;
-            const name = technology.attributes?.name;
-
-            const logo = technology.attributes?.icon?.data?.attributes;
-            const src = IMAGES_LINK + logo?.url;
-            const width = logo?.width;
-            const height = logo?.height;
+          {stacks?.map((label, index) => {
+            const Logo: any = stacksLogo && stacksLogo[index];
 
             return (
-              <>
-                {width && height && (
-                  <Link
-                    key={id}
-                    href={ROUTES.EXPERTISE.TECHNOLOGIES + url}
-                    passHref
-                  >
-                    <LogoAndTitle>
-                      <Image
-                        loader={() => src}
-                        src={src}
-                        width={width}
-                        height={height}
-                        alt="logo"
-                      />
-                      <StackTitle>{name}</StackTitle>
-                    </LogoAndTitle>
-                  </Link>
-                )}
-              </>
+              <Link key={index} href={label.toLowerCase()}>
+                <LogoAndTitle>
+                  <Logo />
+                  <StackTitle>{label}</StackTitle>
+                </LogoAndTitle>
+              </Link>
             );
           })}
         </StacksBlock>
       </StacksContainer>
+        {isMobile && <PositionButtonWithArrow>
+          <ButtonWithArrow
+              buttonLabel={'Contact'}
+              redirectTo={`/services/${title}`}
+              bgColor={'#000'}
+              textColor={'#fff'}
+              padding={'23px 35px'}
+          />
+        </PositionButtonWithArrow>}
     </InfoBlock>
   );
 };

@@ -1,15 +1,23 @@
 import ServicesHoverElement from "./ServicesHoverElement";
 import ExpertiseHoverElements from "./ExpertiseHoverElements";
 import CompanyHoverElement from "./CompanyHoverElement";
+import { forwardRef } from "react";
 
 interface IHoverElements {
   title: string | null;
   titleColor: string;
   setOnHoverElement: Function;
-  setOnSelectedMenu: Function
+  setOnSelectedMenu: Function;
+  backgroundColor: string;
 }
 
-function getElement(title: string | null, titleColor: string, setOnHoverElement: Function, setOnSelectedMenu: Function) {
+function getElement(
+  title: string | null, 
+  titleColor: string, 
+  setOnHoverElement: Function, 
+  setOnSelectedMenu: Function, 
+  ref: any, 
+  backgroundColor: string) {
   if (title?.toLowerCase() === 'services') {
     setOnSelectedMenu(title);
 
@@ -17,6 +25,8 @@ function getElement(title: string | null, titleColor: string, setOnHoverElement:
       <ServicesHoverElement
         titleColor={titleColor}
         isShow={title?.toLowerCase() === 'services'}
+        backgroundColor={backgroundColor}
+        ref={ref}
       />
     )
   } else if (title?.toLowerCase() === 'expertise') {
@@ -25,7 +35,9 @@ function getElement(title: string | null, titleColor: string, setOnHoverElement:
     return (
       <ExpertiseHoverElements
         titleColor={titleColor}
+        backgroundColor={backgroundColor}
         isShow={title?.toLowerCase() === 'expertise'}
+        ref={ref}
       />
     )
   } else if (title?.toLowerCase() === 'company') {
@@ -34,6 +46,8 @@ function getElement(title: string | null, titleColor: string, setOnHoverElement:
     return (
       <CompanyHoverElement
         titleColor={titleColor}
+        backgroundColor={backgroundColor}
+        ref={ref}
       />
     )
   }
@@ -44,12 +58,17 @@ function getElement(title: string | null, titleColor: string, setOnHoverElement:
   }
 }
 
-const HoverElements = ({ title, titleColor, setOnHoverElement, setOnSelectedMenu }: IHoverElements) => {
-  const element = getElement(title, titleColor, setOnHoverElement, setOnSelectedMenu);
+const HoverElements = forwardRef(({ 
+  title, 
+  titleColor, 
+  setOnHoverElement, 
+  setOnSelectedMenu, 
+  backgroundColor }: IHoverElements, ref) => {
+  const element = getElement(title, titleColor, setOnHoverElement, setOnSelectedMenu, ref, backgroundColor);
 
   return (
     <>{element}</>
   )
-}
+});
 
 export default HoverElements;

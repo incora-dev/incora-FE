@@ -32,7 +32,7 @@ interface ISlide {
   mainTitle: string;
   text: string;
   redirectTo: string;
-}
+};
 
 const titles = [
   "Services",
@@ -264,6 +264,10 @@ const news = {
 const plusesColor = "#FEC602";
 
 function Home() {
+  // useEffect(() => {
+  //   disableScroll.on();
+  // }, []);
+
   const renderSlide = (slide: ISlide, index: number) => (
     <CooperateComponent slide={slide} index={index} plusesColor={plusesColor} />
   );
@@ -282,7 +286,7 @@ function Home() {
           titlesColor={bgColorWhite}
         >
           <HeaderComponent />
-          {/* <VerticalFullPageSlider<ISlide> slides={sliders} renderSlide={renderSlide}/> */}
+          <VerticalFullPageSlider<ISlide> slides={sliders} renderSlide={renderSlide}/>
           <section>
             <ServicesComponent
               title={services.title}
@@ -297,11 +301,11 @@ function Home() {
               labels={technologies.technologies}
             />
           </section>
-          {/* <EmbodiedIdeasComponent
+          <EmbodiedIdeasComponent
             title={EmbodiedIdeas.title}
             bgColor={EmbodiedIdeas.bgColor}
             elementsColor={colorYellow}
-          /> */}
+          />
           <VideoComponent />
           <AboutUs
             backgroundColor={bgColorBlack}

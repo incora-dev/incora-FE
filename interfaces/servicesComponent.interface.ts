@@ -1,4 +1,6 @@
-
+export interface IInformationComponent {
+  slide: IInfoBlock;
+}
 
 export interface IInfoBlock {
   id: string;

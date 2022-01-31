@@ -30,10 +30,12 @@ import Loader from "../../../../public/loading1.svg"
 import Loader2 from "../../../../public/loading5.svg"
 import Dots from "../../../Homepage/Cooperate/elements/dots/dots";
 import { theme } from "../../../../styles/theme";
+import { forwardRef } from "react";
 
 interface IServicesHoverElement {
   titleColor: string;
   isShow: boolean;
+  backgroundColor: string;
 }
 
 const servicesLabel = [
@@ -156,7 +158,7 @@ function getAllServices(text: string) {
     )
 }
 
-const ServicesHoverElement = ({ titleColor, isShow }: IServicesHoverElement) => {
+const ServicesHoverElement = forwardRef(({ titleColor, isShow, backgroundColor }: IServicesHoverElement, ref) => {
   const elementsTop = getElementsTop(titleColor);
   const elementsBottom = getElementsBottom(titleColor);
   const services = getServices(servicesLabel);
@@ -169,7 +171,7 @@ const ServicesHoverElement = ({ titleColor, isShow }: IServicesHoverElement) => 
 
   return (
     <MainWrapper titleColor={titleColor}>
-      <Div>
+      <Div ref={ref as any} backgroundColor={backgroundColor}>
         <Wrapper titleColor={titleColor}>
           <BlockWithIcons>
             <BlockWithIconsTop>
@@ -216,6 +218,6 @@ const ServicesHoverElement = ({ titleColor, isShow }: IServicesHoverElement) => 
       </Div>
     </MainWrapper>
   )
-}
+});
 
 export default ServicesHoverElement;

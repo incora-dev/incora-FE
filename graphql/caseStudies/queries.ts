@@ -1,41 +1,12 @@
 import { gql } from "@apollo/client";
 
 export const GET_CASE_STUDIES = gql`
-  query GetCaseStudies($industry: String) {
+  query GetCaseStudies {
     caseStudiesPage(publicationState: LIVE) {
       data {
         attributes {
           title
           description
-          projects(
-            filters: { industry: { name: { eq: $industry } } }
-            pagination: { limit: 30 }
-          ) {
-            data {
-              id
-              attributes {
-                technologies {
-                  data {
-                    id
-                    attributes {
-                      name
-                      url
-                    }
-                  }
-                }
-                name
-                description
-                url
-                featuredImage {
-                  data {
-                    attributes {
-                      url
-                    }
-                  }
-                }
-              }
-            }
-          }
 
           contactUs {
             title
@@ -84,6 +55,8 @@ export const GET_PROJECTS = gql`
           featuredImage {
             data {
               attributes {
+                width
+                height
                 url
               }
             }

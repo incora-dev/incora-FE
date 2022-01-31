@@ -146,6 +146,15 @@ const Technology = ({ title, headerText, label }: ITechnology) => {
     window.scrollY >= 50 ? setMenuColor(colorBlack) : setMenuColor("none");
   };
 
+  const [isMobile, setIsMobile] = useState<boolean>();
+
+  useEffect(() => {
+    const width = window.innerWidth;
+    const mobileWidth = +theme.breakpoints.mobile.replace('px', '');
+    const isMobile = mobileWidth > width;
+    setIsMobile(isMobile);
+  },[]);
+
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
 
@@ -166,7 +175,7 @@ const Technology = ({ title, headerText, label }: ITechnology) => {
       >
         <HeaderService
           title={title}
-          titleSize={"64px"}
+          titleSize={isMobile ? '50px' :'64px'}
           text={headerText}
           textWidth={"435px"}
           label={label}

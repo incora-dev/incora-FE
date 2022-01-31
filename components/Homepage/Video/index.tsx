@@ -4,24 +4,18 @@ import {
   VideoBLock,
   BGTop,
   BGBottom,
-  Video,
   Player,
   PlayerPosition,
-  PositionPlaySVG
+  PositionPlaySVG,
+  PosterVideoPosition
 } from "./Video.style";
 import { useEffect, useRef, useState } from "react";
 import PlaySVG from "../../../public/Player/Play.svg"
 import { theme } from "../../../styles/theme";
-
-type IVideo = {
-  readonly current: HTMLVideoElement;
-}
+import {HOME_PAGE_VIDEO_LINK} from "../../../constants";
 
 function VideoComponent() {
-  const videoRef: any = useRef(null);
-  const [play, setPlay] = useState(true);
-  const [visibility, setVisibility] = useState('visible');
-  const [opacity, setOpacity] = useState(1);
+  const [play, setPlay] = useState(false);
   const [isMobile, setIsMobile] = useState<boolean>();
 
   useEffect(() => {
@@ -31,21 +25,13 @@ function VideoComponent() {
     setIsMobile(isMobile);
   },[]);
 
-  const videoHandler = (play: boolean) => {
-    if (play) {
-      videoRef.current.play();
-      setPlay(!play);
-      setVisibility('hidden');
-      setOpacity(0);
-    }
+  useEffect(() => {
+    const player = document.getElementById('youTubeVideo') as HTMLIFrameElement;
 
-    if (!play) {
-      videoRef.current.pause();
-      setPlay(!play);
-      setVisibility('visible');
-      setOpacity(1);
+    if(play) {
+      player && (player.src += '?autoplay=1');
     }
-  };
+  }, [play]);
 
   return (
     <Container>
@@ -53,19 +39,22 @@ function VideoComponent() {
       <BGBottom/>
 
         <VideoContainer>
-          <VideoBLock>
-            <Video
-              ref={videoRef}
-              style={{ width: isMobile ? '100%' : '1122px', height: isMobile ? '250px' : '671px' }}
-              loop
-              onClick={() => videoHandler(play)}
-              poster={'./Player/PosterVideo.jpg'}
-            >
-              <source src={'/mp4/Video.mp4'} type={'video/mp4'}/>
-            </Video>
-
-            <PlayerPosition visibility={visibility} onClick={() => videoHandler(play)}>
-              <Player opacity={opacity}>
+          <VideoBLock onClick={() => setPlay(true)}>
+            <PosterVideoPosition display={play}>
+              <img style={{height: isMobile ? '250px': 'unset'}} src={'./Player/PosterVideo.jpg'}></img>
+            </PosterVideoPosition>
+              <iframe
+                id={'youTubeVideo'}
+                width={isMobile ? '100%' : '1122px'}
+                height={isMobile ? '250px' : '671px'}
+                src={HOME_PAGE_VIDEO_LINK}
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              >
+              </iframe>
+            <PlayerPosition display={play}>
+              <Player>
                 <PositionPlaySVG>
                   <PlaySVG/>
                 </PositionPlaySVG>

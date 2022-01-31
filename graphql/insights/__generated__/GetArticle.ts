@@ -61,6 +61,7 @@ export interface GetArticle_articles_data_attributes_author {
 export interface GetArticle_articles_data_attributes_tags_data_attributes {
   __typename: "Tag";
   name: string;
+  url?: string;
 }
 
 export interface GetArticle_articles_data_attributes_tags_data {

@@ -23,9 +23,8 @@ export const Nav = styled.nav`
 
   @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
     display: grid;
-    gap: 10px;
-    grid-template-columns: repeat(2, 50%);
-    grid-template-rows: repeat(3, 1fr);
+    gap: 20px;
+    padding-left: 30px;
   }
 `
 
@@ -57,6 +56,10 @@ export const Ul = styled.ul`
     background-color: ${themeGet("colors.yellow")};
 
     transition: all ${themeGet("transition.button")};
+
+    @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+      left: -10px;
+    }
   }
 `
 

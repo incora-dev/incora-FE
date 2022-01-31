@@ -22,9 +22,12 @@ export const useOnClickOutside = (ref: any, handler: (e: any) => void) => {
 
 export const useIsMobile = () => {
   const [isMobile, setIsMobile] = useState<boolean>();
-    const [width, setWidth] = useState<number>();
+  const [width, setWidth] = useState<number>();
 
   useEffect(() => {
+    const mobileWidth = +theme.breakpoints.tablet.replace('px', '');
+      const isMobile = mobileWidth >= window.innerWidth;
+      setIsMobile(isMobile);
     const onHandleResize = () => {
       setWidth(window.innerWidth);
     };

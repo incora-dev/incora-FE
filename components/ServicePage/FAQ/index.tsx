@@ -10,32 +10,42 @@ import {
   TextBlock,
   Text,
   PlusIconVisible,
-  MinusIconVisible
+  MinusIconVisible,
 } from "./FAQ.style";
 import PlusIcon from "../../../public/icons/plusIcon.svg";
 import MinusIcon from "../../../public/icons/minusIcon.svg";
-import { useState } from "react";
+import { Dispatch, SetStateAction, useState } from "react";
+import { GetService_services_data_attributes_faq_items } from "../../../graphql/services/__generated__/GetService";
 
-interface IFAQ {
+interface IFaq {
   title: string;
-  titles: string[];
+  items: (GetService_services_data_attributes_faq_items | null)[];
+}
+
+interface IDescription {
+  items: (GetService_services_data_attributes_faq_items | null)[];
+  blockIndex: number;
+  setBlockIndex: Dispatch<SetStateAction<number>>;
 }
 
 const getIcon = (blockIndex: number, index: number) => {
-  return (blockIndex !== index)
-    ? <PlusIconVisible>
-        <PlusIcon/>
-      </PlusIconVisible>
+  return blockIndex !== index ? (
+    <PlusIconVisible>
+      <PlusIcon />
+    </PlusIconVisible>
+  ) : (
+    <MinusIconVisible>
+      <MinusIcon />
+    </MinusIconVisible>
+  );
+};
 
-    : <MinusIconVisible>
-        <MinusIcon/>
-      </MinusIconVisible>
-}
+const Description = ({ items, blockIndex, setBlockIndex }: IDescription) => {
+  const createDescription = items.map((item, index) => {
+    const id = item?.id;
+    const title = item?.title;
+    const description = item?.description;
 
-const p = 'Surely the time frame depends on the complexity of the project. But considering our expertise we might say that it takes up to 2 weeks in average to fulfill the Discovery phase.';
-
-const getTitle = (titles: string[], blockIndex: number, setBlockIndex: Function) =>
-  titles.map((title, index) => {
     const icon = getIcon(blockIndex, index);
     const openedFAQ = index === blockIndex;
 
@@ -44,31 +54,33 @@ const getTitle = (titles: string[], blockIndex: number, setBlockIndex: Function)
         return setBlockIndex(-1);
       }
       setBlockIndex(index);
-    };
+    }
 
     return (
       <AccordionWrapper
-        key={title + index}
+        key={id}
         isOpen={openedFAQ}
-        lastBlock={index === titles.length - 1}
+        lastBlock={index === items.length - 1}
       >
         <Accordion onClick={onSetBlockIndex}>
           <Title>{title}</Title>
           {icon}
         </Accordion>
 
-        { index === blockIndex &&
+        {index === blockIndex && (
           <TextBlock onClick={onSetBlockIndex}>
-            <Text isOpen={openedFAQ}>{p}</Text>
+            <Text isOpen={openedFAQ}>{description}</Text>
           </TextBlock>
-        }
+        )}
       </AccordionWrapper>
-    )
+    );
   });
 
-const FAQ = ({ title, titles }: IFAQ) => {
+  return <>{createDescription}</>;
+};
+
+const Faq = ({ title, items }: IFaq) => {
   const [blockIndex, setBlockIndex] = useState(0);
-  const label = getTitle(titles, blockIndex, setBlockIndex);
 
   return (
     <Div>
@@ -76,12 +88,16 @@ const FAQ = ({ title, titles }: IFAQ) => {
         <ContentWrapper>
           <H2>{title}</H2>
           <FAQWrapper>
-            {label}
+            <Description
+              items={items}
+              blockIndex={blockIndex}
+              setBlockIndex={setBlockIndex}
+            />
           </FAQWrapper>
         </ContentWrapper>
       </Wrapper>
     </Div>
-  )
-}
+  );
+};
 
-export default FAQ;
+export default Faq;

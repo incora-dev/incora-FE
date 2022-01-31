@@ -8,41 +8,73 @@ import {
   Sphere,
   H2,
   Text,
-  ContentWrapper
+  ContentWrapper,
 } from "./Information.style";
 import { IServiceContent, IServiceContents } from "@interfaces";
+import {
+  GetService_services_data_attributes_whyDoYouNeed,
+  GetService_services_data_attributes_whyDoYouNeed_items,
+} from "../../../graphql/services/__generated__/GetService";
+import Image from "next/image";
+import { IMAGES_LINK } from "../../../constants";
 
-const title = 'Why do you need a Discovery phase?';
-
-const getContent = (content: IServiceContent[] = []) => {
-  return (
-    <Content>
-      {content.map(({title, text}, index) =>
-          <ContentWrapper key={index}>
-            <Sphere/>
-            <H2>{title}</H2>
-            <Text>{text}</Text>
-          </ContentWrapper>
-        )
-      }
-    </Content>
-  )
+interface IInformation {
+  content: GetService_services_data_attributes_whyDoYouNeed;
 }
 
+interface IGetContent {
+  content: (GetService_services_data_attributes_whyDoYouNeed_items | null)[];
+}
 
-const Information = ({ content }: IServiceContents) => {
-  const contents = getContent(content);
+const GetContent = ({ content }: IGetContent) => {
+  return (
+    <Content>
+      {content.map((contentItem) => {
+        const id = contentItem?.id;
+        const title = contentItem?.title;
+        const description = contentItem?.description;
+        const image = contentItem?.image?.data?.attributes;
+        const src = IMAGES_LINK + image?.url;
+        const width = image?.width;
+        const height = image?.height;
+
+        return (
+          <>
+            {width && height && (
+              <ContentWrapper key={id}>
+                <Sphere>
+                  <Image
+                    loader={() => src}
+                    src={src}
+                    width={width}
+                    height={height}
+                    alt={"icon"}
+                  />
+                </Sphere>
+                <H2>{title}</H2>
+                <Text>{description}</Text>
+              </ContentWrapper>
+            )}
+          </>
+        );
+      })}
+    </Content>
+  );
+};
+
+const Information = ({ content }: IInformation) => {
+  const { intro, items } = content;
 
   return (
     <Div>
       <Wrapper>
         <TextBlock>
-          <H1>{title}</H1>
-          {contents}
+          <H1>{intro}</H1>
+          <GetContent content={items} />
         </TextBlock>
       </Wrapper>
     </Div>
-  )
-}
+  );
+};
 
 export default Information;

@@ -71,3 +71,121 @@ export const GET_SERVICES_PAGE = gql`
     }
   }
 `;
+
+export const GET_SERVICE = gql`
+  query GetService($url: String) {
+    services(filters: { url: { eq: $url } }) {
+      data {
+        attributes {
+          name
+          description
+
+          icon {
+            data {
+              id
+              attributes {
+                url
+                width
+                height
+              }
+            }
+          }
+          whyDoYouNeed {
+            intro
+            items {
+              id
+              title
+              description
+              image {
+                data {
+                  id
+                  attributes {
+                    url
+                    width
+                    height
+                  }
+                }
+              }
+            }
+          }
+          bestSuitedFor {
+            intro
+            items {
+              id
+              title
+            }
+          }
+          workflow {
+            intro
+            items {
+              id
+              title
+              description
+              image {
+                data {
+                  id
+                  attributes {
+                    url
+                    width
+                    height
+                  }
+                }
+              }
+            }
+          }
+          projects {
+            data {
+              id
+              attributes {
+                url
+                name
+                description
+                technologies {
+                  data {
+                    id
+                    attributes {
+                      name
+                      url
+                    }
+                  }
+                }
+                featuredImage {
+                  data {
+                    id
+                    attributes {
+                      url
+                    }
+                  }
+                }
+              }
+            }
+          }
+          faq {
+            intro
+            items {
+              id
+              title
+              description
+            }
+          }
+
+          contactUs {
+            title
+            subtitle
+          }
+
+          SEO {
+            id
+            meta {
+              id
+              name
+              content
+            }
+            keywords
+            description
+          }
+        }
+      }
+    }
+  }
+`;

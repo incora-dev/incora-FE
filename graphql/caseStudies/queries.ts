@@ -55,8 +55,6 @@ export const GET_PROJECTS = gql`
           featuredImage {
             data {
               attributes {
-                width
-                height
                 url
               }
             }

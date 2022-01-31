@@ -59,7 +59,7 @@ export const IncoraLogo = styled.img`
   max-width: 120px;
 
  @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
-    max-width: 60px;
+    max-width: 100px; 
   }
   
   img {

@@ -56,7 +56,7 @@ function Services() {
           titles={titles}
           titlesColor={colorBlack}
         >
-          <ServicesComponent/>
+          <ServicesComponent banner={banner}/>
           {isMobile && <div style={{ backgroundColor: "black", width: "100%", padding: '20px' }}>
             <div id="scroll-item">{renderScrollItem()}</div>
             <div>

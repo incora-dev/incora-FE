@@ -12,7 +12,7 @@ export  const  Container = styled.div`
   max-width: 1006px;
   
   display: flex;
-  column-gap: 242px;
+  justify-content: space-between;
   
   margin: 0 auto;
   padding: 85px 0 122px;

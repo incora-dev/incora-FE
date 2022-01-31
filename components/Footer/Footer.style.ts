@@ -10,7 +10,7 @@ const color = theme.colors.black;
 
 export const Container = styled.footer`
   position: relative;
-  z-index: 5;
+  z-index: 3;
 
   height: 270px;
 

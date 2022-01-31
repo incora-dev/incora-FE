@@ -7,12 +7,12 @@ import {
   PositionLoading
 } from "./ContactUs.style";
 import { IContactUs } from "@interfaces";
-import Form from "../../Form";
+import Form from "../../FormClassic";
 import Addresses from "./Addresses";
 import Loading from "../../../public/loading1.svg";
 
 
-function ContactUsComponent({ title, text, formLabels, addresses, buttonLabel }: IContactUs) {
+function ContactUsComponent({ title, text, addresses, buttonLabel }: IContactUs) {
   return (
     <Block>
       <Container>
@@ -22,7 +22,7 @@ function ContactUsComponent({ title, text, formLabels, addresses, buttonLabel }:
             <H4>{text}</H4>
           </Titles>
 
-          <Form fieldsLabels={formLabels} buttonLabel={buttonLabel}/>
+          <Form buttonLabel={buttonLabel}/>
         </div>
 
         <Addresses addresses={addresses}/>

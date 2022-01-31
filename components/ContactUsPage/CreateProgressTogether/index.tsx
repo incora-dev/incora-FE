@@ -8,18 +8,26 @@ import {
   PositionSemiCircle
 } from "./CreateProgressTogether.style";
 import { firstLetterBig } from "../../../utils";
-import Form from "../../Form";
+import Form from "../../FormClassic";
 import Hexagon from "../../../public/hexBig.svg";
 import SemiCircle from "../../../public/blackSemicircle.svg"
 
 interface ICreateProgressTogether {
   title: string;
 }
+const optionsSelect = [
+  'Project from scratch',
+  'Estimation & Proposal',
+  'Team extension',
+  'Partnership development',
+  'Business analysis & Tech consultancy',
+  'Job offering',
+  'Other'
+];
 
-const formLabels = ['name', 'phone number', 'email', 'linkedIn link', 'Tell us about your goals?', 'What\'s your purpose?'];
 const uploadFilesLabel = () =>
     <>
-      <span style={{color: '#FEC506'}}>Upload your Project Description</span> or anything that might be valuable for our cooperation
+      <div><span>Upload your Project Description</span> or anything that might be valuable for our cooperation</div>
     </>
 
 const CreateProgressTogether = ({ title }: ICreateProgressTogether) => {
@@ -32,9 +40,12 @@ const CreateProgressTogether = ({ title }: ICreateProgressTogether) => {
           <H2>{titleFirstLetterBig}</H2>
           <FormPosition>
             <Form
-              fieldsLabels={formLabels}
+              dropListLabels={optionsSelect}
+              formBlack={false}
               buttonLabel={'send'}
               isUploadFiles={true}
+              linkedIn={true}
+              dropList={true}
               uploadFilesLabel={uploadFilesLabel()}
             />
           </FormPosition>

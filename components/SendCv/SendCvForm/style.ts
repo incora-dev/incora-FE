@@ -3,11 +3,10 @@ import styled from "styled-components";
 
 export const SendCvFormWrapper = styled.div`
   width: 100%;
-  height: 923px;
   background-color: ${themeGet("colors.black")};
   display: flex;
   justify-content: center;
-  padding-top: 120px;
+  padding-top: 120px 0;
  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     padding-top: 50px;
   }

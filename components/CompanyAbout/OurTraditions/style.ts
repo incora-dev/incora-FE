@@ -4,6 +4,7 @@ import styled from "styled-components";
 export const OurTraditionsWrapper = styled.div`
   width: 100%;
 
+  //height: 981px;
   padding-top: 100px;
   display: flex;
   justify-content: center;

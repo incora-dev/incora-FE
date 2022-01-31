@@ -27,7 +27,7 @@ export const InfoBlock = styled.div`
   justify-content: space-between;
 
   @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
-    padding: 120px 15px 45px;
+    padding: 130px 15px 45px;
     flex-direction: column;
   }
 `;
@@ -57,7 +57,7 @@ export const Title = styled.h1`
   font-weight: 800;
   font-size: 36px;
   line-height: 54px;
- @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
      line-height: 40px;
   }
 

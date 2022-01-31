@@ -34,13 +34,16 @@ export const VideoContainer = styled.div`
   right: 0;
 
   z-index: 1;
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+    width: 100%;
+  }
 `;
 
 export const VideoBLock = styled.div`
   position: relative;
 
   @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
-    width: 418px;
+    width: 100%;
   }
 `;
 

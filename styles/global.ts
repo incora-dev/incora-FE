@@ -24,7 +24,7 @@ const GlobalStyle = createGlobalStyle`
     --fs-11: 0.688rem;
     --fs-10: 0.625rem;
 
-    @media (max-width: ${themeGet('breakpoints.mobile')}) {
+    @media only screen and (max-width: 481px) {
       --fs-120: 3.5rem;
       --fs-64: 2.25rem;
       --fs-36: 1.75rem;

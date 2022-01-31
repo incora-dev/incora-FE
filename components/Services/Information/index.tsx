@@ -14,12 +14,13 @@ import { IInfoBlock, IInformationComponent } from "@interfaces";
 import OutcomesIcon from "../../../public/SVG/estimatedTimeIco.svg"
 import EstimatedTimeIcon from "../../../public/SVG/OutcomesLogo.svg"
 import ButtonWithArrow from "../../ButtonWithArrow";
+import { GetServicesPage_servicesPage_data_attributes_services_data } from "../../../graphql/services/__generated__/GetServicesPage";
 
 const InformationComponent = ({ slide }: IInformationComponent) => {
 
-  const getEstimatedTimeInfo = (slide: IInfoBlock) => {
-    const title = slide?.estimated_time.find(({title}: any ) => title);
-    const text = slide?.estimated_time.find(({text}: any) => text);
+  const getEstimatedTimeInfo = (slide: GetServicesPage_servicesPage_data_attributes_services_data) => {
+    const title = slide?.estimated_time?.find(({title}: any ) => title);
+    const text = slide?.estimated_time?.find(({text}: any) => text);
 
     return (
       <Block>

@@ -9,6 +9,10 @@ export const OurTraditionsWrapper = styled.div`
   justify-content: center;
   align-items: center;
   flex-flow: column;
+
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+    padding-top: 30px;
+  }
 `;
 
 export const OurTraditionsTextWrap = styled.div`

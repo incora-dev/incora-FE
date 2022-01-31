@@ -7,6 +7,9 @@ export const Div = styled.div`
   flex-direction: column;
   max-width: 100%;
   padding: 20px;
+@media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+  padding-left: 35px;
+}
 `
 
 export const H2 = styled.h2`

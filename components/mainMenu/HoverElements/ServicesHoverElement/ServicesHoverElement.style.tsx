@@ -75,6 +75,9 @@ export const BlockWithIcons = styled.div`
   flex-direction: column;
 
   row-gap: 70px;
+  @media only screen and (max-width: ${theme.breakpoints.xsMobile}) {
+    row-gap: 5px;
+  }
 `;
 
 export const BlockWithIconsTop = styled.div`
@@ -175,6 +178,7 @@ export const TitleBlock = styled.div`
   align-items: center;
   
   svg {
+    width: 27px;
     &:nth-child(1) {
       path {
         stroke: ${({ titleColor }: IChangeColor) => titleColor === theme.colors.black ? theme.colors.black : theme.colors.white};

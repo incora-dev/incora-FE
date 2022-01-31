@@ -30,7 +30,7 @@ import Loader from "../../../../public/loading1.svg"
 import Loader2 from "../../../../public/loading5.svg"
 import Dots from "../../../Homepage/Cooperate/elements/dots/dots";
 import { theme } from "../../../../styles/theme";
-import { forwardRef } from "react";
+import { forwardRef, useEffect, useState } from "react";
 
 interface IServicesHoverElement {
   titleColor: string;
@@ -69,6 +69,14 @@ function arrowWithText(text: string) {
 }
 
 function getElementsTop(titleColor: string) {
+    const [isMobile, setIsMobile] = useState<boolean>();
+
+  useEffect(() => {
+    const width = window.innerWidth;
+    const mobileWidth = +theme.breakpoints.mobile.replace('px', '');
+    const isMobile = mobileWidth > width;
+    setIsMobile(isMobile);
+  },[]);
   return (
     <>
       <IconBlock>
@@ -85,7 +93,7 @@ function getElementsTop(titleColor: string) {
             </Link>
           </H4>
         </TitleBlock>
-        <Text>Alongside the core functional team, the acquisition of additional human resources would cover up the needed gaps and accelerate the development workflow.</Text>
+        {!isMobile && <Text>Alongside the core functional team, the acquisition of additional human resources would cover up the needed gaps and accelerate the development workflow.</Text>}
       </IconBlock>
 
       <IconBlock>
@@ -102,13 +110,21 @@ function getElementsTop(titleColor: string) {
             </Link>
           </H4>
         </TitleBlock>
-        <Text>Alongside the core functional team, the acquisition of additional human resources would cover up the needed gaps and accelerate the development workflow.</Text>
+        {!isMobile && <Text>Alongside the core functional team, the acquisition of additional human resources would cover up the needed gaps and accelerate the development workflow.</Text>}
       </IconBlock>
     </>
   )
 }
 
 function getElementsBottom(titleColor: string) {
+    const [isMobile, setIsMobile] = useState<boolean>();
+
+  useEffect(() => {
+    const width = window.innerWidth;
+    const mobileWidth = +theme.breakpoints.mobile.replace('px', '');
+    const isMobile = mobileWidth > width;
+    setIsMobile(isMobile);
+  },[]);
   return (
     <>
       <IconBlock>
@@ -129,7 +145,7 @@ function getElementsBottom(titleColor: string) {
         { arrowWithText('Mobile App Development') }
       </IconBlock>
 
-      <H6>Software development is aimed to provide you with support on each stage required for the successful launch of the product: from discovery to production.</H6>
+      {!isMobile && <H6>Software development is aimed to provide you with support on each stage required for the successful launch of the product: from discovery to production.</H6>}
     </>
   )
 }
@@ -169,6 +185,15 @@ const ServicesHoverElement = forwardRef(({ titleColor, isShow, backgroundColor }
       : theme.colors.white
   ;
 
+    const [isMobile, setIsMobile] = useState<boolean>();
+
+  useEffect(() => {
+    const width = window.innerWidth;
+    const mobileWidth = +theme.breakpoints.mobile.replace('px', '');
+    const isMobile = mobileWidth > width;
+    setIsMobile(isMobile);
+  },[]);
+
   return (
     <MainWrapper titleColor={titleColor}>
       <Div ref={ref as any} backgroundColor={backgroundColor}>
@@ -191,6 +216,7 @@ const ServicesHoverElement = forwardRef(({ titleColor, isShow, backgroundColor }
           </ServicesBlock>
         </Wrapper>
 
+       {!isMobile && <>
         <PositionLoader>
           <Loader
             width={169.22}
@@ -215,6 +241,7 @@ const ServicesHoverElement = forwardRef(({ titleColor, isShow, backgroundColor }
               rowGap={'18px'}
           />
         </PositionDots>
+        </>}
       </Div>
     </MainWrapper>
   )

@@ -15,6 +15,10 @@ export const Div = styled.div`
     text-transform: capitalize;
 
     color: ${themeGet("colors.white")};
+
+    @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+      font-size: var(--fs-14);
+    }
   }
   
   ul {
@@ -35,6 +39,10 @@ export const Div = styled.div`
     letter-spacing: 0.1em;
 
     color: ${themeGet("colors.font1")};
+
+    @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+      line-height: 24px;
+    }
   }
   
   a {
@@ -68,10 +76,19 @@ export const Wrapper = styled.div`
   max-width: 1006px;
   margin: 0 auto;
   padding: 0 0 82px 0;
+
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+    padding-bottom: 30px;
+  }
 `;
 
 export const TextBlock = styled.div`
   display: flex;
   flex-direction: column;
   row-gap: 30px;
+
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+    row-gap: 15px;
+    padding: 0 15px;
+  }
 `;

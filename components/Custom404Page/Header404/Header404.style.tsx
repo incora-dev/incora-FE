@@ -11,6 +11,11 @@ export const Wrapper = styled.div`
   max-width: 1006px;
   margin: 0 auto;
   padding: 181px 0 237px;
+
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+    width: 100%;
+    padding: 70px 15px 99px;
+  }
 `;
 
 export const MainBlock = styled.div`
@@ -20,14 +25,29 @@ export const MainBlock = styled.div`
   display: flex;
   flex-direction: column;
   row-gap: 68px;
+
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+    row-gap: 0;
+    right: 0;
+  }
 `;
 
 export const IconBlock = styled.div`
   width: max-content;
+
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+    transform: scale(0.6);
+    position: relative;
+    left: -97px;
+  }
 `;
 
 export const TextBlock = styled.div`
   margin-left: 24px;
+
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+    margin-left: 0;
+  }
 `;
 
 export const Text = styled.p`
@@ -43,6 +63,10 @@ export const Text = styled.p`
   letter-spacing: 0.1em;
   
   color: ${themeGet("colors.white")};
+
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+    font-size: var(--fs-14);
+  }
 
   span {
     cursor: pointer;
@@ -77,6 +101,12 @@ export const Text = styled.p`
     background-color: ${themeGet("colors.yellow5")};
 
     transition: width ${themeGet("transition.button")};
+
+    @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+      right: -5px;
+      width: 73px;
+      height: 6px;
+    }
   }
 
   &:hover :after{

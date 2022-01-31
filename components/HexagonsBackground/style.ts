@@ -11,7 +11,7 @@ export const HexagonsWrap = styled.div`
   width: 100%;
   height: 100%;
   background-color: ${themeGet("colors.black")};
-  position: relative;
+  position: absolute;
   overflow: hidden;
 `;
 

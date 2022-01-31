@@ -1,3 +1,4 @@
+import themeGet from "@styled-system/theme-get";
 import styled from "styled-components";
 import { theme } from "../../styles/theme";
 
@@ -27,6 +28,10 @@ export const HeaderWrap = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  @media only screen and (max-width: ${themeGet("breakpoints.smallDesk")}) {
+    margin-bottom: 0;
+  }
 
   svg {
     margin: auto 0;

@@ -8,10 +8,33 @@ export const LetsAcquaintedWrapper = styled.div`
   justify-content: center;
   padding-top: 120px;
   position: relative;
+
+  @media only screen and (max-width: ${themeGet("breakpoints.mDesk")}) {
+    height: 530px;
+    padding-top: 70px;
+  }
+
+  @media only screen and (max-width: ${themeGet("breakpoints.smallDesk")}) {
+    height: 290px;
+    padding: 30px;
+  }
+
+  @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
+    height: 280px;
+  }
+
+  @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
+    padding: 15px 15px 30px;
+  }
 `;
 
 export const ContentWrap = styled.div`
   width: 1006px;
+
+  @media only screen and (max-width: ${themeGet("breakpoints.mDesk")}) {
+    max-width: 900px;
+    width: 100%;
+  }
 
   span {
     font-size: var(--fs-18);
@@ -28,9 +51,42 @@ export const ContentWrap = styled.div`
     letter-spacing: 3px;
     text-transform: capitalize;
     margin-bottom: 30px;
-  }
 
-  .text {
+    @media only screen and (max-width: ${themeGet("breakpoints.mDesk")}) {
+      font-size: 54px;
+      line-height: 64px;
+    }
+
+    @media only screen and (max-width: ${themeGet("breakpoints.smallDesk")}) {
+      font-size: 36px;
+      line-height: 46px;
+    }
+
+    @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
+      font-size: 24px;
+      line-height: 34px;
+      margin-top :5px;
+    }
+
+    @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
+      font-size: 24px;
+      line-height: 33px;
+      margin-top: 13px;
+      letter-spacing: 1px;
+      width: 90%;
+    }
+  } 
+
+  .text1 {
+    @media only screen and (max-width: ${themeGet("breakpoints.smallDesk")}) {
+      font-size: 14px;
+      line-height: 20px;
+    }
+
+    @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
+      font-size: 14px;
+      line-height: 20px;
+    }
   }
 `;
 
@@ -65,11 +121,24 @@ export const HexagonsWrap = styled.div`
     position: absolute;
     top: 60px;
     right: 210px;
+
+    @media only screen and (max-width: ${themeGet("breakpoints.smallDesk")}) {
+      right: 0;
+    }
+
+    @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
+      top: 88px;
+      right: -17px;
+    }
   }
 
   .cropped {
     position: absolute;
     right: 0;
-    top: 110px
+    top: 110px;
+
+    @media only screen and (max-width: ${themeGet("breakpoints.smallDesk")}) {
+      display: none;
+    }
   }
 `;

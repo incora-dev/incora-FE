@@ -3,13 +3,6 @@ import styled from "styled-components";
 import { theme } from "../../../styles/theme";
 
 export const Block = styled.div`
-  @media only screen and (max-width: ${themeGet("breakpoints.smallDesk")}) {
-    display: flex;
-  }
-
-  @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
-    flex-direction: column;
-  }
 `;
 
 export const VacanciesWrapper = styled.div`
@@ -17,10 +10,21 @@ export const VacanciesWrapper = styled.div`
   height: 1069px;
   display: flex;
   justify-content: center;
-  /* padding-top: 120px; */
+
+  @media only screen and (max-width: ${themeGet("breakpoints.mDesk")}) {
+    height: auto;
+  }
+
+  @media only screen and (max-width: ${themeGet("breakpoints.smallDesk")}) {
+    padding: 0 30px;
+  }
 
   @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
     height: auto;
+  }
+
+  @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
+    padding: 0 15px;
   }
 `;
 
@@ -47,7 +51,7 @@ export const ContentWrapper = styled.div`
     }
 
     @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
-      font-size: 17px;
+      font-size: 24px;
       line-height: 24px;
     }
   }
@@ -58,9 +62,13 @@ export const ListWrap = styled.div`
   justify-content: space-between;
   height: 827px;
 
+  @media only screen and (max-width: ${themeGet("breakpoints.mDesk")}) {
+    height: auto;
+  }
+
   @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
     flex-direction: column;
-    height: auto;
+    margin-bottom: 15px;
   }
 `;
 
@@ -90,6 +98,10 @@ export const List = styled.div`
 
   @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
     width: 100%;
+  }
+
+  @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
+    padding-top: 10px;
   }
 `;
 
@@ -136,13 +148,13 @@ export const QuickApplyWrap = styled.div`
     }
 
     @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
-      font-size: 12px;
-      line-height: 18px;
+      font-size: 14px;
+      line-height: 21px;
     }
   }
 
   button {
-    @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
+    @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
       height: 45px;
     }
   }

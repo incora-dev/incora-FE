@@ -106,8 +106,6 @@ export const Description = styled.div`
     }
 
     @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
-      font-size: 12px;
-      line-height: 18px;
       margin-bottom: 8px;
     }
   }
@@ -157,11 +155,6 @@ export const Description = styled.div`
       font-size: 14px;
       line-height: 24px;
       margin-bottom: 0;
-    }
-
-    @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
-      font-size: 12px;
-      line-height: 18px;
     }
   }
 

@@ -5,22 +5,9 @@ export const SelectorWrapper = styled.div`
   width: 300px;
   height: 33px;
 
-  @media only screen and (max-width: ${themeGet("breakpoints.smallDesk")}) {
-    width: 50%;
-  }
-
-  @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
+  @media only screen and (max-width: ${themeGet("breakpoints.mDesk")}) {
     width: 100%;
-  }
-
-  :nth-child(1) {
-    @media only screen and (max-width: ${themeGet("breakpoints.smallDesk")}) {
-      padding-right: 20px;
-    }
-
-    @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
-      padding-right: 0;
-    }
+    margin-bottom: 5px;
   }
 
   .react-select-container,
@@ -43,7 +30,7 @@ export const SelectorWrapper = styled.div`
 
     letter-spacing: 0.5px;
     font-weight: 500;
-    font-size: 12px;
+    font-size: 14px;
     text-transform: capitalize;
 
     color: ${themeGet("colors.grey2")};

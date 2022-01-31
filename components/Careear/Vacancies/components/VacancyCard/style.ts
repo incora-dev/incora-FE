@@ -14,16 +14,13 @@ export const VacancyCardWrapper = styled.div`
   }
 
   @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
-    margin-bottom: 10px;
+    margin-bottom: 25px;
+    height: auto;
   }
 
   @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
     flex-direction: column;
     align-items: flex-start;
-  }
-
-  @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
-    height: auto;
   }
 
   button {
@@ -36,6 +33,10 @@ export const VacancyCardWrapper = styled.div`
 
 export const TextWrap = styled.div`
   width: 300px;
+
+  @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
+    margin-bottom: 5px;;
+  }
 
   @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
     width: 100%;
@@ -53,7 +54,7 @@ export const TextWrap = styled.div`
     left: 8px;
     letter-spacing: ${themeGet("letterSpacing.span")};
 
-    @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
+    @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
       top: 0;
       left: 0;
     }
@@ -78,11 +79,13 @@ export const TextWrap = styled.div`
       line-height: 22px;
     }
 
-    @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
+    @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
       font-size: 14px;
+      letter-spacing: 1px;
       line-height: 20px;
       margin-bottom: 10px;
       left: 0;
+      margin-top: 5px;
     }
   }
 `;

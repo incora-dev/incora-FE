@@ -21,12 +21,34 @@ export const BenefitsAndSolutionsWrap = styled.div`
   position: relative;
 
   background-color: ${({ bgColor }: IBackground) => bgColor};
+
+  @media only screen and (max-width: ${themeGet("breakpoints.smallDesk")}) {
+    padding: 0 30px;
+  }
+
+  @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
+    padding: 0 15px 15px;
+  }
 `;
 
 export const ContentWrap = styled.div`
   padding-top: 120px;
-  position: absolute;
+  position: relative;
   width: 1006px;
+
+  @media only screen and (max-width: ${themeGet("breakpoints.mDesk")}) {
+    max-width: 900px;
+    width: 100%;
+    padding: 100px 0 ;
+  }
+
+  @media only screen and (max-width: ${themeGet("breakpoints.smallDesk")}) {
+    padding: 50px 0 ;
+  }
+
+  @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
+    padding: 30px 0 ;
+  }
 
   h1 {
     font-weight: 800;
@@ -36,6 +58,12 @@ export const ContentWrap = styled.div`
     letter-spacing: ${themeGet("letterSpacing.h1")};
     text-transform: capitalize;
     margin-bottom: 58.6px;
+
+    @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
+      font-size: 24px;
+      line-height: 34px;
+      margin-bottom: 20px;
+    }
   }
 `;
 
@@ -44,6 +72,18 @@ export const Grid = styled.div`
   flex-flow: wrap;
   column-gap: 70px;
   row-gap: ${({ rowGap }: IGrid) => `${rowGap}px`};
+
+  @media only screen and (max-width: ${themeGet("breakpoints.smallDesk")}) {
+    row-gap: 20px;
+  }
+
+  @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
+    column-gap: 30px;
+  }
+
+  @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
+    flex-direction: column;
+  }
 `;
 
 export const GridItemWrap = styled.div`
@@ -52,8 +92,23 @@ export const GridItemWrap = styled.div`
   flex-direction: column;
   row-gap: 15px;
 
+  @media only screen and (max-width: ${themeGet("breakpoints.mDesk")}) {
+    width: calc((100% - 140px) / 2);
+  }
+
+  @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
+    width: calc((100% - 60px) / 2);
+  }
+
+  @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+  }
+
   svg {
     margin-bottom: 5px;
+    width: 51px;
   }
 
   h3 {
@@ -63,6 +118,16 @@ export const GridItemWrap = styled.div`
     line-height: 27px;
     letter-spacing: ${themeGet("letterSpacing.span")};
     color: ${themeGet("colors.white")};
+
+    @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
+      font-size: 14px;
+      line-height: 24px;
+    }
+
+    @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
+      padding-left: 10px;
+      max-width: calc(100% - 51px)
+;    }
   }
   
   p {

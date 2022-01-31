@@ -16,8 +16,22 @@ import { IInfoBlock } from "@interfaces";
 import { IncModal } from "../../components/Modal";
 import TextElement from "../../components/common/VerticalFullPageSlider/TextElement";
 import {useEffect, useState} from 'react';
+import { useQuery } from "@apollo/client";
+import { GET_SERVICES_PAGE } from "../../graphql/services/queries";
+import {
+  GetServicesPage,
+  GetServicesPage_servicesPage_data_attributes_services_data,
+} from "../../graphql/services/__generated__/GetServicesPage";
+import Custom404 from "../404";
 
 function Services() {
+  const { data, loading, error } = useQuery<GetServicesPage>(GET_SERVICES_PAGE);
+  const entry = data?.servicesPage?.data?.attributes;
+  const banner = entry?.banner;
+  const slides = entry?.services?.data;
+  const stackTitle = entry?.techStack.title;
+  const stacks = entry?.techStack.tech_stacks?.data;
+
   const colorWhite = theme.colors.white;
   const colorBlack = theme.colors.black;
   const [showModal, setShowModal] = useState(false);
@@ -31,10 +45,11 @@ function Services() {
     setIsMobile(isMobile);
   },[]);
 
-  const renderSlide = (slide: IInfoBlock) => <InformationComponent slide={slide} />;
+  const renderSlide = (slide: GetServicesPage_servicesPage_data_attributes_services_data) => 
+    <InformationComponent slide={slide as any} />;
   const renderScrollItem = () => {
       return <TextElement 
-                labels={servicesPage.info} 
+                labels={servicesPage.info as any} 
                 currentSlide={currentSlide} 
                 bgColor={"black"}
                 onChange={(index) => {
@@ -43,8 +58,14 @@ function Services() {
                 }} />;
   };
 
+  const renderCondition = entry && banner && slides && stackTitle && stacks;
+  if (loading) return null;
+  if (error) return <Custom404 />;
+
+
   return (
     <>
+          {renderCondition && (
       <div id='Services'>
         <Head>
           <title>Incora | Services</title>
@@ -70,16 +91,15 @@ function Services() {
               )}
             </div>
           </div>}
-            {!isMobile &&(<VerticalFullPageSlider<IInfoBlock>
-              //@ts-ignore
-              slides={servicesPage.info}
+            {!isMobile &&(<VerticalFullPageSlider
+              slides={slides}
               renderSlide={renderSlide}
               stickyTopPosition={120}
               scrollListType={ScrollListTypes.STRING}
               maxWidth={1006}
-              bgColor="#181819"
+              bgColor={theme.colors.backgroundBlack}
             />)}
-          <TechStack stacks={servicesPage.techStacks} stackTitle={servicesPage.techStackTitle}/>
+            <TechStack stacks={stacks} stackTitle={stackTitle} />
           <LetsTalk
             flexDirection={'column'}
             title={'Let’s talk!'}
@@ -96,7 +116,7 @@ function Services() {
               <EstimateAppCircle/>
             </a>
           </Link>
-      </div>
+      </div>)}
         <FooterComponent {...footer}/>
     </>
   )

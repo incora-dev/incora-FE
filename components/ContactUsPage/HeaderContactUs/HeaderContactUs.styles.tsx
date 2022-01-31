@@ -50,7 +50,7 @@ export const H1 = styled.h1`
   font-weight: 800;
   font-size: var(--fs-64);
   line-height: 96px;
-@media only screen and (max-width: ${theme.breakpoints.mobile}) {
+@media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
   line-height: 50px;
 }
 

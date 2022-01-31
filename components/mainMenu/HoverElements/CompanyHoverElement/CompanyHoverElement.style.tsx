@@ -41,7 +41,7 @@ export const PositionSquare = styled.div`
   left: -68px;
   top: 113px;
 
-  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     display: none;
   }
 `;
@@ -60,7 +60,7 @@ export const Wrapper = styled.div`
   display: flex;
   column-gap: 79px;
 
-  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     padding: 20px;
     flex-direction: column;
     overflow: scroll;

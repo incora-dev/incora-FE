@@ -1,3 +1,4 @@
+import themeGet from "@styled-system/theme-get";
 import styled from "styled-components";
 import { theme } from "../../../styles/theme";
 
@@ -24,7 +25,7 @@ export const ContentWrapper = styled.div`
   display: flex;
   justify-content: space-between;
 
-  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     padding: 53px 20px;
     flex-direction: column;
   }
@@ -80,7 +81,7 @@ export const AccordionWrapper = styled.div`
   color: ${({ isOpen }: IAccordion) => isOpen ? theme.colors.white : theme.colors.black};
   background-color: ${({ isOpen }: IAccordion) => isOpen ? theme.colors.black : 'none'};
   border-bottom: ${({ lastBlock }: IAccordion) => lastBlock ? 'none' : '1px solid #EFEFEF'};
-  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
         width: 100%;
   }
 `;
@@ -112,7 +113,7 @@ export const H2 = styled.h2`
   font-weight: 800;
   font-size: var(--fs-36);
   line-height: 54px;
-@media only screen and (max-width: ${theme.breakpoints.mobile}) {
+@media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
   line-height: 40px;
 }
   /* identical to box height */

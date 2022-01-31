@@ -36,7 +36,7 @@ export const Wrapper = styled.div`
 `;
 
 export const ContentWrapper = styled.div`
-  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     overflow-x: hidden;
   }
 `;
@@ -49,7 +49,7 @@ export const Block = styled.div`
   width: 100%;
   gap: 20px;
 
-  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     padding: 10px 0;
     flex-direction: row-reverse;
   }
@@ -83,7 +83,7 @@ export const HoverMenu = styled.div`
 
   transition: opacity ${themeGet("transition.menu")};
 
-  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     margin: 65px auto 0 auto;
   }
 `;

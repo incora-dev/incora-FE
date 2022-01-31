@@ -1,3 +1,4 @@
+import themeGet from "@styled-system/theme-get";
 import { createGlobalStyle } from "styled-components";
 import { theme } from "./theme";
 
@@ -23,7 +24,7 @@ const GlobalStyle = createGlobalStyle`
     --fs-11: 0.688rem;
     --fs-10: 0.625rem;
 
-    @media (max-width: ${theme.breakpoints.mobile}) {
+    @media (max-width: ${themeGet('breakpoints.mobile')}) {
       --fs-120: 3.5rem;
       --fs-64: 2.25rem;
       --fs-36: 1.75rem;

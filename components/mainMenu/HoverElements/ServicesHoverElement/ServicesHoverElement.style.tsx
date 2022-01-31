@@ -61,7 +61,7 @@ export const Wrapper = styled.div`
 
   color: ${({ titleColor }: IChangeColor) => titleColor === theme.colors.black ? theme.colors.black : theme.colors.white};
 
-  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     padding: 20px;
     flex-direction: column;
     overflow: scroll;

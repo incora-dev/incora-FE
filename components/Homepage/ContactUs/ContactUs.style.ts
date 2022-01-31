@@ -1,3 +1,4 @@
+import themeGet from "@styled-system/theme-get";
 import styled from "styled-components";
 import { theme } from "../../../styles/theme";
 
@@ -16,7 +17,7 @@ export  const  Container = styled.div`
   margin: 0 auto;
   padding: 85px 0 122px;
 
-  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     padding: 53px 20px 53px;
     flex-wrap: wrap;
     justify-content: center;
@@ -50,7 +51,7 @@ export  const  H2 = styled.h2`
   font-weight: 800;
   font-size: var(--fs-64);
   line-height: 96px;
-@media only screen and (max-width: ${theme.breakpoints.mobile}) {
+@media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
   line-height: 50px;
 }
 

@@ -8,7 +8,7 @@ export const SendCvFormWrapper = styled.div`
   display: flex;
   justify-content: center;
   padding-top: 120px;
- @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+ @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     padding-top: 50px;
   }
 `;

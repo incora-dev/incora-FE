@@ -8,50 +8,57 @@ import {
   Text,
   Package,
   Block,
-  PositionButtonWithArrow
+  PositionButtonWithArrow,
 } from "./Information.style";
-import { IInfoBlock, IInformationComponent } from "@interfaces";
-import OutcomesIcon from "../../../public/SVG/estimatedTimeIco.svg"
-import EstimatedTimeIcon from "../../../public/SVG/OutcomesLogo.svg"
+import OutcomesIcon from "../../../public/SVG/estimatedTimeIco.svg";
+import EstimatedTimeIcon from "../../../public/SVG/OutcomesLogo.svg";
 import ButtonWithArrow from "../../ButtonWithArrow";
-import { GetServicesPage_servicesPage_data_attributes_services_data } from "../../../graphql/services/__generated__/GetServicesPage";
+import {
+  GetServicesPage_servicesPage_data_attributes_services_data,
+  GetServicesPage_servicesPage_data_attributes_services_data_attributes,
+} from "../../../graphql/services/__generated__/GetServicesPage";
+
+export interface IInformationComponent {
+  slide: GetServicesPage_servicesPage_data_attributes_services_data;
+}
 
 const InformationComponent = ({ slide }: IInformationComponent) => {
+  const { attributes } = slide;
 
-  const getEstimatedTimeInfo = (slide: GetServicesPage_servicesPage_data_attributes_services_data) => {
-    const title = slide?.estimated_time?.find(({title}: any ) => title);
-    const text = slide?.estimated_time?.find(({text}: any) => text);
-
+  const getEstimatedTimeInfo = (
+    slide: GetServicesPage_servicesPage_data_attributes_services_data_attributes
+  ) => {
     return (
       <Block>
-        <EstimatedTimeIcon/>
+        <EstimatedTimeIcon />
         <Package>
-          <H3>{title?.title}</H3>
-          <Text>{text?.text}</Text>
+          <H3>{"estimated time"}</H3>
+          <Text>{slide.estimatedTime}</Text>
         </Package>
       </Block>
-    )
-  }
+    );
+  };
 
-  const getOutcomesInfo = (slide: IInfoBlock) => {
-    const title = slide?.outcomes.find(({title}: any) => title);
-    const text = slide?.outcomes.find(({text}: any) => text);
-
+  const getOutcomesInfo = (
+    slide: GetServicesPage_servicesPage_data_attributes_services_data_attributes
+  ) => {
     return (
-        <Block>
-          <OutcomesIcon/>
-          <Package>
-            <H3>{title?.title}</H3>
-            <Text>{text?.text}</Text>
-          </Package>
-        </Block>
-    )
-  }
+      <Block>
+        <OutcomesIcon />
+        <Package>
+          <H3>{"outcomes"}</H3>
+          <Text>{slide.outcomes}</Text>
+        </Package>
+      </Block>
+    );
+  };
 
-  const getBlockInformation = (slide: IInfoBlock) => (
+  const getBlockInformation = (
+    slide: GetServicesPage_servicesPage_data_attributes_services_data_attributes
+  ) => (
     <>
-      <H2>{slide?.title}</H2>
-      <P>{slide?.text}</P>
+      <H2>{slide.name}</H2>
+      <P>{slide.description}</P>
       <EstimatedTimeAndOutcomesBlock>
         {getEstimatedTimeInfo(slide)}
         {getOutcomesInfo(slide)}
@@ -60,17 +67,21 @@ const InformationComponent = ({ slide }: IInformationComponent) => {
   );
 
   return (
-    <TextBlock>
-      {getBlockInformation(slide)}
-      <PositionButtonWithArrow>
-        <ButtonWithArrow
-          buttonLabel={'read more'}
-          redirectTo={`/services/${slide?.title}`}
-          padding={'23px 35px;'}
-        />
-      </PositionButtonWithArrow>
-    </TextBlock>
+    <>
+      {attributes && (
+        <TextBlock>
+          {getBlockInformation(attributes)}
+          <PositionButtonWithArrow>
+            <ButtonWithArrow
+              buttonLabel={"read more"}
+              redirectTo={`/services/${attributes.url}`}
+              padding={"23px 35px;"}
+            />
+          </PositionButtonWithArrow>
+        </TextBlock>
+      )}
+    </>
   );
-}
+};
 
 export default InformationComponent;

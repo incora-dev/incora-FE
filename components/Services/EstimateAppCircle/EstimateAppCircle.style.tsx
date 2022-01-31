@@ -1,4 +1,6 @@
+import themeGet from "@styled-system/theme-get";
 import styled, { keyframes } from "styled-components";
+import { theme } from "../../../styles/theme";
 
 export const CircleBlock = styled.div`
   position: relative;
@@ -32,11 +34,15 @@ const rotation = keyframes`
 `
 
 export const PositionCircleBlock = styled.div`
-  position: fixed;
+  position: sticky;
   bottom: 0;
   right: 56px;
 
   &:hover ${PositionText} {
     animation: ${rotation} 5s linear infinite;
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+    margin-right: 5vw;
   }
 `;

@@ -149,4 +149,8 @@ export const SelectedFile = styled.p`
 
 export const FilesSelected = styled.div`
   margin-top: 35.5px;
+
+  @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
+    margin-top: 0;
+  }
 `;

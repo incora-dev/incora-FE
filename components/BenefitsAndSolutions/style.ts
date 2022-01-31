@@ -1,5 +1,6 @@
 import themeGet from "@styled-system/theme-get";
 import styled from "styled-components";
+import { theme } from "../../styles/theme";
 
 interface IGridItemWrap {
   width: number;
@@ -29,6 +30,16 @@ export const BenefitsAndSolutionsWrap = styled.div`
   @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
     padding: 0 15px 15px;
   }
+
+  /* @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+    height: 210vh;
+  }
+  @media only screen and (max-width: ${theme.breakpoints.mMobile}) {
+    height: 260vh;
+  }
+  @media only screen and (max-width: ${theme.breakpoints.xsMobile}) {
+    height: 350vh;
+  } */
 `;
 
 export const ContentWrap = styled.div`
@@ -50,10 +61,25 @@ export const ContentWrap = styled.div`
     padding: 30px 0 ;
   }
 
+  /* @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+    padding-top: 50px;
+  }
+  position: absolute;
+  width: 1006px;
+
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+    width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+  } */
+
   h1 {
     font-weight: 800;
     font-size: var(--fs-36);
     line-height: 54px;
+@media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+  line-height: 40px;
+}
     color: ${themeGet("colors.white")};
     letter-spacing: ${themeGet("letterSpacing.h1")};
     text-transform: capitalize;
@@ -81,9 +107,13 @@ export const Grid = styled.div`
     column-gap: 30px;
   }
 
-  @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
+  /* @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
     flex-direction: column;
   }
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+    padding: 0 20px;
+    row-gap: 50px;
+  } */
 `;
 
 export const GridItemWrap = styled.div`

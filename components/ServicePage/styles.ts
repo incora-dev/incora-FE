@@ -34,6 +34,9 @@ export const TextContainer = styled.div`
   position: relative;
   z-index: 1;
   padding: 222px 0 129px;
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+    padding: 120px 20px 100px;
+  }
 `;
 
 export const TextBlock = styled.div`

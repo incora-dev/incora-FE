@@ -41,7 +41,7 @@ function VideoComponent() {
         <VideoContainer>
           <VideoBLock onClick={() => setPlay(true)}>
             <PosterVideoPosition display={play}>
-              <img src={'./Player/PosterVideo.jpg'}></img>
+              <img style={{height: isMobile ? '250px': 'unset'}} src={'./Player/PosterVideo.jpg'}></img>
             </PosterVideoPosition>
               <iframe
                 id={'youTubeVideo'}

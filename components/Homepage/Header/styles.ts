@@ -1,3 +1,4 @@
+import themeGet from "@styled-system/theme-get";
 import styled from "styled-components";
 import { theme } from "../../../styles/theme";
 
@@ -16,9 +17,9 @@ export const Container = styled.div`
   text-align: left;
 
   --line-height: calc(11vw + 0.1rem);
-  @media (max-width: ${theme.breakpoints.mobile}) {
+  @media (max-width: ${themeGet('breakpoints.mobile')}) {
     --line-height: calc(11vw + 0.1rem);
-    height: 85vw;
+    height: 70vw;
   }
 `
 
@@ -58,7 +59,7 @@ export const Div = styled.div`
 
   text-align: left;
 
-  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     margin: 0 20px;
     padding-top: 20px;
   }
@@ -74,7 +75,7 @@ export const VideoBlock = styled.div`
   width: 710px;
   height: 380px;
 
-  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     position: static;
     width: 90vw;
   }
@@ -89,9 +90,10 @@ export const PositionVideoSVG = styled.div`
   width: 710px;
   height: 380px;
 
-  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
-    width: 96vw;
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+    width: 92vw;
     top: 20px;
+    right: 3vw;
   }
 `
 
@@ -103,7 +105,7 @@ export const VideoContainer = styled.video`
 
 export const Titles = styled.div`
   margin-left: -47px;
-  @media (max-width: ${theme.breakpoints.mobile}) {
+  @media (max-width: ${themeGet('breakpoints.mobile')}) {
     margin-left: -50px;
     padding-top: 3vh;
   }
@@ -135,7 +137,7 @@ export const Title3 = styled.h1`
   line-height: var(--line-height);
   letter-spacing: 0.05em;
 
-  @media (max-width: ${theme.breakpoints.mobile}) {
+  @media (max-width: ${themeGet('breakpoints.mobile')}) {
     margin-left: calc(25vw + 1rem);
   }
 `
@@ -154,7 +156,7 @@ export const Title4 = styled.h1`
   -webkit-text-stroke: 1px #fec506;
   color: rgba(0,0,0,0);
 
-  @media (max-width: ${theme.breakpoints.mobile}) {
+  @media (max-width: ${themeGet('breakpoints.mobile')}) {
     margin-left: calc(26vw + 1rem);
     top: 6%;
   }
@@ -176,7 +178,7 @@ export const ScrollContainer = styled.div`
   
   transform: rotate(-90deg);
 
-  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     left: -15%;
     width: 40%;
     bottom: 20%;

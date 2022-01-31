@@ -1,5 +1,6 @@
 import themeGet from "@styled-system/theme-get";
 import styled from "styled-components";
+import { theme } from "../../../styles/theme";
 
 export const LetsAcquaintedWrapper = styled.div`
   width: 100%;
@@ -7,6 +8,9 @@ export const LetsAcquaintedWrapper = styled.div`
   display: flex;
   justify-content: center;
   padding-top: 120px;
+ @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+    padding-top: 50px;
+  }
   position: relative;
 
   @media only screen and (max-width: ${themeGet("breakpoints.mDesk")}) {
@@ -48,6 +52,9 @@ export const ContentWrap = styled.div`
     font-weight: 800;
     font-size: var(--fs-64);
     line-height: 96px;
+@media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+  line-height: 50px;
+}
     letter-spacing: 3px;
     text-transform: capitalize;
     margin-bottom: 30px;

@@ -1,3 +1,4 @@
+import themeGet from "@styled-system/theme-get";
 import styled from "styled-components";
 import { homePageTechnologiesHoverDuration } from "../../../../constants";
 import { theme } from "../../../../styles/theme";
@@ -19,7 +20,7 @@ export const Component = styled.div`
     display: none;
   }
 
-  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     padding: 0 8%;
   }
 `;

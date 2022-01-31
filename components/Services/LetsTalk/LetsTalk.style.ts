@@ -25,8 +25,8 @@ export const Wrapper = styled.div`
   max-width: 1006px;
   margin: 0 auto;
 
-  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
-    padding: 53px 20px;
+  @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
+    padding: 53px 20px 20px;
   }
 `;
 
@@ -50,6 +50,11 @@ export const H2 = styled.h2`
   font-size: var(--fs-64);
   line-height: 96px;
 
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+    font-size: var(--fs-28);
+    line-height: 39px;
+  }
+
   letter-spacing: 0.05em;
   text-transform: capitalize;
 `;
@@ -68,7 +73,7 @@ export const PositionHexagon = styled.div`
   top: ${({ isWhite }: IDiv) => (isWhite ? "70px" : "-239px")};
   right: -47px;
 
-  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+  @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
     display: none;
   }
 `;

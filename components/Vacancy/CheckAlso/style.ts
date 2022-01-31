@@ -3,12 +3,11 @@ import styled from "styled-components";
 
 export const CheckAlsoWrapper = styled.div`
   width: 100%;
-  height: 1014px;
   display: flex;
   justify-content: center;
   padding-top: 70px;
   position: relative;
-  overflow: hidden;
+  //overflow: hidden;
 
   @media only screen and (max-width: ${themeGet("breakpoints.smallDesk")}) {
     padding: 0 30px;

@@ -33,7 +33,7 @@ export const ButtonsBlock = styled.div`
 
   transition: all 0.3s ease-in-out;
 
-  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     gap: 30px;
     flex-direction: row;
   }

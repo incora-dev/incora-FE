@@ -8,6 +8,7 @@ import {
   ListWrap,
   QuickApplyWrap,
   VacanciesWrapper,
+  PositionFilter
 } from "./style";
 
 import SmallStar from "../../../public/SmallStar.svg";
@@ -38,7 +39,7 @@ const Vacancies = ({
   const [technologyId, setTechnologyId] = useState<string | undefined>(
     undefined
   );
-  const [limit, setLimit] = useState<number>(4);
+  const [limit, setLimit] = useState<number>(7);
 
   const [getVacanciesList, { data, loading }] = useLazyQuery<GetVacanciesList>(
     GET_VACANCIES_LIST,
@@ -105,8 +106,6 @@ const Vacancies = ({
   return (
     <VacanciesWrapper>
       <ContentWrapper>
-        <h1>{intro}</h1>
-
         <ListWrap>
           <Filter>
             <Block>
@@ -141,6 +140,41 @@ const Vacancies = ({
               />
             </QuickApplyWrap>
           </Filter>
+          {/* <PositionFilter>
+            <h1>{intro}</h1>
+
+            <Filter>
+              <Selector
+                  value={specialtyId}
+                  setValue={setSpecialtyId}
+                  placeholder={filterText1}
+                  options={specialtiesOptions}
+                  icon={SmallStar}
+              />
+              <Selector
+                  value={specialtyId}
+                  setValue={setTechnologyId}
+                  placeholder={filterText2}
+                  options={technologiesOptions}
+                  icon={SmallStar}
+              />
+
+              <QuickApplyWrap>
+                <h2>{header}</h2>
+                <p>{text}</p>
+
+                <Button
+                    textColor={theme.colors.white}
+                    backgroundColor={theme.colors.black}
+                    width={180}
+                    height={67}
+                    label={buttonText}
+                    arrow={theme.colors.white}
+                    onClick={() => getVacanciesList()}
+                />
+              </QuickApplyWrap>
+            </Filter>
+          </PositionFilter> */}
 
           <List>{vacanciesCards}</List>
         </ListWrap>

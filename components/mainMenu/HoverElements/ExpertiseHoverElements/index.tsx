@@ -31,6 +31,7 @@ import DevOpsTools from "../../../../public/SVG/menuIcons/DevOpsToolsMini.svg";
 import CloudServices from "../../../../public/SVG/menuIcons/CloudServices.svg";
 import Loader from "../../../../public/loading5.svg"
 import Rectangle from "../../../../public/SVG/rectangleWithGradient.svg"
+import { forwardRef } from "react";
 
 interface ITechnologiesLabels {
   title: string;
@@ -41,6 +42,7 @@ interface ITechnologiesLabels {
 interface IExpertiseHoverElements {
   titleColor: string;
   isShow: boolean;
+  backgroundColor: string;
 }
 
 const industriesLabels = [
@@ -107,13 +109,13 @@ function getTechnologies(labels: ITechnologiesLabels[], titleColor: string) {
   })
 }
 
-const ExpertiseHoverElements = ({ titleColor, isShow }:IExpertiseHoverElements) => {
+const ExpertiseHoverElements = forwardRef(({ titleColor, isShow, backgroundColor }:IExpertiseHoverElements, ref) => {
   const industries = getIndustries(industriesLabels);
   const technologies = getTechnologies(technologiesLabels, titleColor);
 
   return (
     <MainWrapper titleColor={titleColor}>
-      <Div titleColor={titleColor}>
+      <Div ref={ref as any} titleColor={titleColor} backgroundColor={backgroundColor}>
         <PositionSphere>
           <Sphere titleColor={titleColor}/>
         </PositionSphere>
@@ -152,6 +154,6 @@ const ExpertiseHoverElements = ({ titleColor, isShow }:IExpertiseHoverElements) 
       </Div>
     </MainWrapper>
   )
-}
+});
 
 export default ExpertiseHoverElements;

@@ -36,7 +36,9 @@ export const Wrapper = styled.div`
 `;
 
 export const ContentWrapper = styled.div`
-  overflow-x: hidden;
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+    overflow-x: hidden;
+  }
 `;
 
 export const Block = styled.div`
@@ -47,8 +49,9 @@ export const Block = styled.div`
   width: 100%;
   gap: 20px;
 
-  @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
-    flex-direction: column;
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+    padding: 10px 0;
+    flex-direction: row-reverse;
   }
 `;
 
@@ -56,7 +59,7 @@ export const IncoraLogo = styled.img`
   max-width: 120px;
 
  @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
-    max-width: 60px;
+    max-width: 100px; 
   }
   
   img {
@@ -79,4 +82,8 @@ export const HoverMenu = styled.div`
   height: 461px;
 
   transition: opacity ${themeGet("transition.menu")};
+
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+    margin: 65px auto 0 auto;
+  }
 `;

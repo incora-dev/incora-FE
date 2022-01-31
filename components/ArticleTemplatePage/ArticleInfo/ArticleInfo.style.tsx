@@ -9,6 +9,10 @@ interface ISelect {
 export const Div = styled.div`
   //overflow: hidden;
   margin-top: -49px;
+
+  @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
+    margin-top: -70px;
+  }
 `;
 
 export const Wrapper = styled.div`
@@ -17,6 +21,11 @@ export const Wrapper = styled.div`
   
   display: flex;
   column-gap: 63px;
+
+  @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
+    row-gap: 10px;
+    flex-direction: column;
+  }
 `;
 
 export const ScrollLabels = styled.div`
@@ -26,13 +35,17 @@ export const ScrollLabels = styled.div`
 
   display: flex;
   flex-direction: column;
-  row-gap: 15px;
+  row-gap: 25px;
+  @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
+    display: none;
+  }
 `;
 
 export const StickyWrapper = styled.div`
   margin-top: 5px;
 
   display: block;
+  
 `;
 
 export const Line = styled.div`
@@ -57,11 +70,17 @@ export const Label = styled.div`
 
   color: ${themeGet("colors.black")};
 
-  h1, h2, h3 {
+  h1, h2 {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 21px;
+    letter-spacing: 0.05em;
+
     color: ${({ selected }: ISelect) => selected ? theme.colors.black : theme.colors.grey2};
   }
 
-  h4, h5, h6 {
+  h3, h4, h5, h6 {
     font-style: normal;
     font-weight: ${({ selected }: ISelect) => selected ? '700': 'normal' };
     font-size: 12px;
@@ -96,6 +115,10 @@ export const SocialTitleAndTagsBlock = styled.div`
   display: flex;
   flex-direction: column;
   row-gap: 30px;
+
+  @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
+    padding: 20px 15px 0;
+  }
 `;
 
 export const Tags = styled.div`
@@ -135,8 +158,13 @@ export const MainText = styled.div`
   display: flex;
   flex-direction: column;
   row-gap: 30px;
+
+  @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
+    padding: 0 15px 0;
+    row-gap: 15px;
+  }
   
-  h1, h2, h3 {
+  h1, h2 {
     font-style: normal;
     font-weight: 800;
     font-size: 28px;
@@ -146,9 +174,15 @@ export const MainText = styled.div`
     text-transform: capitalize;
 
     color: ${themeGet("colors.black")};
+
+    @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
+      font-size: var(--fs-24);
+      line-height: 34px;
+      margin: 10px 0px;
+    }
   }
 
-  h4, h5, h6 {
+  h3, h4, h5, h6 {
     font-style: normal;
     font-weight: bold;
     font-size: 18px;
@@ -156,7 +190,11 @@ export const MainText = styled.div`
 
     letter-spacing: 0.1em;
 
-    color: ${themeGet("colors.font2")};;
+    color: ${themeGet("colors.font2")};
+
+    @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
+      line-height: 28px;
+    }
   }
 
   ul {
@@ -175,6 +213,10 @@ export const MainText = styled.div`
     letter-spacing: 0.1em;
 
     color: ${themeGet("colors.font2")};
+
+    @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
+      line-height: 28px;
+    }
   }
 
   strong, b {
@@ -185,6 +227,10 @@ export const MainText = styled.div`
     letter-spacing: 0.05em;
 
     color: ${themeGet("colors.black")};
+
+    @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
+      line-height: 28px;
+    }
   }
 
   a {
@@ -198,6 +244,19 @@ export const MainText = styled.div`
     letter-spacing: 0.1em;
 
     color: ${themeGet("colors.yellow2")};
+
+    @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
+      line-height: 28px;
+    }
+  }
+
+
+  pre {
+    padding: 20px;
+    overflow: scroll;
+    
+    color: ${themeGet("colors.codeText")};
+    background-color: ${themeGet("colors.codeBg")};
   }
 `;
 
@@ -209,6 +268,11 @@ export const PollBlock = styled.div`
   display: flex;
   flex-direction: column;
   row-gap: 30px;
+
+  @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
+    padding: 30px 15px 50px;
+    row-gap: 15px;
+  }
 `;
 
 export const CodeBlock = styled.div`
@@ -228,11 +292,21 @@ export const PollTitle = styled.h3`
   text-transform: capitalize;
 
   color: ${themeGet("colors.black")};
+
+  @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
+    font-size: var(--fs-18);
+    line-height: 28px;
+  }
 `;
 
 export const ChooseElements = styled.div`
   display: flex;
   column-gap: 10px;
+
+  @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
+    flex-direction: column;
+    row-gap: 8px;
+  }
 `;
 
 export const Element = styled.div`

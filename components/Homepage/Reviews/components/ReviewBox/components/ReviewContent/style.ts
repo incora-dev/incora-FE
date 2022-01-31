@@ -8,7 +8,7 @@ export const ReviewContentWrap = styled.div`
   display: flex;
   justify-content: space-between;
   
-  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     width: 100%;
     flex-direction: column-reverse;
     align-items: center;
@@ -26,7 +26,7 @@ export const QuoteWrap = styled.div`
     }
   }
 
-  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     width: 100%;
   }
 `;
@@ -47,7 +47,7 @@ export const AvatarWrap = styled.div`
   display: flex;
   justify-content: flex-end;
 
-  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     justify-content: center;
     >div {
       display: flex;

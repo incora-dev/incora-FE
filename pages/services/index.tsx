@@ -13,14 +13,38 @@ import Link from "next/link";
 import VerticalFullPageSlider from "../../components/common/VerticalFullPageSlider";
 import { ScrollListTypes } from "../../components/common/VerticalFullPageSlider/types";
 import { IInfoBlock } from "@interfaces";
+import { IncModal } from "../../components/Modal";
+import TextElement from "../../components/common/VerticalFullPageSlider/TextElement";
+import {useEffect, useState} from 'react';
 
 function Services() {
   const colorWhite = theme.colors.white;
   const colorBlack = theme.colors.black;
+  const [showModal, setShowModal] = useState(false);
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [isMobile, setIsMobile] = useState<boolean>();
+
+  useEffect(() => {
+    const width = window.innerWidth;
+    const mobileWidth = +theme.breakpoints.mobile.replace('px', '');
+    const isMobile = mobileWidth > width;
+    setIsMobile(isMobile);
+  },[]);
 
   const renderSlide = (slide: IInfoBlock) => <InformationComponent slide={slide} />;
+  const renderScrollItem = () => {
+      return <TextElement 
+                labels={servicesPage.info} 
+                currentSlide={currentSlide} 
+                bgColor={"black"}
+                onChange={(index) => {
+                  setCurrentSlide(index);
+                  setShowModal(true);
+                }} />;
+  };
 
   return (
+    <>
       <div id='Services'>
         <Head>
           <title>Incora | Services</title>
@@ -32,16 +56,29 @@ function Services() {
           titles={titles}
           titlesColor={colorBlack}
         >
-          <ServicesComponent/>
-          <VerticalFullPageSlider<IInfoBlock>
-            //@ts-ignore
-            slides={servicesPage.info}
-            renderSlide={renderSlide}
-            stickyTopPosition={120}
-            scrollListType={ScrollListTypes.STRING}
-            maxWidth={1006}
-            bgColor="#181819"
-          />
+          <ServicesComponent banner={banner}/>
+          {isMobile && <div style={{ backgroundColor: "black", width: "100%", padding: '20px' }}>
+            <div id="scroll-item">{renderScrollItem()}</div>
+            <div>
+              {servicesPage.info.map((slide, idx) => <IncModal 
+                  show={showModal && currentSlide === idx} 
+                  onHide={() => {
+                    setShowModal(false);
+                  }} 
+                  title={slide.title || ''} 
+                  content={renderSlide(slide as any)} />
+              )}
+            </div>
+          </div>}
+            {!isMobile &&(<VerticalFullPageSlider<IInfoBlock>
+              //@ts-ignore
+              slides={servicesPage.info}
+              renderSlide={renderSlide}
+              stickyTopPosition={120}
+              scrollListType={ScrollListTypes.STRING}
+              maxWidth={1006}
+              bgColor="#181819"
+            />)}
           <TechStack stacks={servicesPage.techStacks} stackTitle={servicesPage.techStackTitle}/>
           <LetsTalk
             flexDirection={'column'}
@@ -53,14 +90,15 @@ function Services() {
               </>
             }
           />
+        </MainMenu>
           <Link href={'estimate'}>
             <a>
               <EstimateAppCircle/>
             </a>
           </Link>
-        </MainMenu>
-        <FooterComponent {...footer}/>
       </div>
+        <FooterComponent {...footer}/>
+    </>
   )
 }
 

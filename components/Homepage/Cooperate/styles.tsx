@@ -1,3 +1,4 @@
+import themeGet from "@styled-system/theme-get";
 import styled from "styled-components";
 import { theme } from "../../../styles/theme";
 
@@ -22,7 +23,7 @@ export const Cooperate = styled.div`
     margin: 0 auto;
   }
 
-  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     height: 110vh;
   }
   @media only screen and (max-width: ${theme.breakpoints.mMobile}) {
@@ -56,10 +57,9 @@ export const Slider = styled.div`
   margin-right: 23px;
   padding-top: 23.2vh;
   padding-bottom: 33.2vh;
-  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     flex-wrap: wrap;
     padding-top: 53px;
-    height: 150vh;
     padding-bottom: 53px;
   }
 `
@@ -82,11 +82,14 @@ export const PositionNumber = styled.div`
   z-index: 1;
   margin-top: 20px;
 
-  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     left: 50%;
   }
-  @media only screen and (max-width: ${theme.breakpoints.xsMobile}) {
+  @media only screen and (max-width: ${theme.breakpoints.mMobile}) {
     left: 40%;
+  }
+  @media only screen and (max-width: ${theme.breakpoints.xsMobile}) {
+    left: 25%;
     margin-top: -50vw;
   }
 `
@@ -95,7 +98,7 @@ export const InfoContainer = styled.div`
   display: flex;
   gap: 25px;
 
-  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     flex-wrap: wrap;
     gap: 0;
   }
@@ -107,7 +110,7 @@ export const PositionInfo = styled.div`
 
   margin-top: 6px;
 
-  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     right: 0;
     max-width: 100vw;
     top: -25vh;
@@ -129,7 +132,7 @@ export const PositionScrollSlider = styled.div`
   top: 37.3vh;
   left: -10px;
 
-  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     left: 5%;
   }
 `

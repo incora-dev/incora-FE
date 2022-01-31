@@ -35,13 +35,13 @@ const CreateNews = ({
         <Link href={`insights/${url}`} passHref>
           <ImgBlock>
             <Element />
-            <Image
+            {/* <Image
               loader={() => image}
               src={image}
               width={293}
               height={201}
               alt="article preview"
-            />
+            /> */}
           </ImgBlock>
         </Link>
 

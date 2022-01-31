@@ -120,6 +120,14 @@ const Industry = () => {
         ? setMenuColor(colorWhite)
         : setMenuColor('none')
   }
+  const [isMobile, setIsMobile] = useState<boolean>();
+
+  useEffect(() => {
+    const width = window.innerWidth;
+    const mobileWidth = +theme.breakpoints.mobile.replace('px', '');
+    const isMobile = mobileWidth > width;
+    setIsMobile(isMobile);
+  },[]);
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll)
@@ -142,7 +150,7 @@ const Industry = () => {
           >
             <HeaderService
               title={'Logistics'}
-              titleSize={'64px'}
+              titleSize={isMobile ? '50px' :'64px'}
               text={text}
               textWidth={'560px'}
               hexagonColor={hexagonColorGrey}

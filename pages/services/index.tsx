@@ -46,10 +46,10 @@ function Services() {
   },[]);
 
   const renderSlide = (slide: GetServicesPage_servicesPage_data_attributes_services_data) => 
-    <InformationComponent slide={slide as any} />;
+    <InformationComponent slide={slide} />;
   const renderScrollItem = () => {
       return <TextElement 
-                labels={servicesPage.info as any} 
+                labels={slides as any} 
                 currentSlide={currentSlide} 
                 bgColor={"black"}
                 onChange={(index) => {
@@ -81,12 +81,12 @@ function Services() {
           {isMobile && <div style={{ backgroundColor: "black", width: "100%", padding: '20px' }}>
             <div id="scroll-item">{renderScrollItem()}</div>
             <div>
-              {servicesPage.info.map((slide, idx) => <IncModal 
-                  show={showModal && currentSlide === idx} 
+              {slides.map((slide, idx) => <IncModal 
+                  show={showModal && currentSlide === Number(slide.id)} 
                   onHide={() => {
                     setShowModal(false);
                   }} 
-                  title={slide.title || ''} 
+                  title={slide.attributes?.name || ''} 
                   content={renderSlide(slide as any)} />
               )}
             </div>

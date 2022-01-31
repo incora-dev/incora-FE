@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import themeGet from "@styled-system/theme-get";
-import { theme } from "../../../styles/theme";
 
 interface IColors {
   bgColor?: string;
@@ -18,10 +17,10 @@ export const Slide = styled.div`
   @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     height: 90vh;
   }
-  @media only screen and (max-width: ${theme.breakpoints.mMobile}) {
+  @media only screen and (max-width: ${themeGet('breakpoints.mMobile')}) {
     height: 120vh;
   }
-  @media only screen and (max-width: ${theme.breakpoints.xsMobile}) {
+  @media only screen and (max-width: ${themeGet('breakpoints.xsMobile')}) {
     height: 150vh;
   }
 `;

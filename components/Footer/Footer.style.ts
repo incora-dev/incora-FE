@@ -28,6 +28,11 @@ export const Position = styled.div`
   padding-top: 41px;
   justify-content: space-between;
 
+  @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
+    padding: 40px 15px;
+    width: 100%;
+  }
+
   @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
     width: 100%;
     padding-left: 20px;

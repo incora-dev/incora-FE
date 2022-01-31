@@ -21,7 +21,7 @@ export const Nav = styled.nav`
 
   color: ${( {color}) => color };
 
-  @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
+  @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
     display: grid;
     gap: 20px;
     padding-left: 30px;
@@ -57,7 +57,7 @@ export const Ul = styled.ul`
 
     transition: all ${themeGet("transition.button")};
 
-    @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+    @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
       left: -10px;
     }
   }

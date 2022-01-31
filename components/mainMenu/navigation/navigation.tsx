@@ -25,9 +25,10 @@ function Navigation({
   const [isMobile, setIsMobile] = useState<boolean>();
 
   useEffect(() => {
-    const width = window.innerWidth;
-    const mobileWidth = +theme.breakpoints.mobile.replace('px', '');
-    const isMobile = mobileWidth > width;
+    const width = window.outerWidth;
+    const mobileWidth = +theme.breakpoints.tablet.replace('px', '');
+    console.log(width, mobileWidth)
+    const isMobile = mobileWidth >= width;
     setIsMobile(isMobile);
   },[]);
 

@@ -16,7 +16,7 @@ export const ContentWrap = styled.div`
   padding-left: 12px;
   position: relative;
 
-  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     width: 90%;
   }
 
@@ -42,7 +42,7 @@ export const ContentWrap = styled.div`
     right: -12px;
     top: 135px;
 
-    @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
       display: none;
     }
   }
@@ -65,7 +65,7 @@ export const UploadBox = styled.div`
   justify-content: center;
   align-items: center;
 
-  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     width: 100%;
   }
 

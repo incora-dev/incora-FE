@@ -13,7 +13,7 @@ export const ReviewBoxWrapper = styled.div`
     justify-content: flex-end;
   }
 
-  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     width: 90%;
     min-height: fit-content;
     padding-bottom: 53px;
@@ -26,12 +26,12 @@ export const CarouselButtonWrapper = styled.div`
   align-items: flex-end;
 `;
 export const CarouselButtonsContainer = styled.div`
-  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     display: flex;
   }
 `;
 export const CarouselReviewWrapper = styled.div`
-  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -73,7 +73,7 @@ export const ReviewContentWrap = styled.div`
   display: flex;
   justify-content: space-between;
 
-  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     width: 90%;
   }
 `;

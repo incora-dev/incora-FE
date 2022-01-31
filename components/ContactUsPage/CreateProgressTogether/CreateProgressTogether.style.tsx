@@ -47,7 +47,7 @@ export const H2 = styled.h2`
   font-size: var(--fs-64);
   line-height: 96px;
 
-  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     font-size: var(--fs-28);
     line-height: 39px;
   }

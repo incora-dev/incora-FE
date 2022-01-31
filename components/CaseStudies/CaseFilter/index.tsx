@@ -74,7 +74,7 @@ const CaseFilter = ({
       <FilterWrap filterByFlag={filterByFlag}>
         <h1>{title}</h1>
         <p>{description}</p>
-        <FilterSwitchWrap filterByFlag={filterByFlag}>
+        {!isMobile && <FilterSwitchWrap filterByFlag={filterByFlag}>
           <span>filter by</span>
           <Switch
             left={"industries"}
@@ -82,7 +82,7 @@ const CaseFilter = ({
             backgroundColor={switchBackgroundColorCondition}
             handleValue={handleSwitchValue}
           />
-        </FilterSwitchWrap>
+        </FilterSwitchWrap>}
         {tagsCondition}
       </FilterWrap>
       {filterByFlag && !isMobile && (

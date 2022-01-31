@@ -103,7 +103,7 @@ export const Input = styled.input`
   -moz-transition: ease-in-out 0.4s;
   transition: all ease-in-out 0.4s;
 
-  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     width: 100%;
   }
 

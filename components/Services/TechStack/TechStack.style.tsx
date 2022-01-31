@@ -1,3 +1,4 @@
+import themeGet from "@styled-system/theme-get";
 import styled, {keyframes} from "styled-components";
 import { theme } from "../../../styles/theme";
 
@@ -25,7 +26,7 @@ export const Container = styled.div`
   flex-direction: column;
   row-gap: 30px;
 
-  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     margin-top: 53px;
     padding: 0 20px;
   }
@@ -37,7 +38,7 @@ export const H2 = styled.h2`
   font-weight: 800;
   font-size: var(--fs-64);
   line-height: 96px;
-@media only screen and (max-width: ${theme.breakpoints.mobile}) {
+@media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
   line-height: 50px;
 }
 
@@ -53,6 +54,9 @@ export const H3 = styled.h3`
   font-weight: 800;
   font-size: var(--fs-36);
   line-height: 54px;
+@media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+  line-height: 40px;
+}
 
   letter-spacing: 0.05em;
 
@@ -80,7 +84,7 @@ export const StacksContainer = styled.div`
   padding: 50px;
   background: #FBFBFB;
 
-  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     width: 100%;
     padding: 20px;
   }
@@ -131,7 +135,7 @@ export const InfoBlock = styled.div`
   display: flex;
   justify-content: space-between;
 
-  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     flex-direction: column;
     gap: 30px;
     margin-bottom: 53px;

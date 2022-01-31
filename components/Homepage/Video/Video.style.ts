@@ -1,3 +1,4 @@
+import themeGet from "@styled-system/theme-get";
 import styled from "styled-components";
 import { theme } from "../../../styles/theme";
 
@@ -10,7 +11,7 @@ export const Container = styled.div`
 
   height: 742px;
 
-  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     height: 300px;
   }
 `;
@@ -38,7 +39,7 @@ export const VideoContainer = styled.div`
 export const VideoBLock = styled.div`
   position: relative;
 
-  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     width: 418px;
   }
 `;

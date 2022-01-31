@@ -1,3 +1,4 @@
+import themeGet from "@styled-system/theme-get";
 import styled from "styled-components";
 import { theme } from "../../../styles/theme";
 
@@ -8,7 +9,7 @@ export const Div = styled.div`
   height: 1047px;
   position: relative;
 
-  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     height: 210vh;
   }
   @media only screen and (max-width: ${theme.breakpoints.mMobile}) {

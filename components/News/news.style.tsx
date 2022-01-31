@@ -1,3 +1,4 @@
+import themeGet from "@styled-system/theme-get";
 import styled from "styled-components";
 import { theme } from "../../styles/theme";
 
@@ -17,7 +18,7 @@ export const HeaderContainer = styled.div`
   width: 100%;
   padding-left: 180px;
   padding-right: 80px;
-  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     padding: 0 20px;
   }
 `;

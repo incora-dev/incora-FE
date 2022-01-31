@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { theme } from "../../styles/theme";
 import themeGet from "@styled-system/theme-get";
 
@@ -24,7 +24,7 @@ interface IButtonsBlock {
   rowGap: string;
 }
 
-export const ButtonsBlock = styled.div`
+export const ButtonsBlock = styled.div<IButtonsBlock>`
   display: flex;
   flex-direction: ${({ flexDirection }: IButtonsBlock) => flexDirection};;
   column-gap: ${({ columnGap }: IButtonsBlock) => columnGap};
@@ -35,10 +35,12 @@ export const ButtonsBlock = styled.div`
 
   @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     gap: 30px;
-    flex-wrap: nowrap;
-    overflow-x: scroll;
-    height: 59px;
-    align-items: center;
+    ${({flexDirection}) => flexDirection === 'row' && css`
+      flex-wrap: nowrap;
+      overflow-x: scroll;
+      height: 59px;
+      align-items: center;
+    `}
   }
 `
 

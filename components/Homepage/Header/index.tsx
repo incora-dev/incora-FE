@@ -36,9 +36,9 @@ function HeaderComponent() {
         <Div>
           <VideoBlock>
             <video
-              style={{ width: isMobile ? '94vw' : '710px', 
-                      height: isMobile ? 'unset' : '380px', 
-                      position: isMobile ? 'relative' : 'static', 
+              style={{ width: isMobile ? '94vw' : '707px',
+                      height: isMobile ? 'unset' : '380px',
+                      position: isMobile ? 'relative' : 'static',
                       top: '1px' }}
               autoPlay
               loop

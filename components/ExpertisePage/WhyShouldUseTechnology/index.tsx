@@ -6,52 +6,57 @@ import {
   ArgumentsBlock,
   TechnologyWrapper,
   H3,
-  Text
+  Text,
 } from "./WhyShouldUseTechnology.style";
 import { firstLetterBig } from "../../../utils";
-
-interface ITechnology {
-  title: string;
-  text: string;
-}
+import { GetTechnologyPage_technologies_data_attributes_whyShouldYouUse_items } from "../../../graphql/technologies/__generated__/GetTechnologyPage";
 
 interface IWhyShouldUseTechnology {
   title: string;
   bgColor: string;
   titleColor: string;
+  items: (GetTechnologyPage_technologies_data_attributes_whyShouldYouUse_items | null)[];
 }
 
-const aboutTechnology: ITechnology[] = [
-  { title: 'Decreased development time', text: 'React.js allows you to create reusable UI components, which cuts down on development time. By modifying just one page chunk at a time, you omit reloading the full page for each update.'},
-  { title: 'Support from the majority of browsers', text: 'React.js is compatible with all major browsers, namely Internet Explorer 9, Chrome, Firefox and others. As soon as a new version of React.js is released, they enhance their engines.'},
-  { title: 'Smooth performance despite complex operations', text: 'React.js has its own virtual DOM and since it is much faster than the browser’s one, it deals even with moderately complicated underlying operations or database queries.'},
-]
-
-const getArguments = (technology: ITechnology[]) => {
-  return technology.map(({ title, text}, index) =>
-    <TechnologyWrapper key={index}>
-      <H3>{title}</H3>
-      <Text>{text}</Text>
-    </TechnologyWrapper>
-  )
+interface IGetArguments {
+  items: (GetTechnologyPage_technologies_data_attributes_whyShouldYouUse_items | null)[];
 }
 
-const WhyShouldUseTechnology = ({ title, bgColor, titleColor }: IWhyShouldUseTechnology) => {
-  const h1Title = firstLetterBig('why should you use ') + firstLetterBig(title) +'?';
-  const argumentsTechnology = getArguments(aboutTechnology);
+const GetArguments = ({ items }: IGetArguments) => {
+  const createArgument = items.map((item) => {
+    const id = item?.id;
+    const title = item?.title;
+    const description = item?.description;
 
+    return (
+      <TechnologyWrapper key={id}>
+        <H3>{title}</H3>
+        <Text>{description}</Text>
+      </TechnologyWrapper>
+    );
+  });
+
+  return <>{createArgument}</>;
+};
+
+const WhyShouldUseTechnology = ({
+  title,
+  bgColor,
+  titleColor,
+  items,
+}: IWhyShouldUseTechnology) => {
   return (
     <Div bgColor={bgColor}>
       <Wrapper>
         <InfoBlock>
-          <H1 color={titleColor}>{h1Title}</H1>
+          <H1 color={titleColor}>{title}</H1>
           <ArgumentsBlock>
-            {argumentsTechnology}
+            <GetArguments items={items} />
           </ArgumentsBlock>
         </InfoBlock>
       </Wrapper>
     </Div>
-  )
-}
+  );
+};
 
 export default WhyShouldUseTechnology;

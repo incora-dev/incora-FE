@@ -1,39 +1,55 @@
-import { Div, Wrapper, TextBlock, H2, IconsBlock } from "./PopularWebsites.style";
+import {
+  Div,
+  Wrapper,
+  TextBlock,
+  H2,
+  IconsBlock,
+} from "./PopularWebsites.style";
 import React from "react";
 import Link from "next/link";
-import {firstLetterBig} from "../../../utils";
+import { GetTechnologyPage_technologies_data_attributes_popularWebsites_pictures_data } from "../../../graphql/technologies/__generated__/GetTechnologyPage";
+import Image from "next/image";
+import { IMAGES_LINK } from "../../../constants";
 
 interface IPopularWebsites {
   title: string;
-  webSites: React.FunctionComponent[];
+  pictures: GetTechnologyPage_technologies_data_attributes_popularWebsites_pictures_data[];
 }
 
-const getIcons = (icons: React.FunctionComponent[]) => {
-  return icons.map(( Icon , index) =>
-    <React.Fragment key={index + 3000}>
-      <Link href={`${index}`}>
-        <Icon/>
-      </Link>
-    </React.Fragment>
-  )
-}
+const PopularWebsites = ({ title, pictures }: IPopularWebsites) => {
+  const createPictures = pictures.map((picture) => {
+    const id = picture.id;
+    const src = IMAGES_LINK + picture.attributes?.url;
+    const width = picture.attributes?.width;
+    const height = picture.attributes?.height;
 
-const PopularWebsites = ({ title, webSites}: IPopularWebsites) => {
-  const icons = getIcons(webSites);
-  const H2title = firstLetterBig('popular websites that use ') + firstLetterBig(title) +'?';
+    const renderCondition = src && width && height;
+    return (
+      <>
+        {renderCondition && (
+          <Image
+            key={id}
+            loader={() => src}
+            src={src}
+            width={width}
+            height={height}
+            alt="company logo"
+          />
+        )}
+      </>
+    );
+  });
 
   return (
     <Div>
       <Wrapper>
         <TextBlock>
-          <H2>{H2title}</H2>
-          <IconsBlock>
-            {icons}
-          </IconsBlock>
+          <H2>{title}</H2>
+          <IconsBlock>{createPictures}</IconsBlock>
         </TextBlock>
       </Wrapper>
     </Div>
-  )
-}
+  );
+};
 
 export default PopularWebsites;

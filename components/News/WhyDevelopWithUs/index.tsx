@@ -17,73 +17,80 @@ import {
   PositionTextRotated2,
   TextRotated,
 } from "./WhyDevelopWithUs.style";
-import { firstLetterBig } from "../../../utils";
 import PointsLarge from "../../../public/SVG/expertise/pointsLarge.svg";
 import PointsSmall from "../../../public/SVG/expertise/pointsSmall.svg";
+import {
+  GetTechnologyPage_technologies_data_attributes_whyDevelopWithUs,
+  GetTechnologyPage_technologies_data_attributes_whyDevelopWithUs_items,
+} from "../../../graphql/technologies/__generated__/GetTechnologyPage";
 
 interface IWhyDevelopWithUs {
-  title: string;
-  info: IInfo[];
+  data: GetTechnologyPage_technologies_data_attributes_whyDevelopWithUs;
 }
 
-interface IInfo {
-  title: string;
-  text: string;
+interface IReasons {
+  items: (GetTechnologyPage_technologies_data_attributes_whyDevelopWithUs_items | null)[];
 }
 
-const getReasons = (reasons: IInfo[]) => {
+const Reasons = ({ items }: IReasons) => {
+  const createReasons = items.map((item, index) => {
+    const id = item?.id;
+    const title = item?.title;
+    const description = item?.description;
+
+    const isLastChild = items.length - 1 === index;
+
+    return (
+      <BlockReason key={id} isLastChild={isLastChild}>
+        <H3>{title}</H3>
+        <Text>{description}</Text>
+        <PositionNumberBlock>
+          <NumberBlock>
+            <Circle />
+            <Number>0{index + 1}</Number>
+          </NumberBlock>
+        </PositionNumberBlock>
+      </BlockReason>
+    );
+  });
+
+  return <>{createReasons}</>;
+};
+
+const WhyDevelopWithUs = ({ data }: IWhyDevelopWithUs) => {
+  const { items, connections } = data;
+
+  const connectionTextOne = connections && connections[0]?.text;
+  const connectionTextTwo = connections && connections[1]?.text;
+
   return (
-    reasons.map(({ title, text }, index) => {
-      const isLastChild = (reasons.length - 1) === index;
-
-      return (
-        <BlockReason key={index + 40000} isLastChild={isLastChild}>
-          <H3>{title}</H3>
-          <Text>{text}</Text>
-          <PositionNumberBlock>
-            <NumberBlock>
-              <Circle/>
-              <Number>0{index + 1}</Number>
-            </NumberBlock>
-          </PositionNumberBlock>
-        </BlockReason>
-      )
-    })
-  )
-}
-
-const WhyDevelopWithUs = ({ title, info }: IWhyDevelopWithUs) => {
-  const reasons = getReasons(info);
-
-  return (
-    <Div>
-      <Wrapper>
-        <TextBlock>
-          <H2>
-            {firstLetterBig(title)}
-          </H2>
-          <ReasonsWrapper>
-            {reasons}
-            <PositionPointsLarge>
-              <PointsLarge/>
-            </PositionPointsLarge>
-
-            <PositionPointsSmall>
-              <PointsSmall/>
-            </PositionPointsSmall>
-
-            <PositionTextRotated1>
-              <TextRotated>Thorough supervision</TextRotated>
-            </PositionTextRotated1>
-
-            <PositionTextRotated2>
-              <TextRotated>custom solution developmet</TextRotated>
-            </PositionTextRotated2>
-          </ReasonsWrapper>
-        </TextBlock>
-      </Wrapper>
-    </Div>
-  )
-}
+    <>
+      {items && (
+        <Div>
+          <Wrapper>
+            <TextBlock>
+              <H2>{"Why develop with us?"}</H2>
+              <ReasonsWrapper>
+                <Reasons items={items} />f
+                <PositionPointsLarge>
+                  <PointsLarge />
+                </PositionPointsLarge>
+                <PositionPointsSmall>
+                  <PointsSmall />
+                </PositionPointsSmall>
+                <PositionTextRotated1>
+                  <TextRotated>{connectionTextOne}</TextRotated>
+                </PositionTextRotated1>
+                <PositionTextRotated2>
+                  <TextRotated>{connectionTextTwo}</TextRotated>
+                </PositionTextRotated2>
+              </ReasonsWrapper>
+            </TextBlock>
+          </Wrapper>
+        </Div>
+      )}
+    </>
+  );
+};
 
 export default WhyDevelopWithUs;

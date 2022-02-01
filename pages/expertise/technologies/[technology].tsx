@@ -6,16 +6,7 @@ import React from "../../../public/SVG/technologies/react.svg";
 import HeaderService from "../../../components/ServicePage/HeaderService";
 import WhyShouldUseTechnology from "../../../components/ExpertisePage/WhyShouldUseTechnology";
 import PopularWebsites from "../../../components/ExpertisePage/PopularWebsites";
-import Facebook from "../../../public/SVG/expertise/technologies/Facebook.svg";
-import Instagram from "../../../public/SVG/expertise/technologies/Instagram.svg";
-import CodeAcademy from "../../../public/SVG/expertise/technologies/Codeacademy.svg";
-import NewYorkTimes from "../../../public/SVG/expertise/technologies/New York Times.svg";
-import YahooMail from "../../../public/SVG/expertise/technologies/Yahoo Mail.svg";
-import Netflix from "../../../public/SVG/expertise/technologies/Netflix.svg";
-import Dropbox from "../../../public/SVG/expertise/technologies/Dropbox.svg";
-import Flipboard from "../../../public/SVG/expertise/technologies/Flipboard.svg";
 import News from "../../../components/News";
-import Angular from "../../../public/SVG/technologies/angular.svg";
 import ContactUsComponent from "../../../components/Homepage/ContactUs";
 import { IContactUs } from "@interfaces";
 import FooterComponent from "../../../components/Footer";
@@ -25,42 +16,12 @@ import Instagram1 from "../../../public/SVG/socialNetwork/instagram.svg";
 import Facebook1 from "../../../public/SVG/socialNetwork/facebook.svg";
 import LinkedIn1 from "../../../public/SVG/socialNetwork/linkedIn.svg";
 import WhyDevelopWithUs from "../../../components/News/WhyDevelopWithUs";
-
-const news = {
-  title: "Insights",
-  articles: [
-    {
-      img: "./../../newsBlock/newImg1.jpg",
-      tags: ["tagtitle", "tagtitle"],
-      categories: ["category"],
-      title:
-        "Intro to Microservices Communication [With the Use of Apache Kafka]",
-      redirectTo: "[With the Use of Apache Kafka]",
-    },
-    {
-      img: "./../../newsBlock/newImg2.jpg",
-      tags: ["tagtitle"],
-      categories: ["category", "category"],
-      title: "Incora Is Gaining Popularity On Clutch",
-      redirectTo: "Incora Is Gaining Popularity On Clutch",
-    },
-    {
-      img: "./../../newsBlock/newImg3.jpg",
-      tags: ["tagtitle", "tagtitle"],
-      categories: ["category"],
-      title: "Node.js vs Python: What are the Pros, Cons, and Use Cases?",
-      redirectTo: "Node.js vs Python: What are the Pros, Cons, and Use Cases?",
-    },
-    {
-      img: "./../../newsBlock/newImg1.jpg",
-      tags: ["tagtitle"],
-      categories: ["category", "category"],
-      title: "How to Monetize Delivery and Shipping Apps: Methods Screening",
-      redirectTo:
-        "How to Monetize Delivery and Shipping Apps: Methods Screening",
-    },
-  ],
-};
+import { useRouter } from "next/router";
+import { useQuery } from "@apollo/client";
+import { GET_TECHNOLOGY_PAGE } from "../../../graphql/technologies/queries";
+import { GetTechnologyPage } from "../../../graphql/technologies/__generated__/GetTechnologyPage";
+import Custom404 from "../../404";
+import EmbodiedIdeasComponent from "../../../components/Homepage/EmbodiedIdeas";
 
 const MainMenuTitles = [
   "Services",
@@ -82,41 +43,6 @@ const contactUs: IContactUs = {
   buttonLabel: "send",
 };
 
-const WebSites = [
-  Facebook,
-  Instagram,
-  CodeAcademy,
-  NewYorkTimes,
-  YahooMail,
-  Netflix,
-  Dropbox,
-  Flipboard,
-];
-
-const whyDevelopWithUs = {
-  title: "why develop with us?",
-  reasons: [
-    {
-      title: "Extensive market research for the clear goals",
-      text: "ICP / Business Analysis / Time & Cost Estimation / Project Roadmap",
-    },
-    {
-      title: "Development with the focus on every angle",
-      text: "QA & Testing / Architecture scheme /  Source Code",
-    },
-    {
-      title: "Agile approach through each phase",
-      text: "CI/CD Pipeline / DevOps services integration",
-    },
-    {
-      title: "Guaranteed safety with the NDA signing",
-      text: "Legally recognized Confidential agreement",
-    },
-  ],
-  rotateText1: "Thorough supervision",
-  rotateText2: "custom solution developmet",
-};
-
 const footer: IFooter = {
   policies: ["privacy policy", "Cookies Policy"],
   offices: contactUs.addresses,
@@ -132,15 +58,31 @@ const footer: IFooter = {
 const colorWhite = theme.colors.white;
 const colorBlack = theme.colors.black;
 const colorBackgroundBlack = theme.colors.backgroundBlack;
-const hexagonColorGrey = theme.elements.hexagonBorderedGrey;
 
-interface ITechnology {
-  title: string;
-  headerText: string;
-  label: string;
-}
+const Technology = () => {
+  const router = useRouter();
+  const { technology } = router.query;
 
-const Technology = ({ title, headerText, label }: ITechnology) => {
+  const { data, loading, error } = useQuery<GetTechnologyPage>(
+    GET_TECHNOLOGY_PAGE,
+    { variables: { url: technology } }
+  );
+  const entry = data?.technologies?.data[0].attributes;
+  const headerTitle = entry?.name;
+  const headerDescription = entry?.description;
+  const headerLabel = entry?.tech_stack?.data?.attributes?.name;
+  const headerIcon = entry?.icon?.data?.attributes;
+  const whyShouldYouUseTitle = entry?.whyShouldYouUse?.intro;
+  const whyShouldYouUseItems = entry?.whyShouldYouUse?.items;
+  const popularWebSitesTitle = entry?.popularWebsites?.intro;
+  const popularWebSitesPictures = entry?.popularWebsites?.pictures.data;
+  const whyDevelopWithUs = entry?.whyDevelopWithUs;
+  const projects = entry?.projects?.data;
+  const insightsIntro = entry?.insights?.intro;
+  const insightsArticles = entry?.insights?.articles?.data;
+  const contactUsTitle = entry?.contactUs?.title;
+  const contactUsSubtitle = entry?.contactUs?.subtitle;
+
   const [menuColor, setMenuColor] = useState("none");
   const handleScroll = () => {
     window.scrollY >= 50 ? setMenuColor(colorBlack) : setMenuColor("none");
@@ -152,52 +94,84 @@ const Technology = ({ title, headerText, label }: ITechnology) => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const renderCondition =
+    headerTitle &&
+    headerDescription &&
+    headerLabel &&
+    headerIcon &&
+    whyShouldYouUseTitle &&
+    whyShouldYouUseItems &&
+    popularWebSitesTitle &&
+    popularWebSitesPictures &&
+    whyDevelopWithUs &&
+    projects &&
+    insightsIntro &&
+    insightsArticles &&
+    contactUsTitle &&
+    contactUsSubtitle;
+
+  if (loading) return null;
+  if (error) return <Custom404 />;
+
   return (
     <>
-      <Head>
-        <title>{title}</title>
-        <meta name="description" content="Generated by create next app" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <MainMenu
-        backgroundColor={menuColor}
-        titlesColor={colorWhite}
-        titles={MainMenuTitles}
-      >
-        <HeaderService
-          title={title}
-          titleSize={"64px"}
-          text={headerText}
-          textWidth={"435px"}
-          label={label}
-          bgColor={colorBlack}
-        />
-        <WhyShouldUseTechnology
-          title={title}
-          bgColor={colorBackgroundBlack}
-          titleColor={colorWhite}
-        />
-        <PopularWebsites title={title} webSites={WebSites} />
-        <WhyDevelopWithUs
-          title={whyDevelopWithUs.title}
-          info={whyDevelopWithUs.reasons}
-        />
-        <News title={news.title} articles={news.articles} />
-        <ContactUsComponent
-          title={contactUs.title}
-          text={contactUs.text}
-          formLabels={contactUs.formLabels}
-          addresses={contactUs.addresses}
-          buttonLabel={contactUs.buttonLabel}
-        />
-      </MainMenu>
-      <FooterComponent
-        policies={footer.policies}
-        offices={footer.offices}
-        followUs={footer.followUs}
-        pages={footer.pages}
-        copyright={footer.copyright}
-      />
+      {renderCondition && (
+        <>
+          <Head>
+            <title>{""}</title>
+            <meta name="description" content="Generated by create next app" />
+            <link rel="icon" href="/favicon.ico" />
+          </Head>
+          <MainMenu
+            backgroundColor={menuColor}
+            titlesColor={colorWhite}
+            titles={MainMenuTitles}
+          >
+            <HeaderService
+              title={headerTitle}
+              icon={headerIcon}
+              titleSize={"64px"}
+              text={headerDescription}
+              textWidth={"435px"}
+              label={headerLabel}
+              bgColor={colorBlack}
+            />
+            <WhyShouldUseTechnology
+              title={whyShouldYouUseTitle}
+              bgColor={colorBackgroundBlack}
+              titleColor={colorWhite}
+              items={whyShouldYouUseItems}
+            />
+            <PopularWebsites
+              title={popularWebSitesTitle}
+              pictures={popularWebSitesPictures}
+            />
+            <WhyDevelopWithUs data={whyDevelopWithUs} />
+            <EmbodiedIdeasComponent
+              bgColor={theme.colors.yellow}
+              elementsColor={theme.colors.black}
+              projects={projects}
+              disablePadding
+              disableSeeMore
+            />
+            <News title={insightsIntro} articles={insightsArticles} />
+            <ContactUsComponent
+              title={contactUsTitle}
+              text={contactUsSubtitle}
+              formLabels={contactUs.formLabels}
+              addresses={contactUs.addresses}
+              buttonLabel={contactUs.buttonLabel}
+            />
+          </MainMenu>
+          <FooterComponent
+            policies={footer.policies}
+            offices={footer.offices}
+            followUs={footer.followUs}
+            pages={footer.pages}
+            copyright={footer.copyright}
+          />
+        </>
+      )}
     </>
   );
 };

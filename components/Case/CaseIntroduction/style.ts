@@ -19,6 +19,10 @@ export const ContentWrap = styled.div`
     padding: 70px 25px 0;
   }
 
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) { 
+    padding: 60px 15px 0;
+  }
+
   > h3 {
     font-weight: 600;
     font-size: var(--fs-12);
@@ -52,6 +56,15 @@ export const ContentWrap = styled.div`
       width: 100%;  
       font-size: var(--fs-36);
       line-height: 50px;
+    }
+
+    @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) { 
+      line-height: 43px;
+    }
+
+    @media only screen and (max-width: ${themeGet('breakpoints.mMobile')}) { 
+      line-height: 40px;
+      font-size: var(--fs-24);
     }
   }
 

@@ -54,43 +54,80 @@ const Description = ({
   content,
   textColor,
 }: IDescription) => {
-  const createDescription = items && items.map((item, index) => {
-    const id = item?.id;
-    const title = item?.title;
-    const description = item?.description;
-
-    const icon = getIcon(blockIndex, index, textColor);
-    const openedFAQ = index === blockIndex;
-
-    function onSetBlockIndex() {
-      if (blockIndex === index) {
-        return setBlockIndex(-1);
+  let createDescription;
+  if (items) {
+    createDescription = items.map((item, index) => {
+      const id = item?.id;
+      const title = item?.title;
+      const description = item?.description;
+  
+      const icon = getIcon(blockIndex, index, textColor);
+      const openedFAQ = index === blockIndex;
+  
+      function onSetBlockIndex() {
+        if (blockIndex === index) {
+          return setBlockIndex(-1);
+        }
+        setBlockIndex(index);
       }
-      setBlockIndex(index);
-    }
-
-    return (
-      <AccordionWrapper
-        key={id}
-        isOpen={openedFAQ}
-        lastBlock={index === items.length - 1}
-        textColor={textColor}
-      >
-        <Accordion onClick={onSetBlockIndex}>
-          <Title>{title}</Title>
-          {icon}
-        </Accordion>
-
-        {index === blockIndex && (
-          <TextBlock onClick={onSetBlockIndex}>
-            <Text isOpen={openedFAQ}>
-              {content ? content[index] : description}
-            </Text>
-          </TextBlock>
-        )}
-      </AccordionWrapper>
-    );
-  });
+  
+      return (
+        <AccordionWrapper
+          key={id}
+          isOpen={openedFAQ}
+          lastBlock={index === items.length - 1}
+          textColor={textColor}
+        >
+          <Accordion onClick={onSetBlockIndex}>
+            <Title>{title}</Title>
+            {icon}
+          </Accordion>
+  
+          {index === blockIndex && (
+            <TextBlock onClick={onSetBlockIndex}>
+              <Text isOpen={openedFAQ}>
+                {content ? content[index] : description}
+              </Text>
+            </TextBlock>
+          )}
+        </AccordionWrapper>
+      );
+    });
+  } else {
+    createDescription = titles?.map((title, index) => {
+      const icon = getIcon(blockIndex, index, textColor);
+      const openedFAQ = index === blockIndex;
+  
+      function onSetBlockIndex() {
+        if (blockIndex === index) {
+          return setBlockIndex(-1);
+        }
+        setBlockIndex(index);
+      }
+  
+      return (
+        <AccordionWrapper
+          key={title}
+          isOpen={openedFAQ}
+          lastBlock={index === titles.length - 1}
+          textColor={textColor}
+        >
+          <Accordion onClick={onSetBlockIndex}>
+            <Title>{title}</Title>
+            {icon}
+          </Accordion>
+  
+          {index === blockIndex && (
+            <TextBlock onClick={onSetBlockIndex}>
+              <Text isOpen={openedFAQ}>
+                {content[index]}
+              </Text>
+            </TextBlock>
+          )}
+        </AccordionWrapper>
+      );
+    });
+  }
 
   return <>{createDescription}</>;
 };

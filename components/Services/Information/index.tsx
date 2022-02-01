@@ -25,7 +25,8 @@ export interface IInformationComponent {
 
 const InformationComponent = ({ slide }: IInformationComponent) => {
   const { attributes } = slide;
-  const isMobile = useIsMobile();
+    const {isMobile, isTablet, isSmallTablet} = useIsMobile();
+  
 
   const getEstimatedTimeInfo = (
     slide: GetServicesPage_servicesPage_data_attributes_services_data_attributes
@@ -60,7 +61,7 @@ const InformationComponent = ({ slide }: IInformationComponent) => {
   ) => {
     return (
       <>
-        {!isMobile && <H2>{slide.name}</H2>}
+        {!isMobile && !isTablet && !isSmallTablet && <H2>{slide.name}</H2>}
         <P>{slide.descriptionForServicesPage}</P>
         <EstimatedTimeAndOutcomesBlock>
           {getEstimatedTimeInfo(slide)}

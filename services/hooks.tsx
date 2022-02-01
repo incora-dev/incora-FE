@@ -21,13 +21,33 @@ export const useOnClickOutside = (ref: any, handler: (e: any) => void) => {
 };
 
 export const useIsMobile = () => {
+  const [isTablet, setIsTablet] = useState<boolean>();
+  const [isSmallTablet, setIsSmallTablet] = useState<boolean>();
   const [isMobile, setIsMobile] = useState<boolean>();
+  const [isMediumMobile, setIsMediumMobile] = useState<boolean>();
+  const [isSmallMobile, setIsSmallMobile] = useState<boolean>();
   const [width, setWidth] = useState<number>();
-
+  
+  const breakpointToNumber = (str: string) => {
+    return +str.replace('px', '');
+  }
+  const tablWidth = breakpointToNumber(theme.breakpoints.tablet);
+ const sTablWidth = breakpointToNumber(theme.breakpoints.sTablet);
+ const mobileWidth = breakpointToNumber(theme.breakpoints.mobile);
+ const medMobileWidth = breakpointToNumber(theme.breakpoints.mMobile);
+ const xsMobileWidth = breakpointToNumber(theme.breakpoints.xsMobile);
+  
   useEffect(() => {
-    const mobileWidth = +theme.breakpoints.tablet.replace('px', '');
+     const isTablet = tablWidth >= window.innerWidth && window.innerWidth > sTablWidth;
+      const isSallTablet = sTablWidth >= window.innerWidth;
       const isMobile = mobileWidth >= window.innerWidth;
+      const isMedMobile = medMobileWidth >= window.innerWidth;
+      const isXSMobile = xsMobileWidth >= window.innerWidth;
+      setIsTablet(isTablet);
+      setIsSmallTablet(isSallTablet);
       setIsMobile(isMobile);
+      setIsMediumMobile(isMedMobile);
+      setIsSmallMobile(isXSMobile);
     const onHandleResize = () => {
       setWidth(window.innerWidth);
     };
@@ -37,11 +57,19 @@ export const useIsMobile = () => {
 
   useEffect(() => {
     if (width) {
-      const mobileWidth = +theme.breakpoints.tablet.replace('px', '');
-      const isMobile = mobileWidth >= width;
+     const isTablet = tablWidth >= window.innerWidth && window.innerWidth > sTablWidth;
+      const isSallTablet = sTablWidth >= window.innerWidth;
+      const isMobile = mobileWidth >= window.innerWidth;
+      const isMedMobile = medMobileWidth >= window.innerWidth;
+      const isXSMobile = xsMobileWidth >= window.innerWidth;
+      setIsTablet(isTablet);
+      setIsSmallTablet(isSallTablet);
       setIsMobile(isMobile);
+      setIsMediumMobile(isMedMobile);
+      setIsSmallMobile(isXSMobile);
     }
   }, [width])
 
-  return isMobile;
+  return {isTablet, isSmallTablet, isMobile, isMediumMobile, isSmallMobile};
 };
+

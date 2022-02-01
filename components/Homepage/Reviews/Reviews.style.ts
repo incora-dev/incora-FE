@@ -13,7 +13,7 @@ export const ReviewsWrapper = styled.div`
   flex-direction: column;
   align-items: center;
 
-  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
     height: fit-content;
   }
 `;

@@ -17,7 +17,8 @@ interface IReviewBox {
 
 const ReviewBox = ({ reviews, reviewIndex, setReviewIndex }: IReviewBox) => {
   const dispatch = useDispatch();
-  const isMobile = useIsMobile();
+    const {isMobile, isTablet, isSmallTablet} = useIsMobile();
+  
 
   const changeReview = (right: boolean) => {
     const lastElementIndex = reviews.length - 1;
@@ -42,17 +43,20 @@ const ReviewBox = ({ reviews, reviewIndex, setReviewIndex }: IReviewBox) => {
   return (
     <ReviewBoxWrapper>
       <CarouselReviewWrapper>
-        {/*<CarouselButtonsContainer>*/}
-
-          {isMobile && (
+        <CarouselButtonsContainer>
+          <CarouselButtonWrapper>
+            {leftCarouselButtonCondition}
+          </CarouselButtonWrapper>
+          {(isMobile || isTablet || isSmallTablet) && (
             <CarouselButtonWrapper>
               {rightCarouselButtonCondition}
             </CarouselButtonWrapper>
           )}
-        {/*</CarouselButtonsContainer>*/}
+        </CarouselButtonsContainer>
       <ReviewContent review={reviews[reviewIndex]} />
       </CarouselReviewWrapper>
 
+      {(!isMobile && !isTablet && !isSmallTablet) && (
       <CarouselButtonsContainer>
         <CarouselButtonWrapper>
           {leftCarouselButtonCondition}
@@ -62,7 +66,7 @@ const ReviewBox = ({ reviews, reviewIndex, setReviewIndex }: IReviewBox) => {
             {rightCarouselButtonCondition}
           </CarouselButtonWrapper>
         )}
-      </CarouselButtonsContainer>
+      </CarouselButtonsContainer>)}
     </ReviewBoxWrapper>
   );
 };

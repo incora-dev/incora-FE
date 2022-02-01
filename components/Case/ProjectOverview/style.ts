@@ -23,6 +23,11 @@ export const HeadingWrap = styled.div`
     padding: 0 25px;
   }
 
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+    padding: 0 15px;
+    margin-bottom: 55px;
+  }
+
   h1 {
     font-weight: 800;
     font-size: var(--fs-64);

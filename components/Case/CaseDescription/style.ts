@@ -27,6 +27,10 @@ export const ContentWrapper = styled.div`
   @media only screen and (max-width: ${themeGet('breakpoints.sTablet')}) {
     flex-direction: column;
   }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+    padding: 50px 15px 20px;
+  }
 `;
 
 export const TextWrap = styled.div`

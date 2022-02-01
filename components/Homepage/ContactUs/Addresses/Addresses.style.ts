@@ -32,14 +32,17 @@ export const AddressesContainer = styled.div`
   row-gap: 27px;
 
   margin: auto;
+  @media only screen and (max-width: ${themeGet('breakpoints.sTablet')}) {
+    left: -80px;
+  }
   @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
-    left: 15px;
+    left: -15px;
   }
   @media only screen and (max-width: ${themeGet('breakpoints.mMobile')}) {
-    left: 30px;
+    left: 5px;
   }
   @media only screen and (max-width: ${themeGet('breakpoints.xsMobile')}) {
-    left: 20px;
+    left: -10px;
     width: 90%;
   }
 `;

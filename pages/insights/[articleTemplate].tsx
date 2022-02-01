@@ -99,7 +99,8 @@ const ArticleTemplate = () => {
 
   const [menuColor, setMenuColor] = useState("none");
   const [goToTopVisible, setGoToTopVisible] = useState(false);
-  const isMobile = useIsMobile();
+    const {isMobile, isTablet, isSmallTablet} = useIsMobile();
+  
 
   const handleScroll = () => {
     window.scrollY >= 20
@@ -132,7 +133,7 @@ const ArticleTemplate = () => {
           </Head>
           <>
             <MainMenu
-              backgroundColor={isMobile ? theme.colors.black : menuColor}
+              backgroundColor={isMobile || isTablet || isSmallTablet ? theme.colors.black : menuColor}
               titlesColor={theme.colors.white}
               titles={titles}
             >

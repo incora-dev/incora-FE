@@ -22,8 +22,7 @@ import { useIsMobile } from '../../../services/hooks';
 
 function HeaderComponent() {
   const videoEl: any = useRef(null);
-    const isMobile = useIsMobile();
-
+      const {isMobile, isTablet, isSmallTablet} = useIsMobile();
 
   return (
     <Cover>
@@ -31,9 +30,13 @@ function HeaderComponent() {
         <Div>
           <VideoBlock>
             <video
-              style={{ width: isMobile ? '94vw' : '707px',
-                      height: isMobile ? 'unset' : '380px',
-                      position: isMobile ? 'relative' : 'static',
+              style={{ width: (isMobile || isTablet || isSmallTablet) && !isSmallTablet 
+                        ? '90vw' 
+                        : isSmallTablet 
+                          ? '87vw' 
+                          : '710px', 
+                      height: (isMobile || isTablet || isSmallTablet) ? 'unset' : '380px', 
+                      position: (isMobile || isTablet || isSmallTablet) ? 'relative' : 'static', 
                       top: '1px' }}
               autoPlay
               loop
@@ -47,7 +50,7 @@ function HeaderComponent() {
             </PositionVideoSVG>
           </VideoBlock>
 
-          {!isMobile && (
+          {!isMobile && !isTablet && !isSmallTablet && (
             <><PositionHexagon1>
               <Hexagon
                 width="235"

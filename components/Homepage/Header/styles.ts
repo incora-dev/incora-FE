@@ -59,6 +59,9 @@ export const Div = styled.div`
 
   text-align: left;
 
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+    padding-bottom: 40px;
+  }
   @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     margin: 0 20px;
     padding-top: 20px;
@@ -75,9 +78,13 @@ export const VideoBlock = styled.div`
   width: 710px;
   height: 380px;
 
-  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
     position: static;
     width: 90vw;
+  }
+  @media only screen and (max-width: ${themeGet('breakpoints.sTablet')}) {
+    position: static;
+    width: 87vw;
   }
 `
 
@@ -90,6 +97,16 @@ export const PositionVideoSVG = styled.div`
   width: 710px;
   height: 380px;
 
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+    top: 75px;
+    right: 3vw;
+    width: 92vw;
+  }
+  @media only screen and (max-width: ${themeGet('breakpoints.sTablet')}) {
+    top: 75px;
+    right: 3vw;
+    width: 89vw;
+  }
   @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     width: 92vw;
     top: 20px;
@@ -178,9 +195,12 @@ export const ScrollContainer = styled.div`
   
   transform: rotate(-90deg);
 
-  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
     left: -15%;
     width: 40%;
+    bottom: 14%;
+  }
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     bottom: 20%;
   }
 `;

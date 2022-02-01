@@ -77,7 +77,8 @@ const Industry = () => {
   const handleScroll = () => {
     window.scrollY >= 50 ? setMenuColor(colorWhite) : setMenuColor("none");
   };
-  const isMobile = useIsMobile();
+    const {isMobile, isTablet, isSmallTablet} = useIsMobile();
+  
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
@@ -111,13 +112,13 @@ const Industry = () => {
           </Head>
           <>
             <MainMenu
-              backgroundColor={isMobile ? colorWhite : menuColor}
+              backgroundColor={isMobile || isTablet || isSmallTablet ? colorWhite : menuColor}
               titlesColor={colorBlack}
               titles={titles}
             >
               <HeaderService
                 title={headerTitle}
-                titleSize={isMobile ? "50px" : "64px"}
+                titleSize={isMobile || isTablet || isSmallTablet ? '50px' :'64px'}
                 icon={headerIcon}
                 text={headerDescription}
                 textWidth={"560px"}

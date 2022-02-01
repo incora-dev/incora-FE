@@ -40,7 +40,8 @@ const GetStacksInfo = (
   const name = attributes?.name;
   const description = attributes?.description;
   const technologies = attributes?.technologies?.data;
-  const isMobile = useIsMobile();
+    const {isMobile, isTablet, isSmallTablet} = useIsMobile();
+  
 
   return (
     <InfoBlock>
@@ -48,7 +49,7 @@ const GetStacksInfo = (
         <H3>{name}</H3>
         <StackText>{description}</StackText>
 
-        {!isMobile && <PositionButtonWithArrow>
+        {!isMobile && !isTablet && !isSmallTablet && <PositionButtonWithArrow>
           <ButtonWithArrow
             buttonLabel={"Contact"}
             redirectTo={`/services/`}
@@ -60,7 +61,7 @@ const GetStacksInfo = (
       </TextContainer>
 
       <StacksContainer>
-        <StacksBlock columns={isMobile ? 2 : 3}>
+        <StacksBlock columns={isMobile || isTablet || isSmallTablet ? 2 : 3}>
           {technologies?.map((technology) => {
             const id = technology.id;
             const url = technology.attributes?.url;
@@ -96,7 +97,7 @@ const GetStacksInfo = (
           })}
         </StacksBlock>
       </StacksContainer>
-        {isMobile && <PositionButtonWithArrow>
+        {(isMobile ||  isTablet) && <PositionButtonWithArrow>
           <ButtonWithArrow
               buttonLabel={'Contact'}
               redirectTo={`/services/}`}

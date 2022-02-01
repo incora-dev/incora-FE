@@ -32,7 +32,8 @@ export default function MainMenu(props: IMenu) {
   const [onSelectedMenu, setOnSelectedMenu] = useState<null | string>(null);
   const { titles, backgroundColor = '#fffff', titlesColor, children, positionType = 'sticky' } = props;
   const logo = getLogo(titlesColor);
-  const isMobile = useIsMobile();
+    const {isMobile, isTablet, isSmallTablet} = useIsMobile();
+  
 
   const node = useRef<any>();
   const { isMenuOpen, toggleMenuMode, isHoverMenuOpen, toggleHoverMenuMode  } = useContext(MenuContext);
@@ -64,7 +65,7 @@ export default function MainMenu(props: IMenu) {
           <Link href={'/'}>
             {logo}
           </Link>
-          {isMobile ? (
+          {isMobile || isTablet || isSmallTablet || isSmallTablet ? (
             <>
               <HamburgerButton/>
               <SideMenu 
@@ -90,7 +91,7 @@ export default function MainMenu(props: IMenu) {
         </Block>
 
         <HoverMenu
-          isShow={isMobile 
+          isShow={isMobile  || isTablet
             ? (Boolean(onHoverElement) && isHoverMenuOpen) 
             : Boolean(onHoverElement)}
           titlesColor={titlesColor}

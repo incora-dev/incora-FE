@@ -18,6 +18,10 @@ export const ButtonWrap = styled.div`
     transform: ${({ right }: IButton) => (right ? "rotate(180deg)" : "none")};
   }
 
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+    padding: 10px;
+    justify-content: ${({ right }: IButton) => (right ? "flex-start" : "flex-end")};
+  }
   @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     padding: 10px;
     justify-content: ${({ right }: IButton) => (right ? "flex-start" : "flex-end")};
@@ -33,6 +37,14 @@ export const Ellipse = styled.div`
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+    width: 50px;
+    height: 50px;
+
+    svg {
+      width: 60%;
+    }
+  }
   @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     width: 30px;
     height: 30px;

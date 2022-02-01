@@ -52,6 +52,11 @@ export const ProjectOverviewItemWrapper = styled.div`
       row-gap: 40px;
       margin-bottom: 70px;
     }
+
+    @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+      row-gap: 20px;
+      margin-bottom: 35px;
+    }
 `;
 
 export const ImageWrap = styled.div`
@@ -62,6 +67,12 @@ export const ImageWrap = styled.div`
 
   @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
     padding-top: 10px;
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+    width: 310px;
+    height: 187px;
+    margin-left: 15px;
   }
 `;
 
@@ -81,6 +92,13 @@ export const ImageBackground = styled.div`
 
   @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
     left: 25px;
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+    left: 0;
+    padding: 10px;
+    border-top-left-radius: 30px;
+    border-bottom-right-radius: 0;
   }
 
   img {
@@ -110,6 +128,11 @@ export const TextWrap = styled.div`
     padding-top: 5px;
   }
 
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
 
   > h2 {
     font-weight: 800;
@@ -118,6 +141,11 @@ export const TextWrap = styled.div`
     letter-spacing: 0.05em;
     text-transform: capitalize;
     margin-bottom: 26px;
+
+    @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+      font-size: var(--fs-20);
+      margin-bottom: 15px;
+    }
   }
 
   > p {
@@ -126,6 +154,10 @@ export const TextWrap = styled.div`
     line-height: 30px;
     letter-spacing: 0.1em;
     color: ${themeGet("colors.font2")};
+
+    @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+      line-height: 27px;
+    }
 
     > ul {
       padding-left: 24px;
@@ -146,18 +178,32 @@ export const DecorationWrapper = styled.div`
     z-index: 0;
     top: -65px;
     left: -74px;
+
+    @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+      top: -179px;
+      left: -153px;
+      transform: scale(0.6);
+    }
   }
 
   .black_semicircle {
     z-index: 2;
     bottom: -90px;
     left: -65px;
+
+    @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+      display: none;
+    }
   }
 
   .transparent {
     z-index: 0;
     right: 35px;
     bottom: -70px;
+
+    @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+      right: -86px;
+    }
   }
 
   .transparent_semicircle {
@@ -180,6 +226,12 @@ export const DecorationWrapper = styled.div`
     z-index: 0;
     left: 50px;
     top: -35px;
+
+    @media only screen and (max-width: ${themeGet('breakpoints.mediumDesk')}) {
+      left: 28px;
+      top: -137px;
+      transform: scale(0.5);
+    }
   }
 
   .decoration_black {

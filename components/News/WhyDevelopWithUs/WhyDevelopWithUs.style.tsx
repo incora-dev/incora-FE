@@ -16,11 +16,33 @@ export const Wrapper = styled.div`
   max-width: 1006px;
   padding: 120px 0;
   margin: 0 auto;
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tabletPro')}) {
+    max-width: 100%;
+    padding: 70px 40px 70px 25px;
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+    padding-top: 30px;
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.sTablet')}) {
+    padding: 0 25px 70px 25px;
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+    padding: 0 15px 60px;
+  }
 `;
 
 export const TextBlock = styled.div`
   display: flex;
   column-gap: 107px;
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+    flex-direction: column;
+    row-gap: 30px;
+  }
 `;
 
 export const H2 = styled.h2`
@@ -30,10 +52,21 @@ export const H2 = styled.h2`
   font-weight: 800;
   font-size: var(--fs-64);
   line-height: 96px;
-@media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
-  line-height: 50px;
-}
   letter-spacing: 0.05em;
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+    max-width: 100%;
+    font-size: var(--fs-36);
+    line-height: 52px;
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.sTablet')}) {
+    font-size: var(--fs-28);
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+    line-height: 37px;
+  }
 `;
 
 export const H3 = styled.h3`
@@ -48,6 +81,11 @@ export const H3 = styled.h3`
 
   letter-spacing: 0.05em;
   text-transform: capitalize;
+
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+    font-size: var(--fs-18);
+    line-height: 25px;
+  }
 `;
 
 export const Text = styled.p`
@@ -79,9 +117,22 @@ export const TextRotated = styled.p`
 `;
 
 export const PositionTextRotated1 = styled.div`
+
   position: absolute;
   top: 47.5%;
   right: -123px;
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tabletPro')}) {
+    display: none;
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+    display: block;
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.sTablet')}) {
+    display: none;
+  }
   
   p {
     max-width: 122px;
@@ -92,6 +143,18 @@ export const PositionTextRotated2 = styled.div`
   position: absolute;
   top: 50%;
   right: -227px;
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tabletPro')}) {
+    display: none;
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+    display: block;
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.sTablet')}) {
+    display: none;
+  }
 `;
 
 export const ReasonsWrapper = styled.div`
@@ -100,6 +163,20 @@ export const ReasonsWrapper = styled.div`
   display: flex;
   flex-direction: column;
   row-gap: 27px;
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+    padding: 0 25px;
+    max-width: 514px;
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.sTablet')}) {
+    padding: 0 0 0 25px;
+    max-width: 100%;
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+    row-gap: 15px;
+  }
 `;
 
 export const BlockReason = styled.div`
@@ -119,6 +196,20 @@ export const BlockReason = styled.div`
     ? theme.colors.yellow2
     : theme.colors.yellow3
   };
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+    width: 490px;
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.sTablet')}) {
+    width: 100%;
+    padding-right: 20px;
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.sTablet')}) {
+    height: fit-content;
+    padding: 15px 10px 15px 0;
+  }
 `;
 
 export const PositionNumberBlock = styled.div`
@@ -128,6 +219,18 @@ export const PositionNumberBlock = styled.div`
 `;
 
 export const PositionPointsLarge = styled.div`
+  @media only screen and (max-width: ${themeGet('breakpoints.tabletPro')}) {
+    display: none;
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+    display: block;
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.sTablet')}) {
+    display: none;
+  }
+
   svg {
     position: absolute;
     top: 50%;
@@ -138,6 +241,18 @@ export const PositionPointsLarge = styled.div`
 `;
 
 export const PositionPointsSmall = styled.div`
+  @media only screen and (max-width: ${themeGet('breakpoints.tabletPro')}) {
+    display: none;
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+    display: block;
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.sTablet')}) {
+    display: none;
+  }
+
   svg {
     position: absolute;
     top: 50%;

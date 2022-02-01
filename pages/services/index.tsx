@@ -35,9 +35,8 @@ function Services() {
 
   const colorWhite = theme.colors.white;
   const colorBlack = theme.colors.black;
-  const [showModal, setShowModal] = useState(false);
-  const [currentSlide, setCurrentSlide] = useState();
-  const isMobile = useIsMobile();
+    const {isMobile, isTablet, isSmallTablet} = useIsMobile();
+  
 
   const renderSlide = (
     slide: GetServicesPage_servicesPage_data_attributes_services_data
@@ -64,7 +63,7 @@ function Services() {
             titlesColor={colorBlack}
           >
             <ServicesComponent banner={banner} />
-            {isMobile && (
+            {(isMobile || isTablet || isSmallTablet) && (
               <div
                 style={{
                   backgroundColor: "black",
@@ -75,7 +74,6 @@ function Services() {
                 <div id="scroll-item">
                   <FAQ
                     textColor="#ffff"
-                    title=""
                     titles={slidesTitles}
                     content={faqContent}
                   />

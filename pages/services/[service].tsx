@@ -38,9 +38,10 @@ const Service = () => {
   const projects = entry?.projects?.data;
   const icon = entry?.icon.data?.attributes;
 
-  const isMobile = useIsMobile();
+    const {isMobile, isTablet, isSmallTablet} = useIsMobile();
+  
 
-  const [menuColor, setMenuColor] = useState(isMobile ? colorBlack : "none");
+  const [menuColor, setMenuColor] = useState(isMobile || isTablet || isSmallTablet ? colorBlack : "none");
   const handleScroll = () => {
     window.scrollY >= 20 ? setMenuColor(colorBlack) : setMenuColor("none");
   };
@@ -51,7 +52,7 @@ const Service = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const menuColorCondition = isMobile ? colorBlack : menuColor;
+  const menuColorCondition = isMobile || isTablet || isSmallTablet ? colorBlack : menuColor;
 
   const renderCondition =
     entry &&

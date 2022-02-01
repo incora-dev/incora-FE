@@ -11,6 +11,9 @@ export const Container = styled.div`
 
   height: 742px;
 
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+    height: 500px;
+  }
   @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     height: 300px;
   }
@@ -34,6 +37,9 @@ export const VideoContainer = styled.div`
   right: 0;
 
   z-index: 1;
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+    width: 100%;
+  }
   @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     width: 100%;
   }
@@ -42,7 +48,7 @@ export const VideoContainer = styled.div`
 export const VideoBLock = styled.div`
   position: relative;
 
-  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
     width: 100%;
   }
 `;

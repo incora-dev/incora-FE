@@ -41,7 +41,8 @@ const CaseFilter = ({
 }: ICaseFilter) => {
   const { data, loading } = useQuery<GetIndustriesNames>(GET_INDUSTRIES_NAMES);
   const industriesEntry = data?.industries?.data;
-  const isMobile = useIsMobile();
+    const {isMobile, isTablet, isSmallTablet} = useIsMobile();
+  
 
   const dispatch = useDispatch();
 
@@ -68,7 +69,7 @@ const CaseFilter = ({
       <FilterWrap filterByFlag={filterByFlag}>
         <h1>{title}</h1>
         <p>{description}</p>
-        {!isMobile && <FilterSwitchWrap filterByFlag={filterByFlag}>
+        {!isMobile && !isTablet && !isSmallTablet && <FilterSwitchWrap filterByFlag={filterByFlag}>
           <span>filter by</span>
           <Switch
             left={"industries"}
@@ -79,7 +80,7 @@ const CaseFilter = ({
         </FilterSwitchWrap>}
         {tagsCondition}
       </FilterWrap>
-      {filterByFlag && !isMobile && (
+      {filterByFlag && !isMobile && !isTablet && !isSmallTablet && (
         <GlobeWrap>{globeCondition}</GlobeWrap>
       )}
     </CaseFilterWrapper>

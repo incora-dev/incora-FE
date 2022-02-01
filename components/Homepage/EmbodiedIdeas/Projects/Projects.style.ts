@@ -53,7 +53,7 @@ export const Text = styled.div`
     row-gap: 12px;
     padding: 0;
     min-height: auto;
-    margin-bottom: 20px;
+    margin-bottom: 35px;
   }
 `;
 
@@ -66,33 +66,21 @@ export const Block = styled.div`
 `;
 
 export const H3 = styled.h3`
-
   font-style: normal;
   font-weight: 800;
   font-size: var(--fs-36);
   line-height: 54px;
-
-  @media only screen and (max-width: ${themeGet('breakpoints.smallDesk')}) {
-    font-size: var(--fs-24);
-    line-height: 34px;
-  }
-
-  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
-    font-size: var(--fs-36);
-    line-height: 50px;
-  }
-  
-  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
-    line-height: 40px;
-  }
-
   letter-spacing: 0.05em;
-
   color: #000;
   cursor: pointer;
 
-  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
-    font-size: var(--fs-28);
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+    line-height: 50px;
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.sTablet')}) {
+    font-size: var(--fs-24);
+    line-height: 35px
   }
 `;
 
@@ -107,8 +95,8 @@ export const P = styled.p`
   letter-spacing: 0.1em;
   color: #454a4d;
 
-  @media only screen and (max-width: ${themeGet('breakpoints.smallDesk')}) {
-    line-height: 27px;
+  @media only screen and (max-width: ${themeGet('breakpoints.sTablet')}) {
+    line-height: 27px
   }
 `;
 

@@ -23,7 +23,7 @@ export const Wrapper = styled.div`
   z-index: 10;
   padding: 0 100px;
 
-  @media only screen and (max-width: ${themeGet("breakpoints.tabletPro")}) {
+  @media only screen and (max-width: ${themeGet("breakpoints.mediumDesk")}) {
     padding: 0 25px;
   }
 

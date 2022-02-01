@@ -77,16 +77,18 @@ const CaseDescription = ({
           <LocationAndIndustryWrap>
             <TagsCategory>
               <TagsHeading>location</TagsHeading>
-              {locationTag}
+              <TagFlexBox>{locationTag}</TagFlexBox>
             </TagsCategory>
 
             <TagsCategory>
               <TagsHeading>industry</TagsHeading>
 
               <Link href={industry.url || ""} passHref>
+              <TagFlexBox>
                 <TagBox>
                   <span>{industry.name}</span>
                 </TagBox>
+              </TagFlexBox>
               </Link>
             </TagsCategory>
           </LocationAndIndustryWrap>

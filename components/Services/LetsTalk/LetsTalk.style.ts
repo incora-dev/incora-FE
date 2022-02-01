@@ -27,6 +27,7 @@ export const Wrapper = styled.div`
 
   @media only screen and (max-width: ${themeGet("breakpoints.tabletPro")}) {
     padding: 87px 25px 99px;
+    max-width: 100%;
   }
 
   @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {

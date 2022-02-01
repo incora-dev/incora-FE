@@ -9,11 +9,22 @@ export const ClientsFeedbackWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   padding-top: 93px;
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tabletPro')}) {
+    padding-top: 40px;
+    height: fit-content;
+    padding-bottom: 70px;
+  }
 `;
 
 export const HeadingWrap = styled.div`
   width: 1006px;
   margin-bottom: 79px;
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tabletPro')}) {
+    width: 100%;
+    padding: 0 25px;
+  }
 
   h1 {
     font-weight: 800;
@@ -33,10 +44,20 @@ export const FeedbackWrap = styled.div`
   position: relative;
   left: 25px;
 
+  @media only screen and (max-width: ${themeGet('breakpoints.sTablet')}) {
+    width: 100%;
+    left: 0;
+    padding: 0 25px;
+  }
+
   > svg {
     position: absolute;
     top: -15px;
     left: -50px;
+
+    @media only screen and (max-width: ${themeGet('breakpoints.sTablet')}) {
+      left: 25px;
+    }
   }
 
   > p {
@@ -45,6 +66,10 @@ export const FeedbackWrap = styled.div`
     letter-spacing: 0.1em;
     color: ${themeGet("colors.font1")};
     margin-bottom: 31px;
+
+    @media only screen and (max-width: ${themeGet('breakpoints.sTablet')}) {
+      padding-left: 50px;
+    }
   }
 `;
 

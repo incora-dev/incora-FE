@@ -14,7 +14,6 @@ import {
   Pages,
   Page,
   FollowUsBlock,
-  A,
   FollowUs
 } from "./Footer.style";
 import IncoraLogo from "../../public/logo.svg"
@@ -23,9 +22,9 @@ import React from "react";
 import ClutchLogo from "../../public/SVG/logoClutchco.svg"
 import { clutchLink } from "../../constants";
 import Link from "next/link";
-import Facebook from "../../public/SVG/socialNetwork/facebook.svg";
-import LinkedIn from "../../public/SVG/socialNetwork/linkedIn.svg";
-import Instagram from "../../public/SVG/socialNetwork/instagram.svg";
+import Facebook from "../../public/SVG/socialNetwork/FacebookSVG.svg";
+import LinkedIn from "../../public/SVG/socialNetwork/LinkedInSvg.svg";
+import Instagram from "../../public/SVG/socialNetwork/InstagramSvg.svg";
 
 function createOfficesBlock(offices: object[]) {
   return offices.map((office) =>
@@ -40,33 +39,35 @@ function createOfficesBlock(offices: object[]) {
   )
 }
 
-function createFollowUsBlock(followUs: IFollowUs[]) {
-  return followUs.map((el, index) => {
-    const { redirectTo } = el;
-
-     return (
-         <A target={'_blank'} href={`${redirectTo}`} key={index}>
-           <el.icon viewBox={"0 0 1"}/>
-         </A>
-      )
-    }
-  )
-}
-
 const footer: IFooter = {
   policies: ["privacy policy"],
   offices: [
     { "ukrainian office": "2 Horodotska Str.,\n" + "Lviv 75001 Ukraine" },
     { "Usa office": "16192 Coastal Hwy, Lewes,\n" + "DE 19958 USA" },
   ],
-  pages: ["Services", "expertise", "Case Studies", "Company", "Insights"],
+  pages: ["Services", "Case Studies", "company", "Insights"],
   followUs: [
-    { icon: Facebook, redirectTo: "Facebook" },
-    { icon: LinkedIn, redirectTo: "LinkedIn" },
-    { icon: Instagram, redirectTo: "Instagram" },
+    { icon: Facebook, redirectTo: "https://www.facebook.com/incorainc" },
+    { icon: LinkedIn, redirectTo: "https://www.linkedin.com/company/incorainc" },
+    { icon: Instagram, redirectTo: "https://www.instagram.com/incorainc" },
   ],
   copyright: "© 2015-2022 Incora LLC",
 };
+
+function createFollowUsBlock(followUs: IFollowUs[]) {
+  return followUs.map((el, index) => {
+    const { redirectTo } = el;
+
+     return (
+         <Link href={`${redirectTo}`} key={index}>
+           <a target={'_blank'}>
+             <el.icon viewBox={"0 0 1"}/>
+           </a>
+         </Link>
+      )
+    }
+  )
+}
 
 function FooterComponent() {
   const { policies, offices, followUs, pages, copyright } = footer;
@@ -78,7 +79,9 @@ function FooterComponent() {
     <Container>
       <Position>
         <LogoBlock>
-          <IncoraLogo/>
+          <Link href={'/'}>
+            <IncoraLogo/>
+          </Link>
 
           <PoliciesBlock>
             {
@@ -102,16 +105,18 @@ function FooterComponent() {
           <H4>pages</H4>
           <Pages>
             {
-              pages.map((page, index) =>
-                <Page key={index}>
-                  <Link href={page.toLowerCase()}>
-                    <a>
-                      {page}
-                    </a>
-                  </Link>
+              pages.map((page, index) => {
+                const href =
+                  page.toLowerCase() === 'company'
+                  ? `/company/about`
+                  : `/${page.toLowerCase().replace(' ', '_')}`;
 
-                </Page>
-              )
+                return (
+                  <Page key={index}>
+                    <Link href={href}>{page}</Link>
+                  </Page>
+                )
+              })
             }
           </Pages>
         </PagesBlock>

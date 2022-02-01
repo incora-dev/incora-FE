@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 import HeaderArticleTemplate from "../../components/ArticleTemplatePage/HeaderArticleTemplate";
 import ArticleInfo from "../../components/ArticleTemplatePage/ArticleInfo";
 import FacebookSVG from "../../public/SVG/socialNetwork/FacebookSVG.svg";
-import InstagramSVG from "../../public/SVG/socialNetwork/InstagramSvg.svg";
+import InstagramSVG from "../../public/SVG/socialNetwork/LinkedInSvg.svg";
 import News from "../../components/News";
 import LetsTalk from "../../components/Services/LetsTalk";
 import FooterComponent from "../../components/Footer";

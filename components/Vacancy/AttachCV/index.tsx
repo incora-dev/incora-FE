@@ -1,12 +1,11 @@
 import { IContactUs } from "../../../interfaces/contactUs.interface";
-import Form from "../../FormClassic";
+import Form from "../../Form";
 import { AttachCvWrapper, DragAndDropBox } from "./style";
-import FilesUploader from "../../FormClassic/FilesUploader";
-import {ReactElement, useState} from "react";
 
 const contactUs: IContactUs = {
   title: "contact us",
   text: "Let’s create progress together!",
+  formLabels: ["name", "phone number", "email", "city"],
   addresses: [
     { "ukrainian office": "2 Horodotska Str.,\n" + "Lviv 75001 Ukraine" },
     { "Usa office": "16192 Coastal Hwy, Lewes,\n" + "DE 19958 USA" },
@@ -15,31 +14,25 @@ const contactUs: IContactUs = {
 };
 
 interface AttachCv {
-  uploaderLabel: ReactElement;
   big?: boolean;
   formBlack?: boolean;
-  uploaderPadding?: string;
-  uploaderHeight?: string;
 }
 
-const AttachCv = ({ uploaderLabel, big, formBlack = false, uploaderPadding = '15px 30px', uploaderHeight = '103px'}: AttachCv) => {
-  const [inputSelectedFile, setSelectedFile] = useState<File | File[] | null>(null);
-
+const AttachCv = ({ big, formBlack }: AttachCv) => {
   return (
     <AttachCvWrapper big={big}>
       <h3 className="attach">{"1. Attach Your CV"}</h3>
+      <DragAndDropBox big={big}>
+        <span className="clickable">
+          {"Upload a file "}{" "}
+          <span className="non_clickable">{"or drag and drop here"}</span>
+        </span>
 
-        <FilesUploader
-          inputHeight={uploaderHeight}
-          padding={uploaderPadding}
-          filesLabel={uploaderLabel}
-          formTheme={formBlack}
-          setSelectedFile={setSelectedFile}
-        />
-
+        <p>{"We accept PDF, DOC, DOCX, JPG and PNG files."}</p>
+      </DragAndDropBox>
       <h3 className="personal">{"2. Personal information"}</h3>
       <Form
-        selectedFiles={inputSelectedFile}
+        fieldsLabels={contactUs.formLabels}
         buttonLabel={contactUs.buttonLabel}
         formBlack={formBlack}
       />

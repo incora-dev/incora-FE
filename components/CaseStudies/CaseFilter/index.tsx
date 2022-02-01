@@ -1,6 +1,6 @@
 import { useQuery } from "@apollo/client";
 import themeGet from "@styled-system/theme-get";
-import { Dispatch, SetStateAction, useEffect } from "react";
+import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { GET_INDUSTRIES_NAMES } from "../../../graphql/caseStudies/queries";
 import {
@@ -9,6 +9,7 @@ import {
 } from "../../../graphql/caseStudies/__generated__/GetCaseStudies";
 import { GetIndustriesNames } from "../../../graphql/caseStudies/__generated__/GetIndustriesNames";
 import { IStacks } from "../../../interfaces/servicesComponent.interface";
+import { useIsMobile } from "../../../services/hooks";
 import { theme } from "../../../styles/theme";
 import Globe from "../../common/Globe";
 import { getReview } from "../../Homepage/actions";
@@ -40,6 +41,7 @@ const CaseFilter = ({
 }: ICaseFilter) => {
   const { data, loading } = useQuery<GetIndustriesNames>(GET_INDUSTRIES_NAMES);
   const industriesEntry = data?.industries?.data;
+  const isMobile = useIsMobile();
 
   const dispatch = useDispatch();
 
@@ -59,14 +61,14 @@ const CaseFilter = ({
     <Tags setCurrentIndustryTag={setCurrentIndustryTag} labels={industriesEntry} />
   );
 
-  const globeCondition = filterByFlag && <Globe reviewIndex={0} />;
+  const globeCondition = <Globe reviewIndex={0} />;
 
   return (
     <CaseFilterWrapper filterByFlag={filterByFlag}>
       <FilterWrap filterByFlag={filterByFlag}>
         <h1>{title}</h1>
         <p>{description}</p>
-        <FilterSwitchWrap filterByFlag={filterByFlag}>
+        {!isMobile && <FilterSwitchWrap filterByFlag={filterByFlag}>
           <span>filter by</span>
           <Switch
             left={"industries"}
@@ -74,11 +76,12 @@ const CaseFilter = ({
             backgroundColor={switchBackgroundColorCondition}
             handleValue={handleSwitchValue}
           />
-        </FilterSwitchWrap>
+        </FilterSwitchWrap>}
         {tagsCondition}
       </FilterWrap>
-
-      <GlobeWrap>{globeCondition}</GlobeWrap>
+      {filterByFlag && !isMobile && (
+        <GlobeWrap>{globeCondition}</GlobeWrap>
+      )}
     </CaseFilterWrapper>
   );
 };

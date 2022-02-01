@@ -1,8 +1,22 @@
-import { Component, HeaderWrap, H2, NewsWrap, HeaderContainer } from "./news.style";
-import { ITechnologies } from "@interfaces";
+import {
+  Component,
+  HeaderWrap,
+  H2,
+  NewsWrap,
+  HeaderContainer,
+} from "./news.style";
 import Arrow from "../../public/SVG";
 import { theme } from "../../styles/theme";
-import NewsBLock from "./NewsBLock";
+import { GetIndustryPage_industries_data_attributes_insights_articles_data } from "../../graphql/industries/__generated__/GetIndustryPage";
+import Link from "next/link";
+import { ROUTES } from "../../constants/routes";
+import ArticlesBlock from "./ArticlesBlock";
+
+export interface ITechnologies {
+  bgColor?: string;
+  title: string;
+  articles: GetIndustryPage_industries_data_attributes_insights_articles_data[];
+}
 
 function NewsComponent({ title, bgColor, articles }: ITechnologies) {
   const bgColorWhite = theme.colors.white;
@@ -24,14 +38,14 @@ function NewsComponent({ title, bgColor, articles }: ITechnologies) {
       <HeaderContainer>
         <HeaderWrap>
           <H2 color={getTitleColor()}>{title}</H2>
-          <a href={title}>
+          <Link href={ROUTES.INSIGHTS} passHref>
             <Arrow />
-          </a>
+          </Link>
         </HeaderWrap>
       </HeaderContainer>
 
       <NewsWrap>
-        <NewsBLock news={articles} />
+        <ArticlesBlock articles={articles} />
       </NewsWrap>
     </Component>
   );

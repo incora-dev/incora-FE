@@ -16,14 +16,16 @@ export const ContentWrap = styled.div`
   padding-left: 12px;
   position: relative;
 
-  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     width: 90%;
   }
 
   > h1 {
     font-weight: 800;
     font-size: var(--fs-64);
-    line-height: 90px;
+    @media only screen and (max-width: ${themeGet('breakpoints.mobile')} ) {
+    line-height: 60px;
+}
     letter-spacing: 0.05em;
     text-transform: capitalize;
     color: ${themeGet("colors.white")};
@@ -42,7 +44,7 @@ export const ContentWrap = styled.div`
     right: -12px;
     top: 135px;
 
-    @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
       display: none;
     }
   }
@@ -65,7 +67,7 @@ export const UploadBox = styled.div`
   justify-content: center;
   align-items: center;
 
-  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     width: 100%;
   }
 

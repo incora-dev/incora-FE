@@ -21,12 +21,10 @@ export const Nav = styled.nav`
 
   color: ${( {color}) => color };
 
-  @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
+  @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
     display: grid;
-    gap: 10px;
-    grid-template-columns: repeat(2, 50%);
-    grid-template-rows: repeat(3, 1fr);
-    column-gap: 40px;
+    gap: 20px;
+    padding-left: 30px;
   }
 `
 
@@ -43,6 +41,10 @@ export const Ul = styled.ul`
   
   cursor: pointer;
 
+  @media only screen and (max-width: ${themeGet('breakpoints.tabletPro')}) {
+    margin-right: 35px;
+  }
+
   &:after {
     position: absolute;
     top: 23px;
@@ -58,6 +60,10 @@ export const Ul = styled.ul`
     background-color: ${themeGet("colors.yellow")};
 
     transition: all ${themeGet("transition.button")};
+
+    @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+      left: -10px;
+    }
   }
 `
 

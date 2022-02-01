@@ -9,6 +9,10 @@ interface ISelect {
 export const Div = styled.div`
   //overflow: hidden;
   margin-top: -49px;
+
+  @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
+    margin-top: -70px;
+  }
 `;
 
 export const Wrapper = styled.div`
@@ -17,6 +21,16 @@ export const Wrapper = styled.div`
   
   display: flex;
   column-gap: 63px;
+
+  @media only screen and (max-width: ${themeGet("breakpoints.tabletPro")}) {
+    max-width: 100%;
+    column-gap: 34px;
+  }
+
+  @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
+    row-gap: 10px;
+    flex-direction: column;
+  }
 `;
 
 export const ScrollLabels = styled.div`
@@ -27,12 +41,20 @@ export const ScrollLabels = styled.div`
   display: flex;
   flex-direction: column;
   row-gap: 25px;
+
+  @media only screen and (max-width: ${themeGet("breakpoints.tabletPro")}) {
+    max-width: 240px;
+  }
+  @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
+    display: none;
+  }
 `;
 
 export const StickyWrapper = styled.div`
   margin-top: 5px;
 
   display: block;
+  
 `;
 
 export const Line = styled.div`
@@ -92,6 +114,10 @@ export const ScrollLabel = styled.div`
   column-gap: 20px;
   justify-content: flex-start;
   align-items: center;
+
+  @media only screen and (max-width: ${themeGet("breakpoints.tabletPro")}) {
+    width: 100%;
+  }
 `;
 
 export const SocialTitleAndTagsBlock = styled.div`
@@ -102,6 +128,14 @@ export const SocialTitleAndTagsBlock = styled.div`
   display: flex;
   flex-direction: column;
   row-gap: 30px;
+
+  @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
+    padding: 20px 25px 0;
+  }
+
+  @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
+    padding: 20px 15px 0;
+  }
 `;
 
 export const Tags = styled.div`
@@ -141,6 +175,21 @@ export const MainText = styled.div`
   display: flex;
   flex-direction: column;
   row-gap: 30px;
+
+  @media only screen and (max-width: ${themeGet("breakpoints.tabletPro")}) {
+    max-width: 580px;
+  }
+
+  @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
+    padding: 0 25px 0;
+    row-gap: 20px;
+    max-width: 100%;
+  }
+
+  @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
+    padding: 0 15px 0;
+    row-gap: 15px;
+  }
   
   h1, h2 {
     font-style: normal;
@@ -152,6 +201,12 @@ export const MainText = styled.div`
     text-transform: capitalize;
 
     color: ${themeGet("colors.black")};
+
+    @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
+      font-size: var(--fs-24);
+      line-height: 34px;
+      margin: 10px 0px;
+    }
   }
 
   h3, h4, h5, h6 {
@@ -162,7 +217,11 @@ export const MainText = styled.div`
 
     letter-spacing: 0.1em;
 
-    color: ${themeGet("colors.font2")};;
+    color: ${themeGet("colors.font2")};
+
+    @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
+      line-height: 28px;
+    }
   }
 
   ul {
@@ -181,6 +240,10 @@ export const MainText = styled.div`
     letter-spacing: 0.1em;
 
     color: ${themeGet("colors.font2")};
+
+    @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
+      line-height: 28px;
+    }
   }
 
   strong, b {
@@ -191,6 +254,10 @@ export const MainText = styled.div`
     letter-spacing: 0.05em;
 
     color: ${themeGet("colors.black")};
+
+    @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
+      line-height: 28px;
+    }
   }
 
   a {
@@ -204,6 +271,10 @@ export const MainText = styled.div`
     letter-spacing: 0.1em;
 
     color: ${themeGet("colors.yellow2")};
+
+    @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
+      line-height: 28px;
+    }
   }
 
 
@@ -224,6 +295,23 @@ export const PollBlock = styled.div`
   display: flex;
   flex-direction: column;
   row-gap: 30px;
+
+  @media only screen and (max-width: ${themeGet("breakpoints.tabletPro")}) {
+    max-width: 580px;
+    margin-left: 274px;
+  }
+
+  @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
+    padding: 30px 25px 50px;
+    row-gap: 20px;
+    max-width: 100%;
+    margin-left: 0;
+  }
+
+  @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
+    padding: 30px 15px 50px;
+    row-gap: 15px;
+  }
 `;
 
 export const CodeBlock = styled.div`
@@ -243,11 +331,21 @@ export const PollTitle = styled.h3`
   text-transform: capitalize;
 
   color: ${themeGet("colors.black")};
+
+  @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
+    font-size: var(--fs-18);
+    line-height: 28px;
+  }
 `;
 
 export const ChooseElements = styled.div`
   display: flex;
   column-gap: 10px;
+
+  @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
+    flex-direction: column;
+    row-gap: 8px;
+  }
 `;
 
 export const Element = styled.div`

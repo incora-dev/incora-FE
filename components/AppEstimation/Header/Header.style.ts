@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import themeGet from "@styled-system/theme-get";
+import { theme } from "../../../styles/theme";
 
 export const MainContainer = styled.div`
   background-color: ${themeGet("colors.black")};
@@ -14,8 +15,11 @@ export const Container = styled.div`
 export const Title = styled.div`
   color: ${themeGet("colors.white")};
   font-weight: 800;
-  font-size: 64px;
+  font-size: var(--fs-64);
   line-height: 96px;
+@media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+  line-height: 50px;
+}
   letter-spacing: calc(1em / 20);
   max-width: 875px;
 `;

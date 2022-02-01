@@ -14,6 +14,11 @@ export const ContentWrap = styled.div`
   width: 1010px;
   padding-top: 76px;
 
+  @media only screen and (max-width: ${themeGet('breakpoints.tabletPro')}) {
+    width: 100%;  
+    padding: 70px 25px 0;
+  }
+
   > h3 {
     font-weight: 600;
     font-size: var(--fs-12);
@@ -42,6 +47,12 @@ export const ContentWrap = styled.div`
     text-transform: capitalize;
     color: ${themeGet("colors.white")};
     margin-bottom: 18px;
+
+    @media only screen and (max-width: ${themeGet('breakpoints.sTablet')}) {
+      width: 100%;  
+      font-size: var(--fs-36);
+      line-height: 50px;
+    }
   }
 
   > p {
@@ -50,5 +61,10 @@ export const ContentWrap = styled.div`
     line-height: 30px;
     letter-spacing: 0.1em;
     color: ${themeGet("colors.font1")};
+
+    @media only screen and (max-width: ${themeGet('breakpoints.sTablet')}) {
+      width: 100%;  
+      line-height: 28px;
+    }
   }
 `;

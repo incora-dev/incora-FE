@@ -14,14 +14,20 @@ import Loader from "../../public/loading3.svg";
 import LoaderBagelTrimmed from "../../public/loading1.svg";
 import {theme} from "../../styles/theme";
 import Dots from "../Homepage/Cooperate/elements/dots/dots";
-import { useState } from "react";
-import Cube1 from "../../public/SVG/cubes/Cube1.svg"
-import Cube2 from "../../public/SVG/cubes/Cube2.svg"
-import Cube3 from "../../public/SVG/cubes/Cube3.svg"
+import { useEffect, useState } from "react";
+import Cube1 from "../../public/SVG/cubes/Cube1.svg";
+import Cube2 from "../../public/SVG/cubes/Cube2.svg";
+import Cube3 from "../../public/SVG/cubes/Cube3.svg";
+import { GetServicesPage_servicesPage_data_attributes_banner } from "../../graphql/services/__generated__/GetServicesPage";
 
-const ServicesComponent = () => {
+interface IServicesComponent {
+  banner: GetServicesPage_servicesPage_data_attributes_banner;
+}
+
+const ServicesComponent = ({ banner }: IServicesComponent) => {
+  const { title, description } = banner;
   const blackColor = theme.colors.black;
-  const [animation, setAnimation] = useState(false);
+  const [animation, setAnimation] = useState(false); 
 
   return (
     <Div onMouseEnter={() => setAnimation(true)}>

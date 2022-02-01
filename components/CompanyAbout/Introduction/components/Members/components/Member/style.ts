@@ -8,6 +8,22 @@ export const MemberWrapper = styled.div`
   flex-direction: column;
   justify-content: space-between;
   margin-bottom: 30px;
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+    height: auto;
+    width: 220px;
+    row-gap: 10px;
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+    height: auto;
+    width: 150px;
+    row-gap: 10px;
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.mMobile')}) {
+    width: 140px;
+  }
 `;
 
 export const MemberInfoWrap = styled.div`

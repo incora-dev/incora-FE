@@ -6,7 +6,6 @@ import { useQuery } from "@apollo/client";
 import { GetArticlesList } from "../../../graphql/insights/__generated__/GetArticlesList";
 import { GET_ARTICLES_LIST } from "../../../graphql/insights/queries";
 import Loader from "../../../public/RhombusLoader.gif";
-import { useEffect, useState } from "react";
 
 interface IPosts {
   query: string | undefined;
@@ -16,7 +15,6 @@ interface IPosts {
 
 const Posts = ({ query, industry, page }: IPosts) => {
   const industryCondition = industry === "all" ? undefined : industry;
-  const [currentPage, setCurrentPage] = useState(1);
 
   const { data, loading } = useQuery<GetArticlesList>(GET_ARTICLES_LIST, {
     variables: {
@@ -55,14 +53,9 @@ const Posts = ({ query, industry, page }: IPosts) => {
       );
     });
 
-  const onPageChanged = (page: number) => {
-    setCurrentPage(page);
-    console.log("value", page);
+  const onPageChanged = (value: number) => {
+    console.log("xy");
   };
-
-  useEffect(() => {
-    console.log(articles?.length);
-  });
 
   return (
     <>
@@ -72,10 +65,9 @@ const Posts = ({ query, industry, page }: IPosts) => {
             <NewsBlock>{articlesList}</NewsBlock>
             <Pagination
               totalCount={articles.length}
-              currentPage={currentPage}
+              currentPage={1}
               pageSize={9}
               onPageChanged={onPageChanged}
-              siblingCount={9}
             />
           </Wrapper>
         </Div>

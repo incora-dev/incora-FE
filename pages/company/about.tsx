@@ -21,6 +21,7 @@ import { useQuery } from "@apollo/client";
 import { GET_ABOUT_PAGE } from "../../graphql/companyAbout/queries";
 import { GetAboutPage } from "../../graphql/companyAbout/__generated__/GetAboutPage";
 import Custom404 from "../404";
+import { useEffect } from "react";
 
 const titles = [
   "Services",
@@ -34,6 +35,7 @@ const titles = [
 const contactUs: IContactUs = {
   title: "contact us",
   text: "Let’s create progress together!",
+  formLabels: ["name", "phone number", "email", "what is you main goal?"],
   addresses: [
     { "ukrainian office": "2 Horodotska Str.,\n" + "Lviv 75001 Ukraine" },
     { "usa office": "16192 Coastal Hwy, Lewes,\n" + "DE 19958 USA" },
@@ -90,19 +92,18 @@ const news = {
 };
 
 const CompanyAbout = () => {
-  const { text, addresses, buttonLabel } = contactUs;
+  const { text, formLabels, addresses, buttonLabel } = contactUs;
   const { policies, offices, pages, followUs, copyright } = footer;
 
   const { data, loading, error } = useQuery<GetAboutPage>(GET_ABOUT_PAGE);
   const entry = data?.aboutPage?.data?.attributes;
-  const title = entry?.contactUs.title || "";
-  const subtitle = entry?.contactUs.subtitle || "";
 
-  const errorCondition = error && <Custom404 />;
+  if (loading) return null;
+  if (error) return <Custom404 />;
 
   return (
     <>
-      {!loading && !error && entry && (
+      {entry && (
         <MainMenu
           titlesColor={theme.colors.black}
           titles={titles}
@@ -117,14 +118,13 @@ const CompanyAbout = () => {
           <ContactUsComponent
             title={entry.contactUs.title}
             text={entry.contactUs.subtitle}
+            formLabels={formLabels}
             addresses={addresses}
             buttonLabel={buttonLabel}
           />
           <FooterComponent />
         </MainMenu>
       )}
-
-      {errorCondition}
     </>
   );
 };

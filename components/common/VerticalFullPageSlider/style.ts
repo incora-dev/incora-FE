@@ -13,6 +13,10 @@ export const Slide = styled.div`
   display: flex;
   position: relative;
   height: calc(100vh - 105px);
+
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+    height: max-content;
+  }
 `;
 
 export const SliderContent = styled.div`

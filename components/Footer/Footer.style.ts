@@ -10,7 +10,7 @@ const color = theme.colors.black;
 
 export const Container = styled.footer`
   position: relative;
-  z-index: 3;
+  z-index: 5;
 
   height: 270px;
 
@@ -28,11 +28,16 @@ export const Position = styled.div`
   padding-top: 41px;
   justify-content: space-between;
 
+  @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
+    padding: 40px 15px;
+    width: 100%;
+  }
+
   @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
     width: 100%;
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-bottom: 20px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 15px;
     flex-wrap: wrap;
     gap: 10px;
   }

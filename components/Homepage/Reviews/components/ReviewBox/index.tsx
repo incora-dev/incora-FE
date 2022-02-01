@@ -7,6 +7,7 @@ import { useDispatch } from "react-redux";
 import React, { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { changeCurrentGlobePoint } from "../../../actions";
 import { theme } from "../../../../../styles/theme";
+import { useIsMobile } from "../../../../../services/hooks";
 
 interface IReviewBox {
   reviews: Review[];
@@ -16,14 +17,7 @@ interface IReviewBox {
 
 const ReviewBox = ({ reviews, reviewIndex, setReviewIndex }: IReviewBox) => {
   const dispatch = useDispatch();
-  const [isMobile, setIsMobile] = useState<boolean>();
-
-  useEffect(() => {
-    const width = window.innerWidth;
-    const mobileWidth = +theme.breakpoints.mobile.replace('px', '');
-    const isMobile = mobileWidth > width;
-    setIsMobile(isMobile);
-  },[]);
+  const isMobile = useIsMobile();
 
   const changeReview = (right: boolean) => {
     const lastElementIndex = reviews.length - 1;

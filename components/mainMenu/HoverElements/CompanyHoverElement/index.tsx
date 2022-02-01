@@ -22,10 +22,12 @@ import Arrow from "../../../../public/navButtonArrow.svg"
 import Loader from "../../../../public/loading2.svg"
 import Pluses from "../../../Homepage/Cooperate/elements/pluses/pluses";
 import {theme} from "../../../../styles/theme";
-import {useState} from "react";
+import {forwardRef, useState, useContext} from "react";
+import { MenuContext } from "../../../../services/context/mainMenu";
 
 interface ICompanyHoverElement {
   titleColor: string;
+  backgroundColor: string;
 }
 
 interface ICompanyInfo {
@@ -40,7 +42,7 @@ const companyInfo: ICompanyInfo[] = [
   { title: 'Careers', text: 'We welcome proficient talents, who strive to do more and be more. Join the team of diligent minds!', Icon: CareersIcon,  href: '/company/career'}
 ]
 
-function getCompanyBlock(companyInfo: ICompanyInfo[], titleColor: string) {
+function getCompanyBlock(companyInfo: ICompanyInfo[], titleColor: string, linkClickHandler: () => void) {
   return companyInfo.map(({ title, text, Icon, href }, index) =>
     <InfoWrapper key={index} titleColor={titleColor}>
       <Icons>
@@ -48,7 +50,7 @@ function getCompanyBlock(companyInfo: ICompanyInfo[], titleColor: string) {
       </Icons>
 
       <InfoTextBlock>
-        <H4>
+        <H4 onClick={linkClickHandler}>
           <Link href={href}>
             {title}
           </Link>
@@ -57,7 +59,7 @@ function getCompanyBlock(companyInfo: ICompanyInfo[], titleColor: string) {
         <Text>{text}</Text>
 
         <ButtonBlock>
-          <ButtonText>
+          <ButtonText onClick={linkClickHandler}>
             <Link href={href}>
               Read More
             </Link>
@@ -77,9 +79,14 @@ function getCompanyBlock(companyInfo: ICompanyInfo[], titleColor: string) {
   )
 }
 
-const CompanyHoverElement = ({ titleColor }: ICompanyHoverElement) => {
+const CompanyHoverElement = forwardRef(({ titleColor, backgroundColor }: ICompanyHoverElement, ref) => {
+  const { toggleHoverMenuMode, toggleMenuMode  } = useContext(MenuContext);
+  const linkClickHandler = () => {
+    toggleMenuMode();
+    toggleHoverMenuMode();
+  }
   const [shouldAnimate, setAnimate] = useState(false);
-  const companyBlock = getCompanyBlock(companyInfo, titleColor);
+  const companyBlock = getCompanyBlock(companyInfo, titleColor, linkClickHandler);
 
   return (
     <MainWrapper
@@ -87,7 +94,7 @@ const CompanyHoverElement = ({ titleColor }: ICompanyHoverElement) => {
       onMouseEnter={() => setAnimate(true)}
       onMouseLeave={() => setAnimate(false)}
     >
-      <Div titleColor={titleColor}>
+      <Div ref={ref as any} titleColor={titleColor} backgroundColor={backgroundColor}>
         <PositionLoader>
           <Loader
             width="181.74"
@@ -114,6 +121,6 @@ const CompanyHoverElement = ({ titleColor }: ICompanyHoverElement) => {
       </Div>
     </MainWrapper>
   )
-}
+});
 
 export default CompanyHoverElement;

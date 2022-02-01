@@ -18,6 +18,7 @@ import {
   ElementTitle,
   SocialTitle,
   SocialIcons,
+  CodeBlock,
 } from "./ArticleInfo.style";
 import React, { useCallback, useEffect, useState } from "react";
 import Technologies from "../../Homepage/EmbodiedIdeas/Projects/Technologies";
@@ -26,6 +27,7 @@ import ValuableIcon from "../../../public/SVG/Valuable.svg";
 import ExcitingIcon from "../../../public/SVG/Exciting.svg";
 import UnsatisfiedIcon from "../../../public/SVG/Unsatisfied.svg";
 import Link from "next/link";
+import { CopyBlock, dracula } from "react-code-blocks";
 import ReactMarkdown from "react-markdown";
 import { GetArticle_articles_data_attributes_tags_data } from "../../../graphql/insights/__generated__/GetArticle";
 
@@ -145,6 +147,16 @@ const ArticleInfo = ({
 
         <MainText id={"scrollsLabels"}>
           <ReactMarkdown>{mainText}</ReactMarkdown>
+
+          <CodeBlock>
+            <CopyBlock
+              language="js"
+              text={codeText}
+              codeBlock
+              theme={dracula}
+              showLineNumbers={true}
+            />
+          </CodeBlock>
 
           <LineRetreat />
         </MainText>

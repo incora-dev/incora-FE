@@ -17,6 +17,10 @@ export const Slider = styled.div`
   width: 100%;
   height: 700px;
   background: ${themeGet("colors.backgroundBlack")};
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tabletPro')}) {
+    height: fit-content;
+  }
 `;
 
 export const Slide = styled.div`
@@ -33,6 +37,19 @@ export const Slide = styled.div`
   -moz-transition-property: -moz-transform;
   -o-transition-property: -o-transform;
   transition-property: transform;
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tabletPro')}) {
+    padding: 70px 20px 40px 25px;
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+    width: 85vw;
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.sTablet')}) {
+    width: 100vw;
+    padding-bottom: 0;
+  }
 
   :nth-child(1) {
     transform: scale(1);
@@ -64,6 +81,14 @@ export const Title = styled.div`
   letter-spacing: calc(1em / 20);
   max-width: 200px;
   white-space: break-spaces;
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+    font-size: var(--fs-24);
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.sTablet')}) {
+    font-size: var(--fs-20);
+  }
 `;
 
 export const ArrowButton = styled.button`
@@ -72,6 +97,10 @@ export const ArrowButton = styled.button`
   border: 0;
   margin-top: 31px;
   cursor: pointer;
+
+  @media only screen and (max-width: ${themeGet('breakpoints.sTablet')}) {
+    margin-top: 20px;
+  }
 `;
 
 export const Controls = styled.div`
@@ -107,6 +136,11 @@ export const RightBlock = styled.div`
   display: flex;
   padding-top: 10%;
   padding-bottom: 7.7%;
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+    padding-top: 20px;
+  }
+  
 `;
 
 export const RightContent = styled.div`
@@ -114,4 +148,8 @@ export const RightContent = styled.div`
   flex-direction: column;
   justify-content: space-between;
   padding-left: 26px;
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tabletPro')}) {
+    padding-left: 5px;
+  }
 `;

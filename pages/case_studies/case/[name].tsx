@@ -59,11 +59,11 @@ const Case = () => {
   const industry = entry?.industry?.data?.attributes;
   const feedback = entry?.feedback?.data?.attributes;
   const nextProjectButton = entry?.nextProjectButton;
+  const galleryIntro = entry?.gallery[0]?.intro;
+  const galleryPictures = entry?.gallery[0]?.pictures.data;
   const contactUs = entry?.contactUs;
 
   const renderCondition =
-    !loading &&
-    !error &&
     entry &&
     location &&
     technologies &&
@@ -71,9 +71,12 @@ const Case = () => {
     industry &&
     feedback &&
     nextProjectButton &&
-    contactUs;
+    contactUs &&
+    galleryIntro &&
+    galleryPictures;
 
-  const errorCondition = error && <Custom404 />;
+  if (loading) return null;
+  if (error) return <Custom404 />;
 
   return (
     <>
@@ -92,7 +95,7 @@ const Case = () => {
             industry={industry}
           />
           <ProjectOverview projectOverview={entry.projectOverview} />
-          <InsideTheProject />
+          <InsideTheProject intro={galleryIntro} slides={galleryPictures} />
           <ClientsFeedback feedback={feedback} />
           <NextProject nextProjectButton={nextProjectButton} />
           <LetsTalk title={contactUs.title} isWhite text={contactUs.subtitle} />
@@ -100,8 +103,6 @@ const Case = () => {
           <FooterComponent/>
         </MainMenu>
       )}
-
-      {errorCondition}
     </>
   );
 };

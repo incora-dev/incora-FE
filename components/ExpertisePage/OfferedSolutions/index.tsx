@@ -1,24 +1,26 @@
-import BenefitsAndSolutions, { GridData } from "../../BenefitsAndSolutions";
+import BenefitsAndSolutions from "../../BenefitsAndSolutions";
 import { theme } from "../../../styles/theme";
 import React from "../../../public/SVG/technologies/react.svg";
-import {Div} from "./OfferedSolutions.style";
+import { Div } from "./OfferedSolutions.style";
+import { GetIndustryPage_industries_data_attributes_offeredSolutions_items } from "../../../graphql/industries/__generated__/GetIndustryPage";
 
 interface IOfferedSolutionsProps {
-  data: GridData[];
-};
+  intro: string;
+  data: (GetIndustryPage_industries_data_attributes_offeredSolutions_items | null)[];
+}
 
-const OfferedSolutions = ({ data }: IOfferedSolutionsProps) => {
+const OfferedSolutions = ({ intro, data }: IOfferedSolutionsProps) => {
   return (
     <Div>
       <BenefitsAndSolutions
-        header={'Offered solutions'}
+        header={intro}
         gridData={data}
         gridItemWidth={288}
         rowGap={132}
         bgColor={theme.colors.black}
       />
     </Div>
-  )
-}
+  );
+};
 
 export default OfferedSolutions;

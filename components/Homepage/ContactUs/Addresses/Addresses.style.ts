@@ -1,3 +1,4 @@
+import themeGet from "@styled-system/theme-get";
 import styled from "styled-components";
 import { theme } from "../../../../styles/theme";
 
@@ -5,8 +6,8 @@ export const Container = styled.div`
   position: relative;
   right: -28px;
   margin-top: 47px;
-
-  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+  margin-left: 4px;
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     svg {
       position: relative;
       left: 55px;
@@ -31,12 +32,22 @@ export const AddressesContainer = styled.div`
   row-gap: 27px;
 
   margin: auto;
-  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+    left: 15px;
+  }
+  @media only screen and (max-width: ${themeGet('breakpoints.mMobile')}) {
+    left: 30px;
+  }
+  @media only screen and (max-width: ${themeGet('breakpoints.xsMobile')}) {
     left: 20px;
+    width: 90%;
   }
 `;
 
 export const Address = styled.div`
+@media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+    width: inherit;
+  }
 `;
 
 export const Country = styled.div`

@@ -3,12 +3,15 @@ import Technologies from "../../Homepage/EmbodiedIdeas/Projects/Technologies";
 import Categories from "../Categories";
 import { theme } from "../../../styles/theme";
 import { Element, H3, ImgBlock, NewsContainer } from "./CreatePosts.style";
-import {
-} from "../../../graphql/insights/__generated__/GetInsightsPage";
+import {} from "../../../graphql/insights/__generated__/GetInsightsPage";
 import Image from "next/image";
 import { IMAGES_LINK } from "../../../constants";
 import { GetProjects_projects_data_attributes_technologies_data } from "../../../graphql/caseStudies/__generated__/getProjects";
-import { GetArticlesList_articles_data_attributes_industries_data, GetArticlesList_articles_data_attributes_tags_data } from "../../../graphql/insights/__generated__/GetArticlesList";
+import {
+  GetArticlesList_articles_data_attributes_industries_data,
+  GetArticlesList_articles_data_attributes_tags_data,
+} from "../../../graphql/insights/__generated__/GetArticlesList";
+import { ROUTES } from "../../../constants/routes";
 
 interface ICreateNews {
   id: string;
@@ -32,7 +35,7 @@ const CreateNews = ({
   return (
     <>
       <NewsContainer key={id}>
-        <Link href={`insights/${url}`} passHref>
+        <Link href={ROUTES.ARTICLE + url} passHref>
           <ImgBlock>
             <Element />
             {/*<Image*/}

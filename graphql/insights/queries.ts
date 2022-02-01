@@ -78,9 +78,15 @@ export const GET_ARTICLE = gql`
       data {
         attributes {
           title
-          views
           content
           createdAt
+          count {
+            views
+            likes
+            valuable
+            exciting
+            unsatisfied
+          }
 
           industries {
             data {

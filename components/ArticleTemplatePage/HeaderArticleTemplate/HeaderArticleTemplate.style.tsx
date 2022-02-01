@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import themeGet from "@styled-system/theme-get";
+import { theme } from "../../../styles/theme";
 
 export const Div = styled.div`
   position: relative;
@@ -14,6 +15,10 @@ export const Wrapper = styled.div`
   margin: 0 auto;
   max-width: 1006px;
   height: max-content;
+
+  @media only screen and (max-width: ${themeGet("breakpoints.tabletPro")}) {
+    max-width: 100%;
+  }
 `;
 
 export const InfoBlock = styled.div`
@@ -24,6 +29,20 @@ export const InfoBlock = styled.div`
 
   display: flex;
   justify-content: space-between;
+
+  @media only screen and (max-width: ${themeGet("breakpoints.tabletPro")}) {
+    padding: 147px 25px 78px;
+  }
+
+  @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
+    padding: 147px 25px 45px;
+    flex-direction: column;
+  }
+
+  @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
+    padding: 130px 15px 45px;
+    flex-direction: column;
+  }
 `;
 
 export const TextBlock = styled.div`
@@ -56,6 +75,16 @@ export const Title = styled.h1`
   text-transform: capitalize;
 
   color: ${themeGet("colors.white")};
+
+  @media only screen and (max-width: ${themeGet("breakpoints.tabletPro")}) {
+    font-size: 32px;
+    line-height: 50px;
+  }
+
+  @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
+    font-size: var(--fs-24);
+    line-height: 36px;
+  }
 `;
 
 export const DatePublishedAndViews = styled.p`
@@ -83,6 +112,21 @@ export const ArticleOwnerBlock = styled.div`
   align-items: flex-end;
 
   text-align: right;
+
+  @media only screen and (max-width: ${themeGet("breakpoints.tabletPro")}) {
+    right: 0;
+  }
+
+  @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
+    top: 0;
+    right: 0;
+    left: 0;
+    align-items: flex-start;
+    text-align: LEFT;
+    flex-direction: initial;
+    column-gap: 16px;
+    margin-top: 10px;
+  }
 `;
 
 export const OwnerPhoto = styled.div`
@@ -97,6 +141,10 @@ export const OwnerPhoto = styled.div`
 export const ArticleOwnerTextBlock = styled.div`
   display: flex;
   flex-direction: column;
+
+  @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
+    padding-top: 13px;
+  }
 `;
 
 export const Name = styled.p`

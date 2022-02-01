@@ -19,8 +19,9 @@ export const CaseFilterWrapper = styled.div`
   transition: all 0.5s ease-in-out;
   overflow: hidden;
 
-  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     height: unset;
+    padding-top: 53px;
   }
 `;
 
@@ -28,7 +29,7 @@ export const FilterWrap = styled.div`
   width: 1006px;
   transition: background-color 0.5s ease-in-out;
 
-  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     width: 90%;
   }
 
@@ -36,11 +37,18 @@ export const FilterWrap = styled.div`
     font-weight: 800;
     font-size: var(--fs-64);
     line-height: 96px;
+@media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+  line-height: 50px;
+}
     text-transform: capitalize;
     letter-spacing: 3px;
     margin-bottom: 21px;
     color: ${({ filterByFlag }: ICaseFilterWrapper) =>
       filterByFlag ? themeGet("colors.white") : themeGet("colors.black")};
+
+      @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+        line-height: 50px;
+      }
   }
 
   p {
@@ -52,7 +60,7 @@ export const FilterWrap = styled.div`
     letter-spacing: 0.1em;
     margin-bottom: 35px;
 
-    @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+    @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
       width: 90%;
     }
   }
@@ -79,7 +87,7 @@ export const GlobeWrap = styled.div`
   width: 100%;
   padding: 43px;
 
-  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     height: 100vh;
   }
 `;

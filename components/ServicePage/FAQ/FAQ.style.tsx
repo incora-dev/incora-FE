@@ -1,13 +1,18 @@
+import themeGet from "@styled-system/theme-get";
 import styled from "styled-components";
 import { theme } from "../../../styles/theme";
 
 interface IAccordion {
   isOpen: boolean;
   lastBlock: boolean;
+  textColor?: string;
 }
 
 interface IText {
   isOpen: boolean;
+}
+interface IIcon {
+  color?: string;
 }
 
 export const Div = styled.div`
@@ -23,6 +28,11 @@ export const ContentWrapper = styled.div`
   
   display: flex;
   justify-content: space-between;
+
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+    padding: 53px 15px;
+    flex-direction: column;
+  }
 `;
 
 export const Text = styled.p`
@@ -51,9 +61,12 @@ export const Title = styled.p`
   cursor: pointer;
 `;
 
-export const PlusIconVisible = styled.div`
+export const PlusIconVisible = styled.div<IIcon>`
   svg {
     cursor: pointer;
+    path {
+      fill: ${({color}) => color ? color : '#000'};
+    }
   }
 `;
 
@@ -62,10 +75,13 @@ export const MinusIconVisible = styled.div`
 
   svg {
     cursor: pointer;
+    path {
+      fill: ${({color}) => color ? color : '#000'};
+    }
   }
 `;
 
-export const AccordionWrapper = styled.div`
+export const AccordionWrapper = styled.div<IAccordion>`
   display: flex;
   flex-direction: column;
   row-gap: 21px;
@@ -77,6 +93,15 @@ export const AccordionWrapper = styled.div`
   color: ${({ isOpen }: IAccordion) => isOpen ? theme.colors.white : theme.colors.black};
   background-color: ${({ isOpen }: IAccordion) => isOpen ? theme.colors.black : 'none'};
   border-bottom: ${({ lastBlock }: IAccordion) => lastBlock ? 'none' : '1px solid #EFEFEF'};
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+    width: 100%;
+    padding: 30px;
+    color: ${({textColor, isOpen}) => textColor 
+      ? textColor 
+      : isOpen 
+        ? theme.colors.white 
+        : theme.colors.black};
+  }
 `;
 
 export const Accordion = styled.div`
@@ -107,6 +132,9 @@ export const H2 = styled.h2`
   font-weight: 800;
   font-size: var(--fs-36);
   line-height: 54px;
+@media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+  line-height: 40px;
+}
   /* identical to box height */
 
   letter-spacing: 0.05em;

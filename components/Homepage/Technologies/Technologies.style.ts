@@ -1,3 +1,4 @@
+import themeGet from "@styled-system/theme-get";
 import styled from "styled-components";
 import { theme } from "../../../styles/theme";
 
@@ -10,15 +11,18 @@ export const Component = styled.div`
   
   background-color: ${({bgColor}: IComponent) => bgColor};
 
-  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     height: 500px;
   }
 `;
 
 export const PaddingTop = styled.div`
   padding-top: 120px;
+ @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+    padding-top: 50px;
+  }
 
-  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     padding-top: 53px;
   }
 `;
@@ -48,7 +52,7 @@ export const Div = styled.div`
     cursor: pointer;
   }
 
-  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     width: 100%;
     padding-left: 20px;
   }

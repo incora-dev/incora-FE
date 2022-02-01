@@ -10,21 +10,17 @@ import { AppState } from "../../../services/store";
 import { Review } from "@interfaces";
 import { loadingSelector, reviewsSelector } from "../selectors";
 import { theme } from "../../../styles/theme";
+import { useIsMobile } from "../../../services/hooks";
 
 const Reviews = () => {
   const loading: boolean = useSelector(loadingSelector);
   const reviews: Review[] = useSelector(reviewsSelector);
   const [reviewIndex, setReviewIndex] = useState(0);
-  const [isMobDevice, setIsMobDevice] = useState<boolean>();
+    const isMobDevice = useIsMobile();
 
   const dispatch = useDispatch();
-  console.log('isMobDevice', isMobDevice);
 
   useEffect(() => {
-    const mobileWidth = +theme.breakpoints.mobile.replace('px', '');
-    if (window.innerWidth <= mobileWidth) {
-      setIsMobDevice(true);
-    } else setIsMobDevice(false);
     dispatch(getReview.success()); // replace real backend data later
   }, []);
 

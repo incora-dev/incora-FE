@@ -30,10 +30,14 @@ import Loader from "../../../../public/loading1.svg"
 import Loader2 from "../../../../public/loading5.svg"
 import Dots from "../../../Homepage/Cooperate/elements/dots/dots";
 import { theme } from "../../../../styles/theme";
+import { forwardRef, useContext, useEffect, useState } from "react";
+import { MenuContext } from "../../../../services/context/mainMenu";
+import { useIsMobile } from "../../../../services/hooks";
 
 interface IServicesHoverElement {
   titleColor: string;
   isShow: boolean;
+  backgroundColor: string;
 }
 
 const servicesLabel = [
@@ -47,7 +51,7 @@ const servicesLabel = [
   'UI/UX design'
 ];
 
-function arrowWithText(text: string) {
+function arrowWithText(text: string, linkClickHandler: () => void) {
   return (
     <ArrowWithTextBlock>
       <Arrow
@@ -56,7 +60,7 @@ function arrowWithText(text: string) {
         viewBox="0 0 26 14"
       />
 
-      <H5>
+      <H5 onClick={linkClickHandler}>
 
         <Link href={`/services/${text.toLowerCase()}`}>
           {text}
@@ -66,7 +70,9 @@ function arrowWithText(text: string) {
   )
 }
 
-function getElementsTop(titleColor: string) {
+function getElementsTop(titleColor: string, linkClickHandler: () => void) {
+    const isMobile = useIsMobile();
+
   return (
     <>
       <IconBlock>
@@ -77,13 +83,13 @@ function getElementsTop(titleColor: string) {
             viewBox="0 0 304 280"
           />
 
-          <H4>
+          <H4 onClick={linkClickHandler}>
             <Link href={`/services/Team Extension`}>
               Team Extension
             </Link>
           </H4>
         </TitleBlock>
-        <Text>Alongside the core functional team, the acquisition of additional human resources would cover up the needed gaps and accelerate the development workflow.</Text>
+        {!isMobile && <Text>Alongside the core functional team, the acquisition of additional human resources would cover up the needed gaps and accelerate the development workflow.</Text>}
       </IconBlock>
 
       <IconBlock>
@@ -94,19 +100,21 @@ function getElementsTop(titleColor: string) {
             viewBox="0 0 335 292"
           />
 
-          <H4>
+          <H4 onClick={linkClickHandler}>
             <Link href={`/services/Dedicated Team`}>
               Dedicated Team
             </Link>
           </H4>
         </TitleBlock>
-        <Text>Alongside the core functional team, the acquisition of additional human resources would cover up the needed gaps and accelerate the development workflow.</Text>
+        {!isMobile && <Text>Alongside the core functional team, the acquisition of additional human resources would cover up the needed gaps and accelerate the development workflow.</Text>}
       </IconBlock>
     </>
   )
 }
 
-function getElementsBottom(titleColor: string) {
+function getElementsBottom(titleColor: string, linkClickHandler: () => void) {
+      const isMobile = useIsMobile();
+
   return (
     <>
       <IconBlock>
@@ -117,25 +125,25 @@ function getElementsBottom(titleColor: string) {
             viewBox="0 0 302 291"
           />
 
-          <H4>
+          <H4 onClick={linkClickHandler}>
             <Link href={`/services/Software Development`}>
               Software Development
             </Link>
           </H4>
         </TitleBlock>
-        { arrowWithText('Web App Development') }
-        { arrowWithText('Mobile App Development') }
+        { arrowWithText('Web App Development', linkClickHandler) }
+        { arrowWithText('Mobile App Development', linkClickHandler) }
       </IconBlock>
 
-      <H6>Software development is aimed to provide you with support on each stage required for the successful launch of the product: from discovery to production.</H6>
+      {!isMobile && <H6>Software development is aimed to provide you with support on each stage required for the successful launch of the product: from discovery to production.</H6>}
     </>
   )
 }
 
-function getServices(labels: string[]) {
+function getServices(labels: string[], linkClickHandler: () => void) {
   return (
     labels.map((label, index) =>
-      <Service key={index}>
+      <Service key={index}  onClick={linkClickHandler}>
         <Link href={`/services/${label.toLowerCase()}`}>
           {label}
         </Link>
@@ -143,10 +151,10 @@ function getServices(labels: string[]) {
   )
 }
 
-function getAllServices(text: string) {
+function getAllServices(text: string, linkClickHandler: () => void) {
   return (
       <AllServices>
-        <AllServicesText>
+        <AllServicesText  onClick={linkClickHandler}>
           <Link href={'/services'}>
             {text}
           </Link>
@@ -156,20 +164,27 @@ function getAllServices(text: string) {
     )
 }
 
-const ServicesHoverElement = ({ titleColor, isShow }: IServicesHoverElement) => {
-  const elementsTop = getElementsTop(titleColor);
-  const elementsBottom = getElementsBottom(titleColor);
-  const services = getServices(servicesLabel);
-  const getAllServicesText = getAllServices('All services');
+const ServicesHoverElement = forwardRef(({ titleColor, isShow, backgroundColor }: IServicesHoverElement, ref) => {
+  const { toggleHoverMenuMode, toggleMenuMode  } = useContext(MenuContext);
+  const linkClickHandler = () => {
+    toggleMenuMode();
+    toggleHoverMenuMode();
+  }
+  const elementsTop = getElementsTop(titleColor, linkClickHandler);
+  const elementsBottom = getElementsBottom(titleColor, linkClickHandler);
+  const services = getServices(servicesLabel, linkClickHandler);
+  const getAllServicesText = getAllServices('All services', linkClickHandler);
   const dotsColor = (titleColor: string) =>
     titleColor === theme.colors.black
       ? theme.colors.black
       : theme.colors.white
   ;
+  const isMobile = useIsMobile();
+
 
   return (
     <MainWrapper titleColor={titleColor}>
-      <Div>
+      <Div ref={ref as any} backgroundColor={backgroundColor}>
         <Wrapper titleColor={titleColor}>
           <BlockWithIcons>
             <BlockWithIconsTop>
@@ -189,6 +204,7 @@ const ServicesHoverElement = ({ titleColor, isShow }: IServicesHoverElement) => 
           </ServicesBlock>
         </Wrapper>
 
+       {!isMobile && <>
         <PositionLoader>
           <Loader
             width={169.22}
@@ -213,9 +229,10 @@ const ServicesHoverElement = ({ titleColor, isShow }: IServicesHoverElement) => 
               rowGap={'18px'}
           />
         </PositionDots>
+        </>}
       </Div>
     </MainWrapper>
   )
-}
+});
 
 export default ServicesHoverElement;

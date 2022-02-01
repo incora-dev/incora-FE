@@ -7,7 +7,7 @@ import { useDispatch } from "react-redux";
 import React, { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { changeCurrentGlobePoint } from "../../../actions";
 import { theme } from "../../../../../styles/theme";
-import { useIsMobile } from "../../../../../services/hooks";
+import { useIsMobile, useIsTablet } from "../../../../../services/hooks";
 
 interface IReviewBox {
   reviews: Review[];
@@ -17,7 +17,8 @@ interface IReviewBox {
 
 const ReviewBox = ({ reviews, reviewIndex, setReviewIndex }: IReviewBox) => {
   const dispatch = useDispatch();
-  const isMobile = useIsMobile();
+    const isMobile = useIsMobile();
+  const isTablet = useIsTablet();
 
   const changeReview = (right: boolean) => {
     const lastElementIndex = reviews.length - 1;
@@ -46,19 +47,26 @@ const ReviewBox = ({ reviews, reviewIndex, setReviewIndex }: IReviewBox) => {
           <CarouselButtonWrapper>
             {leftCarouselButtonCondition}
           </CarouselButtonWrapper>
-          {isMobile && (
+          {(isMobile || isTablet) && (
             <CarouselButtonWrapper>
               {rightCarouselButtonCondition}
             </CarouselButtonWrapper>
           )}
         </CarouselButtonsContainer>
       <ReviewContent review={reviews[reviewIndex]} />
-      {!isMobile && (
-        <CarouselButtonWrapper>
-          {rightCarouselButtonCondition}
-        </CarouselButtonWrapper>
-      )}
       </CarouselReviewWrapper>
+
+      {(!isMobile && !isTablet) && (
+      <CarouselButtonsContainer>
+        <CarouselButtonWrapper>
+          {leftCarouselButtonCondition}
+        </CarouselButtonWrapper>
+        {!isMobile && (
+          <CarouselButtonWrapper>
+            {rightCarouselButtonCondition}
+          </CarouselButtonWrapper>
+        )}
+      </CarouselButtonsContainer>)}
     </ReviewBoxWrapper>
   );
 };

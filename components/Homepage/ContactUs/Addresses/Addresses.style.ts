@@ -4,7 +4,7 @@ import { theme } from "../../../../styles/theme";
 
 export const Container = styled.div`
   position: relative;
-
+  right: -28px;
   margin-top: 47px;
   margin-left: 4px;
   @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
@@ -64,7 +64,6 @@ export const Country = styled.div`
 `;
 
 export const Street = styled.div`
-  font-family: Poppins;
   font-style: normal;
   font-weight: 600;
   font-size: var(--fs-16);
@@ -74,4 +73,18 @@ export const Street = styled.div`
   text-transform: capitalize;
 
   color: #000;
+`;
+
+export  const  PositionLoading = styled.div`
+  position: absolute;
+  top: -32px;
+  right: -87px;
+  
+  svg {
+    transform: rotate(-45deg);
+    
+    path {
+      fill: #000;
+    }
+  }
 `;

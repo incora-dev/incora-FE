@@ -11,18 +11,17 @@ export const Component = styled.div`
   
   background-color: ${({bgColor}: IComponent) => bgColor};
 
-  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
     height: 500px;
+    padding-left: 25px;
+    padding-right: 25px;
   }
 `;
 
 export const PaddingTop = styled.div`
   padding-top: 120px;
- @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
-    padding-top: 50px;
-  }
 
-  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
     padding-top: 53px;
   }
 `;
@@ -42,16 +41,20 @@ export const Div = styled.div`
   justify-content: space-between;
 
   a {
-    position: relative;
+    position: absolute;
     right: -100px;
   }
   
   svg {
-    margin: auto 0;
+    margin-top: 10px;
     
     cursor: pointer;
   }
 
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+    width: 100%;
+    padding-left: 25px;
+  }
   @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     width: 100%;
     padding-left: 20px;

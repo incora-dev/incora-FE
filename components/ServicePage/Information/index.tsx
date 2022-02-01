@@ -9,8 +9,12 @@ import {
   H2,
   Text,
   ContentWrapper,
+  PositionHexagon1,
+  PositionHexagon2,
+  PositionHexagon3
 } from "./Information.style";
 import { IServiceContent, IServiceContents } from "@interfaces";
+import Hexagon from "../../../public/SVG/hexagon1.svg";
 import {
   GetService_services_data_attributes_whyDoYouNeed,
   GetService_services_data_attributes_whyDoYouNeed_items,
@@ -73,6 +77,18 @@ const Information = ({ content }: IInformation) => {
           <GetContent content={items} />
         </TextBlock>
       </Wrapper>
+
+      <PositionHexagon1>
+        <Hexagon width="235" viewBox="0 0 391 450" />
+      </PositionHexagon1>
+
+      <PositionHexagon2>
+        <Hexagon width="235" viewBox="0 0 391 450" />
+      </PositionHexagon2>
+
+      <PositionHexagon3>
+        <Hexagon width="235" viewBox="0 0 391 450" />
+      </PositionHexagon3>
     </Div>
   );
 };

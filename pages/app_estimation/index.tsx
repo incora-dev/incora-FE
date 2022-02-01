@@ -24,7 +24,6 @@ const titles = [
 const contactUs: IContactUs = {
   title: "contact us",
   text: "Let’s create progress together!",
-  formLabels: ["name", "phone number", "email", "what is you main goal?"],
   addresses: [
     { "ukrainian office": "2 Horodotska Str.,\n" + "Lviv 75001 Ukraine" },
     { "usa office": "16192 Coastal Hwy, Lewes,\n" + "DE 19958 USA" },
@@ -57,7 +56,7 @@ const Index = () => {
         text="Learn what it takes to create your app! Fulcrum calculator makes a rough* estimate of all app development costs. Ready?"
       />
       <MainContent platform={platform} />
-      <FooterComponent {...footer}/>
+      <FooterComponent/>
     </MainMenu>
   );
 };

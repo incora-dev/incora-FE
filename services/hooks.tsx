@@ -25,7 +25,7 @@ export const useIsMobile = () => {
   const [width, setWidth] = useState<number>();
 
   useEffect(() => {
-    const mobileWidth = +theme.breakpoints.tablet.replace('px', '');
+    const mobileWidth = +theme.breakpoints.mobile.replace('px', '');
       const isMobile = mobileWidth >= window.innerWidth;
       setIsMobile(isMobile);
     const onHandleResize = () => {
@@ -44,4 +44,30 @@ export const useIsMobile = () => {
   }, [width])
 
   return isMobile;
+};
+
+export const useIsTablet = () => {
+  const [isTablet, setIsTablet] = useState<boolean>();
+  const [width, setWidth] = useState<number>();
+
+  useEffect(() => {
+    const mobileWidth = +theme.breakpoints.tablet.replace('px', '');
+      const isTablet = mobileWidth >= window.innerWidth;
+      setIsTablet(isTablet);
+    const onHandleResize = () => {
+      setWidth(window.innerWidth);
+    };
+    window.addEventListener('resize', onHandleResize);
+    return () => window.removeEventListener('resize', onHandleResize);
+  }, []);
+
+  useEffect(() => {
+    if (width) {
+      const mobileWidth = +theme.breakpoints.tablet.replace('px', '');
+      const isTablet = mobileWidth >= width;
+      setIsTablet(isTablet);
+    }
+  }, [width])
+
+  return isTablet;
 };

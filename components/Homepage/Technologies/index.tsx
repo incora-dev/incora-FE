@@ -9,6 +9,7 @@ import { ITechnologies } from "@interfaces";
 import Arrow from "../../../public/SVG";
 import BlockTechnologies from "./BlockTechnologies";
 import { theme } from "../../../styles/theme";
+import Link from "next/link"
 
 function TechnologiesComponent({ title, bgColor, labels }: ITechnologies) {
   const bgColorWhite = theme.colors.white;
@@ -30,9 +31,10 @@ function TechnologiesComponent({ title, bgColor, labels }: ITechnologies) {
       <PaddingTop>
         <Div>
           <H2 color={getTitleColor()}>{title}</H2>
-          <a href={title}>
+
+          <Link href={title.toLowerCase()}>
             <Arrow />
-          </a>
+          </Link>
         </Div>
       </PaddingTop>
 

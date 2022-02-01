@@ -1,6 +1,6 @@
 export interface IPlus {
   plusesColor: string;
-  animation?: boolean;
+  animation: boolean;
   animationDelay?: number;
 }
 

@@ -12,7 +12,7 @@ export const ButtonWrap = styled.div`
   height: 100%;
   display: flex;
   align-items: flex-end;
-  justify-content: ${({ right }: IButton) => (right ? "flex-end" : "start")};
+  justify-content: ${({ right }: IButton) => (right ? "flex-end" : "flex-start")};
 
   svg {
     transform: ${({ right }: IButton) => (right ? "rotate(180deg)" : "none")};

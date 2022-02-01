@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 import HeaderArticleTemplate from "../../components/ArticleTemplatePage/HeaderArticleTemplate";
 import ArticleInfo from "../../components/ArticleTemplatePage/ArticleInfo";
 import FacebookSVG from "../../public/SVG/socialNetwork/FacebookSVG.svg";
-import InstagramSVG from "../../public/SVG/socialNetwork/InstagramSvg.svg";
+import InstagramSVG from "../../public/SVG/socialNetwork/LinkedInSvg.svg";
 import News from "../../components/News";
 import LetsTalk from "../../components/Services/LetsTalk";
 import FooterComponent from "../../components/Footer";
@@ -17,7 +17,7 @@ import Custom404 from "../404";
 import { useQuery } from "@apollo/client";
 import { GetArticle } from "../../graphql/insights/__generated__/GetArticle";
 import { GET_ARTICLE } from "../../graphql/insights/queries";
-import { useIsMobile } from "../../services/hooks";
+import { useIsMobile, useIsTablet } from "../../services/hooks";
 
 const news = {
   title: "You may also like",
@@ -99,7 +99,8 @@ const ArticleTemplate = () => {
 
   const [menuColor, setMenuColor] = useState("none");
   const [goToTopVisible, setGoToTopVisible] = useState(false);
-  const isMobile = useIsMobile();
+    const isMobile = useIsMobile();
+  const isTablet = useIsTablet();
 
   const handleScroll = () => {
     window.scrollY >= 20
@@ -132,7 +133,7 @@ const ArticleTemplate = () => {
           </Head>
           <>
             <MainMenu
-              backgroundColor={isMobile ? theme.colors.black : menuColor}
+              backgroundColor={isMobile || isTablet ? theme.colors.black : menuColor}
               titlesColor={theme.colors.white}
               titles={titles}
             >
@@ -153,13 +154,7 @@ const ArticleTemplate = () => {
               <LetsTalk title={letsTalkTitle} text={letsTalkSubtitle} />
               <GoToTop isVisible={goToTopVisible} />
             </MainMenu>
-            <FooterComponent
-              policies={footer.policies}
-              offices={footer.offices}
-              followUs={footer.followUs}
-              pages={footer.pages}
-              copyright={footer.copyright}
-            />
+            <FooterComponent />
           </>
         </>
       )}

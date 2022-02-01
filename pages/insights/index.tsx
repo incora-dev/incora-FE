@@ -59,13 +59,7 @@ const Insights = () => {
                 inputPlaceholder={inputPlaceholder}
               />
             </MainMenu>
-            <FooterComponent
-              policies={footer.policies}
-              offices={footer.offices}
-              pages={footer.pages}
-              followUs={footer.followUs}
-              copyright={footer.copyright}
-            />
+            <FooterComponent />
           </>
         </>
       )}

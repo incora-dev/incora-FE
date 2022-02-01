@@ -16,7 +16,8 @@ const Reviews = () => {
   const loading: boolean = useSelector(loadingSelector);
   const reviews: Review[] = useSelector(reviewsSelector);
   const [reviewIndex, setReviewIndex] = useState(0);
-    const isMobDevice = useIsMobile();
+    const {isMobile, isTablet, isSmallTablet} = useIsMobile();
+    
 
   const dispatch = useDispatch();
 
@@ -32,7 +33,7 @@ const Reviews = () => {
         reviewIndex={reviewIndex}
         setReviewIndex={setReviewIndex}
       />
-      {!loading && !isMobDevice && <Globe reviewIndex={reviewIndex} />}
+      {!loading && !isMobile && !isTablet && !isSmallTablet && <Globe reviewIndex={reviewIndex} />}
     </ReviewsWrapper>
   );
 };

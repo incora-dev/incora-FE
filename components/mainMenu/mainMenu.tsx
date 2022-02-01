@@ -8,7 +8,7 @@ import Link from "next/link";
 import HamburgerButton from "../BurgerMenuButton";
 import { SideMenu } from "./sideMainMenu";
 import { MenuContext } from "../../services/context/mainMenu";
-import { useIsMobile, useIsTablet } from "../../services/hooks";
+import { useIsMobile } from "../../services/hooks";
 
 
 function getLogo(titlesColor: string) {
@@ -32,8 +32,8 @@ export default function MainMenu(props: IMenu) {
   const [onSelectedMenu, setOnSelectedMenu] = useState<null | string>(null);
   const { titles, backgroundColor = '#fffff', titlesColor, children, positionType = 'sticky' } = props;
   const logo = getLogo(titlesColor);
-    const isMobile = useIsMobile();
-  const isTablet = useIsTablet();
+    const {isMobile, isTablet, isSmallTablet} = useIsMobile();
+  
 
   const node = useRef<any>();
   const { isMenuOpen, toggleMenuMode, isHoverMenuOpen, toggleHoverMenuMode  } = useContext(MenuContext);
@@ -65,7 +65,7 @@ export default function MainMenu(props: IMenu) {
           <Link href={'/'}>
             {logo}
           </Link>
-          {isMobile || isTablet ? (
+          {isMobile || isTablet || isSmallTablet || isSmallTablet ? (
             <>
               <HamburgerButton/>
               <SideMenu 

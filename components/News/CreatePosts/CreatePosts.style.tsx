@@ -5,6 +5,10 @@ export const NewsContainer = styled.div`
   display: flex;
   flex-direction: column;
   row-gap: 14px;
+
+  @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
+    row-gap: 10px;
+  }
   
   a {
     h3 {
@@ -39,6 +43,11 @@ export const H3 = styled.h3`
   @media only screen and (max-width: ${themeGet("breakpoints.sTablet")}) {
     font-size: var(--fs-14);
     line-height: 21px;
+  }
+
+  @media only screen and (max-width: ${themeGet("breakpoints.sTablet")}) {
+    font-size: var(--fs-16);
+    line-height: 26px;
   }
 `
 

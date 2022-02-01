@@ -25,6 +25,6 @@ export const P = styled.p`
   cursor: pointer;
 
   @media only screen and (max-width: ${themeGet("breakpoints.sTablet")}) {
-    line-height: 18px;
+    line-height: 21px;
   }
 `;

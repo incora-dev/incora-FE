@@ -19,7 +19,13 @@ export const Container = styled.div`
     display: none;
   }
 
+  @media only screen and (max-width: ${themeGet('breakpoints.tabletPro')}) {
+    padding: 0 25px;
+    column-gap: 40px;
+  }
+
   @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
-    padding: 0 15%;
+    padding: 0 15px;
+    column-gap: 30px;
   }
 `

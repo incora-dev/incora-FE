@@ -39,7 +39,7 @@ export const ContentWrapper = styled.div`
 `;
 
 export const Title = styled.div`
-  svg {
+  img {
     display: block;
   }
 `;

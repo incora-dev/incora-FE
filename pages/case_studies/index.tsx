@@ -41,9 +41,13 @@ const footer: IFooter = {
 
 const CaseStudies = () => {
   const [currentIndustryTag, setCurrentIndustryTag] = useState<string>("all");
+  const industry = "all" ? undefined : currentIndustryTag;
 
-  const { data, loading, error } = useQuery<GetCaseStudies>(GET_CASE_STUDIES);
+  const { data, loading, error } = useQuery<GetCaseStudies>(GET_CASE_STUDIES, {
+    variables: { industry },
+  });
   const entry = data?.caseStudiesPage?.data?.attributes;
+  const projects = data?.caseStudiesPage?.data?.attributes?.projects?.data;
 
   const [filterByFlag, setFilterByFlag] = useState(false);
   const { black, white } = theme.colors;
@@ -54,7 +58,7 @@ const CaseStudies = () => {
 
   return (
     <>
-      {!loading && !error && entry && (
+      {!loading && !error && entry && projects && (
         <MainMenu
           backgroundColor={menuBackgroundCondition}
           titlesColor={titlesColorCondition}
@@ -68,11 +72,11 @@ const CaseStudies = () => {
             setCurrentIndustryTag={setCurrentIndustryTag}
           />
           <EmbodiedIdeasComponent
+            projects={projects}
             bgColor={white}
             elementsColor={theme.colors.yellow}
             disablePadding
             disableSeeMore
-            currentIndustryTag={currentIndustryTag}
           />
           <LetsReachOut contactUs={entry.contactUs} />
           <FooterComponent

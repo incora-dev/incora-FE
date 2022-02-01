@@ -26,8 +26,6 @@ export interface GetProjects_projects_data_attributes_technologies {
 
 export interface GetProjects_projects_data_attributes_featuredImage_data_attributes {
   __typename: "UploadFile";
-  width: number | null;
-  height: number | null;
   url: string;
 }
 

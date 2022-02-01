@@ -7,6 +7,15 @@
 // GraphQL query operation: GetArticle
 // ====================================================
 
+export interface GetArticle_articles_data_attributes_count {
+  __typename: "ComponentCommonCount";
+  views: any | null;
+  likes: any | null;
+  valuable: any | null;
+  exciting: any | null;
+  unsatisfied: any | null;
+}
+
 export interface GetArticle_articles_data_attributes_industries_data_attributes {
   __typename: "Industry";
   name: string;
@@ -61,7 +70,6 @@ export interface GetArticle_articles_data_attributes_author {
 export interface GetArticle_articles_data_attributes_tags_data_attributes {
   __typename: "Tag";
   name: string;
-  url?: string;
 }
 
 export interface GetArticle_articles_data_attributes_tags_data {
@@ -160,9 +168,9 @@ export interface GetArticle_articles_data_attributes_relatedArticles {
 export interface GetArticle_articles_data_attributes {
   __typename: "Article";
   title: string;
-  views: any | null;
   content: string;
   createdAt: any | null;
+  count: GetArticle_articles_data_attributes_count;
   industries: GetArticle_articles_data_attributes_industries | null;
   author: GetArticle_articles_data_attributes_author | null;
   tags: GetArticle_articles_data_attributes_tags | null;

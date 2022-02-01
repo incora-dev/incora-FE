@@ -143,6 +143,7 @@ export const PositionIcon = styled.div`
 
   @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
     width: 200px;
+    top: 165px;
   }
 
   @media only screen and (max-width: ${themeGet('breakpoints.sTablet')}) {

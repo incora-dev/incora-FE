@@ -9,13 +9,7 @@ export const Div = styled.div`
   height: 1047px;
   position: relative;
 
-  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
-    height: 220vh;
-  }
-  @media only screen and (max-width: ${themeGet('breakpoints.mMobile')}) {
-    height: 260vh;
-  }
-  @media only screen and (max-width: ${themeGet('breakpoints.xsMobile')}) {
-    height: 310vh;
+  @media only screen and (max-width: ${themeGet('breakpoints.tabletPro')}) {
+    height: fit-content;
   }
 `;

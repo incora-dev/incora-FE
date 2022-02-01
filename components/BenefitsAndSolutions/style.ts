@@ -23,27 +23,13 @@ export const BenefitsAndSolutionsWrap = styled.div`
 
   background-color: ${({ bgColor }: IBackground) => bgColor};
 
-  /* @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
-    height: 220vh;
-  } */
-
   @media only screen and (max-width: ${themeGet("breakpoints.smallDesk")}) {
-    padding: 0 30px;
+    padding: 0 25px;
   }
 
   @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
     padding: 0 15px 15px;
   }
-
-  /* @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
-    height: 210vh;
-  }
-  @media only screen and (max-width:  ${themeGet('breakpoints.mMobile')}) {
-    height: 260vh;
-  }
-  @media only screen and (max-width: ${themeGet('breakpoints.xsMobile')}) {
-    height: 350vh;
-  } */
 `;
 
 export const ContentWrap = styled.div`
@@ -58,46 +44,30 @@ export const ContentWrap = styled.div`
   }
 
   @media only screen and (max-width: ${themeGet("breakpoints.smallDesk")}) {
+    padding: 50px 0 60px;
+  }
+
+
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     padding: 50px 0;
   }
-
-  @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
-    padding: 30px 0;
-  }
-
-  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
-    padding: 30px 15px;
-  }
-
-  /* @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
-    padding-top: 50px;
-  }
-  position: absolute;
-  width: 1006px;
-
-  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
-    width: 100%;
-    padding-left: 15px;
-    padding-right: 15px;
-  }
-  */
 
   h1 {
     font-weight: 800;
     font-size: var(--fs-36);
     line-height: 54px;
-@media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
-  line-height: 40px;
-}
+    @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+      line-height: 40px;
+    }
     color: ${themeGet("colors.white")};
     letter-spacing: ${themeGet("letterSpacing.h1")};
     text-transform: capitalize;
     margin-bottom: 58.6px;
 
     @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
-      font-size: 24px;
+      font-size: var(--fs-26);
       line-height: 34px;
-      margin-bottom: 20px;
+      margin-bottom: 40px;
     }
   }
 `;
@@ -108,21 +78,17 @@ export const Grid = styled.div`
   column-gap: 70px;
   row-gap: ${({ rowGap }: IGrid) => `${rowGap}px`};
 
-  @media only screen and (max-width: ${themeGet("breakpoints.smallDesk")}) {
-    row-gap: 20px;
+  @media only screen and (max-width: ${themeGet("breakpoints.tabletPro")}) {
+    column-gap: 55px;
   }
 
   @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
-    column-gap: 30px;
+    row-gap: 50px;
   }
 
-  /* @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
-    flex-direction: column;
+  @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
+    row-gap: 40px;
   }
-  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
-    padding: 0 20px;
-    row-gap: 50px;
-  } */
 `;
 
 export const GridItemWrap = styled.div`
@@ -131,18 +97,15 @@ export const GridItemWrap = styled.div`
   flex-direction: column;
   row-gap: 15px;
 
-  @media only screen and (max-width: ${themeGet("breakpoints.mDesk")}) {
-    width: calc((100% - 140px) / 2);
-  }
-
   @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
     width: calc((100% - 60px) / 2);
   }
 
   @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
     width: 100%;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
+    row-gap: 10px;
   }
 
   svg {
@@ -179,7 +142,6 @@ export const GridItemWrap = styled.div`
     letter-spacing: 0.05em;
     text-transform: capitalize;
 
-    //color: #BCBCC0;
     color: ${themeGet("colors.font1")};
   }
 `;

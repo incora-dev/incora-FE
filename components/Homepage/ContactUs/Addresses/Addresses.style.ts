@@ -15,7 +15,7 @@ export const Container = styled.div`
 
     margin-left: 0;
   }
-  @media only screen and (max-width: ${theme.breakpoints.xsMobile}) {
+  @media only screen and (max-width: ${themeGet('breakpoints.xsMobile')}) {
     margin-left: 110px;
   }
 `;
@@ -36,10 +36,10 @@ export const AddressesContainer = styled.div`
     left: -80px;
   }
   @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
-    left: -15px;
+    left: -5px;
   }
   @media only screen and (max-width: ${themeGet('breakpoints.mMobile')}) {
-    left: 5px;
+    left: 20px;
   }
   @media only screen and (max-width: ${themeGet('breakpoints.xsMobile')}) {
     left: -10px;

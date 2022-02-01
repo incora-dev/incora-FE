@@ -56,13 +56,10 @@ export const Block = styled.div`
 
 export const IncoraLogo = styled.img`
   max-width: 120px;
+  cursor: pointer;
 
- @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
+  @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
     max-width: 60px;
-  }
-  
-  img {
-    cursor: pointer;
   }
 `;
 

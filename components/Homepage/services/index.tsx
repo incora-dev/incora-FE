@@ -33,6 +33,7 @@ import Cube3 from "../../../public/SVG/Cube3.svg"
 import HexagonBordered from "../../../public/hexagonBordered.svg"
 import HexagonFilled from "../../../public/hexagonFilled.svg"
 import { theme } from "../../../styles/theme";
+import Link from "next/link";
 
 function ServicesComponent({ title, text, labels }: IServices) {
   const [ onEnterBlock, setOnEnterBlock] = useState(false);
@@ -65,9 +66,9 @@ function ServicesComponent({ title, text, labels }: IServices) {
               <Labels>
                 {
                   labels.map((label, index) =>
-                    <a href={label} key={index}>
+                    <Link href={`/services/${label.replace('/', '').replace(' ', '_')}`} key={index}>
                       <Label key={index}>{label}</Label>
-                    </a>
+                    </Link>
                   )
                 }
               </Labels>

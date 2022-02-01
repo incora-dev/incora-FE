@@ -7,13 +7,13 @@ interface IButton {
 }
 
 export const Button = styled.button`
-  margin-top: 19px;
+  margin-top: 33px;
 
   position: relative;
   width: max-content;
   
   display: flex;
-  padding: ${({padding = '23px 35px;'}: IButton) => padding};
+  padding: ${({padding = '24px 48px;'}: IButton) => padding};
   align-items: center;
   column-gap: 20px;
   

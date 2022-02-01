@@ -22,5 +22,7 @@ export const SliderContent = styled.div`
 `;
 
 export const SliderContainer = styled.div`
+  overflow: hidden;
+
   background: ${({ bgColor }: IColors) => bgColor || `${themeGet("colors.white")}`};
 `

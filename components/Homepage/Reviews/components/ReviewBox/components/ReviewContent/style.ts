@@ -32,8 +32,9 @@ export const QuoteWrap = styled.div`
 `;
 
 export const QuoteText = styled.p`
+  max-width: 576px;
   padding-top: 10px;
-  font-family: Poppins;
+
   font-style: normal;
   font-weight: normal;
   font-size: var(--fs-14);
@@ -42,7 +43,6 @@ export const QuoteText = styled.p`
 `;
 
 export const AvatarWrap = styled.div`
-  width: 221px;
   margin-top: 14px;
   display: flex;
   justify-content: flex-end;
@@ -64,10 +64,10 @@ export const Photo = styled(Image)`
 `;
 
 export const NameWrap = styled.div`
-  padding-top: 10px;
+  margin-top: 6px;
   color: ${themeGet("colors.white")};
   font-size: var(--fs-13);
-  letter-spacing: 1px;
+  letter-spacing: 0.1em;
 
   h3 {
     text-transform: uppercase;

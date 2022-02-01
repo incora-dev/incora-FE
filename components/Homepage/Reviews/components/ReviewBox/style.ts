@@ -4,10 +4,11 @@ import Image from "next/image";
 import { theme } from "../../../../../styles/theme";
 
 export const ReviewBoxWrapper = styled.div`
-  width: 1366px;
+  width: max-content;
   min-height: 270px;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  //justify-content: space-between;
 
   .right_btn {
     justify-content: flex-end;
@@ -24,13 +25,26 @@ export const CarouselButtonWrapper = styled.div`
   width: 269px;
   display: flex;
   align-items: flex-end;
+  
+  position: relative;
 `;
 export const CarouselButtonsContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 297px;
+
   @media only screen and (max-width: ${theme.breakpoints.mobile}) {
     display: flex;
   }
 `;
 export const CarouselReviewWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+
   @media only screen and (max-width: ${theme.breakpoints.mobile}) {
     display: flex;
     flex-direction: column;
@@ -114,6 +128,7 @@ export const Photo = styled(Image)`
 
 export const NameWrap = styled.div`
   padding-top: 10px;
+
   color: ${themeGet("colors.white")};
   font-size: var(--fs-13);
   letter-spacing: 1px;

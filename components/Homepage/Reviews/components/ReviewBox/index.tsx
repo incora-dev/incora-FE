@@ -48,23 +48,27 @@ const ReviewBox = ({ reviews, reviewIndex, setReviewIndex }: IReviewBox) => {
   return (
     <ReviewBoxWrapper>
       <CarouselReviewWrapper>
-        <CarouselButtonsContainer>
-          <CarouselButtonWrapper>
-            {leftCarouselButtonCondition}
-          </CarouselButtonWrapper>
+        {/*<CarouselButtonsContainer>*/}
+
           {isMobile && (
             <CarouselButtonWrapper>
               {rightCarouselButtonCondition}
             </CarouselButtonWrapper>
           )}
-        </CarouselButtonsContainer>
+        {/*</CarouselButtonsContainer>*/}
       <ReviewContent review={reviews[reviewIndex]} />
-      {!isMobile && (
-        <CarouselButtonWrapper>
-          {rightCarouselButtonCondition}
-        </CarouselButtonWrapper>
-      )}
       </CarouselReviewWrapper>
+
+      <CarouselButtonsContainer>
+        <CarouselButtonWrapper>
+          {leftCarouselButtonCondition}
+        </CarouselButtonWrapper>
+        {!isMobile && (
+          <CarouselButtonWrapper>
+            {rightCarouselButtonCondition}
+          </CarouselButtonWrapper>
+        )}
+      </CarouselButtonsContainer>
     </ReviewBoxWrapper>
   );
 };

@@ -21,6 +21,8 @@ export const Container = styled.div`
 `;
 
 export const Text = styled.div`
+  max-width: 430px;
+
   display: flex;
   flex-direction: column;
   row-gap: 21px;
@@ -37,7 +39,7 @@ export const Block = styled.div`
 `;
 
 export const H3 = styled.h3`
-  font-family: Poppins;
+
   font-style: normal;
   font-weight: 800;
   font-size: var(--fs-36);

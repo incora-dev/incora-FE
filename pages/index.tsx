@@ -311,13 +311,13 @@ function Home() {
             title={aboutUs.title}
             text={aboutUs.text}
           />
-          {/*<Reviews />*/}
+          <Reviews />
           <section>
-            {/* <NewsComponent
-              title={news.title}
-              labels={technologies.technologies}
-              articles={news.articles}
-            /> */}
+            {/*/!* <NewsComponent*/}
+            {/*  title={news.title}*/}
+            {/*  labels={technologies.technologies}*/}
+            {/*  articles={news.articles}*/}
+            {/*/> *!/*/}
           </section>
           <ContactUsComponent
             title={contactUs.title}
@@ -326,11 +326,11 @@ function Home() {
             buttonLabel={contactUs.buttonLabel}
           />
           <FooterComponent
-              policies={footer.policies}
-              offices={footer.offices}
-              followUs={footer.followUs}
-              pages={footer.pages}
-              copyright={footer.copyright}
+            policies={footer.policies}
+            offices={footer.offices}
+            followUs={footer.followUs}
+            pages={footer.pages}
+            copyright={footer.copyright}
           />
         </MainMenu>
       </>

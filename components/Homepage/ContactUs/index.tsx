@@ -3,13 +3,11 @@ import {
   H2,
   H4,
   Titles,
-  Block,
-  PositionLoading
+  Block
 } from "./ContactUs.style";
 import { IContactUs } from "@interfaces";
 import Form from "../../FormClassic";
 import Addresses from "./Addresses";
-import Loading from "../../../public/loading1.svg";
 
 
 function ContactUsComponent({ title, text, addresses, buttonLabel }: IContactUs) {
@@ -26,10 +24,6 @@ function ContactUsComponent({ title, text, addresses, buttonLabel }: IContactUs)
         </div>
 
         <Addresses addresses={addresses}/>
-
-        <PositionLoading>
-          <Loading/>
-        </PositionLoading>
       </Container>
     </Block>
   )

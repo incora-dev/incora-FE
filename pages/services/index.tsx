@@ -75,7 +75,6 @@ function Services() {
                 <div id="scroll-item">
                   <FAQ
                     textColor="#ffff"
-                    title=""
                     titles={slidesTitles}
                     content={faqContent}
                   />

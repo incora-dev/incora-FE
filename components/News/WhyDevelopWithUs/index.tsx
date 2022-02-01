@@ -71,7 +71,7 @@ const WhyDevelopWithUs = ({ data }: IWhyDevelopWithUs) => {
             <TextBlock>
               <H2>{"Why develop with us?"}</H2>
               <ReasonsWrapper>
-                <Reasons items={items} />f
+                <Reasons items={items} />
                 <PositionPointsLarge>
                   <PointsLarge />
                 </PositionPointsLarge>

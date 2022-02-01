@@ -21,7 +21,7 @@ import {
   GetServicesPage_servicesPage_data_attributes_services_data,
 } from "../../graphql/services/__generated__/GetServicesPage";
 import Custom404 from "../404";
-import { useIsMobile, useIsTablet } from "../../services/hooks";
+import { useIsMobile } from "../../services/hooks";
 import FAQ from "../../components/ServicePage/FAQ";
 
 function Services() {
@@ -35,10 +35,8 @@ function Services() {
 
   const colorWhite = theme.colors.white;
   const colorBlack = theme.colors.black;
-  const [showModal, setShowModal] = useState(false);
-  const [currentSlide, setCurrentSlide] = useState();
-    const isMobile = useIsMobile();
-  const isTablet = useIsTablet();
+    const {isMobile, isTablet, isSmallTablet} = useIsMobile();
+  
 
   const renderSlide = (
     slide: GetServicesPage_servicesPage_data_attributes_services_data
@@ -65,7 +63,7 @@ function Services() {
             titlesColor={colorBlack}
           >
             <ServicesComponent banner={banner} />
-            {(isMobile || isTablet) && (
+            {(isMobile || isTablet || isSmallTablet) && (
               <div
                 style={{
                   backgroundColor: "black",

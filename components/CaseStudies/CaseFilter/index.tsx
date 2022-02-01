@@ -9,7 +9,7 @@ import {
 } from "../../../graphql/caseStudies/__generated__/GetCaseStudies";
 import { GetIndustriesNames } from "../../../graphql/caseStudies/__generated__/GetIndustriesNames";
 import { IStacks } from "../../../interfaces/servicesComponent.interface";
-import { useIsMobile, useIsTablet } from "../../../services/hooks";
+import { useIsMobile } from "../../../services/hooks";
 import { theme } from "../../../styles/theme";
 import Globe from "../../common/Globe";
 import { getReview } from "../../Homepage/actions";
@@ -42,8 +42,8 @@ const CaseFilter = ({
 }: ICaseFilter) => {
   const { data, loading } = useQuery<GetIndustriesNames>(GET_INDUSTRIES_NAMES);
   const industriesEntry = data?.industries?.data;
-    const isMobile = useIsMobile();
-  const isTablet = useIsTablet();
+    const {isMobile, isTablet, isSmallTablet} = useIsMobile();
+  
 
   const dispatch = useDispatch();
 
@@ -70,7 +70,7 @@ const CaseFilter = ({
       <FilterWrap filterByFlag={filterByFlag}>
         <h1>{title}</h1>
         <p>{description}</p>
-        {!isMobile && !isTablet && <FilterSwitchWrap filterByFlag={filterByFlag}>
+        {!isMobile && !isTablet && !isSmallTablet && <FilterSwitchWrap filterByFlag={filterByFlag}>
           <span>filter by</span>
           <Switch
             left={"industries"}

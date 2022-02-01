@@ -9,7 +9,7 @@ import LetsTalk from "../../components/Services/LetsTalk";
 import Information from "../../components/ServicePage/Information";
 import BestSuitedFor from "../../components/ServicePage/BestSuitedFor";
 import { useEffect, useState } from "react";
-import { useIsMobile, useIsTablet } from "../../services/hooks";
+import { useIsMobile } from "../../services/hooks";
 import { useRouter } from "next/router";
 import { useQuery } from "@apollo/client";
 import { GET_SERVICE } from "../../graphql/services/queries";
@@ -38,10 +38,10 @@ const Service = () => {
   const projects = entry?.projects?.data;
   const icon = entry?.icon.data?.attributes;
 
-    const isMobile = useIsMobile();
-  const isTablet = useIsTablet();
+    const {isMobile, isTablet, isSmallTablet} = useIsMobile();
+  
 
-  const [menuColor, setMenuColor] = useState(isMobile || isTablet ? colorBlack : "none");
+  const [menuColor, setMenuColor] = useState(isMobile || isTablet || isSmallTablet ? colorBlack : "none");
   const handleScroll = () => {
     window.scrollY >= 20 ? setMenuColor(colorBlack) : setMenuColor("none");
   };
@@ -52,7 +52,7 @@ const Service = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const menuColorCondition = isMobile || isTablet ? colorBlack : menuColor;
+  const menuColorCondition = isMobile || isTablet || isSmallTablet ? colorBlack : menuColor;
 
   const renderCondition =
     entry &&

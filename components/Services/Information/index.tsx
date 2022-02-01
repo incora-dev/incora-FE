@@ -17,7 +17,7 @@ import {
   GetServicesPage_servicesPage_data_attributes_services_data,
   GetServicesPage_servicesPage_data_attributes_services_data_attributes,
 } from "../../../graphql/services/__generated__/GetServicesPage";
-import { useIsMobile, useIsTablet } from "../../../services/hooks";
+import { useIsMobile } from "../../../services/hooks";
 
 export interface IInformationComponent {
   slide: GetServicesPage_servicesPage_data_attributes_services_data;
@@ -25,8 +25,8 @@ export interface IInformationComponent {
 
 const InformationComponent = ({ slide }: IInformationComponent) => {
   const { attributes } = slide;
-    const isMobile = useIsMobile();
-  const isTablet = useIsTablet();
+    const {isMobile, isTablet, isSmallTablet} = useIsMobile();
+  
 
   const getEstimatedTimeInfo = (
     slide: GetServicesPage_servicesPage_data_attributes_services_data_attributes
@@ -61,7 +61,7 @@ const InformationComponent = ({ slide }: IInformationComponent) => {
   ) => {
     return (
       <>
-        {!isMobile && !isTablet && <H2>{slide.name}</H2>}
+        {!isMobile && !isTablet && !isSmallTablet && <H2>{slide.name}</H2>}
         <P>{slide.descriptionForServicesPage}</P>
         <EstimatedTimeAndOutcomesBlock>
           {getEstimatedTimeInfo(slide)}

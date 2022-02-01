@@ -47,6 +47,11 @@ export const H2 = styled.h2`
   color: ${themeGet("colors.black")};
 
   @media only screen and (max-width: ${themeGet('breakpoints.tabletPro')}) {
+    font-size: var(--fs-36);
+    line-height: 50px;
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.sTablet')}) {
     font-size: var(--fs-28);
     line-height: 42px;
   }

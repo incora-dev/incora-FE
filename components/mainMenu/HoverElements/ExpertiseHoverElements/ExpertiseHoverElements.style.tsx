@@ -6,6 +6,11 @@ interface IChangeColor {
   titleColor: string;
 }
 
+interface IChangeColorDiv {
+  titleColor: string;
+  backgroundColor: string;
+}
+
 export const MainWrapper = styled.div`
   border-top: ${({ titleColor }: IChangeColor) => titleColor === theme.colors.black ? `1px solid ${theme.colors.grey}` : `1px solid ${theme.colors.backgroundBlack2}`};
   overflow: hidden;
@@ -17,10 +22,10 @@ export const Div = styled.div`
   max-width: 1366px;
   margin: 0 auto;
 
-  color: ${({ titleColor }: IChangeColor) => titleColor === theme.colors.black ? theme.colors.black : theme.colors.white};
+  color: ${({ titleColor }: IChangeColorDiv) => titleColor === theme.colors.black ? theme.colors.black : theme.colors.white};
   z-index: 25;
 
-  background-color: ${({backgroundColor}: {backgroundColor: string}) => backgroundColor};
+  background-color: ${({ backgroundColor }: IChangeColorDiv) => backgroundColor};
 `;
 
 export const PositionLoader = styled.div`

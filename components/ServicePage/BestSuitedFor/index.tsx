@@ -16,30 +16,29 @@ import { useState } from "react";
 
 const getContent = (labels: string[] = [], onBlockEnter = false) => {
   return labels.map((label, index) => {
-        return (
-          // onBlockEnter &&
-            <ContentWrapper
-              key={index}
+    return (
+      onBlockEnter &&
+        <ContentWrapper
+          key={index}
+          animation={onBlockEnter}
+          delay={index * 50}
+        >
+          <PositionDots>
+            <Dots
+              numberOfDots={5}
+              dotColor={theme.colors.white}
               animation={onBlockEnter}
-              delay={index * 200}
-            >
-              <PositionDots>
-                <Dots
-                  numberOfDots={5}
-                  dotColor={theme.colors.white}
-                  animation={onBlockEnter}
-                  rowGap={'7px'}
-                />
-              </PositionDots>
-                <>
-                  <Loader width="87" height="87" viewBox="0 0 96 96"/>
-                  <Text>{label}</Text>
-                </>
-            </ContentWrapper>
-        )
-      }
+              rowGap={'7px'}
+            />
+          </PositionDots>
+            <>
+              <Loader width="87" height="87" viewBox="0 0 96 96"/>
 
-  )
+              <Text>{label}</Text>
+            </>
+        </ContentWrapper>
+    )
+  })
 };
 
 const BestSuitedFor = ({title, info}: IBestSuitedFor) => {
@@ -51,6 +50,7 @@ const BestSuitedFor = ({title, info}: IBestSuitedFor) => {
     <Div onMouseEnter={() => setOnBlock(true)}>
       <Wrapper>
         <H1>{titleFirstLetterBig}</H1>
+
         <Content>{content}</Content>
       </Wrapper>
     </Div>

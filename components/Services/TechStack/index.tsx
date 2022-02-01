@@ -54,9 +54,10 @@ const GetStacksInfo = (stack: IStacks) => {
         <StacksBlock columns={isMobile ? 2 : 3}>
           {stacks?.map((label, index) => {
             const Logo: any = stacksLogo && stacksLogo[index];
+            const href = `/expertise/technologies/${label.toLowerCase().replace(' ', '').replace('/', '_')}`;
 
             return (
-              <Link key={index} href={label.toLowerCase()}>
+              <Link key={index} href={href}>
                 <LogoAndTitle>
                   <Logo />
                   <StackTitle>{label}</StackTitle>

@@ -1,8 +1,33 @@
 import styled from "styled-components";
 
 export const Div = styled.div`
+  position: relative;
+
   margin-top: -104px;
+  
+  overflow: hidden;
 `;
+
+export const PositionHexagon1 = styled.div`
+  position: absolute;
+
+  top: -244px;
+  left: 117px;
+`
+
+export const PositionHexagon2 = styled.div`
+  position: absolute;
+
+  top: -111px;
+  left: -119px;
+`
+
+export const PositionHexagon3 = styled.div`
+  position: absolute;
+
+  top: 92px;
+  left: -2px;
+`
 
 export const Wrapper = styled.div`
   max-width: 1006px;
@@ -10,6 +35,9 @@ export const Wrapper = styled.div`
 `;
 
 export const TextBlock = styled.div`
+  position: relative;
+  z-index: 1;
+
   padding: 117px 0 120px 0;
 
   display: flex;

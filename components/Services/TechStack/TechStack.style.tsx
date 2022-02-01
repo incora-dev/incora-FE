@@ -71,10 +71,10 @@ export const StackText = styled.p`
 `
 
 export const StacksContainer = styled.div`
-  width: 403px;
+  max-width: 403px;
   height: max-content;
   
-  padding: 50px;
+  padding: 50px 48px;
   background: #FBFBFB;
 
   @media only screen and (max-width: ${theme.breakpoints.mobile}) {

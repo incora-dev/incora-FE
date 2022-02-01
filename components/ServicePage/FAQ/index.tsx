@@ -75,9 +75,8 @@ const FAQ = ({ title, titles }: IFAQ) => {
       <Wrapper>
         <ContentWrapper>
           <H2>{title}</H2>
-          <FAQWrapper>
-            {label}
-          </FAQWrapper>
+
+          <FAQWrapper>{label}</FAQWrapper>
         </ContentWrapper>
       </Wrapper>
     </Div>

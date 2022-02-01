@@ -8,9 +8,13 @@ import {
   Sphere,
   H2,
   Text,
-  ContentWrapper
+  ContentWrapper,
+  PositionHexagon1,
+  PositionHexagon2,
+  PositionHexagon3
 } from "./Information.style";
 import { IServiceContent, IServiceContents } from "@interfaces";
+import Hexagon from "../../../public/SVG/hexagon1.svg";
 
 const title = 'Why do you need a Discovery phase?';
 
@@ -41,6 +45,18 @@ const Information = ({ content }: IServiceContents) => {
           {contents}
         </TextBlock>
       </Wrapper>
+
+      <PositionHexagon1>
+        <Hexagon width="235" viewBox="0 0 391 450" />
+      </PositionHexagon1>
+
+      <PositionHexagon2>
+        <Hexagon width="235" viewBox="0 0 391 450" />
+      </PositionHexagon2>
+
+      <PositionHexagon3>
+        <Hexagon width="235" viewBox="0 0 391 450" />
+      </PositionHexagon3>
     </Div>
   )
 }

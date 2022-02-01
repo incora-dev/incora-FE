@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import themeGet from "@styled-system/theme-get";
 
 interface IAnimation {
   animation: boolean;
@@ -6,8 +7,6 @@ interface IAnimation {
 }
 
 export const Div = styled.div`
-  font-family: Poppins, serif;
-
   color: #FFFFFF;
   background: #181819;
 `
@@ -57,9 +56,8 @@ export const ContentWrapper = styled.div`
   
   opacity: ${({ animation }: IAnimation) => animation ? '1' : '0'};
 
-  transition: opacity 1s ease-in-out;
+  transition: opacity ${themeGet("transition.button")};
   transition-delay: ${({ delay }: IAnimation) => `${delay}ms`};
-
 `
 
 export const Text = styled.p`

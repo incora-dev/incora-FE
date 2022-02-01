@@ -25,6 +25,7 @@ export interface IInformationComponent {
 
 const InformationComponent = ({ slide }: IInformationComponent) => {
   const { attributes } = slide;
+  const isMobile = useIsMobile();
 
   const getEstimatedTimeInfo = (
     slide: GetServicesPage_servicesPage_data_attributes_services_data_attributes
@@ -57,17 +58,17 @@ const InformationComponent = ({ slide }: IInformationComponent) => {
   const getBlockInformation = (
     slide: GetServicesPage_servicesPage_data_attributes_services_data_attributes
   ) => {
-    const isMobile = useIsMobile();
     return (
-    <>
-      {!isMobile && <H2>{slide.name}</H2>}
-      <P>{slide.description}</P>
-      <EstimatedTimeAndOutcomesBlock>
-        {getEstimatedTimeInfo(slide)}
-        {getOutcomesInfo(slide)}
-      </EstimatedTimeAndOutcomesBlock>
-    </>
-  )};
+      <>
+        {!isMobile && <H2>{slide.name}</H2>}
+        <P>{slide.descriptionForServicesPage}</P>
+        <EstimatedTimeAndOutcomesBlock>
+          {getEstimatedTimeInfo(slide)}
+          {getOutcomesInfo(slide)}
+        </EstimatedTimeAndOutcomesBlock>
+      </>
+    );
+  };
 
   return (
     <>

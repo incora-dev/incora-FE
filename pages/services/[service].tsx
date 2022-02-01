@@ -36,10 +36,11 @@ const Service = () => {
   const faqIntro = entry?.faq.intro;
   const faqItems = entry?.faq.items;
   const projects = entry?.projects?.data;
+  const icon = entry?.icon.data?.attributes;
 
   const isMobile = useIsMobile();
 
-  const [menuColor, setMenuColor] = useState(isMobile ? colorBlack : 'none');
+  const [menuColor, setMenuColor] = useState(isMobile ? colorBlack : "none");
   const handleScroll = () => {
     window.scrollY >= 20 ? setMenuColor(colorBlack) : setMenuColor("none");
   };
@@ -50,7 +51,7 @@ const Service = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const menuColorCondition = isMobile ? colorBlack : menuColor
+  const menuColorCondition = isMobile ? colorBlack : menuColor;
 
   const renderCondition =
     entry &&
@@ -59,7 +60,8 @@ const Service = () => {
     workflow &&
     faqIntro &&
     faqItems &&
-    projects;
+    projects &&
+    icon;
 
   if (loading) return null;
   if (error) return <Custom404 />;
@@ -84,6 +86,7 @@ const Service = () => {
                 titleSize={"48px"}
                 text={entry.description}
                 textWidth={"657px"}
+                icon={icon}
               />
               <Information content={content} />
               <BestSuitedFor

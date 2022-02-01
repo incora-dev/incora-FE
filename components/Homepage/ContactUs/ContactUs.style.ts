@@ -17,7 +17,13 @@ export  const  Container = styled.div`
   margin: 0 auto;
   padding: 85px 0 122px;
 
-  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+    padding: 40px 25px 50px;
+    max-width: 100%;
+    column-gap: 85px;
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.sTablet')}) {
     padding: 40px 15px 50px;
     flex-wrap: wrap;
     justify-content: center;
@@ -51,9 +57,10 @@ export  const  H2 = styled.h2`
   font-weight: 800;
   font-size: var(--fs-64);
   line-height: 96px;
-@media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
-  line-height: 50px;
-}
+  @media only screen and (max-width: ${themeGet('breakpoints.sTablet')}) {
+    font-size: var(--fs-48);
+    line-height: 50px;
+  }
 
   letter-spacing: 0.05em;
   white-space: nowrap;

@@ -10,6 +10,10 @@ export const OurTraditionsWrapper = styled.div`
   align-items: center;
   flex-flow: column;
 
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+    padding: 60px 25px 15px;
+  }
+
   @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     padding: 40px 15px 15px;
   }
@@ -21,7 +25,7 @@ export const OurTraditionsTextWrap = styled.div`
   display: flex;
   justify-content: center;
 
-  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
     height: auto;
     margin-bottom: 40px;
   }
@@ -31,7 +35,7 @@ export const TextWrap = styled.div`
   height: 330px;
   width: 1002px;
 
-  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
     height: auto;
     width: 100%;
   }
@@ -48,6 +52,11 @@ export const Paragraphs = styled.div`
   margin-top: 45px;
   display: flex;
   justify-content: space-between;
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+    column-gap: 20px;
+    margin-top: 25px;
+  }
 
   @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     margin-top: 25px;
@@ -88,10 +97,22 @@ export const Photos = styled.div`
   column-gap: 19px;
   overflow: scroll;
 
+  span {
+    @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+      display:none !important;
+    }
+  }
+  span:nth-child(-n+3) {
+    @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+      display:inline-block !important;
+    }
+  }
+
   @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     flex-direction: column;
     overflow: auto;
     row-gap: 10px;
+    display: flex;
   }
 
   &::-webkit-scrollbar {

@@ -12,6 +12,12 @@ export const Component = styled.div`
   padding-top: 100px;
 
   background-color: ${({ bgColor }: IComponent) => bgColor};
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+    height: fit-content;
+    padding-top: 50px;
+  }
+
   @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     height: fit-content;
     padding-top: 40px;
@@ -22,6 +28,9 @@ export const HeaderContainer = styled.div`
   width: 100%;
   padding-left: 180px;
   padding-right: 80px;
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+    padding: 0 25px;
+  }
   @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     padding: 0 15px;
   }

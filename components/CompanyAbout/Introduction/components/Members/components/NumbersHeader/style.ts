@@ -4,6 +4,10 @@ import styled from "styled-components";
 export const NumbersHeaderWrapper = styled.div`
   margin-bottom: 51px;
 
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+    margin-bottom: 0;
+  }
+
   @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     margin-bottom: 20px;
   }

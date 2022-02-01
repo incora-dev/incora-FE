@@ -51,6 +51,10 @@ export const Slide = styled.div`
     padding-bottom: 0;
   }
 
+  @media only screen and (max-width: ${themeGet('breakpoints.sTablet')}) {
+    padding: 50px 15px 35px 15px;
+  }
+
   :nth-child(1) {
     transform: scale(1);
   }
@@ -62,6 +66,10 @@ export const Slide = styled.div`
 
 export const Content = styled.div`
   display: flex;
+
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+    flex-direction: column;
+  }
 `;
 
 export const ImageContainer = styled.div`
@@ -89,6 +97,10 @@ export const Title = styled.div`
   @media only screen and (max-width: ${themeGet('breakpoints.sTablet')}) {
     font-size: var(--fs-20);
   }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+    max-width: 100%;
+  }
 `;
 
 export const ArrowButton = styled.button`
@@ -109,6 +121,10 @@ export const Controls = styled.div`
 	align-items: center;
   margin-top: 30px;
   padding-left: 5px;
+
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+    margin-top: 0;
+  }
 `;
 
 export const Line = styled.div`
@@ -139,6 +155,7 @@ export const RightBlock = styled.div`
 
   @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
     padding-top: 20px;
+    padding-bottom: 0;
   }
   
 `;

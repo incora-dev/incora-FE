@@ -23,6 +23,9 @@ import React from "react";
 import ClutchLogo from "../../public/SVG/logoClutchco.svg"
 import { clutchLink } from "../../constants";
 import Link from "next/link";
+import Facebook from "../../public/SVG/socialNetwork/facebook.svg";
+import LinkedIn from "../../public/SVG/socialNetwork/linkedIn.svg";
+import Instagram from "../../public/SVG/socialNetwork/instagram.svg";
 
 function createOfficesBlock(offices: object[]) {
   return offices.map((office) =>
@@ -50,7 +53,24 @@ function createFollowUsBlock(followUs: IFollowUs[]) {
   )
 }
 
-function FooterComponent( { policies, offices, followUs, pages, copyright }: IFooter) {
+const footer: IFooter = {
+  policies: ["privacy policy"],
+  offices: [
+    { "ukrainian office": "2 Horodotska Str.,\n" + "Lviv 75001 Ukraine" },
+    { "Usa office": "16192 Coastal Hwy, Lewes,\n" + "DE 19958 USA" },
+  ],
+  pages: ["Services", "expertise", "Case Studies", "Company", "Insights"],
+  followUs: [
+    { icon: Facebook, redirectTo: "Facebook" },
+    { icon: LinkedIn, redirectTo: "LinkedIn" },
+    { icon: Instagram, redirectTo: "Instagram" },
+  ],
+  copyright: "© 2015-2022 Incora LLC",
+};
+
+function FooterComponent() {
+  const { policies, offices, followUs, pages, copyright } = footer;
+
   const officesBlock = createOfficesBlock(offices);
   const followUsBlock = createFollowUsBlock(followUs);
 
@@ -63,7 +83,9 @@ function FooterComponent( { policies, offices, followUs, pages, copyright }: IFo
           <PoliciesBlock>
             {
               policies.map((policy, index) =>
-                <PolicyLabel key={index}>{policy}</PolicyLabel>
+                <Link href={`/${policy.replace(' ', '_')}`} key={index}>
+                    <PolicyLabel>{policy}</PolicyLabel>
+                </Link>
               )
             }
           </PoliciesBlock>

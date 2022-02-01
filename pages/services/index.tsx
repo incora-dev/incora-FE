@@ -59,7 +59,7 @@ function Services() {
             </a>
           </Link>
         </MainMenu>
-        <FooterComponent {...footer}/>
+        <FooterComponent />
       </div>
   )
 }

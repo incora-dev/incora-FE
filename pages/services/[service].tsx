@@ -42,7 +42,7 @@ const Service = ({ title, text, content, bestSuitedFor, workflowSetUp }: IServic
     if (!isMobile && isMobile !== undefined) {
       console.log('setting ev listener');
       window.addEventListener('scroll', handleScroll)
-  
+
       return () => window.removeEventListener('scroll', handleScroll);
     } else {
       setMenuColor(colorBlack);
@@ -78,13 +78,7 @@ const Service = ({ title, text, content, bestSuitedFor, workflowSetUp }: IServic
             text={'Get everything you need for the project initiation.'}
           />
         </MainMenu>
-        <FooterComponent
-            policies={footer?.policies}
-            offices={footer?.offices}
-            followUs={footer?.followUs}
-            pages={footer?.pages}
-            copyright={footer?.copyright}
-        />
+        <FooterComponent />
       </>
     </>
   )

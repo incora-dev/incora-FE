@@ -158,13 +158,7 @@ const Industry = () => {
                 buttonLabel={contactUs.buttonLabel}
             />
           </MainMenu>
-          <FooterComponent
-              policies={footer.policies}
-              offices={footer.offices}
-              followUs={footer.followUs}
-              pages={footer.pages}
-              copyright={footer.copyright}
-          />
+          <FooterComponent/>
         </>
       </>
   )

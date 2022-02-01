@@ -69,7 +69,7 @@ function Navigation({ titles, titlesColor, setOnHoverElement, onSelectedMenu, se
             onMouseLeave={() => setOnSelectedMenu(null)}
           >
             <Li>
-              <Link href={`/${title.toLowerCase()}`}>
+              <Link href={`/${title.toLowerCase().replace(' ', '_')}`}>
                 {title}
               </Link>
               </Li>

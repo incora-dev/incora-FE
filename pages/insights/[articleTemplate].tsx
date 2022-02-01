@@ -151,13 +151,7 @@ const ArticleTemplate = () => {
               <LetsTalk title={letsTalkTitle} text={letsTalkSubtitle} />
               <GoToTop isVisible={goToTopVisible} />
             </MainMenu>
-            <FooterComponent
-              policies={footer.policies}
-              offices={footer.offices}
-              followUs={footer.followUs}
-              pages={footer.pages}
-              copyright={footer.copyright}
-            />
+            <FooterComponent />
           </>
         </>
       )}

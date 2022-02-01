@@ -57,7 +57,6 @@ export const PoliciesBlock = styled.div`
 `;
 
 export const PolicyLabel = styled.div`
-  font-family: Poppins;
   font-style: normal;
   font-weight: 300;
   font-size: var(--fs-11);
@@ -65,12 +64,13 @@ export const PolicyLabel = styled.div`
 
   letter-spacing: 0.1em;
   text-transform: capitalize;
+  
+  cursor: pointer;
 
   color: #ffffff;
 `;
 
 export const Copyright = styled.p`
-  font-family: Poppins;
   font-style: normal;
   font-weight: 300;
   font-size: var(--fs-11);

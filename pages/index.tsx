@@ -213,7 +213,7 @@ const contactUs: IContactUs = {
 };
 
 const footer: IFooter = {
-  policies: ["privacy policy", "Cookies Policy"],
+  policies: ["privacy policy"],
   offices: contactUs.addresses,
   pages: ["Services", "expertise", "Case Studies", "Company", "Insights"],
   followUs: [
@@ -300,11 +300,11 @@ function Home() {
               labels={technologies.technologies}
             />
           </section>
-          <EmbodiedIdeasComponent
-            title={EmbodiedIdeas.title}
-            bgColor={EmbodiedIdeas.bgColor}
-            elementsColor={colorYellow}
-          />
+            <EmbodiedIdeasComponent
+              title={EmbodiedIdeas.title}
+              bgColor={EmbodiedIdeas.bgColor}
+              elementsColor={colorYellow}
+            />
           <VideoComponent />
           <AboutUs
             backgroundColor={bgColorBlack}
@@ -325,13 +325,7 @@ function Home() {
             addresses={contactUs.addresses}
             buttonLabel={contactUs.buttonLabel}
           />
-          <FooterComponent
-            policies={footer.policies}
-            offices={footer.offices}
-            followUs={footer.followUs}
-            pages={footer.pages}
-            copyright={footer.copyright}
-          />
+          <FooterComponent />
         </MainMenu>
       </>
     </>

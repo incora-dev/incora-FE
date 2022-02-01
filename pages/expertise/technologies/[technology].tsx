@@ -74,7 +74,6 @@ const MainMenuTitles = [
 const contactUs: IContactUs = {
   title: "get in touch!",
   text: "Let’s discover which technologies will make your idea great.",
-  formLabels: ["name", "phone number", "email", "what is you main goal?"],
   addresses: [
     { "ukrainian office": "2 Horodotska Str.,\n" + "Lviv 75001 Ukraine" },
     { "Usa office": "16192 Coastal Hwy, Lewes,\n" + "DE 19958 USA" },
@@ -186,18 +185,11 @@ const Technology = ({ title, headerText, label }: ITechnology) => {
         <ContactUsComponent
           title={contactUs.title}
           text={contactUs.text}
-          formLabels={contactUs.formLabels}
           addresses={contactUs.addresses}
           buttonLabel={contactUs.buttonLabel}
         />
       </MainMenu>
-      <FooterComponent
-        policies={footer.policies}
-        offices={footer.offices}
-        followUs={footer.followUs}
-        pages={footer.pages}
-        copyright={footer.copyright}
-      />
+      <FooterComponent />
     </>
   );
 };

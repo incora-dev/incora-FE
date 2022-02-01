@@ -120,13 +120,7 @@ const CompanyAbout = () => {
             addresses={addresses}
             buttonLabel={buttonLabel}
           />
-          <FooterComponent
-            policies={policies}
-            offices={offices}
-            pages={pages}
-            followUs={followUs}
-            copyright={copyright}
-          />
+          <FooterComponent />
         </MainMenu>
       )}
 

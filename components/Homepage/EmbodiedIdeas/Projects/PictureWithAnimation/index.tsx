@@ -40,6 +40,7 @@ function PictureWithAnimation(props: IPictureWithAnimation) {
           width={width}
           height={height}
           alt="case image"
+          layout="responsive"
         />
 
         <Animation

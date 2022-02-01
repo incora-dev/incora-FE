@@ -5,6 +5,11 @@ export const SelectorWrapper = styled.div`
   width: 300px;
   height: 33px;
 
+  @media only screen and (max-width: ${themeGet("breakpoints.mDesk")}) {
+    width: 100%;
+    margin-bottom: 5px;
+  }
+
   .react-select-container,
   .react-select__control {
     width: 100%;
@@ -25,7 +30,7 @@ export const SelectorWrapper = styled.div`
 
     letter-spacing: 0.5px;
     font-weight: 500;
-    font-size: 12px;
+    font-size: 14px;
     text-transform: capitalize;
 
     color: ${themeGet("colors.grey2")};

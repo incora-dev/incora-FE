@@ -1,6 +1,5 @@
 import themeGet from "@styled-system/theme-get";
 import styled from "styled-components";
-import { theme } from "../../../styles/theme";
 
 interface IDiv {
   bgColor: string;
@@ -11,25 +10,46 @@ interface IPositionTitle {
   disablePadding?: boolean;
 }
 
+export const MainContainer = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+`;
+
 export const Div = styled.div`
   background-color: ${({ bgColor }: IDiv) => bgColor};
+  padding-bottom: 120px;
+  max-width: 1006px;
+  width: 100%;
 
-  overflow: hidden;
+  @media only screen and (max-width: ${themeGet('breakpoints.mDesk')}) {
+    max-width: 900px;
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.smallDesk')}) {
+    max-width: 100%;
+    padding: 0 25px 53px;
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.smallDesk')}) {
+    padding-bottom: 40px;
+  }
 
   @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
-      height: ${({ height }: IDiv) => (height ? `${height}px` : "max-content")};
-      padding-bottom: 120px;
+    height: ${({ height }: IDiv) => (height ? `${height}px` : "max-content")};
+    padding: 0 15px 30px;
   }
-  padding-bottom: 160px;
 `;
 
 export const PositionTitle = styled.div`
   padding-top: ${({ disablePadding }: IPositionTitle) =>
-    disablePadding ? "0" : "120px"};
+  disablePadding ? "0" : "120px"};
   margin-bottom: 46px;
 
-  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
-    padding-top: 53px;
+  @media only screen and (max-width: ${themeGet('breakpoints.smallDesk')}) {
+    margin-top: 40px;
+    margin-bottom: 20px;
   }
 `;
 
@@ -53,7 +73,9 @@ export const H2 = styled.h2`
 
   @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     width: 100%;
-    padding-left: 15px;
+    padding-left: 0;
+    font-size: var(--fs-24);
+    line-height: 34px;
   }
 `;
 

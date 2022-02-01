@@ -15,6 +15,10 @@ export const Container = styled.div`
   a {
     margin-top: 5px;
   }
+
+  @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
+    padding-bottom: 20px;
+  }
 `;
 
 export const InputBlock = styled.div`
@@ -31,8 +35,12 @@ export const FormContainer = styled.div`
 
   row-gap: 21px;
 
-  @media only screen and (max-width: 600px) {
-    max-width: 100%;
+  @media only screen and (max-width: ${themeGet("breakpoints.smallDesk")}) {
+    max-width: 450px;
+  }
+
+  @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
+    row-gap: 10px;
   }
 `;
 
@@ -80,7 +88,7 @@ export const FormInputFile = styled.div`
 
 export const Input = styled.input`
   box-sizing: content-box;
-  width: 400px;
+  max-width: 400px;
 
   padding-bottom: 2px;
   display: inline-block;
@@ -91,8 +99,8 @@ export const Input = styled.input`
 
   font-style: normal;
   font-weight: 500;
-  font-size: var(--fs-12);
-  line-height: 18px;
+  font-size: var(--fs-14);
+  line-height: 28px;
 
   letter-spacing: 0.03em;
   text-transform: capitalize;
@@ -107,7 +115,8 @@ export const Input = styled.input`
   -moz-transition: ease-in-out 0.4s;
   transition: all ease-in-out 0.4s;
 
-  @media only screen and (max-width: 600px) {
+  /* @media only screen and (max-width: 600px) { */
+  @media only screen and (max-width: ${themeGet("breakpoints.smallDesk")}) {
     width: 100%;
   }
 

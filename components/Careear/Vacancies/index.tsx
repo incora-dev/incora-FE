@@ -1,6 +1,7 @@
 import Selector from "../../Selector";
 import VacancyCard from "./components/VacancyCard";
 import {
+  Block,
   ContentWrapper,
   Filter,
   List,
@@ -106,7 +107,40 @@ const Vacancies = ({
     <VacanciesWrapper>
       <ContentWrapper>
         <ListWrap>
-          <PositionFilter>
+          <Filter>
+            <Block>
+              <Selector
+                value={specialtyId}
+                setValue={setSpecialtyId}
+                placeholder={filterText1}
+                options={specialtiesOptions}
+                icon={SmallStar}
+              />
+              <Selector
+                value={specialtyId}
+                setValue={setTechnologyId}
+                placeholder={filterText2}
+                options={technologiesOptions}
+                icon={SmallStar}
+              />
+            </Block>
+
+            <QuickApplyWrap>
+              <h2>{header}</h2>
+              <p>{text}</p>
+
+              <Button
+                textColor={theme.colors.white}
+                backgroundColor={theme.colors.black}
+                width={180}
+                height={67}
+                label={buttonText}
+                arrow={theme.colors.white}
+                onClick={() => getVacanciesList()}
+              />
+            </QuickApplyWrap>
+          </Filter>
+          {/* <PositionFilter>
             <h1>{intro}</h1>
 
             <Filter>
@@ -140,7 +174,7 @@ const Vacancies = ({
                 />
               </QuickApplyWrap>
             </Filter>
-          </PositionFilter>
+          </PositionFilter> */}
 
           <List>{vacanciesCards}</List>
         </ListWrap>

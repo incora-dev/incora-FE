@@ -22,6 +22,7 @@ import {
   FilterSwitchWrap,
   FilterWrap,
   GlobeWrap,
+  GlobeContainer,
 } from "./style";
 
 interface ICaseFilter {
@@ -80,9 +81,11 @@ const CaseFilter = ({
         </FilterSwitchWrap>}
         {tagsCondition}
       </FilterWrap>
-      {filterByFlag && !isMobile && !isTablet && (
-        <GlobeWrap>{globeCondition}</GlobeWrap>
-      )}
+      <GlobeContainer>
+        <div className={`globe ${(filterByFlag && !isMobile) && 'show'}`}>
+          <GlobeWrap>{globeCondition}</GlobeWrap>
+        </div>
+      </GlobeContainer>
     </CaseFilterWrapper>
   );
 };

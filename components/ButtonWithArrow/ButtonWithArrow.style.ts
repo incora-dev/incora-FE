@@ -35,6 +35,9 @@ export const Button = styled.div`
   column-gap: 20px;
   justify-self: baseline;
 
+  @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
+    padding: 12px 48.5px;
+  }
 
   &:after {
     position: absolute;

@@ -19,6 +19,11 @@ export const SwitchWrap = styled.div`
   transition: all 0.3s ease-in-out;
   cursor: pointer;
 
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+    width: 200px;
+    height: 38px;
+  }
+
   span {
     z-index: 1;
     font-weight: 500;

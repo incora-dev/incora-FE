@@ -8,6 +8,20 @@ export const LetsReactOutWrapper = styled.div`
   height: 944px;
   display: flex;
   justify-content: center;
+
+  @media only screen and (max-width: ${themeGet('breakpoints.smallDesk')}) {
+    padding: 0 30px 53px;
+    height: auto;
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+    padding: 0 15px;
+    height: auto;
+  }
+
+  a {
+    margin-top: 16px;
+  }
 `;
 
 export const ContentWrap = styled.div`
@@ -16,8 +30,18 @@ export const ContentWrap = styled.div`
   padding-left: 12px;
   position: relative;
 
-  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
-    width: 90%;
+  @media only screen and (max-width: ${themeGet("breakpoints.mDesk")}) {
+    max-width: 900px;
+    width: 100%;
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.smallDesk')}) {
+    padding-left: 0;
+    padding-top: 53px;
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+    padding-top: 30px;
   }
 
   > h1 {
@@ -29,6 +53,21 @@ export const ContentWrap = styled.div`
     letter-spacing: 0.05em;
     text-transform: capitalize;
     color: ${themeGet("colors.white")};
+
+    @media only screen and (max-width: ${themeGet('breakpoints.smallDesk')}) {
+      font-size: var(--fs-48);
+      line-height: 58px;
+    }
+
+    @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+      font-size: var(--fs-28);
+      line-height: 38px;
+    }
+
+    @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+      font-size: var(--fs-24);
+      line-height: 34px;
+    }
   }
 
   > span {
@@ -44,6 +83,16 @@ export const ContentWrap = styled.div`
     right: -12px;
     top: 135px;
 
+    @media only screen and (max-width: ${themeGet('breakpoints.smallDesk')}) {
+      transform: scale(0.7);
+      right: -90px;
+    }
+
+    @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+      right: -108px;
+      top: 132px;
+    }
+
     @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
       display: none;
     }
@@ -53,6 +102,14 @@ export const ContentWrap = styled.div`
     position: absolute;
     right: -63px;
     top: 94px;
+
+    @media only screen and (max-width: ${themeGet('breakpoints.smallDesk')}) {
+      right: -32px;
+    }
+
+    @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+      display: none;
+    }
   }
 `;
 
@@ -66,6 +123,10 @@ export const UploadBox = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+    margin: 30px 0;
+  }
 
   @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     width: 100%;

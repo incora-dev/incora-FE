@@ -8,10 +8,39 @@ export const VacancyCardWrapper = styled.div`
   justify-content: space-between;
   align-items: center;
   margin-bottom: 91px;
+
+  @media only screen and (max-width: ${themeGet("breakpoints.mDesk")}) {
+    margin-bottom: 30px;
+  }
+
+  @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
+    margin-bottom: 25px;
+    height: auto;
+  }
+
+  @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  button {
+    @media only screen and (max-width: ${themeGet("breakpoints.smallDesk")}) {
+      height: 45px;
+      width: 140px;
+    }
+  }
 `;
 
 export const TextWrap = styled.div`
   width: 300px;
+
+  @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
+    margin-bottom: 5px;;
+  }
+
+  @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
+    width: 100%;
+  }
 
   span {
     font-weight: 800;
@@ -24,6 +53,11 @@ export const TextWrap = styled.div`
     top: -10px;
     left: 8px;
     letter-spacing: ${themeGet("letterSpacing.span")};
+
+    @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
+      top: 0;
+      left: 0;
+    }
   }
 
   h3 {
@@ -35,5 +69,23 @@ export const TextWrap = styled.div`
     position: relative;
     top: 3px;
     left: 8px;
+
+    @media only screen and (max-width: ${themeGet("breakpoints.mDesk")}) {
+      font-size: 20px;
+    }
+
+    @media only screen and (max-width: ${themeGet("breakpoints.smallDesk")}) {
+      font-size: 16px;
+      line-height: 22px;
+    }
+
+    @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
+      font-size: 14px;
+      letter-spacing: 1px;
+      line-height: 20px;
+      margin-bottom: 10px;
+      left: 0;
+      margin-top: 5px;
+    }
   }
 `;

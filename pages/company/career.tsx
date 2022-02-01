@@ -65,11 +65,11 @@ const Career = () => {
           backgroundColor={theme.colors.black}
         >
           <Invitation banner={entry.banner} process={entry.process} />
-          <Vacancies
-            specialties={specialties}
-            technologies={technologies}
-            currentVacancies={entry.currentVacancies}
-          />
+            <Vacancies
+              specialties={specialties}
+              technologies={technologies}
+              currentVacancies={entry.currentVacancies}
+            />
           <OurBenefits />
           <OurPhotos />
           <LetsAcquainted />

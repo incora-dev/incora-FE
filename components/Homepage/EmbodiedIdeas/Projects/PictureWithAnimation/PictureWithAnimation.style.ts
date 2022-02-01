@@ -1,3 +1,4 @@
+import themeGet from "@styled-system/theme-get";
 import styled from "styled-components";
 import { transitionTimeProjectsHoverDuration } from "../../../../../constants";
 
@@ -16,7 +17,7 @@ export const PositionElement1 = styled.div`
   if (index === 0) {
     return '-310px';
   } else {
-    return '0';
+    return '-8px';
   }
 }};
   right: 0;
@@ -28,17 +29,44 @@ export const PositionElement1 = styled.div`
       fill: ${({ elementsColor }: IElement) => elementsColor};
     }
   }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.mDesk')}) {
+    transform: scale(0.7);
+    bottom: ${({ index }: IElement) => {
+      if (index === 0) {
+        return '-310px';
+      } else {
+        return '-52px';
+      }
+    }};
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.smallDesk')}) {
+    transform: scale(0.4);
+    bottom: ${({ index }: IElement) => {
+      if (index === 0) {
+        return '-310px';
+      } else {
+        return '-96px';
+      }
+    }};
+    right: -200px;
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+    display: none;
+  }
 `;
 
 export const PositionElement2 = styled.div`
   position: absolute;
   top: ${({ index }: IElement) => {
-  if (index === 0) {
-    return '-220px';
-  } else {
-    return '0';
-  }
-}};
+    if (index === 0) {
+      return '-220px';
+    } else {
+      return '0';
+    }
+  }};
   right: 0;
 
   transition: ${transitionTimeProjectsHoverDuration};
@@ -47,6 +75,22 @@ export const PositionElement2 = styled.div`
     path {
       fill: ${({ elementsColor }: IElement) => elementsColor};
     }
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.smallDesk')}) {
+    transform: scale(0.5);
+    top: ${({ index }: IElement) => {
+      if (index === 0) {
+        return '-220px';
+      } else {
+        return '-40px';
+      }
+    }};
+    right: -130px;
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+    display: none;
   }
 `;
 
@@ -68,6 +112,22 @@ export const PositionElement3 = styled.div`
       fill: ${({ elementsColor }: IElement) => elementsColor};
     }
   }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.smallDesk')}) {
+    transform: scale(0.6);
+    top: ${({ index }: IElement) => {
+      if (index === 0) {
+        return '-340px';
+      } else {
+        return '-94px';
+      }
+    }};
+    left: -45px;
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+    display: none;
+  }
 `;
 
 export const PositionElement4 = styled.div`
@@ -87,6 +147,10 @@ export const PositionElement4 = styled.div`
     path {
       fill: ${({ elementsColor }: IElement) => elementsColor};
     }
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+    display: none;
   }
 `;
 
@@ -108,6 +172,10 @@ export const PositionElement5 = styled.div`
       fill: ${({ elementsColor }: IElement) => elementsColor};
     }
   }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+    display: none;
+  }
 `;
 
 export const PositionElement6 = styled.div`
@@ -127,6 +195,10 @@ export const PositionElement6 = styled.div`
     path {
       fill: ${({ elementsColor }: IElement) => elementsColor};
     }
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+    display: none;
   }
 `;
 
@@ -148,6 +220,10 @@ export const PositionElement7 = styled.div`
       fill: ${({ elementsColor }: IElement) => elementsColor};
     }
   }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+    display: none;
+  }
 `;
 
 export const PositionElement8 = styled.div`
@@ -167,6 +243,10 @@ export const PositionElement8 = styled.div`
     path {
       fill: ${({ elementsColor }: IElement) => elementsColor};
     }
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+    display: none;
   }
 `;
 
@@ -188,12 +268,38 @@ export const PositionElement9 = styled.div`
       fill: ${({ elementsColor }: IElement) => elementsColor};
     }
   }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+    display: none;
+  }
 `;
 
 export const Container = styled.div`
-  position: relative;
+  position: absolute;
   overflow: hidden;
   cursor: pointer;
+  max-width: 700px;
+  width: 100%;
+  height: 537px;
+  right: -180px;
 
   border-radius: ${({ borderRadius} : IImg) => borderRadius};
+
+  @media only screen and (max-width: ${themeGet('breakpoints.mDesk')}) {
+    max-width: 600px;
+    height: 460px;
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.smallDesk')}) {
+    max-width: 370px;
+    height: 283px;
+    right: -25px;
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+    position: relative;
+    max-width: 100%;
+    right: 0;
+    height: auto;
+  }
 `;

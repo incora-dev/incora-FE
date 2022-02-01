@@ -42,6 +42,10 @@ export const HeaderWrap = styled.div`
   align-items: center;
   justify-content: space-between;
 
+  @media only screen and (max-width: ${themeGet("breakpoints.smallDesk")}) {
+    margin-bottom: 0;
+  }
+
   svg {
     margin: auto 0;
 

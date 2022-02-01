@@ -4,10 +4,18 @@ import styled from "styled-components";
 export const NumbersHeaderWrapper = styled.div`
   margin-bottom: 51px;
 
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+    margin-bottom: 20px;
+  }
+
   h1 {
     color: ${themeGet("colors.yellow")};
     font-size: var(--fs-72);
     font-weight: 800;
+
+    @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+      font-size: var(--fs-64);
+    }
   }
 
   span {
@@ -15,5 +23,9 @@ export const NumbersHeaderWrapper = styled.div`
     font-size: var(--fs-23);
     font-weight: 800;
     text-transform: capitalize;
+
+    @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+      font-size: var(--fs-21);
+    }
   }
 `;

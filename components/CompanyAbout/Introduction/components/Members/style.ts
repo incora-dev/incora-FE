@@ -8,6 +8,12 @@ export const MembersWrapper = styled.div`
   display: flex;
   justify-content: center;
   position: relative;
+
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+    height: auto;
+    flex-direction: column;
+    padding: 40px 15px;
+  }
 `;
 
 export const ContentWrapper = styled.div`
@@ -17,6 +23,12 @@ export const ContentWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   position: absolute;
+
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+    width: 100%;
+    position: relative;
+    flex-direction: column-reverse;
+  }
 `;
 
 export const NumbersWrap = styled.div`
@@ -25,6 +37,14 @@ export const NumbersWrap = styled.div`
   display: flex;
   justify-content: center;
   flex-direction: column;
+
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    justify-content: center;
+    column-gap: 30px;
+  }
 `;
 
 export const MembersPhotosWrap = styled.div`
@@ -34,4 +54,9 @@ export const MembersPhotosWrap = styled.div`
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+    width: 100%;
+    bottom: auto;
+  }
 `;

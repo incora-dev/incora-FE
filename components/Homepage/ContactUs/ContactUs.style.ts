@@ -18,7 +18,7 @@ export  const  Container = styled.div`
   padding: 85px 0 122px;
 
   @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
-    padding: 53px 20px 53px;
+    padding: 40px 15px 50px;
     flex-wrap: wrap;
     justify-content: center;
 

@@ -11,7 +11,7 @@ export const OurTraditionsWrapper = styled.div`
   flex-flow: column;
 
   @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
-    padding-top: 30px;
+    padding: 40px 15px 15px;
   }
 `;
 
@@ -20,11 +20,21 @@ export const OurTraditionsTextWrap = styled.div`
   height: 421px;
   display: flex;
   justify-content: center;
+
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+    height: auto;
+    margin-bottom: 40px;
+  }
 `;
 
 export const TextWrap = styled.div`
   height: 330px;
   width: 1002px;
+
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+    height: auto;
+    width: 100%;
+  }
 
   h1 {
     text-transform: uppercase;
@@ -39,10 +49,20 @@ export const Paragraphs = styled.div`
   display: flex;
   justify-content: space-between;
 
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+    margin-top: 25px;
+    flex-direction: column;
+  }
+
   p {
     font-size: var(--fs-14);
     width: 463px;
     line-height: 30px;
+
+    @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+      width: 100%;
+      line-height: 27px;
+    }
   }
 `;
 
@@ -54,6 +74,10 @@ export const PhotosBlock = styled.div`
   row-gap: 20px;
   
   overflow: hidden;
+
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+    row-gap: 10px;
+  }
 `;
 
 
@@ -62,8 +86,13 @@ export const Photos = styled.div`
   //justify-content: space-between;
   //flex-flow: wrap;
   column-gap: 19px;
-
   overflow: scroll;
+
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+    flex-direction: column;
+    overflow: auto;
+    row-gap: 10px;
+  }
 
   &::-webkit-scrollbar {
     display: none;

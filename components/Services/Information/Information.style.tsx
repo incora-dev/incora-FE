@@ -51,9 +51,10 @@ export const EstimatedTimeAndOutcomesBlock = styled.div`
 
   background: #212125;
 
-  @media only screen and (max-width: ${theme.breakpoints.xsMobile}) {
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     flex-direction: column;
     gap: 20px;
+    padding: 28px 20px;
   }
 `;
 
@@ -87,7 +88,7 @@ export const TextBlock = styled.div`
 
   @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     margin: 0;
-    padding: 50px 0;
+    padding: 0;
   }
 `;
 

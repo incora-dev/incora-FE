@@ -17,6 +17,7 @@ import {
   GetServicesPage_servicesPage_data_attributes_services_data,
   GetServicesPage_servicesPage_data_attributes_services_data_attributes,
 } from "../../../graphql/services/__generated__/GetServicesPage";
+import { useIsMobile } from "../../../services/hooks";
 
 export interface IInformationComponent {
   slide: GetServicesPage_servicesPage_data_attributes_services_data;
@@ -55,16 +56,18 @@ const InformationComponent = ({ slide }: IInformationComponent) => {
 
   const getBlockInformation = (
     slide: GetServicesPage_servicesPage_data_attributes_services_data_attributes
-  ) => (
+  ) => {
+    const isMobile = useIsMobile();
+    return (
     <>
-      <H2>{slide.name}</H2>
+      {!isMobile && <H2>{slide.name}</H2>}
       <P>{slide.description}</P>
       <EstimatedTimeAndOutcomesBlock>
         {getEstimatedTimeInfo(slide)}
         {getOutcomesInfo(slide)}
       </EstimatedTimeAndOutcomesBlock>
     </>
-  );
+  )};
 
   return (
     <>

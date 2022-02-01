@@ -7,7 +7,7 @@ import { GetServicesPage_servicesPage_data_attributes_services_data } from "../.
 
 interface ITextElementProps {
   labels: GetServicesPage_servicesPage_data_attributes_services_data[];
-  currentSlide: number;
+  currentSlide?: number;
   bgColor: string;
   onChange?: (e:any) => void;
 };

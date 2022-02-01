@@ -19,24 +19,36 @@ import { useState } from "react";
 interface IFAQ {
   title: string;
   titles: string[];
+  content?: any;
+  textColor?: string;
 }
 
-const getIcon = (blockIndex: number, index: number) => {
+const getIcon = (blockIndex: number, index: number, textColor?: string) => {
   return (blockIndex !== index)
-    ? <PlusIconVisible>
+    ? <PlusIconVisible color={textColor} >
         <PlusIcon/>
       </PlusIconVisible>
 
-    : <MinusIconVisible>
+    : <MinusIconVisible color={textColor}  >
         <MinusIcon/>
       </MinusIconVisible>
 }
 
 const p = 'Surely the time frame depends on the complexity of the project. But considering our expertise we might say that it takes up to 2 weeks in average to fulfill the Discovery phase.';
 
-const getTitle = (titles: string[], blockIndex: number, setBlockIndex: Function) =>
+const getTitle = ({
+  titles, 
+  blockIndex, 
+  setBlockIndex, 
+  content, 
+  textColor}:{
+    titles: string[], 
+    blockIndex: number, 
+    setBlockIndex: Function, 
+    content?: any, 
+    textColor?: string}) =>
   titles.map((title, index) => {
-    const icon = getIcon(blockIndex, index);
+    const icon = getIcon(blockIndex, index, textColor);
     const openedFAQ = index === blockIndex;
 
     function onSetBlockIndex() {
@@ -51,6 +63,7 @@ const getTitle = (titles: string[], blockIndex: number, setBlockIndex: Function)
         key={title + index}
         isOpen={openedFAQ}
         lastBlock={index === titles.length - 1}
+        textColor={textColor}
       >
         <Accordion onClick={onSetBlockIndex}>
           <Title>{title}</Title>
@@ -59,16 +72,16 @@ const getTitle = (titles: string[], blockIndex: number, setBlockIndex: Function)
 
         { index === blockIndex &&
           <TextBlock onClick={onSetBlockIndex}>
-            <Text isOpen={openedFAQ}>{p}</Text>
+            <Text isOpen={openedFAQ}>{content ? content[index] : p}</Text>
           </TextBlock>
         }
       </AccordionWrapper>
     )
   });
 
-const FAQ = ({ title, titles }: IFAQ) => {
+const FAQ = ({ title, titles, content, textColor }: IFAQ) => {
   const [blockIndex, setBlockIndex] = useState(0);
-  const label = getTitle(titles, blockIndex, setBlockIndex);
+  const label = getTitle({titles, blockIndex, setBlockIndex, content, textColor});
 
   return (
     <Div>

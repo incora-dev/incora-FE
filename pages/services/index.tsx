@@ -3,7 +3,7 @@ import React from "../../public/SVG/technologies/react.svg";
 import MainMenu from "../../components/mainMenu/mainMenu";
 import FooterComponent from "../../components/Footer";
 import { theme } from "../../styles/theme";
-import { footer, titles, servicesPage } from "../../constants";
+import { footer, titles } from "../../constants";
 import ServicesComponent from "../../components/Services";
 import InformationComponent from "../../components/Services/Information";
 import TechStack from "../../components/Services/TechStack";
@@ -12,9 +12,7 @@ import EstimateAppCircle from "../../components/Services/EstimateAppCircle";
 import Link from "next/link";
 import VerticalFullPageSlider from "../../components/common/VerticalFullPageSlider";
 import { ScrollListTypes } from "../../components/common/VerticalFullPageSlider/types";
-import { IInfoBlock } from "@interfaces";
 import { IncModal } from "../../components/Modal";
-import TextElement from "../../components/common/VerticalFullPageSlider/TextElement";
 import {useEffect, useState} from 'react';
 import { useQuery } from "@apollo/client";
 import { GET_SERVICES_PAGE } from "../../graphql/services/queries";
@@ -24,6 +22,7 @@ import {
 } from "../../graphql/services/__generated__/GetServicesPage";
 import Custom404 from "../404";
 import { useIsMobile } from "../../services/hooks";
+import FAQ from "../../components/ServicePage/FAQ";
 
 function Services() {
   const { data, loading, error } = useQuery<GetServicesPage>(GET_SERVICES_PAGE);
@@ -32,30 +31,22 @@ function Services() {
   const slides = entry?.services?.data;
   const stackTitle = entry?.techStack.title;
   const stacks = entry?.techStack.tech_stacks?.data;
+  const slidesTitles = slides?.map((st) => st.attributes?.name || '') || []
 
   const colorWhite = theme.colors.white;
   const colorBlack = theme.colors.black;
   const [showModal, setShowModal] = useState(false);
-  const [currentSlide, setCurrentSlide] = useState(0);
+  const [currentSlide, setCurrentSlide] = useState();
   const isMobile = useIsMobile();
 
   const renderSlide = (slide: GetServicesPage_servicesPage_data_attributes_services_data) => 
     <InformationComponent slide={slide} />;
-  const renderScrollItem = () => {
-      return <TextElement 
-                labels={slides as any} 
-                currentSlide={currentSlide} 
-                bgColor={"black"}
-                onChange={(index) => {
-                  setCurrentSlide(index);
-                  setShowModal(true);
-                }} />;
-  };
 
   const renderCondition = entry && banner && slides && stackTitle && stacks;
   if (loading) return null;
   if (error) return <Custom404 />;
 
+  const faqContent = slides?.map((slide) => renderSlide(slide as any))
 
   return (
     <>
@@ -73,7 +64,9 @@ function Services() {
         >
           <ServicesComponent banner={banner}/>
           {isMobile && <div style={{ backgroundColor: "black", width: "100%", padding: '20px' }}>
-            <div id="scroll-item">{renderScrollItem()}</div>
+            <div id="scroll-item">
+              <FAQ textColor='#ffff' title='' titles={slidesTitles} content={faqContent} />
+            </div>
             <div>
               {slides.map((slide, idx) => <IncModal 
                   show={showModal && currentSlide === Number(slide.id)} 

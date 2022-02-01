@@ -33,13 +33,13 @@ import Cube3 from "../../../public/SVG/Cube3.svg"
 import HexagonBordered from "../../../public/hexagonBordered.svg"
 import HexagonFilled from "../../../public/hexagonFilled.svg"
 import { theme } from "../../../styles/theme";
-import { useIsMobile, useIsTablet } from "../../../services/hooks";
+import { useIsMobile } from "../../../services/hooks";
 import Link from "next/link";
 
 function ServicesComponent({ title, text, labels }: IServices) {
   const [ onEnterBlock, setOnEnterBlock] = useState(false);
-      const isMobile = useIsMobile();
-  const isTablet = useIsTablet();
+      const {isMobile, isTablet, isSmallTablet} = useIsMobile();
+  
 
   return (
     <Component
@@ -106,7 +106,7 @@ function ServicesComponent({ title, text, labels }: IServices) {
           </PositionHexagonNine>
         </Div>
 
-        {!isMobile && !isTablet && (
+        {!isMobile && !isTablet && !isSmallTablet && (
           <>
             <PositionCube2>
               <Cube1/>

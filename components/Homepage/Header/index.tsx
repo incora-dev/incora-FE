@@ -17,13 +17,12 @@ import Hexagon from "../../../public/SVG/hexagon1.svg"
 import { useEffect, useRef, useState } from "react";
 import { theme } from '../../../styles/theme';
 import { relative } from 'path/posix';
-import { useIsMobile, useIsTablet } from '../../../services/hooks';
+import { useIsMobile } from '../../../services/hooks';
 
 
 function HeaderComponent() {
   const videoEl: any = useRef(null);
-      const isMobile = useIsMobile();
-  const isTablet = useIsTablet();
+      const {isMobile, isTablet, isSmallTablet} = useIsMobile();
 
   return (
     <Cover>
@@ -31,9 +30,13 @@ function HeaderComponent() {
         <Div>
           <VideoBlock>
             <video
-              style={{ width: (isMobile || isTablet) ? '90vw' : '710px', 
-                      height: (isMobile || isTablet) ? 'unset' : '380px', 
-                      position: (isMobile || isTablet) ? 'relative' : 'static', 
+              style={{ width: (isMobile || isTablet || isSmallTablet) && !isSmallTablet 
+                        ? '90vw' 
+                        : isSmallTablet 
+                          ? '87vw' 
+                          : '710px', 
+                      height: (isMobile || isTablet || isSmallTablet) ? 'unset' : '380px', 
+                      position: (isMobile || isTablet || isSmallTablet) ? 'relative' : 'static', 
                       top: '1px' }}
               autoPlay
               loop
@@ -47,7 +50,7 @@ function HeaderComponent() {
             </PositionVideoSVG>
           </VideoBlock>
 
-          {!isMobile && !isTablet && (
+          {!isMobile && !isTablet && !isSmallTablet && (
             <><PositionHexagon1>
               <Hexagon
                 width="235"

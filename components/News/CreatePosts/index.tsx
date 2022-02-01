@@ -38,13 +38,13 @@ const CreateNews = ({
         <Link href={ROUTES.ARTICLE + url} passHref>
           <ImgBlock>
             <Element />
-            {/*<Image*/}
-            {/*  loader={() => image}*/}
-            {/*  src={image}*/}
-            {/*  width={293}*/}
-            {/*  height={201}*/}
-            {/*  alt="article preview"*/}
-            {/*/>*/}
+            <Image
+              loader={() => image}
+              src={image}
+              width={293}
+              height={201}
+              alt="article preview"
+            />
           </ImgBlock>
         </Link>
 

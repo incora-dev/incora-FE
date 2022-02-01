@@ -6,7 +6,7 @@ import { theme } from "../../../../styles/theme";
 import { IMAGES_LINK } from "../../../../constants";
 import Link from "next/link";
 import { GetProjects_projects } from "../../../../graphql/caseStudies/__generated__/getProjects";
-import { useIsMobile, useIsTablet } from "../../../../services/hooks";
+import { useIsMobile } from "../../../../services/hooks";
 import { GetProjects_projects_data } from "../../../../graphql/caseStudies/__generated__/getProjects";
 import { GetService_services_data_attributes_projects_data } from "../../../../graphql/services/__generated__/GetService";
 
@@ -17,8 +17,8 @@ interface IProjects {
 
 function Projects({ projects, elementsColor }: IProjects) {
   const [shouldHover, setShouldHover] = useState(-1);
-      const isMobile = useIsMobile();
-  const isTablet = useIsTablet();
+      const {isMobile, isTablet, isSmallTablet} = useIsMobile();
+  
 
 
   useEffect(() => {
@@ -29,10 +29,10 @@ function Projects({ projects, elementsColor }: IProjects) {
     return projects.map(({ id, attributes }, index) => {
       const flexDirection = (index + 1) % 10 !== 2 ? "row" : "row-reverse";
       const marginText = (index + 1) % 10 !== 2 
-        ? isMobile || isTablet
+        ? isMobile || isTablet || isSmallTablet
           ? '53px 15px;'
           : '81px 0 0 180px;' 
-        : isMobile || isTablet
+        : isMobile || isTablet || isSmallTablet
           ? '53px 15px;' 
           : '81px 180px 0 0';
 

@@ -20,7 +20,7 @@ import { GET_INDUSTRY_PAGE } from "../../../graphql/industries/queries";
 import Custom404 from "../../404";
 import { GetIndustryPage } from "../../../graphql/industries/__generated__/GetIndustryPage";
 import EmbodiedIdeasComponent from "../../../components/Homepage/EmbodiedIdeas";
-import { useIsMobile, useIsTablet } from "../../../services/hooks";
+import { useIsMobile } from "../../../services/hooks";
 
 const colorWhite = theme.colors.white;
 const colorBlack = theme.colors.black;
@@ -77,8 +77,8 @@ const Industry = () => {
   const handleScroll = () => {
     window.scrollY >= 50 ? setMenuColor(colorWhite) : setMenuColor("none");
   };
-    const isMobile = useIsMobile();
-  const isTablet = useIsTablet();
+    const {isMobile, isTablet, isSmallTablet} = useIsMobile();
+  
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
@@ -112,13 +112,13 @@ const Industry = () => {
           </Head>
           <>
             <MainMenu
-              backgroundColor={isMobile || isTablet ? colorWhite : menuColor}
+              backgroundColor={isMobile || isTablet || isSmallTablet ? colorWhite : menuColor}
               titlesColor={colorBlack}
               titles={titles}
             >
               <HeaderService
                 title={headerTitle}
-                titleSize={isMobile || isTablet ? '50px' :'64px'}
+                titleSize={isMobile || isTablet || isSmallTablet ? '50px' :'64px'}
                 icon={headerIcon}
                 text={headerDescription}
                 textWidth={"560px"}

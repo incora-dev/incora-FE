@@ -26,7 +26,7 @@ import { GetServicesPage_servicesPage_data_attributes_techStack_tech_stacks_data
 import { ROUTES } from "../../../constants/routes";
 import Image from "next/image";
 import { IMAGES_LINK } from "../../../constants";
-import { useIsMobile, useIsTablet } from "../../../services/hooks";
+import { useIsMobile } from "../../../services/hooks";
 
 interface ITechStack {
   stackTitle: string;
@@ -40,8 +40,8 @@ const GetStacksInfo = (
   const name = attributes?.name;
   const description = attributes?.description;
   const technologies = attributes?.technologies?.data;
-    const isMobile = useIsMobile();
-  const isTablet = useIsTablet();
+    const {isMobile, isTablet, isSmallTablet} = useIsMobile();
+  
 
   return (
     <InfoBlock>
@@ -49,7 +49,7 @@ const GetStacksInfo = (
         <H3>{name}</H3>
         <StackText>{description}</StackText>
 
-        {!isMobile && !isTablet && <PositionButtonWithArrow>
+        {!isMobile && !isTablet && !isSmallTablet && <PositionButtonWithArrow>
           <ButtonWithArrow
             buttonLabel={"Contact"}
             redirectTo={`/services/`}
@@ -61,7 +61,7 @@ const GetStacksInfo = (
       </TextContainer>
 
       <StacksContainer>
-        <StacksBlock columns={isMobile || isTablet ? 2 : 3}>
+        <StacksBlock columns={isMobile || isTablet || isSmallTablet ? 2 : 3}>
           {technologies?.map((technology) => {
             const id = technology.id;
             const url = technology.attributes?.url;

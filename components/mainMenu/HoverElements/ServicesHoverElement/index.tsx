@@ -32,7 +32,7 @@ import Dots from "../../../Homepage/Cooperate/elements/dots/dots";
 import { theme } from "../../../../styles/theme";
 import { forwardRef, useContext, useEffect, useState } from "react";
 import { MenuContext } from "../../../../services/context/mainMenu";
-import { useIsMobile, useIsTablet } from "../../../../services/hooks";
+import { useIsMobile } from "../../../../services/hooks";
 
 interface IServicesHoverElement {
   titleColor: string;
@@ -71,8 +71,8 @@ function arrowWithText(text: string, linkClickHandler: () => void) {
 }
 
 function getElementsTop(titleColor: string, linkClickHandler: () => void) {
-      const isMobile = useIsMobile();
-  const isTablet = useIsTablet();
+      const {isMobile, isTablet, isSmallTablet} = useIsMobile();
+  
 
   return (
     <>
@@ -90,7 +90,7 @@ function getElementsTop(titleColor: string, linkClickHandler: () => void) {
             </Link>
           </H4>
         </TitleBlock>
-        {!isMobile && !isTablet && <Text>Alongside the core functional team, the acquisition of additional human resources would cover up the needed gaps and accelerate the development workflow.</Text>}
+        {!isMobile && !isTablet && !isSmallTablet && <Text>Alongside the core functional team, the acquisition of additional human resources would cover up the needed gaps and accelerate the development workflow.</Text>}
       </IconBlock>
 
       <IconBlock>
@@ -107,15 +107,15 @@ function getElementsTop(titleColor: string, linkClickHandler: () => void) {
             </Link>
           </H4>
         </TitleBlock>
-        {!isMobile && !isTablet && <Text>Alongside the core functional team, the acquisition of additional human resources would cover up the needed gaps and accelerate the development workflow.</Text>}
+        {!isMobile && !isTablet && !isSmallTablet && <Text>Alongside the core functional team, the acquisition of additional human resources would cover up the needed gaps and accelerate the development workflow.</Text>}
       </IconBlock>
     </>
   )
 }
 
 function getElementsBottom(titleColor: string, linkClickHandler: () => void) {
-        const isMobile = useIsMobile();
-  const isTablet = useIsTablet();
+        const {isMobile, isTablet, isSmallTablet} = useIsMobile();
+  
 
   return (
     <>
@@ -137,7 +137,7 @@ function getElementsBottom(titleColor: string, linkClickHandler: () => void) {
         { arrowWithText('Mobile App Development', linkClickHandler) }
       </IconBlock>
 
-      {!isMobile && !isTablet && <H6>Software development is aimed to provide you with support on each stage required for the successful launch of the product: from discovery to production.</H6>}
+      {!isMobile && !isTablet && !isSmallTablet && <H6>Software development is aimed to provide you with support on each stage required for the successful launch of the product: from discovery to production.</H6>}
     </>
   )
 }
@@ -181,8 +181,8 @@ const ServicesHoverElement = forwardRef(({ titleColor, isShow, backgroundColor }
       ? theme.colors.black
       : theme.colors.white
   ;
-    const isMobile = useIsMobile();
-  const isTablet = useIsTablet();
+    const {isMobile, isTablet, isSmallTablet} = useIsMobile();
+  
 
 
   return (
@@ -207,7 +207,7 @@ const ServicesHoverElement = forwardRef(({ titleColor, isShow, backgroundColor }
           </ServicesBlock>
         </Wrapper>
 
-       {!isMobile && !isTablet && <>
+       {!isMobile && !isTablet && !isSmallTablet && <>
         <PositionLoader>
           <Loader
             width={169.22}

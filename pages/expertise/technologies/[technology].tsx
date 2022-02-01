@@ -22,7 +22,7 @@ import { GET_TECHNOLOGY_PAGE } from "../../../graphql/technologies/queries";
 import { GetTechnologyPage } from "../../../graphql/technologies/__generated__/GetTechnologyPage";
 import Custom404 from "../../404";
 import EmbodiedIdeasComponent from "../../../components/Homepage/EmbodiedIdeas";
-import { useIsMobile } from "../../../services/hooks";
+import { useIsMobile, useIsTablet } from "../../../services/hooks";
 
 const MainMenuTitles = [
   "Services",
@@ -88,7 +88,8 @@ const Technology = () => {
   const handleScroll = () => {
     window.scrollY >= 50 ? setMenuColor(colorBlack) : setMenuColor("none");
   };
-  const isMobile = useIsMobile();
+    const isMobile = useIsMobile();
+  const isTablet = useIsTablet();
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
 
@@ -125,13 +126,13 @@ const Technology = () => {
           </Head>
           <MainMenu
             titlesColor={colorWhite}
-            backgroundColor={isMobile ? colorBlack : menuColor}
+            backgroundColor={isMobile || isTablet ? colorBlack : menuColor}
             titles={MainMenuTitles}
           >
             <HeaderService
               title={headerTitle}
               icon={headerIcon}
-              titleSize={isMobile ? '50px' :'64px'}
+              titleSize={isMobile || isTablet ? '50px' :'64px'}
               text={headerDescription}
               textWidth={"435px"}
               label={headerLabel}

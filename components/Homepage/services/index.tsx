@@ -37,7 +37,8 @@ import { useIsMobile } from "../../../services/hooks";
 
 function ServicesComponent({ title, text, labels }: IServices) {
   const [ onEnterBlock, setOnEnterBlock] = useState(false);
-    const isMobile = useIsMobile();
+      const isMobile = useIsMobile();
+  const isTablet = useIsTablet();
 
   return (
     <Component
@@ -104,7 +105,7 @@ function ServicesComponent({ title, text, labels }: IServices) {
           </PositionHexagonNine>
         </Div>
 
-        {!isMobile && (
+        {!isMobile && !isTablet && (
           <>
             <PositionCube2>
               <Cube1/>

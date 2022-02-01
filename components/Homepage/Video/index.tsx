@@ -13,11 +13,12 @@ import { useEffect, useRef, useState } from "react";
 import PlaySVG from "../../../public/Player/Play.svg"
 import { theme } from "../../../styles/theme";
 import {HOME_PAGE_VIDEO_LINK} from "../../../constants";
-import { useIsMobile } from "../../../services/hooks";
+import { useIsMobile, useIsTablet } from "../../../services/hooks";
 
 function VideoComponent() {
   const [play, setPlay] = useState(false);
-  const isMobile = useIsMobile();
+    const isMobile = useIsMobile();
+  const isTablet = useIsTablet();
 
   useEffect(() => {
     const player = document.getElementById('youTubeVideo') as HTMLIFrameElement;
@@ -35,12 +36,12 @@ function VideoComponent() {
         <VideoContainer>
           <VideoBLock onClick={() => setPlay(true)}>
             <PosterVideoPosition display={play}>
-              <img style={{height: isMobile ? '250px': 'unset'}} src={'./Player/PosterVideo.jpg'}></img>
+              <img style={{height: isMobile || isTablet ? '250px': 'unset'}} src={'./Player/PosterVideo.jpg'}></img>
             </PosterVideoPosition>
               <iframe
                 id={'youTubeVideo'}
-                width={isMobile ? '100%' : '1122px'}
-                height={isMobile ? '250px' : '671px'}
+                width={isMobile || isTablet ? '100%' : '1122px'}
+                height={isMobile || isTablet ? '250px' : '671px'}
                 src={HOME_PAGE_VIDEO_LINK}
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

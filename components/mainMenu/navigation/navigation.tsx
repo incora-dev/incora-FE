@@ -11,7 +11,7 @@ import React, {useContext, useEffect, useState} from "react";
 import Link from "next/link";
 import { theme } from "../../../styles/theme";
 import { MenuContext } from "../../../services/context/mainMenu";
-import { useIsMobile } from "../../../services/hooks";
+import { useIsMobile, useIsTablet } from "../../../services/hooks";
 
 function Navigation({ 
   titles, 
@@ -24,7 +24,6 @@ function Navigation({
   {
   const [selectedTitle, setSelectedTitle] = useState<string | null>(null);
   const  [urlTitle, setUrlTitle] = useState<string | null | undefined>(null);
-  const isMobile = useIsMobile();
   const { toggleHoverMenuMode, toggleMenuMode  } = useContext(MenuContext);
 
   useEffect(() => {

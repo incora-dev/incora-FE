@@ -1,6 +1,5 @@
 import themeGet from "@styled-system/theme-get";
 import styled from "styled-components";
-import { theme } from "../../../styles/theme";
 
 interface IDiv {
   bgColor: string;
@@ -11,13 +10,30 @@ interface IPositionTitle {
   disablePadding?: boolean;
 }
 
+export const MainContainer = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+`;
+
 export const Div = styled.div`
   background-color: ${({ bgColor }: IDiv) => bgColor};
   padding-bottom: 120px;
-  overflow: hidden;
+  max-width: 1006px;
+  width: 100%;
+
+  @media only screen and (max-width: ${themeGet('breakpoints.mDesk')}) {
+    max-width: 900px;
+  }
 
   @media only screen and (max-width: ${themeGet('breakpoints.smallDesk')}) {
-    padding: 0 30px 53px;
+    max-width: 100%;
+    padding: 0 25px 53px;
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.smallDesk')}) {
+    padding-bottom: 40px;
   }
 
   @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
@@ -31,8 +47,8 @@ export const PositionTitle = styled.div`
   disablePadding ? "0" : "120px"};
   margin-bottom: 46px;
 
-  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
-    padding-top: 20px;
+  @media only screen and (max-width: ${themeGet('breakpoints.smallDesk')}) {
+    margin-top: 40px;
     margin-bottom: 20px;
   }
 `;

@@ -18,6 +18,10 @@ export const LetsReactOutWrapper = styled.div`
     padding: 0 15px;
     height: auto;
   }
+
+  a {
+    margin-top: 16px;
+  }
 `;
 
 export const ContentWrap = styled.div`

@@ -1,6 +1,5 @@
 import { themeGet } from "@styled-system/theme-get";
 import styled from "styled-components";
-import { theme } from "../../../styles/theme";
 
 interface ICaseFilterWrapper {
   filterByFlag: boolean;
@@ -8,23 +7,37 @@ interface ICaseFilterWrapper {
 
 export const CaseFilterWrapper = styled.div`
   width: 100%;
-  height: ${({ filterByFlag }: ICaseFilterWrapper) =>
-    filterByFlag ? "871px" : "595px"};
+  /* height: ${({ filterByFlag }: ICaseFilterWrapper) =>
+    filterByFlag ? "871px" : "595px"}; */
+    height: auto;
   display: flex;
   align-items: center;
   flex-direction: column;
-  padding-top: 115px;
+  padding-top: 117px;
+  padding-bottom: 96px;
   background-color: ${({ filterByFlag }: ICaseFilterWrapper) =>
     filterByFlag ? themeGet("colors.black") : themeGet("colors.white")};
   transition: all 0.5s ease-in-out;
   overflow: hidden;
 
+  @media only screen and (max-width: ${themeGet('breakpoints.mDesk')}) {
+    max-width: 900px;
+    margin: 0 auto;
+    padding-top: 50px;
+  }
+
   @media only screen and (max-width: ${themeGet('breakpoints.smallDesk')}) {
-    height: unset;
+    max-width: 100%;
+    padding-top: 30px;
+    height: auto;
   }
 
   @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
     padding-top: 30px;
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+    padding-top: 20px;
   }
 `;
 
@@ -38,7 +51,8 @@ export const FilterWrap = styled.div`
   }
 
   @media only screen and (max-width: ${themeGet("breakpoints.smallDesk")}) {
-    padding: 0 30px;
+    padding: 0 25px;
+    max-width: 100%;
   }
 
   @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
@@ -51,9 +65,14 @@ export const FilterWrap = styled.div`
     line-height: 96px;
     text-transform: capitalize;
     letter-spacing: 3px;
-    margin-bottom: 21px;
+    margin-bottom: 19px;
     color: ${({ filterByFlag }: ICaseFilterWrapper) =>
     filterByFlag ? themeGet("colors.white") : themeGet("colors.black")};
+
+    @media only screen and (max-width: ${themeGet('breakpoints.smallDesk')}) {
+      font-size: var(--fs-48);
+      line-height: 58px;
+    }
 
     @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
       line-height: 38px;
@@ -76,9 +95,12 @@ export const FilterWrap = styled.div`
     letter-spacing: 0.1em;
     margin-bottom: 35px;
 
+    @media only screen and (max-width: ${themeGet('breakpoints.smallDesk')}) {
+      line-height: 27px;
+    }
+
     @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
       width: 80%;
-      line-height: 28px;
     }
 
     @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {

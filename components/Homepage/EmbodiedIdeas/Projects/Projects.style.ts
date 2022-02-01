@@ -1,6 +1,5 @@
 import themeGet from "@styled-system/theme-get";
 import styled from "styled-components";
-import { theme } from "../../../../styles/theme";
 
 interface IContainer {
   flexDirection: string;
@@ -14,9 +13,15 @@ export const Container = styled.div`
   display: flex;
   column-gap: 77px;
   flex-direction: ${({ flexDirection }: IContainer) => flexDirection};
+  width: 100%;
+  position: relative;
 
   @media only screen and (max-width: ${themeGet('breakpoints.smallDesk')}) {
     column-gap: 30px;
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+    flex-direction: column;
   }
 
   @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
@@ -29,33 +34,26 @@ export const Text = styled.div`
   display: flex;
   flex-direction: column;
   row-gap: 21px;
+  min-height: 537px;
+  padding-right: 58%;
+  padding-top: 80px;
 
-  margin: ${({ margin }: IText) => margin};
+  @media only screen and (max-width: ${themeGet('breakpoints.mDesk')}) {
+    padding-right: 49%;
+    padding-top: 70px;
+  }
 
   @media only screen and (max-width: ${themeGet('breakpoints.smallDesk')}) {
-    margin: 20px 0 0;
+    padding-right: 47%;
+    padding-top: 15px;
+    min-height: 300px;
   }
 
   @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
     row-gap: 12px;
-  }
-
-  h3 {
-    @media only screen and (max-width: ${themeGet('breakpoints.smallDesk')}) {
-      font-size: var(--fs-28);
-      line-height: 38px;
-    }
-
-    @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
-      font-size: var(--fs-24);
-      line-height: 34px;
-    }
-  }
-
-  p {
-    @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
-      line-height: 28px;
-    }
+    padding: 0;
+    min-height: auto;
+    margin-bottom: 20px;
   }
 `;
 
@@ -73,9 +71,20 @@ export const H3 = styled.h3`
   font-weight: 800;
   font-size: var(--fs-36);
   line-height: 54px;
-@media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
-  line-height: 40px;
-}
+
+  @media only screen and (max-width: ${themeGet('breakpoints.smallDesk')}) {
+    font-size: var(--fs-24);
+    line-height: 34px;
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+    font-size: var(--fs-24);
+    line-height: 34px;
+  }
+  
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+    line-height: 40px;
+  }
 
   letter-spacing: 0.05em;
 
@@ -95,10 +104,12 @@ export const P = styled.p`
   font-weight: normal;
   font-size: var(--fs-14);
   line-height: 30px;
-
   letter-spacing: 0.1em;
-
   color: #454a4d;
+
+  @media only screen and (max-width: ${themeGet('breakpoints.smallDesk')}) {
+    line-height: 27px;
+  }
 `;
 
 export const H4 = styled.h4`

@@ -9,6 +9,7 @@ import {
   HexagonPosition,
   LoadingPosition,
   DotsPosition,
+  MainContainer,
 } from "./EmbodiedIdeas.style";
 import Projects from "./Projects";
 import ButtonWithArrow from "../../ButtonWithArrow";
@@ -54,45 +55,47 @@ console.log('loading && projects', loading, projects, !loading && projects)
   return (
     <>
       {!loading && projects && (
-        <Div bgColor={bgColor} onMouseEnter={() => setAnimation(true)}>
-          <PositionTitle disablePadding={disablePadding}>
-            <Block>
-              <H2>{title}</H2>
-            </Block>
-          </PositionTitle>
+        <MainContainer>
+          <Div bgColor={bgColor} onMouseEnter={() => setAnimation(true)}>
+            <PositionTitle disablePadding={disablePadding}>
+              <Block>
+                <H2>{title}</H2>
+              </Block>
+            </PositionTitle>
 
-          <ProjectsContainer>
-            <Projects projects={projects} elementsColor={elementsColor} />
-          </ProjectsContainer>
+            <ProjectsContainer>
+              <Projects projects={projects} elementsColor={elementsColor} />
+            </ProjectsContainer>
 
-          {!disableSeeMore && (
-            <SeeMoreWorks>
-              <H4>Want to see more works?</H4>
+            {!disableSeeMore && (
+              <SeeMoreWorks>
+                <H4>Want to see more works?</H4>
 
-              <ButtonWithArrow
-                buttonLabel={"see portfolio"}
-                redirectTo={"see_portfolio"}
-                padding={"23px 35px"}
-              />
-
-              <HexagonPosition>
-                <HexagonFilled width={350} height={404} viewBox="0 0 195 225" />
-              </HexagonPosition>
-
-              <LoadingPosition>
-                <Loading width={170} height={170} viewBox="0 0 96 96" />
-              </LoadingPosition>
-
-              <DotsPosition>
-                <Dots
-                  numberOfDots={5}
-                  dotColor={"#fff"}
-                  animation={animation}
+                <ButtonWithArrow
+                  buttonLabel={"see portfolio"}
+                  redirectTo={"see_portfolio"}
+                  padding={"23px 35px"}
                 />
-              </DotsPosition>
-            </SeeMoreWorks>
-          )}
-        </Div>
+
+                <HexagonPosition>
+                  <HexagonFilled width={350} height={404} viewBox="0 0 195 225" />
+                </HexagonPosition>
+
+                <LoadingPosition>
+                  <Loading width={170} height={170} viewBox="0 0 96 96" />
+                </LoadingPosition>
+
+                <DotsPosition>
+                  <Dots
+                    numberOfDots={5}
+                    dotColor={"#fff"}
+                    animation={animation}
+                  />
+                </DotsPosition>
+              </SeeMoreWorks>
+            )}
+          </Div>
+        </MainContainer>
       )}
     </>
   );

@@ -35,8 +35,10 @@ export const H3 = styled.h3`
 
   color: ${themeGet("colors.black")};
 
-  @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
-    font-size: var(--fs-16);
+
+  @media only screen and (max-width: ${themeGet("breakpoints.sTablet")}) {
+    font-size: var(--fs-14);
+    line-height: 21px;
   }
 `
 
@@ -48,5 +50,9 @@ export const Element = styled.div`
 
   background: ${themeGet("colors.yellow")};
   border-radius: 0 0 0 30px;
+
+  @media only screen and (max-width: ${themeGet("breakpoints.sTablet")}) {
+    height: 130px;
+  }
 `
 

@@ -46,7 +46,7 @@ export const TextContainer = styled.div`
 
   @media only screen and (max-width: ${themeGet('breakpoints.tabletPro')}) {
     width: calc(100% - 260px);
-    padding-left: 20px;
+    padding-right: 20px;
   }
 
   @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
@@ -86,7 +86,8 @@ export const H1 = styled.h1`
   }
 
   @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
-    line-height: 60px;
+    font-size: var(--fs-36);
+    line-height: 48px;
   }
 
   @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {

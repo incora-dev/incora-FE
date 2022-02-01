@@ -80,7 +80,7 @@ export const NewsWrap = styled.div`
   width: 100%;
   margin-top: 58px;
 
-  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+  @media only screen and (max-width: ${themeGet('breakpoints.sTablet')}) {
     margin-top: 35px;
   }
 `;

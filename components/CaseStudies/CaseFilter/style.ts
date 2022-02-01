@@ -21,9 +21,9 @@ export const CaseFilterWrapper = styled.div`
   overflow: hidden;
 
   @media only screen and (max-width: ${themeGet('breakpoints.mDesk')}) {
-    max-width: 900px;
+    max-width: 100%;
     margin: 0 auto;
-    padding-top: 50px;
+    padding: 50px 25px 0;
   }
 
   @media only screen and (max-width: ${themeGet('breakpoints.smallDesk')}) {
@@ -46,12 +46,12 @@ export const FilterWrap = styled.div`
   transition: background-color 0.5s ease-in-out;
 
   @media only screen and (max-width: ${themeGet("breakpoints.mDesk")}) {
-    max-width: 900px;
+    max-width: 100%;
     width: 100%;
   }
 
   @media only screen and (max-width: ${themeGet("breakpoints.smallDesk")}) {
-    padding: 0 25px;
+    
     max-width: 100%;
   }
 
@@ -75,13 +75,13 @@ export const FilterWrap = styled.div`
     }
 
     @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
-      line-height: 38px;
-      font-size: var(--fs-28);
+      line-height: 50px;
+      font-size: var(--fs-48);
     }
 
     @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
       line-height: 34px;
-      font-size: var(--fs-24);
+      font-size: var(--fs-36);
       margin-bottom: 10px;
     }
   }

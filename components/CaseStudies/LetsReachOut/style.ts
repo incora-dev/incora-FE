@@ -31,8 +31,9 @@ export const ContentWrap = styled.div`
   position: relative;
 
   @media only screen and (max-width: ${themeGet("breakpoints.mDesk")}) {
-    max-width: 900px;
+    max-width: 100%;
     width: 100%;
+    padding: 100px 25px;
   }
 
   @media only screen and (max-width: ${themeGet('breakpoints.smallDesk')}) {

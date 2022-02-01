@@ -24,8 +24,20 @@ export const Container = styled.div`
     column-gap: 40px;
   }
 
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+    padding: 0 25px;
+    column-gap: 20px;
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.sTablet')}) {
+    padding: 0 25px;
+    column-gap: 15px;
+  }
+
   @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     padding: 0 15px;
-    column-gap: 30px;
+    row-gap: 30px;
+    display: flex;
+    flex-direction: column;
   }
 `

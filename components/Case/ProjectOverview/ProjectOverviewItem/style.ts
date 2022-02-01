@@ -46,6 +46,12 @@ export const ProjectOverviewItemWrapper = styled.div`
       padding-left: 0;
       column-gap: 30px;
     }
+
+    @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+      flex-direction: column;
+      row-gap: 40px;
+      margin-bottom: 70px;
+    }
 `;
 
 export const ImageWrap = styled.div`
@@ -53,6 +59,10 @@ export const ImageWrap = styled.div`
   height: 350px;
   padding-top: ${({ index }: IImageWrap) => (index === 2 ? "38px" : "10px")};
   position: relative;
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+    padding-top: 10px;
+  }
 `;
 
 export const ImageBackground = styled.div`
@@ -68,6 +78,10 @@ export const ImageBackground = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+    left: 25px;
+  }
 
   img {
     border-top-left-radius: 20px;
@@ -88,6 +102,14 @@ export const TextWrap = styled.div`
     padding-top: ${({ isLeft }: IProjectOverviewItemWrapper) =>
     isLeft ? "5px" : "50px"};
   }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+    width: 100%;
+    z-index: 1;
+    padding-left: 25px;
+    padding-top: 5px;
+  }
+
 
   > h2 {
     font-weight: 800;

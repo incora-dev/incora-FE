@@ -42,6 +42,10 @@ export const Slide = styled.div`
     padding: 70px 20px 40px 25px;
   }
 
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+    width: 85vw;
+  }
+
   :nth-child(1) {
     transform: scale(1);
   }
@@ -72,6 +76,10 @@ export const Title = styled.div`
   letter-spacing: calc(1em / 20);
   max-width: 200px;
   white-space: break-spaces;
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+    font-size: var(--fs-24);
+  }
 `;
 
 export const ArrowButton = styled.button`
@@ -115,6 +123,11 @@ export const RightBlock = styled.div`
   display: flex;
   padding-top: 10%;
   padding-bottom: 7.7%;
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+    padding-top: 20px;
+  }
+  
 `;
 
 export const RightContent = styled.div`

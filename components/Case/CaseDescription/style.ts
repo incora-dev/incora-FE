@@ -61,10 +61,18 @@ export const TagsWrap = styled.div`
   background-color: ${themeGet("colors.background4")};
   padding-top: 35px;
   padding-left: 30px;
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+    padding-top: 10px;
+  }
 `;
 
 export const TagsCategory = styled.div`
   margin-bottom: 40px;
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+    margin-bottom: 20px;
+  }
 `;
 
 export const TagsHeading = styled.h3`
@@ -79,6 +87,10 @@ export const TagsHeading = styled.h3`
 export const LocationAndIndustryWrap = styled.div`
   display: flex;
   column-gap: 46px;
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+    flex-direction: column;
+  }
 `;
 
 export const TagFlexBox = styled.div`

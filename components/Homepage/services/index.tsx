@@ -33,7 +33,7 @@ import Cube3 from "../../../public/SVG/Cube3.svg"
 import HexagonBordered from "../../../public/hexagonBordered.svg"
 import HexagonFilled from "../../../public/hexagonFilled.svg"
 import { theme } from "../../../styles/theme";
-import { useIsMobile } from "../../../services/hooks";
+import { useIsMobile, useIsTablet } from "../../../services/hooks";
 
 function ServicesComponent({ title, text, labels }: IServices) {
   const [ onEnterBlock, setOnEnterBlock] = useState(false);

@@ -26,6 +26,11 @@ export const HeadingWrap = styled.div`
     padding: 0 25px;
   }
 
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+    margin-bottom: 45px;
+    padding: 0 15px;
+  }
+
   h1 {
     font-weight: 800;
     font-size: var(--fs-36);
@@ -50,6 +55,10 @@ export const FeedbackWrap = styled.div`
     padding: 0 25px;
   }
 
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+    padding: 0 15px;
+  }
+
   > svg {
     position: absolute;
     top: -15px;
@@ -57,6 +66,10 @@ export const FeedbackWrap = styled.div`
 
     @media only screen and (max-width: ${themeGet('breakpoints.sTablet')}) {
       left: 25px;
+    }
+
+    @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+      left: 5px;
     }
   }
 
@@ -70,12 +83,24 @@ export const FeedbackWrap = styled.div`
     @media only screen and (max-width: ${themeGet('breakpoints.sTablet')}) {
       padding-left: 50px;
     }
+
+    @media only screen and (max-width: ${themeGet('breakpoints.sTablet')}) {
+      padding-left: 30px;
+      margin-top: 3px;
+      line-height: 27px;
+    }
   }
 `;
 
 export const ClientInfoWrap = styled.div`
   display: flex;
   column-gap: 20px;
+
+  img {
+    @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+      width: 100px !important;
+    }
+  }
 
   > div {
     display: flex;
@@ -96,6 +121,11 @@ export const ClientInfoWrap = styled.div`
       line-height: 30px;
       letter-spacing: 0.1em;
       color: ${themeGet("colors.font1")};
+
+      @media only screen and (max-width: ${themeGet('breakpoints.mMobile')}) {
+        line-height: 24px;
+      }
+
     }
   }
 `;

@@ -24,7 +24,8 @@ export const Div = styled.div`
   width: 100%;
 
   @media only screen and (max-width: ${themeGet('breakpoints.mDesk')}) {
-    max-width: 900px;
+    max-width: 100%;
+    padding: 25px;
   }
 
   @media only screen and (max-width: ${themeGet('breakpoints.smallDesk')}) {

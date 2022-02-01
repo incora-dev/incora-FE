@@ -78,8 +78,8 @@ export const H3 = styled.h3`
   }
 
   @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
-    font-size: var(--fs-24);
-    line-height: 34px;
+    font-size: var(--fs-36);
+    line-height: 50px;
   }
   
   @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {

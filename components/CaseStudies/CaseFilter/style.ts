@@ -14,7 +14,7 @@ export const CaseFilterWrapper = styled.div`
   align-items: center;
   flex-direction: column;
   padding-top: 117px;
-  padding-bottom: 96px;
+  margin-bottom: 96px;
   background-color: ${({ filterByFlag }: ICaseFilterWrapper) =>
     filterByFlag ? themeGet("colors.black") : themeGet("colors.white")};
   transition: all 0.5s ease-in-out;
@@ -142,5 +142,20 @@ export const GlobeWrap = styled.div`
 
   @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     height: 100vh;
+  }
+`;
+
+export const GlobeContainer = styled.div`
+  .globe {
+    width: 100%;
+    max-width: 1366px;
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
+    transition: all 0.5s ease-in-out;
+  }
+  .show {
+    height: 600px;
+    opacity: 1;
   }
 `;

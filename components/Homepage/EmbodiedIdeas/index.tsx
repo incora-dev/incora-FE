@@ -51,7 +51,6 @@ function EmbodiedIdeasComponent({
   });
   const projects = data?.projects;
 
-console.log('loading && projects', loading, projects, !loading && projects)
   return (
     <>
       {!loading && projects && (

@@ -34,6 +34,7 @@ const Globe = ({ reviewIndex }: IGlobe) => {
   };
 
   const changePointOfView = useCallback(() => {
+    if (!points.length) return;
     const latAlign = 30;
     const altitude = 1.4;
     const { lat, lng } = points[reviewIndex];
@@ -46,7 +47,7 @@ const Globe = ({ reviewIndex }: IGlobe) => {
       },
       700
     );
-  }, [reviewIndex]);
+  }, [reviewIndex, points]);
 
   const setControlsOptions = () => {
     const controls = globeEl.current.controls();
@@ -77,7 +78,7 @@ const Globe = ({ reviewIndex }: IGlobe) => {
 
   useEffect(() => {
     changePointOfView();
-  }, [reviewIndex]);
+  }, [reviewIndex, points]);
 
   return (
     <GlobeWrapper>
@@ -87,7 +88,7 @@ const Globe = ({ reviewIndex }: IGlobe) => {
         height={1200}
         animateIn={true}
         globeImageUrl={EarthTexture.src}
-        backgroundColor={theme.colors.black}
+        backgroundColor="rgba(0,0,0,0)"
         showAtmosphere={false}
         pointsData={updatePoints}
         pointAltitude={(point: Point) => {

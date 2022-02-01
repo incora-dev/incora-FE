@@ -51,7 +51,7 @@ const GetContent = ({ content }: IGetContent) => {
                 height={height}
                 alt="icon"
               />
-              <Number>{numberTitle}</Number>
+              {/* <Number>{numberTitle}</Number> */}
               <H2>{title}</H2>
             </Title>
             <Text>{description}</Text>

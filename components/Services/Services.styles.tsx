@@ -41,7 +41,7 @@ export const TextBlock = styled.div`
   flex-direction: column;
   row-gap: 20px;
   @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
-    padding: 25px 20px;
+    padding: 25px 15px;
   }
 `
 

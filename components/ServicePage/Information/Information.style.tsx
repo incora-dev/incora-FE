@@ -18,7 +18,7 @@ export const TextBlock = styled.div`
   justify-content: space-between;
 
   @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
-    padding: 53px 20px;
+    padding: 53px 15px;
   }
 `;
 

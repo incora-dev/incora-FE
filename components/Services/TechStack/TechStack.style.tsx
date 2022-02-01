@@ -28,7 +28,7 @@ export const Container = styled.div`
 
   @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     margin-top: 53px;
-    padding: 0 20px;
+    padding: 0 15px;
       row-gap: 15px;
   }
 `

@@ -26,7 +26,7 @@ export const Container = styled.div`
 
   @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     flex-direction: column;
-    padding: 25px 20px;
+    padding: 25px 15px;
     gap: 25px;
   }
 `;
@@ -54,7 +54,7 @@ export const EstimatedTimeAndOutcomesBlock = styled.div`
   @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     flex-direction: column;
     gap: 20px;
-    padding: 28px 20px;
+    padding: 28px 15px;
   }
 `;
 

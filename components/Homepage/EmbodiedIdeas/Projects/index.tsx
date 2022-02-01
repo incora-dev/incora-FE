@@ -27,10 +27,10 @@ function Projects({ projects, elementsColor }: IProjects) {
       const flexDirection = (index + 1) % 10 !== 2 ? "row" : "row-reverse";
       const marginText = (index + 1) % 10 !== 2 
         ? isMobile 
-          ? '53px 20px;'
+          ? '53px 15px;'
           : '81px 0 0 180px;' 
         : isMobile 
-          ? '53px 20px;' 
+          ? '53px 15px;' 
           : '81px 180px 0 0';
 
       const url = attributes?.url;

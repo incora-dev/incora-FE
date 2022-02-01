@@ -5,9 +5,9 @@ import { theme } from "../../../styles/theme";
 export const LetsReactOutWrapper = styled.div`
   width: 100%;
   background-color: ${themeGet("colors.black")};
-  height: 944px;
   display: flex;
   justify-content: center;
+  overflow: hidden;
 
   @media only screen and (max-width: ${themeGet('breakpoints.smallDesk')}) {
     padding: 0 30px 53px;
@@ -27,30 +27,31 @@ export const LetsReactOutWrapper = styled.div`
 export const ContentWrap = styled.div`
   width: 1033px;
   padding-top: 140px;
+  padding-bottom: 176px;
   padding-left: 12px;
   position: relative;
+
+  @media only screen and (max-width: ${themeGet("breakpoints.mediumDesk")}) {
+    padding-bottom: 50px;
+  }
 
   @media only screen and (max-width: ${themeGet("breakpoints.mDesk")}) {
     max-width: 100%;
     width: 100%;
-    padding: 100px 25px;
+    padding: 100px 25px 50px;
   }
 
   @media only screen and (max-width: ${themeGet('breakpoints.smallDesk')}) {
-    padding-left: 0;
-    padding-top: 53px;
+    padding: 53px 0 0;
   }
 
   @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
-    padding-top: 30px;
+    padding-top: 40px;
   }
 
   > h1 {
     font-weight: 800;
     font-size: var(--fs-64);
-    @media only screen and (max-width: ${themeGet('breakpoints.mobile')} ) {
-    line-height: 60px;
-}
     letter-spacing: 0.05em;
     text-transform: capitalize;
     color: ${themeGet("colors.white")};
@@ -61,13 +62,7 @@ export const ContentWrap = styled.div`
     }
 
     @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
-      font-size: var(--fs-28);
-      line-height: 38px;
-    }
-
-    @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
-      font-size: var(--fs-24);
-      line-height: 34px;
+      font-size: var(--fs-36);
     }
   }
 
@@ -103,6 +98,10 @@ export const ContentWrap = styled.div`
     position: absolute;
     right: -63px;
     top: 94px;
+
+    @media only screen and (max-width: ${themeGet('breakpoints.mediumDesk')}) {
+      right: -1px;
+    }
 
     @media only screen and (max-width: ${themeGet('breakpoints.smallDesk')}) {
       right: -32px;

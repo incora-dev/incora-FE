@@ -37,7 +37,7 @@ export const CaseFilterWrapper = styled.div`
   }
 
   @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
-    padding-top: 20px;
+    padding: 20px 15px 0;
   }
 `;
 
@@ -48,15 +48,6 @@ export const FilterWrap = styled.div`
   @media only screen and (max-width: ${themeGet("breakpoints.mDesk")}) {
     max-width: 100%;
     width: 100%;
-  }
-
-  @media only screen and (max-width: ${themeGet("breakpoints.smallDesk")}) {
-    
-    max-width: 100%;
-  }
-
-  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
-    padding: 0 15px;
   }
 
   h1 {
@@ -76,7 +67,11 @@ export const FilterWrap = styled.div`
 
     @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
       line-height: 50px;
-      font-size: var(--fs-48);
+    }
+
+    @media only screen and (max-width: ${themeGet('breakpoints.sTablet')}) {
+      font-size: var(--fs-36);
+      line-height: 48px;
     }
 
     @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
@@ -94,10 +89,6 @@ export const FilterWrap = styled.div`
       filterByFlag ? themeGet("colors.font2") : themeGet("colors.font1")};
     letter-spacing: 0.1em;
     margin-bottom: 35px;
-
-    @media only screen and (max-width: ${themeGet('breakpoints.smallDesk')}) {
-      line-height: 27px;
-    }
 
     @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
       width: 80%;
@@ -138,7 +129,6 @@ export const FilterSwitchWrap = styled.div`
 
 export const GlobeWrap = styled.div`
   width: 100%;
-  padding: 43px;
 
   @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     height: 100vh;
@@ -155,7 +145,7 @@ export const GlobeContainer = styled.div`
     transition: all 0.5s ease-in-out;
   }
   .show {
-    height: 600px;
+    height: 450px;
     opacity: 1;
   }
 `;

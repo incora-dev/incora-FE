@@ -46,6 +46,11 @@ export const Slide = styled.div`
     width: 85vw;
   }
 
+  @media only screen and (max-width: ${themeGet('breakpoints.sTablet')}) {
+    width: 100vw;
+    padding-bottom: 0;
+  }
+
   :nth-child(1) {
     transform: scale(1);
   }
@@ -80,6 +85,10 @@ export const Title = styled.div`
   @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
     font-size: var(--fs-24);
   }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.sTablet')}) {
+    font-size: var(--fs-20);
+  }
 `;
 
 export const ArrowButton = styled.button`
@@ -88,6 +97,10 @@ export const ArrowButton = styled.button`
   border: 0;
   margin-top: 31px;
   cursor: pointer;
+
+  @media only screen and (max-width: ${themeGet('breakpoints.sTablet')}) {
+    margin-top: 20px;
+  }
 `;
 
 export const Controls = styled.div`

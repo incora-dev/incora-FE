@@ -34,6 +34,10 @@ export const HeadingWrap = styled.div`
       font-size: var(--fs-48);
     }
 
+    @media only screen and (max-width: ${themeGet('breakpoints.sTablet')}) {
+      font-size: var(--fs-36);
+    }
+
     @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
       line-height: 50px;
     }

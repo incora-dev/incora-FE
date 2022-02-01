@@ -65,7 +65,6 @@ export const RadioButton = styled.div`
     padding: ${({padding}: IButtons) => padding};
     width: 500px;
     white-space: nowrap;
-
     font-style: normal;
     font-weight: ${({ fontWeight }: IButtons) => fontWeight};
     font-size: var(--fs-16);
@@ -82,6 +81,12 @@ export const RadioButton = styled.div`
       box-shadow: ${({ isHover }) => isHover ? `inset 200px 0 0 0 #ffcf22` : `inset 200px 0 0 0 ${themeGet('color.yellow')}`};
       -webkit-transition: ease-in-out 0.3s;
       -moz-transition: ease-in-out 0.3s;
+    }
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+    :last-of-type {
+      padding-bottom: 10px;
     }
   }
 `;

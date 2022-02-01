@@ -10,7 +10,7 @@ interface IRadioButtons {
   labels:
     | GetServicesPage_servicesPage_data_attributes_services_data[]
     | GetServicesPage_servicesPage_data_attributes_techStack_tech_stacks_data[];
-  currentIndex: number;
+  currentIndex?: number;
   onChange?: Function;
   preventChange?: boolean;
   bgColor: string;

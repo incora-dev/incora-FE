@@ -1,3 +1,4 @@
+import themeGet from "@styled-system/theme-get";
 import styled from "styled-components";
 import { theme } from "../../../../styles/theme";
 
@@ -14,13 +15,15 @@ export const Container = styled.div`
   column-gap: 77px;
   flex-direction: ${({ flexDirection }: IContainer) => flexDirection};
 
-  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     flex-wrap: wrap-reverse;
     max-width: 100%;
   }
 `;
 
 export const Text = styled.div`
+  max-width: 430px;
+
   display: flex;
   flex-direction: column;
   row-gap: 21px;
@@ -37,18 +40,21 @@ export const Block = styled.div`
 `;
 
 export const H3 = styled.h3`
-  font-family: Poppins;
+
   font-style: normal;
   font-weight: 800;
   font-size: var(--fs-36);
   line-height: 54px;
+@media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+  line-height: 40px;
+}
 
   letter-spacing: 0.05em;
 
   color: #000;
   cursor: pointer;
 
-  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     font-size: var(--fs-28);
   }
 `;

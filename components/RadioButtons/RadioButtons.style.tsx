@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { theme } from "../../styles/theme";
 import themeGet from "@styled-system/theme-get";
 
@@ -24,7 +24,7 @@ interface IButtonsBlock {
   rowGap: string;
 }
 
-export const ButtonsBlock = styled.div`
+export const ButtonsBlock = styled.div<IButtonsBlock>`
   display: flex;
   flex-direction: ${({ flexDirection }: IButtonsBlock) => flexDirection};;
   column-gap: ${({ columnGap }: IButtonsBlock) => columnGap};
@@ -33,9 +33,14 @@ export const ButtonsBlock = styled.div`
 
   transition: all 0.3s ease-in-out;
 
-  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     gap: 30px;
-    flex-direction: row;
+    ${({flexDirection}) => flexDirection === 'row' && css`
+      flex-wrap: nowrap;
+      overflow-x: scroll;
+      height: 59px;
+      align-items: center;
+    `}
   }
 `
 
@@ -60,7 +65,6 @@ export const RadioButton = styled.div`
     padding: ${({padding}: IButtons) => padding};
     width: 500px;
     white-space: nowrap;
-
     font-style: normal;
     font-weight: ${({ fontWeight }: IButtons) => fontWeight};
     font-size: var(--fs-16);
@@ -77,6 +81,12 @@ export const RadioButton = styled.div`
       box-shadow: ${({ isHover }) => isHover ? `inset 200px 0 0 0 #ffcf22` : `inset 200px 0 0 0 ${themeGet('color.yellow')}`};
       -webkit-transition: ease-in-out 0.3s;
       -moz-transition: ease-in-out 0.3s;
+    }
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+    :last-of-type {
+      padding-bottom: 10px;
     }
   }
 `;

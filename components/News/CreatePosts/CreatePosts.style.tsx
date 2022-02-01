@@ -34,6 +34,10 @@ export const H3 = styled.h3`
   text-transform: capitalize;
 
   color: ${themeGet("colors.black")};
+
+  @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
+    font-size: var(--fs-16);
+  }
 `
 
 export const Element = styled.div`

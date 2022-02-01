@@ -1,3 +1,4 @@
+import themeGet from "@styled-system/theme-get";
 import styled, {keyframes} from "styled-components";
 import { theme } from "../../styles/theme";
 
@@ -17,7 +18,7 @@ export const Div = styled.div`
     right: 0;
   }
 
-  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     height: 80vh;
   }
   @media only screen and (max-width: ${theme.breakpoints.mMobile}) {
@@ -39,8 +40,8 @@ export const TextBlock = styled.div`
   display: flex;
   flex-direction: column;
   row-gap: 20px;
-  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
-    padding: 25px 20px;
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+    padding: 25px 15px;
   }
 `
 
@@ -51,6 +52,9 @@ export const H1 = styled.h1`
   font-weight: 800;
   font-size: var(--fs-64);
   line-height: 96px;
+@media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+  line-height: 50px;
+}
 
   letter-spacing: 0.05em;
   text-transform: capitalize;

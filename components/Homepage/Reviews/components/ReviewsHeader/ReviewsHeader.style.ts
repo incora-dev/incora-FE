@@ -10,9 +10,9 @@ export const ReviewsHeaderWrapper = styled.div`
   align-items: center;
   margin-bottom: 50px;
 
-  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     width: 100%;
-    padding: 0 20px;
+    padding: 0 15px;
     margin-bottom: 20px;
   }
 
@@ -22,6 +22,12 @@ export const ReviewsHeaderWrapper = styled.div`
     font-weight: 800;
     font-size: var(--fs-26);
     letter-spacing: ${themeGet("letterSpacing.h1")};
+    @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+        font-size: var(--fs-20);
+    }
+    @media only screen and (max-width: ${themeGet('breakpoints.xsMobile')}) {
+        font-size: var(--fs-16);
+    }
   }
 
   span {
@@ -29,5 +35,11 @@ export const ReviewsHeaderWrapper = styled.div`
     color: ${themeGet("colors.white")};
     font-weight: 800;
     letter-spacing: 0.6px;
+    @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+        font-size: var(--fs-16);
+    }
+    @media only screen and (max-width: ${themeGet('breakpoints.xsMobile')}) {
+        font-size: var(--fs-13);
+    }
   }
 `;

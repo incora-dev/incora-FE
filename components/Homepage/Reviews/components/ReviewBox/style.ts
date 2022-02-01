@@ -4,19 +4,19 @@ import Image from "next/image";
 import { theme } from "../../../../../styles/theme";
 
 export const ReviewBoxWrapper = styled.div`
-  width: 1366px;
+  width: max-content;
   min-height: 270px;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  //justify-content: space-between;
 
   .right_btn {
     justify-content: flex-end;
   }
 
-  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     width: 90%;
     min-height: fit-content;
-    padding-bottom: 53px;
   }
 `;
 
@@ -24,19 +24,27 @@ export const CarouselButtonWrapper = styled.div`
   width: 269px;
   display: flex;
   align-items: flex-end;
-`;
-export const CarouselButtonsContainer = styled.div`
-  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
-    display: flex;
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+    width: 100%;
   }
 `;
+export const CarouselButtonsContainer = styled.div`
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+    display: flex;
+    position: relative;
+    left: 7vw;
+  }
+  `;
 export const CarouselReviewWrapper = styled.div`
-  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     display: flex;
     flex-direction: column;
     align-items: center;
     max-width: 100%;
     height: fit-content;
+    position: relative;
+    top: -60px;
+    gap: 10px;
   }
 `;
 
@@ -73,7 +81,7 @@ export const ReviewContentWrap = styled.div`
   display: flex;
   justify-content: space-between;
 
-  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     width: 90%;
   }
 `;
@@ -114,6 +122,7 @@ export const Photo = styled(Image)`
 
 export const NameWrap = styled.div`
   padding-top: 10px;
+
   color: ${themeGet("colors.white")};
   font-size: var(--fs-13);
   letter-spacing: 1px;

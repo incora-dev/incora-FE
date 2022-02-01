@@ -15,6 +15,10 @@ export const PositionLoader = styled.div`
   svg  {
     transform: rotate(90deg);
   }
+
+  @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
+    top: 0;
+  }
 `;
 
 export const PositionLoaderSemiCircle = styled.div`
@@ -27,18 +31,45 @@ export const PositionLoaderSemiCircle = styled.div`
       fill: ${themeGet("colors.black")};
     }
   }
+
+  @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
+    right: 43px;
+    top: 143px;
+  }
+
+  @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
+    right: -18px;
+    top: 110px;
+  }
 `;
 
 export const Wrapper = styled.div`
   max-width: 1006px;
   margin: 0 auto;
   padding: 74px 0 10px;
-`;
 
+  @media only screen and (max-width: ${themeGet("breakpoints.tabletPro")}) {
+    max-width: 100%;
+    padding: 74px 25px 10px;
+  }
+
+  @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
+    padding: 40px 25px 10px;
+  }
+
+  @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
+    padding: 40px 15px 10px;
+  }
+`;
+ 
 export const TextBlock = styled.div`
   display: flex;
   flex-direction: column;
   row-gap: 25px;
+
+  @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
+    width: 80%;
+  }
 `;
 
 export const H1 = styled.h1`
@@ -53,6 +84,17 @@ export const H1 = styled.h1`
   text-transform: capitalize;
   
   color: ${themeGet("colors.black")};
+
+  @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
+    font-size: var(--fs-48);
+    line-height: 60px;
+  }
+
+  @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
+    font-size: var(--fs-36);
+    z-index: 1;
+    line-height: 41px;
+  }
 `;
 
 export const Text = styled.p`
@@ -66,6 +108,12 @@ export const Text = styled.p`
   letter-spacing: 0.1em;
 
   color: ${themeGet("colors.black")};
+
+  @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
+    font-size: var(--fs-16);
+    line-height: 26px;
+    width: 80%;
+  }
 `;
 
 export const SearchBlock = styled.div`
@@ -79,10 +127,30 @@ export const SearchBlock = styled.div`
     
     transform: translate(-50%, -50%);
   }
+
+  @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
+    margin-top: 30px;
+
+    svg {
+      left: 10px;
+    }
+  }
+
+  @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
+    margin-top: 20px;
+
+    svg {
+      left: 10px;
+    }
+  }
 `;
 
 export const PositionTags = styled.div`
   margin-top: 25px;
+
+  @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
+    margin-top: 10px;
+  }
 `;
 
 export const Search = styled.input`
@@ -112,5 +180,15 @@ export const Search = styled.input`
     letter-spacing: 0.03em;
 
     color: ${themeGet("colors.grey2")};
+  }
+
+  @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
+    padding-left: 35px;
+    margin-top: 30px;
+  }
+
+  @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
+    padding-left: 35px;
+    margin-top: 20px;
   }
 `;

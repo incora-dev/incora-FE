@@ -51,13 +51,7 @@ function Custom404() {
         >
           <Header404/>
         </MainMenu>
-        <FooterComponent
-          policies={footer.policies}
-          offices={footer.offices}
-          pages={footer.pages}
-          followUs={footer.followUs}
-          copyright={footer.copyright}
-        />
+        <FooterComponent/>
       </>
     </>
   )

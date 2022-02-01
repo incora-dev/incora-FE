@@ -32,7 +32,7 @@ interface ISlide {
   mainTitle: string;
   text: string;
   redirectTo: string;
-};
+}
 
 const titles = [
   "Services",
@@ -214,7 +214,7 @@ const contactUs: IContactUs = {
 };
 
 const footer: IFooter = {
-  policies: ["privacy policy", "Cookies Policy"],
+  policies: ["privacy policy"],
   offices: contactUs.addresses,
   pages: ["Services", "expertise", "Case Studies", "Company", "Insights"],
   followUs: [
@@ -264,10 +264,6 @@ const news = {
 const plusesColor = "#FEC602";
 
 function Home() {
-  // useEffect(() => {
-  //   disableScroll.on();
-  // }, []);
-
   const renderSlide = (slide: ISlide, index: number) => (
     <CooperateComponent slide={slide} index={index} plusesColor={plusesColor} />
   );
@@ -286,7 +282,7 @@ function Home() {
           titlesColor={bgColorWhite}
         >
           <HeaderComponent />
-          <VerticalFullPageSlider<ISlide> slides={sliders} renderSlide={renderSlide}/>
+          {/* <VerticalFullPageSlider<ISlide> slides={sliders} renderSlide={renderSlide}/> */}
           <section>
             <ServicesComponent
               title={services.title}
@@ -301,11 +297,11 @@ function Home() {
               labels={technologies.technologies}
             />
           </section>
-          <EmbodiedIdeasComponent
-            title={EmbodiedIdeas.title}
-            bgColor={EmbodiedIdeas.bgColor}
-            elementsColor={colorYellow}
-          />
+          {/* <EmbodiedIdeasComponent
+              title={EmbodiedIdeas.title}
+              bgColor={EmbodiedIdeas.bgColor}
+              elementsColor={colorYellow}
+            /> */}
           <VideoComponent />
           <AboutUs
             backgroundColor={bgColorBlack}
@@ -314,11 +310,11 @@ function Home() {
           />
           <Reviews />
           <section>
-            {/* <NewsComponent
-              title={news.title}
-              labels={technologies.technologies}
-              articles={news.articles}
-            /> */}
+            {/*/!* <NewsComponent*/}
+            {/*  title={news.title}*/}
+            {/*  labels={technologies.technologies}*/}
+            {/*  articles={news.articles}*/}
+            {/*/> *!/*/}
           </section>
           <ContactUsComponent
             title={contactUs.title}
@@ -327,14 +323,8 @@ function Home() {
             addresses={contactUs.addresses}
             buttonLabel={contactUs.buttonLabel}
           />
+          <FooterComponent />
         </MainMenu>
-        <FooterComponent
-          policies={footer.policies}
-          offices={footer.offices}
-          followUs={footer.followUs}
-          pages={footer.pages}
-          copyright={footer.copyright}
-        />
       </>
     </>
   );

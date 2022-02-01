@@ -1,3 +1,4 @@
+import themeGet from "@styled-system/theme-get";
 import styled from "styled-components";
 import { theme } from "../../../styles/theme";
 
@@ -10,7 +11,7 @@ export const Container = styled.div`
 
   height: 742px;
 
-  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     height: 300px;
   }
 `;
@@ -33,10 +34,17 @@ export const VideoContainer = styled.div`
   right: 0;
 
   z-index: 1;
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+    width: 100%;
+  }
 `;
 
 export const VideoBLock = styled.div`
   position: relative;
+
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+    width: 100%;
+  }
 `;
 
 export const PosterVideoPosition = styled.div`
@@ -59,7 +67,7 @@ export const PlayerPosition = styled.div`
 
   z-index: 1;
 
-  transform: translate(-50%, -50%);
+  transform: translate(-52%, -52%);
 
   opacity: ${( { display }: IShowVideo) => display ? 0 : 1};
   transition: opacity 1s linear;

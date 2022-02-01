@@ -7,6 +7,10 @@ export const CaseDescriptionWrapper = styled.div`
   height: 727px;
   display: flex;
   justify-content: center;
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tabletPro')}) {
+    height: fit-content;
+  }
 `;
 
 export const ContentWrapper = styled.div`
@@ -14,11 +18,28 @@ export const ContentWrapper = styled.div`
   padding-top: 79px;
   display: flex;
   justify-content: space-between;
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tabletPro')}) {
+    width: 100%;  
+    padding: 70px 25px 20px;;
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.sTablet')}) {
+    flex-direction: column;
+  }
 `;
 
 export const TextWrap = styled.div`
   width: 540px;
   height: 737px;
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tabletPro')}) {
+    height: fit-content;
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.sTablet')}) {
+    width: 100%;
+  }
 
   h2 {
     font-weight: 800;
@@ -35,6 +56,10 @@ export const TextWrap = styled.div`
     letter-spacing: 0.1em;
     color: ${themeGet("colors.font2")};
     margin-bottom: 120px;
+
+    @media only screen and (max-width: ${themeGet('breakpoints.sTablet')}) {
+      margin-bottom: 30px;
+    }
   }
 
   .first {
@@ -48,10 +73,23 @@ export const TagsWrap = styled.div`
   background-color: ${themeGet("colors.background4")};
   padding-top: 35px;
   padding-left: 30px;
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+    padding-top: 10px;
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.sTablet')}) {
+    padding-left: 0;
+    height: fit-content;
+  }
 `;
 
 export const TagsCategory = styled.div`
   margin-bottom: 40px;
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+    margin-bottom: 20px;
+  }
 `;
 
 export const TagsHeading = styled.h3`
@@ -66,6 +104,10 @@ export const TagsHeading = styled.h3`
 export const LocationAndIndustryWrap = styled.div`
   display: flex;
   column-gap: 46px;
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+    flex-direction: column;
+  }
 `;
 
 export const TagFlexBox = styled.div`

@@ -12,6 +12,7 @@ export interface INavigation {
   setOnHoverElement: Function;
   onSelectedMenu: string | null;
   setOnSelectedMenu: Function;
+  backgroundColor: string;
 }
 
 export interface IBackgroundColor {

@@ -4,11 +4,17 @@ import NumberElement from "./NumberElement";
 import TextElement from "./TextElement";
 import { ScrollListTypes } from "./types";
 import { Slide, SliderContent, SliderContainer } from "./style";
+import { GetServicesPage_servicesPage_data_attributes_services_data } from "../../../graphql/services/__generated__/GetServicesPage";
+import { useIsMobile } from "../../../services/hooks";
+import { theme } from "../../../styles/theme";
 
 interface IVerticalFullPageSliderProps<T> {
-  slides: Array<T>;
+  slides: GetServicesPage_servicesPage_data_attributes_services_data[];
   scrollListType?: ScrollListTypes;
-  renderSlide: (slide: T, index: number) => ReactNode;
+  renderSlide: (
+    slide: GetServicesPage_servicesPage_data_attributes_services_data,
+    index: number
+  ) => ReactNode;
   bgColor?: string;
   stickyTopPosition?: number;
   maxWidth?: number;
@@ -23,10 +29,19 @@ function VerticalFullPageSlider<T>({
   maxWidth,
 }: IVerticalFullPageSliderProps<T>) {
   const [scrollItemHeight, setScrollItemHeight] = useState(0);
-  const position =
-    stickyTopPosition ||
-    `calc((100vh - ${MENU_HEIGHT}px) / 2 - ${scrollItemHeight / 2}px)`;
+  const isMobile = useIsMobile();
+  const [position, setPosition] = useState<string | number>('20vh');
 
+  useEffect(() => {
+    if (isMobile !== undefined) {
+      const position =
+        stickyTopPosition ||
+          `calc((${isMobile ? '50vh' : '100vh'} - ${isMobile ? '650px' : MENU_HEIGHT}px) / 2 - ${scrollItemHeight / 2}px)`;
+      console.log(isMobile);
+      setPosition(position);
+    }
+  }, [isMobile]);
+  
   const [lastScrollTop, setLastScrollTop] = useState(0);
   const [currentSection, setCurrentSection] = useState(0);
   const [scrollBlockPosition, setScrollBlockPosition] = useState("absolute");
@@ -49,11 +64,15 @@ function VerticalFullPageSlider<T>({
         (currentSection === 0 && scrollTopPosition > MENU_HEIGHT) ||
         (currentSection === allSlides.length - 1 &&
           scrollTopPosition < MENU_HEIGHT)
-      ) {
-        setScrollBlockPosition("absolute");
-      } else {
-        setScrollBlockPosition("fixed");
-      }
+          ) {
+            console.log("scrollTopPosition", scrollTopPosition);
+            console.log("MENU_HEIGHT", MENU_HEIGHT);
+            setScrollBlockPosition("absolute");
+          } else {
+            console.log("scrollTopPosition", scrollTopPosition);
+            console.log("MENU_HEIGHT", MENU_HEIGHT);
+            setScrollBlockPosition("fixed");
+          }
       if (
         direction === "down" &&
         allSlides[currentSection + 1]?.getBoundingClientRect().top < 250
@@ -86,8 +105,13 @@ function VerticalFullPageSlider<T>({
         );
 
       case ScrollListTypes.STRING:
-        //@ts-ignore
-        return <TextElement currentSlide={currentSection} labels={slides} />;
+        return (
+          <TextElement
+            currentSlide={currentSection}
+            labels={slides}
+            bgColor={theme.colors.black}
+          />
+        );
 
       default:
         return (
@@ -103,7 +127,7 @@ function VerticalFullPageSlider<T>({
     if (stickyTopPosition && scrollBlockPosition === "fixed")
       return `${stickyTopPosition + MENU_HEIGHT}px`;
     if (scrollBlockPosition === "fixed" || currentSection === slides.length - 1)
-      return "auto";
+      return `calc((${isMobile ? '50vh' : '100vh'} - ${isMobile ? '650px' : MENU_HEIGHT}px) / 2 - ${scrollItemHeight / 2}px)`;
     return position;
   };
 
@@ -111,7 +135,7 @@ function VerticalFullPageSlider<T>({
     if (scrollBlockPosition === "fixed") return position;
     if (currentSection === slides.length - 1) {
       if (stickyTopPosition)
-        return `calc(100vh - ${
+        return `calc(${isMobile ? '50vh' : '100vh'} - ${
           stickyTopPosition + MENU_HEIGHT + scrollItemHeight
         }px)`;
       return position;
@@ -127,13 +151,14 @@ function VerticalFullPageSlider<T>({
             position: scrollBlockPosition === "absolute" ? "absolute" : "fixed",
             bottom: getBottomPosition(),
             top: getTopPosition(),
+            left: '3px',
           }}
         >
           <div id="scroll-item">{renderScrollItem()}</div>
         </div>
         <div>
           {slides.map((slide, index) => (
-            <div key={`slide-${index}`} className="slide">
+            <div key={slide.id} className="slide">
               <Slide>{renderSlide(slide, index)}</Slide>
             </div>
           ))}

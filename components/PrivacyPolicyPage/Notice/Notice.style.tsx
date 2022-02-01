@@ -16,6 +16,11 @@ export const Div = styled.div`
   
   a {
     position: relative;
+
+    @media only screen and (max-width: ${themeGet('breakpoints.tabletPro')}) {
+      font-weight: 600;
+      padding-left: 7px;
+    }
     &:after {
       position: absolute;
       bottom: 5px;
@@ -27,6 +32,13 @@ export const Div = styled.div`
       height: 7px;
       width: 94px;
       background-color: ${themeGet("colors.yellow")};
+
+      @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) { 
+        bottom: 2px;
+        right: 0;
+        width: 82px;
+        }
+      }
     }
   }
   
@@ -35,6 +47,14 @@ export const Div = styled.div`
 export const Wrapper = styled.div`
   width: 100vw;
   padding: 16.5px 0;
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+    padding: 10px 25px;
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+    padding: 5px 15px;
+  }
 `;
 
 export const TextBlock = styled.div`
@@ -46,6 +66,15 @@ export const TextBlock = styled.div`
   justify-content: center;
   column-gap: 37px;
   color: ${themeGet("colors.black")};
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+    width: 100%;
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+    display: block;
+    width: 100%;
+  }
 `;
 
 export const H3 = styled.h3`
@@ -57,6 +86,10 @@ export const H3 = styled.h3`
   letter-spacing: 0.05em;
 
   color: ${themeGet("colors.black")};
+
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+    font-size: var(--fs-14);
+  }
 `;
 
 export const Button = styled.div`
@@ -76,5 +109,10 @@ export const Button = styled.div`
   color: ${themeGet("colors.white")};
   
   background-color: ${themeGet("colors.black")};
+
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+    padding: 8px 61.5px;
+    margin-top: 3px;
+  }
 `;
 

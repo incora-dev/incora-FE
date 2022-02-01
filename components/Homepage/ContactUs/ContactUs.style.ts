@@ -1,3 +1,4 @@
+import themeGet from "@styled-system/theme-get";
 import styled from "styled-components";
 import { theme } from "../../../styles/theme";
 
@@ -14,29 +15,24 @@ export  const  Container = styled.div`
   column-gap: 242px;
   
   margin: 0 auto;
-  padding: 85px 0 122px;
+  padding: 85px 0 120px;
 
-  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
-    padding: 53px 20px 53px;
+  @media only screen and (max-width: ${themeGet('breakpoints.tabletPro')}) {
+    padding: 40px 25px 50px;
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+    max-width: 100%;
+    column-gap: 85px;
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.sTablet')}) {
+    padding: 40px 15px 50px;
     flex-wrap: wrap;
     justify-content: center;
 
     >div:first-of-type {
       width: 100%;
-    }
-  }
-`;
-
-export  const  PositionLoading = styled.div`
-  position: absolute;
-  top: 101px;
-  right: -114px;
-  
-  svg {
-    transform: rotate(-45deg);
-    
-    path {
-      fill: #000;
     }
   }
 `;
@@ -50,6 +46,10 @@ export  const  H2 = styled.h2`
   font-weight: 800;
   font-size: var(--fs-64);
   line-height: 96px;
+  @media only screen and (max-width: ${themeGet('breakpoints.sTablet')}) {
+    font-size: var(--fs-48);
+    line-height: 50px;
+  }
 
   letter-spacing: 0.05em;
   white-space: nowrap;

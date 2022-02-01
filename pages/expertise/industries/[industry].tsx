@@ -4,14 +4,6 @@ import MainMenu from "../../../components/mainMenu/mainMenu";
 import { theme } from "../../../styles/theme";
 import { titles } from "../../../constants";
 import HeaderService from "../../../components/ServicePage/HeaderService";
-import { GridData } from "../../../components/BenefitsAndSolutions";
-import SoftwareForDeliveryManagement from "../../../public/SVG/industriesIcons/SoftwareforDeliveryManagement.svg"
-import PlugInForShipmentProcessing from "../../../public/SVG/industriesIcons/PlugInForShipmentProcessing.svg"
-import PlatformForPriorNoticeCreation from "../../../public/SVG/industriesIcons/PlatformForPriorNoticeCreation.svg"
-import CloudBasedWMSSoftware from "../../../public/SVG/industriesIcons/CloudBasedWMSSoftware.svg"
-import CRMForFreightForwarding from "../../../public/SVG/industriesIcons/CRMForFreightForwarding.svg"
-import TransportationManagementSystem from "../../../public/SVG/industriesIcons/TransportationManagementSystem.svg"
-
 import OfferedSolutions from "../../../components/ExpertisePage/OfferedSolutions";
 import { useEffect, useState } from "react";
 import NewsComponent from "../../../components/News";
@@ -22,71 +14,17 @@ import { IFooter } from "../../../interfaces/footer.interface";
 import Facebook from "../../../public/SVG/socialNetwork/facebook.svg";
 import LinkedIn from "../../../public/SVG/socialNetwork/linkedIn.svg";
 import Instagram from "../../../public/SVG/socialNetwork/instagram.svg";
+import { useRouter } from "next/router";
+import { useQuery } from "@apollo/client";
+import { GET_INDUSTRY_PAGE } from "../../../graphql/industries/queries";
+import Custom404 from "../../404";
+import { GetIndustryPage } from "../../../graphql/industries/__generated__/GetIndustryPage";
+import EmbodiedIdeasComponent from "../../../components/Homepage/EmbodiedIdeas";
+import { useIsMobile } from "../../../services/hooks";
 
 const colorWhite = theme.colors.white;
 const colorBlack = theme.colors.black;
 const hexagonColorGrey = theme.elements.hexagonBorderedGrey;
-
-const benefitsAndSolutionsData: GridData[] = [
-  {
-    title: 'Software for Delivery Management',
-    icon: SoftwareForDeliveryManagement,
-    text: 'Tool that simplifies the process and makes carrier research more enjoyable.'
-  },
-  {
-    title: 'Plug-in for Shipment Processing',
-    icon: PlugInForShipmentProcessing,
-    text: 'The parcel shipping service that other businesses can incorporate into their own systems or websites.'
-  },
-  {
-    title: 'Platform for Prior Notice Creation',
-    icon: PlatformForPriorNoticeCreation,
-    text: 'Service for forming Prior Notices in order to meet all FDA standards for food shipments.'
-  },
-  {
-    title: 'Cloud-Based WMS Software',
-    icon: CloudBasedWMSSoftware,
-    text: 'Warehouse Management System to manage the entire Supply Chain workflow cycle using Cloud solutions.\n'
-  },
-  {
-    title: 'CRM for Freight Forwarding',
-    icon: CRMForFreightForwarding,
-    text: 'The solution to maximize contact with clients, facilitate leads\' engagement, and monitor internal operation.'
-  },
-  {
-    title: 'Transportation Management System',
-    icon: TransportationManagementSystem,
-    text: 'TMS to oversee the shipment process in real-time, delivering critical information from manufacturers to distribution centers.'
-  }
-]
-
-const news = {
-  title: "Insights",
-  articles: [
-    {
-      img: "./../../newsBlock/image4.jpg",
-      tags: ["tagtitle", "tagtitle"],
-      categories: ["category"],
-      title:
-          "5 Ideas to Build a Marketable Supply Chain Software",
-      redirectTo: "5 Ideas to Build a Marketable Supply Chain Software",
-    },
-    {
-      img: "./../../newsBlock/image5.jpg",
-      tags: ["tagtitle"],
-      categories: ["category", "category"],
-      title: "TMS Workflow: Key Transportation Management System Functions",
-      redirectTo: "TMS Workflow: Key Transportation Management System Functions",
-    },
-    {
-      img: "/../../newsBlock/image6.jpg",
-      tags: ["tagtitle", "tagtitle"],
-      categories: ["category"],
-      title: "Top 10 Uber Freight Alternatives and How To Compete With Them",
-      redirectTo: "Top 10 Uber Freight Alternatives and How To Compete With Them",
-    },
-  ],
-};
 
 const contactUs: IContactUs = {
   title: "contact us",
@@ -111,64 +49,107 @@ const footer: IFooter = {
   copyright: "© 2015-2022 Incora LLC",
 };
 
-const text = 'Make a significant leap forward to innovative logistics solutions for enhancing the performance of the shipping industry with your tech ideas.'
-
 const Industry = () => {
-  const [menuColor, setMenuColor] = useState('none');
+  const router = useRouter();
+  const { industry } = router.query;
+
+  const { data, loading, error } = useQuery<GetIndustryPage>(
+    GET_INDUSTRY_PAGE,
+    {
+      variables: {
+        url: industry,
+      },
+    }
+  );
+  const entry = data?.industries?.data[0].attributes;
+  const headerTitle = entry?.name;
+  const headerDescription = entry?.description;
+  const headerIcon = entry?.icon?.data?.attributes;
+  const offeredSolutionsIntro = entry?.offeredSolutions?.intro;
+  const offeredSolutionsData = entry?.offeredSolutions?.items;
+  const contactUsTitle = entry?.contactUs?.title;
+  const contactUsSubtitle = entry?.contactUs?.subtitle;
+  const newsTitle = entry?.insights.intro;
+  const articles = entry?.insights.articles?.data;
+  const projects = entry?.projects?.data;
+
+  const [menuColor, setMenuColor] = useState("none");
   const handleScroll = () => {
-    window.scrollY >= 50
-        ? setMenuColor(colorWhite)
-        : setMenuColor('none')
-  }
+    window.scrollY >= 50 ? setMenuColor(colorWhite) : setMenuColor("none");
+  };
+  const isMobile = useIsMobile();
 
   useEffect(() => {
-    window.addEventListener('scroll', handleScroll)
+    window.addEventListener("scroll", handleScroll);
 
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [])
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const renderCondition =
+    headerTitle &&
+    headerDescription &&
+    headerIcon &&
+    offeredSolutionsIntro &&
+    offeredSolutionsData &&
+    contactUsTitle &&
+    contactUsSubtitle &&
+    newsTitle &&
+    articles &&
+    projects;
+
+  if (loading) return null;
+  if (error) return <Custom404 />;
 
   return (
-      <>
-        <Head>
-          <title>Incora | Industries</title>
-          <meta name="description" content="Generated by create next app" />
-          <link rel="icon" href="/favicon.ico" />
-        </Head>
+    <>
+      {renderCondition && (
         <>
-          <MainMenu
-            backgroundColor={menuColor}
-            titlesColor={colorBlack}
-            titles={titles}
-          >
-            <HeaderService
-              title={'Logistics'}
-              titleSize={'64px'}
-              text={text}
-              textWidth={'560px'}
-              hexagonColor={hexagonColorGrey}
-              bgColor={colorWhite}
-            />
-            <OfferedSolutions data={benefitsAndSolutionsData}/>
-            <NewsComponent title={'Insights'} articles={news.articles}/>
-            <ContactUsComponent
-                title={contactUs.title}
-                text={contactUs.text}
+          <Head>
+            <title>Incora | Industries</title>
+            <meta name="description" content="Generated by create next app" />
+            <link rel="icon" href="/favicon.ico" />
+          </Head>
+          <>
+            <MainMenu
+              backgroundColor={isMobile ? colorWhite : menuColor}
+              titlesColor={colorBlack}
+              titles={titles}
+            >
+              <HeaderService
+                title={headerTitle}
+                titleSize={isMobile ? "50px" : "64px"}
+                icon={headerIcon}
+                text={headerDescription}
+                textWidth={"560px"}
+                hexagonColor={hexagonColorGrey}
+                bgColor={colorWhite}
+              />
+              <OfferedSolutions
+                intro={offeredSolutionsIntro}
+                data={offeredSolutionsData}
+              />
+              <EmbodiedIdeasComponent
+                bgColor={theme.colors.yellow}
+                elementsColor={theme.colors.black}
+                projects={projects}
+                disablePadding
+                disableSeeMore
+              />
+              <NewsComponent title={newsTitle} articles={articles} />
+              <ContactUsComponent
+                title={contactUsTitle}
+                text={contactUsSubtitle}
                 formLabels={contactUs.formLabels}
                 addresses={contactUs.addresses}
                 buttonLabel={contactUs.buttonLabel}
-            />
-          </MainMenu>
-          <FooterComponent
-              policies={footer.policies}
-              offices={footer.offices}
-              followUs={footer.followUs}
-              pages={footer.pages}
-              copyright={footer.copyright}
-          />
+              />
+            </MainMenu>
+            <FooterComponent />
+          </>
         </>
-      </>
-  )
-}
+      )}
+    </>
+  );
+};
 
 export default Industry;
-

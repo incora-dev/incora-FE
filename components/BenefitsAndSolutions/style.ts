@@ -1,5 +1,6 @@
 import themeGet from "@styled-system/theme-get";
 import styled from "styled-components";
+import { theme } from "../../styles/theme";
 
 interface IGridItemWrap {
   width: number;
@@ -21,17 +22,39 @@ export const BenefitsAndSolutionsWrap = styled.div`
   position: relative;
 
   background-color: ${({ bgColor }: IBackground) => bgColor};
+
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+    height: 220vh;
+  }
+  @media only screen and (max-width:  ${themeGet('breakpoints.mMobile')}) {
+    height: 260vh;
+  }
+  @media only screen and (max-width:  ${themeGet('breakpoints.xsMobile')}) {
+    height: 310vh;
+  }
 `;
 
 export const ContentWrap = styled.div`
   padding-top: 120px;
+ @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+    padding-top: 50px;
+  }
   position: absolute;
   width: 1006px;
+
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+    width: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
 
   h1 {
     font-weight: 800;
     font-size: var(--fs-36);
     line-height: 54px;
+@media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+  line-height: 40px;
+}
     color: ${themeGet("colors.white")};
     letter-spacing: ${themeGet("letterSpacing.h1")};
     text-transform: capitalize;
@@ -44,6 +67,10 @@ export const Grid = styled.div`
   flex-flow: wrap;
   column-gap: 70px;
   row-gap: ${({ rowGap }: IGrid) => `${rowGap}px`};
+
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+    row-gap: 50px;
+  }
 `;
 
 export const GridItemWrap = styled.div`

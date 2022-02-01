@@ -1,9 +1,12 @@
 import styled from "styled-components";
+import themeGet from "@styled-system/theme-get";
 
-interface IChangeColor{
-  bgColor?: string;
+interface IChangeColorText{
   color?: string;
+}
 
+interface IChangeColorTags{
+  bgColor?: string;
 }
 
 export const Container = styled.div`
@@ -15,6 +18,9 @@ export const Container = styled.div`
 `;
 
 export const Strong = styled.strong`
+  z-index: 1;
+  position: relative;
+
   margin: 7px 10px;
 
   font-style: normal;
@@ -24,31 +30,41 @@ export const Strong = styled.strong`
 
   letter-spacing: 0.1em;
 
-  color: ${({ color }: IChangeColor) => color ? color : '#fff'};
+  color: ${({ color }: IChangeColorText) => color ? color : '#fff'};
 `;
 
-export const A = styled.a`
+export const Div = styled.div`
+  position: relative;
+
   display: flex;
   align-items: center;
 
   height: 22px;
-  left: calc(50% - 69px / 2 - 145.5px);
   top: 0;
 
   cursor: pointer;
-  background-color: ${({ bgColor }: IChangeColor) => bgColor ? bgColor : '#454A4D'};
+  background-color: ${({ bgColor }: IChangeColorTags) => bgColor ? bgColor : '#454A4D'};
   
   border-radius: 5px;
+  
+  &:after {
+    position: absolute;
+    top: 0;
+  
+    height: 100%;
+    width: 0;
+    
+    content: '';
 
+    border-radius: 5px;
 
-  box-shadow: inset 0 0 0 0 #ffc400;
-  -webkit-transition: ease-out 0.4s;
-  -moz-transition: ease-out 0.4s;
-  transition: ease-out 0.4s;
+    background-color: ${themeGet("colors.yellow")};
 
+    transition: width ${themeGet("transition.button")};
+  }
 
-  &:hover {
-    box-shadow: inset 100px 0 0 0 #ffc400;
+  &:hover :after {
+    width: 100%;
   }
 `;
 

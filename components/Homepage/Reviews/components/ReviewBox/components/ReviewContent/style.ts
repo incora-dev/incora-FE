@@ -8,7 +8,7 @@ export const ReviewContentWrap = styled.div`
   display: flex;
   justify-content: space-between;
   
-  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     width: 100%;
     flex-direction: column-reverse;
     align-items: center;
@@ -26,14 +26,15 @@ export const QuoteWrap = styled.div`
     }
   }
 
-  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     width: 100%;
   }
 `;
 
 export const QuoteText = styled.p`
+  max-width: 576px;
   padding-top: 10px;
-  font-family: Poppins;
+
   font-style: normal;
   font-weight: normal;
   font-size: var(--fs-14);
@@ -42,12 +43,11 @@ export const QuoteText = styled.p`
 `;
 
 export const AvatarWrap = styled.div`
-  width: 221px;
   margin-top: 14px;
   display: flex;
   justify-content: flex-end;
 
-  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     justify-content: center;
     >div {
       display: flex;
@@ -64,10 +64,10 @@ export const Photo = styled(Image)`
 `;
 
 export const NameWrap = styled.div`
-  padding-top: 10px;
+  margin-top: 6px;
   color: ${themeGet("colors.white")};
   font-size: var(--fs-13);
-  letter-spacing: 1px;
+  letter-spacing: 0.1em;
 
   h3 {
     text-transform: uppercase;

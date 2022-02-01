@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { theme } from '../../styles/theme';
+import { theme } from "../../styles/theme";
 import themeGet from "@styled-system/theme-get";
 
 interface IMenu {
@@ -23,20 +23,30 @@ export const Wrapper = styled.div`
   z-index: 10;
   padding: 0 100px;
 
+  @media only screen and (max-width: ${themeGet("breakpoints.tabletPro")}) {
+    padding: 0 25px;
+  }
+
+  @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
+    padding: 0 20px;
+  }
   @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
-      padding: 0 20px;
+    padding: 0 15px;
   }
 
   background-color: ${({ backgroundColor }: IMenu) => backgroundColor};
   transition: background-color ${themeGet("transition.menu")};
-  
+
   &:hover {
-    background-color: ${({ titlesColor }: IMenu) => titlesColor === theme.colors.black ? theme.colors.white : theme.colors.black};
+    background-color: ${({ titlesColor }: IMenu) =>
+      titlesColor === theme.colors.black
+        ? theme.colors.white
+        : theme.colors.black};
   }
 `;
 
 export const ContentWrapper = styled.div`
-  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+  @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
     overflow-x: hidden;
   }
 `;
@@ -49,21 +59,21 @@ export const Block = styled.div`
   width: 100%;
   gap: 20px;
 
-  @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
-    flex-direction: column;
+  @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
+    padding: 10px 0;
+    flex-direction: row-reverse;
   }
 `;
 
 export const IncoraLogo = styled.img`
   max-width: 120px;
+  cursor: pointer;
 
- @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
+  @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
+     max-width: 100px; 
+   }
+  @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
     max-width: 60px;
-  }
-  
-  img {
-    cursor: pointer;
-  }
 `;
 
 export const HoverMenu = styled.div`
@@ -71,14 +81,35 @@ export const HoverMenu = styled.div`
   top: 0;
   left: 0;
 
-  opacity: ${({ isShow }: IHoverMenu) => isShow ? 1 : 0};
-  pointer-events: ${({ isShow }: IHoverMenu) => isShow ? 'auto' : 'none'};
+  opacity: ${({ isShow }: IHoverMenu) => (isShow ? 1 : 0)};
+  pointer-events: ${({ isShow }: IHoverMenu) => (isShow ? "auto" : "none")};
 
-  background-color: ${({ titlesColor }: IHoverMenu) => titlesColor === theme.colors.black ? theme.colors.white : theme.colors.black};
+  background-color: ${({ titlesColor }: IHoverMenu) =>
+    titlesColor === theme.colors.black
+      ? theme.colors.white
+      : theme.colors.black};
 
   margin: 104px auto 0 auto;
   width: 100%;
   height: 461px;
 
   transition: opacity ${themeGet("transition.menu")};
+
+  @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
+    margin: 65px auto 0 auto;
+  }
+`;
+
+export const CloseBtn = styled.button`
+  mix-blend-mode: difference;
+  background: black;
+  border: none;
+  color: white;
+  width: 30px;
+  height: 30px;
+  font-size: 20px;
+  position: fixed;
+  margin: 10px;
+  right: 0;
+  z-index: 21;
 `;

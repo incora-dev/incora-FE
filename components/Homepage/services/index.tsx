@@ -33,17 +33,12 @@ import Cube3 from "../../../public/SVG/Cube3.svg"
 import HexagonBordered from "../../../public/hexagonBordered.svg"
 import HexagonFilled from "../../../public/hexagonFilled.svg"
 import { theme } from "../../../styles/theme";
+import Link from "next/link";
+import { useIsMobile } from "../../../services/hooks";
 
 function ServicesComponent({ title, text, labels }: IServices) {
   const [ onEnterBlock, setOnEnterBlock] = useState(false);
-  const [isMobile, setIsMobile] = useState<boolean>();
-
-  useEffect(() => {
-    const width = window.innerWidth;
-    const mobileWidth = +theme.breakpoints.mobile.replace('px', '');
-    const isMobile = mobileWidth > width;
-    setIsMobile(isMobile);
-  },[]);
+    const isMobile = useIsMobile();
 
   return (
     <Component
@@ -65,9 +60,9 @@ function ServicesComponent({ title, text, labels }: IServices) {
               <Labels>
                 {
                   labels.map((label, index) =>
-                    <a href={label} key={index}>
+                    <Link href={`/services/${label.replace('/', '').replace(' ', '_')}`} key={index}>
                       <Label key={index}>{label}</Label>
-                    </a>
+                    </Link>
                   )
                 }
               </Labels>

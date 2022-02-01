@@ -1,12 +1,13 @@
+import themeGet from "@styled-system/theme-get";
 import styled from "styled-components";
 import { theme } from "../../../../styles/theme";
 
 export const Container = styled.div`
   position: relative;
-
+  right: -28px;
   margin-top: 47px;
   margin-left: 4px;
-  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     svg {
       position: relative;
       left: 55px;
@@ -31,12 +32,22 @@ export const AddressesContainer = styled.div`
   row-gap: 27px;
 
   margin: auto;
-  @media only screen and (max-width: ${theme.breakpoints.mobile}) {
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+    left: 15px;
+  }
+  @media only screen and (max-width: ${themeGet('breakpoints.mMobile')}) {
+    left: 30px;
+  }
+  @media only screen and (max-width: ${themeGet('breakpoints.xsMobile')}) {
     left: 20px;
+    width: 90%;
   }
 `;
 
 export const Address = styled.div`
+@media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+    width: inherit;
+  }
 `;
 
 export const Country = styled.div`
@@ -53,7 +64,6 @@ export const Country = styled.div`
 `;
 
 export const Street = styled.div`
-  font-family: Poppins;
   font-style: normal;
   font-weight: 600;
   font-size: var(--fs-16);
@@ -63,4 +73,18 @@ export const Street = styled.div`
   text-transform: capitalize;
 
   color: #000;
+`;
+
+export  const  PositionLoading = styled.div`
+  position: absolute;
+  top: -32px;
+  right: -87px;
+  
+  svg {
+    transform: rotate(-45deg);
+    
+    path {
+      fill: #000;
+    }
+  }
 `;

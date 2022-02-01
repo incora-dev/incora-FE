@@ -5,6 +5,7 @@ import TextElement from "./TextElement";
 import { ScrollListTypes } from "./types";
 import { Slide, SliderContent, SliderContainer } from "./style";
 import { GetServicesPage_servicesPage_data_attributes_services_data } from "../../../graphql/services/__generated__/GetServicesPage";
+import { theme } from "../../../styles/theme";
 
 interface IVerticalFullPageSliderProps<T> {
   slides: GetServicesPage_servicesPage_data_attributes_services_data[];
@@ -90,7 +91,13 @@ function VerticalFullPageSlider<T>({
         );
 
       case ScrollListTypes.STRING:
-        return <TextElement currentSlide={currentSection} labels={slides} />;
+        return (
+          <TextElement
+            currentSlide={currentSection}
+            labels={slides}
+            bgColor={theme.colors.black}
+          />
+        );
 
       default:
         return (

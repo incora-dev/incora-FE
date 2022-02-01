@@ -19,7 +19,7 @@ export interface GetServicesPage_servicesPage_data_attributes_services_data_attr
   outcomes: string;
   name: string;
   estimatedTime: string;
-  description: string;
+  descriptionForServicesPage: string | null;
 }
 
 export interface GetServicesPage_servicesPage_data_attributes_services_data {
@@ -98,19 +98,30 @@ export interface GetServicesPage_servicesPage_data_attributes_contactUs {
   subtitle: string;
 }
 
-export interface GetServicesPage_servicesPage_data_attributes_SEO_meta {
-  __typename: "ComponentCommonMeta";
-  id: string;
-  name: string | null;
-  content: string | null;
+export interface GetServicesPage_servicesPage_data_attributes_SEO_ogImage_data_attributes {
+  __typename: "UploadFile";
+  url: string;
+}
+
+export interface GetServicesPage_servicesPage_data_attributes_SEO_ogImage_data {
+  __typename: "UploadFileEntity";
+  id: string | null;
+  attributes: GetServicesPage_servicesPage_data_attributes_SEO_ogImage_data_attributes | null;
+}
+
+export interface GetServicesPage_servicesPage_data_attributes_SEO_ogImage {
+  __typename: "UploadFileEntityResponse";
+  data: GetServicesPage_servicesPage_data_attributes_SEO_ogImage_data | null;
 }
 
 export interface GetServicesPage_servicesPage_data_attributes_SEO {
   __typename: "ComponentCommonSeo";
   id: string;
-  meta: (GetServicesPage_servicesPage_data_attributes_SEO_meta | null)[] | null;
   keywords: string | null;
   description: string | null;
+  ogTitle: string | null;
+  ogDescription: string | null;
+  ogImage: GetServicesPage_servicesPage_data_attributes_SEO_ogImage | null;
 }
 
 export interface GetServicesPage_servicesPage_data_attributes {

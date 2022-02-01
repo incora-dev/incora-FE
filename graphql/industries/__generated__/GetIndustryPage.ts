@@ -56,21 +56,21 @@ export interface GetIndustryPage_industries_data_attributes_offeredSolutions {
   items: (GetIndustryPage_industries_data_attributes_offeredSolutions_items | null)[];
 }
 
-export interface GetIndustryPage_industries_data_attributes_projects_data_attributes_technologies_data_attributes {
-  __typename: "Technology";
+export interface GetIndustryPage_industries_data_attributes_projects_data_attributes_industry_data_attributes {
+  __typename: "Industry";
   name: string;
   url: string | null;
 }
 
-export interface GetIndustryPage_industries_data_attributes_projects_data_attributes_technologies_data {
-  __typename: "TechnologyEntity";
+export interface GetIndustryPage_industries_data_attributes_projects_data_attributes_industry_data {
+  __typename: "IndustryEntity";
   id: string | null;
-  attributes: GetIndustryPage_industries_data_attributes_projects_data_attributes_technologies_data_attributes | null;
+  attributes: GetIndustryPage_industries_data_attributes_projects_data_attributes_industry_data_attributes | null;
 }
 
-export interface GetIndustryPage_industries_data_attributes_projects_data_attributes_technologies {
-  __typename: "TechnologyRelationResponseCollection";
-  data: GetIndustryPage_industries_data_attributes_projects_data_attributes_technologies_data[];
+export interface GetIndustryPage_industries_data_attributes_projects_data_attributes_industry {
+  __typename: "IndustryEntityResponse";
+  data: GetIndustryPage_industries_data_attributes_projects_data_attributes_industry_data | null;
 }
 
 export interface GetIndustryPage_industries_data_attributes_projects_data_attributes_featuredImage_data_attributes {
@@ -90,10 +90,10 @@ export interface GetIndustryPage_industries_data_attributes_projects_data_attrib
 
 export interface GetIndustryPage_industries_data_attributes_projects_data_attributes {
   __typename: "Project";
-  technologies: GetIndustryPage_industries_data_attributes_projects_data_attributes_technologies | null;
+  url: string | null;
   name: string;
   description: string;
-  url: string | null;
+  industry: GetIndustryPage_industries_data_attributes_projects_data_attributes_industry | null;
   featuredImage: GetIndustryPage_industries_data_attributes_projects_data_attributes_featuredImage;
 }
 
@@ -189,19 +189,30 @@ export interface GetIndustryPage_industries_data_attributes_contactUs {
   subtitle: string;
 }
 
-export interface GetIndustryPage_industries_data_attributes_SEO_meta {
-  __typename: "ComponentCommonMeta";
-  id: string;
-  name: string | null;
-  content: string | null;
+export interface GetIndustryPage_industries_data_attributes_SEO_ogImage_data_attributes {
+  __typename: "UploadFile";
+  url: string;
+}
+
+export interface GetIndustryPage_industries_data_attributes_SEO_ogImage_data {
+  __typename: "UploadFileEntity";
+  id: string | null;
+  attributes: GetIndustryPage_industries_data_attributes_SEO_ogImage_data_attributes | null;
+}
+
+export interface GetIndustryPage_industries_data_attributes_SEO_ogImage {
+  __typename: "UploadFileEntityResponse";
+  data: GetIndustryPage_industries_data_attributes_SEO_ogImage_data | null;
 }
 
 export interface GetIndustryPage_industries_data_attributes_SEO {
   __typename: "ComponentCommonSeo";
   id: string;
-  meta: (GetIndustryPage_industries_data_attributes_SEO_meta | null)[] | null;
   keywords: string | null;
   description: string | null;
+  ogTitle: string | null;
+  ogDescription: string | null;
+  ogImage: GetIndustryPage_industries_data_attributes_SEO_ogImage | null;
 }
 
 export interface GetIndustryPage_industries_data_attributes {

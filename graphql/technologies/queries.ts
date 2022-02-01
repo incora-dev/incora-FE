@@ -137,13 +137,18 @@ export const GET_TECHNOLOGY_PAGE = gql`
 
           SEO {
             id
-            meta {
-              id
-              name
-              content
-            }
-            description
             keywords
+            description
+            ogTitle
+            ogDescription
+            ogImage {
+              data {
+                id
+                attributes {
+                  url
+                }
+              }
+            }
           }
         }
       }

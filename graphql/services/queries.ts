@@ -17,7 +17,7 @@ export const GET_SERVICES_PAGE = gql`
                 outcomes
                 name
                 estimatedTime
-                description
+                descriptionForServicesPage
               }
             }
           }
@@ -58,13 +58,18 @@ export const GET_SERVICES_PAGE = gql`
 
           SEO {
             id
-            meta {
-              id
-              name
-              content
-            }
             keywords
             description
+            ogTitle 
+            ogDescription
+            ogImage {
+              data {
+                id
+                attributes {
+                  url
+                }
+              }
+            }
           }
         }
       }
@@ -176,13 +181,18 @@ export const GET_SERVICE = gql`
 
           SEO {
             id
-            meta {
-              id
-              name
-              content
-            }
             keywords
             description
+            ogTitle 
+            ogDescription
+            ogImage {
+              data {
+                id
+                attributes {
+                  url
+                }
+              }
+            }
           }
         }
       }

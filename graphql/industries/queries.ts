@@ -39,7 +39,10 @@ export const GET_INDUSTRY_PAGE = gql`
             data {
               id
               attributes {
-                technologies {
+                url
+                name
+                description
+                industry {
                   data {
                     id
                     attributes {
@@ -48,9 +51,6 @@ export const GET_INDUSTRY_PAGE = gql`
                     }
                   }
                 }
-                name
-                description
-                url
                 featuredImage {
                   data {
                     attributes {
@@ -106,13 +106,18 @@ export const GET_INDUSTRY_PAGE = gql`
 
           SEO {
             id
-            meta {
-              id
-              name
-              content
-            }
             keywords
             description
+            ogTitle 
+            ogDescription
+            ogImage {
+              data {
+                id
+                attributes {
+                  url
+                }
+              }
+            }
           }
         }
       }

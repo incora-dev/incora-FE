@@ -58,7 +58,7 @@ const InformationComponent = ({ slide }: IInformationComponent) => {
   ) => (
     <>
       <H2>{slide.name}</H2>
-      <P>{slide.description}</P>
+      <P>{slide.descriptionForServicesPage}</P>
       <EstimatedTimeAndOutcomesBlock>
         {getEstimatedTimeInfo(slide)}
         {getOutcomesInfo(slide)}

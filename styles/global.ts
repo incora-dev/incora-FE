@@ -9,6 +9,7 @@ const GlobalStyle = createGlobalStyle`
     --fs-72: 4.5rem;
     --fs-64: 4rem;
     --fs-48: 3rem;
+    --fs-40: 2.5rem;
     --fs-36: 2.25rem;
     --fs-28: 1.75rem;
     --fs-26: 1.625rem;

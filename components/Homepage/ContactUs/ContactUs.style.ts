@@ -50,7 +50,7 @@ export  const  H2 = styled.h2`
   line-height: 96px;
 
   @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
-    font-size: var(--fs-48);
+    font-size: var(--fs-40);
     line-height: 72px;
   }
   @media only screen and (max-width: ${themeGet('breakpoints.sTablet')}) {

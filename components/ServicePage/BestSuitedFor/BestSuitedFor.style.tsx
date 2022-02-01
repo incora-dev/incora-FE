@@ -13,6 +13,14 @@ export const Div = styled.div`
 
 export const Wrapper = styled.div`
   padding-top: 119px;
+
+  @media only screen and (max-width: ${themeGet("breakpoints.tabletPro")}) {
+    padding: 80px 25px 0;
+  }
+
+  @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
+    padding: 55px 15px 0;
+  }
 `;
 
 export const H1 = styled.h1`
@@ -46,6 +54,29 @@ export const Content = styled.div`
   row-gap: 70px;
   flex-wrap: wrap;
   justify-content: center;
+
+  @media only screen and (max-width: ${themeGet("breakpoints.tabletPro")}) {
+    min-height: fit-content;
+    padding: 63px 0 120px 0;
+    left: 0;
+    column-gap: 40px;
+    row-gap: 45px;
+  }
+
+  @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
+    padding: 40px 0 100px 0;
+    justify-content: flex-start;
+  }
+
+  @media only screen and (max-width: ${themeGet("breakpoints.sTablet")}) {
+    column-gap: 0;
+  }
+
+  @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
+    flex-direction: column;
+    padding: 25px 0 60px 0;
+    row-gap: 15px;
+  }
 `;
 
 export const ContentWrapper = styled.div`
@@ -54,6 +85,10 @@ export const ContentWrapper = styled.div`
 
   svg {
     transform: rotate(195deg);
+
+    @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
+      width: 50px;
+    }
   }
 
   opacity: ${({ animation }: IAnimation) => (animation ? "1" : "0")};
@@ -75,6 +110,15 @@ export const Text = styled.p`
   line-height: 27px;
   letter-spacing: 0.05em;
   text-transform: capitalize;
+
+  @media only screen and (max-width: ${themeGet("breakpoints.sTablet")}) {
+    font-size: var(--fs-16);
+    max-width: 154px;
+  }
+
+  @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
+    max-width: 290px;
+  }
 `;
 
 export const PositionDots = styled.div`
@@ -83,4 +127,9 @@ export const PositionDots = styled.div`
   left: 38px;
 
   transform: rotate(60deg);
+
+  @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
+    top: 23px;
+    left: 29px;
+  }
 `;

@@ -55,7 +55,7 @@ export const TextContainer = styled.div`
   }
 
   @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
-    width: calc(100% - 180px);
+    width: calc(100% - 200px);
   }
 
   @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
@@ -143,6 +143,7 @@ export const PositionIcon = styled.div`
 
   @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
     width: 200px;
+    top: 165px;
   }
 
   @media only screen and (max-width: ${themeGet('breakpoints.sTablet')}) {

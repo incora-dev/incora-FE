@@ -29,6 +29,10 @@ export const PositionHexagon3 = styled.div`
 
   top: 92px;
   left: -2px;
+
+  @media only screen and (max-width: ${themeGet('breakpoints.sTablet')}) {
+    display: none;
+  }
 `
 
 export const Wrapper = styled.div`
@@ -45,6 +49,16 @@ export const TextBlock = styled.div`
   display: flex;
   justify-content: space-between;
 
+  @media only screen and (max-width: ${themeGet('breakpoints.tabletPro')}) {
+    padding: 60px 25px;
+    column-gap: 40px;
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.sTablet')}) {
+    flex-direction: column;
+    row-gap: 30px;
+  }
+
   @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     padding: 53px 15px;
   }
@@ -56,6 +70,15 @@ export const Content = styled.div`
   display: flex;
   flex-direction: column;
   row-gap: 63px;
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+    min-width: 450px;
+    row-gap: 40px;
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+    min-width: 100%;
+  }
 `;
 
 export const ContentWrapper = styled.div`
@@ -76,15 +99,23 @@ export const H1 = styled.h1`
   font-weight: 800;
   font-size: var(--fs-64);
   line-height: 96px;
-@media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
-  line-height: 50px;
-}
   letter-spacing: 0.05em;
 
   color: #000000;
 
-  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+    font-size: var(--fs-40);
+    line-height: 60px;
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.sTablet')}) {
+    font-size: var(--fs-36);
     line-height: 50px;
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+    font-size: var(--fs-28);
+    line-height: 42px;
   }
 `;
 
@@ -102,6 +133,10 @@ export const Sphere = styled.div`
     #fec506 14.9%,
     rgba(254, 197, 6, 0.2) 85.57%
   );
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+    left: -15px;
+  }
 `;
 
 export const H2 = styled.h2`
@@ -119,6 +154,15 @@ export const H2 = styled.h2`
   letter-spacing: 0.05em;
 
   color: #000000;
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+    width: 100%;
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+    font-size: var(--fs-20);
+    line-height: 30px;
+  }
 `;
 
 export const Text = styled.p`
@@ -134,4 +178,8 @@ export const Text = styled.p`
   letter-spacing: 0.1em;
 
   color: #454a4d;
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+    line-height: 27px;
+  }
 `;

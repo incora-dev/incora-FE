@@ -17,8 +17,11 @@ export  const  Container = styled.div`
   margin: 0 auto;
   padding: 85px 0 122px;
 
-  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+  @media only screen and (max-width: ${themeGet('breakpoints.tabletPro')}) {
     padding: 40px 25px 50px;
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
     max-width: 100%;
     column-gap: 85px;
   }

@@ -10,6 +10,10 @@ export const OurTraditionsWrapper = styled.div`
   align-items: center;
   flex-flow: column;
 
+  @media only screen and (max-width: ${themeGet('breakpoints.tabletPro')}) {
+    padding: 70px 25px 15px;
+  }
+
   @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
     padding: 60px 25px 15px;
   }
@@ -25,7 +29,7 @@ export const OurTraditionsTextWrap = styled.div`
   display: flex;
   justify-content: center;
 
-  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+  @media only screen and (max-width: ${themeGet('breakpoints.tabletPro')}) {
     height: auto;
     margin-bottom: 40px;
   }
@@ -35,8 +39,8 @@ export const TextWrap = styled.div`
   height: 330px;
   width: 1002px;
 
-  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
-    height: auto;
+  @media only screen and (max-width: ${themeGet('breakpoints.tabletPro')}) {
+    height: fit-content;
     width: 100%;
   }
 
@@ -98,12 +102,12 @@ export const Photos = styled.div`
   overflow: scroll;
 
   span {
-    @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+    @media only screen and (max-width: ${themeGet('breakpoints.tabletPro')}) {
       display:none !important;
     }
   }
   span:nth-child(-n+3) {
-    @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+    @media only screen and (max-width: ${themeGet('breakpoints.tabletPro')}) {
       display:inline-block !important;
     }
   }

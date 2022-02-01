@@ -9,6 +9,10 @@ export const MembersWrapper = styled.div`
   justify-content: center;
   position: relative;
 
+  @media only screen and (max-width: ${themeGet('breakpoints.tabletPro')}) {
+    padding: 0 25px;
+  }
+
   @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
     height: auto;
     flex-direction: column;
@@ -43,12 +47,17 @@ export const NumbersWrap = styled.div`
   justify-content: center;
   flex-direction: column;
 
+  @media only screen and (max-width: ${themeGet('breakpoints.tabletPro')}) {
+    padding-left: 25px;
+  }
+
   @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
     width: 100%;
     height: auto;
     flex-direction: row;
     justify-content: center;
     column-gap: 60px;
+    padding-left: 0;
   }
 
   @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
@@ -64,10 +73,15 @@ export const MembersPhotosWrap = styled.div`
   justify-content: space-between;
   flex-wrap: wrap;
 
+  @media only screen and (max-width: ${themeGet('breakpoints.tabletPro')}) {
+    padding-right: 25px;
+  }
+
   @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
     width: 500px;
     bottom: auto;
     column-gap: 30px;
+    padding-right: 0;
   }
 
   @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {

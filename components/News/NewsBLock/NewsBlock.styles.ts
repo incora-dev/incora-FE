@@ -19,7 +19,7 @@ export const Container = styled.div`
     display: none;
   }
 
-  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+  @media only screen and (max-width: ${themeGet('breakpoints.tabletPro')}) {
     padding: 0 25px;
     column-gap: 40px;
   }

@@ -38,6 +38,14 @@ export const ProjectOverviewItemWrapper = styled.div`
     isLeft ? "120px" : "150px"};
   padding-left: ${({ isLeft }: IProjectOverviewItemWrapper) =>
     isLeft ? "0" : "110px"};
+
+    @media only screen and (max-width: ${themeGet('breakpoints.mediumDesk')}) {
+      width: 100%;
+      height: fit-content;
+      padding-right: 0;
+      padding-left: 0;
+      column-gap: 30px;
+    }
 `;
 
 export const ImageWrap = styled.div`
@@ -70,6 +78,16 @@ export const TextWrap = styled.div`
   width: 439px;
   padding-top: ${({ isLeft }: IProjectOverviewItemWrapper) =>
     isLeft ? "5px" : "70px"};
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tabletPro')}) {
+    width: calc(100% - 600px);
+    padding-left: ${({ isLeft }: IProjectOverviewItemWrapper) =>
+    isLeft ? "0" : "25px"};
+    padding-right: ${({ isLeft }: IProjectOverviewItemWrapper) =>
+    isLeft ? "25px" : "0"};
+    padding-top: ${({ isLeft }: IProjectOverviewItemWrapper) =>
+    isLeft ? "5px" : "50px"};
+  }
 
   > h2 {
     font-weight: 800;
@@ -124,6 +142,11 @@ export const DecorationWrapper = styled.div`
     z-index: 0;
     right: -45px;
     bottom: -45px;
+
+    @media only screen and (max-width: ${themeGet('breakpoints.mediumDesk')}) {
+      right: 0;
+      bottom: -70px;
+    }
   }
 
   .dots1_wrap {

@@ -7,6 +7,10 @@ export const CaseDescriptionWrapper = styled.div`
   height: 727px;
   display: flex;
   justify-content: center;
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tabletPro')}) {
+    height: fit-content;
+  }
 `;
 
 export const ContentWrapper = styled.div`
@@ -14,11 +18,20 @@ export const ContentWrapper = styled.div`
   padding-top: 79px;
   display: flex;
   justify-content: space-between;
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tabletPro')}) {
+    width: 100%;  
+    padding: 70px 25px 20px;;
+  }
 `;
 
 export const TextWrap = styled.div`
   width: 540px;
   height: 737px;
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tabletPro')}) {
+    height: fit-content;
+  }
 
   h2 {
     font-weight: 800;

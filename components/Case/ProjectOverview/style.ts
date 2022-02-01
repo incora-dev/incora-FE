@@ -8,21 +8,35 @@ export const ProjectOverviewWrapper = styled.div`
   align-items: center;
   flex-direction: column;
   margin-bottom: 52px;
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tabletPro')}) {
+    margin-bottom: 0;
+  }
 `;
 
 export const HeadingWrap = styled.div`
   width: 1006px;
   margin-bottom: 80px;
 
+  @media only screen and (max-width: ${themeGet('breakpoints.tabletPro')}) {
+    width: 100%;
+    padding: 0 25px;
+  }
+
   h1 {
     font-weight: 800;
     font-size: var(--fs-64);
     line-height: 96px;
-@media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
-  line-height: 50px;
-}
     letter-spacing: 0.05em;
     text-transform: capitalize;
+
+    @media only screen and (max-width: ${themeGet('breakpoints.tabletPro')}) {
+      font-size: var(--fs-48);
+    }
+
+    @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+      line-height: 50px;
+    }
   }
 `;
 

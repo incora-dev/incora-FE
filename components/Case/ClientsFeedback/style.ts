@@ -9,11 +9,22 @@ export const ClientsFeedbackWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   padding-top: 93px;
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tabletPro')}) {
+    padding-top: 40px;
+    height: fit-content;
+    padding-bottom: 70px;
+  }
 `;
 
 export const HeadingWrap = styled.div`
   width: 1006px;
   margin-bottom: 79px;
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tabletPro')}) {
+    width: 100%;
+    padding: 0 25px;
+  }
 
   h1 {
     font-weight: 800;

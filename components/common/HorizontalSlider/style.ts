@@ -17,6 +17,10 @@ export const Slider = styled.div`
   width: 100%;
   height: 700px;
   background: ${themeGet("colors.backgroundBlack")};
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tabletPro')}) {
+    height: fit-content;
+  }
 `;
 
 export const Slide = styled.div`
@@ -33,6 +37,10 @@ export const Slide = styled.div`
   -moz-transition-property: -moz-transform;
   -o-transition-property: -o-transform;
   transition-property: transform;
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tabletPro')}) {
+    padding: 70px 20px 40px 25px;
+  }
 
   :nth-child(1) {
     transform: scale(1);
@@ -114,4 +122,8 @@ export const RightContent = styled.div`
   flex-direction: column;
   justify-content: space-between;
   padding-left: 26px;
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tabletPro')}) {
+    padding-left: 5px;
+  }
 `;

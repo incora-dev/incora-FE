@@ -14,6 +14,11 @@ export const ContentWrap = styled.div`
   width: 1010px;
   padding-top: 76px;
 
+  @media only screen and (max-width: ${themeGet('breakpoints.tabletPro')}) {
+    width: 100%;  
+    padding: 70px 25px 0;
+  }
+
   > h3 {
     font-weight: 600;
     font-size: var(--fs-12);

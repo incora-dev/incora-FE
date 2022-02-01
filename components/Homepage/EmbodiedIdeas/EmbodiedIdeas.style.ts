@@ -53,7 +53,7 @@ export const H2 = styled.h2`
 
   @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     width: 100%;
-    padding-left: 20px;
+    padding-left: 15px;
   }
 `;
 
@@ -100,7 +100,7 @@ export const SeeMoreWorks = styled.div`
 
   @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     width: 100%;
-    padding-left: 20px;
+    padding-left: 35px;
   }
 `;
 

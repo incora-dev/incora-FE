@@ -63,7 +63,7 @@ export const Div = styled.div`
     margin: 0 20px;
     padding-top: 20px;
   }
-  @media only screen and (max-width: ${theme.breakpoints.xsMobile}) {
+  @media only screen and (max-width: ${themeGet('breakpoints.xsMobile')}) {
     margin: 0 15px;
     padding-top: 20px;
   }

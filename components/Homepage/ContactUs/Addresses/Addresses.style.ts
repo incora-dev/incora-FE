@@ -33,12 +33,12 @@ export const AddressesContainer = styled.div`
 
   margin: auto;
   @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
-    left: 20px;
+    left: 15px;
   }
-  @media only screen and (max-width: ${theme.breakpoints.mMobile}) {
-    left: 40px;
+  @media only screen and (max-width: ${themeGet('breakpoints.mMobile')}) {
+    left: 30px;
   }
-  @media only screen and (max-width: ${theme.breakpoints.xsMobile}) {
+  @media only screen and (max-width: ${themeGet('breakpoints.xsMobile')}) {
     left: 20px;
     width: 90%;
   }

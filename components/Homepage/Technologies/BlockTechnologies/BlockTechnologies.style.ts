@@ -21,7 +21,7 @@ export const Component = styled.div`
   }
 
   @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
-    padding: 0 8%;
+    padding: 0 15px;
   }
 `;
 

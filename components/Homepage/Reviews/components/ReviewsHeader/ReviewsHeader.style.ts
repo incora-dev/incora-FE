@@ -12,7 +12,7 @@ export const ReviewsHeaderWrapper = styled.div`
 
   @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     width: 100%;
-    padding: 0 20px;
+    padding: 0 15px;
     margin-bottom: 20px;
   }
 

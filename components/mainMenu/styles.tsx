@@ -30,6 +30,9 @@ export const Wrapper = styled.div`
   @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
       padding: 0 20px;
   }
+  @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
+      padding: 0 15px;
+  }
 
   background-color: ${({ backgroundColor }: IMenu) => backgroundColor};
   transition: background-color ${themeGet("transition.menu")};

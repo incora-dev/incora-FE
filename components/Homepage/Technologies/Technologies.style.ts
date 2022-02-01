@@ -41,12 +41,12 @@ export const Div = styled.div`
   justify-content: space-between;
 
   a {
-    position: relative;
+    position: absolute;
     right: -100px;
   }
   
   svg {
-    margin: auto 0;
+    margin-top: 10px;
     
     cursor: pointer;
   }

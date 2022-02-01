@@ -88,8 +88,8 @@ function Navigation({
 
             onMouseLeave={() => setOnSelectedMenu(null)}
           >
-            <Li onClick={linkClickHandler}>
-              <Link href={`/${title.toLowerCase()}`}>
+            <Li>
+              <Link href={`/${title.toLowerCase().replace(' ', '_')}`}>
                 {title}
               </Link>
               </Li>

@@ -14,16 +14,11 @@ function ElementThree(props: IPlus) {
       </PositionPluses>
 
       <PositionCircle>
-        { animation &&
-          <Circle animation={animation}/>
-        }
-
+        <Circle animation={animation}/>
       </PositionCircle>
 
       <PositionCircleWithGradient>
-        { animation &&
-          <CircleWithGradient animation={animation}/>
-        }
+        <CircleWithGradient animation={animation}/>
       </PositionCircleWithGradient>
 
     </Element>

@@ -42,15 +42,17 @@ export const DIV = styled.div`
 
 export const HorizontalLine = styled.div`
   position: absolute;
-  height: 8.21px;
-
-  border: ${({color}) => `1px solid ${color}`};
+  height: 8px;
+  width: 2px;
+  
+  background-color: ${({color}) => color};
 `
 
 export const VerticalLine = styled.div`
-  height: 8.21px;
+  height: 8px;
+  width: 2px;
 
-  border: ${({color}) => `1px solid ${color}`};
+  background-color: ${({color}) => color};
 
   transform: rotate(-90deg);
 `

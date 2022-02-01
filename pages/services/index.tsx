@@ -111,7 +111,7 @@ function Services() {
           </Link>
         </div>
       )}
-      <FooterComponent {...footer} />
+      <FooterComponent />
     </>
   );
 }

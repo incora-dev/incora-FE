@@ -67,13 +67,7 @@ const PrivacyPolicy = ({ title, text }: IPrivacyPolicy) => {
           <HeaderPrivacyPolicy title={title} text={text}/>
           <MainInfo PrivacyPolicyText={PrivacyPolicyText}/>
         </MainMenu>
-        <FooterComponent
-          policies={footer.policies}
-          offices={footer.offices}
-          pages={footer.pages}
-          followUs={footer.followUs}
-          copyright={footer.copyright}
-        />
+        <FooterComponent />
       </>
     </>
   )

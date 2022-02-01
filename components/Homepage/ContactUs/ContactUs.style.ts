@@ -15,7 +15,7 @@ export  const  Container = styled.div`
   column-gap: 242px;
   
   margin: 0 auto;
-  padding: 85px 0 122px;
+  padding: 85px 0 120px;
 
   @media only screen and (max-width: ${themeGet('breakpoints.tabletPro')}) {
     padding: 40px 25px 50px;
@@ -33,20 +33,6 @@ export  const  Container = styled.div`
 
     >div:first-of-type {
       width: 100%;
-    }
-  }
-`;
-
-export  const  PositionLoading = styled.div`
-  position: absolute;
-  top: 101px;
-  right: -114px;
-  
-  svg {
-    transform: rotate(-45deg);
-    
-    path {
-      fill: #000;
     }
   }
 `;

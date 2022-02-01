@@ -4,10 +4,11 @@ import Image from "next/image";
 import { theme } from "../../../../../styles/theme";
 
 export const ReviewBoxWrapper = styled.div`
-  width: 1366px;
+  width: max-content;
   min-height: 270px;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  //justify-content: space-between;
 
   .right_btn {
     justify-content: flex-end;
@@ -121,6 +122,7 @@ export const Photo = styled(Image)`
 
 export const NameWrap = styled.div`
   padding-top: 10px;
+
   color: ${themeGet("colors.white")};
   font-size: var(--fs-13);
   letter-spacing: 1px;

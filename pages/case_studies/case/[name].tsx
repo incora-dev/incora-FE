@@ -100,13 +100,7 @@ const Case = () => {
           <NextProject nextProjectButton={nextProjectButton} />
           <LetsTalk title={contactUs.title} isWhite text={contactUs.subtitle} />
 
-          <FooterComponent
-            policies={policies}
-            offices={offices}
-            pages={pages}
-            followUs={followUs}
-            copyright={copyright}
-          />
+          <FooterComponent/>
         </MainMenu>
       )}
     </>

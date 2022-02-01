@@ -109,13 +109,7 @@ const Service = () => {
                 text={"Get everything you need for the project initiation."}
               />
             </MainMenu>
-            <FooterComponent
-              policies={footer?.policies}
-              offices={footer?.offices}
-              followUs={footer?.followUs}
-              pages={footer?.pages}
-              copyright={footer?.copyright}
-            />
+            <FooterComponent />
           </>
         </>
       )}

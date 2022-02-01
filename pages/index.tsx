@@ -214,7 +214,7 @@ const contactUs: IContactUs = {
 };
 
 const footer: IFooter = {
-  policies: ["privacy policy", "Cookies Policy"],
+  policies: ["privacy policy"],
   offices: contactUs.addresses,
   pages: ["Services", "expertise", "Case Studies", "Company", "Insights"],
   followUs: [
@@ -298,10 +298,10 @@ function Home() {
             />
           </section>
           {/* <EmbodiedIdeasComponent
-            title={EmbodiedIdeas.title}
-            bgColor={EmbodiedIdeas.bgColor}
-            elementsColor={colorYellow}
-          /> */}
+              title={EmbodiedIdeas.title}
+              bgColor={EmbodiedIdeas.bgColor}
+              elementsColor={colorYellow}
+            /> */}
           <VideoComponent />
           <AboutUs
             backgroundColor={bgColorBlack}
@@ -310,11 +310,11 @@ function Home() {
           />
           <Reviews />
           <section>
-            {/* <NewsComponent
-              title={news.title}
-              labels={technologies.technologies}
-              articles={news.articles}
-            /> */}
+            {/*/!* <NewsComponent*/}
+            {/*  title={news.title}*/}
+            {/*  labels={technologies.technologies}*/}
+            {/*  articles={news.articles}*/}
+            {/*/> *!/*/}
           </section>
           <ContactUsComponent
             title={contactUs.title}
@@ -323,14 +323,8 @@ function Home() {
             addresses={contactUs.addresses}
             buttonLabel={contactUs.buttonLabel}
           />
+          <FooterComponent />
         </MainMenu>
-        <FooterComponent
-          policies={footer.policies}
-          offices={footer.offices}
-          followUs={footer.followUs}
-          pages={footer.pages}
-          copyright={footer.copyright}
-        />
       </>
     </>
   );

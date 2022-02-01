@@ -20,7 +20,7 @@ export const Div = styled.div`
       height: ${({ height }: IDiv) => (height ? `${height}px` : "max-content")};
       padding-bottom: 120px;
   }
-  padding-bottom: 120px;
+  padding-bottom: 160px;
 `;
 
 export const PositionTitle = styled.div`

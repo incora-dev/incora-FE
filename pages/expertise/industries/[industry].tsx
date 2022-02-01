@@ -22,7 +22,6 @@ import { GetIndustryPage } from "../../../graphql/industries/__generated__/GetIn
 import EmbodiedIdeasComponent from "../../../components/Homepage/EmbodiedIdeas";
 import { useIsMobile, useIsTablet } from "../../../services/hooks";
 
-
 const colorWhite = theme.colors.white;
 const colorBlack = theme.colors.black;
 const hexagonColorGrey = theme.elements.hexagonBorderedGrey;
@@ -146,13 +145,7 @@ const Industry = () => {
                 buttonLabel={contactUs.buttonLabel}
               />
             </MainMenu>
-            <FooterComponent
-              policies={footer.policies}
-              offices={footer.offices}
-              followUs={footer.followUs}
-              pages={footer.pages}
-              copyright={footer.copyright}
-            />
+            <FooterComponent />
           </>
         </>
       )}

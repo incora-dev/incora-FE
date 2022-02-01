@@ -66,13 +66,7 @@ const Contacts = ({ title, text}: IContacts) => {
             <HeaderContactUs title={title} text={text}/>
             <CreateProgressTogether title={'Let’s create progress together!'}/>
           </MainMenu>
-          <FooterComponent
-            policies={footer.policies}
-            offices={footer.offices}
-            pages={footer.pages}
-            followUs={footer.followUs}
-            copyright={footer.copyright}
-          />
+          <FooterComponent />
         </>
       </>
   )

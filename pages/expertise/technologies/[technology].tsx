@@ -44,18 +44,6 @@ const contactUs: IContactUs = {
   buttonLabel: "send",
 };
 
-const footer: IFooter = {
-  policies: ["privacy policy", "Cookies Policy"],
-  offices: contactUs.addresses,
-  pages: ["Services", "expertise", "Case Studies", "Company", "Insights"],
-  followUs: [
-    { icon: Facebook1, redirectTo: "Facebook" },
-    { icon: LinkedIn1, redirectTo: "LinkedIn" },
-    { icon: Instagram1, redirectTo: "Instagram" },
-  ],
-  copyright: "© 2015-2022 Incora LLC",
-};
-
 const colorWhite = theme.colors.white;
 const colorBlack = theme.colors.black;
 const colorBackgroundBlack = theme.colors.backgroundBlack;
@@ -165,13 +153,7 @@ const Technology = () => {
               buttonLabel={contactUs.buttonLabel}
             />
           </MainMenu>
-          <FooterComponent
-            policies={footer.policies}
-            offices={footer.offices}
-            followUs={footer.followUs}
-            pages={footer.pages}
-            copyright={footer.copyright}
-          />
+          <FooterComponent />
         </>
       )}
     </>

@@ -67,7 +67,7 @@ export const PlayerPosition = styled.div`
 
   z-index: 1;
 
-  transform: translate(-50%, -50%);
+  transform: translate(-52%, -52%);
 
   opacity: ${( { display }: IShowVideo) => display ? 0 : 1};
   transition: opacity 1s linear;

@@ -47,19 +47,26 @@ const ReviewBox = ({ reviews, reviewIndex, setReviewIndex }: IReviewBox) => {
           <CarouselButtonWrapper>
             {leftCarouselButtonCondition}
           </CarouselButtonWrapper>
-          {isMobile || isTablet && (
+          {(isMobile || isTablet) && (
             <CarouselButtonWrapper>
               {rightCarouselButtonCondition}
             </CarouselButtonWrapper>
           )}
         </CarouselButtonsContainer>
       <ReviewContent review={reviews[reviewIndex]} />
-      {!isMobile && !isTablet && (
-        <CarouselButtonWrapper>
-          {rightCarouselButtonCondition}
-        </CarouselButtonWrapper>
-      )}
       </CarouselReviewWrapper>
+
+      {(!isMobile && !isTablet) && (
+      <CarouselButtonsContainer>
+        <CarouselButtonWrapper>
+          {leftCarouselButtonCondition}
+        </CarouselButtonWrapper>
+        {!isMobile && (
+          <CarouselButtonWrapper>
+            {rightCarouselButtonCondition}
+          </CarouselButtonWrapper>
+        )}
+      </CarouselButtonsContainer>)}
     </ReviewBoxWrapper>
   );
 };

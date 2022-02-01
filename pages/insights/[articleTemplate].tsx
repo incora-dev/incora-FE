@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 import HeaderArticleTemplate from "../../components/ArticleTemplatePage/HeaderArticleTemplate";
 import ArticleInfo from "../../components/ArticleTemplatePage/ArticleInfo";
 import FacebookSVG from "../../public/SVG/socialNetwork/FacebookSVG.svg";
-import InstagramSVG from "../../public/SVG/socialNetwork/InstagramSvg.svg";
+import InstagramSVG from "../../public/SVG/socialNetwork/LinkedInSvg.svg";
 import News from "../../components/News";
 import LetsTalk from "../../components/Services/LetsTalk";
 import FooterComponent from "../../components/Footer";
@@ -154,13 +154,7 @@ const ArticleTemplate = () => {
               <LetsTalk title={letsTalkTitle} text={letsTalkSubtitle} />
               <GoToTop isVisible={goToTopVisible} />
             </MainMenu>
-            <FooterComponent
-              policies={footer.policies}
-              offices={footer.offices}
-              followUs={footer.followUs}
-              pages={footer.pages}
-              copyright={footer.copyright}
-            />
+            <FooterComponent />
           </>
         </>
       )}

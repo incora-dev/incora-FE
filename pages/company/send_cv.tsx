@@ -44,13 +44,7 @@ const SendCv = () => {
     >
       <SendCvHeader />
       <SendCvForm />
-      <FooterComponent
-        policies={policies}
-        offices={offices}
-        pages={pages}
-        followUs={followUs}
-        copyright={copyright}
-      />
+      <FooterComponent />
     </MainMenu>
   );
 };

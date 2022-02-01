@@ -47,6 +47,10 @@ export const LogoBlock = styled.div`
   display: flex;
   flex-direction: column;
   row-gap: 18px;
+  
+  svg {
+    cursor: pointer;
+  }
 `;
 
 export const PoliciesBlock = styled.div`
@@ -62,7 +66,6 @@ export const PoliciesBlock = styled.div`
 `;
 
 export const PolicyLabel = styled.div`
-  font-family: Poppins;
   font-style: normal;
   font-weight: 300;
   font-size: var(--fs-11);
@@ -70,12 +73,17 @@ export const PolicyLabel = styled.div`
 
   letter-spacing: 0.1em;
   text-transform: capitalize;
+  
+  cursor: pointer;
 
-  color: #ffffff;
+  color: ${themeGet("colors.white")};
+  
+  &:hover {
+    color: ${themeGet("colors.yellow")};
+  }
 `;
 
 export const Copyright = styled.p`
-  font-family: Poppins;
   font-style: normal;
   font-weight: 300;
   font-size: var(--fs-11);
@@ -171,7 +179,6 @@ export const Pages = styled.div`
 `;
 
 export const Page = styled.p`
-  font-family: Poppins;
   font-style: normal;
   font-weight: normal;
   font-size: var(--fs-12);
@@ -180,9 +187,13 @@ export const Page = styled.p`
   letter-spacing: 0.1em;
   text-transform: capitalize;
 
-  color: #ffffff;
+  color: ${themeGet("colors.white")};
 
   cursor: pointer;
+  
+  &:hover {
+    color: ${themeGet("colors.yellow")};
+  }
 `;
 
 export const FollowUsBlock = styled.div`
@@ -195,28 +206,20 @@ export const FollowUsBlock = styled.div`
   }
 `;
 
-export const A = styled.a`
-  position: relative;
-
-  height: 25px;
-  width: 25px;
-  background-color: #fff;
-  border-radius: 50%;
-
-  svg {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-
-    transform: translate(-50%, -55%);
-    path {
-    }
-  }
-`;
-
 export const FollowUs = styled.div`
   display: flex;
   column-gap: 12px;
 
   margin-bottom: 18px;
+
+  svg {
+
+    circle {
+      fill: ${themeGet("colors.white")};
+    }
+    
+    &:hover circle {
+      fill: ${themeGet("colors.yellow")};
+    }
+  }
 `;

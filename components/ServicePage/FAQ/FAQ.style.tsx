@@ -70,7 +70,9 @@ export const PlusIconVisible = styled.div<IIcon>`
   }
 `;
 
-export const MinusIconVisible = styled.div<IIcon>`
+export const MinusIconVisible = styled.div`
+  margin-top: -10px;
+
   svg {
     cursor: pointer;
     path {
@@ -106,7 +108,8 @@ export const Accordion = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  
+
+  column-gap: 30px;
 `;
 
 export const TextBlock = styled.div`

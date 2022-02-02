@@ -45,6 +45,11 @@ export const Wrapper = styled.div`
   }
 `;
 
+export const MenuWrapper = styled.div`
+  max-width: 1166px;
+  margin: 0 auto;
+`;
+
 export const ContentWrapper = styled.div`
   @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
     overflow-x: hidden;

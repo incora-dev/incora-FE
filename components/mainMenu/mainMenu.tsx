@@ -1,6 +1,6 @@
 import { IMenu } from "@interfaces";
 import Navigation from "./navigation/navigation";
-import { Wrapper, Block, HoverMenu, Div, IncoraLogo, ContentWrapper, CloseBtn } from "./styles";
+import { Wrapper, Block, HoverMenu, Div, IncoraLogo, ContentWrapper, CloseBtn, MenuWrapper } from "./styles";
 import { theme } from "../../styles/theme";
 import React, { useContext, useEffect, useRef, useState} from "react";
 import HoverElements from "./HoverElements";
@@ -61,34 +61,36 @@ export default function MainMenu(props: IMenu) {
         </CloseBtn>
        )}
       <ContentWrapper>
-        <Block>
-          <Link href={'/'}>
-            {logo}
-          </Link>
-          {isMobile || isTablet || isSmallTablet || isSmallTablet ? (
-            <>
-              <HamburgerButton/>
-              <SideMenu 
-                backgroundColor={backgroundColor} 
-                titlesColor={titlesColor} 
-                titles={titles} 
-                setOnHoverElement={setOnHoverElement} 
-                onSelectedMenu={onSelectedMenu} 
+        <MenuWrapper>
+          <Block>
+            <Link href={'/'}>
+              {logo}
+            </Link>
+            {isMobile || isTablet || isSmallTablet || isSmallTablet ? (
+              <>
+                <HamburgerButton/>
+                <SideMenu 
+                  backgroundColor={backgroundColor} 
+                  titlesColor={titlesColor} 
+                  titles={titles} 
+                  setOnHoverElement={setOnHoverElement} 
+                  onSelectedMenu={onSelectedMenu} 
+                  setOnSelectedMenu={setOnSelectedMenu}
+                  ref={node} />
+              </>
+            ) 
+            : (
+              <Navigation
+                titles={titles}
+                titlesColor={titlesColor}
+                setOnHoverElement={setOnHoverElement}
+                onSelectedMenu={onSelectedMenu}
                 setOnSelectedMenu={setOnSelectedMenu}
-                ref={node} />
-            </>
-          ) 
-          : (
-            <Navigation
-              titles={titles}
-              titlesColor={titlesColor}
-              setOnHoverElement={setOnHoverElement}
-              onSelectedMenu={onSelectedMenu}
-              setOnSelectedMenu={setOnSelectedMenu}
-              backgroundColor={backgroundColor}
-              />
-          )}
-        </Block>
+                backgroundColor={backgroundColor}
+                />
+            )}
+          </Block>
+        </MenuWrapper>
 
         <HoverMenu
           isShow={isMobile  || isTablet

@@ -82,4 +82,89 @@ export const ImageContainer = styled.div`
       margin-right: 0;
     }
   }
-`
+`;
+
+export const VideoContainer = styled.div`
+  position: absolute;
+  right: 0;
+  top: -278px;
+
+  z-index: 1;
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+    width: 100%;
+  }
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+    width: 100%;
+  }
+`;
+
+export const VideoBLock = styled.div`
+  position: relative;
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+    width: 100%;
+  }
+`;
+
+export const PosterVideoPosition = styled.div`
+  position: absolute;
+  top: 0;
+
+  opacity: ${( { display }: IShowVideo) => display ? 0 : 1};
+  pointer-events: ${( { display }: IShowVideo) => display ? 'none' : 'all'};
+
+  transition: opacity 1s linear;
+  transition-delay: 1s;
+`;
+
+export const Video = styled.video`
+`;
+
+export const PlayerPosition = styled.div`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  z-index: 1;
+
+  transform: translate(-52%, -52%);
+
+  opacity: ${( { display }: IShowVideo) => display ? 0 : 1};
+  pointer-events: ${( { display }: IShowVideo) => display ? 'none' : 'all'};
+
+  transition: opacity 1s linear;
+`;
+
+export const Player = styled.div`
+  position: relative;
+
+  width: 100px;
+  height: 100px;
+
+  background: rgba(24, 24, 26, 0.2);
+  backdrop-filter: blur(15px);
+
+  cursor: pointer;
+
+  border-radius: 50%;
+  transition: 0.15s linear;
+`;
+
+export const PositionPlaySVG = styled.div`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  width: 33px;
+  height: 39px;
+
+  transform: translate(-37%, -50%);
+
+  svg {
+    margin: 0 auto;
+    path {
+      fill: #fff;
+    }
+  }
+`;
+

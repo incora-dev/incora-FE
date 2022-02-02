@@ -37,8 +37,8 @@ export const H2 = styled.h2`
   }
 
   @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
-    line-height: 36px;
-    font-size: var(--fs-26);
+    line-height: 30px;
+    font-size: var(--fs-23);
   }
 `
 

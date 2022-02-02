@@ -84,11 +84,7 @@ export const Div = styled.div`
     margin-left: 30px;
   }
   @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
-    margin: 0 20px;
-    padding-top: 20px;
-  }
-  @media only screen and (max-width: ${themeGet('breakpoints.xsMobile')}) {
-    margin: 0 15px;
+    margin: 0 7px;
     padding-top: 20px;
   }
 `

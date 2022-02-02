@@ -3,6 +3,8 @@ import themeGet from "@styled-system/theme-get";
 
 export const NewsContainer = styled.div`
   display: flex;
+  width: 308px;
+  height: 343px;
   flex-direction: column;
   row-gap: 14px;
 
@@ -15,16 +17,16 @@ export const NewsContainer = styled.div`
       margin-top: -10px;
     }
   }
-`
+`;
 
 export const ImgBlock = styled.a`
   display: flex;
   cursor: pointer;
-  
+
   img {
     border-radius: 0 20px 0 0;
   }
-`
+`;
 
 export const H3 = styled.h3`
   max-width: 308px;
@@ -49,11 +51,11 @@ export const H3 = styled.h3`
     font-size: var(--fs-16);
     line-height: 26px;
   }
-`
+`;
 
 export const Element = styled.div`
   align-self: flex-end;
-  
+
   width: 15px;
   height: 171px;
 

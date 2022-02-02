@@ -6,7 +6,7 @@ import { IStacks } from "@interfaces";
 import { GetServicesPage_servicesPage_data_attributes_services_data } from "../../../../graphql/services/__generated__/GetServicesPage";
 
 interface ITextElementProps {
-  labels: GetServicesPage_servicesPage_data_attributes_services_data[];
+  labels: any;
   currentSlide?: number;
   bgColor: string;
   onChange?: (e:any) => void;

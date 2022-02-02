@@ -7,12 +7,12 @@ import {
   Player,
   PlayerPosition,
   PositionPlaySVG,
-  PosterVideoPosition
+  PosterVideoPosition,
 } from "./Video.style";
 import { useEffect, useRef, useState } from "react";
-import PlaySVG from "../../../public/Player/Play.svg"
+import PlaySVG from "../../../public/Player/Play.svg";
 import { theme } from "../../../styles/theme";
-import {HOME_PAGE_VIDEO_LINK} from "../../../constants";
+import { HOME_PAGE_VIDEO_LINK } from "../../../constants";
 import { useIsMobile } from "../../../services/hooks";
 
 function VideoComponent() {
@@ -20,10 +20,10 @@ function VideoComponent() {
     const {isMobile, isTablet, isSmallTablet} = useIsMobile();
 
   useEffect(() => {
-    const player = document.getElementById('youTubeVideo') as HTMLIFrameElement;
+    const player = document.getElementById("youTubeVideo") as HTMLIFrameElement;
 
-    if(play) {
-      player && (player.src += '?autoplay=1');
+    if (play) {
+      player && (player.src += "?autoplay=1");
     }
   }, [play]);
 
@@ -43,8 +43,8 @@ function VideoComponent() {
 
   return (
     <Container>
-      <BGTop/>
-      <BGBottom/>
+      <BGTop />
+      <BGBottom />
 
         <VideoContainer>
           <VideoBLock onClick={() => setPlay(true)}>
@@ -71,7 +71,7 @@ function VideoComponent() {
           </VideoBLock>
         </VideoContainer>
     </Container>
-  )
+  );
 }
 
 export default VideoComponent;

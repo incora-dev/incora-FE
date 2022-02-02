@@ -5,13 +5,20 @@ import {
   PaddingTop,
   MarginTop,
 } from "./Technologies.style";
-import { ITechnologies } from "@interfaces";
 import Arrow from "../../../public/SVG";
 import BlockTechnologies from "./BlockTechnologies";
 import { theme } from "../../../styles/theme";
-import Link from "next/link"
+import Link from "next/link";
+import { GetHomepage_homePage_data_attributes_technologies_tech_stacks_data } from "../../../graphql/homepage/__generated__/GetHomepage";
+import { ROUTES } from "../../../constants/routes";
 
-function TechnologiesComponent({ title, bgColor, labels }: ITechnologies) {
+interface ITechnologies {
+  bgColor?: string;
+  title: string;
+  techStacks: GetHomepage_homePage_data_attributes_technologies_tech_stacks_data[];
+}
+
+function TechnologiesComponent({ title, bgColor, techStacks }: ITechnologies) {
   const bgColorWhite = theme.colors.white;
   const bgColorBlack = theme.colors.black;
 
@@ -32,14 +39,14 @@ function TechnologiesComponent({ title, bgColor, labels }: ITechnologies) {
         <Div>
           <H2 color={getTitleColor()}>{title}</H2>
 
-          <Link href={title.toLowerCase()}>
+          <Link href={ROUTES.EXPERTISE.TECHNOLOGIES} passHref>
             <Arrow />
           </Link>
         </Div>
       </PaddingTop>
 
       <MarginTop>
-        {labels && <BlockTechnologies technologies={labels} />}
+        {techStacks && <BlockTechnologies techStacks={techStacks} />}
       </MarginTop>
     </Component>
   );

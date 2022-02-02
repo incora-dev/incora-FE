@@ -5,33 +5,45 @@ import {
   Text,
   PositionH2,
   PositionH3,
-  PositionText
-} from './styles'
+  PositionText,
+} from "./styles";
 import { ISliderInfo } from "@interfaces";
 import ButtonWithArrow from "../../../ButtonWithArrow";
+import {
+  GetHomepage_homePage_data_attributes_coopSteps_button,
+  GetHomepage_homePage_data_attributes_coopSteps_steps,
+} from "../../../../graphql/homepage/__generated__/GetHomepage";
 
-function InfoBlock(props: ISliderInfo) {
-  const { title, mainTitle, text, redirectTo, buttonLabel = 'Learn More'} = props;
+interface IInfoBlock {
+  slide: GetHomepage_homePage_data_attributes_coopSteps_steps;
+  button: GetHomepage_homePage_data_attributes_coopSteps_button;
+}
+
+function InfoBlock({ slide, button }: IInfoBlock) {
+  const { title, description } = slide;
+  const { label, url } = button;
 
   return (
     <Div>
       <PositionH3>
-        <H3>{title}</H3>
+        <H3>{"How to cooperate?"}</H3>
       </PositionH3>
 
       <PositionH2>
-        <H2>{mainTitle}</H2>
+        <H2>{title}</H2>
       </PositionH2>
 
       <PositionText>
-        <Text>
-          {text}
-        </Text>
+        <Text>{description}</Text>
       </PositionText>
 
-      <ButtonWithArrow buttonLabel={buttonLabel} redirectTo={redirectTo} padding={'23px 35px'} />
+      <ButtonWithArrow
+        buttonLabel={label}
+        redirectTo={url}
+        padding={"23px 35px"}
+      />
     </Div>
-  )
+  );
 }
 
 export default InfoBlock;

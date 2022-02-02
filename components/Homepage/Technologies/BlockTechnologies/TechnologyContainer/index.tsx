@@ -1,144 +1,73 @@
+import Image from "next/image";
+import Link from "next/link";
+import { IMAGES_LINK } from "../../../../../constants";
+import { ROUTES } from "../../../../../constants/routes";
+import { GetHomepage_homePage_data_attributes_technologies_tech_stacks_data_attributes_technologies_data } from "../../../../../graphql/homepage/__generated__/GetHomepage";
 import Vector1 from "../../../../../public/SVG/Vector1.svg";
 import Vector2 from "../../../../../public/SVG/Vector2.svg";
-import { Div, PositionOne, PositionTwo, Container, P, Block } from "./TechnologyContainer";
-import React from "../../../../../public/SVG/technologies/react.svg"
-import Angular from "../../../../../public/SVG/technologies/angular.svg"
-import NodeJs from "../../../../../public/SVG/technologies/nodeJs.svg"
-import Python from "../../../../../public/SVG/technologies/python.svg"
-import Django from "../../../../../public/SVG/technologies/django.svg"
-import Flask from "../../../../../public/SVG/technologies/flask.svg"
-import PostgreSQL from "../../../../../public/SVG/technologies/postgreSQL.svg"
-import MySQL from "../../../../../public/SVG/technologies/mySQL.svg"
-import MongoDB from "../../../../../public/SVG/technologies/mongoDB.svg"
-import Apollo from "../../../../../public/SVG/technologies/apollo.svg"
-import Redis from "../../../../../public/SVG/technologies/redis.svg"
-import Ionic from "../../../../../public/SVG/technologies/ionic.svg"
-import Docker from "../../../../../public/SVG/technologies/docker.svg"
-import Kubernetes from "../../../../../public/SVG/technologies/kubernetes.svg"
-import AmazonECS from "../../../../../public/SVG/technologies/amazonECS.svg"
-import AmazonWebServices from "../../../../../public/SVG/technologies/amazonWebServices.svg"
-import GoogleCloudPlatform from "../../../../../public/SVG/technologies/googleCloudPlatform.svg"
-import MicrosoftAzure from "../../../../../public/SVG/technologies/microsoftAzure.svg"
-import DigitalOcean from "../../../../../public/SVG/technologies/digitalOcean.svg"
-
-
+import {
+  Div,
+  PositionOne,
+  PositionTwo,
+  Container,
+  P,
+  Block,
+} from "./TechnologyContainer";
 
 interface ITechnologyContainer {
-  icons: JSX.Element[];
-  text: string[];
+  techArray: GetHomepage_homePage_data_attributes_technologies_tech_stacks_data_attributes_technologies_data[];
 }
 
-function TechnologyContainer( props: ITechnologyContainer,) {
+function TechnologyContainer({ techArray }: ITechnologyContainer) {
   const technologies = () => {
-   return (
-     <Container>
-       {props.text.map((label, index) => {
-           let icon;
+    return (
+      <Container>
+        {techArray.map((tech) => {
+          const { id, attributes } = tech;
+          const name = attributes?.name;
+          const url = ROUTES.EXPERTISE.TECHNOLOGIES + attributes?.url;
+          const icon = attributes?.iconForOtherPages?.data?.attributes;
+          const src = IMAGES_LINK + icon?.url;
+          const width = icon?.width;
+          const height = icon?.height;
 
-           if (label === 'React') {
-             icon = <React/>;
-           }
+          const renderCondition = width && height;
 
-         if (label === 'Angular2') {
-           icon = <Angular/>;
-         }
-
-         if (label === 'Node.js') {
-           icon = <NodeJs/>;
-         }
-
-         if (label === 'Python') {
-           icon = <Python/>;
-         }
-
-         if (label === 'Django') {
-           icon = <Django/>;
-         }
-
-         if (label === 'Flask') {
-           icon = <Flask/>;
-         }
-
-         if (label === 'PostgreSQL') {
-           icon = <PostgreSQL/>;
-         }
-
-         if (label === 'MySQL') {
-           icon = <MySQL/>;
-         }
-
-         if (label === 'MongoDB') {
-           icon = <MongoDB/>;
-         }
-
-         if (label === 'Apollo') {
-           icon = <Apollo/>;
-         }
-
-         if (label === 'Redis') {
-           icon = <Redis/>;
-         }
-
-         if (label === 'React Native') {
-           icon = <React/>;
-         }
-
-         if (label === 'Ionic') {
-           icon = <Ionic/>;
-         }
-
-         if (label === 'Docker') {
-           icon = <Docker/>;
-         }
-
-         if (label === 'Kubernetes') {
-           icon = <Kubernetes/>;
-         }
-
-         if (label === 'Amazon ECS') {
-           icon = <AmazonECS/>;
-         }
-
-         if (label === 'Amazon Web Services') {
-           icon = <AmazonWebServices/>;
-         }
-
-         if (label === 'Google Cloud Platform') {
-           icon = <GoogleCloudPlatform/>;
-         }
-
-         if (label === 'Microsoft Azure') {
-           icon = <MicrosoftAzure/>;
-         }
-
-         if (label === 'DigitalOcean') {
-           icon = <DigitalOcean/>;
-         }
-
-           return (
-             <Block key={index}>
-               {icon}
-               <P>{label}</P>
-             </Block>
-           )
-         }
-       )}
-     </Container>
-   )
-  }
+          return (
+            <>
+              {renderCondition && (
+                <Link key={id} href={url} passHref>
+                  <Block>
+                    <Image
+                      loader={() => src}
+                      width={29.2}
+                      height={26}
+                      src={src}
+                      alt="technology icon"
+                    />
+                    <P>{name}</P>
+                  </Block>
+                </Link>
+              )}
+            </>
+          );
+        })}
+      </Container>
+    );
+  };
 
   return (
     <Div>
       {technologies()}
       <PositionOne>
-        <Vector1/>
+        <Vector1 />
       </PositionOne>
 
       <PositionTwo>
-        <Vector2/>
+        <Vector2 />
       </PositionTwo>
     </Div>
-  )
+  );
 }
 
 export default TechnologyContainer;

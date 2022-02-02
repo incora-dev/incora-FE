@@ -34,7 +34,7 @@ export const ButtonsBlock = styled.div<IButtonsBlock>`
   transition: all 0.3s ease-in-out;
 
   @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
-    gap: 30px;
+    gap: 15px;
     ${({flexDirection}) => flexDirection === 'row' && css`
       flex-wrap: nowrap;
       overflow-x: scroll;
@@ -86,7 +86,7 @@ export const RadioButton = styled.div`
 
   @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     :last-of-type {
-      padding-bottom: 10px;
+      padding-bottom: 0;
     }
   }
 `;

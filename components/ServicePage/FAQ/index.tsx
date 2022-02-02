@@ -23,6 +23,7 @@ interface IFaq {
   titles?: string[];
   content?: any;
   textColor?: string;
+  isFullPage?: boolean
 }
 
 interface IDescription {
@@ -32,6 +33,7 @@ interface IDescription {
   titles?: string[];
   content?: any;
   textColor?: string;
+  isFullPage?: boolean;
 }
 
 const getIcon = (blockIndex: number, index: number, textColor?: string) => {
@@ -53,6 +55,7 @@ const Description = ({
   titles,
   content,
   textColor,
+  isFullPage
 }: IDescription) => {
   let createDescription;
   if (items) {
@@ -65,6 +68,7 @@ const Description = ({
       const openedFAQ = index === blockIndex;
   
       function onSetBlockIndex() {
+        console.log(isFullPage);
         if (blockIndex === index) {
           return setBlockIndex(-1);
         }
@@ -77,9 +81,10 @@ const Description = ({
           isOpen={openedFAQ}
           lastBlock={index === items.length - 1}
           textColor={textColor}
+          isFullPage={isFullPage}
         >
           <Accordion onClick={onSetBlockIndex}>
-            <Title>{title}</Title>
+            <Title isFullPage={isFullPage}>{title}</Title>
             {icon}
           </Accordion>
   
@@ -99,21 +104,24 @@ const Description = ({
       const openedFAQ = index === blockIndex;
   
       function onSetBlockIndex() {
+        console.log(isFullPage);
         if (blockIndex === index) {
           return setBlockIndex(-1);
         }
         setBlockIndex(index);
       }
-  
+      console.log(isFullPage);
       return (
+
         <AccordionWrapper
           key={title}
           isOpen={openedFAQ}
           lastBlock={index === titles.length - 1}
           textColor={textColor}
+          isFullPage={isFullPage}
         >
           <Accordion onClick={onSetBlockIndex}>
-            <Title>{title}</Title>
+            <Title isFullPage={isFullPage}>{title}</Title>
             {icon}
           </Accordion>
   
@@ -132,25 +140,27 @@ const Description = ({
   return <>{createDescription}</>;
 };
 
-const Faq = ({ title, items, titles, content, textColor }: IFaq) => {
+const Faq = ({ title, items, titles, content, textColor, isFullPage }: IFaq) => {
   const [blockIndex, setBlockIndex] = useState(0);
-
   return (
     <Div>
       <Wrapper>
-        <ContentWrapper>
-          <H2>{title}</H2>
-          <FAQWrapper>
-            <Description
-              items={items}
-              blockIndex={blockIndex}
-              setBlockIndex={setBlockIndex}
-              titles={titles}
-              content={content}
-              textColor={textColor}
-            />
-          </FAQWrapper>
-        </ContentWrapper>
+          <ContentWrapper 
+            isFullPage={isFullPage}
+          >
+            {(!isFullPage) ? <H2>{title}</H2> : <></>}
+            <FAQWrapper>
+              <Description
+                items={items}
+                blockIndex={blockIndex}
+                setBlockIndex={setBlockIndex}
+                titles={titles}
+                content={content}
+                textColor={textColor}
+                isFullPage={isFullPage}
+              />
+            </FAQWrapper>
+          </ContentWrapper>
       </Wrapper>
     </Div>
   );

@@ -36,7 +36,7 @@ function Services() {
   const colorWhite = theme.colors.white;
   const colorBlack = theme.colors.black;
     const {isMobile, isTablet, isSmallTablet} = useIsMobile();
-
+  
 
   const renderSlide = (
     slide: GetServicesPage_servicesPage_data_attributes_services_data
@@ -74,7 +74,6 @@ function Services() {
                 <div id="scroll-item">
                   <FAQ
                     textColor="#ffff"
-                    title={'faq'}
                     titles={slidesTitles}
                     content={faqContent}
                   />

@@ -56,7 +56,7 @@ export const DragAndDropBox = styled.div`
   margin-bottom: ${({ big }: IAttachCvWrapper) => (big ? "75px" : "28px")};
 
   @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
-    margin-bottom: 10px;
+    margin: 10px 0;
   }
 
   > span {

@@ -23,7 +23,7 @@ const Selector = ({ placeholder, options, icon, value, setValue }: any) => {
   };
 
   return (
-    <SelectorWrapper>
+    <SelectorWrapper className="selector-wrapper">
       {icon && <IconWrapper>{icon()}</IconWrapper>}
       <Select
         className="react-select-container"

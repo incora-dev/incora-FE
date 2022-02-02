@@ -98,13 +98,12 @@ export const Description = styled.div`
     }
 
     @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
-      font-size: 24px;
-      line-height: 34px;
+      font-size: var(--fs-36);
+      line-height: 48px;
     }
 
     @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
-      font-size: 17px;
-      line-height: 24px;
+      line-height: 46px;
       margin-bottom: 10px;
     }
   }
@@ -123,6 +122,10 @@ export const Description = styled.div`
 
     @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
       margin-bottom: 10px;
+    }
+
+    @media only screen and (max-width: ${themeGet("breakpoints.sTablet")}) {
+      line-height: 27px;
     }
 
     @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
@@ -179,6 +182,10 @@ export const Description = styled.div`
     @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
       margin-bottom: 0;
     }
+
+    @media only screen and (max-width: ${themeGet("breakpoints.sTablet")}) {
+      line-height: 27px;
+    }
   }
 
   @media only screen and (max-width: ${themeGet("breakpoints.mDesk")}) {
@@ -216,9 +223,17 @@ export const AttachCvWrap = styled.div`
 
   .drag-and-drop {
     margin-top: 21px;
+
+    @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
+      margin-top: 10px;
+    }
   }
 
   .button-with-arrow {
     padding: 23px 40px;
+
+    @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
+      padding: 12px 40px;
+    }
   }
 `;

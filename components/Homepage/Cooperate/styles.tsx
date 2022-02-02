@@ -23,10 +23,6 @@ export const Cooperate = styled.div`
     max-width: 1166px;
     margin: 0 auto;
   }
-
-  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
-    height: 110vh;
-  }
 `
 
 export const Div = styled.div`
@@ -92,6 +88,10 @@ export const Number = styled.div`
   @media only screen and (max-width: ${themeGet('breakpoints.sTablet')}) {
     width: 120px;
   }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+    display: none;
+  }
 `
 
 export const PositionNumber = styled.div`
@@ -114,6 +114,7 @@ export const InfoContainer = styled.div<IPositionInfo>`
 
   @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     flex-wrap: wrap;
+    gap: 0;
   }
 `
 
@@ -134,15 +135,7 @@ export const PositionInfo = styled.div`
   @media only screen and (max-width: ${themeGet('breakpoints.sTablet')}) {
     right: 0;
   }
-  
-  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
-    right: 0;
-    max-width: 100vw;
-    top: -25vh;
-  }
-  @media only screen and (max-width: ${themeGet('breakpoints.xsMobile')}) {
-    top: 0;
-  }
+
 `
 
 export const ElementsPosition = styled.div`

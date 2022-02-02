@@ -28,9 +28,7 @@ export const Container = styled.div`
     width: 100%;
   }
   @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
-    padding-bottom: 0;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding: 0 15px 50px;
   }
 `;
 
@@ -99,6 +97,10 @@ export const Text = styled.div`
 
     @media only screen and (max-width: ${themeGet('breakpoints.tabletPro')}) {
       max-width: 550px;
+    }
+
+    @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+      line-height: 28px;
     }
   }
 `;

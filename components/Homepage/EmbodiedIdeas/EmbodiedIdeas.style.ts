@@ -139,7 +139,7 @@ export const SeeMoreWorks = styled.div`
 
   @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     width: 100%;
-    padding-left: 35px;
+    padding-left: 0;
   }
 `;
 
@@ -156,8 +156,9 @@ export const HexagonPosition = styled.div`
     }
   }
 
-@media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
-    left: -40%;
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+    left: -52%;
+    padding-top: 60px;
   }  
 `;
 

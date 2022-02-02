@@ -29,6 +29,11 @@ export const SliderContent = styled.div`
     padding: 0 25px;
   }
 
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+    max-width: 100%;
+    padding: 0 15px;
+  }
+
   .scroll-item-container {
     left: 3px;
 

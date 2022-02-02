@@ -60,6 +60,10 @@ export const H3 = styled.h3`
   letter-spacing: 0.05em;
 
   color: #9CA3A7;
+
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+    margin-top: 20px;
+  }
 `
 
 export const PositionH3 = styled.div<IDiv>`

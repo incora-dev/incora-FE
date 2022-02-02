@@ -22,11 +22,6 @@ export const Container = styled.div`
     max-width: 100%;
     padding: 0 25px;
   }
-
-  @media (max-width: ${themeGet('breakpoints.mobile')}) {
-    --line-height: calc(11vw + 0.1rem);
-    height: 70vw;
-  }
 `
 
 export const PositionHexagon1 = styled.div`
@@ -112,6 +107,7 @@ export const VideoBlock = styled.div`
     width: 80vw;
     height: fit-content;
   }
+
 `
 
 export const PositionVideoSVG = styled.div`
@@ -134,11 +130,6 @@ export const PositionVideoSVG = styled.div`
 
   @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
     width: 81vw;
-  }
-  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
-    width: 92vw;
-    top: 20px;
-    right: 4vw;
   }
 `
 

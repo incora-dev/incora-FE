@@ -24,8 +24,11 @@ export const SliderContent = styled.div`
   margin: 0 auto;
   position: relative;
 
-  @media only screen and (max-width: ${themeGet('breakpoints.tabletPro')}) {
+  @media only screen and (max-width: ${themeGet('breakpoints.mediumDesk')}) {
     max-width: 100%;
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tabletPro')}) {
     padding: 0 25px;
   }
 
@@ -35,10 +38,8 @@ export const SliderContent = styled.div`
   }
 
   .scroll-item-container {
-    left: 3px;
-
-    @media only screen and (max-width: ${themeGet('breakpoints.tabletPro')}) {
-      left: 15px !important;
+    @media only screen and (max-width: ${themeGet('breakpoints.mediumDesk')}) {
+      left: 15px;
     }
   }
 `;

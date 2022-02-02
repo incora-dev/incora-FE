@@ -32,18 +32,19 @@ function VerticalFullPageSlider<T>({
   const [scrollItemHeight, setScrollItemHeight] = useState(0);
   const {isMobile, isTablet, isSmallTablet} = useIsMobile();
   
-  const [position, setPosition] = useState<string | number>('20vh');
+  // const [position, setPosition] = useState<string | number>('20vh');
+  const position = stickyTopPosition || `calc((100vh - ${MENU_HEIGHT}px) / 2 - ${scrollItemHeight / 2}px)`;
 
 
-  useEffect(() => {
-    if (isMobile !== undefined && isTablet !== undefined) {
-      const position =
-        stickyTopPosition ||
-          `calc((${isMobile || isTablet || isSmallTablet ? '50vh' : '100vh'} - ${isMobile || isTablet || isSmallTablet ? '650px' : MENU_HEIGHT}px) / 2 - ${scrollItemHeight / 2}px)`;
-      console.log(isMobile);
-      setPosition(position);
-    }
-  }, [isMobile, isTablet, isSmallTablet]);
+  // useEffect(() => {
+  //   if (isMobile !== undefined && isTablet !== undefined) {
+  //     const position =
+  //       stickyTopPosition ||
+  //         `calc((${isMobile || isTablet || isSmallTablet ? '50vh' : '100vh'} - ${isMobile || isTablet || isSmallTablet ? '650px' : MENU_HEIGHT}px) / 2 - ${scrollItemHeight / 2}px)`;
+  //     console.log(isMobile);
+  //     setPosition(position);
+  //   }
+  // }, [isMobile, isTablet, isSmallTablet]);
 //   `calc((${isMobile ? "50vh" : "100vh"} - ${
 //     isMobile ? "650px" : MENU_HEIGHT
 //   }px) / 2 - ${scrollItemHeight / 2}px)`;
@@ -137,7 +138,8 @@ function VerticalFullPageSlider<T>({
     if (stickyTopPosition && scrollBlockPosition === "fixed")
       return `${stickyTopPosition + MENU_HEIGHT}px`;
     if (scrollBlockPosition === "fixed" || currentSection === slides.length - 1)
-      return `calc((${isMobile || isTablet || isSmallTablet ? '50vh' : '100vh'} - ${isMobile || isTablet || isSmallTablet ? '650px' : MENU_HEIGHT}px) / 2 - ${scrollItemHeight / 2}px)`;
+      // return `calc((${isMobile || isTablet || isSmallTablet ? '50vh' : '100vh'} - ${isMobile || isTablet || isSmallTablet ? '650px' : MENU_HEIGHT}px) / 2 - ${scrollItemHeight / 2}px)`;
+      if (scrollBlockPosition === 'fixed' || currentSection === slides.length - 1) return 'auto';
 
       // return `calc((${isMobile ? "50vh" : "100vh"} - ${
       //   isMobile ? "650px" : MENU_HEIGHT
@@ -166,7 +168,6 @@ function VerticalFullPageSlider<T>({
             position: scrollBlockPosition === "absolute" ? "absolute" : "fixed",
             bottom: getBottomPosition(),
             top: getTopPosition(),
-            left: "3px",
           }}
         >
           <div id="scroll-item">{renderScrollItem()}</div>

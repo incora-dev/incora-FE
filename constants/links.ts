@@ -5,4 +5,4 @@ export const IMAGES_LINK = "http://35.171.193.21:1337";
 
 export const GRAPH_QL_LINK = "http://35.171.193.21:1337/graphql";
 
-export const HOME_PAGE_VIDEO_LINK = "https://www.youtube.com/embed/7VetBb1WKV8";
+export const HOME_PAGE_VIDEO_LINK = "https://www.youtube.com/embed/ao43bI3qofY";

@@ -9,7 +9,7 @@ import {
   HexagonPosition,
   LoadingPosition,
   DotsPosition,
-  MainContainer,
+  Content,
 } from "./EmbodiedIdeas.style";
 import Projects from "./Projects";
 import ButtonWithArrow from "../../ButtonWithArrow";
@@ -51,43 +51,43 @@ function EmbodiedIdeasComponent({
 
   return (
     <>
-      <MainContainer>
         <Div bgColor={bgColor} onMouseEnter={() => setAnimation(true)}>
-          <PositionTitle disablePadding={disablePadding}>
-            <Block>
-              <H2>{title}</H2>
-            </Block>
-          </PositionTitle>
+          <Content>
+            <PositionTitle disablePadding={disablePadding}>
+              <Block>
+                <H2>{title}</H2>
+              </Block>
+            </PositionTitle>
 
-          <ProjectsContainer>
-            <Projects projects={projects} elementsColor={elementsColor} />
-          </ProjectsContainer>
+            <ProjectsContainer>
+              <Projects projects={projects} elementsColor={elementsColor} />
+            </ProjectsContainer>
 
-        {renderCondition && !disableSeeMore && (
-          <SeeMoreWorks>
-            <H4>{buttonIntro}</H4>
+          {renderCondition && !disableSeeMore && (
+            <SeeMoreWorks>
+              <H4>{buttonIntro}</H4>
 
-            <ButtonWithArrow
-              buttonLabel={buttonLabel}
-              redirectTo={buttonUrl}
-              padding={"23px 35px"}
-            />
+              <ButtonWithArrow
+                buttonLabel={buttonLabel}
+                redirectTo={buttonUrl}
+                padding={"23px 35px"}
+              />
 
-              <HexagonPosition>
-                <HexagonFilled width={350} height={404} viewBox="0 0 195 225" />
-              </HexagonPosition>
+                <HexagonPosition>
+                  <HexagonFilled width={350} height={404} viewBox="0 0 195 225" />
+                </HexagonPosition>
 
-              <LoadingPosition>
-                <Loading width={170} height={170} viewBox="0 0 96 96" />
-              </LoadingPosition>
+                <LoadingPosition>
+                  <Loading width={170} height={170} viewBox="0 0 96 96" />
+                </LoadingPosition>
 
-              <DotsPosition>
-                <Dots numberOfDots={5} dotColor={"#fff"} animation={animation} />
-              </DotsPosition>
-            </SeeMoreWorks>
-          )}
+                <DotsPosition>
+                  <Dots numberOfDots={5} dotColor={"#fff"} animation={animation} />
+                </DotsPosition>
+              </SeeMoreWorks>
+            )}
+          </Content>
         </Div>
-      </MainContainer>
     </>
   );
 }

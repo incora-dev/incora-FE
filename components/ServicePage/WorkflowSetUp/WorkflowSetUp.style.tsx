@@ -84,6 +84,9 @@ export const ContentWrapper = styled.div`
 `;
 
 export const Title = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 
   @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
     display: flex;
@@ -100,6 +103,10 @@ export const Title = styled.div`
   }
 `;
 
+export const TitleContent = styled.div`
+  display: flex;
+  margin-top: 8px;
+`;
 
 export const H1 = styled.h1`
   //max-width: 50vw;

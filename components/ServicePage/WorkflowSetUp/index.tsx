@@ -8,6 +8,7 @@ import {
   Text,
   Number,
   Title,
+  TitleContent,
 } from "./WorkflowSetUp.style";
 import { firstLetterBig } from "../../../utils";
 import IconWorkflow1 from "../../../public/SVG/workflowSetUp/01workflowIcon.svg";
@@ -51,8 +52,10 @@ const GetContent = ({ content }: IGetContent) => {
                 height={height}
                 alt="icon"
               />
-              {/* <Number>{numberTitle}</Number> */}
-              <H2>{title}</H2>
+              <TitleContent>
+                <Number>{numberTitle}</Number>
+                <H2>{title}</H2>
+              </TitleContent>
             </Title>
             <Text>{description}</Text>
           </ContentWrapper>

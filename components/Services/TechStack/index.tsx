@@ -40,8 +40,7 @@ const GetStacksInfo = (
   const name = attributes?.name;
   const description = attributes?.description;
   const technologies = attributes?.technologies?.data;
-    const {isMobile, isTablet, isSmallTablet} = useIsMobile();
-  
+  const { isMobile, isTablet, isSmallTablet } = useIsMobile();
 
   return (
     <InfoBlock>
@@ -49,15 +48,17 @@ const GetStacksInfo = (
         <H3>{name}</H3>
         <StackText>{description}</StackText>
 
-        {!isMobile && !isTablet && !isSmallTablet && <PositionButtonWithArrow>
-          <ButtonWithArrow
-            buttonLabel={"Contact"}
-            redirectTo={`/services/`}
-            bgColor={"#000"}
-            textColor={"#fff"}
-            padding={"23px 35px"}
-          />
-        </PositionButtonWithArrow>}
+        {!isMobile && !isTablet && !isSmallTablet && (
+          <PositionButtonWithArrow>
+            <ButtonWithArrow
+              buttonLabel={"Contact"}
+              redirectTo={`/services/`}
+              bgColor={"#000"}
+              textColor={"#fff"}
+              padding={"23px 35px"}
+            />
+          </PositionButtonWithArrow>
+        )}
       </TextContainer>
 
       <StacksContainer>
@@ -65,7 +66,7 @@ const GetStacksInfo = (
           {technologies?.map((technology) => {
             const id = technology.id;
             const url = technology.attributes?.url;
-            const name = technology.attributes?.name;
+            const name = technology.attributes?.Technology_name;
 
             const logo = technology.attributes?.icon?.data?.attributes;
             const src = IMAGES_LINK + logo?.url;
@@ -97,15 +98,17 @@ const GetStacksInfo = (
           })}
         </StacksBlock>
       </StacksContainer>
-        {(isMobile ||  isTablet) && <PositionButtonWithArrow>
+      {(isMobile || isTablet) && (
+        <PositionButtonWithArrow>
           <ButtonWithArrow
-              buttonLabel={'Contact'}
-              redirectTo={`/services/}`}
-              bgColor={'#000'}
-              textColor={'#fff'}
-              padding={'23px 35px'}
+            buttonLabel={"Contact"}
+            redirectTo={`/services/}`}
+            bgColor={"#000"}
+            textColor={"#fff"}
+            padding={"23px 35px"}
           />
-        </PositionButtonWithArrow>}
+        </PositionButtonWithArrow>
+      )}
     </InfoBlock>
   );
 };

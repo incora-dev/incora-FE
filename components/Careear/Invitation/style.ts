@@ -8,6 +8,8 @@ export const InvitationWrapper = styled.div`
   background-color: ${themeGet("colors.black")};
   padding-top: 36px;
   position: relative;
+  display: flex;
+  justify-content: center;
   margin-bottom: 120px;
 
   @media only screen and (max-width: ${themeGet("breakpoints.mDesk")}) {
@@ -25,7 +27,8 @@ export const InvitationWrapper = styled.div`
 
   .semicircle {
     position: absolute;
-    top: 380px;
+    top: 345px;
+    left: -179px;
 
     @media only screen and (max-width: ${themeGet("breakpoints.smallDesk")}) {
       top: 320px;
@@ -41,10 +44,16 @@ export const InvitationWrapper = styled.div`
   }
 `;
 
+export const InvitationContainer = styled.div`
+  position: relative;
+  width: 100%;
+  max-width: 1006px;
+`;
+
 export const DotsWrap = styled.div`
   position: absolute;
-  top: 430px;
-  left: 25px;
+  top: 395px;
+  left: -155px;
   transform: rotate(63deg);
 
   @media only screen and (max-width: ${themeGet("breakpoints.mDesk")}) {
@@ -66,7 +75,6 @@ export const CareersWrap = styled.div`
   display: flex;
   justify-content: space-between;
   margin-bottom: 17px;
-  padding-left: 179px;
 
   @media only screen and (max-width: ${themeGet("breakpoints.mDesk")}) {
     padding-left: 100px;
@@ -176,6 +184,7 @@ export const Rectangle = styled.div`
 
 export const PhotoWrap = styled.div`
   position: relative;
+  right: -178px;
 
   @media only screen and (max-width: ${themeGet("breakpoints.tabletPro")}) {
     right: -25px;

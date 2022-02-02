@@ -50,7 +50,7 @@ export const PhotosWrap = styled.div`
 `;
 
 export const ImageContainer = styled.div`
-  width: calc((100% - 30px) / 2);
+  width: calc((100% - 56px) / 2);
   margin-bottom: 30px;
 
   @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {

@@ -50,6 +50,10 @@ export const ContentWrap = styled.div`
     padding: 100px 25px;
   }
 
+  @media only screen and (max-width: ${themeGet("breakpoints.tabletPro")}) {
+    padding: 50px 25px;
+  }
+
   @media only screen and (max-width: ${themeGet("breakpoints.smallDesk")}) {
     padding: 0 30px;
   }
@@ -70,9 +74,14 @@ export const DescriptionAndCv = styled.div`
 
 export const Description = styled.div`
   width: 653px;
-  padding-bottom: 64px;
+  padding-bottom: 44px;
 
   h1 {
+    @media only screen and (max-width: ${themeGet("breakpoints.tabletPro")}) {
+      font-size: var(--fs-48);
+      line-height: 72px;
+    }
+
     @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
       font-size: 24px;
       line-height: 34px;
@@ -163,6 +172,10 @@ export const Description = styled.div`
     padding-right: 20px;
   }
 
+  @media only screen and (max-width: ${themeGet("breakpoints.tabletPro")}) {
+    padding-bottom: 0;
+  }
+
   @media only screen and (max-width: ${themeGet("breakpoints.smallDesk")}) {
     width: 100%;
   }
@@ -175,7 +188,7 @@ export const Description = styled.div`
 export const AttachCvWrap = styled.div`
   width: 297px;
   position: relative;
-  top: 197px;
+  top: 150px;
 
   @media only screen and (max-width: ${themeGet("breakpoints.smallDesk")}) {
     width: 100%;

@@ -1,4 +1,4 @@
-import { Input, SelectorWrapper, Option, OptionButton } from "./style";
+import { Input, SelectorWrapper, Option, OptionButton, IconWrapper } from "./style";
 import SelectSearch from "react-select-search-nextjs";
 import ArrowBlackDown from "../../public/SVG/ArrowDownBlack.svg";
 import { Dispatch, SetStateAction, useRef } from "react";
@@ -24,6 +24,7 @@ const Selector = ({ placeholder, options, icon, value, setValue }: any) => {
 
   return (
     <SelectorWrapper>
+      {icon && <IconWrapper>{icon()}</IconWrapper>}
       <Select
         className="react-select-container"
         classNamePrefix="react-select"

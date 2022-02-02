@@ -8,7 +8,8 @@ export const SendCvFormWrapper = styled.div`
   display: flex;
   justify-content: center;
   padding-top: 120px;
- @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+  
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     padding-top: 50px;
   }
 `;
@@ -19,4 +20,8 @@ export const ContentWrap = styled.div`
 
 export const AttachCvWrap = styled.div`
   width: 400px;
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tabletPro')}) {
+    top: 120px;
+  }
 `;

@@ -83,13 +83,18 @@ export const PositionFilter = styled.div`
   top: 150px;
 
   align-self: flex-start;
+
+  h1 {
+    text-transform: capitalize;
+    margin-bottom: 56px;
+  }
 `;
 
 export const Filter = styled.div`
   width: 300px;
   display: flex;
   flex-flow: column;
-  gap: 31px;
+  gap: 21px;
 
   @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
     width: 100%;
@@ -122,7 +127,7 @@ export const List = styled.div`
 
 export const QuickApplyWrap = styled.div`
   width: 100%;
-  margin-top: 20px;
+  margin-top: 29px;
 
   @media only screen and (max-width: ${themeGet("breakpoints.smallDesk")}) {
     margin-bottom: 40px;
@@ -149,7 +154,7 @@ export const QuickApplyWrap = styled.div`
   p {
     font-size: var(--fs-14);
     line-height: 30px;
-    letter-spacing: ${themeGet("letterSpacing.span")};
+    letter-spacing: 0.1em;
     color: ${themeGet("color.font2")};
     margin-bottom: 20px;
 

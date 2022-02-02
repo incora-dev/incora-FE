@@ -53,7 +53,7 @@ export const ContentWrap = styled.div`
 
 
   @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
-    padding: 50px 0;
+    padding: 25px 0;
   }
 
   h1 {

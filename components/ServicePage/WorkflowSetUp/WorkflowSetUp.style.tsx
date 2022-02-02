@@ -149,6 +149,10 @@ export const Number = styled.h2`
   letter-spacing: 0.05em;
 
   color: #FEC506;
+
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+    font-size: var(--fs-18);
+  }
 `;
 
 export const Text = styled.p`

@@ -22,12 +22,12 @@ const gridData = [
 const OurBenefits = () => {
   return (
     <OurBenefitsWrapper>
-      <BenefitsAndSolutions
+      {/* <BenefitsAndSolutions
         header="our benefits"
         gridData={gridData}
         gridItemWidth={199}
         rowGap={60}
-      />
+      /> */}
     </OurBenefitsWrapper>
   );
 };

@@ -1,12 +1,12 @@
 import { INavigation } from "@interfaces";
 import styled, { css } from "styled-components";
-import { ISideMenu } from ".";
 
 interface IMenu {
   open: boolean;
+  backgroundColor: string;
 }
 
-export const Menu = styled.nav`
+export const Menu = styled.nav<IMenu>`
   position: absolute;
   top: 0px;
   left: 0px;
@@ -20,7 +20,7 @@ export const Menu = styled.nav`
   padding-top: 100px;
   padding-right: 0px;
   align-items: stretch;
-  background-color: ${({backgroundColor}: ISideMenu & INavigation) => backgroundColor};
+  background-color: ${({backgroundColor}: IMenu) => backgroundColor};
   transform: translateX(-100%);
   transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
 

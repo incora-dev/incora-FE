@@ -3,7 +3,8 @@ import themeGet from "@styled-system/theme-get";
 import { theme } from "../../../../styles/theme";
 
 interface IChangeColor {
-  titleColor: string;
+  titleColor?: string;
+  backgroundColor?: string;
 }
 
 export const MainWrapper = styled.div`
@@ -20,7 +21,7 @@ export const Div = styled.div`
   color: ${({ titleColor }: IChangeColor) => titleColor === theme.colors.black ? theme.colors.black : theme.colors.white};
   z-index: 25;
 
-  background-color: ${({backgroundColor}: {backgroundColor: string}) => backgroundColor};
+  background-color: ${({ backgroundColor }: IChangeColor) => backgroundColor};
 `;
 
 export const PositionLoader = styled.div`
@@ -69,7 +70,7 @@ export const Wrapper = styled.div`
   }
 `;
 
-export const InfoWrapper = styled.div`
+export const InfoWrapper = styled.div<IChangeColor>`
   display: flex;
   column-gap: 17px;
 

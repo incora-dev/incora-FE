@@ -11,7 +11,7 @@ import React, {useContext, useEffect, useState} from "react";
 import Link from "next/link";
 import { theme } from "../../../styles/theme";
 import { MenuContext } from "../../../services/context/mainMenu";
-import { useIsMobile, useIsTablet } from "../../../services/hooks";
+import { useIsMobile } from "../../../services/hooks";
 
 function Navigation({ 
   titles, 

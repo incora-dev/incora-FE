@@ -21,7 +21,7 @@ const Project = ({ id, project, index, elementsColor}: any) => {
   return <>
     {mainInfoEntry && imageEntry && technologies && (
       <Container key={id} flexDirection={flexDirection}>
-        <Text margin={marginText}>
+        <Text>
           <Link href={`/case_studies/case/${url}`} passHref>
             <H3
               onMouseEnter={() => setShouldHover(index)}

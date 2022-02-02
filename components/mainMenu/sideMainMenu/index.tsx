@@ -13,8 +13,12 @@ const titles = [
   "Contact Us",
 ];
 
-export interface ISideMenu extends IMenu {
-    children?: any;
+export interface ISideMenu {
+  backgroundColor: string;
+  titlesColor: string;
+  children?: any;
+  titles: string[];
+  positionType?: string;
 }
 
 export const SideMenu = forwardRef(({ 

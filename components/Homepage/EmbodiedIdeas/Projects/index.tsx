@@ -47,7 +47,7 @@ function Projects({ projects, elementsColor }: IProjects) {
         <>
           {name && description && technologies && image && (
             <Container key={id} flexDirection={flexDirection}>
-              <Text margin={marginText}>
+              <Text>
                 <Link href={`/case_studies/case/${url}`} passHref>
                   <H3
                     onMouseEnter={() => setShouldHover(index)}

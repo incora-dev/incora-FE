@@ -1,68 +1,64 @@
-import { Component, Container, Technology, TechnologyHover, ContainerTop } from "./BlockTechnologies.style";
+import {
+  Component,
+  Container,
+  Technology,
+  TechnologyHover,
+  ContainerTop,
+} from "./BlockTechnologies.style";
 import Frontend from "../../../../public/SVG/TechnologyFrontend.svg";
 import Backend from "../../../../public/SVG/TechnologyBackend.svg";
 import Database from "../../../../public/SVG/TechnologyDatabase.svg";
 import MobileApps from "../../../../public/SVG/TechnologyMobileApps.svg";
 import DevopsTools from "../../../../public/SVG/TechnologyDevOpsTools.svg";
 import CloudServices from "../../../../public/SVG/TechnologyCloudServices.svg";
-import { IBlockTechnologies } from "@interfaces";
 import TechnologyContainer from "./TechnologyContainer";
+import { GetHomepage_homePage_data_attributes_technologies_tech_stacks_data } from "../../../../graphql/homepage/__generated__/GetHomepage";
+import Image from "next/image";
+import { IMAGES_LINK } from "../../../../constants";
 
-function BlockTechnologies({ technologies }: IBlockTechnologies) {
-  const setTechnologies = () => {
-    return technologies.map(({ technology: { label,text, icons }}, index) => {
-      let icon;
+interface IBlockTechnologies {
+  techStacks: GetHomepage_homePage_data_attributes_technologies_tech_stacks_data[];
+}
 
-      if (index === 0) {
-        icon = <Frontend/>
-      }
+function BlockTechnologies({ techStacks }: IBlockTechnologies) {
+  const technologies = techStacks.map((stack) => {
+    const { id, attributes } = stack;
+    const name = attributes?.name;
+    const stackIcon = attributes?.icon.data?.attributes;
+    const src = IMAGES_LINK + stackIcon?.url;
+    const width = stackIcon?.width;
+    const height = stackIcon?.height;
+    const techArray = attributes?.technologies?.data;
 
-      if (index === 1) {
-        icon = <Backend/>
-      }
+    const renderCondition = name && width && height && techArray;
 
-      if (index === 2) {
-        icon = <Database/>
-      }
+    return (
+      <>
+        {renderCondition && (
+          <Container key={id}>
+            <TechnologyHover>
+              <TechnologyContainer techArray={techArray} />
+            </TechnologyHover>
 
-      if (index === 3) {
-        icon = <MobileApps/>
-      }
-
-      if (index === 4) {
-        icon = <DevopsTools/>
-      }
-
-      if (index === 5) {
-        icon = <CloudServices/>
-      }
-
-      return (
-        <Container key={index}>
-          <TechnologyHover>
-            <TechnologyContainer icons={icons} text={text}/>
-          </TechnologyHover>
-
-          <Technology>
-            <ContainerTop>
-              {icon}
-              <p>{label}</p>
-            </ContainerTop>
-          </Technology>
-        </Container>
-      )
-    });
-  }
-
-  const technologiesArray = setTechnologies().map((technology) => {
-    return technology;
+            <Technology>
+              <ContainerTop>
+                <Image
+                  loader={() => src}
+                  src={src}
+                  width={width}
+                  height={height}
+                  alt="tech stack icon"
+                />
+                <p>{name}</p>
+              </ContainerTop>
+            </Technology>
+          </Container>
+        )}
+      </>
+    );
   });
 
-  return (
-    <Component number={technologiesArray.length}>
-      {technologiesArray}
-    </Component>
-  )
+  return <Component number={technologies.length}>{technologies}</Component>;
 }
 
 export default BlockTechnologies;

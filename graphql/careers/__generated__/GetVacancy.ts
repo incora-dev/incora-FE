@@ -17,10 +17,26 @@ export interface GetVacancy_vacancies_data_attributes_currentVacancies {
   buttonText: string;
 }
 
+export interface GetVacancy_vacancies_data_attributes_filter_technologies_data_attributes {
+  __typename: "FilterTechnology";
+  name: string;
+}
+
+export interface GetVacancy_vacancies_data_attributes_filter_technologies_data {
+  __typename: "FilterTechnologyEntity";
+  attributes: GetVacancy_vacancies_data_attributes_filter_technologies_data_attributes | null;
+}
+
+export interface GetVacancy_vacancies_data_attributes_filter_technologies {
+  __typename: "FilterTechnologyRelationResponseCollection";
+  data: GetVacancy_vacancies_data_attributes_filter_technologies_data[];
+}
+
 export interface GetVacancy_vacancies_data_attributes {
   __typename: "Vacancy";
   description: string;
   currentVacancies: GetVacancy_vacancies_data_attributes_currentVacancies;
+  filter_technologies: GetVacancy_vacancies_data_attributes_filter_technologies | null;
 }
 
 export interface GetVacancy_vacancies_data {

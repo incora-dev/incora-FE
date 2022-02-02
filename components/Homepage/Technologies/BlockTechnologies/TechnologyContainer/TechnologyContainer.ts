@@ -27,18 +27,18 @@ export const Container = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  
+
   width: 100%;
-  
+
   padding: 0 23px;
-  
+
   justify-content: center;
   align-items: center;
   display: flex;
   flex-wrap: wrap;
   column-gap: 53px;
   row-gap: 35px;
-  
+
   z-index: 1;
 `;
 
@@ -47,9 +47,8 @@ export const Block = styled.div`
   flex-direction: column;
   align-items: center;
   row-gap: 11px;
-  
   width: max-content;
-`
+`;
 
 export const P = styled.p`
   max-width: 94px;

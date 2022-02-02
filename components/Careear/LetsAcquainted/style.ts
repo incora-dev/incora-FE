@@ -3,42 +3,37 @@ import styled from "styled-components";
 import { theme } from "../../../styles/theme";
 
 export const LetsAcquaintedWrapper = styled.div`
+  position: relative;
   width: 100%;
-  height: 577px;
   display: flex;
   justify-content: center;
-  padding-top: 120px;
- @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
-    padding-top: 50px;
-  }
-  position: relative;
-
+  padding: 120px 0 187px;
+  
   @media only screen and (max-width: ${themeGet("breakpoints.mDesk")}) {
-    height: 530px;
     padding-top: 70px;
   }
-
-  @media only screen and (max-width: ${themeGet("breakpoints.smallDesk")}) {
-    height: 290px;
-    padding: 30px;
-  }
-
-  @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
-    height: 280px;
-  }
-
-  @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
-    padding: 15px 15px 30px;
+  
+  @media only screen and (max-width: ${themeGet("breakpoints.tabletPro")}) {
+    padding-top: 0;
+    padding-bottom: 40px;
   }
 `;
 
 export const ContentWrap = styled.div`
   width: 1006px;
 
-  @media only screen and (max-width: ${themeGet("breakpoints.mDesk")}) {
+  @media only screen and (max-width: ${themeGet("breakpoints.tabletPro")}) {
     max-width: 100%;
     width: 100%;
     padding: 100px 25px;
+  }
+
+  @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
+    padding: 50px 25px;
+  }
+
+  @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
+    padding: 20px 15px 50px;
   }
 
   span {
@@ -53,32 +48,24 @@ export const ContentWrap = styled.div`
     font-weight: 800;
     font-size: var(--fs-64);
     line-height: 96px;
-@media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
-  line-height: 50px;
-}
     letter-spacing: 3px;
     text-transform: capitalize;
-    margin-bottom: 30px;
-
-    @media only screen and (max-width: ${themeGet("breakpoints.mDesk")}) {
-      font-size: 54px;
-      line-height: 64px;
-    }
-
-    @media only screen and (max-width: ${themeGet("breakpoints.smallDesk")}) {
-      font-size: 36px;
-      line-height: 46px;
-    }
+    margin-bottom: 28px;
+    margin-top: 5px;
 
     @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
-      font-size: 24px;
-      line-height: 34px;
-      margin-top :5px;
+      font-size: var(--fs-40);
+      line-height: 72px;
+      margin-top: 5px;
+    }
+
+    @media only screen and (max-width: ${themeGet("breakpoints.sTablet")}) {
+      line-height: 50px;
+      font-size: var(--fs-36);
     }
 
     @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
-      font-size: 24px;
-      line-height: 33px;
+      line-height: 38px;
       margin-top: 13px;
       letter-spacing: 1px;
       width: 90%;
@@ -86,14 +73,11 @@ export const ContentWrap = styled.div`
   } 
 
   .text1 {
-    @media only screen and (max-width: ${themeGet("breakpoints.smallDesk")}) {
-      font-size: 14px;
-      line-height: 20px;
-    }
+    letter-spacing: 0.05em;
 
-    @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
-      font-size: 14px;
-      line-height: 20px;
+    @media only screen and (max-width: ${themeGet("breakpoints.sTablet")}) {
+      font-size: var(--fs-14)
+      line-height: 27px;
     }
   }
 `;
@@ -127,15 +111,20 @@ export const HexagonsWrap = styled.div`
 
   .small {
     position: absolute;
-    top: 60px;
+    top: 65px;
     right: 210px;
 
     @media only screen and (max-width: ${themeGet("breakpoints.smallDesk")}) {
       right: 0;
     }
 
+    @media only screen and (max-width: ${themeGet("breakpoints.sTablet")}) {
+      top: 168px;
+    }
+
     @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
-      top: 88px;
+      top: 120px;
+      transform: scale(0.8);
       right: -17px;
     }
   }

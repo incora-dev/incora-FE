@@ -17,15 +17,9 @@ import LinkedIn from "../public/SVG/socialNetwork/linkedIn.svg";
 import React from "../public/SVG/technologies/react.svg";
 import Angular from "../public/SVG/technologies/angular.svg";
 import VideoComponent from "../components/Homepage/Video";
-import { useState } from "react";
 import Reviews from "../components/Homepage/Reviews";
 import HeaderComponent from "../components/Homepage/Header";
 import CooperateComponent from "../components/Homepage/Cooperate";
-import { GetCaseStudies } from "../graphql/caseStudies/__generated__/GetCaseStudies";
-import { useQuery } from "@apollo/client";
-import { GET_CASE_STUDIES } from "../graphql/caseStudies/queries";
-import Custom404 from "./404";
-import VerticalFullPageSlider from "../components/common/VerticalFullPageSlider";
 
 interface ISlide {
   title: string;

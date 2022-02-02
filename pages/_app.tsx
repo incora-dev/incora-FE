@@ -8,6 +8,7 @@ import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 import { GRAPH_QL_LINK } from "../constants";
 import NavState from "../services/context/mainMenu";
 import { useEffect } from "react";
+import Notice from "../components/PrivacyPolicyPage/Notice";
 
 const client = new ApolloClient({
   uri: GRAPH_QL_LINK,
@@ -30,6 +31,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         </Provider>
       </ThemeProvider>
       </NavState>
+      <Notice/>
     </>
   );
 }

@@ -1,12 +1,11 @@
 import Head from "next/head";
 import React from "../../public/SVG/technologies/react.svg";
 import MainMenu from "../../components/mainMenu/mainMenu";
-import { footer, titles } from "../../constants";
+import { titles } from "../../constants";
 import { theme } from "../../styles/theme";
 import HeaderPrivacyPolicy from "../../components/PrivacyPolicyPage/HeaderPrivacyPolicy";
 import MainInfo from "../../components/PrivacyPolicyPage/MainInfo";
 import FooterComponent from "../../components/Footer";
-import Notice from "../../components/PrivacyPolicyPage/Notice";
 
 interface IPrivacyPolicy {
   title: string;
@@ -58,7 +57,6 @@ const PrivacyPolicy = ({ title, text }: IPrivacyPolicy) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <>
-        <Notice/>
         <MainMenu
             backgroundColor={theme.colors.black}
             titlesColor={theme.colors.white}

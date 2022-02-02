@@ -65,7 +65,6 @@ export const ContentWrapper = styled.div`
 export const ListWrap = styled.div`
   display: flex;
   justify-content: space-between;
-  height: 827px;
 
   @media only screen and (max-width: ${themeGet("breakpoints.mDesk")}) {
     height: auto;

@@ -18,6 +18,7 @@ const VacancyDescription = ({ description }: IVacancyDescription) => {
       <ContentWrap>
         <DescriptionAndCv>
           <Description>
+            <h2>Sales & Marketing</h2>
             <ReactMarkdown>{description}</ReactMarkdown>
           </Description>
 

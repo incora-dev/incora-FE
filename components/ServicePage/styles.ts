@@ -42,7 +42,7 @@ export const Wrapper = styled.div`
 export const TextContainer = styled.div`
   position: relative;
   z-index: 1;
-  padding: 222px 0 129px;
+  padding: 184px 0 129px;
 
   @media only screen and (max-width: ${themeGet('breakpoints.tabletPro')}) {
     width: calc(100% - 260px);
@@ -67,7 +67,8 @@ export const TextContainer = styled.div`
 export const TextBlock = styled.div`
   display: flex;
   flex-direction: column;
-  row-gap: 21.5px;
+  row-gap: 19px;
+  max-width: 650px;
   
   color: ${({ bgColor }: IDiv) => bgColor === theme.colors.black ? theme.colors.white : theme.colors.black};
 `;
@@ -79,6 +80,7 @@ export const H1 = styled.h1`
   font-weight: 800;
   font-size: ${({ titleSize }: IFontSize) => titleSize};
   line-height: ${({ titleSize }: IFontSize) => titleSize === '48px' ? '72px' : '96px'};
+  letter-spacing: 0.05em;
 
   @media only screen and (max-width: ${themeGet('breakpoints.tabletPro')}) {
     font-size: var(--fs-48);
@@ -108,7 +110,7 @@ export const H2 = styled.h2`
   font-style: normal;
   font-weight: 800;
   font-size: var(--fs-26);
-  line-height: 39px;
+  line-height: 37px;
 
   letter-spacing: 0.05em;
   text-transform: uppercase;
@@ -134,8 +136,8 @@ export const Text = styled.p`
 export const PositionIcon = styled.div`
   position: absolute;
   z-index: 1;
-  top: 191px;
-  right: -3.9vw;
+  top: 169px;
+  right: 48px;
 
   @media only screen and (max-width: ${themeGet('breakpoints.tabletPro')}) {
     right: 15px;

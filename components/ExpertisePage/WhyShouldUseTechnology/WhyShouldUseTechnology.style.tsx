@@ -36,6 +36,8 @@ export const InfoBlock = styled.div`
   flex-direction: column;
   row-gap: 50px;
 
+  padding-top: 38px;
+
   @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
     padding-bottom: 80px;
     padding-top: 40px;
@@ -83,7 +85,7 @@ export const ArgumentsBlock = styled.div`
 
 export const TechnologyWrapper = styled.div`
   max-width: 302px;
-  padding: 40px;
+  padding: 40px 40px 45px;
   
   display: flex;
   flex-direction: column;

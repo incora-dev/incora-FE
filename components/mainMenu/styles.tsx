@@ -118,4 +118,9 @@ export const CloseBtn = styled.button`
   margin: 10px;
   right: 0;
   z-index: 21;
+  display: none;
+
+  @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
+    display: block;
+  }
 `;

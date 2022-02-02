@@ -24,125 +24,129 @@ import {
   PositionCube5,
   Sphere,
 } from "./styles";
-import { IServices } from "@interfaces";
-import Loading from "../../../public/loading.svg"
+import Loading from "../../../public/loading.svg";
 import { useEffect, useState } from "react";
-import Cube1 from "../../../public/SVG/Cube1.svg"
-import Cube2 from "../../../public/SVG/Cube2.svg"
-import Cube3 from "../../../public/SVG/Cube3.svg"
-import HexagonBordered from "../../../public/hexagonBordered.svg"
-import HexagonFilled from "../../../public/hexagonFilled.svg"
+import Cube1 from "../../../public/SVG/Cube1.svg";
+import Cube2 from "../../../public/SVG/Cube2.svg";
+import Cube3 from "../../../public/SVG/Cube3.svg";
+import HexagonBordered from "../../../public/hexagonBordered.svg";
+import HexagonFilled from "../../../public/hexagonFilled.svg";
 import { theme } from "../../../styles/theme";
 import { useIsMobile } from "../../../services/hooks";
+import { GetHomepage_homePage_data_attributes_services_services_data } from "../../../graphql/homepage/__generated__/GetHomepage";
+import { ROUTES } from "../../../constants/routes";
 import Link from "next/link";
 
+interface IServices {
+  title: string;
+  text: string;
+  labels: GetHomepage_homePage_data_attributes_services_services_data[];
+}
+
 function ServicesComponent({ title, text, labels }: IServices) {
-  const [ onEnterBlock, setOnEnterBlock] = useState(false);
-      const {isMobile, isTablet, isSmallTablet} = useIsMobile();
+  const [onEnterBlock, setOnEnterBlock] = useState(false);
+  const {isMobile, isTablet, isSmallTablet} = useIsMobile();
   
 
+  const label = labels.map((label, index) => {
+    const id = label.id;
+    const url = ROUTES.SERVICES + label.attributes?.url;
+    const name = label.attributes?.name;
+
+    return (
+      <Link href={url} key={id} passHref>
+        <Label>{name}</Label>
+      </Link>
+    );
+  });
+
   return (
-    <Component
-     onMouseEnter={() => setOnEnterBlock(true)}
-    >
-      { onEnterBlock &&
+    <Component onMouseEnter={() => setOnEnterBlock(true)}>
+      {onEnterBlock && (
         <PositionLoading>
-          <Loading/>
+          <Loading />
         </PositionLoading>
-      }
+      )}
 
       <Position>
         <Div>
           <PositionTextBlock>
             <Div>
-                <H2>{title}</H2>
-                <P>{text}</P>
+              <H2>{title}</H2>
+              <P>{text}</P>
 
-              <Labels>
-                {
-                  labels.map((label, index) =>
-                    <Link href={`/services/${label.replace('/', '').replace(' ', '_')}`} key={index}>
-                      <Label key={index}>{label}</Label>
-                    </Link>
-                  )
-                }
-              </Labels>
+              <Labels>{label}</Labels>
             </Div>
           </PositionTextBlock>
           <PositionHexagonOne>
-            <HexagonBordered/>
+            <HexagonBordered />
           </PositionHexagonOne>
 
           <PositionHexagonTwo>
-            <HexagonFilled/>
+            <HexagonFilled />
           </PositionHexagonTwo>
 
           <PositionHexagonThree>
-            <HexagonBordered/>
+            <HexagonBordered />
           </PositionHexagonThree>
 
           <PositionHexagonFour>
-            <HexagonFilled/>
+            <HexagonFilled />
           </PositionHexagonFour>
 
           <PositionHexagonFive>
-            <HexagonBordered/>
+            <HexagonBordered />
           </PositionHexagonFive>
 
           <PositionHexagonSix>
-            <HexagonBordered/>
+            <HexagonBordered />
           </PositionHexagonSix>
 
           <PositionHexagonSeven>
-            <HexagonBordered/>
+            <HexagonBordered />
           </PositionHexagonSeven>
 
           <PositionHexagonEight>
-            <HexagonFilled/>
+            <HexagonFilled />
           </PositionHexagonEight>
 
           <PositionHexagonNine>
-            <HexagonBordered/>
+            <HexagonBordered />
           </PositionHexagonNine>
         </Div>
 
         {!isMobile && !isTablet && !isSmallTablet && (
           <>
             <PositionCube2>
-              <Cube1/>
+              <Cube1 />
             </PositionCube2>
 
-
             <PositionCube3>
-              <Cube2/>
+              <Cube2 />
             </PositionCube3>
 
             <PositionCube5>
-              <Cube3/>
+              <Cube3 />
             </PositionCube5>
 
             <Sphere>
               <PositionCube1>
-                <Cube1/>
+                <Cube1 />
               </PositionCube1>
 
               <PositionCube4>
-                <Cube3/>
+                <Cube3 />
               </PositionCube4>
             </Sphere>
           </>
         )}
 
-
-
-
         {/*<PositionCube2>*/}
         {/*  <Cube2/>*/}
         {/*</PositionCube2>*/}
-
       </Position>
     </Component>
-  )
+  );
 }
 
 export default ServicesComponent;

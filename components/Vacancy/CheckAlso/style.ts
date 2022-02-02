@@ -9,9 +9,8 @@ export const CheckAlsoWrapper = styled.div`
   position: relative;
   //overflow: hidden;
 
-  @media only screen and (max-width: ${themeGet("breakpoints.smallDesk")}) {
-    padding: 0 30px;
-    height: 800px;
+  @media only screen and (max-width: ${themeGet("breakpoints.tabletPro")}) {
+    padding-top: 0;
   }
 
   @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {

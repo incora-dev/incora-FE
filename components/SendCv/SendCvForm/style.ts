@@ -7,7 +7,7 @@ export const SendCvFormWrapper = styled.div`
   background-color: ${themeGet("colors.black")};
   display: flex;
   justify-content: center;
-  padding-top: 120px;
+  padding: 120px 0;
  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     padding-top: 50px;
   }

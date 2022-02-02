@@ -66,7 +66,7 @@ export const SelectorWrapper = styled.div`
 export const IconWrapper = styled.div`
   position: absolute;
   z-index: 1;
-  top: 50%;
+  top: 53%;
   transform: translateY(-50%);
 `;
 

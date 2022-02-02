@@ -74,6 +74,7 @@ export const ContentWrapper = styled.div`
   @media only screen and (max-width: ${themeGet("breakpoints.tabletPro")}) {
     padding: 0;
     width: calc(50% - 30px);
+    background: ${themeGet("colors.white")};
   }
 
   @media only screen and (max-width: ${themeGet("breakpoints.sTablet")}) {

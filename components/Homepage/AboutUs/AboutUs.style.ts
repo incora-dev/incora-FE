@@ -19,6 +19,10 @@ export const Div = styled.div`
 export const Container = styled.div`
   padding-bottom: 175px;
 
+  @media only screen and (max-width: ${themeGet('breakpoints.tabletPro')}) {
+    padding: 0 25px 100px;
+  }
+
   @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
     padding: 50px 25px;
     width: 100%;
@@ -39,6 +43,12 @@ export const Text = styled.div`
   column-gap: 209px;
   margin: 0 auto;
   padding-top: 104px;
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tabletPro')}) {
+    padding-top: 40px;
+    column-gap: 80px;
+    width: 100%;
+  }
 
   @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
     padding-top: 0;
@@ -84,6 +94,10 @@ export const Text = styled.div`
     letter-spacing: 0.1em;
 
     color: #BCBCC0;
+
+    @media only screen and (max-width: ${themeGet('breakpoints.tabletPro')}) {
+      max-width: 550px;
+    }
   }
 `;
 

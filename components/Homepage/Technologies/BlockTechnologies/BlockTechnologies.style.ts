@@ -20,7 +20,7 @@ export const Component = styled.div`
     display: none;
   }
 
-  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+  @media only screen and (max-width: ${themeGet('breakpoints.tabletPro')}) {
     padding: 0 25px;
   }
   @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {

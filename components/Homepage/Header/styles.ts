@@ -17,6 +17,12 @@ export const Container = styled.div`
   text-align: left;
 
   --line-height: calc(11vw + 0.1rem);
+
+  @media (max-width: ${themeGet('breakpoints.tabletPro')}) {
+    max-width: 100%;
+    padding: 0 25px;
+  }
+
   @media (max-width: ${themeGet('breakpoints.mobile')}) {
     --line-height: calc(11vw + 0.1rem);
     height: 70vw;
@@ -96,6 +102,15 @@ export const PositionVideoSVG = styled.div`
   
   width: 710px;
   height: 380px;
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tabletPro')}) {
+    right: -1px;
+    left: -1px;
+    top: 0px;
+    bottom: -1px;
+    width: 712px;
+    height: 382px;
+  }
 
   @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
     top: 75px;
@@ -194,6 +209,10 @@ export const ScrollContainer = styled.div`
   justify-content: center;
   
   transform: rotate(-90deg);
+
+  @media (max-width: ${themeGet('breakpoints.tabletPro')}) {
+    left: -75px;
+  }
 
   @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
     left: -15%;

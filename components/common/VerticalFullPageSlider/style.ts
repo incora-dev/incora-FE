@@ -33,7 +33,7 @@ export const SliderContent = styled.div`
     left: 3px;
 
     @media only screen and (max-width: ${themeGet('breakpoints.tabletPro')}) {
-      left: 16px;
+      left: 15px !important;
     }
   }
 `;

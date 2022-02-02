@@ -58,6 +58,13 @@ export const Slider = styled.div`
   margin-right: 23px;
   padding-top: 23.2vh;
   padding-bottom: 33.2vh;
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tabletPro')}) {
+    padding-top: 90px;
+    padding-bottom: 0;
+    height: max-content;
+  }
+
   @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     flex-wrap: wrap;
     padding-top: 15px;
@@ -99,6 +106,10 @@ export const InfoContainer = styled.div<IPositionInfo>`
   display: flex;
   gap: ${({withGap}) => withGap ? '100px' : '25px'};
 
+  @media only screen and (max-width: ${themeGet('breakpoints.tabletPro')}) {
+    gap: 10px;
+  }
+
 
   @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     flex-wrap: wrap;
@@ -108,15 +119,18 @@ export const InfoContainer = styled.div<IPositionInfo>`
 export const PositionInfo = styled.div`
   position: relative;
   right: ${({ positionRight }: IPositionInfo) => positionRight};
-
   margin-top: 6px;
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tabletPro')}) {
+    right: ${({ positionRight }: IPositionInfo) => (positionRight == '70px;') ? '48px' : positionRight};
+  }
 
   @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     right: 0;
     max-width: 100vw;
     top: -25vh;
   }
-  @media only screen and (max-width: ${theme.breakpoints.xsMobile}) {
+  @media only screen and (max-width: ${themeGet('breakpoints.xsMobile')}) {
     top: 0;
   }
 `
@@ -126,6 +140,11 @@ export const ElementsPosition = styled.div`
   position: relative;
   margin-right: 24px;
   margin-left: 76px;
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tabletPro')}) {
+    margin-right: 0;
+    margin-left: 0;
+  }
 `
 
 export const PositionScrollSlider = styled.div`

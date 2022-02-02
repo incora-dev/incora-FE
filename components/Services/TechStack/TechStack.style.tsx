@@ -105,6 +105,7 @@ export const StacksContainer = styled.div`
   @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
     max-width: 100%;
     padding: 20px 0;
+    background: ${themeGet('colors.white')};
   }
 
   @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {

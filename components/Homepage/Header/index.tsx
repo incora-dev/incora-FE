@@ -10,18 +10,17 @@ import {
   PositionHexagon1,
   PositionHexagon2,
   PositionHexagon3,
-  PositionHexagon4
-} from './styles';
-import SVG from "../../../public/SVG/deepen-to-the-core.svg"
-import Hexagon from "../../../public/SVG/hexagon1.svg"
-import { useEffect, useRef, useState } from "react";
-import { theme } from '../../../styles/theme';
-import { relative } from 'path/posix';
-import { useIsMobile } from '../../../services/hooks';
+  PositionHexagon4,
+} from "./styles";
+import SVG from "../../../public/SVG/deepen-to-the-core.svg";
+import Hexagon from "../../../public/SVG/hexagon1.svg";
+import { useIsMobile } from "../../../services/hooks";
 
+interface IHeaderComponent {
+  backgroundVideo: string;
+}
 
-function HeaderComponent() {
-  const videoEl: any = useRef(null);
+function HeaderComponent({backgroundVideo}: IHeaderComponent) {
       const {isMobile, isTablet, isSmallTablet} = useIsMobile();
 
   return (
@@ -38,15 +37,21 @@ function HeaderComponent() {
                       height: (isMobile || isTablet || isSmallTablet) ? 'unset' : '380px', 
                       position: (isMobile || isTablet || isSmallTablet) ? 'relative' : 'static', 
                       top: '1px' }}
+                      // style={{
+                      //   width: isMobile ? "94vw" : "707px",
+                      //   height: isMobile ? "unset" : "380px",
+                      //   position: isMobile ? "relative" : "static",
+                      //   top: "1px",
+                      // }}
               autoPlay
               loop
               muted
             >
-              <source src="DeepenToTheCoreOfIdeaVideo.mp4" type="video/mp4"/>
+              <source src={backgroundVideo} type="video/mp4" />
             </video>
 
             <PositionVideoSVG>
-              <SVG/>
+              <SVG />
             </PositionVideoSVG>
           </VideoBlock>
 
@@ -71,13 +76,13 @@ function HeaderComponent() {
           )}
 
           <ScrollContainer>
-            <Line/>
+            <Line />
             <ScrollText>scroll</ScrollText>
           </ScrollContainer>
         </Div>
       </Container>
     </Cover>
-  )
+  );
 }
 
 export default HeaderComponent;

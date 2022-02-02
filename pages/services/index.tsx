@@ -15,7 +15,6 @@ import { ScrollListTypes } from "../../components/common/VerticalFullPageSlider/
 import { IncModal } from "../../components/Modal";
 import { useEffect, useState } from "react";
 import { useQuery } from "@apollo/client";
-import { GET_SERVICES_PAGE } from "../../graphql/services/queries";
 import {
   GetServicesPage,
   GetServicesPage_servicesPage_data_attributes_services_data,
@@ -23,6 +22,7 @@ import {
 import Custom404 from "../404";
 import { useIsMobile } from "../../services/hooks";
 import FAQ from "../../components/ServicePage/FAQ";
+import { GET_SERVICES_PAGE } from "../../graphql/services/queries";
 
 function Services() {
   const { data, loading, error } = useQuery<GetServicesPage>(GET_SERVICES_PAGE);

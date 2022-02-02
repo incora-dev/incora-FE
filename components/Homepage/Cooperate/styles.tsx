@@ -27,12 +27,6 @@ export const Cooperate = styled.div`
   @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     height: 110vh;
   }
-  @media only screen and (max-width: ${theme.breakpoints.mMobile}) {
-    height: 120vh;
-  }
-  @media only screen and (max-width: ${theme.breakpoints.xsMobile}) {
-    height: 150vh;
-  }
 `
 
 export const Div = styled.div`
@@ -65,6 +59,10 @@ export const Slider = styled.div`
     height: max-content;
   }
 
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+    padding-top: 35px;
+  }
+
   @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     flex-wrap: wrap;
     padding-top: 15px;
@@ -82,6 +80,10 @@ export const Number = styled.div`
   text-transform: uppercase;
 
   color: #18181A;
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+    font-size: 90px;
+  }
 `
 
 export const PositionNumber = styled.div`
@@ -123,6 +125,11 @@ export const PositionInfo = styled.div`
 
   @media only screen and (max-width: ${themeGet('breakpoints.tabletPro')}) {
     right: ${({ positionRight }: IPositionInfo) => (positionRight == '70px;') ? '48px' : positionRight};
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+    right: ${({ positionRight }: IPositionInfo) => (positionRight == '70px;') ? '80px' : positionRight};
+    right: ${({ positionRight }: IPositionInfo) => (positionRight == '46.5px;') ? '105px' : positionRight};
   }
 
   @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {

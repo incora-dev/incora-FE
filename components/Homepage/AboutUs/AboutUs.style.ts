@@ -70,14 +70,16 @@ export const Text = styled.div`
     font-weight: 800;
     font-size: var(--fs-64);
     line-height: 96px;
-@media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
-  line-height: 50px;
-}
 
     letter-spacing: 0.05em;
     text-transform: capitalize;
 
     color: #FFF;
+
+    @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+      font-size: var(--fs-36);
+      line-height: 36px;
+    }
   }
   
   p {

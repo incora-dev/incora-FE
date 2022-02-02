@@ -53,8 +53,8 @@ export const PositionTitle = styled.div`
     margin-bottom: 30px;
   }
 
-  @media only screen and (max-width: ${themeGet('breakpoints.smallDesk')}) {
-    margin-top: 40px;
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+    margin-top: 0;
     margin-bottom: 20px;
   }
 `;

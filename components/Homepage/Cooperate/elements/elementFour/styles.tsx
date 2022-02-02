@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import themeGet from "@styled-system/theme-get";
 
 interface IElement {
   animation: boolean;
@@ -10,6 +11,12 @@ export const Element = styled.div`
   height: 300px;
 
   background: center no-repeat url("element4.svg");
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+    width: 190px;
+    height: 190px;
+    background-size: contain;
+  }
 `;
 
 export const PositionLoading = styled.div`

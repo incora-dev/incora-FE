@@ -30,7 +30,7 @@ function HeaderComponent({backgroundVideo}: IHeaderComponent) {
           <VideoBlock>
             <video
               style={{ width: (isMobile || isTablet || isSmallTablet) && !isSmallTablet 
-                        ? '90vw' 
+                        ? '80vw' 
                         : isSmallTablet 
                           ? '87vw' 
                           : '710px', 

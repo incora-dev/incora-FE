@@ -106,7 +106,7 @@ function CooperateComponent({ slide, index, plusesColor, button }: ISliders) {
           <PositionNumber>
             <Number>{`0${index + 1}`}</Number>
           </PositionNumber>
-          <InfoBlock slide={slide} button={button} />
+          <InfoBlock index={index} slide={slide} button={button} />
         </InfoContainer>
       </PositionInfo>
     </Slider>

@@ -18,7 +18,7 @@ export const Component = styled.div`
 
   @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
     height: fit-content;
-    padding-bottom: 53px;
+    padding-bottom: 30px;
   }
   @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     height: fit-content;
@@ -144,6 +144,10 @@ export const Sphere = styled.div`
 
 export const PositionTextBlock = styled.div`
   margin-top: 120px;
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+    margin-top: 90px;
+  }
 `
 
 export const H2 = styled.h2`

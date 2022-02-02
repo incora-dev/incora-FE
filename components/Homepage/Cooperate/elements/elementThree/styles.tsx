@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import themeGet from "@styled-system/theme-get";
 
 interface ICircle {
   animation: boolean;
@@ -10,6 +11,12 @@ export const Element = styled.div`
   height: 309px;
 
   background: center no-repeat url("element3.svg");
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+    width: 190px;
+    height: 220px;
+    background-size: contain;
+  }
 `;
 
 export const Circle = styled.div`

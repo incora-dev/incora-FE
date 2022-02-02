@@ -2,6 +2,10 @@ import themeGet from "@styled-system/theme-get";
 import styled from "styled-components";
 import { theme } from "../../../../styles/theme";
 
+interface IDiv  {
+  index: number;
+}
+
 export const Div = styled.div`
   display: flex;
   flex-direction: column;
@@ -54,8 +58,13 @@ export const H3 = styled.h3`
   color: #9CA3A7;
 `
 
-export const PositionH3 = styled.div`
+export const PositionH3 = styled.div<IDiv>`
   margin-bottom: 31px;
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+    display: ${({index}) => index === 0 ? 'block' : 'none'};
+  }
+
 `
 
 export const PositionText = styled.div`

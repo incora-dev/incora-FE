@@ -33,7 +33,7 @@ export const GET_SERVICES_PAGE = gql`
                     data {
                       id
                       attributes {
-                        name
+                        Technology_name
                         url
                         icon {
                           data {

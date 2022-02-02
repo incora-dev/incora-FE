@@ -18,7 +18,7 @@ import { Dispatch, SetStateAction, useState } from "react";
 import { GetService_services_data_attributes_faq_items } from "../../../graphql/services/__generated__/GetService";
 
 interface IFaq {
-  title: string;
+  title?: string;
   items?: (GetService_services_data_attributes_faq_items | null)[];
   titles?: string[];
   content?: any;

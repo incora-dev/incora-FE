@@ -63,6 +63,10 @@ export const Slider = styled.div`
     padding-top: 35px;
   }
 
+  @media only screen and (max-width: ${themeGet('breakpoints.sTablet')}) {
+    margin-right: 0;
+  }
+
   @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     flex-wrap: wrap;
     padding-top: 15px;
@@ -84,24 +88,16 @@ export const Number = styled.div`
   @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
     font-size: 90px;
   }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.sTablet')}) {
+    width: 120px;
+  }
 `
 
 export const PositionNumber = styled.div`
   position: relative;
   z-index: 1;
   margin-top: 20px;
-
-  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
-    left: 40%;
-  }
-  @media only screen and (max-width: ${themeGet('breakpoints.mMobile')}) {
-    left: 40%;
-  }
-  @media only screen and (max-width: ${themeGet('breakpoints.xsMobile')}) {
-    left: 25%;
-    margin-top: -50vw;
-
-  }
 `
 
 export const InfoContainer = styled.div<IPositionInfo>`
@@ -112,6 +108,9 @@ export const InfoContainer = styled.div<IPositionInfo>`
     gap: 10px;
   }
 
+  @media only screen and (max-width: ${themeGet('breakpoints.sTablet')}) {
+    gap: 20px;
+  }
 
   @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     flex-wrap: wrap;
@@ -132,6 +131,10 @@ export const PositionInfo = styled.div`
     right: ${({ positionRight }: IPositionInfo) => (positionRight == '46.5px;') ? '105px' : positionRight};
   }
 
+  @media only screen and (max-width: ${themeGet('breakpoints.sTablet')}) {
+    right: 0;
+  }
+  
   @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     right: 0;
     max-width: 100vw;

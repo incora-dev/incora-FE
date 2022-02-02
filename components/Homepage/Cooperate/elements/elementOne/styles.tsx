@@ -21,6 +21,10 @@ export const Div = styled.div`
     height: 220px;
     background-size: contain;
   }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.sTablet')}) {
+    display: none;
+  }
 `
 
 export const PositionLoading = styled.div`
@@ -40,6 +44,10 @@ export const PositionLoading = styled.div`
     };
 
     transition: all 1s ease-in;
+
+    @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+      display: none;
+    }
 `
 
 export const PlusesPosition = styled.div`
@@ -47,4 +55,8 @@ export const PlusesPosition = styled.div`
   z-index: 0;
   left: 22px;
   top: 26.5px;
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+    display: none;
+  }
 `

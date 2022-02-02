@@ -11,9 +11,9 @@ export const Div = styled.div`
   flex-direction: column;
   max-width: 100%;
   padding: 20px;
-@media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
-  padding-left: 35px;
-}
+  @media only screen and (max-width: ${themeGet('breakpoints.sTablet')}) {
+    padding: 10px 0;
+  }
 `
 
 export const H2 = styled.h2`
@@ -24,17 +24,21 @@ export const H2 = styled.h2`
   font-weight: 800;
   font-size: var(--fs-36);
   line-height: 54px;
-@media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
-  line-height: 40px;
-}
 
   letter-spacing: 0.05em;
   text-transform: capitalize;
 
   color: #000;
 
-  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+  @media only screen and (max-width: ${themeGet('breakpoints.sTablet')}) {
     width: 100%;
+    font-size: var(--fs-28);
+    line-height: 40px;
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+    line-height: 36px;
+    font-size: var(--fs-26);
   }
 `
 
@@ -85,7 +89,8 @@ export const Text = styled.strong`
 
   color: #454A4D;
 
-  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
-    width: 90%;
+  @media only screen and (max-width: ${themeGet('breakpoints.sTablet')}) {
+    width: 100%;
+    line-height: 27px;
   }
 `

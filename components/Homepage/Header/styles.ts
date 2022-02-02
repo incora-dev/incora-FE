@@ -84,6 +84,10 @@ export const Div = styled.div`
   @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
     padding-bottom: 80px;
   }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.sTablet')}) {
+    margin-left: 30px;
+  }
   @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     margin: 0 20px;
     padding-top: 20px;
@@ -108,10 +112,6 @@ export const VideoBlock = styled.div`
     width: 80vw;
     height: fit-content;
   }
-  @media only screen and (max-width: ${themeGet('breakpoints.sTablet')}) {
-    position: static;
-    width: 87vw;
-  }
 `
 
 export const PositionVideoSVG = styled.div`
@@ -134,11 +134,6 @@ export const PositionVideoSVG = styled.div`
 
   @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
     width: 81vw;
-  }
-  @media only screen and (max-width: ${themeGet('breakpoints.sTablet')}) {
-    top: 75px;
-    right: 3vw;
-    width: 89vw;
   }
   @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     width: 92vw;

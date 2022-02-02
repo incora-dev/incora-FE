@@ -32,7 +32,7 @@ function HeaderComponent({backgroundVideo}: IHeaderComponent) {
               style={{ width: (isMobile || isTablet || isSmallTablet) && !isSmallTablet 
                         ? '80vw' 
                         : isSmallTablet 
-                          ? '87vw' 
+                          ? '80vw' 
                           : '710px', 
                       height: (isMobile || isTablet || isSmallTablet) ? 'unset' : '380px', 
                       position: (isMobile || isTablet || isSmallTablet) ? 'relative' : 'static', 

@@ -24,11 +24,16 @@ export const SliderContent = styled.div`
   margin: 0 auto;
   position: relative;
 
+  @media only screen and (max-width: ${themeGet('breakpoints.tabletPro')}) {
+    max-width: 100%;
+    padding: 0 25px;
+  }
+
   .scroll-item-container {
     left: 3px;
 
     @media only screen and (max-width: ${themeGet('breakpoints.tabletPro')}) {
-      left: 25px;
+      left: 16px;
     }
   }
 `;

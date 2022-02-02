@@ -23,16 +23,6 @@ export const Cooperate = styled.div`
     max-width: 1166px;
     margin: 0 auto;
   }
-
-  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
-    height: 110vh;
-  }
-  @media only screen and (max-width: ${theme.breakpoints.mMobile}) {
-    height: 120vh;
-  }
-  @media only screen and (max-width: ${theme.breakpoints.xsMobile}) {
-    height: 150vh;
-  }
 `
 
 export const Div = styled.div`
@@ -58,6 +48,21 @@ export const Slider = styled.div`
   margin-right: 23px;
   padding-top: 23.2vh;
   padding-bottom: 33.2vh;
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tabletPro')}) {
+    padding-top: 90px;
+    padding-bottom: 0;
+    height: max-content;
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+    padding-top: 35px;
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.sTablet')}) {
+    margin-right: 0;
+  }
+
   @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     flex-wrap: wrap;
     padding-top: 15px;
@@ -75,50 +80,62 @@ export const Number = styled.div`
   text-transform: uppercase;
 
   color: #18181A;
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+    font-size: 90px;
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.sTablet')}) {
+    width: 120px;
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+    display: none;
+  }
 `
 
 export const PositionNumber = styled.div`
   position: relative;
   z-index: 1;
   margin-top: 20px;
-
-  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
-    left: 40%;
-  }
-  @media only screen and (max-width: ${themeGet('breakpoints.mMobile')}) {
-    left: 40%;
-  }
-  @media only screen and (max-width: ${themeGet('breakpoints.xsMobile')}) {
-    left: 25%;
-    margin-top: -50vw;
-
-  }
 `
 
 export const InfoContainer = styled.div<IPositionInfo>`
   display: flex;
   gap: ${({withGap}) => withGap ? '100px' : '25px'};
 
+  @media only screen and (max-width: ${themeGet('breakpoints.tabletPro')}) {
+    gap: 10px;
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.sTablet')}) {
+    gap: 20px;
+  }
 
   @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     flex-wrap: wrap;
+    gap: 0;
   }
 `
 
 export const PositionInfo = styled.div`
   position: relative;
   right: ${({ positionRight }: IPositionInfo) => positionRight};
-
   margin-top: 6px;
 
-  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+  @media only screen and (max-width: ${themeGet('breakpoints.tabletPro')}) {
+    right: ${({ positionRight }: IPositionInfo) => (positionRight == '70px;') ? '48px' : positionRight};
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+    right: ${({ positionRight }: IPositionInfo) => (positionRight == '70px;') ? '80px' : positionRight};
+    right: ${({ positionRight }: IPositionInfo) => (positionRight == '46.5px;') ? '105px' : positionRight};
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.sTablet')}) {
     right: 0;
-    max-width: 100vw;
-    top: -25vh;
   }
-  @media only screen and (max-width: ${theme.breakpoints.xsMobile}) {
-    top: 0;
-  }
+
 `
 
 export const ElementsPosition = styled.div`
@@ -126,6 +143,11 @@ export const ElementsPosition = styled.div`
   position: relative;
   margin-right: 24px;
   margin-left: 76px;
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tabletPro')}) {
+    margin-right: 0;
+    margin-left: 0;
+  }
 `
 
 export const PositionScrollSlider = styled.div`

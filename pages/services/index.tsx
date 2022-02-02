@@ -66,9 +66,9 @@ function Services() {
             {(isMobile || isTablet || isSmallTablet) && (
               <div
                 style={{
-                  backgroundColor: "black",
+                  backgroundColor: "#18181A",
                   width: "100%",
-                  padding: "20px",
+                  padding: "0",
                 }}
               >
                 <div id="scroll-item">
@@ -77,11 +77,12 @@ function Services() {
                     title={'faq'}
                     titles={slidesTitles}
                     content={faqContent}
+                    isFullPage={true}
                   />
                 </div>
               </div>
             )}
-            {!isMobile && (
+            {(!isMobile && !isTablet && !isSmallTablet) && (
               <VerticalFullPageSlider
                 slides={slides}
                 renderSlide={renderSlide}

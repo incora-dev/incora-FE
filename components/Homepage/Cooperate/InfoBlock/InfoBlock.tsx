@@ -17,15 +17,18 @@ import {
 interface IInfoBlock {
   slide: GetHomepage_homePage_data_attributes_coopSteps_steps;
   button: GetHomepage_homePage_data_attributes_coopSteps_button;
+  index: number;
 }
 
-function InfoBlock({ slide, button }: IInfoBlock) {
+function InfoBlock({ slide, button, index }: IInfoBlock) {
   const { title, description } = slide;
   const { label, url } = button;
 
+  console.log(index);
+
   return (
     <Div>
-      <PositionH3>
+      <PositionH3 index={index}>
         <H3>{"How to cooperate?"}</H3>
       </PositionH3>
 

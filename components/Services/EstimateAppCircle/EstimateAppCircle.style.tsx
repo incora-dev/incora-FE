@@ -4,6 +4,7 @@ import { theme } from "../../../styles/theme";
 
 export const CircleBlock = styled.div`
   position: relative;
+  display: none;
 `;
 
 export const Circle = styled.a`

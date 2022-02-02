@@ -59,7 +59,7 @@ const Vacancy = () => {
     data?.vacancies?.data[0].attributes?.currentVacancies;
   const specialties = data?.filterSpecialities;
   const technologies = data?.filterTechnologies;
-  const filterTechnologies = data?.vacancies?.data[0].attributes?.filter_technologies;
+  const filterTechnologies = data?.vacancies?.data[0].attributes?.filter_technologies?.data[0].attributes.name;
 
   const renderCondition =
     !loading &&
@@ -78,7 +78,7 @@ const Vacancy = () => {
           titlesColor={theme.colors.black}
           titles={titles}
         >
-          <VacancyDescription description={description} />
+          <VacancyDescription description={description} filterTechnologies={filterTechnologies} />
           <CheckAlso
             specialties={specialties}
             technologies={technologies}

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import themeGet from "@styled-system/theme-get";
 
 interface IElement {
   animation: boolean;
@@ -10,6 +11,16 @@ export const Element = styled.div`
   height: 300px;
 
   background: center no-repeat url("element4.svg");
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+    width: 190px;
+    height: 190px;
+    background-size: contain;
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.sTablet')}) {
+    display: none;
+  }
 `;
 
 export const PositionLoading = styled.div`
@@ -29,6 +40,10 @@ export const PositionLoading = styled.div`
     };
 
     transition: all 1s ease-in;
+
+    @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+      display: none;
+    }
 `;
 
 export const PositionDots = styled.div`
@@ -36,6 +51,10 @@ export const PositionDots = styled.div`
   z-index: 0;
   left: -15px;
   top: 13px;
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+    display: none;
+  }
 `;
 
 export const CircleWithGradient = styled.div`
@@ -54,6 +73,10 @@ export const CircleWithGradient = styled.div`
 }};
   
   transition: transform 1s ease-in-out;
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+    display: none;
+  }
 `;
 
 export const PositionCircleWithGradient = styled.div`
@@ -62,5 +85,9 @@ export const PositionCircleWithGradient = styled.div`
   left: 50%;
   
   transform: translate(-50%, -50%);
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+    display: none;
+  }
 
 `;

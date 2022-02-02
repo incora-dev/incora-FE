@@ -38,6 +38,10 @@ export const ContentWrap = styled.div`
   width: 1006px;
 
   @media only screen and (max-width: ${themeGet("breakpoints.mDesk")}) {
+    padding-top: 100px;
+  }
+
+  @media only screen and (max-width: ${themeGet("breakpoints.tabletPro")}) {
     max-width: 100%;
     width: 100%;
     padding: 100px 25px;
@@ -49,7 +53,7 @@ export const ContentWrap = styled.div`
 
 
   @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
-    padding: 50px 0;
+    padding: 25px 0;
   }
 
   h1 {

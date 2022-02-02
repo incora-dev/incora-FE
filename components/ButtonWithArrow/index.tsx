@@ -28,7 +28,7 @@ function ButtonWithArrow({
       <Link href={redirectTo} passHref>
         <a>
           <ButtonContainer bgColor={bgColor} textColor={textColor}>
-            <Button padding={padding}>
+            <Button padding={padding} className="button-with-arrow">
               <Label>{buttonLabel}</Label>
 
               <Arrow />

@@ -18,7 +18,8 @@ export const Div = styled.div`
 
     @media only screen and (max-width: ${themeGet('breakpoints.tabletPro')}) {
       font-weight: 600;
-      padding-left: 7px;
+      display: inline-block;
+      padding-left: 0;
     }
     &:after {
       position: absolute;

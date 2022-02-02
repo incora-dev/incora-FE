@@ -11,10 +11,9 @@ export const Component = styled.div`
   
   background-color: ${({bgColor}: IComponent) => bgColor};
 
-  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
-    height: 500px;
-    padding-left: 25px;
-    padding-right: 25px;
+  @media only screen and (max-width: ${themeGet('breakpoints.tabletPro')}) {
+    height: fit-content;
+    padding: 0 0 70px;
   }
 `;
 
@@ -49,6 +48,10 @@ export const Div = styled.div`
     margin-top: 10px;
     
     cursor: pointer;
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tabletPro')}) {
+    padding: 0 25px;
   }
 
   @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {

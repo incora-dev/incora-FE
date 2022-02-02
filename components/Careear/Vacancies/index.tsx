@@ -8,10 +8,12 @@ import {
   ListWrap,
   QuickApplyWrap,
   VacanciesWrapper,
-  PositionFilter
+  PositionFilter,
+  FilterBlock,
 } from "./style";
 
 import SmallStar from "../../../public/SmallStar.svg";
+import TechnologyIcon from "../../../public/SVG/technologies.svg";
 import { theme } from "../../../styles/theme";
 import Button from "../../Button";
 import { GetCareersPage_careersPage_data_attributes_currentVacancies } from "../../../graphql/careers/__generated__/GetCareersPage";
@@ -111,21 +113,22 @@ const Vacancies = ({
             <h1>{intro}</h1>
 
             <Filter>
-              <Selector
-                  value={specialtyId}
-                  setValue={setSpecialtyId}
-                  placeholder={filterText1}
-                  options={specialtiesOptions}
-                  icon={SmallStar}
-              />
-              <Selector
-                  value={specialtyId}
-                  setValue={setTechnologyId}
-                  placeholder={filterText2}
-                  options={technologiesOptions}
-                  icon={SmallStar}
-              />
-
+              <FilterBlock>
+                <Selector
+                    value={specialtyId}
+                    setValue={setSpecialtyId}
+                    placeholder={filterText1}
+                    options={specialtiesOptions}
+                    icon={SmallStar}
+                />
+                <Selector
+                    value={specialtyId}
+                    setValue={setTechnologyId}
+                    placeholder={filterText2}
+                    options={technologiesOptions}
+                    icon={TechnologyIcon}
+                />
+              </FilterBlock>
               <QuickApplyWrap>
                 <h2>{header}</h2>
                 <p>{text}</p>

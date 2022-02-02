@@ -29,13 +29,17 @@ export  const  Container = styled.div`
   }
 
   @media only screen and (max-width: ${themeGet('breakpoints.sTablet')}) {
-    padding: 40px 15px 50px;
+    padding: 40px 25px 50px;
     flex-wrap: wrap;
     justify-content: center;
 
     >div:first-of-type {
       width: 100%;
     }
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+    padding: 40px 15px 50px;
   }
 `;
 

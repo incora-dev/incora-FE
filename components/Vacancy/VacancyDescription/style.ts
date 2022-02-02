@@ -37,10 +37,18 @@ export const ContentWrap = styled.div`
     width: 908px;
     margin-bottom: 48px;
 
+    @media only screen and (max-width: ${themeGet("breakpoints.tabletPro")}) {
+      font-size: var(--fs-48);
+      line-height: 72px;
+    }
+
     @media only screen and (max-width: ${themeGet("breakpoints.smallDesk")}) {
-      font-size: 34px;
-      line-height: 44px;
       margin-bottom: 20px;
+    }
+
+    @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
+      font-size: var(--fs-36);
+      line-height: 48px;
     }
   }
 
@@ -50,8 +58,12 @@ export const ContentWrap = styled.div`
     padding: 100px 25px;
   }
 
+  @media only screen and (max-width: ${themeGet("breakpoints.tabletPro")}) {
+    padding: 50px 25px;
+  }
+
   @media only screen and (max-width: ${themeGet("breakpoints.smallDesk")}) {
-    padding: 0 30px;
+    padding: 0 25px 40px;
   }
 
   @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
@@ -70,19 +82,28 @@ export const DescriptionAndCv = styled.div`
 
 export const Description = styled.div`
   width: 653px;
-  padding-bottom: 64px;
+  padding-bottom: 44px;
 
   h1 {
-    @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
-      font-size: 24px;
-      line-height: 34px;
+    margin-bottom: 45px;
+
+    @media only screen and (max-width: ${themeGet("breakpoints.tabletPro")}) {
+      font-size: var(--fs-48);
+      line-height: 72px;
+    }
+
+    @media only screen and (max-width: ${themeGet("breakpoints.smallDesk")}) {
       width: 100%;
       white-space: break-spaces;
     }
 
+    @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
+      font-size: var(--fs-36);
+      line-height: 48px;
+    }
+
     @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
-      font-size: 17px;
-      line-height: 24px;
+      line-height: 46px;
       margin-bottom: 10px;
     }
   }
@@ -93,17 +114,18 @@ export const Description = styled.div`
     line-height: 30px;
     color: ${themeGet("colors.font2")};
     letter-spacing: 1.4px;
-    margin-bottom: 30px;
+    margin-bottom: 29px;
 
     @media only screen and (max-width: ${themeGet("breakpoints.smallDesk")}) {
-      line-height: 28px;
       margin-bottom: 20px;
     }
 
     @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
-      font-size: 14px;
-      line-height: 24px;
       margin-bottom: 10px;
+    }
+
+    @media only screen and (max-width: ${themeGet("breakpoints.sTablet")}) {
+      line-height: 27px;
     }
 
     @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
@@ -117,13 +139,15 @@ export const Description = styled.div`
     font-size: var(--fs-16);
     line-height: 24px;
     letter-spacing: ${themeGet("letterSpacing.h2")};
-    margin-bottom: 30px;
+    margin-bottom: 25px;
+    margin-top: 35px;
 
     @media only screen and (max-width: ${themeGet("breakpoints.smallDesk")}) {
       margin-bottom: 20px;
     }
 
     @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
+      margin-top: 15px;
       margin-bottom: 10px;
     }
 
@@ -141,6 +165,10 @@ export const Description = styled.div`
     }
   }
 
+  h2 {
+    margin-bottom: 16px;
+  }
+
   li {
     font-size: var(--fs-14);
     line-height: 30px;
@@ -148,14 +176,15 @@ export const Description = styled.div`
     letter-spacing: 1.4px;
 
     @media only screen and (max-width: ${themeGet("breakpoints.smallDesk")}) {
-      line-height: 28px;
-      margin-bottom: 20px;
+      margin-bottom: 3px;
     }
 
     @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
-      font-size: 14px;
-      line-height: 24px;
       margin-bottom: 0;
+    }
+
+    @media only screen and (max-width: ${themeGet("breakpoints.sTablet")}) {
+      line-height: 27px;
     }
   }
 
@@ -163,8 +192,13 @@ export const Description = styled.div`
     padding-right: 20px;
   }
 
+  @media only screen and (max-width: ${themeGet("breakpoints.tabletPro")}) {
+    padding-bottom: 0;
+  }
+
   @media only screen and (max-width: ${themeGet("breakpoints.smallDesk")}) {
     width: 100%;
+    padding: 0;
   }
 
   @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
@@ -175,11 +209,31 @@ export const Description = styled.div`
 export const AttachCvWrap = styled.div`
   width: 297px;
   position: relative;
-  top: 197px;
+  top: 196px;
+
+  @media only screen and (max-width: ${themeGet("breakpoints.tabletPro")}) {
+    top: 165px;
+  }
 
   @media only screen and (max-width: ${themeGet("breakpoints.smallDesk")}) {
     width: 100%;
     top: 0;
     margin-bottom: 20px;
+  }
+
+  .drag-and-drop {
+    margin-top: 21px;
+
+    @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
+      margin-top: 10px;
+    }
+  }
+
+  .button-with-arrow {
+    padding: 23px 40px;
+
+    @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
+      padding: 12px 40px;
+    }
   }
 `;

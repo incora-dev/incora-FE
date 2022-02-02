@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import themeGet from "@styled-system/theme-get";
 
 interface ICircle {
   animation: boolean;
@@ -10,6 +11,16 @@ export const Element = styled.div`
   height: 309px;
 
   background: center no-repeat url("element3.svg");
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+    width: 190px;
+    height: 220px;
+    background-size: contain;
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.sTablet')}) {
+    display: none;
+  }
 `;
 
 export const Circle = styled.div`
@@ -28,6 +39,10 @@ export const Circle = styled.div`
   }};
   
   transition: transform 1s ease-in-out;
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+    display: none;
+  }
 `;
 
 export const CircleWithGradient = styled.div`
@@ -46,22 +61,38 @@ export const CircleWithGradient = styled.div`
   }};
   
   transition: transform 1s ease-in-out;
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+    display: none;
+  }
 `;
 
 export const PositionPluses = styled.div`
   position: absolute;
   right: 22px;
   bottom: -1px;
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+    display: none;
+  }
 `;
 
 export const PositionCircle = styled.div`
   position: absolute;
   right: 84px;
   bottom: 137px;
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+    display: none;
+  }
 `;
 
 export const PositionCircleWithGradient = styled.div`
   position: absolute;
   right: 206px;
   bottom: 124px;
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+    display: none;
+  }
 `;

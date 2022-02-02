@@ -161,7 +161,7 @@ function VerticalFullPageSlider<T>({
   return (
     <SliderContainer bgColor={bgColor}>
       <SliderContent maxWidth={maxWidth}>
-        <div
+        <div className="scroll-item-container"
           style={{
             position: scrollBlockPosition === "absolute" ? "absolute" : "fixed",
             bottom: getBottomPosition(),

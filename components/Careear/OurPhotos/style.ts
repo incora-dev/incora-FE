@@ -39,6 +39,7 @@ export const PhotosWrap = styled.div`
     width: 100%;
     top: 0;
     margin-top: 30px;
+    padding: 0 25px;
     gap: 0;
   }
 
@@ -50,12 +51,15 @@ export const PhotosWrap = styled.div`
 `;
 
 export const ImageContainer = styled.div`
-  width: calc((100% - 30px) / 2);
-  margin-bottom: 30px;
+  width: calc((100% - 56px) / 2);
+
+  @media only screen and (max-width: ${themeGet("breakpoints.mDesk")}) {
+    width: calc((100% - 30px) / 2);
+    margin-bottom: 25px;
+  }
 
   @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
     width: 100%;
-    margin: 15px;
   }
   
   @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
@@ -71,7 +75,7 @@ export const ImageContainer = styled.div`
     }
 
     @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
-      margin-right: 15px;
+      margin: 0 0 25px;
     }
 
     @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {

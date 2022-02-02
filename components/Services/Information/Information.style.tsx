@@ -51,6 +51,10 @@ export const EstimatedTimeAndOutcomesBlock = styled.div`
 
   background: #212125;
 
+  @media only screen and (max-width: ${themeGet('breakpoints.sTablet')}) {
+    padding: 25px 20px;
+  }
+
   @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     flex-direction: column;
     gap: 20px;
@@ -85,6 +89,16 @@ export const TextBlock = styled.div`
   display: flex;
   flex-direction: column;
   row-gap: 16px;
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tabletPro')}) {
+    width: 100%
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+    max-width: 100%;
+    margin-left: 0;
+    padding: 30px 0;
+  }
 
   @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     margin: 0;
@@ -133,6 +147,10 @@ export const P = styled.p`
   letter-spacing: 0.1em;
 
   color: #BCBCC0;
+
+  @media only screen and (max-width: ${themeGet('breakpoints.sTablet')}) {
+    line-height: 27px;
+  }
 `;
 
 export const Text = styled.p`

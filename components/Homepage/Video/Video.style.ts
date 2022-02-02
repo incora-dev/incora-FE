@@ -61,6 +61,7 @@ export const PosterVideoPosition = styled.div`
   top: 0;
 
   opacity: ${( { display }: IShowVideo) => display ? 0 : 1};
+  pointer-events: ${( { display }: IShowVideo) => display ? 'none' : 'all'};
 
   transition: opacity 1s linear;
   transition-delay: 1s;
@@ -79,6 +80,8 @@ export const PlayerPosition = styled.div`
   transform: translate(-52%, -52%);
 
   opacity: ${( { display }: IShowVideo) => display ? 0 : 1};
+  pointer-events: ${( { display }: IShowVideo) => display ? 'none' : 'all'};
+
   transition: opacity 1s linear;
 `;
 

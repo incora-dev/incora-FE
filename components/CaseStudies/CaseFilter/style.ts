@@ -14,7 +14,7 @@ export const CaseFilterWrapper = styled.div`
   align-items: center;
   flex-direction: column;
   padding-top: 117px;
-  margin-bottom: 96px;
+  margin-bottom: 21px;
   background-color: ${({ filterByFlag }: ICaseFilterWrapper) =>
     filterByFlag ? themeGet("colors.black") : themeGet("colors.white")};
   transition: all 0.5s ease-in-out;

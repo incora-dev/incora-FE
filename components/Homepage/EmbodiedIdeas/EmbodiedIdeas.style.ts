@@ -10,18 +10,17 @@ interface IPositionTitle {
   disablePadding?: boolean;
 }
 
-export const MainContainer = styled.div`
+export const Content = styled.div`
+  max-width: 1006px;
   width: 100%;
-  display: flex;
-  justify-content: center;
-  overflow: hidden;
 `;
 
 export const Div = styled.div`
   background-color: ${({ bgColor }: IDiv) => bgColor};
-  padding-bottom: 120px;
-  max-width: 1006px;
+  padding: 75px 0 100px;
   width: 100%;
+  display: flex;
+  justify-content: center;
 
   @media only screen and (max-width: ${themeGet('breakpoints.mDesk')}) {
     max-width: 100%;

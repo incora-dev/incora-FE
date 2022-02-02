@@ -82,6 +82,13 @@ export const GET_VACANCY = gql`
             text
             buttonText
           }
+          filter_technologies {
+            data {
+              attributes {
+                name
+              }
+            }
+          }
         }
       }
     }

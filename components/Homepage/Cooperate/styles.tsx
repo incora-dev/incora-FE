@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { theme } from "../../../styles/theme";
 
 interface IPositionInfo  {
-  positionRight: string;
+  positionRight?: string;
   withGap?: boolean;
 }
 

@@ -16,22 +16,16 @@ import HexagonFilled from "../../../public/hexagonFilled.svg";
 import Loading from "../../../public/loading1.svg";
 import Dots from "../Cooperate/elements/dots/dots";
 import { useState } from "react";
-import { useQuery } from "@apollo/client";
-import { GET_PROJECTS } from "../../../graphql/caseStudies/queries";
-import {
-  GetProjects,
-  GetProjects_projects_data,
-} from "../../../graphql/caseStudies/__generated__/getProjects";
-import { theme } from "../../../styles/theme";
-import {
-  GetService_services_data_attributes,
-  GetService_services_data_attributes_projects_data,
-} from "../../../graphql/services/__generated__/GetService";
+import { GetProjects_projects_data } from "../../../graphql/caseStudies/__generated__/getProjects";
+import { GetHomepage_homePage_data_attributes_embodiedIdeas_button } from "../../../graphql/homepage/__generated__/GetHomepage";
+import { ROUTES } from "../../../constants/routes";
 
 interface IEmbodiedIdeas {
   title?: string;
   bgColor: string;
   elementsColor: string;
+  buttonIntro?: string;
+  button?: GetHomepage_homePage_data_attributes_embodiedIdeas_button;
   disablePadding?: boolean;
   disableSeeMore?: boolean;
   projects: GetProjects_projects_data[];
@@ -44,8 +38,15 @@ function EmbodiedIdeasComponent({
   elementsColor,
   disablePadding,
   disableSeeMore,
+  button,
+  buttonIntro,
 }: IEmbodiedIdeas) {
   const [animation, setAnimation] = useState(false);
+
+  const buttonLabel = button?.label;
+  const buttonUrl = button?.url;
+
+  const renderCondition = buttonIntro && buttonLabel && buttonUrl;
 
   return (
     <>
@@ -60,13 +61,13 @@ function EmbodiedIdeasComponent({
           <Projects projects={projects} elementsColor={elementsColor} />
         </ProjectsContainer>
 
-        {!disableSeeMore && (
+        {renderCondition && !disableSeeMore && (
           <SeeMoreWorks>
-            <H4>Want to see more works?</H4>
+            <H4>{buttonIntro}</H4>
 
             <ButtonWithArrow
-              buttonLabel={"see portfolio"}
-              redirectTo={"see_portfolio"}
+              buttonLabel={buttonLabel}
+              redirectTo={buttonUrl}
               padding={"23px 35px"}
             />
 

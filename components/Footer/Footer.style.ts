@@ -16,8 +16,10 @@ export const Container = styled.footer`
 
   background-color: ${({ backgroundColor = color }: IContainer) =>
     backgroundColor};
-  @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
-    height: auto;
+  
+  
+  @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
+    height: fit-content;
   }
 `;
 
@@ -28,10 +30,12 @@ export const Position = styled.div`
   padding-top: 41px;
   justify-content: space-between;
 
-  @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
-    padding: 40px 15px;
+
+  @media only screen and (max-width: ${themeGet("breakpoints.tabletPro")}) {
+    padding: 40px 25px;
     width: 100%;
   }
+
 
   @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
     width: 100%;
@@ -105,7 +109,12 @@ export const OfficesBlock = styled.div`
   flex-direction: column;
   row-gap: 15px;
 
+  @media only screen and (max-width: ${themeGet("breakpoints.sTablet")}) {
+    display: none;
+  }
+
   @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
+    display: block;
     left: 0;
   }
 `;

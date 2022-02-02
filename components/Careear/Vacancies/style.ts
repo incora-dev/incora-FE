@@ -28,13 +28,8 @@ export const VacanciesWrapper = styled.div`
 export const ContentWrapper = styled.div`
   width: 1006px;
 
-  @media only screen and (max-width: ${themeGet("breakpoints.mDesk")}) {
-    max-width: 100%;
-    width: 100%;
-    padding: 100px 0;
-  }
-
   @media only screen and (max-width: ${themeGet("breakpoints.tabletPro")}) {
+    width: 100%;
     padding-top: 50px;
     padding-bottom: 0;
   }
@@ -86,9 +81,15 @@ export const PositionFilter = styled.div`
   h1 {
     text-transform: capitalize;
     margin-bottom: 56px;
+    letter-spacing: 0.05em;
 
     @media only screen and (max-width: ${themeGet("breakpoints.tabletPro")}) {
       margin-bottom: 30px;
+    }
+
+    @media only screen and (max-width: ${themeGet("breakpoints.sTablet")}) {
+      font-size: var(--fs-24);
+      line-height: 35px;
     }
 
     @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
@@ -124,6 +125,10 @@ export const Filter = styled.div`
 `;
 
 export const FilterBlock = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 21px;
+
   @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
     display: flex;
     justify-content: space-between;
@@ -182,8 +187,9 @@ export const QuickApplyWrap = styled.div`
     letter-spacing: ${themeGet("letterSpacing.span")};
     margin-bottom: 6px;
 
-    @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
-      font-size: 16px;
+    @media only screen and (max-width: ${themeGet("breakpoints.sTablet")}) {
+      font-size: var(--fs-18);
+      line-height: 27px;
     }
   }
 
@@ -194,18 +200,8 @@ export const QuickApplyWrap = styled.div`
     color: ${themeGet("color.font2")};
     margin-bottom: 20px;
 
-    @media only screen and (max-width: ${themeGet("breakpoints.smallDesk")}) {
-      line-height: 28px;
-    }
-
-    @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
-      font-size: 14px;
-      line-height: 24px;
-    }
-
-    @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
-      font-size: 14px;
-      line-height: 21px;
+    @media only screen and (max-width: ${themeGet("breakpoints.sTablet")}) {
+      line-height: 27px;
     }
   }
 

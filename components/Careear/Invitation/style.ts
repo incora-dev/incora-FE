@@ -15,10 +15,12 @@ export const InvitationWrapper = styled.div`
     height: auto;
   }
 
+  @media only screen and (max-width: ${themeGet("breakpoints.smallDesk")}) {
+    margin-bottom: 0;
+  }
+
   @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
     padding-top: 20px;
-    margin-bottom: 20px;
-    height: auto;
   }
 
   .semicircle {
@@ -63,7 +65,7 @@ export const CareersWrap = styled.div`
   height: 628px;
   display: flex;
   justify-content: space-between;
-  margin-bottom: 20px;
+  margin-bottom: 17px;
   padding-left: 179px;
 
   @media only screen and (max-width: ${themeGet("breakpoints.mDesk")}) {
@@ -72,24 +74,24 @@ export const CareersWrap = styled.div`
     margin-bottom: 40px;
   }
 
-  @media only screen and (max-width: ${themeGet("breakpoints.smallDesk")}) {
-    padding-left: 30px;
+  @media only screen and (max-width: ${themeGet("breakpoints.tabletPro")}) {
+    padding: 0 25px;
   }
 
   @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
     flex-direction: column;
     height: auto;
-    padding: 0 15px;
   }
 
   @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
+    padding: 0 15px;
     margin-bottom: 25px;
   }
 `;
 
 export const TextBlock = styled.div`
   width: 366px;
-  padding-top: 84px;
+  padding-top: 81px;
 
   @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
     padding-top: 0;
@@ -101,21 +103,22 @@ export const TextBlock = styled.div`
     font-weight: 800;
     font-size: var(--fs-64);
     line-height: 96px;
-@media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
-  line-height: 50px;
-}
     color: ${themeGet("colors.white")};
-    letter-spacing: ${themeGet("letterSpacing.h1")};
-    margin-bottom: 14px;
+    letter-spacing: 0.05em;
+    margin-bottom: 19px;
 
-    @media only screen and (max-width: ${themeGet("breakpoints.smallDesk")}) {
-      font-size: 48px;
-      line-height: 60px;
+    @media only screen and (max-width: ${themeGet("breakpoints.tabletPro")}) {
+      font-size: var(--fs-48);
+      line-height: 72px;
     }
 
     @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
-      font-size: 24px;
-      line-height: 34px;
+      font-size: var(--fs-36);
+      line-height: 48px;
+    }
+
+    @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+      line-height: 46px;
     }
   }
 
@@ -123,16 +126,11 @@ export const TextBlock = styled.div`
     font-size: var(--fs-14);
     line-height: 30px;
     color: ${themeGet("colors.font1")};
-    letter-spacing: ${themeGet("letterSpacing.h1")};
-    margin-bottom: 26px;
+    letter-spacing: 0.1em;
+    margin-bottom: 25px;
 
-    @media only screen and (max-width: ${themeGet("breakpoints.smallDesk")}) {
-      font-size: 14px;
-      line-height: 24px;
-    }
 
     @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
-      line-height: 20px;
       margin-bottom: 10px;
     }
   }
@@ -142,7 +140,7 @@ export const TextBlock = styled.div`
     font-weight: bold;
     line-height: 27px;
     color: ${themeGet("colors.white")};
-    letter-spacing: ${themeGet("letterSpacing.span")};
+    letter-spacing: 0.05em;
     z-index: 0;
     cursor: pointer;
 
@@ -179,6 +177,14 @@ export const Rectangle = styled.div`
 export const PhotoWrap = styled.div`
   position: relative;
 
+  @media only screen and (max-width: ${themeGet("breakpoints.tabletPro")}) {
+    right: -25px;
+  }
+
+  @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
+    right: -15px;
+  }
+
   .semicircle2 {
     position: absolute;
     left: -43px;
@@ -194,39 +200,40 @@ export const PhotoWrap = styled.div`
 `;
 
 export const ProcessWrap = styled.div`
-  height: 385px;
   width: 100%;
+  max-width: 1006px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-flow: column;
+  margin: 0 auto;
 
-  @media only screen and (max-width: ${themeGet("breakpoints.mDesk")}) {
-    padding-bottom: 20px;
+  @media only screen and (max-width: ${themeGet("breakpoints.mediumDesk")}) {
+    padding-bottom: 40px;
+  }
+
+  @media only screen and (max-width: ${themeGet("breakpoints.tabletPro")}) {
+    padding: 0 25px 40px;
     height: auto;
+  }
+
+  @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
+    padding: 0 15px 30px;
   }
 `;
 
 export const HeaderWrap = styled.div`
-  width: 959px;
+  width: 1006px;
 
-  @media only screen and (max-width: ${themeGet("breakpoints.smallDesk")}) {
-    padding: 0 30px;
+  @media only screen and (max-width: ${themeGet("breakpoints.tabletPro")}) {
     width: 100%;
-  }
-
-  @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
-    padding: 0 15px;
   }
 
   h1 {
     font-weight: 800;
     font-size: var(--fs-36);
     line-height: 54px;
-@media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
-  line-height: 40px;
-}
-    letter-spacing: ${themeGet("letterSpacing.h1")};
+    letter-spacing: 0.05em;
     color: ${themeGet("colors.white")};
     margin-bottom: 71px;
 
@@ -234,10 +241,14 @@ export const HeaderWrap = styled.div`
       margin-bottom: 30px;
     }
 
-    @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
-      font-size: 24px;
-      line-height: 34px;
+    @media only screen and (max-width: ${themeGet("breakpoints.sTablet")}) {
+      font-size: var(--fs-24);
+      line-height: 35px;
       margin-bottom: 15px;
+    }
+
+    @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+      line-height: 40px;
     }
   }
 `;
@@ -251,20 +262,17 @@ export const SchemeWrap = styled.div`
 
   @media only screen and (max-width: ${themeGet("breakpoints.mDesk")}) {
     height: auto;
+    width: 1006px;
   }
 
   @media only screen and (max-width: ${themeGet("breakpoints.smallDesk")}) {
     width: 100%;
-    padding: 0 30px;
+    padding: 0;
     height: auto;
   }
 
   @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
     justify-content: flex-start;
-  }
-
-  @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
-    padding: 0 15px;
   }
 
   .mobile-version {
@@ -298,11 +306,11 @@ export const SchemeWrap = styled.div`
   .steps {
     z-index: 1;
     top: 0;
-    left: 0;
+    left: -24px;
   }
 
   .dots {
-    left: 0;
+    left: -24px;
     top: 10px;
   }
 `;

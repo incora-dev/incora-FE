@@ -53,7 +53,7 @@ export const DragAndDropBox = styled.div`
   align-items: center;
   flex-direction: column;
   margin-top: ${({ big }: IAttachCvWrapper) => (big ? "50px" : "0")};
-  margin-bottom: ${({ big }: IAttachCvWrapper) => (big ? "75px" : "30px")};
+  margin-bottom: ${({ big }: IAttachCvWrapper) => (big ? "75px" : "28px")};
 
   @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
     margin-bottom: 10px;

@@ -23,7 +23,7 @@ const AttachCv = ({ big, formBlack }: AttachCv) => {
     <AttachCvWrapper big={big}>
       <Block>
         <h3 className="attach">{"1. Attach Your CV"}</h3>
-        <DragAndDropBox big={big}>
+        <DragAndDropBox big={big} className="drag-and-drop">
           <span className="clickable">
             {"Upload a file "}{" "}
             <span className="non_clickable">{"or drag and drop here"}</span>

@@ -6,6 +6,11 @@ interface IChangeColor {
   titleColor: string;
 }
 
+interface IChangeColorDiv {
+  titleColor: string;
+  backgroundColor: string;
+}
+
 export const MainWrapper = styled.div`
   border-top: ${({ titleColor }: IChangeColor) => titleColor === theme.colors.black ? `1px solid ${theme.colors.grey}` : `1px solid ${theme.colors.backgroundBlack2}`};
   overflow: hidden;
@@ -17,16 +22,17 @@ export const Div = styled.div`
   max-width: 1366px;
   margin: 0 auto;
 
-  color: ${({ titleColor }: IChangeColor) => titleColor === theme.colors.black ? theme.colors.black : theme.colors.white};
+  color: ${({ titleColor }: IChangeColorDiv) => titleColor === theme.colors.black ? theme.colors.black : theme.colors.white};
   z-index: 25;
 
-  background-color: ${({backgroundColor}: {backgroundColor: string}) => backgroundColor};
+  background-color: ${({ backgroundColor }: IChangeColorDiv) => backgroundColor};
 `;
 
 export const PositionLoader = styled.div`
   position: absolute;
   top: 131px;
   right: 127px;
+
   z-index: -1;
   
   svg {
@@ -61,10 +67,10 @@ export const Sphere = styled.div`
 `;
 
 export const Wrapper = styled.div`
-  padding: 66px 100px 73px 100px;
+  padding: 66px 100px 69px 100px;
   
   display: flex;
-  column-gap: 110px;
+  column-gap: 182px;
 
   @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     padding: 15px;
@@ -78,7 +84,8 @@ export const Wrapper = styled.div`
 export const IndustriesBlock = styled.div`
   display: flex;
   flex-direction: column;
-  row-gap: 30px;
+  row-gap: 22px;
+
   @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     row-gap: 20px;
   }
@@ -112,6 +119,9 @@ export const TechnologiesText = styled.div`
 export const TextBlock = styled.div`
   display: flex;
   column-gap: 5px;
+
+  margin-left: 19px;
+
   @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     width: 100%;
     flex-wrap: wrap;
@@ -141,7 +151,7 @@ export const Text = styled.div`
 export const TechnologiesIconsBlock = styled.div`
   display: flex;
   flex-direction: column;
-  row-gap: 38px;
+  row-gap: 33px;
 
   @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     row-gap: 20px;
@@ -157,12 +167,13 @@ export const Technologies = styled.div`
 
 export const IconBlock = styled.div`
   display: flex;
-  column-gap: 15px;
+  column-gap: 12px;
 
   align-items: center;
   
   svg {
     display: block;
+    min-width: 25px;
 
     &:nth-child(1) {
       path {
@@ -206,6 +217,8 @@ export const H3 = styled.h3`
 `;
 
 export const H4 = styled.h4`
+  min-width: 128px;
+
   font-style: normal;
   font-weight: bold;
   font-size: 14px;

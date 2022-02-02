@@ -8,9 +8,15 @@ export const Div = styled.div`
 
   @media only screen and (max-width: ${themeGet('breakpoints.tabletPro')}) {
     height: calc(100vh - 374px);
+    min-height: 500px;
   }
 
   @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+    height: calc(100vh - 328px);
+    min-height: 500px;
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.sTablet')}) {
     height: auto;
   }
 `;

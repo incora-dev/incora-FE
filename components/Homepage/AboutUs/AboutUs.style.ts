@@ -19,14 +19,16 @@ export const Div = styled.div`
 export const Container = styled.div`
   padding-bottom: 175px;
 
+  @media only screen and (max-width: ${themeGet('breakpoints.tabletPro')}) {
+    padding: 0 25px 100px;
+  }
+
   @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
     padding: 50px 25px;
     width: 100%;
   }
   @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
-    padding-bottom: 0;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding: 0 15px 50px;
   }
 `;
 
@@ -39,6 +41,12 @@ export const Text = styled.div`
   column-gap: 209px;
   margin: 0 auto;
   padding-top: 104px;
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tabletPro')}) {
+    padding-top: 40px;
+    column-gap: 80px;
+    width: 100%;
+  }
 
   @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
     padding-top: 0;
@@ -60,14 +68,16 @@ export const Text = styled.div`
     font-weight: 800;
     font-size: var(--fs-64);
     line-height: 96px;
-@media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
-  line-height: 50px;
-}
 
     letter-spacing: 0.05em;
     text-transform: capitalize;
 
     color: #FFF;
+
+    @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+      font-size: var(--fs-36);
+      line-height: 36px;
+    }
   }
   
   p {
@@ -84,6 +94,14 @@ export const Text = styled.div`
     letter-spacing: 0.1em;
 
     color: #BCBCC0;
+
+    @media only screen and (max-width: ${themeGet('breakpoints.tabletPro')}) {
+      max-width: 550px;
+    }
+
+    @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+      line-height: 28px;
+    }
   }
 `;
 

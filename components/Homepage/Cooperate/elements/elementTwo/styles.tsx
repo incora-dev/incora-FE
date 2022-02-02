@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import themeGet from "@styled-system/theme-get";
 
 interface IElement {
   animation: boolean;
@@ -9,6 +10,16 @@ export const Element = styled.div`
   height: 182px;
 
   background: center no-repeat url("element2.svg");
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+    width: 190px;
+    height: 220px;
+    background-size: contain;
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.sTablet')}) {
+    display: none;
+  }
 `
 
 export const PositionLoading = styled.div`
@@ -28,6 +39,10 @@ export const PositionLoading = styled.div`
     };
 
     transition: all 1s ease-in;
+
+    @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+      display: none;
+    }
 `
 
 export const PositionPointsFirst = styled.div`
@@ -35,6 +50,10 @@ export const PositionPointsFirst = styled.div`
   z-index: 1;
   right: 167px;
   top: -25px;
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+    display: none;
+  }
 `
 
 export const PositionPointsSecond = styled.div`
@@ -42,4 +61,8 @@ export const PositionPointsSecond = styled.div`
   z-index: 1;
   right: 42px;
   bottom: 28px;
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+    display: none;
+  }
 `

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import themeGet from "@styled-system/theme-get";
 
 export const Div = styled.div`
   width: 23px;
@@ -7,6 +8,10 @@ export const Div = styled.div`
   align-items: center;
   justify-content: center;  
   gap: 5px;
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tabletPro')}) {
+    display: none;
+  }
 `
 
 export const TopText = styled.p`

@@ -14,6 +14,9 @@ export const Container = styled.div`
   @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
     height: 500px;
   }
+  @media only screen and (max-width: ${themeGet('breakpoints.sTablet')}) {
+    height: 320px;
+  }
   @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     height: 300px;
   }

@@ -48,8 +48,13 @@ export const PositionTitle = styled.div`
   disablePadding ? "0" : "120px"};
   margin-bottom: 46px;
 
-  @media only screen and (max-width: ${themeGet('breakpoints.smallDesk')}) {
-    margin-top: 40px;
+  @media only screen and (max-width: ${themeGet('breakpoints.tabletPro')}) {
+    padding-top: 70px;
+    margin-bottom: 30px;
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+    margin-top: 0;
     margin-bottom: 20px;
   }
 `;
@@ -58,6 +63,10 @@ export const Block = styled.div`
   max-width: 1006px;
 
   margin: 0 auto;
+
+  @media only screen and (max-width: ${themeGet('breakpoints.mDesk')}) {
+    max-width: 100%;
+  }
 `;
 
 export const H2 = styled.h2`
@@ -121,9 +130,16 @@ export const SeeMoreWorks = styled.div`
     z-index: 1;
   }
 
+  @media only screen and (max-width: ${themeGet('breakpoints.tabletPro')}) {
+    max-width: 100%;
+    margin: 100px auto 0;
+    height: fit-content;
+    padding-bottom: 30px;
+  }
+
   @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     width: 100%;
-    padding-left: 35px;
+    padding-left: 0;
   }
 `;
 
@@ -140,8 +156,9 @@ export const HexagonPosition = styled.div`
     }
   }
 
-@media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
-    left: -40%;
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+    left: -52%;
+    padding-top: 60px;
   }  
 `;
 

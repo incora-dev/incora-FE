@@ -16,7 +16,7 @@ interface IPosts {
 const Posts = ({ query, industry, page }: IPosts) => {
   const industryCondition = industry === "all" ? undefined : industry;
 
-  const { data, loading } = useQuery<GetArticlesList>(GET_ARTICLES_LIST, {
+  const { data } = useQuery<GetArticlesList>(GET_ARTICLES_LIST, {
     variables: {
       query: query,
       industry: industryCondition,

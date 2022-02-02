@@ -14,6 +14,7 @@ export interface GetArticle_articles_data_attributes_count {
   valuable: any | null;
   exciting: any | null;
   unsatisfied: any | null;
+  id: string;
 }
 
 export interface GetArticle_articles_data_attributes_industries_data_attributes {
@@ -94,41 +95,42 @@ export interface GetArticle_articles_data_attributes_contactUs {
   subtitle: string;
 }
 
-export interface GetArticle_articles_data_attributes_relatedArticles_articles_data_attributes_tags_data_attributes_articles_data_attributes_previewImage_data_attributes {
+export interface GetArticle_articles_data_attributes_relatedArticles_articles_data_attributes_previewImage_data_attributes {
   __typename: "UploadFile";
   url: string;
 }
 
-export interface GetArticle_articles_data_attributes_relatedArticles_articles_data_attributes_tags_data_attributes_articles_data_attributes_previewImage_data {
+export interface GetArticle_articles_data_attributes_relatedArticles_articles_data_attributes_previewImage_data {
   __typename: "UploadFileEntity";
   id: string | null;
-  attributes: GetArticle_articles_data_attributes_relatedArticles_articles_data_attributes_tags_data_attributes_articles_data_attributes_previewImage_data_attributes | null;
+  attributes: GetArticle_articles_data_attributes_relatedArticles_articles_data_attributes_previewImage_data_attributes | null;
 }
 
-export interface GetArticle_articles_data_attributes_relatedArticles_articles_data_attributes_tags_data_attributes_articles_data_attributes_previewImage {
+export interface GetArticle_articles_data_attributes_relatedArticles_articles_data_attributes_previewImage {
   __typename: "UploadFileEntityResponse";
-  data: GetArticle_articles_data_attributes_relatedArticles_articles_data_attributes_tags_data_attributes_articles_data_attributes_previewImage_data | null;
+  data: GetArticle_articles_data_attributes_relatedArticles_articles_data_attributes_previewImage_data | null;
 }
 
-export interface GetArticle_articles_data_attributes_relatedArticles_articles_data_attributes_tags_data_attributes_articles_data_attributes {
-  __typename: "Article";
-  previewImage: GetArticle_articles_data_attributes_relatedArticles_articles_data_attributes_tags_data_attributes_articles_data_attributes_previewImage;
+export interface GetArticle_articles_data_attributes_relatedArticles_articles_data_attributes_industries_data_attributes {
+  __typename: "Industry";
+  url: string | null;
+  name: string;
 }
 
-export interface GetArticle_articles_data_attributes_relatedArticles_articles_data_attributes_tags_data_attributes_articles_data {
-  __typename: "ArticleEntity";
-  attributes: GetArticle_articles_data_attributes_relatedArticles_articles_data_attributes_tags_data_attributes_articles_data_attributes | null;
+export interface GetArticle_articles_data_attributes_relatedArticles_articles_data_attributes_industries_data {
+  __typename: "IndustryEntity";
+  id: string | null;
+  attributes: GetArticle_articles_data_attributes_relatedArticles_articles_data_attributes_industries_data_attributes | null;
 }
 
-export interface GetArticle_articles_data_attributes_relatedArticles_articles_data_attributes_tags_data_attributes_articles {
-  __typename: "ArticleRelationResponseCollection";
-  data: GetArticle_articles_data_attributes_relatedArticles_articles_data_attributes_tags_data_attributes_articles_data[];
+export interface GetArticle_articles_data_attributes_relatedArticles_articles_data_attributes_industries {
+  __typename: "IndustryRelationResponseCollection";
+  data: GetArticle_articles_data_attributes_relatedArticles_articles_data_attributes_industries_data[];
 }
 
 export interface GetArticle_articles_data_attributes_relatedArticles_articles_data_attributes_tags_data_attributes {
   __typename: "Tag";
   name: string;
-  articles: GetArticle_articles_data_attributes_relatedArticles_articles_data_attributes_tags_data_attributes_articles | null;
 }
 
 export interface GetArticle_articles_data_attributes_relatedArticles_articles_data_attributes_tags_data {
@@ -145,6 +147,9 @@ export interface GetArticle_articles_data_attributes_relatedArticles_articles_da
 export interface GetArticle_articles_data_attributes_relatedArticles_articles_data_attributes {
   __typename: "Article";
   url: string | null;
+  title: string;
+  previewImage: GetArticle_articles_data_attributes_relatedArticles_articles_data_attributes_previewImage;
+  industries: GetArticle_articles_data_attributes_relatedArticles_articles_data_attributes_industries | null;
   tags: GetArticle_articles_data_attributes_relatedArticles_articles_data_attributes_tags | null;
 }
 
@@ -181,6 +186,7 @@ export interface GetArticle_articles_data_attributes {
 
 export interface GetArticle_articles_data {
   __typename: "ArticleEntity";
+  id: string | null;
   attributes: GetArticle_articles_data_attributes | null;
 }
 

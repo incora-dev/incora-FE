@@ -30,12 +30,18 @@ import Link from "next/link";
 import { CopyBlock, dracula } from "react-code-blocks";
 import ReactMarkdown from "react-markdown";
 import { GetArticle_articles_data_attributes_tags_data } from "../../../graphql/insights/__generated__/GetArticle";
+import { useMutation } from "@apollo/client";
+import { UPDATE_IMPRESSIONS_COUNT } from "../../../graphql/insights/mutations";
+import { UpdateImpressionsCount } from "../../../graphql/insights/__generated__/UpdateImpressionsCount";
+import { IImpressions } from "../../../pages/insights/[articleTemplate]";
 
 interface IArticleInfo {
   mainText: string;
   codeText: string;
   socialTitles: ISocialTitles[];
   tags: GetArticle_articles_data_attributes_tags_data[];
+  impressions: IImpressions;
+  id: string;
 }
 
 interface ISocialTitles {
@@ -43,7 +49,6 @@ interface ISocialTitles {
   href: string;
 }
 
-const pollTitle = "What’s your impression after reading this article?";
 const pollLabels = ["Love it!", "Valuable", "Exciting", "Unsatisfied"];
 const pollIcons = [LoveItIcon, ValuableIcon, ExcitingIcon, UnsatisfiedIcon];
 
@@ -66,7 +71,12 @@ function getScrollLabels(
   });
 }
 
-function getElements(labels: string[], selected: number, setSelect: Function) {
+function getElements(
+  labels: string[],
+  selected: number,
+  setSelect: Function,
+  onImpressionClick: Function
+) {
   return labels.map((label, index) => {
     const shouldSelect = selected === index;
     const Icon = pollIcons[index];
@@ -74,7 +84,10 @@ function getElements(labels: string[], selected: number, setSelect: Function) {
     return (
       <Element
         key={index}
-        onClick={() => setSelect(index)}
+        onClick={() => {
+          setSelect(index);
+          onImpressionClick(index);
+        }}
         selected={shouldSelect}
       >
         <Icon />
@@ -99,14 +112,70 @@ const ArticleInfo = ({
   socialTitles,
   tags,
   codeText,
+  impressions,
+  id,
 }: IArticleInfo) => {
+  const [updateImpressionsCount] = useMutation<UpdateImpressionsCount>(
+    UPDATE_IMPRESSIONS_COUNT
+  );
+
+  const likes = impressions.likes;
+  const valuable = impressions.valuable;
+  const exciting = impressions.exciting;
+  const unsatisfied = impressions.unsatisfied;
+
+  const onImpressionClick = (index: number) => {
+    switch (index) {
+      case 0:
+        updateImpressionsCount({
+          variables: {
+            id,
+            likes: likes + 1,
+          },
+        });
+        break;
+
+      case 1:
+        updateImpressionsCount({
+          variables: {
+            id,
+            valuable: valuable + 1,
+          },
+        });
+        break;
+
+      case 2:
+        updateImpressionsCount({
+          variables: {
+            id,
+            exciting: exciting + 1,
+          },
+        });
+        break;
+
+      case 3:
+        updateImpressionsCount({
+          variables: {
+            id,
+            unsatisfied: unsatisfied + 1,
+          },
+        });
+        break;
+    }
+  };
+
   const [selectedElementIndex, setElementIndex] = useState(0);
   const [sideBarElements, setSideBarElements] =
     useState<NodeListOf<HTMLElement>>();
   const [selected, setSelect] = useState(-1);
 
   const scrollTitles = getScrollLabels(selectedElementIndex, sideBarElements);
-  const elements = getElements(pollLabels, selected, setSelect);
+  const elements = getElements(
+    pollLabels,
+    selected,
+    setSelect,
+    onImpressionClick
+  );
   const icons = getSocialIcons(socialTitles);
 
   const handleScroll = useCallback(() => {
@@ -178,7 +247,7 @@ const ArticleInfo = ({
       </Wrapper>
 
       <PollBlock>
-        <PollTitle>{pollTitle}</PollTitle>
+        <PollTitle>{impressions.intro}</PollTitle>
 
         <ChooseElements>{elements}</ChooseElements>
       </PollBlock>

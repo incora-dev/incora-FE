@@ -58,36 +58,6 @@ const footer: IFooter = {
 const news = {
   title: "Insights",
   articles: [
-    {
-      img: image1.src,
-      tags: ["tagtitle", "tagtitle"],
-      categories: ["category"],
-      title:
-        "Intro to Microservices Communication [With the Use of Apache Kafka]",
-      redirectTo: "[With the Use of Apache Kafka]",
-    },
-    {
-      img: image2.src,
-      tags: ["tagtitle"],
-      categories: ["category", "category"],
-      title: "Incora Is Gaining Popularity On Clutch",
-      redirectTo: "Incora Is Gaining Popularity On Clutch",
-    },
-    {
-      img: image3.src,
-      tags: ["tagtitle", "tagtitle"],
-      categories: ["category"],
-      title: "Node.js vs Python: What are the Pros, Cons, and Use Cases?",
-      redirectTo: "Node.js vs Python: What are the Pros, Cons, and Use Cases?",
-    },
-    {
-      img: image3.src,
-      tags: ["tagtitle"],
-      categories: ["category", "category"],
-      title: "How to Monetize Delivery and Shipping Apps: Methods Screening",
-      redirectTo:
-        "How to Monetize Delivery and Shipping Apps: Methods Screening",
-    },
   ],
 };
 

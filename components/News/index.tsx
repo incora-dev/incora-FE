@@ -21,6 +21,7 @@ export interface ITechnologies {
 function NewsComponent({ title, bgColor, articles }: ITechnologies) {
   const bgColorWhite = theme.colors.white;
   const bgColorBlack = theme.colors.black;
+  let articlesLength = articles.length;
 
   const getBgColor = () => (bgColor ? bgColor : bgColorWhite);
   const getTitleColor = () => {
@@ -34,20 +35,24 @@ function NewsComponent({ title, bgColor, articles }: ITechnologies) {
   };
 
   return (
-    <Component bgColor={getBgColor()}>
-      <HeaderContainer>
-        <HeaderWrap>
-          <H2 color={getTitleColor()}>{title}</H2>
-          <Link href={ROUTES.INSIGHTS} passHref>
-            <Arrow />
-          </Link>
-        </HeaderWrap>
-      </HeaderContainer>
+    <>
+    {(articlesLength)? 
+      <Component bgColor={getBgColor()}>
+        <HeaderContainer>
+          <HeaderWrap>
+            <H2 color={getTitleColor()}>{title}</H2>
+            <Link href={ROUTES.INSIGHTS} passHref>
+              <Arrow />
+            </Link>
+          </HeaderWrap>
+        </HeaderContainer>
 
-      <NewsWrap>
-        <ArticlesBlock articles={articles} />
-      </NewsWrap>
-    </Component>
+        <NewsWrap>
+          <ArticlesBlock articles={articles} />
+        </NewsWrap>
+      </Component>
+    : <></> }
+    </>
   );
 }
 

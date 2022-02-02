@@ -34,3 +34,18 @@ export const UPDATE_IMPRESSIONS_COUNT = gql`
     }
   }
 `;
+
+export const UPDATE_VIEWS = gql`
+  mutation UpdateViews($id: ID!, $views: Long) {
+    updateArticle(id: $id, data: { count: { views: $views } }) {
+      data {
+        id
+        attributes {
+          count {
+            views
+          }
+        }
+      }
+    }
+  }
+`;

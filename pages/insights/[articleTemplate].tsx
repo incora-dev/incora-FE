@@ -14,10 +14,11 @@ import FooterComponent from "../../components/Footer";
 import GoToTop from "../../components/GoToTop";
 import { useRouter } from "next/router";
 import Custom404 from "../404";
-import { useQuery } from "@apollo/client";
+import { useMutation, useQuery } from "@apollo/client";
 import { GetArticle } from "../../graphql/insights/__generated__/GetArticle";
 import { GET_ARTICLE } from "../../graphql/insights/queries";
 import { useIsMobile } from "../../services/hooks";
+import { UPDATE_VIEWS } from "../../graphql/insights/mutations";
 
 const code = `  const handleScroll = () => {
     const sideBarElements = document.querySelectorAll('#scrollsLabels h1,#scrollsLabels h2, #scrollsLabels h3, #scrollsLabels h4, #scrollsLabels h5, #scrollsLabels h6');
@@ -48,6 +49,9 @@ const ArticleTemplate = () => {
   const { data, loading, error } = useQuery<GetArticle>(GET_ARTICLE, {
     variables: { url: articleTemplate },
   });
+
+  const [updateViews] = useMutation(UPDATE_VIEWS);
+
   const id = data?.articles?.data[0].id;
   const entry = data?.articles?.data[0].attributes;
   const title = entry?.title;
@@ -73,6 +77,19 @@ const ArticleTemplate = () => {
     name: authorEntry?.name || "",
     role: authorEntry?.position || "",
   };
+
+  useEffect(() => {
+    if (title) {
+      const localStorageId = localStorage.getItem(title);
+      if (localStorageId !== id) {
+        updateViews({ variables: { id, views: views + 1 } });
+      }
+    }
+  }, [id]);
+
+  useEffect(() => {
+    id && title && localStorage.setItem(title, id);
+  }, [id, title]);
 
   const socialTitles = [
     { Icon: FacebookSVG, href: authorEntry?.facebook || "" },

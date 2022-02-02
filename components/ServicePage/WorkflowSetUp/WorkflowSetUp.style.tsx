@@ -8,10 +8,30 @@ export const Div = styled.div`
   display: flex;
   flex-direction: column;
   row-gap: 50px;
+
+  @media only screen and (max-width: ${themeGet("breakpoints.tabletPro")}) {
+    padding: 60px 0 80px;
+  }
+
+  @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
+    row-gap: 30px;
+  }
+
+  @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
+    padding: 50px 0 50px;
+  }
 `;
 
 export const Wrapper = styled.div`
   padding: 0 13.17vw;
+
+  @media only screen and (max-width: ${themeGet("breakpoints.tabletPro")}) {
+    padding: 0 25px;
+  }
+
+  @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
+    padding: 0 15px;
+  }
 `;
 
 export const Content = styled.div`
@@ -19,11 +39,25 @@ export const Content = styled.div`
 
   display: flex;
   column-gap: 50px;
-
   overflow: scroll;
-
   &::-webkit-scrollbar {
     display: none;
+  }
+
+  @media only screen and (max-width: ${themeGet("breakpoints.tabletPro")}) {
+    overflow: initial;
+    padding: 0 25px;
+    flex-wrap: wrap;
+    row-gap: 40px;
+  }
+
+  @media only screen and (max-width: ${themeGet("breakpoints.sTablet")}) {
+    flex-direction: column;
+    row-gap: 30px;
+  }
+
+  @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
+    padding: 0 15px;
   }
 `;
 
@@ -36,11 +70,33 @@ export const ContentWrapper = styled.div`
   row-gap: 11px;
   
   background: #FBFBFB;
+
+  @media only screen and (max-width: ${themeGet("breakpoints.tabletPro")}) {
+    padding: 0;
+    width: calc(50% - 30px);
+    background: ${themeGet("colors.white")};
+  }
+
+  @media only screen and (max-width: ${themeGet("breakpoints.sTablet")}) {
+    padding: 0;
+    width: 100%;
+  }
 `;
 
 export const Title = styled.div`
+
+  @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
+    display: flex;
+    align-items: flex-start;
+    min-height: 60px;
+  }
+
+  @media only screen and (max-width: ${themeGet("breakpoints.sTablet")}) {
+    min-height: auto;
+  }
   img {
     display: block;
+    position: relative;
   }
 `;
 
@@ -70,6 +126,10 @@ export const H2 = styled.h2`
   line-height: 34px;
 
   letter-spacing: 0.05em;
+
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+    font-size: var(--fs-18);
+  }
 `;
 
 export const Number = styled.h2`
@@ -96,4 +156,12 @@ export const Text = styled.p`
   letter-spacing: 0.1em;
 
   color: #000000;
+
+  @media only screen and (max-width: ${themeGet("breakpoints.tabletPro")}) {
+    width: 100%;
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+    line-height: 27px;
+  }
 `;

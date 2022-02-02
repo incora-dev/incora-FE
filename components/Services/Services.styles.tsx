@@ -16,22 +16,40 @@ export const Div = styled.div`
     position: absolute;
     bottom: -5px;
     right: 0;
+
+    @media only screen and (max-width: ${themeGet('breakpoints.tabletPro')}) {
+      right: -53px;
+      bottom: -30px;
+    }
+
+    @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+      bottom: -72px;
+    }
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tabletPro')}) {
+    height: fit-content;
+    padding-bottom: 90px;
   }
 
   @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
-    height: 80vh;
-  }
-  @media only screen and (max-width: ${theme.breakpoints.mMobile}) {
-    height: 95vh;
-  }
-  @media only screen and (max-width: ${theme.breakpoints.xsMobile}) {
-    height: 120vh;
+    height: fit-content;
+    padding-bottom: 290px;
   }
 `
 
 export const Container = styled.div`
   max-width: 1006px;
   margin: auto;
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tabletPro')}) {
+    max-width: 100%;
+    padding: 0 25px;
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tabletPro')}) {
+    padding: 0 15px;
+  }
 `
 
 export const TextBlock = styled.div`
@@ -40,8 +58,13 @@ export const TextBlock = styled.div`
   display: flex;
   flex-direction: column;
   row-gap: 20px;
+  @media only screen and (max-width: ${themeGet('breakpoints.tabletPro')}) {
+    max-width: 60%;
+    padding-top: 80px;
+  }
   @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
-    padding: 25px 15px;
+    max-width: 100%;
+    padding-top: 50px;
   }
 `
 
@@ -52,14 +75,26 @@ export const H1 = styled.h1`
   font-weight: 800;
   font-size: var(--fs-64);
   line-height: 96px;
-@media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
-  line-height: 50px;
-}
 
   letter-spacing: 0.05em;
   text-transform: capitalize;
 
   color: #000000;
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+    font-size: var(--fs-40);
+    line-height: 60px;
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.sTablet')}) {
+    font-size: var(--fs-36);
+    line-height: 50px;
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+    font-size: var(--fs-28);
+    line-height: 42px;
+  }
 `
 
 export const Strong = styled.strong`
@@ -73,6 +108,10 @@ export const Strong = styled.strong`
   letter-spacing: 0.1em;
 
   color: #454A4D;
+
+  @media only screen and (max-width: ${themeGet('breakpoints.sTablet')}) {
+    line-height: 27px;
+  }
 `
 
 export const PositionDots = styled.div`
@@ -93,18 +132,43 @@ export const PositionCube1 = styled.div`
   position: absolute;
   bottom: 154px;
   right: 331px;
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tabletPro')}) {
+    display: none;
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+    display: block;
+    transform: scale(0.7);
+    right: 225px;
+  }
 `
 
 export const PositionCube2 = styled.div`
   position: absolute;
   bottom: 252px;
   right: 34px;
+
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+    transform: scale(0.8);
+    bottom: 215px;
+  }
 `
 
 export const PositionCube3 = styled.div`
   position: absolute;
   bottom: 94px;
   right: 148px;
+
+  @media only screen and (max-width: ${themeGet('breakpoints.sTablet')}) {
+    bottom: 55px;
+    right: 85px;
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+    transform: scale(0.8);
+    right: 100px;
+  }
 `
 
 export const PositionLoaderBagelTrimmed = styled.div`

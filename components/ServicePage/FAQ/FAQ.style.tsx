@@ -21,6 +21,15 @@ export const Div = styled.div`
 export const Wrapper = styled.div`
   max-width: 1006px;
   margin: 0 auto;
+
+  @media only screen and (max-width: ${themeGet("breakpoints.tabletPro")}) {
+    width: 100%;
+    padding: 0 25px;
+  }
+
+  @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
+    padding: 0;
+  }
 `;
 
 export const ContentWrapper = styled.div`
@@ -29,9 +38,14 @@ export const ContentWrapper = styled.div`
   display: flex;
   justify-content: space-between;
 
+  @media only screen and (max-width: ${themeGet("breakpoints.tabletPro")}) {
+    padding: 70px 0 60px;
+  }
+
   @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     padding: 53px 15px;
     flex-direction: column;
+    row-gap: 25px;
   }
 `;
 
@@ -45,6 +59,10 @@ export const Text = styled.p`
 
   color: ${({ isOpen }: IText) => isOpen ? theme.colors.white : theme.colors.black};
   transition: all 0.3s linear;
+
+  @media only screen and (max-width: ${themeGet("breakpoints.sTablet")}) {
+    line-height: 27px;
+  }
 `;
 
 export const Title = styled.p`
@@ -59,6 +77,15 @@ export const Title = styled.p`
   letter-spacing: 0.05em;
   
   cursor: pointer;
+
+  @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
+    width: 60vw;
+  }
+
+  @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
+    width: 80vw;
+    font-size: var(--fs-16);
+  }
 `;
 
 export const PlusIconVisible = styled.div<IIcon>`
@@ -93,9 +120,21 @@ export const AccordionWrapper = styled.div<IAccordion>`
   color: ${({ isOpen }: IAccordion) => isOpen ? theme.colors.white : theme.colors.black};
   background-color: ${({ isOpen }: IAccordion) => isOpen ? theme.colors.black : 'none'};
   border-bottom: ${({ lastBlock }: IAccordion) => lastBlock ? 'none' : '1px solid #EFEFEF'};
+
+  @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
+    width: 70vw;
+    padding: 30px;
+  }
+
+  @media only screen and (max-width: ${themeGet("breakpoints.sTablet")}) {
+    width: 65vw;
+    padding: 25px;
+  }
+
   @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     width: 100%;
-    padding: 30px;
+    padding: 20px;
+    row-gap: 15px;
     color: ${({textColor, isOpen}) => textColor 
       ? textColor 
       : isOpen 

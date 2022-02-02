@@ -95,12 +95,12 @@ export const PositionHexagon = styled.div`
   @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
     display: block;
     transform: scale(0.5);
-    right: -140px;
+    right: -160px;
     top: 0;
   }
 
   @media only screen and (max-width: ${themeGet("breakpoints.mMobile")}) {
-    right: -170px;
+    right: -200px;
   }
 `;
 

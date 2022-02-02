@@ -2,6 +2,7 @@ import {
   CareersWrap,
   DotsWrap,
   HeaderWrap,
+  InvitationContainer,
   InvitationWrapper,
   PhotoWrap,
   ProcessWrap,
@@ -53,76 +54,78 @@ const Invitation = ({ banner, process }: Invitation) => {
 
   return (
     <InvitationWrapper onMouseEnter={onMouseEnter}>
-      <DotsWrap>
-        <Dots
-          numberOfDots={3}
-          dotColor={theme.colors.white}
-          animation={isAnimate}
-        />
-      </DotsWrap>
-      {semicircleCondition}
+      <InvitationContainer>
+        <DotsWrap>
+          <Dots
+            numberOfDots={3}
+            dotColor={theme.colors.white}
+            animation={isAnimate}
+          />
+        </DotsWrap>
+        {semicircleCondition}
 
-      <CareersWrap>
-        <TextBlock>
-          <h1>{title}</h1>
-          <p>{description}</p>
-          <Link href={button.url} passHref>
-            <span>{button.label}</span>
-          </Link>
-          <Rectangle />
-        </TextBlock>
+        <CareersWrap>
+          <TextBlock>
+            <h1>{title}</h1>
+            <p>{description}</p>
+            <Link href={button.url} passHref>
+              <span>{button.label}</span>
+            </Link>
+            <Rectangle />
+          </TextBlock>
 
-        <PhotoWrap>
-          <Semicircle2 className="semicircle2" />
-          <div className="main-photo">
-            <Image
-              loader={() => bannerImage}
-              src={bannerImage}
-              width={503}
-              height={456}
-              alt="photo"
-            />
-          </div>
-        </PhotoWrap>
-      </CareersWrap>
+          <PhotoWrap>
+            <Semicircle2 className="semicircle2" />
+            <div className="main-photo">
+              <Image
+                loader={() => bannerImage}
+                src={bannerImage}
+                width={503}
+                height={456}
+                alt="photo"
+              />
+            </div>
+          </PhotoWrap>
+        </CareersWrap>
 
-      <ProcessWrap>
-        <HeaderWrap>
-          <h1>{intro}</h1>
-        </HeaderWrap>
-        <SchemeWrap>
-          <div className="mobile-version">
-            <StepContainer>
-              <SvgBlock>
-                <CareerStepsFirstStep />
-              </SvgBlock>
-              <StepText>Initial Interview & English test</StepText>
-            </StepContainer>
-            <StepContainer>
-              <SvgBlock>
-                <CareerStepsSecondStep />
-              </SvgBlock>
-              <StepText>Technical Interview</StepText>
-            </StepContainer>
-            <StepContainer>
-              <SvgBlock>
-                <CareerStepsThirdStep />
-              </SvgBlock>
-              <StepText>Job Offer</StepText>
-            </StepContainer>
-            <StepContainer>
-              <SvgBlock>
-                <CareerStepsForthStep />
-              </SvgBlock>
-              <StepText>Start with Incora!</StepText>
-            </StepContainer>
-          </div>
-          <div className="desktop-version">
-            <CareerSteps className="steps" />
-            <CareerDots className="dots" />
-          </div>
-        </SchemeWrap>
-      </ProcessWrap>
+        <ProcessWrap>
+          <HeaderWrap>
+            <h1>{intro}</h1>
+          </HeaderWrap>
+          <SchemeWrap>
+            <div className="mobile-version">
+              <StepContainer>
+                <SvgBlock>
+                  <CareerStepsFirstStep />
+                </SvgBlock>
+                <StepText>Initial Interview & English test</StepText>
+              </StepContainer>
+              <StepContainer>
+                <SvgBlock>
+                  <CareerStepsSecondStep />
+                </SvgBlock>
+                <StepText>Technical Interview</StepText>
+              </StepContainer>
+              <StepContainer>
+                <SvgBlock>
+                  <CareerStepsThirdStep />
+                </SvgBlock>
+                <StepText>Job Offer</StepText>
+              </StepContainer>
+              <StepContainer>
+                <SvgBlock>
+                  <CareerStepsForthStep />
+                </SvgBlock>
+                <StepText>Start with Incora!</StepText>
+              </StepContainer>
+            </div>
+            <div className="desktop-version">
+              <CareerSteps className="steps" />
+              <CareerDots className="dots" />
+            </div>
+          </SchemeWrap>
+        </ProcessWrap>
+      </InvitationContainer>
     </InvitationWrapper>
   );
 };

@@ -104,6 +104,10 @@ export const InfoContainer = styled.div<IPositionInfo>`
   display: flex;
   gap: ${({withGap}) => withGap ? '100px' : '25px'};
 
+  @media only screen and (max-width: ${themeGet('breakpoints.mediumDesk')}) {
+    gap: 30px;
+  }
+
   @media only screen and (max-width: ${themeGet('breakpoints.tabletPro')}) {
     gap: 10px;
   }

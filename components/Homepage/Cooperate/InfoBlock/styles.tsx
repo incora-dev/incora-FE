@@ -11,6 +11,15 @@ export const Div = styled.div`
   flex-direction: column;
   max-width: 100%;
   padding: 20px;
+
+  @media only screen and (max-width: ${themeGet('breakpoints.mediumDesk')}) {
+    max-width: 435px;
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tabletPro')}) {
+    max-width: 100%;
+  }
+
   @media only screen and (max-width: ${themeGet('breakpoints.sTablet')}) {
     padding: 10px 0;
   }
@@ -29,6 +38,7 @@ export const H2 = styled.h2`
   text-transform: capitalize;
 
   color: #000;
+  max-width: 100%;
 
   @media only screen and (max-width: ${themeGet('breakpoints.sTablet')}) {
     width: 100%;
@@ -92,6 +102,7 @@ export const Text = styled.strong`
   letter-spacing: 0.1em;
 
   color: #454A4D;
+  max-width: 100%;
 
   @media only screen and (max-width: ${themeGet('breakpoints.sTablet')}) {
     width: 100%;

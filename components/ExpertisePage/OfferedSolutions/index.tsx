@@ -16,7 +16,7 @@ const OfferedSolutions = ({ intro, data }: IOfferedSolutionsProps) => {
         header={intro}
         gridData={data}
         gridItemWidth={288}
-        rowGap={132}
+        rowGap={135}
         bgColor={theme.colors.black}
       />
     </Div>

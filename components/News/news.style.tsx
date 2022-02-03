@@ -26,8 +26,9 @@ export const Component = styled.div`
 
 export const HeaderContainer = styled.div`
   width: 100%;
-  padding-left: 180px;
-  padding-right: 80px;
+  max-width: 1006px;
+  margin: 0 auto;
+
   @media only screen and (max-width: ${themeGet('breakpoints.tabletPro')}) {
     padding: 0 25px;
   }

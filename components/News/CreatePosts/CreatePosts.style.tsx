@@ -7,9 +7,26 @@ export const NewsContainer = styled.div`
   height: 343px;
   flex-direction: column;
   row-gap: 14px;
+  margin-right: 67px;
+
+  @media only screen and (max-width: ${themeGet("breakpoints.tabletPro")}) {
+    margin-right: 40px;
+  }
+
+  @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
+    margin-right: 20px;
+  }
+
+  @media only screen and (max-width: ${themeGet("breakpoints.sTablet")}) {
+    margin-right: 15px;
+  }
 
   @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
-    row-gap: 10px;
+    margin-right: 30px;
+  }
+
+  :last-child {
+    margin-right: 0;
   }
   
   a {

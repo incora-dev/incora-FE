@@ -21,6 +21,7 @@ export const Div = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
+  overflow: hidden;
 
   @media only screen and (max-width: ${themeGet('breakpoints.mDesk')}) {
     max-width: 100%;

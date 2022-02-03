@@ -33,7 +33,7 @@ export const BenefitsAndSolutionsWrap = styled.div`
 `;
 
 export const ContentWrap = styled.div`
-  padding-top: 120px;
+  padding-top: 111px;
   position: relative;
   width: 1006px;
 
@@ -58,20 +58,21 @@ export const ContentWrap = styled.div`
 
   h1 {
     font-weight: 800;
-    font-size: var(--fs-36);
+    font-size: var(--fs-26);
     line-height: 54px;
-    @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
-      line-height: 40px;
-    }
+    letter-spacing: 0.05em;
     color: ${themeGet("colors.white")};
-    letter-spacing: ${themeGet("letterSpacing.h1")};
     text-transform: capitalize;
-    margin-bottom: 58.6px;
+    margin-bottom: 65px;
 
     @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
       font-size: var(--fs-26);
       line-height: 34px;
       margin-bottom: 40px;
+    }
+
+    @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+      line-height: 40px;
     }
   }
 `;
@@ -99,7 +100,7 @@ export const GridItemWrap = styled.div`
   width: ${({ width }: IGridItemWrap) => `${width}px`};
   display: flex;
   flex-direction: column;
-  row-gap: 15px;
+  align-items: flex-start;
 
   @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
     width: calc((100% - 60px) / 2);
@@ -117,6 +118,10 @@ export const GridItemWrap = styled.div`
     width: 51px;
   }
 
+  .image {
+    max-height: 37px;
+  }
+
   h3 {
     font-weight: 800;
     font-size: var(--fs-18);
@@ -124,6 +129,7 @@ export const GridItemWrap = styled.div`
     line-height: 27px;
     letter-spacing: ${themeGet("letterSpacing.span")};
     color: ${themeGet("colors.white")};
+    margin: 13px 0 10px;
 
     @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
       font-size: 14px;

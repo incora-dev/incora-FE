@@ -19,6 +19,11 @@ export const UPDATE_IMPRESSIONS_COUNT = gql`
         }
       }
     ) {
+      meta {
+        pagination {
+          total
+        }
+      }
       data {
         id
         attributes {

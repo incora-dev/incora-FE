@@ -76,7 +76,7 @@ export const ContentWrap = styled.div`
     letter-spacing: 0.05em;
 
     @media only screen and (max-width: ${themeGet("breakpoints.sTablet")}) {
-      font-size: var(--fs-14)
+      font-size: var(--fs-14);
       line-height: 27px;
     }
   }

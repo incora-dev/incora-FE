@@ -14,46 +14,11 @@ import FooterComponent from "../../components/Footer";
 import GoToTop from "../../components/GoToTop";
 import { useRouter } from "next/router";
 import Custom404 from "../404";
-import { useQuery } from "@apollo/client";
+import { useMutation, useQuery } from "@apollo/client";
 import { GetArticle } from "../../graphql/insights/__generated__/GetArticle";
 import { GET_ARTICLE } from "../../graphql/insights/queries";
 import { useIsMobile } from "../../services/hooks";
-
-const news = {
-  title: "You may also like",
-  articles: [
-    {
-      img: "./../../newsBlock/newImg1.jpg",
-      tags: ["tagtitle", "tagtitle"],
-      categories: ["category"],
-      title:
-        "Intro to Microservices Communication [With the Use of Apache Kafka]",
-      redirectTo: "[With the Use of Apache Kafka]",
-    },
-    {
-      img: "./../../newsBlock/newImg2.jpg",
-      tags: ["tagtitle"],
-      categories: ["category", "category"],
-      title: "Incora Is Gaining Popularity On Clutch",
-      redirectTo: "Incora Is Gaining Popularity On Clutch",
-    },
-    {
-      img: "./../../newsBlock/newImg3.jpg",
-      tags: ["tagtitle", "tagtitle"],
-      categories: ["category"],
-      title: "Node.js vs Python: What are the Pros, Cons, and Use Cases?",
-      redirectTo: "Node.js vs Python: What are the Pros, Cons, and Use Cases?",
-    },
-    {
-      img: "./../../newsBlock/newImg1.jpg",
-      tags: ["tagtitle"],
-      categories: ["category", "category"],
-      title: "How to Monetize Delivery and Shipping Apps: Methods Screening",
-      redirectTo:
-        "How to Monetize Delivery and Shipping Apps: Methods Screening",
-    },
-  ],
-};
+import { UPDATE_VIEWS } from "../../graphql/insights/mutations";
 
 const code = `  const handleScroll = () => {
     const sideBarElements = document.querySelectorAll('#scrollsLabels h1,#scrollsLabels h2, #scrollsLabels h3, #scrollsLabels h4, #scrollsLabels h5, #scrollsLabels h6');
@@ -69,6 +34,14 @@ const code = `  const handleScroll = () => {
     })
   }`;
 
+export interface IImpressions {
+  intro: string | undefined;
+  likes: number;
+  exciting: number;
+  valuable: number;
+  unsatisfied: number;
+}
+
 const ArticleTemplate = () => {
   const router = useRouter();
   const { articleTemplate } = router.query;
@@ -76,21 +49,47 @@ const ArticleTemplate = () => {
   const { data, loading, error } = useQuery<GetArticle>(GET_ARTICLE, {
     variables: { url: articleTemplate },
   });
+
+  const [updateViews] = useMutation(UPDATE_VIEWS);
+
+  const id = data?.articles?.data[0].id;
   const entry = data?.articles?.data[0].attributes;
   const title = entry?.title;
   const categories = entry?.industries?.data;
   const publishedDate = entry?.createdAt;
-  const viewed = entry?.views;
   const authorEntry = entry?.author?.data?.attributes;
   const tags = entry?.tags?.data;
   const letsTalkTitle = entry?.contactUs.title;
   const letsTalkSubtitle = entry?.contactUs.subtitle;
+  const relatedArticles = entry?.relatedArticles?.articles?.data;
+  const relatedArticlesTitle = entry?.relatedArticles?.intro;
+  const views = entry?.count.views;
+  const impressions: IImpressions = {
+    intro: entry?.impressions.intro,
+    likes: entry?.count.likes,
+    exciting: entry?.count.exciting,
+    valuable: entry?.count.valuable,
+    unsatisfied: entry?.count.unsatisfied,
+  };
 
   const articleOwner = {
     img: IMAGES_LINK + authorEntry?.profilePhoto.data?.attributes?.url,
     name: authorEntry?.name || "",
     role: authorEntry?.position || "",
   };
+
+  useEffect(() => {
+    if (title) {
+      const localStorageId = localStorage.getItem(title);
+      if (localStorageId !== id) {
+        updateViews({ variables: { id, views: views + 1 } });
+      }
+    }
+  }, [id]);
+
+  useEffect(() => {
+    id && title && localStorage.setItem(title, id);
+  }, [id, title]);
 
   const socialTitles = [
     { Icon: FacebookSVG, href: authorEntry?.facebook || "" },
@@ -99,8 +98,7 @@ const ArticleTemplate = () => {
 
   const [menuColor, setMenuColor] = useState("none");
   const [goToTopVisible, setGoToTopVisible] = useState(false);
-    const {isMobile, isTablet, isSmallTablet} = useIsMobile();
-  
+  const { isMobile, isTablet, isSmallTablet } = useIsMobile();
 
   const handleScroll = () => {
     window.scrollY >= 20
@@ -117,7 +115,15 @@ const ArticleTemplate = () => {
   }, []);
 
   const renderCondition =
-    entry && title && categories && tags && letsTalkTitle && letsTalkSubtitle;
+    entry &&
+    title &&
+    categories &&
+    tags &&
+    letsTalkTitle &&
+    letsTalkSubtitle &&
+    relatedArticles &&
+    relatedArticlesTitle &&
+    id;
 
   if (loading) return null;
   if (error) return <Custom404 />;
@@ -133,7 +139,11 @@ const ArticleTemplate = () => {
           </Head>
           <>
             <MainMenu
-              backgroundColor={isMobile || isTablet || isSmallTablet ? theme.colors.black : menuColor}
+              backgroundColor={
+                isMobile || isTablet || isSmallTablet
+                  ? theme.colors.black
+                  : menuColor
+              }
               titlesColor={theme.colors.white}
               titles={titles}
             >
@@ -141,7 +151,7 @@ const ArticleTemplate = () => {
                 title={title}
                 categories={categories}
                 publishedDate={publishedDate}
-                viewed={viewed}
+                viewed={views}
                 articleOwner={articleOwner}
               />
               <ArticleInfo
@@ -149,8 +159,10 @@ const ArticleTemplate = () => {
                 codeText={code}
                 socialTitles={socialTitles}
                 tags={tags}
+                impressions={impressions}
+                id={id}
               />
-              {/* <News title={news.title} articles={news.articles} /> */}
+              <News title={relatedArticlesTitle} articles={relatedArticles} />
               <LetsTalk title={letsTalkTitle} text={letsTalkSubtitle} />
               <GoToTop isVisible={goToTopVisible} />
             </MainMenu>

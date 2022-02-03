@@ -36,7 +36,6 @@ const HeaderInsights = ({
 }: IHeaderInsights) => {
   const [query, setQuery] = useState<string>();
   const [currentIndustryTag, setCurrentIndustryTag] = useState<string>("all");
-  const [page, setPage] = useState<number>(1);
 
   const onKeyPress = (event: any) => {
     if (event.key === "Enter") {
@@ -73,7 +72,7 @@ const HeaderInsights = ({
           />
         </PositionTags>
       </Wrapper>
-      <Posts query={query} industry={currentIndustryTag} page={page} />
+      <Posts query={query} industry={currentIndustryTag} />
     </Div>
   );
 };

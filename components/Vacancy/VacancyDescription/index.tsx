@@ -13,6 +13,12 @@ interface IVacancyDescription {
   filterTechnologies: string;
 }
 
+const uploadFilesLabel = () =>
+    <>
+      <div><span>upload a file</span>or drag and drop here</div>
+      <p>We accept PDF, DOC, DOCX, JPG and PNG files.</p>
+    </>
+
 const VacancyDescription = ({ description, filterTechnologies }: IVacancyDescription) => {
   return (
     <VacancyDescriptionWrapper>
@@ -24,7 +30,7 @@ const VacancyDescription = ({ description, filterTechnologies }: IVacancyDescrip
           </Description>
 
           <AttachCvWrap>
-            <AttachCv />
+            <AttachCv uploaderLabel={uploadFilesLabel()}/>
           </AttachCvWrap>
         </DescriptionAndCv>
       </ContentWrap>

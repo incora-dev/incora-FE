@@ -2,7 +2,7 @@ import styled from "styled-components";
 import themeGet from "@styled-system/theme-get";
 
 interface IDisplay {
-  shouldShowNotice: boolean;
+  shouldShowNotice: boolean | null;
 }
 
 export const Div = styled.div`
@@ -11,9 +11,8 @@ export const Div = styled.div`
   bottom: 0;
 
   display: ${({ shouldShowNotice }: IDisplay) => shouldShowNotice ? 'none' : 'block'};
+  background-color: #fff;
 
-  background-color: ${themeGet("colors.white")};
-  
   a {
     position: relative;
 
@@ -32,7 +31,7 @@ export const Div = styled.div`
       content: '';
       height: 7px;
       width: 94px;
-      background-color: ${themeGet("colors.yellow")};
+      background-color: #FEC602;
 
       @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) { 
         bottom: 2px;
@@ -86,7 +85,7 @@ export const H3 = styled.h3`
 
   letter-spacing: 0.05em;
 
-  color: ${themeGet("colors.black")};
+  color: #18181A;
 
   @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     font-size: var(--fs-14);
@@ -107,9 +106,9 @@ export const Button = styled.div`
   
   cursor: pointer;
 
-  color: ${themeGet("colors.white")};
+  color: #fff;
   
-  background-color: ${themeGet("colors.black")};
+  background-color: #18181A;
 
   @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     padding: 8px 61.5px;

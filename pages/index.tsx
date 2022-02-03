@@ -11,6 +11,7 @@ import FooterComponent from "../components/Footer";
 import React from "../public/SVG/technologies/react.svg";
 import Angular from "../public/SVG/technologies/angular.svg";
 import VideoComponent from "../components/Homepage/Video";
+import Reviews from "../components/Homepage/Reviews";
 import HeaderComponent from "../components/Homepage/Header";
 import CooperateComponent from "../components/Homepage/Cooperate";
 import { useQuery } from "@apollo/client";
@@ -93,7 +94,6 @@ const technologies = {
 const contactUs: IContactUs = {
   title: "contact us",
   text: "Let’s create progress together!",
-  formLabels: ["name", "phone number", "email", "what is you main goal?"],
   addresses: [
     { "ukrainian office": "2 Horodotska Str.,\n" + "Lviv 75001 Ukraine" },
     { "Usa office": "16192 Coastal Hwy, Lewes,\n" + "DE 19958 USA" },

@@ -1,6 +1,5 @@
 import themeGet from "@styled-system/theme-get";
 import styled from "styled-components";
-import { theme } from "../../../styles/theme";
 
 interface IShowVideo {
   display: boolean;
@@ -61,6 +60,7 @@ export const PosterVideoPosition = styled.div`
   top: 0;
 
   opacity: ${( { display }: IShowVideo) => display ? 0 : 1};
+  pointer-events: ${( { display }: IShowVideo) => display ? 'none' : 'all'};
 
   transition: opacity 1s linear;
   transition-delay: 1s;
@@ -79,6 +79,8 @@ export const PlayerPosition = styled.div`
   transform: translate(-52%, -52%);
 
   opacity: ${( { display }: IShowVideo) => display ? 0 : 1};
+  pointer-events: ${( { display }: IShowVideo) => display ? 'none' : 'all'};
+
   transition: opacity 1s linear;
 `;
 

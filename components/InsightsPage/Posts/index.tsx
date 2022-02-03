@@ -5,22 +5,24 @@ import { IMAGES_LINK } from "../../../constants/links";
 import { useQuery } from "@apollo/client";
 import { GetArticlesList } from "../../../graphql/insights/__generated__/GetArticlesList";
 import { GET_ARTICLES_LIST } from "../../../graphql/insights/queries";
-import Loader from "../../../public/RhombusLoader.gif";
+import { useState } from "react";
+import Loader from "../../common/Loader";
 
 interface IPosts {
   query: string | undefined;
   industry: string;
-  page: number;
 }
 
-const Posts = ({ query, industry, page }: IPosts) => {
+const Posts = ({ query, industry }: IPosts) => {
+  const [currentPage, setCurrentPage] = useState<number>(1);
+
   const industryCondition = industry === "all" ? undefined : industry;
 
   const { data, loading } = useQuery<GetArticlesList>(GET_ARTICLES_LIST, {
     variables: {
       query: query,
       industry: industryCondition,
-      page,
+      page: currentPage,
     },
   });
   const articles = data?.articles?.data;
@@ -53,25 +55,26 @@ const Posts = ({ query, industry, page }: IPosts) => {
       );
     });
 
-  const onPageChanged = (value: number) => {
-    console.log("xy");
+  const onPageChanged = (page: number) => {
+    setCurrentPage(page);
   };
+
+  const articlesCondition =
+    articles && !loading ? <NewsBlock>{articlesList}</NewsBlock> : <Loader />;
 
   return (
     <>
-      {articles && (
-        <Div>
-          <Wrapper>
-            <NewsBlock>{articlesList}</NewsBlock>
-            <Pagination
-              totalCount={articles.length}
-              currentPage={1}
-              pageSize={9}
-              onPageChanged={onPageChanged}
-            />
-          </Wrapper>
-        </Div>
-      )}
+      <Div>
+        <Wrapper>
+          {articlesCondition}
+          <Pagination
+            totalCount={14}
+            currentPage={currentPage}
+            pageSize={9}
+            onPageChanged={onPageChanged}
+          />
+        </Wrapper>
+      </Div>
     </>
   );
 };

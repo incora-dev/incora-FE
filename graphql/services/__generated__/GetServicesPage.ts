@@ -52,7 +52,7 @@ export interface GetServicesPage_servicesPage_data_attributes_techStack_tech_sta
 
 export interface GetServicesPage_servicesPage_data_attributes_techStack_tech_stacks_data_attributes_technologies_data_attributes {
   __typename: "Technology";
-  name: string;
+  Technology_name: string | null;
   url: string | null;
   icon: GetServicesPage_servicesPage_data_attributes_techStack_tech_stacks_data_attributes_technologies_data_attributes_icon | null;
 }

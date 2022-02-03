@@ -145,6 +145,7 @@ const Vacancies = ({
               </QuickApplyWrap>
             </Filter>
           </PositionFilter>
+
           <List>{vacanciesCards}</List>
         </ListWrap>
       </ContentWrapper>

@@ -47,7 +47,7 @@ const RadioButtons = ({
       columnGap={columnGap}
       rowGap={rowGap}
     >
-      {labels.map(({ id, attributes, }, index) => {
+      {labels.map(({ id, attributes }, index) => {
         return (
           <>
             {attributes?.name && (
@@ -71,8 +71,8 @@ const RadioButtons = ({
                     }
 
                     if (onChange) {
-                                  onChange(index);
-                              }
+                      onChange(index);
+                    }
 
                     console.log(id);
                   }}

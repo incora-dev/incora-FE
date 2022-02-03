@@ -3,13 +3,15 @@ import themeGet from "@styled-system/theme-get";
 
 export const Div = styled.div`
   overflow: hidden;
-  
+  display: flex;
+  justify-content: center;
+
   background-color: ${themeGet("colors.white")};
 `;
 
 export const Wrapper = styled.div`
-  max-width: 1040px;
-  margin: 0 auto;
+  min-height: 500px;
+  width: 1040px;
   padding: 70px 0 90px;
 
   display: flex;
@@ -42,5 +44,4 @@ export const NewsBlock = styled.div`
   }
 `;
 
-export const Pagination = styled.div`
-`;
+export const Pagination = styled.div``;

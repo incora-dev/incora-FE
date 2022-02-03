@@ -35,7 +35,6 @@ const titles = [
 const contactUs: IContactUs = {
   title: "contact us",
   text: "Let’s create progress together!",
-  formLabels: ["name", "phone number", "email", "what is you main goal?"],
   addresses: [
     { "ukrainian office": "2 Horodotska Str.,\n" + "Lviv 75001 Ukraine" },
     { "usa office": "16192 Coastal Hwy, Lewes,\n" + "DE 19958 USA" },
@@ -62,7 +61,7 @@ const news = {
 };
 
 const CompanyAbout = () => {
-  const { text, formLabels, addresses, buttonLabel } = contactUs;
+  const { text, addresses, buttonLabel } = contactUs;
   const { policies, offices, pages, followUs, copyright } = footer;
 
   const { data, loading, error } = useQuery<GetAboutPage>(GET_ABOUT_PAGE);
@@ -88,7 +87,6 @@ const CompanyAbout = () => {
           <ContactUsComponent
             title={entry.contactUs.title}
             text={entry.contactUs.subtitle}
-            formLabels={formLabels}
             addresses={addresses}
             buttonLabel={buttonLabel}
           />

@@ -24,10 +24,12 @@ export const AttachCvWrapper = styled.div`
   }
 
   .attach {
-    margin-bottom: ${({ big }: IAttachCvWrapper) => (big ? "51px" : "0")};
+    margin-top: ${({ big }: IAttachCvWrapper) => (big ? "51px" : "30px")};
+    margin-bottom: ${({ big }: IAttachCvWrapper) => (big ? "51px" : "30px")};
   }
 
   .personal {
+    margin-top: ${({ big }: IAttachCvWrapper) => (big ? "51px" : "30px")};
     margin-bottom: ${({ big }: IAttachCvWrapper) => (big ? "16px" : "11px")};
   }
 

@@ -76,6 +76,7 @@ export const GET_ARTICLE = gql`
   query GetArticle($url: String) {
     articles(filters: { url: { eq: $url } }) {
       data {
+        id
         attributes {
           title
           content
@@ -126,6 +127,14 @@ export const GET_ARTICLE = gql`
           impressions {
             intro
           }
+          count {
+            id
+            likes
+            valuable
+            exciting
+            unsatisfied
+          }
+
           contactUs {
             title
             subtitle
@@ -138,25 +147,29 @@ export const GET_ARTICLE = gql`
                 id
                 attributes {
                   url
+                  title
+                  previewImage {
+                    data {
+                      id
+                      attributes {
+                        url
+                      }
+                    }
+                  }
+                  industries {
+                    data {
+                      id
+                      attributes {
+                        url
+                        name
+                      }
+                    }
+                  }
                   tags {
                     data {
                       id
                       attributes {
                         name
-                        articles {
-                          data {
-                            attributes {
-                              previewImage {
-                                data {
-                                  id
-                                  attributes {
-                                    url
-                                  }
-                                }
-                              }
-                            }
-                          }
-                        }
                       }
                     }
                   }

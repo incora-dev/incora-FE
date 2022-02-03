@@ -38,7 +38,7 @@ export const SelectorWrapper = styled.div`
   }
 
   .react-select__indicator-separator {
-    display: none;f
+    display: none;
   }
 
   .react-select__menu {
@@ -56,7 +56,7 @@ export const SelectorWrapper = styled.div`
   }
 
   .react-select__option--is-focused {
-    background-color: none;
+    background: none;
   }
   .react-select__value-container {
     padding-left: 20px;

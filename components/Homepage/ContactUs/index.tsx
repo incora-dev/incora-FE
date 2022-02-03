@@ -6,11 +6,11 @@ import {
   Block
 } from "./ContactUs.style";
 import { IContactUs } from "@interfaces";
-import Form from "../../Form";
+import FormClassic from "../../FormClassic";
 import Addresses from "./Addresses";
 
 
-function ContactUsComponent({ title, text, formLabels, addresses, buttonLabel }: IContactUs) {
+function ContactUsComponent({ title, text, addresses, buttonLabel }: IContactUs) {
   return (
     <Block>
       <Container>
@@ -20,7 +20,7 @@ function ContactUsComponent({ title, text, formLabels, addresses, buttonLabel }:
             <H4>{text}</H4>
           </Titles>
 
-          <Form fieldsLabels={formLabels} buttonLabel={buttonLabel}/>
+          <FormClassic buttonLabel={buttonLabel}/>
         </div>
 
         <Addresses addresses={addresses}/>

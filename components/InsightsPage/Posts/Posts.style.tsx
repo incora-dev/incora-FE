@@ -36,11 +36,24 @@ export const Wrapper = styled.div`
 export const NewsBlock = styled.div`
   display: flex;
   flex-wrap: wrap;
-  column-gap: 50px;
   row-gap: 50px;
 
+  .news-container {
+    margin-right: 50px;
+
+    :nth-child(3n) {
+      margin-right: 0;
+    }
+  }
+
   @media only screen and (max-width: ${themeGet("breakpoints.tabletPro")}) {
-    column-gap: 25px;
+    .news-container {
+      margin-right: 25px;
+
+      :nth-child(3n) {
+        margin-right: 25px;
+      }
+    }
   }
 `;
 

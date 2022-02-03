@@ -34,7 +34,7 @@ const CreateNews = ({
 }: ICreateNews) => {
   return (
     <>
-      <NewsContainer key={id}>
+      <NewsContainer key={id} className="news-container">
         <Link href={ROUTES.ARTICLE + url} passHref>
           <ImgBlock>
             <Element />

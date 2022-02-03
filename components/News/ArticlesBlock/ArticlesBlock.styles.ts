@@ -3,17 +3,17 @@ import styled from "styled-components";
 import { theme } from "../../../styles/theme";
 
 interface IComponent {
-  number: number;
+  maxWidth: number;
 }
 
 export const Container = styled.div`
-  display: grid;
-  grid-template-columns: ${({ number }: IComponent ) => `repeat(${number},1fr)`};
-  column-gap: 70px;
+  display: flex;
+  width: ${({ maxWidth }: IComponent ) => `calc((100vw - ${maxWidth}px) / 2 + ${maxWidth}px)`};
+  margin-left: auto;
 
-  padding: 0 164px;
+  padding: 0;
 
-  overflow: scroll;
+  overflow: visible;
 
   &::-webkit-scrollbar {
     display: none;
@@ -22,6 +22,8 @@ export const Container = styled.div`
   @media only screen and (max-width: ${themeGet('breakpoints.tabletPro')}) {
     padding: 0 25px;
     column-gap: 40px;
+    margin-left: 0;
+    width: 100%;
   }
 
   @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
@@ -40,4 +42,20 @@ export const Container = styled.div`
     display: flex;
     flex-direction: column;
   }
-`
+`;
+
+export const ArticlesContainer = styled.div`
+  display: -webkit-box;
+  width: 100%;;
+  overflow: scroll;
+  -ms-overflow-style: none;
+
+  ::-webkit-scrollbar {
+    width: 0 !important;
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+    display: flex;
+    flex-direction: column;
+  }
+`;

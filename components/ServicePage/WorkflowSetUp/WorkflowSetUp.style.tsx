@@ -23,7 +23,9 @@ export const Div = styled.div`
 `;
 
 export const Wrapper = styled.div`
-  padding: 0 13.17vw;
+  max-width: 1006px;
+  width: 100%;
+  margin: 0 auto;
 
   @media only screen and (max-width: ${themeGet("breakpoints.tabletPro")}) {
     padding: 0 25px;
@@ -35,11 +37,14 @@ export const Wrapper = styled.div`
 `;
 
 export const Content = styled.div`
-  padding: 0 13.17vw;
+  padding: 0;
 
   display: flex;
   column-gap: 50px;
   overflow: scroll;
+  max-width: calc((100vw - 1006px) / 2 + 1006px);
+  margin-left: calc((100vw - 1006px) / 2);
+
   &::-webkit-scrollbar {
     display: none;
   }
@@ -70,11 +75,18 @@ export const ContentWrapper = styled.div`
   row-gap: 11px;
   
   background: #FBFBFB;
+  &:last-child {
+    margin-right: 50px;
+  }
 
   @media only screen and (max-width: ${themeGet("breakpoints.tabletPro")}) {
     padding: 0;
     width: calc(50% - 30px);
     background: ${themeGet("colors.white")};
+
+    &:last-child {
+      margin-right: 0;
+    }
   }
 
   @media only screen and (max-width: ${themeGet("breakpoints.sTablet")}) {

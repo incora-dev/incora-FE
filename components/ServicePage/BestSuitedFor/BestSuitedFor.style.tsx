@@ -42,15 +42,14 @@ export const H1 = styled.h1`
 export const Content = styled.div`
   min-height: 50vh;
 
-  max-width: 1166px;
+  max-width: 1006px;
   padding: 63px 0 158px 0;
   margin: 0 auto;
 
   position: relative;
-  left: 44px;
 
   display: flex;
-  column-gap: 100px;
+  column-gap: 58px;
   row-gap: 70px;
   flex-wrap: wrap;
   justify-content: center;

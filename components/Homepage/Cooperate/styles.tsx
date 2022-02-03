@@ -78,11 +78,13 @@ export const Number = styled.div`
 
   letter-spacing: 0.05em;
   text-transform: uppercase;
+  width: 200px;
 
   color: #18181A;
 
   @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
     font-size: 90px;
+    width: 115px;
   }
 
   @media only screen and (max-width: ${themeGet('breakpoints.sTablet')}) {
@@ -127,13 +129,8 @@ export const PositionInfo = styled.div`
   right: ${({ positionRight }: IPositionInfo) => positionRight};
   margin-top: 6px;
 
-  @media only screen and (max-width: ${themeGet('breakpoints.tabletPro')}) {
-    right: ${({ positionRight }: IPositionInfo) => (positionRight == '70px;') ? '48px' : positionRight};
-  }
-
   @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
-    right: ${({ positionRight }: IPositionInfo) => (positionRight == '70px;') ? '80px' : positionRight};
-    right: ${({ positionRight }: IPositionInfo) => (positionRight == '46.5px;') ? '105px' : positionRight};
+    right: 70px;
   }
 
   @media only screen and (max-width: ${themeGet('breakpoints.sTablet')}) {

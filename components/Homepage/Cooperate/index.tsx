@@ -102,7 +102,7 @@ function CooperateComponent({ slide, index, plusesColor, button }: ISliders) {
       </ElementsPosition>
 
       <PositionInfo positionRight={getPositionRight(index)}>
-        <InfoContainer withGap={index === 1}>
+        <InfoContainer>
           <PositionNumber>
             <Number>{`0${index + 1}`}</Number>
           </PositionNumber>

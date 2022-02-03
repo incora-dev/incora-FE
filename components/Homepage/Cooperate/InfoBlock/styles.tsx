@@ -17,10 +17,20 @@ export const Div = styled.div`
   }
 
   @media only screen and (max-width: ${themeGet('breakpoints.tabletPro')}) {
-    max-width: 100%;
+    max-width: 410px;
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+    max-width: 480px;
   }
 
   @media only screen and (max-width: ${themeGet('breakpoints.sTablet')}) {
+    max-width: 410px;
+    padding: 10px 0;
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+    max-width: 100%;
     padding: 10px 0;
   }
 `

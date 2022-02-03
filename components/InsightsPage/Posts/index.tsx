@@ -11,9 +11,10 @@ import Loader from "../../common/Loader";
 interface IPosts {
   query: string | undefined;
   industry: string;
+  totalPageCount: number;
 }
 
-const Posts = ({ query, industry }: IPosts) => {
+const Posts = ({ query, industry, totalPageCount }: IPosts) => {
   const [currentPage, setCurrentPage] = useState<number>(1);
 
   const industryCondition = industry === "all" ? undefined : industry;
@@ -82,7 +83,7 @@ const Posts = ({ query, industry }: IPosts) => {
           {articlesCondition()}
           {paginationCondition && (
             <Pagination
-              totalCount={14}
+              totalCount={totalPageCount}
               currentPage={currentPage}
               pageSize={9}
               onPageChanged={onPageChanged}

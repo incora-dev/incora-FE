@@ -1,7 +1,8 @@
 import BenefitsAndSolutions from "../../BenefitsAndSolutions";
-import {OurBenefitsWrapper } from "./style";
+import { OurBenefitsWrapper } from "./style";
 import ScheduleIcon from "../../../public/SVG/Schedule.svg";
 import Image from "next/image";
+import { GetCareersPage_careersPage_data_attributes_ourBenefits } from "../../../graphql/careers/__generated__/GetCareersPage";
 
 const gridData = [
   { title: "Flexible working schedule", icon: ScheduleIcon },
@@ -19,15 +20,19 @@ const gridData = [
   },
 ];
 
-const OurBenefits = () => {
+interface IOurBenefits {
+  ourBenefits: GetCareersPage_careersPage_data_attributes_ourBenefits;
+}
+
+const OurBenefits = ({ ourBenefits }: IOurBenefits) => {
   return (
     <OurBenefitsWrapper>
-      {/* <BenefitsAndSolutions
-        header="our benefits"
-        gridData={gridData}
+      <BenefitsAndSolutions
+        header={ourBenefits.intro}
+        gridData={ourBenefits.items}
         gridItemWidth={199}
         rowGap={60}
-      /> */}
+      />
     </OurBenefitsWrapper>
   );
 };

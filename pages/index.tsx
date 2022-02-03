@@ -14,7 +14,6 @@ import VideoComponent from "../components/Homepage/Video";
 import Reviews from "../components/Homepage/Reviews";
 import HeaderComponent from "../components/Homepage/Header";
 import CooperateComponent from "../components/Homepage/Cooperate";
-import { useQuery } from "@apollo/client";
 import Custom404 from "./404";
 import VerticalFullPageSlider from "../components/common/VerticalFullPageSlider";
 import { GET_HOMEPAGE } from "../graphql/homepage/queries";
@@ -26,6 +25,8 @@ import { IMAGES_LINK } from "../constants";
 import { ScrollListTypes } from "../components/common/VerticalFullPageSlider/types";
 import EmbodiedIdeasComponent from "../components/Homepage/EmbodiedIdeas";
 import NewsComponent from "../components/News";
+import { initializeApollo } from "../graphql/client";
+import { NextPage } from "next";
 
 const titles = [
   "Services",
@@ -38,59 +39,6 @@ const titles = [
 const bgColorBlack = theme.colors.black;
 const bgColorWhite = theme.colors.white;
 
-const technologies = {
-  title: "Technologies",
-  technologies: [
-    {
-      technology: {
-        label: "frontend",
-        text: ["React", "Angular2"],
-        icons: [React, Angular],
-      },
-    },
-    {
-      technology: {
-        label: "backend",
-        text: ["Node.js", "Python", "Django", "Flask"],
-        icons: [React, Angular],
-      },
-    },
-    {
-      technology: {
-        label: "database",
-        text: ["PostgreSQL", "MySQL", "MongoDB", "Apollo", "Redis"],
-        icons: [React, Angular],
-      },
-    },
-    {
-      technology: {
-        label: "mobile apps",
-        text: ["React Native", "Ionic"],
-        icons: [React, Angular],
-      },
-    },
-    {
-      technology: {
-        label: "devOps tools",
-        text: ["Docker", "Kubernetes", "Amazon ECS"],
-        icons: [React, Angular],
-      },
-    },
-    {
-      technology: {
-        label: "cloud Services",
-        text: [
-          "Amazon Web Services",
-          "Google Cloud Platform",
-          "Microsoft Azure",
-          "DigitalOcean",
-        ],
-        icons: [React, Angular],
-      },
-    },
-  ],
-};
-
 const contactUs: IContactUs = {
   title: "contact us",
   text: "Let’s create progress together!",
@@ -101,8 +49,12 @@ const contactUs: IContactUs = {
   buttonLabel: "send",
 };
 
-function Home() {
-  const { data, loading, error } = useQuery<GetHomepage>(GET_HOMEPAGE);
+interface IHome {
+  data: GetHomepage;
+  networkStatus: number;
+}
+
+const Home: NextPage<IHome> = ({ data, networkStatus }) => {
   const entry = data?.homePage?.data?.attributes;
   const backgroundVideo =
     IMAGES_LINK + entry?.banner.titleTexture.data?.attributes?.url;
@@ -154,8 +106,7 @@ function Home() {
     technologiesTitle &&
     techStacks;
 
-  if (loading) return null;
-  if (error) return <Custom404 />;
+  if (networkStatus !== 7) return <Custom404 />;
 
   return (
     <>
@@ -213,7 +164,6 @@ function Home() {
               <ContactUsComponent
                 title={contactUsTitle}
                 text={contactUsSubtitle}
-                formLabels={contactUs.formLabels}
                 addresses={contactUs.addresses}
                 buttonLabel={contactUs.buttonLabel}
               />
@@ -224,6 +174,21 @@ function Home() {
       )}
     </>
   );
+};
+
+export async function getServerSideProps() {
+  const client = initializeApollo();
+
+  const { data, networkStatus } = await client.query({
+    query: GET_HOMEPAGE,
+  });
+
+  return {
+    props: {
+      data,
+      networkStatus,
+    },
+  };
 }
 
 export default Home;

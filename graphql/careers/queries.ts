@@ -45,6 +45,25 @@ export const GET_CAREERS_PAGE = gql`
             text
             buttonText
           }
+
+          ourBenefits {
+            intro
+            items {
+              id
+              title
+              description
+              image {
+                data {
+                  id
+                  attributes {
+                    url
+                    width
+                    height
+                  }
+                }
+              }
+            }
+          }
         }
       }
     }

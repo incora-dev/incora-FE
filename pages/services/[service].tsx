@@ -18,17 +18,18 @@ import Custom404 from "../404";
 import WorkflowSetUp from "../../components/ServicePage/WorkflowSetUp";
 import Faq from "../../components/ServicePage/FAQ";
 import EmbodiedIdeasComponent from "../../components/Homepage/EmbodiedIdeas";
+import { initializeApollo } from "../../graphql/client";
+import { NextPage, NextPageContext } from "next";
 
 const colorWhite = theme.colors.white;
 const colorBlack = theme.colors.black;
 
-const Service = () => {
-  const router = useRouter();
-  const { service } = router.query;
+interface IService {
+  data: GetService;
+  networkStatus: number;
+}
 
-  const { data, loading, error } = useQuery<GetService>(GET_SERVICE, {
-    variables: { url: service },
-  });
+const Service: NextPage<IService> = ({ data, networkStatus }) => {
   const entry = data?.services?.data[0].attributes;
   const content = entry?.whyDoYouNeed;
   const bestSuitedFor = entry?.bestSuitedFor;
@@ -38,10 +39,11 @@ const Service = () => {
   const projects = entry?.projects?.data;
   const icon = entry?.icon.data?.attributes;
 
-    const {isMobile, isTablet, isSmallTablet} = useIsMobile();
-  
+  const { isMobile, isTablet, isSmallTablet } = useIsMobile();
 
-  const [menuColor, setMenuColor] = useState(isMobile || isTablet || isSmallTablet ? colorBlack : "none");
+  const [menuColor, setMenuColor] = useState(
+    isMobile || isTablet || isSmallTablet ? colorBlack : "none"
+  );
   const handleScroll = () => {
     window.scrollY >= 20 ? setMenuColor(colorBlack) : setMenuColor("none");
   };
@@ -52,7 +54,8 @@ const Service = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const menuColorCondition = isMobile || isTablet || isSmallTablet ? colorBlack : menuColor;
+  const menuColorCondition =
+    isMobile || isTablet || isSmallTablet ? colorBlack : menuColor;
 
   const renderCondition =
     entry &&
@@ -64,8 +67,7 @@ const Service = () => {
     projects &&
     icon;
 
-  if (loading) return null;
-  if (error) return <Custom404 />;
+  if (networkStatus !== 7) return <Custom404 />;
 
   return (
     <>
@@ -116,5 +118,22 @@ const Service = () => {
     </>
   );
 };
+
+export async function getServerSideProps(context: NextPageContext) {
+  const client = initializeApollo();
+  const { service } = context.query;
+
+  const { data, networkStatus } = await client.query({
+    query: GET_SERVICE,
+    variables: { url: service },
+  });
+
+  return {
+    props: {
+      data,
+      networkStatus,
+    },
+  };
+}
 
 export default Service;

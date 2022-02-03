@@ -3,7 +3,7 @@ import React from "../../public/SVG/technologies/react.svg";
 import MainMenu from "../../components/mainMenu/mainMenu";
 import FooterComponent from "../../components/Footer";
 import { theme } from "../../styles/theme";
-import { footer, titles } from "../../constants";
+import { titles } from "../../constants";
 import ServicesComponent from "../../components/Services";
 import InformationComponent from "../../components/Services/Information";
 import TechStack from "../../components/Services/TechStack";
@@ -12,9 +12,6 @@ import EstimateAppCircle from "../../components/Services/EstimateAppCircle";
 import Link from "next/link";
 import VerticalFullPageSlider from "../../components/common/VerticalFullPageSlider";
 import { ScrollListTypes } from "../../components/common/VerticalFullPageSlider/types";
-import { IncModal } from "../../components/Modal";
-import { useEffect, useState } from "react";
-import { useQuery } from "@apollo/client";
 import {
   GetServicesPage,
   GetServicesPage_servicesPage_data_attributes_services_data,
@@ -23,9 +20,15 @@ import Custom404 from "../404";
 import { useIsMobile } from "../../services/hooks";
 import FAQ from "../../components/ServicePage/FAQ";
 import { GET_SERVICES_PAGE } from "../../graphql/services/queries";
+import { initializeApollo } from "../../graphql/client";
+import { NextPage } from "next";
 
-function Services() {
-  const { data, loading, error } = useQuery<GetServicesPage>(GET_SERVICES_PAGE);
+interface IServices {
+  data: GetServicesPage;
+  networkStatus: number;
+}
+
+const Services: NextPage<IServices> = ({ data, networkStatus }) => {
   const entry = data?.servicesPage?.data?.attributes;
   const banner = entry?.banner;
   const slides = entry?.services?.data;
@@ -35,16 +38,15 @@ function Services() {
 
   const colorWhite = theme.colors.white;
   const colorBlack = theme.colors.black;
-    const {isMobile, isTablet, isSmallTablet} = useIsMobile();
-
+  const { isMobile, isTablet, isSmallTablet } = useIsMobile();
 
   const renderSlide = (
     slide: GetServicesPage_servicesPage_data_attributes_services_data
   ) => <InformationComponent slide={slide} />;
 
   const renderCondition = entry && banner && slides && stackTitle && stacks;
-  if (loading) return null;
-  if (error) return <Custom404 />;
+
+  if (networkStatus !== 7) return <Custom404 />;
 
   const faqContent = slides?.map((slide) => renderSlide(slide as any));
 
@@ -74,7 +76,7 @@ function Services() {
                 <div id="scroll-item">
                   <FAQ
                     textColor="#ffff"
-                    title={'faq'}
+                    title={"faq"}
                     titles={slidesTitles}
                     content={faqContent}
                     isFullPage={true}
@@ -82,7 +84,7 @@ function Services() {
                 </div>
               </div>
             )}
-            {(!isMobile && !isTablet && !isSmallTablet) && (
+            {!isMobile && !isTablet && !isSmallTablet && (
               <VerticalFullPageSlider
                 slides={slides}
                 renderSlide={renderSlide}
@@ -114,6 +116,21 @@ function Services() {
       <FooterComponent />
     </>
   );
+};
+
+export async function getServerSideProps() {
+  const client = initializeApollo();
+
+  const { data, networkStatus } = await client.query({
+    query: GET_SERVICES_PAGE,
+  });
+
+  return {
+    props: {
+      data,
+      networkStatus,
+    },
+  };
 }
 
 export default Services;

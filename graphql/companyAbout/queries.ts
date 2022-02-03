@@ -54,6 +54,44 @@ export const GET_ABOUT_PAGE = gql`
               }
             }
           }
+
+          insights {
+            intro
+            articles {
+              data {
+                id
+                attributes {
+                  url
+                  title
+                  previewImage {
+                    data {
+                      id
+                      attributes {
+                        url
+                      }
+                    }
+                  }
+                  industries {
+                    data {
+                      id
+                      attributes {
+                        url
+                        name
+                      }
+                    }
+                  }
+                  tags {
+                    data {
+                      id
+                      attributes {
+                        name
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
         }
       }
     }

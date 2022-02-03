@@ -20,6 +20,8 @@ import Loader from "../../../public/loading2.svg";
 import LoaderSemiCircle from "../../../public/loading1.svg";
 import { GetInsightsPage_industries_data } from "../../../graphql/insights/__generated__/GetInsightsPage";
 import { Dispatch, SetStateAction, useState } from "react";
+import { useQuery } from "@apollo/client";
+import { GET_TOTAL_PAGE_COUNT } from "../../../graphql/industries/meta";
 
 interface IHeaderInsights {
   title: string;
@@ -34,6 +36,9 @@ const HeaderInsights = ({
   inputPlaceholder,
   industries,
 }: IHeaderInsights) => {
+  const { data } = useQuery(GET_TOTAL_PAGE_COUNT);
+  const totalPageCount: any = data?.articles?.meta?.pagination?.total;
+
   const [query, setQuery] = useState<string>();
   const [currentIndustryTag, setCurrentIndustryTag] = useState<string>("all");
 
@@ -72,7 +77,7 @@ const HeaderInsights = ({
           />
         </PositionTags>
       </Wrapper>
-      <Posts query={query} industry={currentIndustryTag} />
+      <Posts query={query} industry={currentIndustryTag} totalPageCount={14} />
     </Div>
   );
 };

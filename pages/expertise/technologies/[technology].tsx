@@ -23,6 +23,8 @@ import { GetTechnologyPage } from "../../../graphql/technologies/__generated__/G
 import Custom404 from "../../404";
 import EmbodiedIdeasComponent from "../../../components/Homepage/EmbodiedIdeas";
 import { useIsMobile } from "../../../services/hooks";
+import { initializeApollo } from "../../../graphql/client";
+import { NextPage, NextPageContext } from "next";
 
 const MainMenuTitles = [
   "Services",
@@ -36,7 +38,6 @@ const MainMenuTitles = [
 const contactUs: IContactUs = {
   title: "get in touch!",
   text: "Let’s discover which technologies will make your idea great.",
-  formLabels: ["name", "phone number", "email", "what is you main goal?"],
   addresses: [
     { "ukrainian office": "2 Horodotska Str.,\n" + "Lviv 75001 Ukraine" },
     { "Usa office": "16192 Coastal Hwy, Lewes,\n" + "DE 19958 USA" },
@@ -48,14 +49,12 @@ const colorWhite = theme.colors.white;
 const colorBlack = theme.colors.black;
 const colorBackgroundBlack = theme.colors.backgroundBlack;
 
-const Technology = () => {
-  const router = useRouter();
-  const { technology } = router.query;
+interface ITechnology {
+  data: GetTechnologyPage;
+  networkStatus: number;
+}
 
-  const { data, loading, error } = useQuery<GetTechnologyPage>(
-    GET_TECHNOLOGY_PAGE,
-    { variables: { url: technology } }
-  );
+const Technology: NextPage<ITechnology> = ({ data, networkStatus }) => {
   const entry = data?.technologies?.data[0].attributes;
   const headerTitle = entry?.name;
   const headerDescription = entry?.description;
@@ -76,8 +75,8 @@ const Technology = () => {
   const handleScroll = () => {
     window.scrollY >= 50 ? setMenuColor(colorBlack) : setMenuColor("none");
   };
-    const {isMobile, isTablet, isSmallTablet} = useIsMobile();
-  
+  const { isMobile, isTablet, isSmallTablet } = useIsMobile();
+
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
 
@@ -100,8 +99,7 @@ const Technology = () => {
     contactUsTitle &&
     contactUsSubtitle;
 
-  if (loading) return null;
-  if (error) return <Custom404 />;
+  if (networkStatus !== 7) return <Custom404 />;
 
   return (
     <>
@@ -114,13 +112,17 @@ const Technology = () => {
           </Head>
           <MainMenu
             titlesColor={colorWhite}
-            backgroundColor={isMobile || isTablet || isSmallTablet ? colorBlack : menuColor}
+            backgroundColor={
+              isMobile || isTablet || isSmallTablet ? colorBlack : menuColor
+            }
             titles={MainMenuTitles}
           >
             <HeaderService
               title={headerTitle}
               icon={headerIcon}
-              titleSize={isMobile || isTablet || isSmallTablet ? '50px' :'64px'}
+              titleSize={
+                isMobile || isTablet || isSmallTablet ? "50px" : "64px"
+              }
               text={headerDescription}
               textWidth={"435px"}
               label={headerLabel}
@@ -148,7 +150,6 @@ const Technology = () => {
             <ContactUsComponent
               title={contactUsTitle}
               text={contactUsSubtitle}
-              formLabels={contactUs.formLabels}
               addresses={contactUs.addresses}
               buttonLabel={contactUs.buttonLabel}
             />
@@ -159,5 +160,22 @@ const Technology = () => {
     </>
   );
 };
+
+export async function getServerSideProps(context: NextPageContext) {
+  const client = initializeApollo();
+  const { technology } = context.query;
+
+  const { data, networkStatus } = await client.query({
+    query: GET_TECHNOLOGY_PAGE,
+    variables: { url: technology },
+  });
+
+  return {
+    props: {
+      data,
+      networkStatus,
+    },
+  };
+}
 
 export default Technology;

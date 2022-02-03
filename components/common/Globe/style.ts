@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const GlobeWrapper = styled.div`
+  margin-top: 50px;
   height: 400px;
   width: 100%;
 

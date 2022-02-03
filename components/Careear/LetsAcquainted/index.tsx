@@ -2,11 +2,12 @@ import {
   ContentWrap,
   DropAlineWrap,
   HexagonsWrap,
-  LetsAcquaintedWrapper,
-  Rectangle,
+  LetsAcquaintedWrapper
 } from "./style";
 import HexSmall from "../../../public/hexSmall.svg";
 import HexCropped from "../../../public/hexCropped.svg";
+import Link from "next/link";
+import { ROUTES } from "../../../constants/routes";
 
 const LetsAcquainted = () => {
   return (
@@ -17,8 +18,9 @@ const LetsAcquainted = () => {
         </span>
         <h1>{"Let's get acquainted anyway!"}</h1>
         <DropAlineWrap>
-          <Rectangle />
-          <span className="text2">Drop us a line</span>
+          <Link href={ROUTES.COMPANY.SEND_CV}>
+            <span className="text2">Drop us a line</span>
+          </Link>
         </DropAlineWrap>
       </ContentWrap>
 

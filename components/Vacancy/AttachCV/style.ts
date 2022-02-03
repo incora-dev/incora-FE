@@ -26,6 +26,10 @@ export const AttachCvWrapper = styled.div`
   .attach {
     margin-top: ${({ big }: IAttachCvWrapper) => (big ? "51px" : "30px")};
     margin-bottom: ${({ big }: IAttachCvWrapper) => (big ? "51px" : "30px")};
+
+    @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
+      margin: 10px 0;
+    }
   }
 
   .personal {

@@ -31,6 +31,7 @@ import {
 } from "../../../graphql/careers/__generated__/GetCareersPage";
 import Link from "next/link";
 import { IMAGES_LINK } from "../../../constants";
+import {ROUTES} from "../../../constants/routes";
 
 interface Invitation {
   banner: GetCareersPage_careersPage_data_attributes_banner;
@@ -68,10 +69,9 @@ const Invitation = ({ banner, process }: Invitation) => {
           <TextBlock>
             <h1>{title}</h1>
             <p>{description}</p>
-            <Link href={button.url} passHref>
+            <Link href={ROUTES.COMPANY.SEND_CV} passHref>
               <span>{button.label}</span>
             </Link>
-            <Rectangle />
           </TextBlock>
 
           <PhotoWrap>

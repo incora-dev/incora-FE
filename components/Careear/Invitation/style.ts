@@ -144,6 +144,7 @@ export const TextBlock = styled.div`
   }
 
   span {
+    position: relative;
     font-size: var(--fs-18);
     font-weight: bold;
     line-height: 27px;
@@ -160,6 +161,45 @@ export const TextBlock = styled.div`
     @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
       font-size: 14px;
       line-height: 24px;
+    }
+
+
+    &:after {
+      z-index: -1;
+
+      position: absolute;
+      right: -4.5px;
+      top: 17px;
+
+      height: 10px;
+      width: 0;
+
+      content: '';
+
+      background-color: ${themeGet("colors.yellow4")};
+
+      transition: width ${themeGet("transition.button")};
+    }
+
+    &:before {
+      z-index: -1;
+
+      position: absolute;
+      left: 4.5px;
+      top: 17px;
+
+      height: 10px;
+      width: 100%;
+
+      content: '';
+
+      background-color: ${themeGet("colors.yellow")};
+
+      transition: width ${themeGet("transition.button")};
+    }
+
+    &:hover :after {
+      width: 100%;
     }
   }
 `;

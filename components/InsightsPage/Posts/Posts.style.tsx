@@ -57,4 +57,11 @@ export const NewsBlock = styled.div`
   }
 `;
 
+export const NoPostsFound = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+`;
+
 export const Pagination = styled.div``;

@@ -1,4 +1,4 @@
-import { Div, Wrapper, NewsBlock } from "./Posts.style";
+import { Div, Wrapper, NewsBlock, NoPostsFound } from "./Posts.style";
 import CreateNews from "../../News/CreatePosts";
 import Pagination from "../../Pagination";
 import { IMAGES_LINK } from "../../../constants/links";
@@ -59,20 +59,35 @@ const Posts = ({ query, industry }: IPosts) => {
     setCurrentPage(page);
   };
 
-  const articlesCondition =
-    articles && !loading ? <NewsBlock>{articlesList}</NewsBlock> : <Loader />;
+  const articlesCondition = () => {
+    if (articles && articles.length <= 0) {
+      return (
+        <NoPostsFound>
+          <span>{"No posts found"}</span>
+        </NoPostsFound>
+      );
+    } else if (articles && !loading) {
+      return <NewsBlock>{articlesList}</NewsBlock>;
+    } else {
+      return <Loader />;
+    }
+  };
+
+  const paginationCondition = articles && articles.length > 0;
 
   return (
     <>
       <Div>
         <Wrapper>
-          {articlesCondition}
-          <Pagination
-            totalCount={14}
-            currentPage={currentPage}
-            pageSize={9}
-            onPageChanged={onPageChanged}
-          />
+          {articlesCondition()}
+          {paginationCondition && (
+            <Pagination
+              totalCount={14}
+              currentPage={currentPage}
+              pageSize={9}
+              onPageChanged={onPageChanged}
+            />
+          )}
         </Wrapper>
       </Div>
     </>

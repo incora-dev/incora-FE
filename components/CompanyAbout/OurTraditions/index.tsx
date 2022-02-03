@@ -148,8 +148,7 @@ const OurTraditions = ({ ourTraditions }: IOurTraditions) => {
     gallery.map((photo, index) => {
       const src = IMAGES_LINK + photo.attributes?.url;
       return (
-        <Image
-          loader={() => src}
+        <img
           src={src}
           width={327}
           height={220}

@@ -23,8 +23,7 @@ export const Container = styled.div`
 
 export const BGTop = styled.div`
   height: 37%;
-  
-  background-color: #fff;
+  background-color: transparent;
 `;
 
 export const BGBottom = styled.div`

@@ -6,4 +6,11 @@ export const ROUTES = {
   SERVICES: "/services/",
   INSIGHTS: "/insights",
   ARTICLE: "/insights/",
+  CONTACTS: "/contacts/",
+  COMPANY: {
+    DEFAULT: "/company/",
+    ABOUT: "/about/",
+    CAREER: "/career/",
+    SEND_CV: "send_cv"
+  }
 };

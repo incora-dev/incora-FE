@@ -84,25 +84,56 @@ export const ContentWrap = styled.div`
 
 export const DropAlineWrap = styled.div`
   position: relative;
+  
+  cursor: pointer;
+
   span {
-    display: block;
+    z-index: 1;
+    position: relative;
+
     font-weight: bold;
     font-size: var(--fs-18);
     line-height: 27px;
     letter-spacing: ${themeGet("letterSpacing.span")};
-    position: absolute;
-    z-index: -1;
-  }
-`;
 
-export const Rectangle = styled.div`
-  position: absolute;
-  width: 136px;
-  height: 10px;
-  left: 4.5px;
-  top: 17px;
-  background: ${themeGet("colors.yellow")};
-  z-index: 1;
+    &:after {
+      z-index: -1;
+
+      position: absolute;
+      right: -4.5px;
+      top: 17px;
+
+      height: 10px;
+      width: 0;
+
+      content: '';
+
+      background-color: ${themeGet("colors.yellow4")};
+
+      transition: width ${themeGet("transition.button")};
+    }
+
+    &:before {
+      z-index: -1;
+
+      position: absolute;
+      left: 4.5px;
+      top: 17px;
+
+      height: 10px;
+      width: 100%;
+
+      content: '';
+
+      background-color: ${themeGet("colors.yellow")};
+
+      transition: width ${themeGet("transition.button")};
+    }
+
+    &:hover :after {
+      width: 100%;
+    }
+  }
 `;
 
 export const HexagonsWrap = styled.div`

@@ -22,9 +22,10 @@ import { IMAGES_LINK } from "../../../constants";
 interface HorizontalSliderProps {
   intro: string;
   slides: GetProjectPage_projects_data_attributes_gallery_pictures_data[];
+  maxWidth?: number;
 }
 
-const HorizontalSlider = ({ intro, slides }: HorizontalSliderProps) => {
+const HorizontalSlider = ({ intro, slides, maxWidth }: HorizontalSliderProps) => {
   const [horizontalSlides, setHorizontalSlides] = useState(slides);
   const [currentSlide, setCurrentSlide] = useState(0);
   const [leftPos, setLeftPos] = useState(0);
@@ -75,7 +76,7 @@ const HorizontalSlider = ({ intro, slides }: HorizontalSliderProps) => {
   };
 
   return (
-    <Slider id="horizontal-slider">
+    <Slider id="horizontal-slider" maxWidth={maxWidth}>
       {horizontalSlides.map((slide, index) => {
         const id = slide.id
         const src = IMAGES_LINK + slide.attributes?.url;

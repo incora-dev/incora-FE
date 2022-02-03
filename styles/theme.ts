@@ -55,6 +55,7 @@ export const theme = {
     tabletPro: '1024px',
     mDesk: '1124px',
     mediumDesk: '1201px',
+    desk: '1367px',
     largeDesk: '1441px',
   },
 };

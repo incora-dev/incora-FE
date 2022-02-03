@@ -10,7 +10,7 @@ interface IInsideTheProject {
 const InsideTheProject = ({ intro, slides }: IInsideTheProject) => {
   return (
     <InsideTheProjectWrapper>
-      <HorizontalSlider intro={intro} slides={slides} />
+      <HorizontalSlider intro={intro} slides={slides} maxWidth={1006} />
     </InsideTheProjectWrapper>
   );
 };

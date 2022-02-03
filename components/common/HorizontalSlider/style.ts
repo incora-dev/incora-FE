@@ -1,6 +1,10 @@
 import styled from "styled-components";
 import themeGet from "@styled-system/theme-get";
 
+interface ISlider {
+  maxWidth?: number;
+};
+
 export const AbsoluteRect = styled.div`
   position: absolute;
   top: 20px;
@@ -17,6 +21,15 @@ export const Slider = styled.div`
   width: 100%;
   height: 700px;
   background: ${themeGet("colors.backgroundBlack")};
+
+  @media only screen and (min-width: ${themeGet('breakpoints.desk')}) {
+    max-width: ${({ maxWidth }: ISlider) => maxWidth ? `calc((100vw - ${maxWidth}px) / 2 + ${maxWidth}px + 100px)` : '1006px'};
+    margin-left: ${({ maxWidth }: ISlider) => maxWidth ? `calc((100vw - ${maxWidth}px) / 2 - 100px)` : 'auto'};
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.mediumDesk')}) {
+    height: auto;
+  }
 
   @media only screen and (max-width: ${themeGet('breakpoints.tabletPro')}) {
     height: fit-content;
@@ -37,6 +50,10 @@ export const Slide = styled.div`
   -moz-transition-property: -moz-transform;
   -o-transition-property: -o-transform;
   transition-property: transform;
+
+  @media only screen and (min-width: ${themeGet('breakpoints.desk')}) {
+    max-width: 1008px;
+  }
 
   @media only screen and (max-width: ${themeGet('breakpoints.tabletPro')}) {
     padding: 70px 20px 40px 25px;

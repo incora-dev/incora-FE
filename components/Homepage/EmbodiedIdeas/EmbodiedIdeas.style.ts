@@ -21,7 +21,7 @@ export const Div = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
-  overflow: hidden;
+  overflow-x: hidden;
 
   @media only screen and (max-width: ${themeGet('breakpoints.mDesk')}) {
     max-width: 100%;
@@ -120,7 +120,7 @@ export const SeeMoreWorks = styled.div`
   position: relative;
 
   max-width: 1006px;
-  margin: 168px auto 0;
+  margin: 168px auto 70px;
 
   display: flex;
   flex-direction: column;
@@ -132,7 +132,7 @@ export const SeeMoreWorks = styled.div`
 
   @media only screen and (max-width: ${themeGet('breakpoints.tabletPro')}) {
     max-width: 100%;
-    margin: 100px auto 0;
+    margin: 100px auto 120px;
     height: fit-content;
     padding-bottom: 30px;
   }
@@ -140,6 +140,7 @@ export const SeeMoreWorks = styled.div`
   @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     width: 100%;
     padding-left: 0;
+    margin: 50px 0 75px;
   }
 `;
 
@@ -157,8 +158,9 @@ export const HexagonPosition = styled.div`
   }
 
   @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
-    left: -52%;
-    padding-top: 60px;
+    left: -190px;
+    padding-top: 0;
+    transform: scale(0.6);
   }  
 `;
 

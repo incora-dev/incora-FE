@@ -36,13 +36,13 @@ const Globe = ({ reviewIndex }: IGlobe) => {
   const changePointOfView = useCallback(() => {
     if (!points.length) return;
     const latAlign = 30;
-    const altitude = 1.4;
+    const altitude = 1.35;
     const { lat, lng } = points[reviewIndex];
 
     globeEl.current.pointOfView(
       {
-        lat: lat - latAlign,
-        lng,
+        lat: lat - latAlign -10,
+        lng: lng - 5,
         altitude,
       },
       700

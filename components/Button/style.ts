@@ -10,6 +10,8 @@ interface IBtn {
 }
 
 export const Btn = styled.button`
+  position: relative;
+
   width: ${({ width }: IBtn) => `${width}px`};
   height: ${({ height }: IBtn) => `${height}px`};
   background-color: ${({ backgroundColor }: IBtn) =>
@@ -21,11 +23,27 @@ export const Btn = styled.button`
   align-items: center;
   cursor: pointer;
 
-  &:hover {
-    box-shadow: ${themeGet("boxShadow.hover")};
+  &:after {
+    position: absolute;
+    left: 0;
+    top: 0;
+
+    height: 100%;
+    width: 0;
+
+    content: '';
+    background-color: ${themeGet("colors.yellow")};
+
+    transition: width ${themeGet("transition.button")};
+  }
+
+  &:hover :after {
+    width: 100%;
   }
 
   label {
+    z-index: 1;
+
     cursor: pointer;
     font-weight: bold;
     font-size: var(--fs-14);
@@ -37,19 +55,14 @@ export const Btn = styled.button`
   }
 
   svg {
+    z-index: 1;
+
     path {
       fill: ${({ arrow }: IBtn) => `${arrow}`};
     }
   }
 
-  box-shadow: inset 0 0 0 0 #e5b100ff;
-  -webkit-transition: ease-out 0.4s;
-  -moz-transition: ease-out 0.4s;
-  transition: ease-out 0.4s;
-
   &:hover {
-    box-shadow: inset 240px 0 0 0 #e5b100ff;
-
     label {
       color: ${themeGet("colors.black")};
     }

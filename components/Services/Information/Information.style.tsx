@@ -82,7 +82,7 @@ export const EstimatedTime = styled.div`
 `;
 
 export const TextBlock = styled.div`
-  max-width: 679px;
+  width: 679px;
   margin-left: 300px;
   padding: 120px 0;
 
@@ -163,7 +163,15 @@ export const Text = styled.p`
 
   letter-spacing: 0.1em;
 
-  color: #BCBCC0;
+  color: ${themeGet('colors.font1')};
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+    max-width: 250px;
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+    max-width: 204px;
+  }
 `;
 
 export const MenuLabel = styled.button`

@@ -86,7 +86,6 @@ export const StickyWrapper = styled.div`
   margin-top: 5px;
 
   display: block;
-  
 `;
 
 export const Line = styled.div`

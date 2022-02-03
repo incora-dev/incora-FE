@@ -17,6 +17,7 @@ interface IRadioButtons {
   border: string;
   textColor: string;
   padding: string;
+  prefixForId: string;
   fontWeight?: string;
   flexDirection?: string;
   columnGap?: string;
@@ -40,6 +41,7 @@ const RadioButtons = ({
   rowGap = "0",
   isHover = true,
   cursor = "pointer",
+  prefixForId
 }: IRadioButtons) => {
   return (
     <ButtonsBlock
@@ -48,6 +50,7 @@ const RadioButtons = ({
       rowGap={rowGap}
     >
       {labels.map(({ id, attributes }, index) => {
+        const idWithPrefix = `${prefixForId}${id}`;
         return (
           <>
             {attributes?.name && (
@@ -64,21 +67,23 @@ const RadioButtons = ({
                 <input
                   type="radio"
                   value={attributes.name}
+                  id={idWithPrefix}
                   onChange={(event) => {
+                    console.log(111, index)
                     if (preventChange) {
                       event.preventDefault();
                       return;
                     }
 
+                    console.log(currentIndex)
+
                     if (onChange) {
                       onChange(index);
                     }
-
-                    console.log(id);
                   }}
                   checked={index === currentIndex}
                 />
-                <label>{attributes?.name}</label>
+                <label htmlFor={idWithPrefix}>{attributes?.name}</label>
               </RadioButton>
             )}
           </>

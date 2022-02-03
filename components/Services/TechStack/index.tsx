@@ -85,8 +85,8 @@ const GetStacksInfo = (
                       <Image
                         loader={() => src}
                         src={src}
-                        width={width}
-                        height={height}
+                        width={31}
+                        height={25}
                         alt="logo"
                       />
                       <StackTitle>{name}</StackTitle>
@@ -136,6 +136,7 @@ const TechStack = ({ stackTitle, stacks }: ITechStack) => {
           padding={"8px 30px"}
           flexDirection={"row"}
           isHover={true}
+          prefixForId={'stacks'}
         />
         <GetStacksInfo {...stack} />
 

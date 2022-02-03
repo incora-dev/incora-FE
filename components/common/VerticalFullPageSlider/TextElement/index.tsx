@@ -29,6 +29,7 @@ const TextElement = ({ labels, currentSlide, bgColor, onChange }: ITextElementPr
         fontWeight={'700'}
         cursor={'default'}
         onChange={onChange}
+        prefixForId={'services'}
       />
     </MenuLabel>
   </MenuBlock>

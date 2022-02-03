@@ -80,7 +80,6 @@ export const H3 = styled.h3`
 export const StackText = styled.p`
   max-width: 495px;
 
-  font-family: Poppins;
   font-style: normal;
   font-weight: normal;
   font-size: var(--fs-14);

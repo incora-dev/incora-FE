@@ -43,8 +43,9 @@ const BenefitsAndSolutions = ({
               loader={() => src}
               src={src}
               width={width}
-              height={height}
+              height={47}
               alt="icon"
+              className="image"
             />
             <h3>{title}</h3>
             {textCondition}

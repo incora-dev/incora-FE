@@ -30,18 +30,18 @@ const AttachCv = ({ uploaderLabel, big, formBlack = false, uploaderPadding = '15
       <h3 className="attach">{"1. Attach Your CV"}</h3>
 
       <FilesUploader
-          inputHeight={uploaderHeight}
-          padding={uploaderPadding}
-          filesLabel={uploaderLabel}
-          formTheme={formBlack}
-          setSelectedFile={setSelectedFile}
+        inputHeight={uploaderHeight}
+        padding={uploaderPadding}
+        filesLabel={uploaderLabel}
+        formTheme={formBlack}
+        setSelectedFile={setSelectedFile}
       />
 
       <h3 className="personal">{"2. Personal information"}</h3>
       <FormClassic
-          selectedFiles={inputSelectedFile}
-          buttonLabel={contactUs.buttonLabel}
-          formBlack={formBlack}
+        selectedFiles={inputSelectedFile}
+        buttonLabel={contactUs.buttonLabel}
+        formBlack={formBlack}
       />
     </AttachCvWrapper>
   );

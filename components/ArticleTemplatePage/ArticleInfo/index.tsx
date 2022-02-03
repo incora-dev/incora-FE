@@ -19,6 +19,7 @@ import {
   SocialTitle,
   SocialIcons,
   CodeBlock,
+  Icons
 } from "./ArticleInfo.style";
 import React, { useCallback, useEffect, useState } from "react";
 import Technologies from "../../Homepage/EmbodiedIdeas/Projects/Technologies";
@@ -26,10 +27,12 @@ import LoveItIcon from "../../../public/SVG/LoveIt.svg";
 import ValuableIcon from "../../../public/SVG/Valuable.svg";
 import ExcitingIcon from "../../../public/SVG/Exciting.svg";
 import UnsatisfiedIcon from "../../../public/SVG/Unsatisfied.svg";
-import Link from "next/link";
-import { CopyBlock, dracula } from "react-code-blocks";
 import ReactMarkdown from "react-markdown";
 import { GetArticle_articles_data_attributes_tags_data } from "../../../graphql/insights/__generated__/GetArticle";
+import { FacebookShareButton, LinkedinShareButton, TwitterShareButton } from "react-share";
+import FacebookSVG from "../../../public/SVG/socialNetwork/FacebookSVG.svg";
+import LinkedInSvg from "../../../public/SVG/socialNetwork/LinkedInSvg.svg";
+import TwitterSVG from "../../../public/SVG/socialNetwork/TwitterSVG.svg";
 import { useMutation } from "@apollo/client";
 import { UPDATE_IMPRESSIONS_COUNT } from "../../../graphql/insights/mutations";
 import { UpdateImpressionsCount } from "../../../graphql/insights/__generated__/UpdateImpressionsCount";
@@ -37,16 +40,9 @@ import { IImpressions } from "../../../pages/insights/[articleTemplate]";
 
 interface IArticleInfo {
   mainText: string;
-  codeText: string;
-  socialTitles: ISocialTitles[];
   tags: GetArticle_articles_data_attributes_tags_data[];
   impressions: IImpressions;
   id: string;
-}
-
-interface ISocialTitles {
-  Icon: React.FunctionComponent;
-  href: string;
 }
 
 const pollLabels = ["Love it!", "Valuable", "Exciting", "Unsatisfied"];
@@ -54,7 +50,7 @@ const pollIcons = [LoveItIcon, ValuableIcon, ExcitingIcon, UnsatisfiedIcon];
 
 function getScrollLabels(
   elementIndex: number,
-  sideBarElements?: NodeListOf<Element>
+  sideBarElements?: NodeListOf<HTMLElement>
 ) {
   if (!sideBarElements?.length) return;
   return Array.from(sideBarElements).map((el, index) => {
@@ -63,8 +59,9 @@ function getScrollLabels(
     const element = React.createElement(el.tagName, {}, el.innerHTML);
 
     return (
-      <ScrollLabel key={index}>
+      <ScrollLabel key={index} onClick={() => window.scrollTo(0, el?.offsetTop - 104)}>
         <Line selected={selected} />
+
         <Label selected={selected}>{element}</Label>
       </ScrollLabel>
     );
@@ -97,21 +94,29 @@ function getElements(
   });
 }
 
-function getSocialIcons(icons: ISocialTitles[]) {
-  return icons.map(({ Icon, href }, index) => (
-    <Link key={index} href={`https://${href}`}>
-      <a>
-        <Icon />
-      </a>
-    </Link>
-  ));
+function getSocialIcons() {
+  const url = window.location.href;
+
+  return (
+    <Icons>
+      <FacebookShareButton url={url}>
+        <FacebookSVG />
+      </FacebookShareButton>
+
+      <LinkedinShareButton url={url}>
+        <LinkedInSvg />
+      </LinkedinShareButton>
+
+      <TwitterShareButton url={url}>
+        <TwitterSVG />
+      </TwitterShareButton>
+    </Icons>
+  );
 }
 
 const ArticleInfo = ({
   mainText,
-  socialTitles,
   tags,
-  codeText,
   impressions,
   id,
 }: IArticleInfo) => {
@@ -168,21 +173,34 @@ const ArticleInfo = ({
   const [sideBarElements, setSideBarElements] =
     useState<NodeListOf<HTMLElement>>();
   const [selected, setSelect] = useState(-1);
+  const [sideBarRowGap, setSideRowGap] = useState('25px;');
 
   const scrollTitles = getScrollLabels(selectedElementIndex, sideBarElements);
+  const icons = getSocialIcons();
   const elements = getElements(
     pollLabels,
     selected,
     setSelect,
     onImpressionClick
   );
-  const icons = getSocialIcons(socialTitles);
+
+  function getSideBarElements() {
+    const sideBarList = document.querySelectorAll(
+        "#scrollsLabels h2, #scrollsLabels h3, #scrollsLabels h4, #scrollsLabels h5, #scrollsLabels h6"
+    );
+    const querySelectorAll = '#scrollsLabels h2, #scrollsLabels h3, #scrollsLabels h4, #scrollsLabels h5, #scrollsLabels h6';
+    const querySelectorThan15 = '#scrollsLabels h2';
+
+    sideBarList.length > 15
+      ? setSideBarElements(document.querySelectorAll(querySelectorThan15))
+      : setSideBarElements(document.querySelectorAll(querySelectorAll))
+  }
 
   const handleScroll = useCallback(() => {
     sideBarElements?.forEach((el, index) => {
       if (
-        el.getBoundingClientRect().top > 120 &&
-        el.getBoundingClientRect().top < 500
+        el.getBoundingClientRect().top > 70 &&
+        el.getBoundingClientRect().top < 200
       ) {
         setElementIndex(index);
       }
@@ -196,36 +214,28 @@ const ArticleInfo = ({
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
 
+    sideBarElements && sideBarElements?.length > 10
+      ? setSideRowGap('15px;')
+      : setSideRowGap('25px;');
+
     return () => window.removeEventListener("scroll", handleScroll);
   }, [handleScroll]);
 
   useEffect(() => {
-    setSideBarElements(
-      document.querySelectorAll(
-        "#scrollsLabels h1,#scrollsLabels h2, #scrollsLabels h3, #scrollsLabels h4, #scrollsLabels h5, #scrollsLabels h6"
-      )
-    );
+    getSideBarElements();
+
+    console.log(<ReactMarkdown>{mainText}</ReactMarkdown>)
   }, []);
 
   return (
     <Div>
       <Wrapper>
         <StickyWrapper>
-          <ScrollLabels>{scrollTitles}</ScrollLabels>
+          <ScrollLabels rowGap={sideBarRowGap}>{scrollTitles}</ScrollLabels>
         </StickyWrapper>
 
         <MainText id={"scrollsLabels"}>
           <ReactMarkdown>{mainText}</ReactMarkdown>
-
-          <CodeBlock>
-            <CopyBlock
-              language="js"
-              text={codeText}
-              codeBlock
-              theme={dracula}
-              showLineNumbers={true}
-            />
-          </CodeBlock>
 
           <LineRetreat />
         </MainText>

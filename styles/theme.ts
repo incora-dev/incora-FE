@@ -22,6 +22,8 @@ export const theme = {
     background4: "#FBFBFB",
     background5: "#FAFAFA",
     hexagonBorderedGrey: "#FAFAFA",
+    tagPreBg: "#312A30",
+    tagPreText: "#99c053"
   },
 
   letterSpacing: {
@@ -46,13 +48,13 @@ export const theme = {
   breakpoints: {
     xsMobile: '280px',
     mMobile: '360px',
-    mobile:'481px', 
+    mobile:'481px',
     sTablet: '680px',
-    tablet: '912px',  
-    smallDesk:'992px', 
+    tablet: '912px',
+    smallDesk:'992px',
     tabletPro: '1024px',
     mDesk: '1124px',
-    mediumDesk: '1201px', 
+    mediumDesk: '1201px',
     largeDesk: '1441px',
   },
 };

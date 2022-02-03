@@ -6,8 +6,7 @@ import { footer, IMAGES_LINK, titles } from "../../constants";
 import { useEffect, useState } from "react";
 import HeaderArticleTemplate from "../../components/ArticleTemplatePage/HeaderArticleTemplate";
 import ArticleInfo from "../../components/ArticleTemplatePage/ArticleInfo";
-import FacebookSVG from "../../public/SVG/socialNetwork/FacebookSVG.svg";
-import InstagramSVG from "../../public/SVG/socialNetwork/LinkedInSvg.svg";
+
 import News from "../../components/News";
 import LetsTalk from "../../components/Services/LetsTalk";
 import FooterComponent from "../../components/Footer";
@@ -19,20 +18,6 @@ import { GetArticle } from "../../graphql/insights/__generated__/GetArticle";
 import { GET_ARTICLE } from "../../graphql/insights/queries";
 import { useIsMobile } from "../../services/hooks";
 import { UPDATE_VIEWS } from "../../graphql/insights/mutations";
-
-const code = `  const handleScroll = () => {
-    const sideBarElements = document.querySelectorAll('#scrollsLabels h1,#scrollsLabels h2, #scrollsLabels h3, #scrollsLabels h4, #scrollsLabels h5, #scrollsLabels h6');
-
-    sideBarElements.forEach((el, index) => {
-      if (el.getBoundingClientRect().top > 120 && el.getBoundingClientRect().top < 500) {
-        setElementIndex(index);
-      }
-
-      if (window.scrollY <= 100 ) {
-        setElementIndex(0);
-      }
-    })
-  }`;
 
 export interface IImpressions {
   intro: string | undefined;
@@ -90,11 +75,6 @@ const ArticleTemplate = () => {
   useEffect(() => {
     id && title && localStorage.setItem(title, id);
   }, [id, title]);
-
-  const socialTitles = [
-    { Icon: FacebookSVG, href: authorEntry?.facebook || "" },
-    { Icon: InstagramSVG, href: authorEntry?.linkedin || "" },
-  ];
 
   const [menuColor, setMenuColor] = useState("none");
   const [goToTopVisible, setGoToTopVisible] = useState(false);
@@ -156,8 +136,6 @@ const ArticleTemplate = () => {
               />
               <ArticleInfo
                 mainText={entry.content}
-                codeText={code}
-                socialTitles={socialTitles}
                 tags={tags}
                 impressions={impressions}
                 id={id}

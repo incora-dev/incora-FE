@@ -8,11 +8,13 @@ interface IComponent {
 }
 
 export const Component = styled.div`
-  display: grid;
-  grid-template-columns: ${({ number }: IComponent ) => `repeat(${number},1fr)`};
+  // display: grid;
+  // grid-template-columns: ${({ number }: IComponent ) => `repeat(${number},1fr)`};
+  display: flex;
   column-gap: 26px;
 
-  padding: 0 180px;
+  max-width: 1006px;
+  margin: 0 auto;
   
   overflow: scroll;
 
@@ -46,7 +48,6 @@ export const Technology = styled.div`
   transition: opacity ${homePageTechnologiesHoverDuration} ease-in-out;
   
   p {
-    font-family: Poppins;
     font-style: normal;
     font-weight: bold;
     font-size: var(--fs-18);
@@ -79,6 +80,9 @@ export const TechnologyHover = styled.div`
 
 export const Container = styled.div`
   position: relative;
+
+  width: 291px;
+  height: 291px;  
 
   &:hover ${TechnologyHover} {
     opacity: 1;

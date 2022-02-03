@@ -9,9 +9,8 @@ import { ChangeEvent, FormEvent, useState } from "react";
 import CreateFormSelect from "./FormSelect";
 import SubmitButton from "./SubmitButton";
 import FilesUploader from "./FilesUploader";
-import { sendCandidateRequest } from "../../pages/api/hello";
-import {IMAGES_LINK} from "../../constants";
-import img from "../../public/navButtonArrow.svg"
+import { IMAGES_LINK } from "../../constants";
+import { useRouter } from "next/router"
 
 function FormClassic({
   dropListLabels,
@@ -31,6 +30,7 @@ function FormClassic({
   const [inputMainGoalsValue, setInputMainGoalsValue] = useState('');
   const [inputSelectedPurpose, setSelectedPurpose] = useState('');
   const [inputSelectedFile, setSelectedFile] = useState('');
+  const url = useRouter().pathname;
 
   function inputNameOnChange(event: ChangeEvent<HTMLInputElement>) {
     const currentInputNameValue = event.target.value.replace(/[^a-zA-Z ]/g, '');
@@ -42,8 +42,11 @@ function FormClassic({
     event.preventDefault();
 
     const request = new XMLHttpRequest();
-
-    const files: any = inputSelectedFile || selectedFiles;
+    const files: any = inputSelectedFile || selectedFiles || null;
+    const sendUrl =
+      url.includes('/career') || url.includes('/send_cv')
+      ? `${IMAGES_LINK}/api/candidate-responses`
+      : `${IMAGES_LINK}/api/client-responses`;
 
     const formData = new FormData();
 
@@ -56,20 +59,14 @@ function FormClassic({
       purpose: inputSelectedPurpose
     }
 
-    Object.values(files).forEach((file: any) => formData.append(`files.content`, file, file.name));
+    if (files) {
+      Object.values(files).forEach((file: any) => formData.append(`files.content`, file, file.name));
+    }
+
     formData.append('data', JSON.stringify(dataValues));
 
-    // formData.append('data.name', inputNameValue);
-    // formData.append('data.phoneNumber', inputPhoneNumberValue);
-    // formData.append('data.email', inputEmailValue);
-    // formData.append('data.goal', inputMainGoalsValue);
-    // formData.append('linkedIn', inputLinkedInValue);
-    // formData.append('purpose', inputSelectedPurpose);
-    // formData.append('content', files);
-
-    request.open('POST', `${IMAGES_LINK}/api/client-responses`);
+    request.open('POST', sendUrl);
     request.send(formData);
-    // sendCandidateRequest('client-responses' , formData);
   };
 
   return (

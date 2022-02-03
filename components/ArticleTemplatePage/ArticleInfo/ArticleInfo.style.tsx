@@ -1,10 +1,42 @@
 import styled from "styled-components";
 import themeGet from "@styled-system/theme-get";
-import {theme} from "../../../styles/theme";
+import { theme } from "../../../styles/theme";
 
 interface ISelect {
   selected: boolean;
 }
+
+interface ISideBarRowGap {
+  rowGap: string;
+}
+
+export const Icons = styled.div`
+  display: flex;
+  column-gap: 10px;
+
+  svg {
+    height: 25px;
+    width: 25px;
+
+    circle {
+      fill: ${themeGet("colors.yellow")};
+    }
+
+    path {
+      fill: ${themeGet("colors.black")};
+    }
+
+    &:hover {
+      circle {
+        fill: ${themeGet("colors.black")};
+      }
+
+      path {
+        fill: ${themeGet("colors.yellow")};
+      }
+    }
+  }
+`;
 
 export const Div = styled.div`
   //overflow: hidden;
@@ -40,7 +72,7 @@ export const ScrollLabels = styled.div`
 
   display: flex;
   flex-direction: column;
-  row-gap: 25px;
+  row-gap: ${({ rowGap }: ISideBarRowGap) => rowGap};
 
   @media only screen and (max-width: ${themeGet("breakpoints.tabletPro")}) {
     max-width: 240px;
@@ -87,6 +119,10 @@ export const Label = styled.div`
     letter-spacing: 0.05em;
 
     color: ${({ selected }: ISelect) => selected ? theme.colors.black : theme.colors.grey2};
+
+    &:hover {
+      color: ${themeGet("colors.yellow")};
+    }
   }
 
   h3, h4, h5, h6 {
@@ -98,6 +134,10 @@ export const Label = styled.div`
     letter-spacing: 0.05em;
 
     color: ${themeGet("colors.black")};
+
+    &:hover {
+      color: ${themeGet("colors.yellow")};
+    }
   }
 `;
 
@@ -114,6 +154,8 @@ export const ScrollLabel = styled.div`
   column-gap: 20px;
   justify-content: flex-start;
   align-items: center;
+  
+  cursor: pointer;
 
   @media only screen and (max-width: ${themeGet("breakpoints.tabletPro")}) {
     width: 100%;
@@ -271,19 +313,22 @@ export const MainText = styled.div`
     letter-spacing: 0.1em;
 
     color: ${themeGet("colors.yellow2")};
+    
+    &:hover {
+      color: ${themeGet("colors.yellow5")};
+    }
 
     @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
       line-height: 28px;
     }
   }
 
-
   pre {
     padding: 20px;
     overflow: scroll;
-    
-    color: ${themeGet("colors.codeText")};
-    background-color: ${themeGet("colors.codeBg")};
+
+    color: ${themeGet("colors.tagPreText")};
+    background-color: ${themeGet("colors.tagPreBg")};
   }
 `;
 

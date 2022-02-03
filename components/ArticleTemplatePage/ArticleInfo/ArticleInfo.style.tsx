@@ -99,7 +99,7 @@ export const Line = styled.div`
 `;
 
 export const Label = styled.div`
-  max-width: 264px;
+  width: 264px;
   margin-left: 20px;
 
   font-style: normal;

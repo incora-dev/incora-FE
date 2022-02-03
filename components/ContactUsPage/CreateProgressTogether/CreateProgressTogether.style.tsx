@@ -17,6 +17,11 @@ export const Wrapper = styled.div`
   
   @media only screen and (max-width: ${themeGet("breakpoints.tabletPro")}) {
     padding: 43px 25px 144px;
+    max-width: 100%;
+  }
+
+  @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
+    padding: 43px 0 144px;
   }
 `;
 
@@ -39,6 +44,7 @@ export const MainBLock = styled.div`
 
   @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
     padding: 0 25px;
+    column-gap: 20px;
   }
 
   @media only screen and (max-width: 600px) {

@@ -73,23 +73,31 @@ export const TextWrap = styled.div`
 
 export const TagsWrap = styled.div`
   width: 406px;
-  height: 367px;
+  min-height: 367px;
+  overflow: scroll;
+  height: max-content;
+  max-height: 482px;
+
   background-color: ${themeGet("colors.background4")};
-  padding-top: 35px;
-  padding-left: 30px;
+  padding: 35px 30px 0;
 
   @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
-    padding-top: 10px;
+    padding: 10px 15px 0;
+    max-height: 350px;
   }
 
   @media only screen and (max-width: ${themeGet('breakpoints.sTablet')}) {
     padding-left: 0;
-    height: fit-content;
+    padding-right: 0;
+    background-color: ${themeGet("colors.white")};
+    min-height: fit-content;
+    max-height: fit-content;
+    width: 100%;
   }
 `;
 
 export const TagsCategory = styled.div`
-  margin-bottom: 40px;
+  margin-bottom: 25px;
 
   @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
     margin-bottom: 20px;
@@ -108,20 +116,23 @@ export const TagsHeading = styled.h3`
 export const LocationAndIndustryWrap = styled.div`
   display: flex;
   column-gap: 46px;
-
-  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
-    flex-direction: column;
-  }
+  flex-direction: column-reverse;
 `;
 
 export const TagFlexBox = styled.div`
   display: flex;
-  width: 280px;
+  width: 100%;
   flex-flow: wrap row;
   gap: 7px;
+
+  // @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+  //   width: 300px;
+  // }
 `;
 
 export const TagBox = styled.div`
+  position: relative;
+
   cursor: pointer;
   height: 22px;
   padding: 0 10px;
@@ -134,6 +145,8 @@ export const TagBox = styled.div`
   transition: ease-out 0.4s;
 
   > span {
+    z-index: 1;
+
     font-weight: 600;
     font-size: var(--fs-10);
     line-height: 28px;
@@ -142,8 +155,24 @@ export const TagBox = styled.div`
     color: ${themeGet("colors.white")};
   }
 
-  &:hover {
+  &:after {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 0;
+    height: 100%;
+
+    content: '';
+    border-radius: 5px;
+
     background-color: ${themeGet("colors.yellow")};
-    box-shadow: ${themeGet("boxShadow.hover")};
+    color: ${themeGet("colors.black")};
+
+    transition: width ${themeGet("transition.button")};
+  }
+
+  &:hover :after {
+    width: 100%;
   }
 `;

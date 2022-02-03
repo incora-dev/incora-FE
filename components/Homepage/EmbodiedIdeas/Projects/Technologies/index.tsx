@@ -22,7 +22,7 @@ function Technologies({
         technologies.map(({ id, attributes }) => {
         return (
           // <Link href={attributes?.url || ""} key={id}>
-          <Link href={""} key={id}>
+          <Link href="#" key={id}>
             <Div bgColor={bgTagsColor} >
               <ButtonContainer>
                 <Strong color={textTagsColor}>{attributes?.name}</Strong>

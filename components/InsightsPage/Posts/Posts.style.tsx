@@ -10,7 +10,7 @@ export const Div = styled.div`
 `;
 
 export const Wrapper = styled.div`
-  min-height: 500px;
+  min-height: 220px;
   width: 1040px;
   padding: 70px 0 90px;
 

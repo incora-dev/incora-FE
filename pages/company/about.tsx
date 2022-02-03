@@ -1,4 +1,5 @@
 import { IContactUs } from "@interfaces";
+import IconsBlock from "../../components/CompanyAbout/IconsBlock";
 import Introduction from "../../components/CompanyAbout/Introduction";
 import OurTraditions from "../../components/CompanyAbout/OurTraditions";
 import FooterComponent from "../../components/Footer";
@@ -84,6 +85,7 @@ const CompanyAbout = () => {
           />
           <OurTraditions ourTraditions={entry.ourTraditions} />
           <NewsComponent title={"recent events"} articles={news.articles} />
+          <IconsBlock />
           <ContactUsComponent
             title={entry.contactUs.title}
             text={entry.contactUs.subtitle}

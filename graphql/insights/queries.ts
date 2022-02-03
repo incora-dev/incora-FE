@@ -75,6 +75,11 @@ export const GET_ARTICLES_LIST = gql`
 export const GET_ARTICLE = gql`
   query GetArticle($url: String) {
     articles(filters: { url: { eq: $url } }) {
+      meta {
+        pagination {
+          total
+        }
+      }
       data {
         id
         attributes {

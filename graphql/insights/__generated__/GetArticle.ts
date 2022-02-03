@@ -7,6 +7,16 @@
 // GraphQL query operation: GetArticle
 // ====================================================
 
+export interface GetArticle_articles_meta_pagination {
+  __typename: "Pagination";
+  total: number;
+}
+
+export interface GetArticle_articles_meta {
+  __typename: "ResponseCollectionMeta";
+  pagination: GetArticle_articles_meta_pagination;
+}
+
 export interface GetArticle_articles_data_attributes_count {
   __typename: "ComponentCommonCount";
   views: any | null;
@@ -192,6 +202,7 @@ export interface GetArticle_articles_data {
 
 export interface GetArticle_articles {
   __typename: "ArticleEntityResponseCollection";
+  meta: GetArticle_articles_meta;
   data: GetArticle_articles_data[];
 }
 

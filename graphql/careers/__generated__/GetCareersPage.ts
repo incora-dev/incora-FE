@@ -77,11 +77,44 @@ export interface GetCareersPage_careersPage_data_attributes_currentVacancies {
   buttonText: string;
 }
 
+export interface GetCareersPage_careersPage_data_attributes_ourBenefits_items_image_data_attributes {
+  __typename: "UploadFile";
+  url: string;
+  width: number | null;
+  height: number | null;
+}
+
+export interface GetCareersPage_careersPage_data_attributes_ourBenefits_items_image_data {
+  __typename: "UploadFileEntity";
+  id: string | null;
+  attributes: GetCareersPage_careersPage_data_attributes_ourBenefits_items_image_data_attributes | null;
+}
+
+export interface GetCareersPage_careersPage_data_attributes_ourBenefits_items_image {
+  __typename: "UploadFileEntityResponse";
+  data: GetCareersPage_careersPage_data_attributes_ourBenefits_items_image_data | null;
+}
+
+export interface GetCareersPage_careersPage_data_attributes_ourBenefits_items {
+  __typename: "ComponentCommonItem";
+  id: string;
+  title: string;
+  description: string | null;
+  image: GetCareersPage_careersPage_data_attributes_ourBenefits_items_image | null;
+}
+
+export interface GetCareersPage_careersPage_data_attributes_ourBenefits {
+  __typename: "ComponentCommonList";
+  intro: string;
+  items: (GetCareersPage_careersPage_data_attributes_ourBenefits_items | null)[];
+}
+
 export interface GetCareersPage_careersPage_data_attributes {
   __typename: "CareersPage";
   banner: GetCareersPage_careersPage_data_attributes_banner;
   process: GetCareersPage_careersPage_data_attributes_process;
   currentVacancies: GetCareersPage_careersPage_data_attributes_currentVacancies;
+  ourBenefits: GetCareersPage_careersPage_data_attributes_ourBenefits;
 }
 
 export interface GetCareersPage_careersPage_data {

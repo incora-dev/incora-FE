@@ -9,29 +9,33 @@ import { GRAPH_QL_LINK } from "../constants";
 import NavState from "../services/context/mainMenu";
 import { useEffect } from "react";
 import Notice from "../components/PrivacyPolicyPage/Notice";
+import { useApollo } from "../graphql/client";
 
-const client = new ApolloClient({
-  uri: GRAPH_QL_LINK,
-  cache: new InMemoryCache(),
-});
+// const client = new ApolloClient({
+//   ssrMode: true,
+//   uri: GRAPH_QL_LINK,
+//   cache: new InMemoryCache(),
+// });
 
 function MyApp({ Component, pageProps }: AppProps) {
+  const apolloClient = useApollo(pageProps);
+
   useEffect(() => {
     screen.orientation.lock("portrait-primary");
-  }, [])
+  }, []);
   return (
     <>
-    <NavState>
-      <GlobalStyle />
-      <ThemeProvider theme={theme}>
-        <Provider store={store}>
-          <ApolloProvider client={client}>
-            <Component {...pageProps} />
-          </ApolloProvider>
-        </Provider>
-      </ThemeProvider>
+      <NavState>
+        <GlobalStyle />
+        <ThemeProvider theme={theme}>
+          <Provider store={store}>
+            <ApolloProvider client={apolloClient}>
+              <Component {...pageProps} />
+            </ApolloProvider>
+          </Provider>
+        </ThemeProvider>
       </NavState>
-      <Notice/>
+      <Notice />
     </>
   );
 }

@@ -17,6 +17,8 @@ import { useMutation, useQuery } from "@apollo/client";
 import { GetArticle } from "../../graphql/insights/__generated__/GetArticle";
 import { GET_ARTICLE } from "../../graphql/insights/queries";
 import { useIsMobile } from "../../services/hooks";
+import { NextPage, NextPageContext } from "next";
+import { addApolloState, initializeApollo } from "../../graphql/client";
 import { UPDATE_VIEWS } from "../../graphql/insights/mutations";
 
 export interface IImpressions {
@@ -27,22 +29,25 @@ export interface IImpressions {
   unsatisfied: number;
 }
 
-const ArticleTemplate = () => {
-  const router = useRouter();
-  const { articleTemplate } = router.query;
+interface IArticleTemplate {
+  data: GetArticle;
+  networkStatus: number;
+}
 
-  const { data, loading, error } = useQuery<GetArticle>(GET_ARTICLE, {
-    variables: { url: articleTemplate },
-  });
-
+const ArticleTemplate: NextPage<IArticleTemplate> = ({
+  data,
+  networkStatus,
+}) => {
   const [updateViews] = useMutation(UPDATE_VIEWS);
 
-  const id = data?.articles?.data[0].id;
-  const entry = data?.articles?.data[0].attributes;
+  const id = data.articles?.data[0].id;
+  const entry = data.articles?.data[0].attributes;
   const title = entry?.title;
   const categories = entry?.industries?.data;
   const publishedDate = entry?.createdAt;
   const authorEntry = entry?.author?.data?.attributes;
+  const facebook = authorEntry?.facebook;
+  const linkedIn = authorEntry?.linkedin;
   const tags = entry?.tags?.data;
   const letsTalkTitle = entry?.contactUs.title;
   const letsTalkSubtitle = entry?.contactUs.subtitle;
@@ -105,8 +110,7 @@ const ArticleTemplate = () => {
     relatedArticlesTitle &&
     id;
 
-  if (loading) return null;
-  if (error) return <Custom404 />;
+  if (data.articles?.data === [] || networkStatus !== 7) return <Custom404 />;
 
   return (
     <>
@@ -135,6 +139,8 @@ const ArticleTemplate = () => {
                 articleOwner={articleOwner}
               />
               <ArticleInfo
+                facebook={facebook}
+                linkedIn={linkedIn}
                 mainText={entry.content}
                 tags={tags}
                 impressions={impressions}
@@ -151,5 +157,24 @@ const ArticleTemplate = () => {
     </>
   );
 };
+
+export async function getServerSideProps(context: NextPageContext) {
+  const client = initializeApollo();
+  const { articleTemplate } = context.query;
+
+  const { data, networkStatus } = await client.query({
+    query: GET_ARTICLE,
+    variables: {
+      url: articleTemplate,
+    },
+  });
+
+  return {
+    props: {
+      data,
+      networkStatus,
+    },
+  };
+}
 
 export default ArticleTemplate;

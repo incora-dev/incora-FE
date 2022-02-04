@@ -1,4 +1,3 @@
-import Selector from "../../Selector";
 import VacancyCard from "./components/VacancyCard";
 import {
   Block,
@@ -25,6 +24,7 @@ import { useLazyQuery, useQuery } from "@apollo/client";
 import { GET_VACANCIES_LIST } from "../../../graphql/careers/queries";
 import { GetVacanciesList } from "../../../graphql/careers/__generated__/GetVacanciesList";
 import { useEffect, useState } from "react";
+import CreateFormSelect from "../../FormClassic/FormSelect";
 import { ROUTES } from "../../../constants/routes";
 
 interface IVacancies {
@@ -32,6 +32,16 @@ interface IVacancies {
   specialties: GetVacancy_filterSpecialities;
   technologies: GetVacancy_filterTechnologies;
 }
+
+const optionsSelect = [
+  'Project from scratch',
+  'Estimation & Proposal',
+  'Team extension',
+  'Partnership development',
+  'Business analysis & Tech consultancy',
+  'Job offering',
+  'Other'
+];
 
 const Vacancies = ({
   currentVacancies,
@@ -43,6 +53,8 @@ const Vacancies = ({
     undefined
   );
   const [limit, setLimit] = useState<number>(7);
+  const [speciality, setSpeciality] = useState<string | null>(null);
+  const [technology, setTechnology] = useState<string | null>(null);
 
   const [getVacanciesList, { data, loading }] = useLazyQuery<GetVacanciesList>(
     GET_VACANCIES_LIST,
@@ -115,19 +127,20 @@ const Vacancies = ({
 
             <Filter>
               <FilterBlock>
-                <Selector
-                  value={specialtyId}
-                  setValue={setSpecialtyId}
-                  placeholder={filterText1}
-                  options={specialtiesOptions}
-                  icon={SmallStar}
+                <CreateFormSelect
+                  fields={optionsSelect}
+                  formTheme={false}
+                  setSelectedPurpose={setSpeciality}
+                  placeHolder={'speciality'}
+                  Icon={SmallStar}
                 />
-                <Selector
-                  value={specialtyId}
-                  setValue={setTechnologyId}
-                  placeholder={filterText2}
-                  options={technologiesOptions}
-                  icon={TechnologyIcon}
+
+                <CreateFormSelect
+                  fields={optionsSelect}
+                  formTheme={false}
+                  setSelectedPurpose={setTechnology}
+                  placeHolder={'technology'}
+                  Icon={TechnologyIcon}
                 />
               </FilterBlock>
               <QuickApplyWrap>

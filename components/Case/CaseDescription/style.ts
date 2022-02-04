@@ -1,6 +1,5 @@
 import themeGet from "@styled-system/theme-get";
 import styled from "styled-components";
-import { theme } from "../../../styles/theme";
 
 export const CaseDescriptionWrapper = styled.div`
   width: 100%;

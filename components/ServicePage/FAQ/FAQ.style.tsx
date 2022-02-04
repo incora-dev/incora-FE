@@ -110,7 +110,7 @@ export const MinusIconVisible = styled.div`
   svg {
     cursor: pointer;
     path {
-      fill: ${({color}) => color ? color : '#000'};
+      fill: ${({color}) => color ? '#000' : 'color'};
     }
   }
 `;

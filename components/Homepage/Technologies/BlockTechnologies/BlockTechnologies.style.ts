@@ -95,10 +95,12 @@ export const Container = styled.div`
 
 export const ContainerTop = styled.div`
   position: absolute;
-  bottom: 40px;
-  left: 40px;
+  bottom: 35px;
+  left: 30px;
+  right: 30px;
   
   display: flex;
   flex-direction: column;
   row-gap: 28px;
+  align-items: flex-start;
 `;

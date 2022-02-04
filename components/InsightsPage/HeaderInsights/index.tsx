@@ -36,9 +36,6 @@ const HeaderInsights = ({
   inputPlaceholder,
   industries,
 }: IHeaderInsights) => {
-  const { data } = useQuery(GET_TOTAL_PAGE_COUNT);
-  const totalPageCount: any = data?.articles?.meta?.pagination?.total;
-
   const [query, setQuery] = useState<string>();
   const [currentIndustryTag, setCurrentIndustryTag] = useState<string>("all");
 
@@ -77,7 +74,7 @@ const HeaderInsights = ({
           />
         </PositionTags>
       </Wrapper>
-      <Posts query={query} industry={currentIndustryTag} totalPageCount={14} />
+      <Posts query={query} industry={currentIndustryTag} />
     </Div>
   );
 };

@@ -30,23 +30,53 @@ function Navigation({
     setUrlTitle(titles.find((title) => window.location.pathname.includes(title.toLowerCase())));
   }, [])
 
-  const togleMenu = () => {
-    toggleMenuMode();
-    toggleHoverMenuMode();
+  const toggleMenu = (pageTitle: string) => {
+    console.log('toggleMenu', selectedTitle, pageTitle)
+    // if (selectedTitle) {
+    //   setOnHoverElement(pageTitle);
+    //   setSelectedTitle(pageTitle);
+    // } else {
+      setOnHoverElement(null);
+      setSelectedTitle(null);
+      toggleMenuMode();
+      toggleHoverMenuMode();
+    // }
   }
 
   const toggleHoverMenu = (pageTitle: string) => {
-    if (selectedTitle) {
-      setOnHoverElement(null);
-      setSelectedTitle(null);
+    console.log('toggleHoverMenu', selectedTitle, onSelectedMenu)
+    if (onSelectedMenu === null) {
+      setOnHoverElement(pageTitle);
+      setSelectedTitle(pageTitle);
     } else {
+      if (selectedTitle && selectedTitle === pageTitle) {
+        setOnHoverElement(null);
+        setSelectedTitle(null);
+      } else {
+        setOnHoverElement(pageTitle);
+      setSelectedTitle(pageTitle);
+      }
+    }
+    // if (selectedTitle) {
+    //   setOnHoverElement(null);
+    //   setSelectedTitle(null);
+    // } else {
+    //   setOnHoverElement(pageTitle);
+    //   setSelectedTitle(pageTitle);
+    // }
+    toggleHoverMenuMode();
+  };
+
+  const toggleMenuOnClick = (pageTitle) => {
+    if (selectedTitle && selectedTitle === pageTitle) {
       setOnHoverElement(pageTitle);
       setSelectedTitle(pageTitle);
     }
     toggleHoverMenuMode();
-  };
+  }
 
   const toggleHoverMenuDesktop = (pageTitle: string) => {
+    console.log('toggleHoverMenuDesktop')
     if (!isMobile || !isTablet || !isSmallTablet) {
       toggleHoverMenu(pageTitle);
     }
@@ -66,7 +96,7 @@ function Navigation({
               <Ul
                 shouldAddLine={shouldAddLine}
                 key={index}
-                onClick={() => toggleHoverMenu(title)}
+                onClick={() => toggleMenuOnClick(title)}
                 onMouseEnter={() => toggleHoverMenuDesktop(title)}
               >
                 <Li>{title}</Li>
@@ -94,11 +124,11 @@ function Navigation({
           <Ul
             shouldAddLine={shouldAddLine}
             key={index}
-            onClick={() => toggleHoverMenu(title)}
+            onClick={() => toggleMenuOnClick(title)}
             onMouseEnter={() => toggleHoverMenuDesktop(title)}
             onMouseLeave={() => {
               if (!isMobile || !isTablet || !isSmallTablet) {
-                togleMenu()
+                toggleMenu(title)
               }
             }}
           >

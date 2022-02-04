@@ -30,7 +30,8 @@ export default function MainMenu(props: IMenu) {
   const wrapperRef: React.RefObject<HTMLDivElement> = useRef(null);
 
   const closeHoverMenu = () => {
-    toggleHoverMenuMode();
+    console.log('closeHoverMenu');
+    // toggleHoverMenuMode();
     setOnHoverElement(null);
     setOnSelectedMenu(null);
   };
@@ -69,8 +70,8 @@ export default function MainMenu(props: IMenu) {
             &#9587;
           </CloseBtn>
         )}
-        <ContentWrapper>
-          <MenuWrapper ref={wrapperRef}>
+        <ContentWrapper ref={wrapperRef}>
+          <MenuWrapper>
             <Block>
               <Link href={'/'}>
                 {logo}

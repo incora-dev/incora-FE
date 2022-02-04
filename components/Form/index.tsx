@@ -1,111 +1,112 @@
-import { IForm } from "@interfaces";
-import {
-  Container,
-  FormContainer,
-  InputBlock,
-  Input,
-  FormInputFile,
-  SelectedFile,
-  FilesSelected
-} from "./Form.style";
-import ButtonWithArrow from "../ButtonWithArrow";
-import { ReactElement, useState } from "react";
+// import { IForm } from "@interfaces";
+// import {
+//   Container,
+//   FormContainer,
+//   InputBlock,
+//   Input,
+//   FormInputFile,
+//   SelectedFile,
+//   FilesSelected
+// } from "./Form.style";
+// import ButtonWithArrow from "../ButtonWithArrow";
+// import { ReactElement, useState } from "react";
 
-const optionsSelect = [
-  'What\'s your purpose?\'',
-  'Project from scratch',
-  'Estimation & Proposal',
-  'Team extension',
-  'Partnership development',
-  'Business analysis & Tech consultancy',
-  'Job offering',
-  'Other'
-];
+// const optionsSelect = [
+//   'What\'s your purpose?\'',
+//   'Project from scratch',
+//   'Estimation & Proposal',
+//   'Team extension',
+//   'Partnership development',
+//   'Business analysis & Tech consultancy',
+//   'Job offering',
+//   'Other'
+// ];
 
-// function createFormSelect(fields: string[], formBlack = false) {
+// // function createFormSelect(fields: string[], formBlack = false) {
+// //   return (
+// //     <SelectBlock>
+// //       <select>
+// //         {fields.map((label, index) => {
+// //           return (
+// //             <option value={label} key={index}>{label}</option>
+// //           );
+// //         })}
+// //       </select>
+// //     </SelectBlock>
+// //   );
+// // }
+
+// function createFormFields(fields: string[], formBlack = false) {
 //   return (
-//     <SelectBlock>
-//       <select>
-//         {fields.map((label, index) => {
-//           return (
-//             <option value={label} key={index}>{label}</option>
-//           );
-//         })}
-//       </select>
-//     </SelectBlock>
+//     <FormContainer>
+//       {fields.map((label, index) => {
+//         const type = index === 2 ? "email" : "text";
+
+//         return (
+//           <Input
+//             formBlack={formBlack}
+//             type={type}
+//             placeholder={label}
+//             key={index}
+//           />
+//         );
+//       })}
+//     </FormContainer>
 //   );
 // }
 
-function createFormFields(fields: string[], formBlack = false) {
-  return (
-    <FormContainer>
-      {fields.map((label, index) => {
-        const type = index === 2 ? "email" : "text";
+// function CreateUploadFilesInput(filesLabel: ReactElement, formBlack = false) {
+//   const [uploadFilesName, setUploadFilesName]  = useState<JSX.Element[]>([]);
 
-        return (
-          <Input
-            formBlack={formBlack}
-            type={type}
-            placeholder={label}
-            key={index}
-          />
-        );
-      })}
-    </FormContainer>
-  );
-}
+//   const handleOnchange = ({ target }: any) => {
+//     console.log(target.files)
 
-function CreateUploadFilesInput(filesLabel: ReactElement, formBlack = false) {
-  const [uploadFilesName, setUploadFilesName]  = useState<JSX.Element[]>([]);
+//     if (target.files) {
+//       const filesName = () =>
+//         Object.values(target.files).map(({ name }: any, index) =>
+//           <SelectedFile key={index}>
+//             {index + 1}. {name}
+//           </SelectedFile>
+//         )
 
-  const handleOnchange = ({ target }: any) => {
-    console.log(target.files)
+//       setUploadFilesName(filesName);
+//     }
 
-    if (target.files) {
-      const filesName = () =>
-        Object.values(target.files).map(({ name }: any, index) =>
-          <SelectedFile key={index}>
-            {index + 1}. {name}
-          </SelectedFile>
-        )
+//     // target.value = null;
+//   };
 
-      setUploadFilesName(filesName);
-    }
+//   return (
+//     <div>
+//       <FormInputFile>
+//         <Input
+//           formBlack={formBlack}
+//           type={'file'}
+//           id={'inputUploadFiles'}
+//           multiple={true}
+//           onChange={handleOnchange}
+//         />
+//         <label htmlFor={'inputUploadFiles'}>{filesLabel}</label>
+//       </FormInputFile>
 
-    // target.value = null;
-  };
+//       <FilesSelected>{uploadFilesName}</FilesSelected>
+//     </div>
+//   )
+// }
 
-  return (
-    <div>
-      <FormInputFile>
-        <Input
-          formBlack={formBlack}
-          type={'file'}
-          id={'inputUploadFiles'}
-          multiple={true}
-          onChange={handleOnchange}
-        />
-        <label htmlFor={'inputUploadFiles'}>{filesLabel}</label>
-      </FormInputFile>
+// function Form({ fieldsLabels, buttonLabel, formBlack, isUploadFiles = false, uploadFilesLabel = <></> }: IForm) {
+//   const inputs = createFormFields(fieldsLabels, formBlack);
+//   const uploadFiles = isUploadFiles && CreateUploadFilesInput(uploadFilesLabel, formBlack);
+//   // const formSelect = createFormSelect(optionsSelect, formBlack)
 
-      <FilesSelected>{uploadFilesName}</FilesSelected>
-    </div>
-  )
-}
+//   return (
+//     <Container>
+//       <InputBlock>{inputs}</InputBlock>
+//       {/*{ formSelect }*/}
+//       { uploadFiles }
+//       <ButtonWithArrow buttonLabel={buttonLabel} redirectTo={buttonLabel} />
+//     </Container>
+//   );
+// }
 
-function Form({ fieldsLabels, buttonLabel, formBlack, isUploadFiles = false, uploadFilesLabel = <></> }: IForm) {
-  const inputs = createFormFields(fieldsLabels, formBlack);
-  const uploadFiles = isUploadFiles && CreateUploadFilesInput(uploadFilesLabel, formBlack);
-  // const formSelect = createFormSelect(optionsSelect, formBlack)
-
-  return (
-    <Container>
-      <InputBlock>{inputs}</InputBlock>
-      {/*{ formSelect }*/}
-      { uploadFiles }
-      <ButtonWithArrow buttonLabel={buttonLabel} redirectTo={buttonLabel} />
-    </Container>
-  );
-}
-
-export default Form;
+// export default Form;
+export {};

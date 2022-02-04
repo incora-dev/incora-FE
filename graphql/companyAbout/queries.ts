@@ -5,6 +5,7 @@ export const GET_ABOUT_PAGE = gql`
     aboutPage(publicationState: LIVE) {
       data {
         attributes {
+
           mainInfo {
             text
             statistics {
@@ -91,6 +92,20 @@ export const GET_ABOUT_PAGE = gql`
                 }
               }
             }
+          }
+          
+          SEO {
+            ogTitle
+            ogImage {
+              data {
+                attributes {
+                  url
+                }
+              }
+            }
+            keywords
+            description
+            ogDescription
           }
         }
       }

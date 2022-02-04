@@ -28,7 +28,6 @@ const contactUs: IContactUs = {
     { "ukrainian office": "2 Horodotska Str.,\n" + "Lviv 75001 Ukraine" },
     { "usa office": "16192 Coastal Hwy, Lewes,\n" + "DE 19958 USA" },
   ],
-  formLabels: [],
   buttonLabel: "send",
 };
 

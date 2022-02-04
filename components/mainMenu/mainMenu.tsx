@@ -27,6 +27,27 @@ export default function MainMenu(props: IMenu) {
   const { isMenuOpen, toggleMenuMode, isHoverMenuOpen, toggleHoverMenuMode  } = useContext(MenuContext);
   const nodeHoverMenu = useRef();
 
+  const wrapperRef: React.RefObject<HTMLDivElement> = useRef(null);
+
+  const closeHoverMenu = () => {
+    console.log('closeHoverMenu');
+    // toggleHoverMenuMode();
+    setOnHoverElement(null);
+    setOnSelectedMenu(null);
+  };
+
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent | TouchEvent): void {
+      if (wrapperRef.current && !wrapperRef.current.contains(event.target as Node)) {
+        closeHoverMenu();
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [wrapperRef]);
+
   return (
     <Div>
       <Wrapper
@@ -49,7 +70,7 @@ export default function MainMenu(props: IMenu) {
             &#9587;
           </CloseBtn>
         )}
-        <ContentWrapper>
+        <ContentWrapper ref={wrapperRef}>
           <MenuWrapper>
             <Block>
               <Link href={'/'}>
@@ -86,6 +107,11 @@ export default function MainMenu(props: IMenu) {
               ? (Boolean(onHoverElement) && isHoverMenuOpen) 
               : Boolean(onHoverElement)}
             titlesColor={titlesColor}
+            onMouseLeave={() => {
+              if ((!isMobile || !isTablet || !isSmallTablet) && isHoverMenuOpen) {
+                closeHoverMenu();
+              }
+            }}
             >
             <HoverElements
               ref={nodeHoverMenu}

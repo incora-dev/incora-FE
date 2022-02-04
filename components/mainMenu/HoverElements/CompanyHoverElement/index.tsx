@@ -79,6 +79,7 @@ function getCompanyBlock(companyInfo: ICompanyInfo[], titleColor: string, linkCl
   )
 }
 
+// eslint-disable-next-line react/display-name
 const CompanyHoverElement = forwardRef(({ titleColor, backgroundColor }: ICompanyHoverElement, ref) => {
   const { toggleHoverMenuMode, toggleMenuMode  } = useContext(MenuContext);
   const linkClickHandler = () => {

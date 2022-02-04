@@ -20,16 +20,16 @@ import {
 import PointsLarge from "../../../public/SVG/expertise/pointsLarge.svg";
 import PointsSmall from "../../../public/SVG/expertise/pointsSmall.svg";
 import {
-  GetTechnologyPage_technologies_data_attributes_whyDevelopWithUs,
-  GetTechnologyPage_technologies_data_attributes_whyDevelopWithUs_items,
+  GetTechnologyPage_technology_data_attributes_whyDevelopWithUs,
+  GetTechnologyPage_technology_data_attributes_whyDevelopWithUs_items,
 } from "../../../graphql/technologies/__generated__/GetTechnologyPage";
 
 interface IWhyDevelopWithUs {
-  data: GetTechnologyPage_technologies_data_attributes_whyDevelopWithUs;
+  data: GetTechnologyPage_technology_data_attributes_whyDevelopWithUs;
 }
 
 interface IReasons {
-  items: (GetTechnologyPage_technologies_data_attributes_whyDevelopWithUs_items | null)[];
+  items: (GetTechnologyPage_technology_data_attributes_whyDevelopWithUs_items | null)[];
 }
 
 const Reasons = ({ items }: IReasons) => {

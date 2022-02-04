@@ -1,9 +1,9 @@
 import ProjectOverviewItem from "./ProjectOverviewItem";
 import { ContentWrap, HeadingWrap, ProjectOverviewWrapper } from "./style";
-import { GetProjectPage_projects_data_attributes_projectOverview } from "../../../graphql/caseStudies/__generated__/GetProjectPage";
+import { GetProjectPage_project_data_attributes_projectOverview } from "../../../graphql/caseStudies/__generated__/GetProjectPage";
 
 interface IProjectOverview {
-  projectOverview: GetProjectPage_projects_data_attributes_projectOverview;
+  projectOverview: GetProjectPage_project_data_attributes_projectOverview;
 }
 
 const ProjectOverview = ({ projectOverview }: IProjectOverview) => {

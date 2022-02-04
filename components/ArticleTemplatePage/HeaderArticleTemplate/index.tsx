@@ -14,11 +14,11 @@ import {
 } from "./HeaderArticleTemplate.style";
 import Elements from "../../Elements";
 import { theme } from "../../../styles/theme";
-import { GetArticle_articles_data_attributes_industries_data } from "../../../graphql/insights/__generated__/GetArticle";
+import { GetArticle_article_data_attributes_industries_data } from "../../../graphql/insights/__generated__/GetArticle";
 import Image from "next/image";
 
 interface HeaderArticleTemplate {
-  categories: GetArticle_articles_data_attributes_industries_data[];
+  categories: GetArticle_article_data_attributes_industries_data[];
   title: string;
   publishedDate: string;
   viewed: number;

@@ -7,13 +7,13 @@ import {
 } from "./style";
 import React from "react";
 import { theme } from "../../styles/theme";
-import { GetIndustryPage_industries_data_attributes_offeredSolutions_items } from "../../graphql/industries/__generated__/GetIndustryPage";
+import { GetIndustryPage_industry_data_attributes_offeredSolutions_items } from "../../graphql/industries/__generated__/GetIndustryPage";
 import { IMAGES_LINK } from "../../constants/links";
 import Image from "next/image";
 
 interface IBenefitsAndSolutions {
   header: string;
-  gridData: (GetIndustryPage_industries_data_attributes_offeredSolutions_items | null)[];
+  gridData: (GetIndustryPage_industry_data_attributes_offeredSolutions_items | null)[];
   gridItemWidth: number;
   rowGap: number;
   bgColor?: string;

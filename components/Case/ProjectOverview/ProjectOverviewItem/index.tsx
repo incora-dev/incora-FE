@@ -18,11 +18,11 @@ import Dots from "../../../Homepage/Cooperate/elements/dots/dots";
 import DecorationItem from "../../../../public/decorationItem.svg";
 import DecorationItem2 from "../../../../public/decorationItem2.svg";
 import DecorTransparentSemicircle from "../../../../public/decorTransparentSemicircle.svg";
-import { GetProjectPage_projects_data_attributes_projectOverview_item_image_data_attributes } from "../../../../graphql/caseStudies/__generated__/GetProjectPage";
+import { GetProjectPage_project_data_attributes_projectOverview_item_image_data_attributes } from "../../../../graphql/caseStudies/__generated__/GetProjectPage";
 import { IMAGES_LINK } from "../../../../constants";
 
 interface IProjectOverviewItem {
-  image: GetProjectPage_projects_data_attributes_projectOverview_item_image_data_attributes;
+  image: GetProjectPage_project_data_attributes_projectOverview_item_image_data_attributes;
   heading: string;
   text: string;
   list?: string[];

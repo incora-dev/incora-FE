@@ -15,17 +15,17 @@ import IconWorkflow1 from "../../../public/SVG/workflowSetUp/01workflowIcon.svg"
 import IconWorkflow2 from "../../../public/SVG/workflowSetUp/02workflowIcon.svg";
 import IconWorkflow3 from "../../../public/SVG/workflowSetUp/03workflowIcon.svg";
 import IconWorkflow4 from "../../../public/SVG/workflowSetUp/04workflowIcon.svg";
-import { GetService_services_data_attributes_workflow_items } from "../../../graphql/services/__generated__/GetService";
+import { GetService_service_data_attributes_workflow_items } from "../../../graphql/services/__generated__/GetService";
 import { IMAGES_LINK } from "../../../constants";
 import Image from "next/image";
 
 interface IWorkflowSetUp {
   title: string;
-  content: (GetService_services_data_attributes_workflow_items | null)[];
+  content: (GetService_service_data_attributes_workflow_items | null)[];
 }
 
 interface IGetContent {
-  content: (GetService_services_data_attributes_workflow_items | null)[];
+  content: (GetService_service_data_attributes_workflow_items | null)[];
 }
 
 const GetContent = ({ content }: IGetContent) => {

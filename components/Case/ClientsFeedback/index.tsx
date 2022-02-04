@@ -7,11 +7,11 @@ import {
 import Quotes from "../../../public/icons/Quotes.svg";
 import Image from "next/image";
 import clientPhoto from "../../../public/images/clientPhoto2.png";
-import { GetProjectPage_projects_data_attributes_feedback_data_attributes } from "../../../graphql/caseStudies/__generated__/GetProjectPage";
+import { GetProjectPage_project_data_attributes_feedback_data_attributes } from "../../../graphql/caseStudies/__generated__/GetProjectPage";
 import { IMAGES_LINK } from "../../../constants";
 
 interface IClientFeedBack {
-  feedback: GetProjectPage_projects_data_attributes_feedback_data_attributes;
+  feedback: GetProjectPage_project_data_attributes_feedback_data_attributes;
 }
 
 const ClientsFeedback = ({ feedback }: IClientFeedBack) => {

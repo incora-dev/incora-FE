@@ -13,6 +13,9 @@ import { GetCareersPage } from "../../graphql/careers/__generated__/GetCareersPa
 import Custom404 from "../404";
 import { initializeApollo } from "../../graphql/client";
 import { NextPage } from "next";
+import {IMAGES_LINK} from "../../constants";
+import Head from "next/head";
+import React from "../../public/SVG/technologies/react.svg";
 
 const titles = [
   "Services",
@@ -34,6 +37,12 @@ const Career: NextPage<ICareer> = ({ data, networkStatus }) => {
   const technologies = data?.filterTechnologies;
   const ourBenefits = entry?.ourBenefits;
 
+  const seoTitle = entry?.SEO?.ogTitle;
+  const seoKeywords = entry?.SEO?.keywords;
+  const seoDescription = entry?.SEO?.description;
+  const seoImage = (entry?.SEO?.ogImage?.data?.attributes?.url !== undefined)
+    && `${IMAGES_LINK}${entry?.SEO?.ogImage?.data?.attributes?.url}`;
+
   const renderCondition = entry && specialties && technologies && ourBenefits;
 
   if (networkStatus !== 7) return <Custom404 />;
@@ -41,22 +50,35 @@ const Career: NextPage<ICareer> = ({ data, networkStatus }) => {
   return (
     <>
       {renderCondition && (
-        <MainMenu
-          titlesColor={theme.colors.white}
-          titles={titles}
-          backgroundColor={theme.colors.black}
-        >
-          <Invitation banner={entry.banner} process={entry.process} />
-          <Vacancies
-            specialties={specialties}
-            technologies={technologies}
-            currentVacancies={entry.currentVacancies}
-          />
-          <OurBenefits ourBenefits={ourBenefits} />
-          <OurPhotos />
-          <LetsAcquainted />
-          <FooterComponent />
-        </MainMenu>
+        <>
+          <Head>
+            { seoTitle && <title>{seoTitle}</title> }
+            <meta property="og:site_name" content="Incora - European software development company" />
+            <meta property="og:type" content="article" />
+            { seoTitle && <title>{seoTitle}</title> }
+            { seoDescription && <meta name="description" content={seoDescription}/> }
+            { seoKeywords && <meta name="keywords" content={seoKeywords} /> }
+            { seoTitle && <meta property="og:title" content={seoTitle} /> }
+            { seoDescription && <meta property="og:description" content={seoDescription} /> }
+            { seoImage && <meta property="og:url" content={seoImage}/> }
+          </Head>
+          <MainMenu
+            titlesColor={theme.colors.white}
+            titles={titles}
+            backgroundColor={theme.colors.black}
+          >
+            <Invitation banner={entry.banner} process={entry.process} />
+            <Vacancies
+              specialties={specialties}
+              technologies={technologies}
+              currentVacancies={entry.currentVacancies}
+            />
+            <OurBenefits ourBenefits={ourBenefits} />
+            <OurPhotos />
+            <LetsAcquainted />
+            <FooterComponent />
+          </MainMenu>
+        </>
       )}
     </>
   );

@@ -113,6 +113,7 @@ function getTechnologies(labels: ITechnologiesLabels[], titleColor: string, link
   })
 }
 
+// eslint-disable-next-line react/display-name
 const ExpertiseHoverElements = forwardRef(({ titleColor, isShow, backgroundColor }:IExpertiseHoverElements, ref) => {
   const { toggleHoverMenuMode, toggleMenuMode  } = useContext(MenuContext);
   const linkClickHandler = () => {

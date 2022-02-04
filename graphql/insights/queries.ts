@@ -8,6 +8,20 @@ export const GET_INSIGHTS_PAGE = gql`
           title
           description
           searchBarText
+          
+          SEO {
+            ogTitle
+            ogImage {
+              data {
+                attributes {
+                  url
+                }
+              }
+            }
+            keywords
+            description
+            ogDescription
+          }
         }
       }
     }
@@ -70,6 +84,20 @@ export const GET_ARTICLES_LIST = gql`
                 name
               }
             }
+          }
+
+          SEO {
+            ogTitle
+            ogImage {
+              data {
+                attributes {
+                  url
+                }
+              }
+            }
+            keywords
+            description
+            ogDescription
           }
         }
       }
@@ -181,6 +209,20 @@ export const GET_ARTICLE = gql`
                 }
               }
             }
+          }
+          
+          SEO {
+            ogTitle
+            ogImage {
+              data {
+                attributes {
+                  url
+                }
+              }
+            }
+            keywords
+            description
+            ogDescription
           }
         }
       }

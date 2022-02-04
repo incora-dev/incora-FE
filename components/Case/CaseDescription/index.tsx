@@ -1,10 +1,10 @@
 import Link from "next/link";
 import {
-  GetProjectPage_projects_data_attributes_industry_data_attributes,
-  GetProjectPage_projects_data_attributes_location_data_attributes,
-  GetProjectPage_projects_data_attributes_mainInfo,
-  GetProjectPage_projects_data_attributes_services,
-  GetProjectPage_projects_data_attributes_technologies,
+  GetProjectPage_project_data_attributes_industry_data_attributes,
+  GetProjectPage_project_data_attributes_location_data_attributes,
+  GetProjectPage_project_data_attributes_mainInfo,
+  GetProjectPage_project_data_attributes_services,
+  GetProjectPage_project_data_attributes_technologies,
 } from "../../../graphql/caseStudies/__generated__/GetProjectPage";
 import {
   CaseDescriptionWrapper,
@@ -19,11 +19,11 @@ import {
 } from "./style";
 
 interface ICaseDescription {
-  mainInfo: GetProjectPage_projects_data_attributes_mainInfo;
-  location: GetProjectPage_projects_data_attributes_location_data_attributes;
-  technologies: GetProjectPage_projects_data_attributes_technologies;
-  services: GetProjectPage_projects_data_attributes_services;
-  industry: GetProjectPage_projects_data_attributes_industry_data_attributes;
+  mainInfo: GetProjectPage_project_data_attributes_mainInfo;
+  location: GetProjectPage_project_data_attributes_location_data_attributes;
+  technologies: GetProjectPage_project_data_attributes_technologies;
+  services: GetProjectPage_project_data_attributes_services;
+  industry: GetProjectPage_project_data_attributes_industry_data_attributes;
 }
 
 const CaseDescription = ({

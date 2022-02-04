@@ -4,33 +4,38 @@ import EarthTexture from "../../../public/images/globe-pattern-2.0.1.png";
 import { Mesh, MeshLambertMaterial, SphereBufferGeometry } from "three";
 import { useSelector } from "react-redux";
 import { pointsSelector } from "../../Homepage/selectors";
-import { Point } from "../../../interfaces/reviesComponent.interface";
 import { theme } from "../../../styles/theme";
+import { Point } from "../../Homepage/Reviews";
 
 let GlobeGl: Function = () => null;
 if (typeof window !== "undefined") GlobeGl = require("react-globe.gl").default;
 
 interface IGlobe {
   reviewIndex: number;
+  points: Point[];
 }
 
-const Globe = ({ reviewIndex }: IGlobe) => {
-  const points: Point[] = useSelector(pointsSelector);
+const Globe = ({ reviewIndex, points }: IGlobe) => {
   const globeEl: any = useRef();
 
   const pointsSpheres = (point: Point) => {
-    const coords = globeEl.current.getCoords(point.lat, point.lng, point.size);
-    const { x, y, z } = coords;
+    if (globeEl.current) {
+      const coords = globeEl.current.getCoords(
+        point.lat,
+        point.lng,
+        point.size
+      );
+      const { x, y, z } = coords;
+      const sphere = new Mesh(
+        new SphereBufferGeometry(point.radius),
+        new MeshLambertMaterial({ color: "white" })
+      );
+      sphere.position.x = x;
+      sphere.position.y = y;
+      sphere.position.z = z;
 
-    const sphere = new Mesh(
-      new SphereBufferGeometry(point.radius),
-      new MeshLambertMaterial({ color: "white" })
-    );
-    sphere.position.x = x;
-    sphere.position.y = y;
-    sphere.position.z = z;
-
-    return sphere;
+      return sphere;
+    }
   };
 
   const changePointOfView = useCallback(() => {
@@ -39,14 +44,16 @@ const Globe = ({ reviewIndex }: IGlobe) => {
     const altitude = 1.35;
     const { lat, lng } = points[reviewIndex];
 
-    globeEl.current.pointOfView(
-      {
-        lat: lat - latAlign -10,
-        lng: lng - 5,
-        altitude,
-      },
-      700
-    );
+    if (lat && lng) {
+      globeEl.current.pointOfView(
+        {
+          lat: lat - latAlign - 10,
+          lng: lng - 5,
+          altitude,
+        },
+        700
+      );
+    }
   }, [reviewIndex, points]);
 
   const setControlsOptions = () => {

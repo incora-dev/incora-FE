@@ -1,4 +1,4 @@
-import {FunctionComponent, useEffect, useRef, useState} from "react";
+import { FunctionComponent, useEffect, useRef, useState } from "react";
 import {
   DropList,
   Option,
@@ -6,7 +6,7 @@ import {
   SelectOption,
   SelectPlaceholder,
   Label,
-  ArrowWrapper
+  ArrowWrapper,
 } from "./FormSelect.style";
 import Arrow from "../../../public/navArrow.svg";
 
@@ -19,20 +19,28 @@ interface ICreateFormSelect {
   Icon?: FunctionComponent | null;
 }
 
-const CreateFormSelect = ({ fields, formTheme = false, setSelectedPurpose, placeHolder, width = '100%', Icon = null }: ICreateFormSelect) => {
-  const [shouldShowDropList, setShouldShowDropList] = useState('none');
+const CreateFormSelect = ({
+  fields,
+  formTheme = false,
+  setSelectedPurpose,
+  placeHolder,
+  width = "100%",
+  Icon = null,
+}: ICreateFormSelect) => {
+  const [shouldShowDropList, setShouldShowDropList] = useState("none");
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
   const DropListPlaceholder = selectedOption && <p>{selectedOption}</p>;
-  const DropListLabel = DropListPlaceholder
-    || <SelectPlaceholder formTheme={formTheme}>{placeHolder}</SelectPlaceholder>;
+  const DropListLabel = DropListPlaceholder || (
+    <SelectPlaceholder formTheme={formTheme}>{placeHolder}</SelectPlaceholder>
+  );
 
-  const dropList = useRef(null);
+  const dropList: any = useRef(null);
 
   useEffect(() => {
-    if (shouldShowDropList === 'none') return;
+    if (shouldShowDropList === "none") return;
     function handleClick(event: MouseEvent) {
       if (dropList.current && !dropList.current.contains(event.target)) {
-        setShouldShowDropList('none');
+        setShouldShowDropList("none");
       }
     }
     window.addEventListener("click", handleClick);
@@ -43,42 +51,40 @@ const CreateFormSelect = ({ fields, formTheme = false, setSelectedPurpose, place
     <SelectBlock formTheme={formTheme} width={width}>
       <SelectOption
         formTheme={formTheme}
-        onClick={() => setShouldShowDropList('flex')}
+        onClick={() => setShouldShowDropList("flex")}
       >
-        <Label className={'svgYellow'}>
-          {Icon && <Icon/>}
+        <Label className={"svgYellow"}>
+          {Icon && <Icon />}
 
           {DropListLabel}
         </Label>
 
         <ArrowWrapper formTheme={formTheme}>
-          <Arrow
-            width="10.5"
-            height="6"
-            viewBox="0 0 10 5"
-          />
+          <Arrow width="10.5" height="6" viewBox="0 0 10 5" />
         </ArrowWrapper>
       </SelectOption>
 
-      <DropList display={shouldShowDropList} formTheme={formTheme} ref={dropList}>
-        {
-          fields.map((label, index) =>
-            <Option
-              onClick={() => {
-                setSelectedOption(label);
-                setShouldShowDropList('none');
-                setSelectedPurpose(label);
-              }}
-              formTheme={formTheme}
-              key={index}
-            >
-              {label}
-            </Option>
-          )
-        }
+      <DropList
+        display={shouldShowDropList}
+        formTheme={formTheme}
+        ref={dropList}
+      >
+        {fields.map((label, index) => (
+          <Option
+            onClick={(e) => {
+              setSelectedOption(label);
+              setShouldShowDropList("none");
+              setSelectedPurpose(label);
+            }}
+            formTheme={formTheme}
+            key={index}
+          >
+            {label}
+          </Option>
+        ))}
       </DropList>
     </SelectBlock>
   );
-}
+};
 
 export default CreateFormSelect;

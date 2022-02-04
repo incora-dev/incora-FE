@@ -97,7 +97,7 @@ export const HoverMenu = styled.div`
 
   margin: 104px auto 0 auto;
   width: 100%;
-  height: 461px;
+  min-height: 461px;
 
   transition: opacity ${themeGet("transition.menu")};
 

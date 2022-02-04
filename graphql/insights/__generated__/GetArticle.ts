@@ -170,6 +170,30 @@ export interface GetArticle_article_data_attributes_relatedArticles {
   articles: GetArticle_article_data_attributes_relatedArticles_articles | null;
 }
 
+export interface GetArticle_article_data_attributes_SEO_ogImage_data_attributes {
+  __typename: "UploadFile";
+  url: string;
+}
+
+export interface GetArticle_article_data_attributes_SEO_ogImage_data {
+  __typename: "UploadFileEntity";
+  attributes: GetArticle_article_data_attributes_SEO_ogImage_data_attributes | null;
+}
+
+export interface GetArticle_article_data_attributes_SEO_ogImage {
+  __typename: "UploadFileEntityResponse";
+  data: GetArticle_article_data_attributes_SEO_ogImage_data | null;
+}
+
+export interface GetArticle_article_data_attributes_SEO {
+  __typename: "ComponentCommonSeo";
+  ogTitle: string | null;
+  ogImage: GetArticle_article_data_attributes_SEO_ogImage | null;
+  keywords: string | null;
+  description: string | null;
+  ogDescription: string | null;
+}
+
 export interface GetArticle_article_data_attributes {
   __typename: "Article";
   title: string;
@@ -182,6 +206,7 @@ export interface GetArticle_article_data_attributes {
   impressions: GetArticle_article_data_attributes_impressions;
   contactUs: GetArticle_article_data_attributes_contactUs;
   relatedArticles: GetArticle_article_data_attributes_relatedArticles | null;
+  SEO: GetArticle_article_data_attributes_SEO | null;
 }
 
 export interface GetArticle_article_data {

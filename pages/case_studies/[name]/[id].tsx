@@ -13,6 +13,9 @@ import { GetProjectPage } from "../../../graphql/caseStudies/__generated__/GetPr
 import Custom404 from "../../404";
 import { initializeApollo } from "../../../graphql/client";
 import { NextPage, NextPageContext } from "next";
+import {IMAGES_LINK} from "../../../constants";
+import Head from "next/head";
+import React from "../../../public/SVG/technologies/react.svg";
 
 const titles = [
   "Services",
@@ -40,6 +43,12 @@ const Case: NextPage<ICase> = ({ data, networkStatus }) => {
   const galleryPictures = entry?.gallery[0]?.pictures.data;
   const contactUs = entry?.contactUs;
 
+  const seoTitle = entry?.SEO?.ogTitle;
+  const seoKeywords = entry?.SEO?.keywords;
+  const seoDescription = entry?.SEO?.description;
+  const seoImage = (entry?.SEO?.ogImage?.data?.attributes?.url !== undefined)
+    && `${IMAGES_LINK}${entry?.SEO?.ogImage?.data?.attributes?.url}`;
+
   const renderCondition =
     entry &&
     location &&
@@ -57,27 +66,40 @@ const Case: NextPage<ICase> = ({ data, networkStatus }) => {
   return (
     <>
       {renderCondition && (
-        <MainMenu
-          backgroundColor={theme.colors.black}
-          titlesColor={theme.colors.white}
-          titles={titles}
-        >
-          <CaseIntroduction name={entry.name} description={entry.description} />
-          <CaseDescription
-            mainInfo={entry.mainInfo}
-            location={location}
-            technologies={technologies}
-            services={services}
-            industry={industry}
-          />
-          <ProjectOverview projectOverview={entry.projectOverview} />
-          <InsideTheProject intro={galleryIntro} slides={galleryPictures} />
-          <ClientsFeedback feedback={feedback} />
-          <NextProject nextProjectButton={nextProjectButton} />
-          <LetsTalk title={contactUs.title} isWhite text={contactUs.subtitle} />
+        <>
+          <Head>
+            { seoTitle && <title>{seoTitle}</title> }
+            <meta property="og:site_name" content="Incora - European software development company" />
+            <meta property="og:type" content="article" />
+            { seoTitle && <title>{seoTitle}</title> }
+            { seoDescription && <meta name="description" content={seoDescription}/> }
+            { seoKeywords && <meta name="keywords" content={seoKeywords} /> }
+            { seoTitle && <meta property="og:title" content={seoTitle} /> }
+            { seoDescription && <meta property="og:description" content={seoDescription} /> }
+            { seoImage && <meta property="og:url" content={seoImage}/> }
+          </Head>
+          <MainMenu
+            backgroundColor={theme.colors.black}
+            titlesColor={theme.colors.white}
+            titles={titles}
+          >
+            <CaseIntroduction name={entry.name} description={entry.description} />
+            <CaseDescription
+              mainInfo={entry.mainInfo}
+              location={location}
+              technologies={technologies}
+              services={services}
+              industry={industry}
+            />
+            <ProjectOverview projectOverview={entry.projectOverview} />
+            <InsideTheProject intro={galleryIntro} slides={galleryPictures} />
+            <ClientsFeedback feedback={feedback} />
+            <NextProject nextProjectButton={nextProjectButton} />
+            <LetsTalk title={contactUs.title} isWhite text={contactUs.subtitle} />
 
-          <FooterComponent />
-        </MainMenu>
+            <FooterComponent />
+          </MainMenu>
+        </>
       )}
     </>
   );

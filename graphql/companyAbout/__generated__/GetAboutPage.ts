@@ -175,6 +175,30 @@ export interface GetAboutPage_aboutPage_data_attributes_insights {
   articles: GetAboutPage_aboutPage_data_attributes_insights_articles | null;
 }
 
+export interface GetAboutPage_aboutPage_data_attributes_SEO_ogImage_data_attributes {
+  __typename: "UploadFile";
+  url: string;
+}
+
+export interface GetAboutPage_aboutPage_data_attributes_SEO_ogImage_data {
+  __typename: "UploadFileEntity";
+  attributes: GetAboutPage_aboutPage_data_attributes_SEO_ogImage_data_attributes | null;
+}
+
+export interface GetAboutPage_aboutPage_data_attributes_SEO_ogImage {
+  __typename: "UploadFileEntityResponse";
+  data: GetAboutPage_aboutPage_data_attributes_SEO_ogImage_data | null;
+}
+
+export interface GetAboutPage_aboutPage_data_attributes_SEO {
+  __typename: "ComponentCommonSeo";
+  ogTitle: string | null;
+  ogImage: GetAboutPage_aboutPage_data_attributes_SEO_ogImage | null;
+  keywords: string | null;
+  description: string | null;
+  ogDescription: string | null;
+}
+
 export interface GetAboutPage_aboutPage_data_attributes {
   __typename: "AboutPage";
   mainInfo: GetAboutPage_aboutPage_data_attributes_mainInfo;
@@ -182,6 +206,7 @@ export interface GetAboutPage_aboutPage_data_attributes {
   bannerImage: GetAboutPage_aboutPage_data_attributes_bannerImage;
   ourTraditions: GetAboutPage_aboutPage_data_attributes_ourTraditions;
   insights: GetAboutPage_aboutPage_data_attributes_insights;
+  SEO: GetAboutPage_aboutPage_data_attributes_SEO | null;
 }
 
 export interface GetAboutPage_aboutPage_data {

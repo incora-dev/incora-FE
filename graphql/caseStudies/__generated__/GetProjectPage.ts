@@ -229,6 +229,30 @@ export interface GetProjectPage_project_data_attributes_contactUs {
   subtitle: string;
 }
 
+export interface GetProjectPage_project_data_attributes_SEO_ogImage_data_attributes {
+  __typename: "UploadFile";
+  url: string;
+}
+
+export interface GetProjectPage_project_data_attributes_SEO_ogImage_data {
+  __typename: "UploadFileEntity";
+  attributes: GetProjectPage_project_data_attributes_SEO_ogImage_data_attributes | null;
+}
+
+export interface GetProjectPage_project_data_attributes_SEO_ogImage {
+  __typename: "UploadFileEntityResponse";
+  data: GetProjectPage_project_data_attributes_SEO_ogImage_data | null;
+}
+
+export interface GetProjectPage_project_data_attributes_SEO {
+  __typename: "ComponentCommonSeo";
+  ogTitle: string | null;
+  ogImage: GetProjectPage_project_data_attributes_SEO_ogImage | null;
+  keywords: string | null;
+  description: string | null;
+  ogDescription: string | null;
+}
+
 export interface GetProjectPage_project_data_attributes {
   __typename: "Project";
   name: string;
@@ -243,6 +267,7 @@ export interface GetProjectPage_project_data_attributes {
   nextProjectButton: GetProjectPage_project_data_attributes_nextProjectButton;
   gallery: (GetProjectPage_project_data_attributes_gallery | null)[];
   contactUs: GetProjectPage_project_data_attributes_contactUs;
+  SEO: GetProjectPage_project_data_attributes_SEO | null;
 }
 
 export interface GetProjectPage_project_data {

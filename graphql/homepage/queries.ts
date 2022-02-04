@@ -70,7 +70,7 @@ export const GET_HOMEPAGE = gql`
                     data {
                       id
                       attributes {
-                        name
+                        Technology_name
                         url
                         iconForOtherPages {
                           data {
@@ -99,7 +99,7 @@ export const GET_HOMEPAGE = gql`
                     data {
                       id
                       attributes {
-                        name
+                        Technology_name
                         url
                       }
                     }
@@ -132,6 +132,7 @@ export const GET_HOMEPAGE = gql`
                 }
               }
             }
+
             feedbacks {
               data {
                 id
@@ -143,6 +144,25 @@ export const GET_HOMEPAGE = gql`
                     data {
                       attributes {
                         url
+                        width
+                        height
+                      }
+                    }
+                  }
+                  project {
+                    data {
+                      attributes {
+                        location {
+                          data {
+                            attributes {
+                              location {
+                                lat
+                                lng
+                                id
+                              }
+                            }
+                          }
+                        }
                       }
                     }
                   }
@@ -150,6 +170,7 @@ export const GET_HOMEPAGE = gql`
               }
             }
           }
+
           insights {
             intro
             articles {

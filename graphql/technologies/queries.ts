@@ -74,7 +74,7 @@ export const GET_TECHNOLOGY_PAGE = gql`
                   data {
                     id
                     attributes {
-                      name
+                      Technology_name
                       url
                     }
                   }

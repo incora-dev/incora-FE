@@ -9,7 +9,7 @@
 
 export interface GetProjects_projects_data_attributes_technologies_data_attributes {
   __typename: "Technology";
-  name: string;
+  Technology_name: string | null;
   url: string | null;
 }
 

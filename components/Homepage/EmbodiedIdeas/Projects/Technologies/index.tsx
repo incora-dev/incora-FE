@@ -28,7 +28,7 @@ function Technologies({
           >
             <Div bgColor={bgTagsColor}>
               <ButtonContainer>
-                <Strong color={textTagsColor}>{attributes?.name}</Strong>
+                <Strong color={textTagsColor}>{attributes?.Technology_name}</Strong>
               </ButtonContainer>
             </Div>
           </Link>

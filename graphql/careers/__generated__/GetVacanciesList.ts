@@ -63,7 +63,6 @@ export interface GetVacanciesList {
 }
 
 export interface GetVacanciesListVariables {
-  specialtyId?: string | null;
-  technologyId?: string | null;
-  limit?: number | null;
+  specialty?: string | null;
+  technology?: string | null;
 }

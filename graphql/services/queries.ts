@@ -149,7 +149,7 @@ export const GET_SERVICE = gql`
                   data {
                     id
                     attributes {
-                      name
+                      Technology_name
                       url
                     }
                   }

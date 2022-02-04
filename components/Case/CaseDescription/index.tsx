@@ -55,7 +55,7 @@ const CaseDescription = ({
   const technologiesTags = technologies.data.map(({ id, attributes }) => (
     <Link href={attributes?.url || ""} passHref key={id}>
       <TagBox>
-        <span>{attributes?.name}</span>
+        <span>{attributes?.Technology_name}</span>
       </TagBox>
     </Link>
   ));

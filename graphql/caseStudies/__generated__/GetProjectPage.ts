@@ -26,7 +26,7 @@ export interface GetProjectPage_project_data_attributes_location {
 
 export interface GetProjectPage_project_data_attributes_technologies_data_attributes {
   __typename: "Technology";
-  name: string;
+  Technology_name: string | null;
   url: string | null;
 }
 

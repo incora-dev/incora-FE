@@ -24,8 +24,6 @@ function InfoBlock({ slide, button, index }: IInfoBlock) {
   const { title, description } = slide;
   const { label, url } = button;
 
-  console.log(index);
-
   return (
     <Div>
       <PositionH3 index={index}>

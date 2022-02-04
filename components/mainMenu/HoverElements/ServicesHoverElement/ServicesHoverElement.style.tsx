@@ -55,11 +55,21 @@ export const PositionDots = styled.div`
 
 export const Wrapper = styled.div`
   padding: 62px 100px 84px 193px;
-  
   display: flex;
   column-gap: 110px;
 
   color: ${({ titleColor }: IChangeColor) => titleColor === theme.colors.black ? theme.colors.black : theme.colors.white};
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+    width: 100%;
+    padding: 25px;
+    column-gap: 25px;
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.sTablet')}) {
+    flex-direction: column;
+    row-gap: 30px;
+  }
 
   @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     padding: 15px;
@@ -75,14 +85,24 @@ export const BlockWithIcons = styled.div`
   flex-direction: column;
 
   row-gap: 70px;
-  @media only screen and (max-width: ${theme.breakpoints.xsMobile}) {
-    row-gap: 5px;
+
+  @media only screen and (max-width: ${theme.breakpoints.tablet}) {
+    row-gap: 0;
+    width: 50%;
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.sTablet')}) {
+    width: 100%;
   }
 `;
 
 export const BlockWithIconsTop = styled.div`
   display: flex;
   column-gap: 30px;
+
+  @media only screen and (max-width: ${theme.breakpoints.tablet}) {
+    flex-direction: column;
+  }
 
   @media only screen and (max-width: ${theme.breakpoints.xsMobile}) {
     flex-direction: column;
@@ -117,12 +137,19 @@ export const ArrowWithTextBlock = styled.div`
 `;
 
 export const IconBlock = styled.div`
+  @media only screen and (max-width: ${theme.breakpoints.tablet}) {
+    margin-bottom: 30px;
+  }
 `;
 
 export const ServicesBlock = styled.div`
   display: flex;
   flex-direction: column;
   row-gap: 10px;
+
+  @media only screen and (max-width: ${theme.breakpoints.tablet}) {
+    width: 50%;
+  }
 `;
 
 export const Services = styled.div`

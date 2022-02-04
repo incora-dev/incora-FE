@@ -23,6 +23,7 @@ export const Menu = styled.nav<IMenu>`
   background-color: ${({backgroundColor}: IMenu) => backgroundColor};
   transform: translateX(-100%);
   transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  opacity: ${({ open }: IMenu) => (open ? 1 : 0)};
 
   ${(props: IMenu)  =>
     props.open &&

@@ -29,6 +29,11 @@ export const PositionLoader = styled.div`
   left: -6px;
   bottom: 76px;
   z-index: -1;
+
+  @media only screen and (max-width: ${themeGet('breakpoints.sTablet')}) {
+    bottom: auto;
+    top: 200px;
+  }
 `;
 
 export const PositionPluses = styled.div`
@@ -60,6 +65,16 @@ export const Wrapper = styled.div`
   
   display: flex;
   column-gap: 79px;
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+    padding: 142px 25px 159px 213px;
+    column-gap: 40px;
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.sTablet')}) {
+    flex-direction: column;
+    row-gap: 30px;
+  }
 
   @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     padding: 15px;

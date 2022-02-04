@@ -1,12 +1,13 @@
-import HeaderInsights from "../../components/InsightsPage/HeaderInsights";
-import Head from "next/head";
-import React from "../../public/SVG/technologies/react.svg";
-import MainMenu from "../../components/mainMenu/mainMenu";
-import { theme } from "../../styles/theme";
-import { footer, titles } from "../../constants";
 import { useEffect, useState } from "react";
-import FooterComponent from "../../components/Footer";
 import { useQuery } from "@apollo/client";
+import Head from "next/head";
+import FooterComponent from "../../components/Footer";
+import HeaderInsights from "../../components/InsightsPage/HeaderInsights";
+import MainMenu from "../../components/mainMenu/mainMenu";
+import React from "../../public/SVG/technologies/react.svg";
+import { footer, titles } from "../../constants";
+import { useIsMobile } from "../../services/hooks";
+import { theme } from "../../styles/theme";
 import { GET_INSIGHTS_PAGE } from "../../graphql/insights/queries";
 import Custom404 from "../404";
 import { GetInsightsPage } from "../../graphql/insights/__generated__/GetInsightsPage";
@@ -18,6 +19,8 @@ const Insights = () => {
   const title = insightsEntry?.title;
   const text = insightsEntry?.description;
   const inputPlaceholder = insightsEntry?.searchBarText;
+
+  const {isMobile, isTablet, isSmallTablet} = useIsMobile();
 
   const [menuColor, setMenuColor] = useState("none");
   const handleScroll = () => {
@@ -48,7 +51,9 @@ const Insights = () => {
           </Head>
           <>
             <MainMenu
-              backgroundColor={menuColor}
+              backgroundColor={isMobile || isTablet || isSmallTablet
+                ? theme.colors.white
+                : menuColor}
               titlesColor={theme.colors.black}
               titles={titles}
             >

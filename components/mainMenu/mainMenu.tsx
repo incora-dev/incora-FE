@@ -12,19 +12,8 @@ import { useIsMobile } from "../../services/hooks";
 
 
 function getLogo(titlesColor: string) {
-  const colorBlack = theme.colors.black;
-  const colorWhite = theme.colors.white;
-    if (titlesColor === colorWhite) {
-      return (
-        <IncoraLogo src="/logo.svg" alt="Incora logo"/>
-      )
-    }
-
-    if (titlesColor === colorBlack) {
-      return (
-        <IncoraLogo src="/logoBlack.svg" alt="Incora logo" />
-      )
-    }
+  if (titlesColor === theme.colors.white) return <IncoraLogo src="/logo.svg" alt="Incora logo"/>;
+  if (titlesColor === theme.colors.black) return <IncoraLogo src="/logoBlack.svg" alt="Incora logo" />;
 };
 
 export default function MainMenu(props: IMenu) {
@@ -32,8 +21,7 @@ export default function MainMenu(props: IMenu) {
   const [onSelectedMenu, setOnSelectedMenu] = useState<null | string>(null);
   const { titles, backgroundColor = '#fffff', titlesColor, children, positionType = 'sticky' } = props;
   const logo = getLogo(titlesColor);
-    const {isMobile, isTablet, isSmallTablet} = useIsMobile();
-  
+  const {isMobile, isTablet, isSmallTablet} = useIsMobile();
 
   const node = useRef<any>();
   const { isMenuOpen, toggleMenuMode, isHoverMenuOpen, toggleHoverMenuMode  } = useContext(MenuContext);
@@ -46,72 +34,69 @@ export default function MainMenu(props: IMenu) {
         positionType={positionType}
         titlesColor={titlesColor}
       >
-       {(isMenuOpen || isHoverMenuOpen) && (
-       <CloseBtn
-        onClick={() => {
-          if (isMenuOpen && !isHoverMenuOpen) {
-            toggleMenuMode();
-          }
-          if (isHoverMenuOpen) {
-            toggleHoverMenuMode();
-            setOnHoverElement(null);
-          }
-        }}
-        >&#9587;
-        </CloseBtn>
-       )}
-      <ContentWrapper>
-        <MenuWrapper>
-          <Block>
-            <Link href={'/'}>
-              {logo}
-            </Link>
-            {isMobile || isTablet || isSmallTablet || isSmallTablet ? (
-              <>
-                <HamburgerButton/>
-                <SideMenu 
-                  backgroundColor={backgroundColor} 
-                  titlesColor={titlesColor} 
-                  titles={titles} 
-                  setOnHoverElement={setOnHoverElement} 
-                  onSelectedMenu={onSelectedMenu} 
-                  setOnSelectedMenu={setOnSelectedMenu}
-                  ref={node} />
-              </>
-            ) 
-            : (
-              <Navigation
-                titles={titles}
-                titlesColor={titlesColor}
-                setOnHoverElement={setOnHoverElement}
-                onSelectedMenu={onSelectedMenu}
-                setOnSelectedMenu={setOnSelectedMenu}
-                backgroundColor={backgroundColor}
-                />
-            )}
-          </Block>
-        </MenuWrapper>
-
-        <HoverMenu
-          isShow={isMobile  || isTablet
-            ? (Boolean(onHoverElement) && isHoverMenuOpen) 
-            : Boolean(onHoverElement)}
-          titlesColor={titlesColor}
-          onMouseLeave={() => {
-            setOnHoverElement(null);
-            setOnSelectedMenu(null);
-          }}
+        {(isMenuOpen || isHoverMenuOpen) && (
+          <CloseBtn
+            onClick={() => {
+              if (isMenuOpen && !isHoverMenuOpen) {
+                toggleMenuMode();
+              }
+              if (isHoverMenuOpen) {
+                toggleHoverMenuMode();
+                setOnHoverElement(null);
+              }
+            }}
           >
-          <HoverElements
-            ref={nodeHoverMenu}
-            title={onHoverElement}
-            titleColor={titlesColor}
-            setOnHoverElement={setOnHoverElement}
-            setOnSelectedMenu={setOnSelectedMenu}
-            backgroundColor={backgroundColor}
-          />
-        </HoverMenu>
-      </ContentWrapper>
+            &#9587;
+          </CloseBtn>
+        )}
+        <ContentWrapper>
+          <MenuWrapper>
+            <Block>
+              <Link href={'/'}>
+                {logo}
+              </Link>
+              {isMobile || isTablet || isSmallTablet ? (
+                <>
+                  <HamburgerButton/>
+                  <SideMenu 
+                    backgroundColor={backgroundColor} 
+                    titlesColor={titlesColor} 
+                    titles={titles} 
+                    setOnHoverElement={setOnHoverElement} 
+                    onSelectedMenu={onSelectedMenu} 
+                    setOnSelectedMenu={setOnSelectedMenu}
+                    ref={node} />
+                </>
+              ) 
+              : (
+                <Navigation
+                  titles={titles}
+                  titlesColor={titlesColor}
+                  setOnHoverElement={setOnHoverElement}
+                  onSelectedMenu={onSelectedMenu}
+                  setOnSelectedMenu={setOnSelectedMenu}
+                  backgroundColor={backgroundColor}
+                  />
+              )}
+            </Block>
+          </MenuWrapper>
+
+          <HoverMenu
+            isShow={isMobile  || isTablet
+              ? (Boolean(onHoverElement) && isHoverMenuOpen) 
+              : Boolean(onHoverElement)}
+            titlesColor={titlesColor}
+            >
+            <HoverElements
+              ref={nodeHoverMenu}
+              title={onHoverElement}
+              titleColor={titlesColor}
+              setOnHoverElement={setOnHoverElement}
+              setOnSelectedMenu={setOnSelectedMenu}
+              backgroundColor={backgroundColor}
+            />
+          </HoverMenu>
+        </ContentWrapper>
       </Wrapper>
       <ContentWrapper>
         {children}

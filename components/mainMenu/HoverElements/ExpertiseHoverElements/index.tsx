@@ -20,7 +20,8 @@ import {
   PositionLoader,
   PositionSphere,
   Sphere,
-  PositionRectangle
+  PositionRectangle,
+  LabelBlock,
 } from "./ExpertiseHoverElements.style";
 import Link from "next/link"
 import Frontend from "../../../../public/SVG/menuIcons/FrontendMini.svg";
@@ -81,11 +82,13 @@ function getTechnologies(labels: ITechnologiesLabels[], titleColor: string, link
 
     return (
       <IconBlock key={index} titleColor={titleColor}>
-        <Icon/>
+        <LabelBlock>
+          <Icon/>
 
-        <H4>
-          {title}
-        </H4>
+          <H4>
+            {title}
+          </H4>
+        </LabelBlock>
 
         <TechnologiesText>
           <TextBlock>

@@ -27,6 +27,7 @@ export const MenuButton = styled.button`
   padding: 10px 0;
   background: none;
   width: fit-content;
+  cursor: pointer;
 
   span {
     transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);

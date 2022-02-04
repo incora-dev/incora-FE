@@ -75,8 +75,8 @@ export const IncoraLogo = styled.img`
   cursor: pointer;
 
   @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
-     max-width: 100px; 
-   }
+    max-width: 100px; 
+  }
   @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
     max-width: 60px;
   }
@@ -102,7 +102,8 @@ export const HoverMenu = styled.div`
   transition: opacity ${themeGet("transition.menu")};
 
   @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
-    margin: 65px auto 0 auto;
+    margin: 60px auto 0 auto;
+    height: 100vh;
   }
 `;
 
@@ -119,6 +120,7 @@ export const CloseBtn = styled.button`
   right: 0;
   z-index: 21;
   display: none;
+  cursor: pointer;
 
   @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
     display: block;

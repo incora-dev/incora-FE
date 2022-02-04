@@ -1,3 +1,4 @@
+import router from "next/router";
 import {
   Nav,
   Ul,
@@ -8,10 +9,7 @@ import { INavigation } from "@interfaces";
 import ButtonWithArrow from "../../ButtonWithArrow";
 import Arrow from "../../../public/navArrow.svg"
 import React, {useContext, useEffect, useState} from "react";
-import Link from "next/link";
-import { theme } from "../../../styles/theme";
 import { MenuContext } from "../../../services/context/mainMenu";
-import { useIsMobile } from "../../../services/hooks";
 
 function Navigation({ 
   titles, 
@@ -49,7 +47,7 @@ function Navigation({
               <Ul
                 shouldAddLine={shouldAddLine}
                 key={index}
-                onMouseEnter={() => {
+                onClick={() => {
                   setOnHoverElement(title);
                   setSelectedTitle(title);
                   toggleHoverMenuMode();
@@ -80,19 +78,21 @@ function Navigation({
           <Ul
             shouldAddLine={shouldAddLine}
             key={index}
-            onMouseEnter={() => {
+            onClick={() => {
               setOnHoverElement(title);
               setSelectedTitle(title);
               toggleHoverMenuMode();
             }}
-
-            onMouseLeave={() => setOnSelectedMenu(null)}
           >
             <Li>
-              <Link href={`/${title.toLowerCase().replace(' ', '_')}`}>
-                {title}
-              </Link>
-              </Li>
+              <a onClick={() => {
+                toggleMenuMode();
+                setOnHoverElement(title);
+                setSelectedTitle(title);
+                toggleHoverMenuMode();
+                router.push(`/${title.toLowerCase().replace(' ', '_')}`)
+              }}>{title}</a>
+            </Li>
           </Ul>
         );
       })}

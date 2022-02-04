@@ -23,8 +23,9 @@ export const Nav = styled.nav`
 
   @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
     display: grid;
-    gap: 20px;
+    gap: 25px;
     padding-left: 30px;
+    width: fit-content;
   }
 `
 
@@ -43,6 +44,10 @@ export const Ul = styled.ul`
 
   @media only screen and (max-width: ${themeGet('breakpoints.tabletPro')}) {
     margin-right: 35px;
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+    width: fit-content;
   }
 
   &:after {

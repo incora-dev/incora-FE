@@ -42,12 +42,20 @@ export const PositionLoader = styled.div`
       fill:  ${({ titleColor }: IChangeColor) => titleColor === theme.colors.black ? theme.colors.black : theme.colors.white};
     }
   }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+    display: none;
+  }
 `;
 
 export const PositionRectangle = styled.div`
   position: absolute;
   top: 125px;
   right: 34px;
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+    display: none;
+  }
 `;
 
 export const PositionSphere = styled.div`
@@ -72,6 +80,16 @@ export const Wrapper = styled.div`
   display: flex;
   column-gap: 182px;
 
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+    padding: 25px;
+    column-gap: 60px;
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.sTablet')}) {
+    flex-direction: column;
+    overflow: scroll;
+  }
+
   @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     padding: 15px;
     flex-direction: column;
@@ -86,8 +104,17 @@ export const IndustriesBlock = styled.div`
   flex-direction: column;
   row-gap: 22px;
 
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+    min-width: 200px;
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.sTablet')}) {
+    margin-bottom: 30px;
+  }
+
   @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     row-gap: 20px;
+    margin-bottom: 10px;
   }
 `;
 
@@ -121,6 +148,11 @@ export const TextBlock = styled.div`
   column-gap: 5px;
 
   margin-left: 19px;
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+    margin-left: 0;
+    flex-wrap: wrap;
+  }
 
   @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     width: 100%;
@@ -163,6 +195,15 @@ export const Technologies = styled.div`
   flex-direction: column;
 
   row-gap: 17px;
+
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+    row-gap: 12px;
+  }
+`;
+
+export const LabelBlock = styled.div`
+  display: flex;
+  column-gap: 12px;
 `;
 
 export const IconBlock = styled.div`
@@ -185,6 +226,12 @@ export const IconBlock = styled.div`
       }
     }
   }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
   @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     flex-wrap: wrap;
   }
@@ -203,6 +250,10 @@ export const Industry = styled.h5`
 
   &:hover {
     color: ${themeGet("colors.yellow2")};
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+    line-height: 32px;
   }
 `;
 

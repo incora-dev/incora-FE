@@ -65,4 +65,5 @@ export interface GetProjects {
 
 export interface GetProjectsVariables {
   industry?: string | null;
+  country?: string | null;
 }

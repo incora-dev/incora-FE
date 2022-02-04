@@ -1,4 +1,11 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import {
+  Dispatch,
+  SetStateAction,
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import { GlobeWrapper } from "./style";
 import EarthTexture from "../../../public/images/globe-pattern-2.0.1.png";
 import { Mesh, MeshLambertMaterial, SphereBufferGeometry } from "three";
@@ -16,11 +23,17 @@ export interface Point {
 interface IGlobe {
   reviewIndex: number;
   points: Point[];
+  pointCountry?: string | undefined;
+  setPointCountry?: Dispatch<SetStateAction<string | undefined>>;
 }
 
-const Globe = ({ reviewIndex, points }: IGlobe) => {
+const Globe = ({
+  reviewIndex,
+  points,
+  pointCountry,
+  setPointCountry,
+}: IGlobe) => {
   const globeEl: any = useRef();
-  const [pointCountry, SetPointCountry] = useState<string | undefined>();
 
   const pointsSpheres = (point: Point) => {
     if (globeEl.current) {
@@ -75,8 +88,8 @@ const Globe = ({ reviewIndex, points }: IGlobe) => {
     const { lat, lng } = point;
     const pointCountry = point.country;
 
-    if (lat && lng && pointCountry) {
-      SetPointCountry(pointCountry);
+    if (lat && lng && pointCountry && setPointCountry) {
+      setPointCountry(pointCountry);
       changePointOfView(lat, lng);
     }
   };
@@ -143,6 +156,10 @@ const Globe = ({ reviewIndex, points }: IGlobe) => {
         customLayerData={points}
         customThreeObject={pointsSpheres}
         onCustomLayerClick={onPointClick}
+        pointLabel={({ country }: any) => {
+          return country;
+        }}
+        customLayerLabel={({ country }: any) => country}
       />
     </GlobeWrapper>
   );

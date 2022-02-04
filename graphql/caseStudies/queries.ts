@@ -55,8 +55,13 @@ export const GET_CASE_STUDIES = gql`
 `;
 
 export const GET_PROJECTS = gql`
-  query GetProjects($industry: String) {
-    projects(filters: { industry: { name: { eq: $industry } } }) {
+  query GetProjects($industry: String, $country: String) {
+    projects(
+      filters: {
+        industry: { name: { eq: $industry } }
+        and: { location: { country: { eq: $country } } }
+      }
+    ) {
       data {
         id
         attributes {
@@ -210,7 +215,7 @@ export const GET_PROJECT_PAGE = gql`
             title
             subtitle
           }
-          
+
           SEO {
             ogTitle
             ogImage {

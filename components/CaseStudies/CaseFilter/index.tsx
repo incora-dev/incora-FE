@@ -26,6 +26,8 @@ interface ICaseFilter {
   setCurrentIndustryTag: Dispatch<SetStateAction<string>>;
   industries: GetCaseStudies_industries_data[];
   locations: GetCaseStudies_locations_data[];
+  pointCountry: string | undefined;
+  setPointCountry: Dispatch<SetStateAction<string | undefined>>;
 }
 
 const CaseFilter = ({
@@ -36,6 +38,8 @@ const CaseFilter = ({
   setCurrentIndustryTag,
   industries,
   locations,
+  pointCountry,
+  setPointCountry,
 }: ICaseFilter) => {
   const { isMobile, isTablet, isSmallTablet } = useIsMobile();
   let points = useRef<Point[]>();
@@ -75,10 +79,15 @@ const CaseFilter = ({
         country,
       };
     });
-  });
+  }, []);
 
   const globeCondition = points.current && (
-    <Globe reviewIndex={0} points={points.current} />
+    <Globe
+      reviewIndex={0}
+      points={points.current}
+      pointCountry={pointCountry}
+      setPointCountry={setPointCountry}
+    />
   );
 
   return (

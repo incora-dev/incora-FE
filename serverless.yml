@@ -8,7 +8,7 @@ myNextApp:
     imageOptimizer: true
     bucketName: incora-frontend
     cloudfront:
-#       distributionId: E15CDLLF6PWNCY
+      distributionId: E2FTD4NA8NWK11
       defaults:
         forward:
           headers: [ Accept ]

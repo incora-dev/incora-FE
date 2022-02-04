@@ -23,17 +23,15 @@ export interface Point {
 interface IGlobe {
   reviewIndex: number;
   points: Point[];
-  pointCountry?: string | undefined;
-  setPointCountry?: Dispatch<SetStateAction<string | undefined>>;
+  changeCurrentGlobePoint?: (
+    pointCountry: string,
+    currentIndex: number
+  ) => Point[] | undefined;
 }
 
-const Globe = ({
-  reviewIndex,
-  points,
-  pointCountry,
-  setPointCountry,
-}: IGlobe) => {
+const Globe = ({ reviewIndex, points, changeCurrentGlobePoint }: IGlobe) => {
   const globeEl: any = useRef();
+  const [updatedPoints, setUpdatedPoints] = useState<Point[]>();
 
   const pointsSpheres = (point: Point) => {
     if (globeEl.current) {
@@ -88,41 +86,63 @@ const Globe = ({
     const { lat, lng } = point;
     const pointCountry = point.country;
 
-    if (lat && lng && pointCountry && setPointCountry) {
-      setPointCountry(pointCountry);
+    console.log({ point });
+
+    const index = points.findIndex((point) => point.country === pointCountry);
+
+    if (lat && lng && pointCountry && changeCurrentGlobePoint) {
       changePointOfView(lat, lng);
+      changeCurrentGlobePoint(pointCountry, index);
     }
   };
 
-  const updatePoints1 = points.map((point, index) => {
-    if (index === reviewIndex) {
-      return {
-        ...point,
-        size: 0.06,
-      };
-    } else {
-      return {
-        ...point,
-        size: 0.03,
-      };
-    }
-  });
+  // const updatePoints1 = points.map((point, index) => {
+  //   if (index === reviewIndex) {
+  //     return {
+  //       ...point,
+  //       size: 0.06,
+  //     };
+  //   } else {
+  //     return {
+  //       ...point,
+  //       size: 0.03,
+  //     };
+  //   }
+  // });
 
-  const updatePoints2 = points.map((point) => {
-    if (pointCountry === point.country) {
-      return {
-        ...point,
-        size: 0.06,
-        radius: 1,
-      };
-    } else {
-      return {
-        ...point,
-        size: 0.03,
-        radius: 0.06,
-      };
-    }
-  });
+  useEffect(() => {
+    setUpdatedPoints(
+      points.map((point, index) => {
+        if (index === reviewIndex) {
+          return {
+            ...point,
+            size: 0.06,
+          };
+        } else {
+          return {
+            ...point,
+            size: 0.03,
+          };
+        }
+      })
+    );
+  }, [points, reviewIndex]);
+
+  // const updatePoints2 = points.map((point) => {
+  //   if (pointCountry === point.country) {
+  //     return {
+  //       ...point,
+  //       size: 0.06,
+  //       radius: 1,
+  //     };
+  //   } else {
+  //     return {
+  //       ...point,
+  //       size: 0.03,
+  //       radius: 0.06,
+  //     };
+  //   }
+  // });
 
   useEffect(() => {
     setControlsOptions();
@@ -145,7 +165,7 @@ const Globe = ({
         globeImageUrl={EarthTexture.src}
         backgroundColor="rgba(0,0,0,0)"
         showAtmosphere={false}
-        pointsData={pointCountry ? updatePoints2 : updatePoints1}
+        pointsData={updatedPoints}
         pointAltitude={(point: Point) => {
           return point.size;
         }}

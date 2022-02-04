@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction, useEffect, useRef } from "react";
+import { Dispatch, SetStateAction, useEffect, useRef, useState } from "react";
 import { useDispatch } from "react-redux";
 import {
   GetCaseStudies_industries_data,
@@ -42,7 +42,9 @@ const CaseFilter = ({
   setPointCountry,
 }: ICaseFilter) => {
   const { isMobile, isTablet, isSmallTablet } = useIsMobile();
+
   let points = useRef<Point[]>();
+  const [currentIndex, setCurrentIndex] = useState<number>(0);
 
   const dispatch = useDispatch();
 
@@ -81,12 +83,36 @@ const CaseFilter = ({
     });
   }, []);
 
+  const changeCurrentGlobePoint = (
+    pointCountry: string,
+    currentIndex: number
+  ) => {
+    setCurrentIndex(currentIndex);
+    setPointCountry(pointCountry);
+    return (points.current =
+      points.current &&
+      points.current.map((point, index) => {
+        if (index === currentIndex) {
+          return {
+            ...point,
+            size: 0.06,
+            radius: 1,
+          };
+        } else {
+          return {
+            ...point,
+            size: 0.03,
+            radius: 0.6,
+          };
+        }
+      }));
+  };
+
   const globeCondition = points.current && (
     <Globe
-      reviewIndex={0}
+      reviewIndex={currentIndex}
       points={points.current}
-      pointCountry={pointCountry}
-      setPointCountry={setPointCountry}
+      changeCurrentGlobePoint={changeCurrentGlobePoint}
     />
   );
 

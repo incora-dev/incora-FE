@@ -1,6 +1,5 @@
 import VacancyCard from "./components/VacancyCard";
 import {
-  Block,
   ContentWrapper,
   Filter,
   List,
@@ -26,6 +25,7 @@ import { GetVacanciesList } from "../../../graphql/careers/__generated__/GetVaca
 import { useEffect, useState } from "react";
 import CreateFormSelect from "../../FormClassic/FormSelect";
 import { ROUTES } from "../../../constants/routes";
+import Loader from "../../common/Loader";
 
 interface IVacancies {
   currentVacancies: GetCareersPage_careersPage_data_attributes_currentVacancies;
@@ -33,50 +33,31 @@ interface IVacancies {
   technologies: GetVacancy_filterTechnologies;
 }
 
-const optionsSelect = [
-  'Project from scratch',
-  'Estimation & Proposal',
-  'Team extension',
-  'Partnership development',
-  'Business analysis & Tech consultancy',
-  'Job offering',
-  'Other'
-];
-
 const Vacancies = ({
   currentVacancies,
   specialties,
   technologies,
 }: IVacancies) => {
-  const [specialtyId, setSpecialtyId] = useState<string | undefined>(undefined);
-  const [technologyId, setTechnologyId] = useState<string | undefined>(
-    undefined
-  );
-  const [limit, setLimit] = useState<number>(7);
-  const [speciality, setSpeciality] = useState<string | null>(null);
-  const [technology, setTechnology] = useState<string | null>(null);
+  const [specialty, setSpeciality] = useState<string | undefined>(undefined);
+  const [technology, setTechnology] = useState<string | undefined>(undefined);
 
-  const [getVacanciesList, { data, loading }] = useLazyQuery<GetVacanciesList>(
-    GET_VACANCIES_LIST,
-    {
-      variables: {
-        specialtyId,
-        technologyId,
-        limit,
-      },
-      fetchPolicy: "network-only",
-    }
-  );
+  const [getVacanciesList, { data, loading }] =
+    useLazyQuery<GetVacanciesList>(GET_VACANCIES_LIST);
   const vacancies = data?.vacancies?.data;
 
   useEffect(() => {
-    getVacanciesList();
-  }, [limit]);
+    getVacanciesList({
+      variables: {
+        specialty,
+        technology,
+      },
+    });
+  }, []);
 
-  const { intro, filterText1, filterText2, header, text, buttonText } =
-    currentVacancies;
+  const { intro, header, text, buttonText } = currentVacancies;
 
-  const vacanciesCards = vacancies ? (
+  const vacanciesCards =
+    vacancies &&
     vacancies.map((vacancy) => {
       const id = vacancy.id;
       const url = ROUTES.COMPANY.DEFAULT + `${vacancy.attributes?.url}/${id}`;
@@ -99,24 +80,29 @@ const Vacancies = ({
           )}
         </>
       );
-    })
-  ) : (
-    <span>Not found</span>
-  );
+    });
 
   const specialtiesOptions = specialties.data.map((specialty) => {
-    const id = specialty.id || "";
     const name = specialty.attributes?.name || "";
 
-    return { value: id, name };
+    return name;
   });
 
   const technologiesOptions = technologies.data.map((technology) => {
-    const id = technology.id || "";
     const name = technology.attributes?.name || "";
 
-    return { value: id, name };
+    return name;
   });
+
+  const vacanciesCondition = () => {
+    if (vacancies && vacancies.length <= 0) {
+      return <span>{"No vacancies founded"}</span>;
+    } else if (vacancies && !loading) {
+      return <>{vacanciesCards}</>;
+    } else {
+      return <Loader />;
+    }
+  };
 
   return (
     <VacanciesWrapper>
@@ -128,18 +114,18 @@ const Vacancies = ({
             <Filter>
               <FilterBlock>
                 <CreateFormSelect
-                  fields={optionsSelect}
+                  fields={specialtiesOptions}
                   formTheme={false}
                   setSelectedPurpose={setSpeciality}
-                  placeHolder={'speciality'}
+                  placeHolder={"speciality"}
                   Icon={SmallStar}
                 />
 
                 <CreateFormSelect
-                  fields={optionsSelect}
+                  fields={technologiesOptions}
                   formTheme={false}
                   setSelectedPurpose={setTechnology}
-                  placeHolder={'technology'}
+                  placeHolder={"technology"}
                   Icon={TechnologyIcon}
                 />
               </FilterBlock>
@@ -154,13 +140,20 @@ const Vacancies = ({
                   height={67}
                   label={buttonText}
                   arrow={theme.colors.white}
-                  onClick={() => getVacanciesList()}
+                  onClick={() =>
+                    getVacanciesList({
+                      variables: {
+                        specialty,
+                        technology,
+                      },
+                    })
+                  }
                 />
               </QuickApplyWrap>
             </Filter>
           </PositionFilter>
 
-          <List>{vacanciesCards}</List>
+          <List>{vacanciesCondition()}</List>
         </ListWrap>
       </ContentWrapper>
     </VacanciesWrapper>

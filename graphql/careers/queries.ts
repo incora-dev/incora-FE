@@ -132,12 +132,11 @@ export const GET_VACANCY = gql`
 `;
 
 export const GET_VACANCIES_LIST = gql`
-  query GetVacanciesList($specialtyId: ID, $technologyId: ID, $limit: Int) {
+  query GetVacanciesList($specialty: String, $technology: String) {
     vacancies(
-      pagination: { limit: $limit }
       filters: {
-        filter_specialities: { id: { eq: $specialtyId } }
-        filter_technologies: { id: { eq: $technologyId } }
+        filter_specialities: { name: { eq: $specialty } }
+        filter_technologies: { name: { eq: $technology } }
       }
     ) {
       data {

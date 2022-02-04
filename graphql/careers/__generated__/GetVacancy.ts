@@ -7,7 +7,7 @@
 // GraphQL query operation: GetVacancy
 // ====================================================
 
-export interface GetVacancy_vacancies_data_attributes_currentVacancies {
+export interface GetVacancy_vacancy_data_attributes_currentVacancies {
   __typename: "ComponentCommonCurrentVacancies";
   intro: string;
   filterText1: string;
@@ -17,36 +17,36 @@ export interface GetVacancy_vacancies_data_attributes_currentVacancies {
   buttonText: string;
 }
 
-export interface GetVacancy_vacancies_data_attributes_filter_technologies_data_attributes {
+export interface GetVacancy_vacancy_data_attributes_filter_technologies_data_attributes {
   __typename: "FilterTechnology";
   name: string;
 }
 
-export interface GetVacancy_vacancies_data_attributes_filter_technologies_data {
+export interface GetVacancy_vacancy_data_attributes_filter_technologies_data {
   __typename: "FilterTechnologyEntity";
-  attributes: GetVacancy_vacancies_data_attributes_filter_technologies_data_attributes | null;
+  attributes: GetVacancy_vacancy_data_attributes_filter_technologies_data_attributes | null;
 }
 
-export interface GetVacancy_vacancies_data_attributes_filter_technologies {
+export interface GetVacancy_vacancy_data_attributes_filter_technologies {
   __typename: "FilterTechnologyRelationResponseCollection";
-  data: GetVacancy_vacancies_data_attributes_filter_technologies_data[];
+  data: GetVacancy_vacancy_data_attributes_filter_technologies_data[];
 }
 
-export interface GetVacancy_vacancies_data_attributes {
+export interface GetVacancy_vacancy_data_attributes {
   __typename: "Vacancy";
   description: string;
-  currentVacancies: GetVacancy_vacancies_data_attributes_currentVacancies;
-  filter_technologies: GetVacancy_vacancies_data_attributes_filter_technologies | null;
+  currentVacancies: GetVacancy_vacancy_data_attributes_currentVacancies;
+  filter_technologies: GetVacancy_vacancy_data_attributes_filter_technologies | null;
 }
 
-export interface GetVacancy_vacancies_data {
+export interface GetVacancy_vacancy_data {
   __typename: "VacancyEntity";
-  attributes: GetVacancy_vacancies_data_attributes | null;
+  attributes: GetVacancy_vacancy_data_attributes | null;
 }
 
-export interface GetVacancy_vacancies {
-  __typename: "VacancyEntityResponseCollection";
-  data: GetVacancy_vacancies_data[];
+export interface GetVacancy_vacancy {
+  __typename: "VacancyEntityResponse";
+  data: GetVacancy_vacancy_data | null;
 }
 
 export interface GetVacancy_filterSpecialities_data_attributes {
@@ -82,11 +82,11 @@ export interface GetVacancy_filterTechnologies {
 }
 
 export interface GetVacancy {
-  vacancies: GetVacancy_vacancies | null;
+  vacancy: GetVacancy_vacancy | null;
   filterSpecialities: GetVacancy_filterSpecialities | null;
   filterTechnologies: GetVacancy_filterTechnologies | null;
 }
 
 export interface GetVacancyVariables {
-  url?: string | null;
+  id?: string | null;
 }

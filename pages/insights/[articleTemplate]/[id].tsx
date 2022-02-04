@@ -1,23 +1,23 @@
 import Head from "next/head";
-import React from "../../public/SVG/technologies/react.svg";
-import MainMenu from "../../components/mainMenu/mainMenu";
-import { theme } from "../../styles/theme";
-import { footer, IMAGES_LINK, titles } from "../../constants";
+import React from "../../../public/SVG/technologies/react.svg";
+import MainMenu from "../../../components/mainMenu/mainMenu";
+import { theme } from "../../../styles/theme";
+import { IMAGES_LINK, titles } from "../../../constants";
 import { useEffect, useState } from "react";
-import HeaderArticleTemplate from "../../components/ArticleTemplatePage/HeaderArticleTemplate";
-import ArticleInfo from "../../components/ArticleTemplatePage/ArticleInfo";
-
-import News from "../../components/News";
-import LetsTalk from "../../components/Services/LetsTalk";
-import FooterComponent from "../../components/Footer";
-import GoToTop from "../../components/GoToTop";
-import { useRouter } from "next/router";
-import Custom404 from "../404";
-import { useMutation, useQuery } from "@apollo/client";
-import { GetArticle } from "../../graphql/insights/__generated__/GetArticle";
-import { GET_ARTICLE } from "../../graphql/insights/queries";
-import { useIsMobile } from "../../services/hooks";
-import { UPDATE_VIEWS } from "../../graphql/insights/mutations";
+import HeaderArticleTemplate from "../../../components/ArticleTemplatePage/HeaderArticleTemplate";
+import ArticleInfo from "../../../components/ArticleTemplatePage/ArticleInfo";
+import News from "../../../components/News";
+import LetsTalk from "../../../components/Services/LetsTalk";
+import FooterComponent from "../../../components/Footer";
+import GoToTop from "../../../components/GoToTop";
+import Custom404 from "../../404";
+import { useMutation } from "@apollo/client";
+import { GetArticle } from "../../../graphql/insights/__generated__/GetArticle";
+import { GET_ARTICLE } from "../../../graphql/insights/queries";
+import { useIsMobile } from "../../../services/hooks";
+import { NextPage, NextPageContext } from "next";
+import { initializeApollo } from "../../../graphql/client";
+import { UPDATE_VIEWS } from "../../../graphql/insights/mutations";
 
 export interface IImpressions {
   intro: string | undefined;
@@ -27,22 +27,25 @@ export interface IImpressions {
   unsatisfied: number;
 }
 
-const ArticleTemplate = () => {
-  const router = useRouter();
-  const { articleTemplate } = router.query;
+interface IArticleTemplate {
+  data: GetArticle;
+  networkStatus: number;
+}
 
-  const { data, loading, error } = useQuery<GetArticle>(GET_ARTICLE, {
-    variables: { url: articleTemplate },
-  });
-
+const ArticleTemplate: NextPage<IArticleTemplate> = ({
+  data,
+  networkStatus,
+}) => {
   const [updateViews] = useMutation(UPDATE_VIEWS);
 
-  const id = data?.articles?.data[0].id;
-  const entry = data?.articles?.data[0].attributes;
+  const id = data.article?.data?.id;
+  const entry = data.article?.data?.attributes;
   const title = entry?.title;
   const categories = entry?.industries?.data;
   const publishedDate = entry?.createdAt;
   const authorEntry = entry?.author?.data?.attributes;
+  const facebook = authorEntry?.facebook;
+  const linkedIn = authorEntry?.linkedin;
   const tags = entry?.tags?.data;
   const letsTalkTitle = entry?.contactUs.title;
   const letsTalkSubtitle = entry?.contactUs.subtitle;
@@ -105,8 +108,7 @@ const ArticleTemplate = () => {
     relatedArticlesTitle &&
     id;
 
-  if (loading) return null;
-  if (error) return <Custom404 />;
+  if (networkStatus !== 7 || data.article?.data === null) return <Custom404 />;
 
   return (
     <>
@@ -135,6 +137,8 @@ const ArticleTemplate = () => {
                 articleOwner={articleOwner}
               />
               <ArticleInfo
+                facebook={facebook}
+                linkedIn={linkedIn}
                 mainText={entry.content}
                 tags={tags}
                 impressions={impressions}
@@ -151,5 +155,24 @@ const ArticleTemplate = () => {
     </>
   );
 };
+
+export async function getServerSideProps(context: NextPageContext) {
+  const client = initializeApollo();
+  const { id } = context.query;
+
+  const { data, networkStatus } = await client.query({
+    query: GET_ARTICLE,
+    variables: {
+      id,
+    },
+  });
+
+  return {
+    props: {
+      data,
+      networkStatus,
+    },
+  };
+}
 
 export default ArticleTemplate;

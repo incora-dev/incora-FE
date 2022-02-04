@@ -1,35 +1,34 @@
-import { footer, titles } from "../../constants";
-import MainMenu from "../../components/mainMenu/mainMenu";
-import { theme } from "../../styles/theme";
-import HeaderService from "../../components/ServicePage/HeaderService";
+import { titles } from "../../../constants";
+import MainMenu from "../../../components/mainMenu/mainMenu";
+import { theme } from "../../../styles/theme";
+import HeaderService from "../../../components/ServicePage/HeaderService";
 import Head from "next/head";
-import React from "../../public/SVG/technologies/react.svg";
-import FooterComponent from "../../components/Footer";
-import LetsTalk from "../../components/Services/LetsTalk";
-import Information from "../../components/ServicePage/Information";
-import BestSuitedFor from "../../components/ServicePage/BestSuitedFor";
+import React from "../../../public/SVG/technologies/react.svg";
+import FooterComponent from "../../../components/Footer";
+import LetsTalk from "../../../components/Services/LetsTalk";
+import Information from "../../../components/ServicePage/Information";
+import BestSuitedFor from "../../../components/ServicePage/BestSuitedFor";
 import { useEffect, useState } from "react";
-import { useIsMobile } from "../../services/hooks";
-import { useRouter } from "next/router";
-import { useQuery } from "@apollo/client";
-import { GET_SERVICE } from "../../graphql/services/queries";
-import { GetService } from "../../graphql/services/__generated__/GetService";
-import Custom404 from "../404";
-import WorkflowSetUp from "../../components/ServicePage/WorkflowSetUp";
-import Faq from "../../components/ServicePage/FAQ";
-import EmbodiedIdeasComponent from "../../components/Homepage/EmbodiedIdeas";
+import { useIsMobile } from "../../../services/hooks";
+import { GET_SERVICE } from "../../../graphql/services/queries";
+import { GetService } from "../../../graphql/services/__generated__/GetService";
+import Custom404 from "../../404";
+import WorkflowSetUp from "../../../components/ServicePage/WorkflowSetUp";
+import Faq from "../../../components/ServicePage/FAQ";
+import EmbodiedIdeasComponent from "../../../components/Homepage/EmbodiedIdeas";
+import { initializeApollo } from "../../../graphql/client";
+import { NextPage, NextPageContext } from "next";
 
 const colorWhite = theme.colors.white;
 const colorBlack = theme.colors.black;
 
-const Service = () => {
-  const router = useRouter();
-  const { service } = router.query;
+interface IService {
+  data: GetService;
+  networkStatus: number;
+}
 
-  const { data, loading, error } = useQuery<GetService>(GET_SERVICE, {
-    variables: { url: service },
-  });
-  const entry = data?.services?.data[0].attributes;
+const Service: NextPage<IService> = ({ data, networkStatus }) => {
+  const entry = data.service?.data?.attributes;
   const content = entry?.whyDoYouNeed;
   const bestSuitedFor = entry?.bestSuitedFor;
   const workflow = entry?.workflow;
@@ -38,10 +37,11 @@ const Service = () => {
   const projects = entry?.projects?.data;
   const icon = entry?.icon.data?.attributes;
 
-    const {isMobile, isTablet, isSmallTablet} = useIsMobile();
-  
+  const { isMobile, isTablet, isSmallTablet } = useIsMobile();
 
-  const [menuColor, setMenuColor] = useState(isMobile || isTablet || isSmallTablet ? colorBlack : "none");
+  const [menuColor, setMenuColor] = useState(
+    isMobile || isTablet || isSmallTablet ? colorBlack : "none"
+  );
   const handleScroll = () => {
     window.scrollY >= 20 ? setMenuColor(colorBlack) : setMenuColor("none");
   };
@@ -52,7 +52,8 @@ const Service = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const menuColorCondition = isMobile || isTablet || isSmallTablet ? colorBlack : menuColor;
+  const menuColorCondition =
+    isMobile || isTablet || isSmallTablet ? colorBlack : menuColor;
 
   const renderCondition =
     entry &&
@@ -64,8 +65,7 @@ const Service = () => {
     projects &&
     icon;
 
-  if (loading) return null;
-  if (error) return <Custom404 />;
+  if (networkStatus !== 7 || data.service?.data === null) return <Custom404 />;
 
   return (
     <>
@@ -116,5 +116,22 @@ const Service = () => {
     </>
   );
 };
+
+export async function getServerSideProps(context: NextPageContext) {
+  const client = initializeApollo();
+  const { id } = context.query;
+
+  const { data, networkStatus } = await client.query({
+    query: GET_SERVICE,
+    variables: { id: id },
+  });
+
+  return {
+    props: {
+      data,
+      networkStatus,
+    },
+  };
+}
 
 export default Service;

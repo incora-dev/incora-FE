@@ -1,26 +1,22 @@
 import Head from "next/head";
-import React from "../../../public/SVG/technologies/react.svg";
-import MainMenu from "../../../components/mainMenu/mainMenu";
-import { theme } from "../../../styles/theme";
-import { titles } from "../../../constants";
-import HeaderService from "../../../components/ServicePage/HeaderService";
-import OfferedSolutions from "../../../components/ExpertisePage/OfferedSolutions";
+import React from "../../../../public/SVG/technologies/react.svg";
+import MainMenu from "../../../../components/mainMenu/mainMenu";
+import { theme } from "../../../../styles/theme";
+import { titles } from "../../../../constants";
+import HeaderService from "../../../../components/ServicePage/HeaderService";
+import OfferedSolutions from "../../../../components/ExpertisePage/OfferedSolutions";
 import { useEffect, useState } from "react";
-import NewsComponent from "../../../components/News";
-import ContactUsComponent from "../../../components/Homepage/ContactUs";
+import NewsComponent from "../../../../components/News";
+import ContactUsComponent from "../../../../components/Homepage/ContactUs";
 import { IContactUs } from "@interfaces";
-import FooterComponent from "../../../components/Footer";
-import { IFooter } from "../../../interfaces/footer.interface";
-import Facebook from "../../../public/SVG/socialNetwork/facebook.svg";
-import LinkedIn from "../../../public/SVG/socialNetwork/linkedIn.svg";
-import Instagram from "../../../public/SVG/socialNetwork/instagram.svg";
-import { useRouter } from "next/router";
-import { useQuery } from "@apollo/client";
-import { GET_INDUSTRY_PAGE } from "../../../graphql/industries/queries";
-import Custom404 from "../../404";
-import { GetIndustryPage } from "../../../graphql/industries/__generated__/GetIndustryPage";
-import EmbodiedIdeasComponent from "../../../components/Homepage/EmbodiedIdeas";
-import { useIsMobile } from "../../../services/hooks";
+import FooterComponent from "../../../../components/Footer";
+import { GET_INDUSTRY_PAGE } from "../../../../graphql/industries/queries";
+import Custom404 from "../../../404";
+import { GetIndustryPage } from "../../../../graphql/industries/__generated__/GetIndustryPage";
+import EmbodiedIdeasComponent from "../../../../components/Homepage/EmbodiedIdeas";
+import { useIsMobile } from "../../../../services/hooks";
+import { initializeApollo } from "../../../../graphql/client";
+import { NextPage, NextPageContext } from "next";
 
 const colorWhite = theme.colors.white;
 const colorBlack = theme.colors.black;
@@ -29,7 +25,6 @@ const hexagonColorGrey = theme.elements.hexagonBorderedGrey;
 const contactUs: IContactUs = {
   title: "contact us",
   text: "Let’s create progress together!",
-  formLabels: ["name", "phone number", "email", "what is you main goal?"],
   addresses: [
     { "ukrainian office": "2 Horodotska Str.,\n" + "Lviv 75001 Ukraine" },
     { "Usa office": "16192 Coastal Hwy, Lewes,\n" + "DE 19958 USA" },
@@ -37,31 +32,13 @@ const contactUs: IContactUs = {
   buttonLabel: "send",
 };
 
-const footer: IFooter = {
-  policies: ["privacy policy", "Cookies Policy"],
-  offices: contactUs.addresses,
-  pages: ["Services", "expertise", "Case Studies", "Company", "Insights"],
-  followUs: [
-    { icon: Facebook, redirectTo: "Facebook" },
-    { icon: LinkedIn, redirectTo: "LinkedIn" },
-    { icon: Instagram, redirectTo: "Instagram" },
-  ],
-  copyright: "© 2015-2022 Incora LLC",
-};
+interface IIndustry {
+  data: GetIndustryPage;
+  networkStatus: number;
+}
 
-const Industry = () => {
-  const router = useRouter();
-  const { industry } = router.query;
-
-  const { data, loading, error } = useQuery<GetIndustryPage>(
-    GET_INDUSTRY_PAGE,
-    {
-      variables: {
-        url: industry,
-      },
-    }
-  );
-  const entry = data?.industries?.data[0].attributes;
+const Industry: NextPage<IIndustry> = ({ data, networkStatus }) => {
+  const entry = data.industry?.data?.attributes;
   const headerTitle = entry?.name;
   const headerDescription = entry?.description;
   const headerIcon = entry?.icon?.data?.attributes;
@@ -77,8 +54,7 @@ const Industry = () => {
   const handleScroll = () => {
     window.scrollY >= 50 ? setMenuColor(colorWhite) : setMenuColor("none");
   };
-    const {isMobile, isTablet, isSmallTablet} = useIsMobile();
-  
+  const { isMobile, isTablet, isSmallTablet } = useIsMobile();
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
@@ -98,8 +74,7 @@ const Industry = () => {
     articles &&
     projects;
 
-  if (loading) return null;
-  if (error) return <Custom404 />;
+  if (networkStatus !== 7 || data.industry?.data === null) return <Custom404 />;
 
   return (
     <>
@@ -112,13 +87,17 @@ const Industry = () => {
           </Head>
           <>
             <MainMenu
-              backgroundColor={isMobile || isTablet || isSmallTablet ? colorWhite : menuColor}
+              backgroundColor={
+                isMobile || isTablet || isSmallTablet ? colorWhite : menuColor
+              }
               titlesColor={colorBlack}
               titles={titles}
             >
               <HeaderService
                 title={headerTitle}
-                titleSize={isMobile || isTablet || isSmallTablet ? '50px' :'64px'}
+                titleSize={
+                  isMobile || isTablet || isSmallTablet ? "50px" : "64px"
+                }
                 icon={headerIcon}
                 text={headerDescription}
                 textWidth={"560px"}
@@ -140,7 +119,6 @@ const Industry = () => {
               <ContactUsComponent
                 title={contactUsTitle}
                 text={contactUsSubtitle}
-                formLabels={contactUs.formLabels}
                 addresses={contactUs.addresses}
                 buttonLabel={contactUs.buttonLabel}
               />
@@ -152,5 +130,24 @@ const Industry = () => {
     </>
   );
 };
+
+export async function getServerSideProps(context: NextPageContext) {
+  const client = initializeApollo();
+  const { id } = context.query;
+
+  const { data, networkStatus } = await client.query({
+    query: GET_INDUSTRY_PAGE,
+    variables: {
+      id,
+    },
+  });
+
+  return {
+    props: {
+      data,
+      networkStatus,
+    },
+  };
+}
 
 export default Industry;

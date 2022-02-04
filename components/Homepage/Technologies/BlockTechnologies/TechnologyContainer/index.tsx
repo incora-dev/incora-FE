@@ -25,7 +25,8 @@ function TechnologyContainer({ techArray }: ITechnologyContainer) {
         {techArray.map((tech) => {
           const { id, attributes } = tech;
           const name = attributes?.name;
-          const url = ROUTES.EXPERTISE.TECHNOLOGIES + attributes?.url;
+          const url =
+            ROUTES.EXPERTISE.TECHNOLOGIES + `${attributes?.url}/${id}`;
           const icon = attributes?.iconForOtherPages?.data?.attributes;
           const src = IMAGES_LINK + icon?.url;
           const width = icon?.width;

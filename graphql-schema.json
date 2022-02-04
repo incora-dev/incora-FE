@@ -22711,18 +22711,6 @@
             "deprecationReason": null
           },
           {
-            "name": "industry",
-            "description": null,
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "IndustryFiltersInput",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
             "name": "technologies",
             "description": null,
             "type": {
@@ -22752,6 +22740,18 @@
             "type": {
               "kind": "INPUT_OBJECT",
               "name": "FeedbackFiltersInput",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "industry",
+            "description": null,
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "IndustryFiltersInput",
               "ofType": null
             },
             "defaultValue": null,
@@ -22888,18 +22888,6 @@
           },
           {
             "name": "location",
-            "description": null,
-            "type": {
-              "kind": "SCALAR",
-              "name": "ID",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "industry",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -23051,6 +23039,18 @@
             "deprecationReason": null
           },
           {
+            "name": "industry",
+            "description": null,
+            "type": {
+              "kind": "SCALAR",
+              "name": "ID",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "publishedAt",
             "description": null,
             "type": {
@@ -23124,18 +23124,6 @@
             "type": {
               "kind": "OBJECT",
               "name": "LocationEntityResponse",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "industry",
-            "description": null,
-            "args": [],
-            "type": {
-              "kind": "OBJECT",
-              "name": "IndustryEntityResponse",
               "ofType": null
             },
             "isDeprecated": false,
@@ -23518,6 +23506,18 @@
                 "name": "ComponentCommonSeo",
                 "ofType": null
               }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "industry",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "IndustryEntityResponse",
+              "ofType": null
             },
             "isDeprecated": false,
             "deprecationReason": null

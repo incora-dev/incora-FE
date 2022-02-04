@@ -18,15 +18,15 @@ import {
   GetServicesPage_servicesPage_data_attributes_services_data_attributes,
 } from "../../../graphql/services/__generated__/GetServicesPage";
 import { useIsMobile } from "../../../services/hooks";
+import { ROUTES } from "../../../constants/routes";
 
 export interface IInformationComponent {
   slide: GetServicesPage_servicesPage_data_attributes_services_data;
 }
 
 const InformationComponent = ({ slide }: IInformationComponent) => {
-  const { attributes } = slide;
-    const {isMobile, isTablet, isSmallTablet} = useIsMobile();
-  
+  const { id, attributes } = slide;
+  const { isMobile, isTablet, isSmallTablet } = useIsMobile();
 
   const getEstimatedTimeInfo = (
     slide: GetServicesPage_servicesPage_data_attributes_services_data_attributes
@@ -79,7 +79,7 @@ const InformationComponent = ({ slide }: IInformationComponent) => {
           <PositionButtonWithArrow>
             <ButtonWithArrow
               buttonLabel={"read more"}
-              redirectTo={`/services/${attributes.url}`}
+              redirectTo={ROUTES.SERVICES + `${attributes.url}/${id}`}
               padding={"23px 35px;"}
             />
           </PositionButtonWithArrow>

@@ -60,7 +60,7 @@ export const GET_SERVICES_PAGE = gql`
             id
             keywords
             description
-            ogTitle 
+            ogTitle
             ogDescription
             ogImage {
               data {
@@ -78,8 +78,8 @@ export const GET_SERVICES_PAGE = gql`
 `;
 
 export const GET_SERVICE = gql`
-  query GetService($url: String) {
-    services(filters: { url: { eq: $url } }) {
+  query GetService($id: ID) {
+    service(id: $id) {
       data {
         attributes {
           name
@@ -183,7 +183,7 @@ export const GET_SERVICE = gql`
             id
             keywords
             description
-            ogTitle 
+            ogTitle
             ogDescription
             ogImage {
               data {

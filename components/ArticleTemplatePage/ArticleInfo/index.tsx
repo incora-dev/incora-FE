@@ -17,9 +17,9 @@ import {
   Element,
   ElementTitle,
   SocialTitle,
-  SocialIcons,
   CodeBlock,
-  Icons
+  Icons,
+  SocialIcons,
 } from "./ArticleInfo.style";
 import React, { useCallback, useEffect, useState } from "react";
 import Technologies from "../../Homepage/EmbodiedIdeas/Projects/Technologies";
@@ -28,21 +28,32 @@ import ValuableIcon from "../../../public/SVG/Valuable.svg";
 import ExcitingIcon from "../../../public/SVG/Exciting.svg";
 import UnsatisfiedIcon from "../../../public/SVG/Unsatisfied.svg";
 import ReactMarkdown from "react-markdown";
-import { GetArticle_articles_data_attributes_tags_data } from "../../../graphql/insights/__generated__/GetArticle";
-import { FacebookShareButton, LinkedinShareButton, TwitterShareButton } from "react-share";
+import { GetArticle_article_data_attributes_tags_data } from "../../../graphql/insights/__generated__/GetArticle";
+import {
+  FacebookShareButton,
+  LinkedinShareButton,
+  TwitterShareButton,
+} from "react-share";
 import FacebookSVG from "../../../public/SVG/socialNetwork/FacebookSVG.svg";
 import LinkedInSvg from "../../../public/SVG/socialNetwork/LinkedInSvg.svg";
 import TwitterSVG from "../../../public/SVG/socialNetwork/TwitterSVG.svg";
 import { useMutation } from "@apollo/client";
 import { UPDATE_IMPRESSIONS_COUNT } from "../../../graphql/insights/mutations";
 import { UpdateImpressionsCount } from "../../../graphql/insights/__generated__/UpdateImpressionsCount";
-import { IImpressions } from "../../../pages/insights/[articleTemplate]";
+import { IImpressions } from "../../../pages/insights/[articleTemplate]/[id]";
 
 interface IArticleInfo {
+  facebook: string | null | undefined;
+  linkedIn: string | null | undefined;
   mainText: string;
-  tags: GetArticle_articles_data_attributes_tags_data[];
+  tags: GetArticle_article_data_attributes_tags_data[];
   impressions: IImpressions;
   id: string;
+}
+
+interface ISocialIcons {
+  facebook: string | null | undefined;
+  linkedIn: string | null | undefined;
 }
 
 const pollLabels = ["Love it!", "Valuable", "Exciting", "Unsatisfied"];
@@ -59,7 +70,10 @@ function getScrollLabels(
     const element = React.createElement(el.tagName, {}, el.innerHTML);
 
     return (
-      <ScrollLabel key={index} onClick={() => window.scrollTo(0, el?.offsetTop - 104)}>
+      <ScrollLabel
+        key={index}
+        onClick={() => window.scrollTo(0, el?.offsetTop - 104)}
+      >
         <Line selected={selected} />
 
         <Label selected={selected}>{element}</Label>
@@ -94,22 +108,23 @@ function getElements(
   });
 }
 
-function getSocialIcons() {
-  const url = window.location.href;
+function GetSocialIcons({ facebook, linkedIn }: ISocialIcons) {
+  const facebookCondition = facebook && (
+    <FacebookShareButton url={facebook}>
+      <FacebookSVG />
+    </FacebookShareButton>
+  );
+
+  const linkedInCondition = linkedIn && (
+    <LinkedinShareButton url={linkedIn}>
+      <LinkedInSvg />
+    </LinkedinShareButton>
+  );
 
   return (
     <Icons>
-      <FacebookShareButton url={url}>
-        <FacebookSVG />
-      </FacebookShareButton>
-
-      <LinkedinShareButton url={url}>
-        <LinkedInSvg />
-      </LinkedinShareButton>
-
-      <TwitterShareButton url={url}>
-        <TwitterSVG />
-      </TwitterShareButton>
+      {facebookCondition}
+      {linkedInCondition}
     </Icons>
   );
 }
@@ -119,6 +134,8 @@ const ArticleInfo = ({
   tags,
   impressions,
   id,
+  facebook,
+  linkedIn,
 }: IArticleInfo) => {
   const [updateImpressionsCount] = useMutation<UpdateImpressionsCount>(
     UPDATE_IMPRESSIONS_COUNT
@@ -173,10 +190,10 @@ const ArticleInfo = ({
   const [sideBarElements, setSideBarElements] =
     useState<NodeListOf<HTMLElement>>();
   const [selected, setSelect] = useState(-1);
-  const [sideBarRowGap, setSideRowGap] = useState('25px;');
+  const [sideBarRowGap, setSideRowGap] = useState("25px;");
 
   const scrollTitles = getScrollLabels(selectedElementIndex, sideBarElements);
-  const icons = getSocialIcons();
+
   const elements = getElements(
     pollLabels,
     selected,
@@ -186,14 +203,15 @@ const ArticleInfo = ({
 
   function getSideBarElements() {
     const sideBarList = document.querySelectorAll(
-        "#scrollsLabels h2, #scrollsLabels h3, #scrollsLabels h4, #scrollsLabels h5, #scrollsLabels h6"
+      "#scrollsLabels h2, #scrollsLabels h3, #scrollsLabels h4, #scrollsLabels h5, #scrollsLabels h6"
     );
-    const querySelectorAll = '#scrollsLabels h2, #scrollsLabels h3, #scrollsLabels h4, #scrollsLabels h5, #scrollsLabels h6';
-    const querySelectorThan15 = '#scrollsLabels h2';
+    const querySelectorAll =
+      "#scrollsLabels h2, #scrollsLabels h3, #scrollsLabels h4, #scrollsLabels h5, #scrollsLabels h6";
+    const querySelectorThan15 = "#scrollsLabels h2";
 
     sideBarList.length > 15
       ? setSideBarElements(document.querySelectorAll(querySelectorThan15))
-      : setSideBarElements(document.querySelectorAll(querySelectorAll))
+      : setSideBarElements(document.querySelectorAll(querySelectorAll));
   }
 
   const handleScroll = useCallback(() => {
@@ -215,8 +233,8 @@ const ArticleInfo = ({
     window.addEventListener("scroll", handleScroll);
 
     sideBarElements && sideBarElements?.length > 10
-      ? setSideRowGap('15px;')
-      : setSideRowGap('25px;');
+      ? setSideRowGap("15px;")
+      : setSideRowGap("25px;");
 
     return () => window.removeEventListener("scroll", handleScroll);
   }, [handleScroll]);
@@ -224,8 +242,10 @@ const ArticleInfo = ({
   useEffect(() => {
     getSideBarElements();
 
-    console.log(<ReactMarkdown>{mainText}</ReactMarkdown>)
+    console.log(<ReactMarkdown>{mainText}</ReactMarkdown>);
   }, []);
+
+  const socialsCondition = facebook || linkedIn ? <P>Social title</P> : null;
 
   return (
     <Div>
@@ -243,9 +263,11 @@ const ArticleInfo = ({
         <StickyWrapper>
           <SocialTitleAndTagsBlock>
             <SocialTitle>
-              <P>Social title</P>
+              {socialsCondition}
 
-              <SocialIcons>{icons}</SocialIcons>
+              <SocialIcons>
+                <GetSocialIcons facebook={facebook} linkedIn={linkedIn} />
+              </SocialIcons>
             </SocialTitle>
             <Tags>
               <P>Tags</P>

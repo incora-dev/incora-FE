@@ -1,28 +1,24 @@
-import MainMenu from "../../../components/mainMenu/mainMenu";
+import MainMenu from "../../../../components/mainMenu/mainMenu";
 import { useEffect, useState } from "react";
-import { theme } from "../../../styles/theme";
+import { theme } from "../../../../styles/theme";
 import Head from "next/head";
-import React from "../../../public/SVG/technologies/react.svg";
-import HeaderService from "../../../components/ServicePage/HeaderService";
-import WhyShouldUseTechnology from "../../../components/ExpertisePage/WhyShouldUseTechnology";
-import PopularWebsites from "../../../components/ExpertisePage/PopularWebsites";
-import News from "../../../components/News";
-import ContactUsComponent from "../../../components/Homepage/ContactUs";
+import React from "../../../../public/SVG/technologies/react.svg";
+import HeaderService from "../../../../components/ServicePage/HeaderService";
+import WhyShouldUseTechnology from "../../../../components/ExpertisePage/WhyShouldUseTechnology";
+import PopularWebsites from "../../../../components/ExpertisePage/PopularWebsites";
+import News from "../../../../components/News";
+import ContactUsComponent from "../../../../components/Homepage/ContactUs";
 import { IContactUs } from "@interfaces";
-import FooterComponent from "../../../components/Footer";
-import { IFooter } from "../../../interfaces/footer.interface";
+import FooterComponent from "../../../../components/Footer";
 
-import Instagram1 from "../../../public/SVG/socialNetwork/instagram.svg";
-import Facebook1 from "../../../public/SVG/socialNetwork/facebook.svg";
-import LinkedIn1 from "../../../public/SVG/socialNetwork/linkedIn.svg";
-import WhyDevelopWithUs from "../../../components/News/WhyDevelopWithUs";
-import { useRouter } from "next/router";
-import { useQuery } from "@apollo/client";
-import { GET_TECHNOLOGY_PAGE } from "../../../graphql/technologies/queries";
-import { GetTechnologyPage } from "../../../graphql/technologies/__generated__/GetTechnologyPage";
-import Custom404 from "../../404";
-import EmbodiedIdeasComponent from "../../../components/Homepage/EmbodiedIdeas";
-import { useIsMobile } from "../../../services/hooks";
+import WhyDevelopWithUs from "../../../../components/News/WhyDevelopWithUs";
+import { GET_TECHNOLOGY_PAGE } from "../../../../graphql/technologies/queries";
+import { GetTechnologyPage } from "../../../../graphql/technologies/__generated__/GetTechnologyPage";
+import Custom404 from "../../../404";
+import EmbodiedIdeasComponent from "../../../../components/Homepage/EmbodiedIdeas";
+import { useIsMobile } from "../../../../services/hooks";
+import { initializeApollo } from "../../../../graphql/client";
+import { NextPage, NextPageContext } from "next";
 
 const MainMenuTitles = [
   "Services",
@@ -36,7 +32,6 @@ const MainMenuTitles = [
 const contactUs: IContactUs = {
   title: "get in touch!",
   text: "Let’s discover which technologies will make your idea great.",
-  formLabels: ["name", "phone number", "email", "what is you main goal?"],
   addresses: [
     { "ukrainian office": "2 Horodotska Str.,\n" + "Lviv 75001 Ukraine" },
     { "Usa office": "16192 Coastal Hwy, Lewes,\n" + "DE 19958 USA" },
@@ -48,15 +43,13 @@ const colorWhite = theme.colors.white;
 const colorBlack = theme.colors.black;
 const colorBackgroundBlack = theme.colors.backgroundBlack;
 
-const Technology = () => {
-  const router = useRouter();
-  const { technology } = router.query;
+interface ITechnology {
+  data: GetTechnologyPage;
+  networkStatus: number;
+}
 
-  const { data, loading, error } = useQuery<GetTechnologyPage>(
-    GET_TECHNOLOGY_PAGE,
-    { variables: { url: technology } }
-  );
-  const entry = data?.technologies?.data[0].attributes;
+const Technology: NextPage<ITechnology> = ({ data, networkStatus }) => {
+  const entry = data.technology?.data?.attributes;
   const headerTitle = entry?.name;
   const headerDescription = entry?.description;
   const headerLabel = entry?.tech_stack?.data?.attributes?.name;
@@ -76,8 +69,8 @@ const Technology = () => {
   const handleScroll = () => {
     window.scrollY >= 50 ? setMenuColor(colorBlack) : setMenuColor("none");
   };
-    const {isMobile, isTablet, isSmallTablet} = useIsMobile();
-  
+  const { isMobile, isTablet, isSmallTablet } = useIsMobile();
+
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
 
@@ -100,8 +93,8 @@ const Technology = () => {
     contactUsTitle &&
     contactUsSubtitle;
 
-  if (loading) return null;
-  if (error) return <Custom404 />;
+  if (networkStatus !== 7 || data.technology?.data === null)
+    return <Custom404 />;
 
   return (
     <>
@@ -114,13 +107,17 @@ const Technology = () => {
           </Head>
           <MainMenu
             titlesColor={colorWhite}
-            backgroundColor={isMobile || isTablet || isSmallTablet ? colorBlack : menuColor}
+            backgroundColor={
+              isMobile || isTablet || isSmallTablet ? colorBlack : menuColor
+            }
             titles={MainMenuTitles}
           >
             <HeaderService
               title={headerTitle}
               icon={headerIcon}
-              titleSize={isMobile || isTablet || isSmallTablet ? '50px' :'64px'}
+              titleSize={
+                isMobile || isTablet || isSmallTablet ? "50px" : "64px"
+              }
               text={headerDescription}
               textWidth={"435px"}
               label={headerLabel}
@@ -148,7 +145,6 @@ const Technology = () => {
             <ContactUsComponent
               title={contactUsTitle}
               text={contactUsSubtitle}
-              formLabels={contactUs.formLabels}
               addresses={contactUs.addresses}
               buttonLabel={contactUs.buttonLabel}
             />
@@ -159,5 +155,22 @@ const Technology = () => {
     </>
   );
 };
+
+export async function getServerSideProps(context: NextPageContext) {
+  const client = initializeApollo();
+  const { id } = context.query;
+
+  const { data, networkStatus } = await client.query({
+    query: GET_TECHNOLOGY_PAGE,
+    variables: { id },
+  });
+
+  return {
+    props: {
+      data,
+      networkStatus,
+    },
+  };
+}
 
 export default Technology;

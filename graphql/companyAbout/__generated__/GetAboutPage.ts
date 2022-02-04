@@ -100,12 +100,88 @@ export interface GetAboutPage_aboutPage_data_attributes_ourTraditions {
   gallery: GetAboutPage_aboutPage_data_attributes_ourTraditions_gallery;
 }
 
+export interface GetAboutPage_aboutPage_data_attributes_insights_articles_data_attributes_previewImage_data_attributes {
+  __typename: "UploadFile";
+  url: string;
+}
+
+export interface GetAboutPage_aboutPage_data_attributes_insights_articles_data_attributes_previewImage_data {
+  __typename: "UploadFileEntity";
+  id: string | null;
+  attributes: GetAboutPage_aboutPage_data_attributes_insights_articles_data_attributes_previewImage_data_attributes | null;
+}
+
+export interface GetAboutPage_aboutPage_data_attributes_insights_articles_data_attributes_previewImage {
+  __typename: "UploadFileEntityResponse";
+  data: GetAboutPage_aboutPage_data_attributes_insights_articles_data_attributes_previewImage_data | null;
+}
+
+export interface GetAboutPage_aboutPage_data_attributes_insights_articles_data_attributes_industries_data_attributes {
+  __typename: "Industry";
+  url: string | null;
+  name: string;
+}
+
+export interface GetAboutPage_aboutPage_data_attributes_insights_articles_data_attributes_industries_data {
+  __typename: "IndustryEntity";
+  id: string | null;
+  attributes: GetAboutPage_aboutPage_data_attributes_insights_articles_data_attributes_industries_data_attributes | null;
+}
+
+export interface GetAboutPage_aboutPage_data_attributes_insights_articles_data_attributes_industries {
+  __typename: "IndustryRelationResponseCollection";
+  data: GetAboutPage_aboutPage_data_attributes_insights_articles_data_attributes_industries_data[];
+}
+
+export interface GetAboutPage_aboutPage_data_attributes_insights_articles_data_attributes_tags_data_attributes {
+  __typename: "Tag";
+  name: string;
+}
+
+export interface GetAboutPage_aboutPage_data_attributes_insights_articles_data_attributes_tags_data {
+  __typename: "TagEntity";
+  id: string | null;
+  attributes: GetAboutPage_aboutPage_data_attributes_insights_articles_data_attributes_tags_data_attributes | null;
+}
+
+export interface GetAboutPage_aboutPage_data_attributes_insights_articles_data_attributes_tags {
+  __typename: "TagRelationResponseCollection";
+  data: GetAboutPage_aboutPage_data_attributes_insights_articles_data_attributes_tags_data[];
+}
+
+export interface GetAboutPage_aboutPage_data_attributes_insights_articles_data_attributes {
+  __typename: "Article";
+  url: string | null;
+  title: string;
+  previewImage: GetAboutPage_aboutPage_data_attributes_insights_articles_data_attributes_previewImage;
+  industries: GetAboutPage_aboutPage_data_attributes_insights_articles_data_attributes_industries | null;
+  tags: GetAboutPage_aboutPage_data_attributes_insights_articles_data_attributes_tags | null;
+}
+
+export interface GetAboutPage_aboutPage_data_attributes_insights_articles_data {
+  __typename: "ArticleEntity";
+  id: string | null;
+  attributes: GetAboutPage_aboutPage_data_attributes_insights_articles_data_attributes | null;
+}
+
+export interface GetAboutPage_aboutPage_data_attributes_insights_articles {
+  __typename: "ArticleRelationResponseCollection";
+  data: GetAboutPage_aboutPage_data_attributes_insights_articles_data[];
+}
+
+export interface GetAboutPage_aboutPage_data_attributes_insights {
+  __typename: "ComponentArticleRelatedArticles";
+  intro: string;
+  articles: GetAboutPage_aboutPage_data_attributes_insights_articles | null;
+}
+
 export interface GetAboutPage_aboutPage_data_attributes {
   __typename: "AboutPage";
   mainInfo: GetAboutPage_aboutPage_data_attributes_mainInfo;
   contactUs: GetAboutPage_aboutPage_data_attributes_contactUs;
   bannerImage: GetAboutPage_aboutPage_data_attributes_bannerImage;
   ourTraditions: GetAboutPage_aboutPage_data_attributes_ourTraditions;
+  insights: GetAboutPage_aboutPage_data_attributes_insights;
 }
 
 export interface GetAboutPage_aboutPage_data {

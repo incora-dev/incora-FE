@@ -1,8 +1,8 @@
 import { gql } from "@apollo/client";
 
 export const GET_INDUSTRY_PAGE = gql`
-  query GetIndustryPage($url: String) {
-    industries(filters: { url: { eq: $url } }) {
+  query GetIndustryPage($id: ID) {
+    industry(id: $id) {
       data {
         id
         attributes {

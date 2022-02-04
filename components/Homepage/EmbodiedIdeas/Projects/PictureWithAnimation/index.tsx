@@ -2,8 +2,10 @@ import { Container } from "./PictureWithAnimation.style";
 import Animation from "./Animation";
 import Image from "next/image";
 import Link from "next/link";
+import { ROUTES } from "../../../../../constants/routes";
 
 interface IPictureWithAnimation {
+  id: string | null;
   img: string;
   width: number;
   height: number;
@@ -16,6 +18,7 @@ interface IPictureWithAnimation {
 
 function PictureWithAnimation(props: IPictureWithAnimation) {
   const {
+    id,
     img,
     index,
     elementsColor,
@@ -28,7 +31,7 @@ function PictureWithAnimation(props: IPictureWithAnimation) {
   const borderRadius = (index + 1) % 10 !== 2 ? "50px 0 0 0" : "0 50px 0 0";
 
   return (
-    <Link href={`/case_studies/case/${url}`} passHref>
+    <Link href={ROUTES.CASE_STUDIES + `${url}/${id}`} passHref>
       <Container
         borderRadius={borderRadius}
         onMouseEnter={() => setShouldHover(index)}

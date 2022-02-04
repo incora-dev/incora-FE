@@ -11,9 +11,15 @@ import { theme } from "../../styles/theme";
 import { GET_INSIGHTS_PAGE } from "../../graphql/insights/queries";
 import Custom404 from "../404";
 import { GetInsightsPage } from "../../graphql/insights/__generated__/GetInsightsPage";
+import { NextPage, NextPageContext } from "next";
+import { initializeApollo } from "../../graphql/client";
 
-const Insights = () => {
-  const { data, loading, error } = useQuery<GetInsightsPage>(GET_INSIGHTS_PAGE);
+interface IInsightsPage {
+  data: GetInsightsPage;
+  networkStatus: number;
+}
+
+const Insights: NextPage<IInsightsPage> = ({ data, networkStatus }) => {
   const industries = data?.industries?.data;
   const insightsEntry = data?.insightsPage?.data?.attributes;
   const title = insightsEntry?.title;
@@ -29,16 +35,18 @@ const Insights = () => {
       : setMenuColor("none");
   };
 
+  console.log("error", networkStatus);
+
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
+    console.log("error", networkStatus);
 
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const renderCondition = industries && title && text && inputPlaceholder;
 
-  if (loading) return null;
-  if (error) return <Custom404 />;
+  if (networkStatus !== 7) return <Custom404 />;
 
   return (
     <>
@@ -71,5 +79,20 @@ const Insights = () => {
     </>
   );
 };
+
+export async function getServerSideProps() {
+  const client = initializeApollo();
+
+  const { data, networkStatus } = await client.query({
+    query: GET_INSIGHTS_PAGE,
+  });
+
+  return {
+    props: {
+      data,
+      networkStatus,
+    },
+  };
+}
 
 export default Insights;

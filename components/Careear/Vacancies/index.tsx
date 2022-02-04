@@ -25,6 +25,7 @@ import { useLazyQuery, useQuery } from "@apollo/client";
 import { GET_VACANCIES_LIST } from "../../../graphql/careers/queries";
 import { GetVacanciesList } from "../../../graphql/careers/__generated__/GetVacanciesList";
 import { useEffect, useState } from "react";
+import { ROUTES } from "../../../constants/routes";
 
 interface IVacancies {
   currentVacancies: GetCareersPage_careersPage_data_attributes_currentVacancies;
@@ -66,7 +67,7 @@ const Vacancies = ({
   const vacanciesCards = vacancies ? (
     vacancies.map((vacancy) => {
       const id = vacancy.id;
-      const url = vacancy.attributes?.url;
+      const url = ROUTES.COMPANY.DEFAULT + `${vacancy.attributes?.url}/${id}`;
       const isHot = vacancy.attributes?.isHot || false;
       const technology =
         vacancy.attributes?.filter_technologies?.data[0].attributes?.name;
@@ -115,18 +116,18 @@ const Vacancies = ({
             <Filter>
               <FilterBlock>
                 <Selector
-                    value={specialtyId}
-                    setValue={setSpecialtyId}
-                    placeholder={filterText1}
-                    options={specialtiesOptions}
-                    icon={SmallStar}
+                  value={specialtyId}
+                  setValue={setSpecialtyId}
+                  placeholder={filterText1}
+                  options={specialtiesOptions}
+                  icon={SmallStar}
                 />
                 <Selector
-                    value={specialtyId}
-                    setValue={setTechnologyId}
-                    placeholder={filterText2}
-                    options={technologiesOptions}
-                    icon={TechnologyIcon}
+                  value={specialtyId}
+                  setValue={setTechnologyId}
+                  placeholder={filterText2}
+                  options={technologiesOptions}
+                  icon={TechnologyIcon}
                 />
               </FilterBlock>
               <QuickApplyWrap>
@@ -134,13 +135,13 @@ const Vacancies = ({
                 <p>{text}</p>
 
                 <Button
-                    textColor={theme.colors.white}
-                    backgroundColor={theme.colors.black}
-                    width={180}
-                    height={67}
-                    label={buttonText}
-                    arrow={theme.colors.white}
-                    onClick={() => getVacanciesList()}
+                  textColor={theme.colors.white}
+                  backgroundColor={theme.colors.black}
+                  width={180}
+                  height={67}
+                  label={buttonText}
+                  arrow={theme.colors.white}
+                  onClick={() => getVacanciesList()}
                 />
               </QuickApplyWrap>
             </Filter>

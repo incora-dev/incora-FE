@@ -7,7 +7,7 @@ import {
 } from "./news.style";
 import Arrow from "../../public/SVG";
 import { theme } from "../../styles/theme";
-import { GetIndustryPage_industries_data_attributes_insights_articles_data } from "../../graphql/industries/__generated__/GetIndustryPage";
+import { GetIndustryPage_industry_data_attributes_insights_articles_data } from "../../graphql/industries/__generated__/GetIndustryPage";
 import Link from "next/link";
 import { ROUTES } from "../../constants/routes";
 import ArticlesBlock from "./ArticlesBlock";
@@ -15,7 +15,7 @@ import ArticlesBlock from "./ArticlesBlock";
 export interface ITechnologies {
   bgColor?: string;
   title: string;
-  articles: GetIndustryPage_industries_data_attributes_insights_articles_data[];
+  articles: GetIndustryPage_industry_data_attributes_insights_articles_data[];
 }
 
 function NewsComponent({ title, bgColor, articles }: ITechnologies) {

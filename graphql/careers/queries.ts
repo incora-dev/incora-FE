@@ -45,6 +45,25 @@ export const GET_CAREERS_PAGE = gql`
             text
             buttonText
           }
+
+          ourBenefits {
+            intro
+            items {
+              id
+              title
+              description
+              image {
+                data {
+                  id
+                  attributes {
+                    url
+                    width
+                    height
+                  }
+                }
+              }
+            }
+          }
         }
       }
     }
@@ -69,8 +88,8 @@ export const GET_CAREERS_PAGE = gql`
 `;
 
 export const GET_VACANCY = gql`
-  query GetVacancy($url: String) {
-    vacancies(filters: { url: { eq: $url } }) {
+  query GetVacancy($id: ID) {
+    vacancy(id: $id) {
       data {
         attributes {
           description

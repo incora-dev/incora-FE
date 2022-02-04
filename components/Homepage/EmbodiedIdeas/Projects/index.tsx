@@ -8,7 +8,7 @@ import Link from "next/link";
 import { GetProjects_projects } from "../../../../graphql/caseStudies/__generated__/getProjects";
 import { useIsMobile } from "../../../../services/hooks";
 import { GetProjects_projects_data } from "../../../../graphql/caseStudies/__generated__/getProjects";
-import { GetService_services_data_attributes_projects_data } from "../../../../graphql/services/__generated__/GetService";
+import { ROUTES } from "../../../../constants/routes";
 
 interface IProjects {
   projects: GetProjects_projects_data[];
@@ -17,9 +17,7 @@ interface IProjects {
 
 function Projects({ projects, elementsColor }: IProjects) {
   const [shouldHover, setShouldHover] = useState(-1);
-      const {isMobile, isTablet, isSmallTablet} = useIsMobile();
-  
-
+  const { isMobile, isTablet, isSmallTablet } = useIsMobile();
 
   useEffect(() => {
     console.log("projects", projects);
@@ -28,13 +26,14 @@ function Projects({ projects, elementsColor }: IProjects) {
   function createProjects(): JSX.Element[] {
     return projects.map(({ id, attributes }, index) => {
       const flexDirection = (index + 1) % 10 !== 2 ? "row" : "row-reverse";
-      const marginText = (index + 1) % 10 !== 2 
-        ? isMobile || isTablet || isSmallTablet
-          ? '53px 15px;'
-          : '81px 0 0 180px;' 
-        : isMobile || isTablet || isSmallTablet
-          ? '53px 15px;' 
-          : '81px 180px 0 0';
+      const marginText =
+        (index + 1) % 10 !== 2
+          ? isMobile || isTablet || isSmallTablet
+            ? "53px 15px;"
+            : "81px 0 0 180px;"
+          : isMobile || isTablet || isSmallTablet
+          ? "53px 15px;"
+          : "81px 180px 0 0";
 
       const url = attributes?.url;
       const technologies = attributes?.technologies?.data;
@@ -48,7 +47,7 @@ function Projects({ projects, elementsColor }: IProjects) {
           {name && description && technologies && image && (
             <Container key={id} flexDirection={flexDirection}>
               <Text>
-                <Link href={`/case_studies/case/${url}`} passHref>
+                <Link href={ROUTES.CASE_STUDIES + `${url}/${id}`} passHref>
                   <H3
                     onMouseEnter={() => setShouldHover(index)}
                     onMouseLeave={() => setShouldHover(-1)}
@@ -77,6 +76,7 @@ function Projects({ projects, elementsColor }: IProjects) {
               </Text>
 
               <PictureWithAnimation
+                id={id}
                 img={image}
                 width={700}
                 height={537}

@@ -35,6 +35,11 @@ export const GET_ARTICLES_LIST = gql`
       }
       pagination: { page: $page, pageSize: 9 }
     ) {
+      meta {
+        pagination {
+          total
+        }
+      }
       data {
         id
         attributes {
@@ -73,8 +78,8 @@ export const GET_ARTICLES_LIST = gql`
 `;
 
 export const GET_ARTICLE = gql`
-  query GetArticle($url: String) {
-    articles(filters: { url: { eq: $url } }) {
+  query GetArticle($id: ID) {
+    article(id: $id) {
       data {
         id
         attributes {

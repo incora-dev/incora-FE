@@ -43,7 +43,7 @@ const BenefitsAndSolutions = ({
               loader={() => src}
               src={src}
               width={width}
-              height={47}
+              height={height}
               alt="icon"
               className="image"
             />

@@ -35,7 +35,7 @@ const CreateNews = ({
   return (
     <>
       <NewsContainer key={id} className="news-container">
-        <Link href={ROUTES.ARTICLE + url} passHref>
+        <Link href={ROUTES.INSIGHTS + `${url}/${id}`} passHref>
           <ImgBlock>
             <Element />
             <Image
@@ -55,7 +55,7 @@ const CreateNews = ({
         />
         <Categories categories={categories} />
 
-        <Link href={`insights/${url}`}>
+        <Link href={ROUTES.INSIGHTS + `${url}/${id}`}>
           <a>
             <H3>{title}</H3>
           </a>

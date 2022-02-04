@@ -11,7 +11,7 @@ import {
   ContentWrapper,
   PositionHexagon1,
   PositionHexagon2,
-  PositionHexagon3
+  PositionHexagon3,
 } from "./Information.style";
 import { IServiceContent, IServiceContents } from "@interfaces";
 import Hexagon from "../../../public/SVG/hexagon1.svg";

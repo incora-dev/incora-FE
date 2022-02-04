@@ -19,18 +19,23 @@ const Globe = ({ reviewIndex, points }: IGlobe) => {
   const globeEl: any = useRef();
 
   const pointsSpheres = (point: Point) => {
-    const coords = globeEl.current.getCoords(point.lat, point.lng, point.size);
-    const { x, y, z } = coords;
+    if (globeEl.current) {
+      const coords = globeEl.current.getCoords(
+        point.lat,
+        point.lng,
+        point.size
+      );
+      const { x, y, z } = coords;
+      const sphere = new Mesh(
+        new SphereBufferGeometry(point.radius),
+        new MeshLambertMaterial({ color: "white" })
+      );
+      sphere.position.x = x;
+      sphere.position.y = y;
+      sphere.position.z = z;
 
-    const sphere = new Mesh(
-      new SphereBufferGeometry(point.radius),
-      new MeshLambertMaterial({ color: "white" })
-    );
-    sphere.position.x = x;
-    sphere.position.y = y;
-    sphere.position.z = z;
-
-    return sphere;
+      return sphere;
+    }
   };
 
   const changePointOfView = useCallback(() => {

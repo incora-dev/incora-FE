@@ -37,7 +37,7 @@ export const GET_PROJECTS = gql`
             data {
               id
               attributes {
-                name
+                Technology_name
                 url
               }
             }
@@ -79,7 +79,7 @@ export const GET_PROJECT_PAGE = gql`
             data {
               id
               attributes {
-                name
+                Technology_name
                 url
               }
             }

@@ -133,7 +133,7 @@ export interface GetIndustryPage_industry_data_attributes_insights {
 
 export interface GetIndustryPage_industry_data_attributes_projects_data_attributes_technologies_data_attributes {
   __typename: "Technology";
-  name: string;
+  Technology_name: string | null;
   url: string | null;
 }
 

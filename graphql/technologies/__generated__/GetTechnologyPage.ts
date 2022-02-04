@@ -116,7 +116,7 @@ export interface GetTechnologyPage_technology_data_attributes_whyDevelopWithUs {
 
 export interface GetTechnologyPage_technology_data_attributes_projects_data_attributes_technologies_data_attributes {
   __typename: "Technology";
-  name: string;
+  Technology_name: string | null;
   url: string | null;
 }
 

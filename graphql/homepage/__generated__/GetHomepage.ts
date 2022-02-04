@@ -127,7 +127,7 @@ export interface GetHomepage_homePage_data_attributes_technologies_tech_stacks_d
 
 export interface GetHomepage_homePage_data_attributes_technologies_tech_stacks_data_attributes_technologies_data_attributes {
   __typename: "Technology";
-  name: string;
+  Technology_name: string | null;
   url: string | null;
   iconForOtherPages: GetHomepage_homePage_data_attributes_technologies_tech_stacks_data_attributes_technologies_data_attributes_iconForOtherPages | null;
 }
@@ -169,7 +169,7 @@ export interface GetHomepage_homePage_data_attributes_technologies {
 
 export interface GetHomepage_homePage_data_attributes_embodiedIdeas_projects_data_attributes_technologies_data_attributes {
   __typename: "Technology";
-  name: string;
+  Technology_name: string | null;
   url: string | null;
 }
 

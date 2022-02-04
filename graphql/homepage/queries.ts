@@ -70,7 +70,7 @@ export const GET_HOMEPAGE = gql`
                     data {
                       id
                       attributes {
-                        name
+                        Technology_name
                         url
                         iconForOtherPages {
                           data {
@@ -99,7 +99,7 @@ export const GET_HOMEPAGE = gql`
                     data {
                       id
                       attributes {
-                        name
+                        Technology_name
                         url
                       }
                     }

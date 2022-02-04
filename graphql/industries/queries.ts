@@ -80,7 +80,7 @@ export const GET_INDUSTRY_PAGE = gql`
                   data {
                     id
                     attributes {
-                      name
+                      Technology_name
                       url
                     }
                   }

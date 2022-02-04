@@ -4,13 +4,12 @@ export const ROUTES = {
   },
   CASE_STUDIES: "/case_studies/",
   SERVICES: "/services/",
-  INSIGHTS: "/insights",
-  ARTICLE: "/insights/",
+  INSIGHTS: "/insights/",
   CONTACTS: "/contacts/",
   COMPANY: {
     DEFAULT: "/company/",
     ABOUT: "/about/",
     CAREER: "/career/",
-    SEND_CV: "send_cv"
-  }
+    SEND_CV: "send_cv",
+  },
 };

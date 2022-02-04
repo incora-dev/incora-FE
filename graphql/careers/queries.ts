@@ -88,8 +88,8 @@ export const GET_CAREERS_PAGE = gql`
 `;
 
 export const GET_VACANCY = gql`
-  query GetVacancy($url: String) {
-    vacancies(filters: { url: { eq: $url } }) {
+  query GetVacancy($id: ID) {
+    vacancy(id: $id) {
       data {
         attributes {
           description

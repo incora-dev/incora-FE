@@ -1,29 +1,23 @@
-import MainMenu from "../../../components/mainMenu/mainMenu";
+import MainMenu from "../../../../components/mainMenu/mainMenu";
 import { useEffect, useState } from "react";
-import { theme } from "../../../styles/theme";
+import { theme } from "../../../../styles/theme";
 import Head from "next/head";
-import React from "../../../public/SVG/technologies/react.svg";
-import HeaderService from "../../../components/ServicePage/HeaderService";
-import WhyShouldUseTechnology from "../../../components/ExpertisePage/WhyShouldUseTechnology";
-import PopularWebsites from "../../../components/ExpertisePage/PopularWebsites";
-import News from "../../../components/News";
-import ContactUsComponent from "../../../components/Homepage/ContactUs";
+import React from "../../../../public/SVG/technologies/react.svg";
+import HeaderService from "../../../../components/ServicePage/HeaderService";
+import WhyShouldUseTechnology from "../../../../components/ExpertisePage/WhyShouldUseTechnology";
+import PopularWebsites from "../../../../components/ExpertisePage/PopularWebsites";
+import News from "../../../../components/News";
+import ContactUsComponent from "../../../../components/Homepage/ContactUs";
 import { IContactUs } from "@interfaces";
-import FooterComponent from "../../../components/Footer";
-import { IFooter } from "../../../interfaces/footer.interface";
+import FooterComponent from "../../../../components/Footer";
 
-import Instagram1 from "../../../public/SVG/socialNetwork/instagram.svg";
-import Facebook1 from "../../../public/SVG/socialNetwork/facebook.svg";
-import LinkedIn1 from "../../../public/SVG/socialNetwork/linkedIn.svg";
-import WhyDevelopWithUs from "../../../components/News/WhyDevelopWithUs";
-import { useRouter } from "next/router";
-import { useQuery } from "@apollo/client";
-import { GET_TECHNOLOGY_PAGE } from "../../../graphql/technologies/queries";
-import { GetTechnologyPage } from "../../../graphql/technologies/__generated__/GetTechnologyPage";
-import Custom404 from "../../404";
-import EmbodiedIdeasComponent from "../../../components/Homepage/EmbodiedIdeas";
-import { useIsMobile } from "../../../services/hooks";
-import { initializeApollo } from "../../../graphql/client";
+import WhyDevelopWithUs from "../../../../components/News/WhyDevelopWithUs";
+import { GET_TECHNOLOGY_PAGE } from "../../../../graphql/technologies/queries";
+import { GetTechnologyPage } from "../../../../graphql/technologies/__generated__/GetTechnologyPage";
+import Custom404 from "../../../404";
+import EmbodiedIdeasComponent from "../../../../components/Homepage/EmbodiedIdeas";
+import { useIsMobile } from "../../../../services/hooks";
+import { initializeApollo } from "../../../../graphql/client";
 import { NextPage, NextPageContext } from "next";
 
 const MainMenuTitles = [
@@ -55,7 +49,7 @@ interface ITechnology {
 }
 
 const Technology: NextPage<ITechnology> = ({ data, networkStatus }) => {
-  const entry = data?.technologies?.data[0].attributes;
+  const entry = data.technology?.data?.attributes;
   const headerTitle = entry?.name;
   const headerDescription = entry?.description;
   const headerLabel = entry?.tech_stack?.data?.attributes?.name;
@@ -99,7 +93,8 @@ const Technology: NextPage<ITechnology> = ({ data, networkStatus }) => {
     contactUsTitle &&
     contactUsSubtitle;
 
-  if (networkStatus !== 7) return <Custom404 />;
+  if (networkStatus !== 7 || data.technology?.data === null)
+    return <Custom404 />;
 
   return (
     <>
@@ -163,11 +158,11 @@ const Technology: NextPage<ITechnology> = ({ data, networkStatus }) => {
 
 export async function getServerSideProps(context: NextPageContext) {
   const client = initializeApollo();
-  const { technology } = context.query;
+  const { id } = context.query;
 
   const { data, networkStatus } = await client.query({
     query: GET_TECHNOLOGY_PAGE,
-    variables: { url: technology },
+    variables: { id },
   });
 
   return {

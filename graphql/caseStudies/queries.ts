@@ -59,8 +59,8 @@ export const GET_PROJECTS = gql`
 `;
 
 export const GET_PROJECT_PAGE = gql`
-  query GetProjectPage($url: String) {
-    projects(filters: { url: { eq: $url } }) {
+  query GetProjectPage($id: ID) {
+    project(id: $id) {
       data {
         attributes {
           name

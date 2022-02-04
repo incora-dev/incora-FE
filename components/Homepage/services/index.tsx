@@ -45,12 +45,11 @@ interface IServices {
 
 function ServicesComponent({ title, text, labels }: IServices) {
   const [onEnterBlock, setOnEnterBlock] = useState(false);
-  const {isMobile, isTablet, isSmallTablet} = useIsMobile();
-  
+  const { isMobile, isTablet, isSmallTablet } = useIsMobile();
 
   const label = labels.map((label, index) => {
     const id = label.id;
-    const url = ROUTES.SERVICES + label.attributes?.url;
+    const url = ROUTES.SERVICES + `${label.attributes?.url}/${id}`;
     const name = label.attributes?.name;
 
     return (

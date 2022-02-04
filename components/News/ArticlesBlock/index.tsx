@@ -1,11 +1,11 @@
 import createNews from "../CreatePosts";
 import ArticlePreview from "../CreatePosts";
-import { GetIndustryPage_industries_data_attributes_insights_articles_data } from "../../../graphql/industries/__generated__/GetIndustryPage";
+import { GetIndustryPage_industry_data_attributes_insights_articles_data } from "../../../graphql/industries/__generated__/GetIndustryPage";
 import { IMAGES_LINK } from "../../../constants/links";
 import { Container, ArticlesContainer } from "./ArticlesBlock.styles";
 
 interface IArticlesBlock {
-  articles: GetIndustryPage_industries_data_attributes_insights_articles_data[];
+  articles: GetIndustryPage_industry_data_attributes_insights_articles_data[];
 }
 
 const ArticlesBlock = ({ articles }: IArticlesBlock) => {

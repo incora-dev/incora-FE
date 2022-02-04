@@ -29,7 +29,7 @@ interface ICase {
 }
 
 const Case: NextPage<ICase> = ({ data, networkStatus }) => {
-  const entry = data?.projects?.data[0].attributes;
+  const entry = data?.project?.data?.attributes;
   const location = entry?.location?.data?.attributes;
   const technologies = entry?.technologies;
   const services = entry?.services;
@@ -52,7 +52,7 @@ const Case: NextPage<ICase> = ({ data, networkStatus }) => {
     galleryIntro &&
     galleryPictures;
 
-  if (networkStatus !== 7) return <Custom404 />;
+  if (networkStatus !== 7 || data.project?.data === null) return <Custom404 />;
 
   return (
     <>
@@ -85,11 +85,11 @@ const Case: NextPage<ICase> = ({ data, networkStatus }) => {
 
 export async function getServerSideProps(context: NextPageContext) {
   const client = initializeApollo();
-  const { name } = context.query;
+  const { id } = context.query;
 
   const { data, networkStatus } = await client.query({
     query: GET_PROJECT_PAGE,
-    variables: { url: name },
+    variables: { id },
   });
 
   return {

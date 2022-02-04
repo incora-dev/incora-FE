@@ -1,21 +1,21 @@
 import Head from "next/head";
-import React from "../../../public/SVG/technologies/react.svg";
-import MainMenu from "../../../components/mainMenu/mainMenu";
-import { theme } from "../../../styles/theme";
-import { titles } from "../../../constants";
-import HeaderService from "../../../components/ServicePage/HeaderService";
-import OfferedSolutions from "../../../components/ExpertisePage/OfferedSolutions";
+import React from "../../../../public/SVG/technologies/react.svg";
+import MainMenu from "../../../../components/mainMenu/mainMenu";
+import { theme } from "../../../../styles/theme";
+import { titles } from "../../../../constants";
+import HeaderService from "../../../../components/ServicePage/HeaderService";
+import OfferedSolutions from "../../../../components/ExpertisePage/OfferedSolutions";
 import { useEffect, useState } from "react";
-import NewsComponent from "../../../components/News";
-import ContactUsComponent from "../../../components/Homepage/ContactUs";
+import NewsComponent from "../../../../components/News";
+import ContactUsComponent from "../../../../components/Homepage/ContactUs";
 import { IContactUs } from "@interfaces";
-import FooterComponent from "../../../components/Footer";
-import { GET_INDUSTRY_PAGE } from "../../../graphql/industries/queries";
-import Custom404 from "../../404";
-import { GetIndustryPage } from "../../../graphql/industries/__generated__/GetIndustryPage";
-import EmbodiedIdeasComponent from "../../../components/Homepage/EmbodiedIdeas";
-import { useIsMobile } from "../../../services/hooks";
-import { initializeApollo } from "../../../graphql/client";
+import FooterComponent from "../../../../components/Footer";
+import { GET_INDUSTRY_PAGE } from "../../../../graphql/industries/queries";
+import Custom404 from "../../../404";
+import { GetIndustryPage } from "../../../../graphql/industries/__generated__/GetIndustryPage";
+import EmbodiedIdeasComponent from "../../../../components/Homepage/EmbodiedIdeas";
+import { useIsMobile } from "../../../../services/hooks";
+import { initializeApollo } from "../../../../graphql/client";
 import { NextPage, NextPageContext } from "next";
 
 const colorWhite = theme.colors.white;
@@ -38,7 +38,7 @@ interface IIndustry {
 }
 
 const Industry: NextPage<IIndustry> = ({ data, networkStatus }) => {
-  const entry = data?.industries?.data[0].attributes;
+  const entry = data.industry?.data?.attributes;
   const headerTitle = entry?.name;
   const headerDescription = entry?.description;
   const headerIcon = entry?.icon?.data?.attributes;
@@ -74,7 +74,7 @@ const Industry: NextPage<IIndustry> = ({ data, networkStatus }) => {
     articles &&
     projects;
 
-  if (networkStatus !== 7) return <Custom404 />;
+  if (networkStatus !== 7 || data.industry?.data === null) return <Custom404 />;
 
   return (
     <>
@@ -133,12 +133,12 @@ const Industry: NextPage<IIndustry> = ({ data, networkStatus }) => {
 
 export async function getServerSideProps(context: NextPageContext) {
   const client = initializeApollo();
-  const { industry } = context.query;
+  const { id } = context.query;
 
   const { data, networkStatus } = await client.query({
     query: GET_INDUSTRY_PAGE,
     variables: {
-      url: industry,
+      id,
     },
   });
 

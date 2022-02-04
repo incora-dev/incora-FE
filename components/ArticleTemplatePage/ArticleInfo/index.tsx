@@ -28,7 +28,7 @@ import ValuableIcon from "../../../public/SVG/Valuable.svg";
 import ExcitingIcon from "../../../public/SVG/Exciting.svg";
 import UnsatisfiedIcon from "../../../public/SVG/Unsatisfied.svg";
 import ReactMarkdown from "react-markdown";
-import { GetArticle_articles_data_attributes_tags_data } from "../../../graphql/insights/__generated__/GetArticle";
+import { GetArticle_article_data_attributes_tags_data } from "../../../graphql/insights/__generated__/GetArticle";
 import {
   FacebookShareButton,
   LinkedinShareButton,
@@ -40,13 +40,13 @@ import TwitterSVG from "../../../public/SVG/socialNetwork/TwitterSVG.svg";
 import { useMutation } from "@apollo/client";
 import { UPDATE_IMPRESSIONS_COUNT } from "../../../graphql/insights/mutations";
 import { UpdateImpressionsCount } from "../../../graphql/insights/__generated__/UpdateImpressionsCount";
-import { IImpressions } from "../../../pages/insights/[articleTemplate]";
+import { IImpressions } from "../../../pages/insights/[articleTemplate]/[id]";
 
 interface IArticleInfo {
   facebook: string | null | undefined;
   linkedIn: string | null | undefined;
   mainText: string;
-  tags: GetArticle_articles_data_attributes_tags_data[];
+  tags: GetArticle_article_data_attributes_tags_data[];
   impressions: IImpressions;
   id: string;
 }
@@ -109,19 +109,22 @@ function getElements(
 }
 
 function GetSocialIcons({ facebook, linkedIn }: ISocialIcons) {
+  const facebookCondition = facebook && (
+    <FacebookShareButton url={facebook}>
+      <FacebookSVG />
+    </FacebookShareButton>
+  );
+
+  const linkedInCondition = linkedIn && (
+    <LinkedinShareButton url={linkedIn}>
+      <LinkedInSvg />
+    </LinkedinShareButton>
+  );
+
   return (
     <Icons>
-      {facebook && (
-        <FacebookShareButton url={facebook}>
-          <FacebookSVG />
-        </FacebookShareButton>
-      )}
-
-      {linkedIn && (
-        <LinkedinShareButton url={linkedIn}>
-          <LinkedInSvg />
-        </LinkedinShareButton>
-      )}
+      {facebookCondition}
+      {linkedInCondition}
     </Icons>
   );
 }
@@ -242,6 +245,8 @@ const ArticleInfo = ({
     console.log(<ReactMarkdown>{mainText}</ReactMarkdown>);
   }, []);
 
+  const socialsCondition = facebook || linkedIn ? <P>Social title</P> : null;
+
   return (
     <Div>
       <Wrapper>
@@ -258,7 +263,7 @@ const ArticleInfo = ({
         <StickyWrapper>
           <SocialTitleAndTagsBlock>
             <SocialTitle>
-              {facebook || (linkedIn && <P>Social title</P>)}
+              {socialsCondition}
 
               <SocialIcons>
                 <GetSocialIcons facebook={facebook} linkedIn={linkedIn} />

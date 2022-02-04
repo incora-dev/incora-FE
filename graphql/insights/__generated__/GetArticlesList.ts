@@ -7,6 +7,16 @@
 // GraphQL query operation: GetArticlesList
 // ====================================================
 
+export interface GetArticlesList_articles_meta_pagination {
+  __typename: "Pagination";
+  total: number;
+}
+
+export interface GetArticlesList_articles_meta {
+  __typename: "ResponseCollectionMeta";
+  pagination: GetArticlesList_articles_meta_pagination;
+}
+
 export interface GetArticlesList_articles_data_attributes_industries_data_attributes {
   __typename: "Industry";
   name: string;
@@ -73,6 +83,7 @@ export interface GetArticlesList_articles_data {
 
 export interface GetArticlesList_articles {
   __typename: "ArticleEntityResponseCollection";
+  meta: GetArticlesList_articles_meta;
   data: GetArticlesList_articles_data[];
 }
 

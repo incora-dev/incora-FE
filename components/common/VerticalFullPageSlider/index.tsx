@@ -12,10 +12,7 @@ import { GetHomepage_homePage_data_attributes_coopSteps_steps } from "../../../g
 interface IVerticalFullPageSliderProps<T> {
   slides: T[];
   scrollListType?: ScrollListTypes;
-  renderSlide: (
-    slide: T,
-    index: number
-  ) => ReactNode;
+  renderSlide: (slide: T, index: number) => ReactNode;
   bgColor?: string;
   stickyTopPosition?: number;
   maxWidth?: number;
@@ -30,11 +27,12 @@ function VerticalFullPageSlider<T>({
   maxWidth,
 }: IVerticalFullPageSliderProps<T>) {
   const [scrollItemHeight, setScrollItemHeight] = useState(0);
-  const {isMobile, isTablet, isSmallTablet} = useIsMobile();
-  
-  // const [position, setPosition] = useState<string | number>('20vh');
-  const position = stickyTopPosition || `calc((100vh - ${MENU_HEIGHT}px) / 2 - ${scrollItemHeight / 2}px)`;
+  const { isMobile, isTablet, isSmallTablet } = useIsMobile();
 
+  // const [position, setPosition] = useState<string | number>('20vh');
+  const position =
+    stickyTopPosition ||
+    `calc((100vh - ${MENU_HEIGHT}px) / 2 - ${scrollItemHeight / 2}px)`;
 
   // useEffect(() => {
   //   if (isMobile !== undefined && isTablet !== undefined) {
@@ -45,14 +43,14 @@ function VerticalFullPageSlider<T>({
   //     setPosition(position);
   //   }
   // }, [isMobile, isTablet, isSmallTablet]);
-//   `calc((${isMobile ? "50vh" : "100vh"} - ${
-//     isMobile ? "650px" : MENU_HEIGHT
-//   }px) / 2 - ${scrollItemHeight / 2}px)`;
-// console.log(isMobile);
-// setPosition(position);
-// }
-// }, [isMobile]);
-  
+  //   `calc((${isMobile ? "50vh" : "100vh"} - ${
+  //     isMobile ? "650px" : MENU_HEIGHT
+  //   }px) / 2 - ${scrollItemHeight / 2}px)`;
+  // console.log(isMobile);
+  // setPosition(position);
+  // }
+  // }, [isMobile]);
+
   const [lastScrollTop, setLastScrollTop] = useState(0);
   const [currentSection, setCurrentSection] = useState(0);
   const [scrollBlockPosition, setScrollBlockPosition] = useState("absolute");
@@ -76,12 +74,8 @@ function VerticalFullPageSlider<T>({
         (currentSection === allSlides.length - 1 &&
           scrollTopPosition < MENU_HEIGHT)
       ) {
-        console.log("scrollTopPosition", scrollTopPosition);
-        console.log("MENU_HEIGHT", MENU_HEIGHT);
         setScrollBlockPosition("absolute");
       } else {
-        console.log("scrollTopPosition", scrollTopPosition);
-        console.log("MENU_HEIGHT", MENU_HEIGHT);
         setScrollBlockPosition("fixed");
       }
       if (
@@ -138,12 +132,16 @@ function VerticalFullPageSlider<T>({
     if (stickyTopPosition && scrollBlockPosition === "fixed")
       return `${stickyTopPosition + MENU_HEIGHT}px`;
     if (scrollBlockPosition === "fixed" || currentSection === slides.length - 1)
-      // return `calc((${isMobile || isTablet || isSmallTablet ? '50vh' : '100vh'} - ${isMobile || isTablet || isSmallTablet ? '650px' : MENU_HEIGHT}px) / 2 - ${scrollItemHeight / 2}px)`;
-      if (scrollBlockPosition === 'fixed' || currentSection === slides.length - 1) return 'auto';
+      if (
+        scrollBlockPosition === "fixed" ||
+        currentSection === slides.length - 1
+      )
+        // return `calc((${isMobile || isTablet || isSmallTablet ? '50vh' : '100vh'} - ${isMobile || isTablet || isSmallTablet ? '650px' : MENU_HEIGHT}px) / 2 - ${scrollItemHeight / 2}px)`;
+        return "auto";
 
-      // return `calc((${isMobile ? "50vh" : "100vh"} - ${
-      //   isMobile ? "650px" : MENU_HEIGHT
-      // }px) / 2 - ${scrollItemHeight / 2}px)`;
+    // return `calc((${isMobile ? "50vh" : "100vh"} - ${
+    //   isMobile ? "650px" : MENU_HEIGHT
+    // }px) / 2 - ${scrollItemHeight / 2}px)`;
     return position;
   };
 
@@ -151,7 +149,9 @@ function VerticalFullPageSlider<T>({
     if (scrollBlockPosition === "fixed") return position;
     if (currentSection === slides.length - 1) {
       if (stickyTopPosition)
-        return `calc(${isMobile || isTablet || isSmallTablet ? '50vh' : '100vh'} - ${
+        return `calc(${
+          isMobile || isTablet || isSmallTablet ? "50vh" : "100vh"
+        } - ${
           // return `calc(${isMobile ? "50vh" : "100vh"} - ${
           stickyTopPosition + MENU_HEIGHT + scrollItemHeight
         }px)`;
@@ -163,7 +163,8 @@ function VerticalFullPageSlider<T>({
   return (
     <SliderContainer bgColor={bgColor}>
       <SliderContent maxWidth={maxWidth}>
-        <div className="scroll-item-container"
+        <div
+          className="scroll-item-container"
           style={{
             position: scrollBlockPosition === "absolute" ? "absolute" : "fixed",
             bottom: getBottomPosition(),

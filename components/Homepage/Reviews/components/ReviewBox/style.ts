@@ -8,17 +8,17 @@ export const ReviewBoxWrapper = styled.div`
   min-height: 270px;
   display: flex;
   flex-direction: column;
-  //justify-content: space-between;
+  /* justify-content: space-between; */
 
   .right_btn {
     justify-content: flex-end;
   }
 
-  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+  @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
     width: 90%;
     min-height: fit-content;
   }
-  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+  @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
     width: 90%;
     min-height: fit-content;
   }
@@ -28,24 +28,24 @@ export const CarouselButtonWrapper = styled.div`
   width: 269px;
   display: flex;
   align-items: flex-end;
-  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+  @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
     width: 100%;
   }
 `;
 export const CarouselButtonsContainer = styled.div`
-  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+  @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
     display: flex;
     position: relative;
     left: 7vw;
   }
-  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+  @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
     display: flex;
     position: relative;
     left: 7vw;
   }
-  `;
+`;
 export const CarouselReviewWrapper = styled.div`
-  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+  @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -55,7 +55,7 @@ export const CarouselReviewWrapper = styled.div`
     top: -70px;
     gap: 10px;
   }
-  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+  @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -100,10 +100,10 @@ export const ReviewContentWrap = styled.div`
   display: flex;
   justify-content: space-between;
 
-  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+  @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
     width: 90%;
   }
-  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+  @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
     width: 90%;
   }
 `;

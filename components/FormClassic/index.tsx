@@ -128,6 +128,8 @@ function FormClassic({
                 fields={dropListLabels}
                 formTheme={formBlack}
                 setSelectedPurpose={setSelectedPurpose}
+                placeHolder={`What\'s your purpose?`}
+                width={'403px'}
               />
             }
 

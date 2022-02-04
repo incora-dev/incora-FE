@@ -7,17 +7,21 @@ interface IDropList {
   formTheme: boolean;
 }
 
+interface IDropListBlock{
+  formTheme: boolean;
+  width: string;
+}
+
 interface IInput {
   formTheme: boolean;
 }
 
 export const DropListBlock = styled.div`
    position: relative;
-   width: 400px;
    padding-bottom: 2px;
    display: inline-block;
    height: 41px;
-   background-color: ${({ formTheme }: IInput) =>
+   background-color: ${({ formTheme }: IDropListBlock) =>
     formTheme ? themeGet("colors.black") : themeGet("colors.white")};
    font-style: normal;
    font-weight: 500;
@@ -41,10 +45,10 @@ export const DropListBlock = styled.div`
 
 export const SelectBlock = styled.div`
    position: relative;
-   width: 400px;
+   width: ${({ width }: IDropListBlock) => width};
    margin: 0;
    padding-bottom: 2px;
-   display: inline-block;
+   display: flex;
    height: 41px;
    background-color: ${({ formTheme }: IInput) =>
     formTheme ? themeGet("colors.black") : themeGet("colors.white")};
@@ -72,9 +76,21 @@ export const SelectBlock = styled.div`
    }
 `;
 
+export const Label = styled.div`
+  display: flex;
+  column-gap: 10px;
+`;
+
 export const SelectPlaceholder = styled.p`
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 18px;
+
+  letter-spacing: 0.03em;
+
    color: ${({formTheme}: IInput) =>
-    formTheme ? themeGet("colors.font2") : themeGet("colors.font3")};
+     formTheme ? themeGet("colors.font2") : themeGet("colors.grey2")};
 `;
 
 export const SelectOption = styled.div`
@@ -100,12 +116,14 @@ export const SelectOption = styled.div`
    p {
      margin-bottom: 12px;
    }
-   
+`;
+
+export const ArrowWrapper = styled.div`
    svg {
      margin-bottom: 18px;
      path {
        fill: ${({ formTheme }: IInput) =>
-    formTheme ? themeGet("colors.white") : themeGet("colors.black")};
+        formTheme ? themeGet("colors.white") : themeGet("colors.black")};
      }
    }
 `;

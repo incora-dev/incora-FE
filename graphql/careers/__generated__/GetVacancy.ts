@@ -32,11 +32,36 @@ export interface GetVacancy_vacancy_data_attributes_filter_technologies {
   data: GetVacancy_vacancy_data_attributes_filter_technologies_data[];
 }
 
+export interface GetVacancy_vacancy_data_attributes_SEO_ogImage_data_attributes {
+  __typename: "UploadFile";
+  url: string;
+}
+
+export interface GetVacancy_vacancy_data_attributes_SEO_ogImage_data {
+  __typename: "UploadFileEntity";
+  attributes: GetVacancy_vacancy_data_attributes_SEO_ogImage_data_attributes | null;
+}
+
+export interface GetVacancy_vacancy_data_attributes_SEO_ogImage {
+  __typename: "UploadFileEntityResponse";
+  data: GetVacancy_vacancy_data_attributes_SEO_ogImage_data | null;
+}
+
+export interface GetVacancy_vacancy_data_attributes_SEO {
+  __typename: "ComponentCommonSeo";
+  ogTitle: string | null;
+  ogImage: GetVacancy_vacancy_data_attributes_SEO_ogImage | null;
+  keywords: string | null;
+  description: string | null;
+  ogDescription: string | null;
+}
+
 export interface GetVacancy_vacancy_data_attributes {
   __typename: "Vacancy";
   description: string;
   currentVacancies: GetVacancy_vacancy_data_attributes_currentVacancies;
   filter_technologies: GetVacancy_vacancy_data_attributes_filter_technologies | null;
+  SEO: GetVacancy_vacancy_data_attributes_SEO | null;
 }
 
 export interface GetVacancy_vacancy_data {

@@ -7,11 +7,36 @@
 // GraphQL query operation: GetInsightsPage
 // ====================================================
 
+export interface GetInsightsPage_insightsPage_data_attributes_SEO_ogImage_data_attributes {
+  __typename: "UploadFile";
+  url: string;
+}
+
+export interface GetInsightsPage_insightsPage_data_attributes_SEO_ogImage_data {
+  __typename: "UploadFileEntity";
+  attributes: GetInsightsPage_insightsPage_data_attributes_SEO_ogImage_data_attributes | null;
+}
+
+export interface GetInsightsPage_insightsPage_data_attributes_SEO_ogImage {
+  __typename: "UploadFileEntityResponse";
+  data: GetInsightsPage_insightsPage_data_attributes_SEO_ogImage_data | null;
+}
+
+export interface GetInsightsPage_insightsPage_data_attributes_SEO {
+  __typename: "ComponentCommonSeo";
+  ogTitle: string | null;
+  ogImage: GetInsightsPage_insightsPage_data_attributes_SEO_ogImage | null;
+  keywords: string | null;
+  description: string | null;
+  ogDescription: string | null;
+}
+
 export interface GetInsightsPage_insightsPage_data_attributes {
   __typename: "InsightsPage";
   title: string;
   description: string;
   searchBarText: string;
+  SEO: GetInsightsPage_insightsPage_data_attributes_SEO | null;
 }
 
 export interface GetInsightsPage_insightsPage_data {

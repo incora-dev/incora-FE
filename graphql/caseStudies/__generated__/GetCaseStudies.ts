@@ -13,11 +13,36 @@ export interface GetCaseStudies_caseStudiesPage_data_attributes_contactUs {
   subtitle: string;
 }
 
+export interface GetCaseStudies_caseStudiesPage_data_attributes_SEO_ogImage_data_attributes {
+  __typename: "UploadFile";
+  url: string;
+}
+
+export interface GetCaseStudies_caseStudiesPage_data_attributes_SEO_ogImage_data {
+  __typename: "UploadFileEntity";
+  attributes: GetCaseStudies_caseStudiesPage_data_attributes_SEO_ogImage_data_attributes | null;
+}
+
+export interface GetCaseStudies_caseStudiesPage_data_attributes_SEO_ogImage {
+  __typename: "UploadFileEntityResponse";
+  data: GetCaseStudies_caseStudiesPage_data_attributes_SEO_ogImage_data | null;
+}
+
+export interface GetCaseStudies_caseStudiesPage_data_attributes_SEO {
+  __typename: "ComponentCommonSeo";
+  ogTitle: string | null;
+  ogImage: GetCaseStudies_caseStudiesPage_data_attributes_SEO_ogImage | null;
+  keywords: string | null;
+  description: string | null;
+  ogDescription: string | null;
+}
+
 export interface GetCaseStudies_caseStudiesPage_data_attributes {
   __typename: "CaseStudiesPage";
   title: string;
   description: string;
   contactUs: GetCaseStudies_caseStudiesPage_data_attributes_contactUs;
+  SEO: GetCaseStudies_caseStudiesPage_data_attributes_SEO | null;
 }
 
 export interface GetCaseStudies_caseStudiesPage_data {

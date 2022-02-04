@@ -108,6 +108,19 @@ export const GET_VACANCY = gql`
               }
             }
           }
+          SEO {
+            ogTitle
+            ogImage {
+              data {
+                attributes {
+                  url
+                }
+              }
+            }
+            keywords
+            description
+            ogDescription
+          }
         }
       }
     }

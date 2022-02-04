@@ -13,6 +13,8 @@ import { GetAboutPage } from "../../graphql/companyAbout/__generated__/GetAboutP
 import Custom404 from "../404";
 import { initializeApollo } from "../../graphql/client";
 import { NextPage } from "next";
+import {IMAGES_LINK} from "../../constants";
+import Head from "next/head";
 
 const titles = [
   "Services",
@@ -45,31 +47,50 @@ const CompanyAbout: NextPage<ICompanyAbout> = ({ data, networkStatus }) => {
   const insightsTitle = entry?.insights.intro;
   const articles = entry?.insights.articles?.data;
 
+  const seoTitle = entry?.SEO?.ogTitle;
+  const seoKeywords = entry?.SEO?.keywords;
+  const seoDescription = entry?.SEO?.description;
+  const seoImage = (entry?.SEO?.ogImage?.data?.attributes?.url !== undefined)
+    && `${IMAGES_LINK}${entry?.SEO?.ogImage?.data?.attributes?.url}`;
+
   if (networkStatus !== 7) return <Custom404 />;
 
   return (
     <>
       {entry && insightsTitle && articles && (
-        <MainMenu
-          titlesColor={theme.colors.black}
-          titles={titles}
-          backgroundColor={theme.colors.white}
-        >
-          <Introduction
-            mainInfo={entry.mainInfo}
-            bannerImage={entry.bannerImage}
-          />
-          <OurTraditions ourTraditions={entry.ourTraditions} />
-          <NewsComponent title={insightsTitle} articles={articles} />
-          <IconsBlock />
-          <ContactUsComponent
-            title={entry.contactUs.title}
-            text={entry.contactUs.subtitle}
-            addresses={addresses}
-            buttonLabel={buttonLabel}
-          />
-          <FooterComponent />
-        </MainMenu>
+        <>
+          <Head>
+            { seoTitle && <title>{seoTitle}</title> }
+            <meta property="og:site_name" content="Incora - European software development company" />
+            <meta property="og:type" content="article" />
+            { seoTitle && <title>{seoTitle}</title> }
+            { seoDescription && <meta name="description" content={seoDescription}/> }
+            { seoKeywords && <meta name="keywords" content={seoKeywords} /> }
+            { seoTitle && <meta property="og:title" content={seoTitle} /> }
+            { seoDescription && <meta property="og:description" content={seoDescription} /> }
+            { seoImage && <meta property="og:url" content={seoImage}/> }
+          </Head>
+          <MainMenu
+              titlesColor={theme.colors.black}
+              titles={titles}
+              backgroundColor={theme.colors.white}
+          >
+            <Introduction
+                mainInfo={entry.mainInfo}
+                bannerImage={entry.bannerImage}
+            />
+            <OurTraditions ourTraditions={entry.ourTraditions} />
+            <NewsComponent title={insightsTitle} articles={articles} />
+            <IconsBlock />
+            <ContactUsComponent
+                title={entry.contactUs.title}
+                text={entry.contactUs.subtitle}
+                addresses={addresses}
+                buttonLabel={buttonLabel}
+            />
+            <FooterComponent />
+          </MainMenu>
+        </>
       )}
     </>
   );

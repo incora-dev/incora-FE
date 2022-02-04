@@ -12,6 +12,20 @@ export const GET_CASE_STUDIES = gql`
             title
             subtitle
           }
+
+          SEO {
+            ogTitle
+            ogImage {
+              data {
+                attributes {
+                  url
+                }
+              }
+            }
+            keywords
+            description
+            ogDescription
+          }
         }
       }
     }
@@ -182,6 +196,20 @@ export const GET_PROJECT_PAGE = gql`
           contactUs {
             title
             subtitle
+          }
+          
+          SEO {
+            ogTitle
+            ogImage {
+              data {
+                attributes {
+                  url
+                }
+              }
+            }
+            keywords
+            description
+            ogDescription
           }
         }
       }

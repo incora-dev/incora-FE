@@ -5,20 +5,6 @@ export const GET_CAREERS_PAGE = gql`
     careersPage(publicationState: LIVE) {
       data {
         attributes {
-          SEO {
-            ogTitle
-            ogImage {
-              data {
-                attributes {
-                  url
-                }
-              }
-            }
-            keywords
-            description
-            ogDescription
-          }
-
           banner {
             title
             description

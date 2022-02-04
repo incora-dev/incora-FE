@@ -1,7 +1,7 @@
 import FormClassic from "../../FormClassic";
 import { ContentWrap, LetsReactOutWrapper } from "./style";
 import Hexagon from "../../../public/SVG/hexagon1.svg";
-import WhiteSemicircle from "../../../public/SVG/whiteSemiCircle.svg";
+import WhiteSemicircle from "../../../public/SVG/whiteSemicircle.svg";
 import { GetCaseStudies_caseStudiesPage_data_attributes_contactUs } from "../../../graphql/caseStudies/__generated__/GetCaseStudies";
 import FilesUploader from "../../FormClassic/FilesUploader";
 import { useState } from "react";

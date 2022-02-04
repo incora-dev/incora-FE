@@ -1,0 +1,23 @@
+{
+  "/404": "pages/404.html",
+  "/_app": "pages/_app.js",
+  "/_document": "pages/_document.js",
+  "/app_estimation": "pages/app_estimation.html",
+  "/case_studies/[name]/[id]": "pages/case_studies/[name]/[id].js",
+  "/case_studies": "pages/case_studies.js",
+  "/company/[vacancy]/[id]": "pages/company/[vacancy]/[id].js",
+  "/company/about": "pages/company/about.js",
+  "/company/career": "pages/company/career.js",
+  "/company/send_cv": "pages/company/send_cv.html",
+  "/contacts": "pages/contacts.js",
+  "/expertise/industries/[industry]/[id]": "pages/expertise/industries/[industry]/[id].js",
+  "/expertise/technologies/[technology]/[id]": "pages/expertise/technologies/[technology]/[id].js",
+  "/": "pages/index.js",
+  "/insights/[articleTemplate]/[id]": "pages/insights/[articleTemplate]/[id].js",
+  "/insights": "pages/insights.js",
+  "/privacy_policy": "pages/privacy_policy.js",
+  "/services/[services]/[id]": "pages/services/[services]/[id].js",
+  "/services": "pages/services.js",
+  "/test": "pages/test.html",
+  "/_error": "pages/_error.js"
+}

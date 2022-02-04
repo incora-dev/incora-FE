@@ -10,9 +10,13 @@ export const ReviewsHeaderWrapper = styled.div`
   align-items: center;
   margin-bottom: 50px;
 
-  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+  @media only screen and (max-width: ${themeGet('breakpoints.tabletPro')}) {
     width: 100%;
-    padding: 0 15px;
+    padding: 0 25px;
+    margin-bottom: 20px;
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
     margin-bottom: 20px;
   }
   @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {

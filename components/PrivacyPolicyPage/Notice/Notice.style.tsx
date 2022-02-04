@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import themeGet from "@styled-system/theme-get";
 
 interface IDisplay {
   shouldShowNotice: boolean | null;
@@ -16,11 +15,17 @@ export const Div = styled.div`
   a {
     position: relative;
 
-    @media only screen and (max-width: ${themeGet('breakpoints.tabletPro')}) {
+    @media only screen and (max-width: 1024px) {
       font-weight: 600;
       display: inline-block;
       padding-left: 0;
     }
+
+    @media only screen and (max-width: 481px) {
+      font-weight: 600;
+      padding-left: 7px;
+    }
+
     &:after {
       position: absolute;
       bottom: 5px;
@@ -33,7 +38,7 @@ export const Div = styled.div`
       width: 94px;
       background-color: #FEC602;
 
-      @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) { 
+      @media only screen and (max-width: 481px) { 
         bottom: 2px;
         right: 0;
         width: 82px;
@@ -48,11 +53,11 @@ export const Wrapper = styled.div`
   width: 100vw;
   padding: 16.5px 0;
 
-  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+  @media only screen and (max-width: 912px) {
     padding: 10px 25px;
   }
 
-  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+  @media only screen and (max-width: 481px) {
     padding: 5px 15px;
   }
 `;
@@ -65,13 +70,13 @@ export const TextBlock = styled.div`
   align-items: center;
   justify-content: center;
   column-gap: 37px;
-  color: ${themeGet("colors.black")};
+  color: #18181A;
 
-  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+  @media only screen and (max-width: 912px) {
     width: 100%;
   }
 
-  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+  @media only screen and (max-width: 481px) {
     display: block;
     width: 100%;
   }
@@ -87,7 +92,7 @@ export const H3 = styled.h3`
 
   color: #18181A;
 
-  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+  @media only screen and (max-width: 481px) {
     font-size: var(--fs-14);
   }
 `;
@@ -110,7 +115,7 @@ export const Button = styled.div`
   
   background-color: #18181A;
 
-  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+  @media only screen and (max-width: 481px) {
     padding: 8px 61.5px;
     margin-top: 3px;
   }

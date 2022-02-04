@@ -75,6 +75,7 @@ const Home: NextPage<IHome> = ({ data, networkStatus }) => {
   const aboutUsDescription = entry?.aboutUs.description;
   const technologiesTitle = entry?.technologies.title;
   const techStacks = entry?.technologies.tech_stacks?.data;
+  const reviews = entry?.aboutUs.feedbacks?.data;
 
   const renderSlide = (
     slide: GetHomepage_homePage_data_attributes_coopSteps_steps | null,
@@ -104,7 +105,8 @@ const Home: NextPage<IHome> = ({ data, networkStatus }) => {
     aboutUsTitle &&
     aboutUsDescription &&
     technologiesTitle &&
-    techStacks;
+    techStacks &&
+    reviews;
 
   if (networkStatus !== 7) return <Custom404 />;
 
@@ -157,7 +159,7 @@ const Home: NextPage<IHome> = ({ data, networkStatus }) => {
                 title={aboutUsTitle}
                 text={aboutUsDescription}
               />
-              {/* <Reviews /> */}
+              <Reviews reviews={reviews} />
               <section>
                 <NewsComponent title={newsTitle} articles={articles} />
               </section>

@@ -251,6 +251,8 @@ export interface GetHomepage_homePage_data_attributes_aboutUs_video {
 export interface GetHomepage_homePage_data_attributes_aboutUs_feedbacks_data_attributes_clientPhoto_data_attributes {
   __typename: "UploadFile";
   url: string;
+  width: number | null;
+  height: number | null;
 }
 
 export interface GetHomepage_homePage_data_attributes_aboutUs_feedbacks_data_attributes_clientPhoto_data {
@@ -263,12 +265,50 @@ export interface GetHomepage_homePage_data_attributes_aboutUs_feedbacks_data_att
   data: GetHomepage_homePage_data_attributes_aboutUs_feedbacks_data_attributes_clientPhoto_data | null;
 }
 
+export interface GetHomepage_homePage_data_attributes_aboutUs_feedbacks_data_attributes_project_data_attributes_location_data_attributes_location {
+  __typename: "ComponentProjectLocation";
+  lat: number;
+  lng: number;
+  id: string;
+}
+
+export interface GetHomepage_homePage_data_attributes_aboutUs_feedbacks_data_attributes_project_data_attributes_location_data_attributes {
+  __typename: "Location";
+  location: GetHomepage_homePage_data_attributes_aboutUs_feedbacks_data_attributes_project_data_attributes_location_data_attributes_location | null;
+}
+
+export interface GetHomepage_homePage_data_attributes_aboutUs_feedbacks_data_attributes_project_data_attributes_location_data {
+  __typename: "LocationEntity";
+  attributes: GetHomepage_homePage_data_attributes_aboutUs_feedbacks_data_attributes_project_data_attributes_location_data_attributes | null;
+}
+
+export interface GetHomepage_homePage_data_attributes_aboutUs_feedbacks_data_attributes_project_data_attributes_location {
+  __typename: "LocationEntityResponse";
+  data: GetHomepage_homePage_data_attributes_aboutUs_feedbacks_data_attributes_project_data_attributes_location_data | null;
+}
+
+export interface GetHomepage_homePage_data_attributes_aboutUs_feedbacks_data_attributes_project_data_attributes {
+  __typename: "Project";
+  location: GetHomepage_homePage_data_attributes_aboutUs_feedbacks_data_attributes_project_data_attributes_location | null;
+}
+
+export interface GetHomepage_homePage_data_attributes_aboutUs_feedbacks_data_attributes_project_data {
+  __typename: "ProjectEntity";
+  attributes: GetHomepage_homePage_data_attributes_aboutUs_feedbacks_data_attributes_project_data_attributes | null;
+}
+
+export interface GetHomepage_homePage_data_attributes_aboutUs_feedbacks_data_attributes_project {
+  __typename: "ProjectEntityResponse";
+  data: GetHomepage_homePage_data_attributes_aboutUs_feedbacks_data_attributes_project_data | null;
+}
+
 export interface GetHomepage_homePage_data_attributes_aboutUs_feedbacks_data_attributes {
   __typename: "Feedback";
   text: string;
   clientName: string;
   clientPosition: string;
   clientPhoto: GetHomepage_homePage_data_attributes_aboutUs_feedbacks_data_attributes_clientPhoto;
+  project: GetHomepage_homePage_data_attributes_aboutUs_feedbacks_data_attributes_project | null;
 }
 
 export interface GetHomepage_homePage_data_attributes_aboutUs_feedbacks_data {

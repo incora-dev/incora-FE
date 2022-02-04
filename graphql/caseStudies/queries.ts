@@ -24,6 +24,19 @@ export const GET_CASE_STUDIES = gql`
         }
       }
     }
+
+    locations {
+      data {
+        attributes {
+          country
+          location {
+            lat
+            lng
+            id
+          }
+        }
+      }
+    }
   }
 `;
 

@@ -27,17 +27,19 @@ interface ICaseStudies {
 
 const CaseStudies: NextPage<ICaseStudies> = ({ data, networkStatus }) => {
   const [currentIndustryTag, setCurrentIndustryTag] = useState<string>("all");
-  const industry = currentIndustryTag === "all" ? undefined : currentIndustryTag;
+  const industry =
+    currentIndustryTag === "all" ? undefined : currentIndustryTag;
 
   const entry = data?.caseStudiesPage?.data?.attributes;
   const industries = data?.industries?.data;
+  const location = data?.locations?.data;
 
   const [filterByFlag, setFilterByFlag] = useState(false);
   const { black, white } = theme.colors;
   const menuBackgroundCondition = filterByFlag ? black : white;
   const titlesColorCondition = filterByFlag ? white : black;
 
-  const renderCondition = entry && industries;
+  const renderCondition = entry && industries && location;
 
   if (networkStatus !== 7) return <Custom404 />;
 
@@ -50,6 +52,7 @@ const CaseStudies: NextPage<ICaseStudies> = ({ data, networkStatus }) => {
           titles={titles}
         >
           <CaseFilter
+            locations={location}
             industries={industries}
             filterByFlag={filterByFlag}
             setFilterByFlag={setFilterByFlag}

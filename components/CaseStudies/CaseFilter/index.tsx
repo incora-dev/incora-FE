@@ -1,11 +1,12 @@
-import { Dispatch, SetStateAction, useEffect } from "react";
+import { Dispatch, SetStateAction, useEffect, useRef } from "react";
 import { useDispatch } from "react-redux";
 import {
   GetCaseStudies_industries_data,
+  GetCaseStudies_locations_data,
 } from "../../../graphql/caseStudies/__generated__/GetCaseStudies";
 import { useIsMobile } from "../../../services/hooks";
 import { theme } from "../../../styles/theme";
-import Globe from "../../common/Globe";
+import Globe, { Point } from "../../common/Globe";
 import { getReview } from "../../Homepage/actions";
 import Switch from "./components/Switch";
 import Tags from "./components/Tags";
@@ -24,6 +25,7 @@ interface ICaseFilter {
   description: string | null;
   setCurrentIndustryTag: Dispatch<SetStateAction<string>>;
   industries: GetCaseStudies_industries_data[];
+  locations: GetCaseStudies_locations_data[];
 }
 
 const CaseFilter = ({
@@ -33,8 +35,10 @@ const CaseFilter = ({
   description,
   setCurrentIndustryTag,
   industries,
+  locations,
 }: ICaseFilter) => {
   const { isMobile, isTablet, isSmallTablet } = useIsMobile();
+  let points = useRef<Point[]>();
 
   const dispatch = useDispatch();
 
@@ -54,7 +58,28 @@ const CaseFilter = ({
     <Tags setCurrentIndustryTag={setCurrentIndustryTag} labels={industries} />
   );
 
-  const globeCondition = <Globe reviewIndex={0} />;
+  useEffect(() => {
+    points.current = locations.map((location, index) => {
+      const coord = location.attributes?.location;
+      const country = location.attributes?.country;
+      const lat = coord?.lat;
+      const lng = coord?.lng;
+      const size = index === 0 ? 0.06 : 0.03;
+      const radius = index === 0 ? 1 : 0.6;
+
+      return {
+        lat,
+        lng,
+        size,
+        radius,
+        country,
+      };
+    });
+  });
+
+  const globeCondition = points.current && (
+    <Globe reviewIndex={0} points={points.current} />
+  );
 
   return (
     <CaseFilterWrapper filterByFlag={filterByFlag}>

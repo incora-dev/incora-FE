@@ -19,10 +19,6 @@ function Projects({ projects, elementsColor }: IProjects) {
   const [shouldHover, setShouldHover] = useState(-1);
   const { isMobile, isTablet, isSmallTablet } = useIsMobile();
 
-  useEffect(() => {
-    console.log("projects", projects);
-  });
-
   function createProjects(): JSX.Element[] {
     return projects.map(({ id, attributes }, index) => {
       const flexDirection = (index + 1) % 10 !== 2 ? "row" : "row-reverse";

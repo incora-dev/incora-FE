@@ -67,7 +67,7 @@ function Navigation({
     toggleHoverMenuMode();
   };
 
-  const toggleMenuOnClick = (pageTitle) => {
+  const toggleMenuOnClick = (pageTitle: string) => {
     if (selectedTitle && selectedTitle === pageTitle) {
       setOnHoverElement(pageTitle);
       setSelectedTitle(pageTitle);

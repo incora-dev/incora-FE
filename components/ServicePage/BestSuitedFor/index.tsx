@@ -12,15 +12,15 @@ import { firstLetterBig } from "../../../utils";
 import Dots from "../../Homepage/Cooperate/elements/dots/dots";
 import { theme } from "../../../styles/theme";
 import { useState } from "react";
-import { GetService_services_data_attributes_bestSuitedFor_items } from "../../../graphql/services/__generated__/GetService";
+import { GetService_service_data_attributes_bestSuitedFor_items } from "../../../graphql/services/__generated__/GetService";
 
 interface IBestSuitedFor {
   title: string;
-  info: (GetService_services_data_attributes_bestSuitedFor_items | null)[];
+  info: (GetService_service_data_attributes_bestSuitedFor_items | null)[];
 }
 
 interface IGetContent {
-  labels: (GetService_services_data_attributes_bestSuitedFor_items | null)[];
+  labels: (GetService_service_data_attributes_bestSuitedFor_items | null)[];
   onBlockEnter: boolean;
 }
 

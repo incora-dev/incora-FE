@@ -54,7 +54,7 @@ const CaseFilter = ({
     <Tags setCurrentIndustryTag={setCurrentIndustryTag} labels={industries} />
   );
 
-  const globeCondition = <Globe reviewIndex={0} />;
+  const globeCondition = <Globe reviewIndex={0} points={[]} />;
 
   return (
     <CaseFilterWrapper filterByFlag={filterByFlag}>

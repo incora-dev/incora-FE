@@ -70,9 +70,8 @@ function arrowWithText(text: string, linkClickHandler: () => void) {
   )
 }
 
-function getElementsTop(titleColor: string, linkClickHandler: () => void) {
-      const {isMobile, isTablet, isSmallTablet} = useIsMobile();
-  
+const useGetElementsTop = (titleColor: string, linkClickHandler: () => void) => {
+  const {isMobile, isTablet, isSmallTablet} = useIsMobile();
 
   return (
     <>
@@ -113,7 +112,7 @@ function getElementsTop(titleColor: string, linkClickHandler: () => void) {
   )
 }
 
-function getElementsBottom(titleColor: string, linkClickHandler: () => void) {
+function useGetElementsBottom(titleColor: string, linkClickHandler: () => void) {
         const {isMobile, isTablet, isSmallTablet} = useIsMobile();
   
 
@@ -166,14 +165,15 @@ function getAllServices(text: string, linkClickHandler: () => void) {
     )
 }
 
+// eslint-disable-next-line react/display-name
 const ServicesHoverElement = forwardRef(({ titleColor, isShow, backgroundColor }: IServicesHoverElement, ref) => {
   const { toggleHoverMenuMode, toggleMenuMode  } = useContext(MenuContext);
   const linkClickHandler = () => {
     toggleMenuMode();
     toggleHoverMenuMode();
   }
-  const elementsTop = getElementsTop(titleColor, linkClickHandler);
-  const elementsBottom = getElementsBottom(titleColor, linkClickHandler);
+  const elementsTop = useGetElementsTop(titleColor, linkClickHandler);
+  const elementsBottom = useGetElementsBottom(titleColor, linkClickHandler);
   const services = getServices(servicesLabel, linkClickHandler);
   const getAllServicesText = getAllServices('All services', linkClickHandler);
   const dotsColor = (titleColor: string) =>
@@ -182,8 +182,6 @@ const ServicesHoverElement = forwardRef(({ titleColor, isShow, backgroundColor }
       : theme.colors.white
   ;
     const {isMobile, isTablet, isSmallTablet} = useIsMobile();
-  
-
 
   return (
     <MainWrapper titleColor={titleColor}>

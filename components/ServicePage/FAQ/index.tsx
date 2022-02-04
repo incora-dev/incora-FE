@@ -15,11 +15,11 @@ import {
 import PlusIcon from "../../../public/icons/plusIcon.svg";
 import MinusIcon from "../../../public/icons/minusIcon.svg";
 import { Dispatch, SetStateAction, useState } from "react";
-import { GetService_services_data_attributes_faq_items } from "../../../graphql/services/__generated__/GetService";
+import { GetService_service_data_attributes_faq_items } from "../../../graphql/services/__generated__/GetService";
 
 interface IFaq {
   title?: string;
-  items?: (GetService_services_data_attributes_faq_items | null)[];
+  items?: (GetService_service_data_attributes_faq_items | null)[];
   titles?: string[];
   content?: any;
   textColor?: string;
@@ -27,7 +27,7 @@ interface IFaq {
 }
 
 interface IDescription {
-  items?: (GetService_services_data_attributes_faq_items | null)[];
+  items?: (GetService_service_data_attributes_faq_items | null)[];
   blockIndex: number;
   setBlockIndex: Dispatch<SetStateAction<number>>;
   titles?: string[];

@@ -16,12 +16,12 @@ import {
   RightContent,
 } from "./style";
 import ArrowRight from "../../../public/SVG/ArrowRightYellow.svg";
-import { GetProjectPage_projects_data_attributes_gallery_pictures_data } from "../../../graphql/caseStudies/__generated__/GetProjectPage";
+import { GetProjectPage_project_data_attributes_gallery_pictures_data } from "../../../graphql/caseStudies/__generated__/GetProjectPage";
 import { IMAGES_LINK } from "../../../constants";
 
 interface HorizontalSliderProps {
   intro: string;
-  slides: GetProjectPage_projects_data_attributes_gallery_pictures_data[];
+  slides: GetProjectPage_project_data_attributes_gallery_pictures_data[];
   maxWidth?: number;
 }
 

@@ -51,6 +51,7 @@ const Project = ({ id, project, index, elementsColor}: any) => {
         </Text>
 
         <PictureWithAnimation
+          id={id}
           img={image}
           width={imageEntry.width || 0}
           height={imageEntry.height || 0}

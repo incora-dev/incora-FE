@@ -6,8 +6,6 @@ import { GetCaseStudies_caseStudiesPage_data_attributes_contactUs } from "../../
 import FilesUploader from "../../FormClassic/FilesUploader";
 import { useState } from "react";
 
-const formLabels = ["name", "phone number", "email", "linkedIn"];
-
 interface ILersReachOut {
   contactUs: GetCaseStudies_caseStudiesPage_data_attributes_contactUs;
 }

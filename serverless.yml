@@ -1,0 +1,22 @@
+myNextApp:
+  component: "@sls-next/serverless-component@3.6.0"
+  inputs:
+    name:
+      defaultLambda: defaultLambda
+      apiLambda: apiLambda
+      imageLambda: imageLambda
+    imageOptimizer: true
+    bucketName: incora-frontend
+    cloudfront:
+      distributionId: E2FTD4NA8NWK11
+      defaults:
+        forward:
+          headers: [ Accept ]
+    memory:
+      defaultLambda: 1024
+      apiLambda: 1024
+      imageLambda: 1024
+    timeout:
+      defaultLambda: 30
+      apiLambda: 30
+      imageLambda: 30

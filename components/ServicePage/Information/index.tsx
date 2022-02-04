@@ -16,18 +16,18 @@ import {
 import { IServiceContent, IServiceContents } from "@interfaces";
 import Hexagon from "../../../public/SVG/hexagon1.svg";
 import {
-  GetService_services_data_attributes_whyDoYouNeed,
-  GetService_services_data_attributes_whyDoYouNeed_items,
+  GetService_service_data_attributes_whyDoYouNeed,
+  GetService_service_data_attributes_whyDoYouNeed_items,
 } from "../../../graphql/services/__generated__/GetService";
 import Image from "next/image";
 import { IMAGES_LINK } from "../../../constants";
 
 interface IInformation {
-  content: GetService_services_data_attributes_whyDoYouNeed;
+  content: GetService_service_data_attributes_whyDoYouNeed;
 }
 
 interface IGetContent {
-  content: (GetService_services_data_attributes_whyDoYouNeed_items | null)[];
+  content: (GetService_service_data_attributes_whyDoYouNeed_items | null)[];
 }
 
 const GetContent = ({ content }: IGetContent) => {

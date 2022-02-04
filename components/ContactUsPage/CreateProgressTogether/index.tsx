@@ -16,7 +16,6 @@ interface ICreateProgressTogether {
   title: string;
 }
 
-const formLabels = ['name', 'phone number', 'email', 'linkedIn link', 'Tell us about your goals?', 'What\'s your purpose?'];
 const uploadFilesLabel = () =>
     <>
       <div><span>Upload your Project Description</span> or anything that might be valuable for our cooperation</div>

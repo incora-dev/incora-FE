@@ -11,8 +11,7 @@ import {
 import { theme } from "../../../styles/theme";
 import Elements from "../../Elements";
 import {
-  GetIndustryPage_industries_data_attributes_icon,
-  GetIndustryPage_industries_data_attributes_icon_data_attributes,
+  GetIndustryPage_industry_data_attributes_icon_data_attributes,
 } from "../../../graphql/industries/__generated__/GetIndustryPage";
 import Image from "next/image";
 import { IMAGES_LINK } from "../../../constants";
@@ -21,7 +20,7 @@ interface IHeaderService {
   title: string;
   titleSize?: string;
   text: string;
-  icon: GetIndustryPage_industries_data_attributes_icon_data_attributes;
+  icon: GetIndustryPage_industry_data_attributes_icon_data_attributes;
   label?: string;
   textWidth: string;
   bgColor?: string;

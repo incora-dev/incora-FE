@@ -64,6 +64,20 @@ export const GET_CAREERS_PAGE = gql`
               }
             }
           }
+
+          SEO {
+            ogTitle
+            ogImage {
+              data {
+                attributes {
+                  url
+                }
+              }
+            }
+            keywords
+            description
+            ogDescription
+          }
         }
       }
     }

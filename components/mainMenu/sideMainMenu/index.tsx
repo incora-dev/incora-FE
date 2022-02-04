@@ -20,7 +20,7 @@ export interface ISideMenu {
   titles: string[];
   positionType?: string;
 }
-
+// eslint-disable-next-line react/display-name
 export const SideMenu = forwardRef(({ 
     backgroundColor, 
     titlesColor,

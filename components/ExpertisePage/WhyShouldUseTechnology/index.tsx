@@ -9,17 +9,17 @@ import {
   Text,
 } from "./WhyShouldUseTechnology.style";
 import { firstLetterBig } from "../../../utils";
-import { GetTechnologyPage_technologies_data_attributes_whyShouldYouUse_items } from "../../../graphql/technologies/__generated__/GetTechnologyPage";
+import { GetTechnologyPage_technology_data_attributes_whyShouldYouUse_items } from "../../../graphql/technologies/__generated__/GetTechnologyPage";
 
 interface IWhyShouldUseTechnology {
   title: string;
   bgColor: string;
   titleColor: string;
-  items: (GetTechnologyPage_technologies_data_attributes_whyShouldYouUse_items | null)[];
+  items: (GetTechnologyPage_technology_data_attributes_whyShouldYouUse_items | null)[];
 }
 
 interface IGetArguments {
-  items: (GetTechnologyPage_technologies_data_attributes_whyShouldYouUse_items | null)[];
+  items: (GetTechnologyPage_technology_data_attributes_whyShouldYouUse_items | null)[];
 }
 
 const GetArguments = ({ items }: IGetArguments) => {

@@ -13,12 +13,12 @@ import DecorTwo from "../../../public/nextProjectBtnDecor2.svg";
 import DecorThree from "../../../public/nextProjectBtnDecor3.svg";
 import ArrowRight from "../../../public/SVG/ArrowRightBig.svg";
 import { useState } from "react";
-import { GetProjectPage_projects_data_attributes_nextProjectButton } from "../../../graphql/caseStudies/__generated__/GetProjectPage";
+import { GetProjectPage_project_data_attributes_nextProjectButton } from "../../../graphql/caseStudies/__generated__/GetProjectPage";
 import { IMAGES_LINK } from "../../../constants";
 import Link from "next/link";
 
 interface INextProject {
-  nextProjectButton: GetProjectPage_projects_data_attributes_nextProjectButton;
+  nextProjectButton: GetProjectPage_project_data_attributes_nextProjectButton;
 }
 
 const NextProject = ({ nextProjectButton }: INextProject) => {

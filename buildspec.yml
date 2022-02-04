@@ -1,0 +1,13 @@
+version: 0.2
+phases:
+  install:
+    runtime-versions:
+      nodejs: 12
+    commands:
+      - npm install serverless@2.69.1 -g
+      - npm i
+  build:
+    commands:
+      - serverless
+  post_build:
+    commands: echo 'done'

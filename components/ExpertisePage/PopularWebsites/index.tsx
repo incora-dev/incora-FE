@@ -7,13 +7,13 @@ import {
 } from "./PopularWebsites.style";
 import React from "react";
 import Link from "next/link";
-import { GetTechnologyPage_technologies_data_attributes_popularWebsites_pictures_data } from "../../../graphql/technologies/__generated__/GetTechnologyPage";
+import { GetTechnologyPage_technology_data_attributes_popularWebsites_pictures_data } from "../../../graphql/technologies/__generated__/GetTechnologyPage";
 import Image from "next/image";
 import { IMAGES_LINK } from "../../../constants";
 
 interface IPopularWebsites {
   title: string;
-  pictures: GetTechnologyPage_technologies_data_attributes_popularWebsites_pictures_data[];
+  pictures: GetTechnologyPage_technology_data_attributes_popularWebsites_pictures_data[];
 }
 
 const PopularWebsites = ({ title, pictures }: IPopularWebsites) => {

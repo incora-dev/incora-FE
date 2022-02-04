@@ -5,11 +5,11 @@ import HexCropped from "../../../public/hexSmallCropped.svg";
 import {
   GetVacancy_filterSpecialities,
   GetVacancy_filterTechnologies,
-  GetVacancy_vacancies_data_attributes_currentVacancies,
+  GetVacancy_vacancy_data_attributes_currentVacancies,
 } from "../../../graphql/careers/__generated__/GetVacancy";
 
 interface ICheckAlso {
-  currentVacancies: GetVacancy_vacancies_data_attributes_currentVacancies;
+  currentVacancies: GetVacancy_vacancy_data_attributes_currentVacancies;
   specialties: GetVacancy_filterSpecialities;
   technologies: GetVacancy_filterTechnologies;
 }

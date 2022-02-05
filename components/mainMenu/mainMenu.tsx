@@ -47,7 +47,7 @@ export default function MainMenu(props: IMenu) {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [wrapperRef]);
-
+// console.log('isMenuOpen || isHoverMenuOpen', isMenuOpen, isHoverMenuOpen, isMenuOpen || isHoverMenuOpen)
   return (
     <Div>
       <Wrapper
@@ -55,7 +55,7 @@ export default function MainMenu(props: IMenu) {
         positionType={positionType}
         titlesColor={titlesColor}
       >
-        {(isMenuOpen || isHoverMenuOpen) && (
+        {isMenuOpen && (
           <CloseBtn
             onClick={() => {
               if (isMenuOpen && !isHoverMenuOpen) {
@@ -108,7 +108,7 @@ export default function MainMenu(props: IMenu) {
               : Boolean(onHoverElement)}
             titlesColor={titlesColor}
             onMouseLeave={() => {
-              if ((!isMobile || !isTablet || !isSmallTablet) && isHoverMenuOpen) {
+              if ((!isMobile || !isTablet || !isSmallTablet) ) {
                 closeHoverMenu();
               }
             }}

@@ -26,12 +26,25 @@ function Navigation({
   const { toggleHoverMenuMode, toggleMenuMode } = useContext(MenuContext);
   const { isMobile, isTablet, isSmallTablet } = useIsMobile();
 
+  const snakeCaseToTitle = (string: string) => {
+    const newS = string.replaceAll('/', '');
+    let sentence = newS.toLowerCase().split("_");
+    for (let i = 0; i < sentence.length; i++) {
+      sentence[i] = sentence[i][0].toUpperCase() + sentence[i].slice(1);
+    }
+    
+    return sentence.join(" ");
+  };
+
+  // console.log('onSelectedMenu', onSelectedMenu, selectedTitle, urlTitle)
   useEffect(() => {
-    setUrlTitle(titles.find((title) => window.location.pathname.includes(title.toLowerCase())));
+    // console.log('useEffect')
+    const text = snakeCaseToTitle(window.location.pathname);
+    setUrlTitle(titles.find((title) => text.toLowerCase().includes(title.toLowerCase())));
   }, [])
 
   const toggleMenu = (pageTitle: string) => {
-    console.log('toggleMenu', selectedTitle, pageTitle)
+    // console.log('toggleMenu', selectedTitle, pageTitle)
     // if (selectedTitle) {
     //   setOnHoverElement(pageTitle);
     //   setSelectedTitle(pageTitle);
@@ -44,17 +57,41 @@ function Navigation({
   }
 
   const toggleHoverMenu = (pageTitle: string) => {
-    console.log('toggleHoverMenu', selectedTitle, onSelectedMenu)
+    // console.log('toggleHoverMenu', selectedTitle, onSelectedMenu)
+    if (onSelectedMenu === null) {
+      setOnHoverElement(pageTitle);
+      setSelectedTitle(pageTitle);
+    } else {
+      // if (selectedTitle) {
+      //   setOnHoverElement(null);
+      //   setSelectedTitle(null);
+      // } else {
+        setOnHoverElement(pageTitle);
+      setSelectedTitle(pageTitle);
+      // }
+    }
+    // if (selectedTitle) {
+    //   setOnHoverElement(null);
+    //   setSelectedTitle(null);
+    // } else {
+    //   setOnHoverElement(pageTitle);
+    //   setSelectedTitle(pageTitle);
+    // }
+    toggleHoverMenuMode();
+  };
+
+  const toggleHoverMenu1 = (pageTitle: string) => {
+    // console.log('toggleHoverMenu11', selectedTitle, onSelectedMenu,pageTitle)
     if (onSelectedMenu === null) {
       setOnHoverElement(pageTitle);
       setSelectedTitle(pageTitle);
     } else {
       if (selectedTitle && selectedTitle === pageTitle) {
+        setOnHoverElement(pageTitle);
+        setSelectedTitle(pageTitle);
+      } else {
         setOnHoverElement(null);
         setSelectedTitle(null);
-      } else {
-        setOnHoverElement(pageTitle);
-      setSelectedTitle(pageTitle);
       }
     }
     // if (selectedTitle) {
@@ -68,16 +105,18 @@ function Navigation({
   };
 
   const toggleMenuOnClick = (pageTitle: string) => {
+    // console.log('selectedTitle, pageTitle, onSelectedMenu',selectedTitle, pageTitle, onSelectedMenu)
     if (selectedTitle && selectedTitle === pageTitle) {
-      setOnHoverElement(pageTitle);
-      setSelectedTitle(pageTitle);
+      // setOnHoverElement(pageTitle);
+      // setSelectedTitle(pageTitle);
+      toggleHoverMenu(pageTitle);
     }
     toggleHoverMenuMode();
   }
 
   const toggleHoverMenuDesktop = (pageTitle: string) => {
-    console.log('toggleHoverMenuDesktop')
-    if (!isMobile || !isTablet || !isSmallTablet) {
+    // console.log('toggleHoverMenuDesktop', isMobile, isTablet, isSmallTablet)
+    if (!isMobile && !isTablet && !isSmallTablet) {
       toggleHoverMenu(pageTitle);
     }
   }
@@ -96,7 +135,7 @@ function Navigation({
               <Ul
                 shouldAddLine={shouldAddLine}
                 key={index}
-                onClick={() => toggleMenuOnClick(title)}
+                onClick={() => toggleHoverMenu1(title)}
                 onMouseEnter={() => toggleHoverMenuDesktop(title)}
               >
                 <Li>{title}</Li>

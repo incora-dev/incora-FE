@@ -136,7 +136,7 @@ function Navigation({
               <a onClick={() => {
                 toggleMenuMode();
                 toggleHoverMenu(title);
-                router.push(`/${title.toLowerCase().replace(' ', '_')}`)
+                router.push(`/${title.toLowerCase().replace(' ', '-')}`)
               }}>{title}</a>
             </Li>
           </Ul>

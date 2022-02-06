@@ -66,6 +66,7 @@ export interface GetProjectPage_project_data_attributes_industry_data_attributes
 
 export interface GetProjectPage_project_data_attributes_industry_data {
   __typename: "IndustryEntity";
+  id: string | null;
   attributes: GetProjectPage_project_data_attributes_industry_data_attributes | null;
 }
 

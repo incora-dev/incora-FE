@@ -1,6 +1,7 @@
 import Link from "next/link";
+import { ROUTES } from '../../../constants/routes';
 import {
-  GetProjectPage_project_data_attributes_industry_data_attributes,
+  GetProjectPage_project_data_attributes_industry,
   GetProjectPage_project_data_attributes_location_data_attributes,
   GetProjectPage_project_data_attributes_mainInfo,
   GetProjectPage_project_data_attributes_services,
@@ -23,7 +24,7 @@ interface ICaseDescription {
   location: GetProjectPage_project_data_attributes_location_data_attributes;
   technologies: GetProjectPage_project_data_attributes_technologies;
   services: GetProjectPage_project_data_attributes_services;
-  industry: GetProjectPage_project_data_attributes_industry_data_attributes;
+  industry: GetProjectPage_project_data_attributes_industry;
 }
 
 const CaseDescription = ({
@@ -43,6 +44,7 @@ const CaseDescription = ({
       );
     }
   });
+  console.log(industry);
 
   const locationTag = location && (
     <TagBox>
@@ -53,7 +55,7 @@ const CaseDescription = ({
   );
 
   const technologiesTags = technologies.data.map(({ id, attributes }) => (
-    <Link href={attributes?.url || ""} passHref key={id}>
+    <Link href={`${ROUTES.EXPERTISE.TECHNOLOGIES}/${attributes?.url}/${id}` || ""} passHref key={id}>
       <TagBox>
         <span>{attributes?.Technology_name}</span>
       </TagBox>
@@ -61,7 +63,7 @@ const CaseDescription = ({
   ));
 
   const servicesTags = services.data.map(({ id, attributes }) => (
-    <Link href={attributes?.url || ""} passHref key={id}>
+    <Link href={`${ROUTES.SERVICES}/${attributes?.url}/${id}` || ""} passHref key={id}>
       <TagBox>
         <span>{attributes?.name}</span>
       </TagBox>
@@ -83,10 +85,10 @@ const CaseDescription = ({
             <TagsCategory>
               <TagsHeading>industry</TagsHeading>
 
-              <Link href={industry.url || ""} passHref>
+              <Link href={`${ROUTES.EXPERTISE.INDUSTRIES}/${industry.data?.attributes?.url}/${industry.data?.id}` || ""} passHref>
               <TagFlexBox>
                 <TagBox>
-                  <span>{industry.name}</span>
+                  <span>{industry.data?.attributes?.name}</span>
                 </TagBox>
               </TagFlexBox>
               </Link>

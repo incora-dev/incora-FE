@@ -109,6 +109,7 @@ export const GET_PROJECT_PAGE = gql`
           }
           industry {
             data {
+              id
               attributes {
                 url
                 name

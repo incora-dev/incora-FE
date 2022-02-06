@@ -86,7 +86,7 @@ function FooterComponent() {
           <PoliciesBlock>
             {
               policies.map((policy, index) =>
-                <Link href={`/${policy.replace(' ', '_')}`} key={index}>
+                <Link href={`/${policy.replace(' ', '-')}`} key={index}>
                     <PolicyLabel>{policy}</PolicyLabel>
                 </Link>
               )
@@ -109,7 +109,7 @@ function FooterComponent() {
                 const href =
                   page.toLowerCase() === 'company'
                   ? `/company/about`
-                  : `/${page.toLowerCase().replace(' ', '_')}`;
+                  : `/${page.toLowerCase().replace(' ', '-')}`;
 
                 return (
                   <Page key={index}>

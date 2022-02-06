@@ -15,7 +15,7 @@ interface IVacancyDescription {
 
 const uploadFilesLabel = () =>
     <>
-      <div><span>upload a file</span>or drag and drop here</div>
+      <div><span>Upload a file</span></div>
       <p>We accept PDF, DOC, DOCX, JPG and PNG files.</p>
     </>
 

@@ -44,7 +44,7 @@ const LetsTalk = ({
         <PositionButtonWithArrow>
           <ButtonWithArrow
             buttonLabel={"Contact us"}
-            redirectTo={"Contact us"}
+            redirectTo={"/contacts"}
             padding={"23px 25.5px"}
           />
         </PositionButtonWithArrow>

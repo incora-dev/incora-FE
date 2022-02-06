@@ -5,6 +5,7 @@ import Link from "next/link";
 import { ROUTES } from "../../../../../constants/routes";
 
 export interface IProjectTechnologies {
+  isUrl?: boolean;
   technologies:
     | GetProjects_projects_data_attributes_technologies_data[]
     | GetArticle_article_data_attributes_tags_data[];
@@ -13,25 +14,38 @@ export interface IProjectTechnologies {
 }
 
 function Technologies({
+  isUrl = true,
   technologies,
   textTagsColor,
   bgTagsColor,
 }: IProjectTechnologies) {
+  console.log(isUrl)
   return (
     <Container>
       {technologies.map(({ id, attributes }: any) => {
         return (
-          <Link
-            href={ROUTES.EXPERTISE.TECHNOLOGIES + `${attributes?.url}/${id}`}
-            key={id}
-            passHref
-          >
-            <Div bgColor={bgTagsColor}>
-              <ButtonContainer>
-                <Strong color={textTagsColor}>{attributes?.Technology_name}</Strong>
-              </ButtonContainer>
-            </Div>
-          </Link>
+          <>
+          {(isUrl)
+            ?
+              <Link
+                href={ROUTES.EXPERTISE.TECHNOLOGIES + `${attributes?.url}/${id}`}
+                key={id}
+                passHref
+              >
+                <Div bgColor={bgTagsColor} isUrl={isUrl}>
+                  <ButtonContainer>
+                    <Strong color={textTagsColor}>{attributes?.Technology_name}</Strong>
+                  </ButtonContainer>
+                </Div>
+              </Link>
+            : 
+              <Div bgColor={bgTagsColor} isUrl={isUrl}>
+                <ButtonContainer>
+                  <Strong color={textTagsColor}>{attributes?.name}</Strong>
+                </ButtonContainer>
+              </Div>
+            }
+          </>
         );
       })}
     </Container>

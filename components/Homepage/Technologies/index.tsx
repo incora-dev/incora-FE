@@ -39,9 +39,9 @@ function TechnologiesComponent({ title, bgColor, techStacks }: ITechnologies) {
         <Div>
           <H2 color={getTitleColor()}>{title}</H2>
 
-          <Link href={ROUTES.EXPERTISE.TECHNOLOGIES} passHref>
-            <Arrow />
-          </Link>
+          {/* <Link href={ROUTES.EXPERTISE.TECHNOLOGIES} passHref /> */}
+            {/* <Arrow /> */}
+          {/* </Link> */}
         </Div>
       </PaddingTop>
 

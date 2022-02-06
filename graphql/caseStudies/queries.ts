@@ -79,6 +79,7 @@ export const GET_PROJECT_PAGE = gql`
         attributes {
           name
           description
+          IsUnderNDA
 
           location {
             data {
@@ -109,6 +110,7 @@ export const GET_PROJECT_PAGE = gql`
           }
           industry {
             data {
+              id
               attributes {
                 url
                 name

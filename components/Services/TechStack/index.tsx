@@ -52,7 +52,7 @@ const GetStacksInfo = (
           <PositionButtonWithArrow>
             <ButtonWithArrow
               buttonLabel={"Contact"}
-              redirectTo={`/services/`}
+              redirectTo={`/contacts`}
               bgColor={"#000"}
               textColor={"#fff"}
               padding={"23px 35px"}
@@ -78,7 +78,7 @@ const GetStacksInfo = (
                 {width && height && (
                   <Link
                     key={id}
-                    href={ROUTES.EXPERTISE.TECHNOLOGIES + url}
+                    href={`${ROUTES.EXPERTISE.TECHNOLOGIES}${url}/${id}` }
                     passHref
                   >
                     <LogoAndTitle>
@@ -102,7 +102,7 @@ const GetStacksInfo = (
         <PositionButtonWithArrow>
           <ButtonWithArrow
             buttonLabel={"Contact"}
-            redirectTo={`/services/}`}
+            redirectTo={`/contacts`}
             bgColor={"#000"}
             textColor={"#fff"}
             padding={"23px 35px"}

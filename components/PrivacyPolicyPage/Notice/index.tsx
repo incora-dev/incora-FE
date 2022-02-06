@@ -12,7 +12,7 @@ import { useRouter } from 'next/router'
 const Notice = () => {
   const [shouldClose, setShouldClose] = useState<string>('true');
   const [currentUrl, setCurrentUrl] = useState<string>('');
-  const shouldShowNotice =  shouldClose === 'true' || currentUrl.includes('privacy_policy');
+  const shouldShowNotice =  shouldClose === 'true' || currentUrl.includes('privacy-policy');
   const router = useRouter();
 
   useEffect(() => {
@@ -28,7 +28,7 @@ const Notice = () => {
       <Wrapper>
         <TextBlock>
           <H3>This site uses cookies to improve your user experience.
-            <Link href={'/privacy_policy'}>
+            <Link href={'/privacy-policy'}>
               <a>Read More</a>
             </Link>
           </H3>

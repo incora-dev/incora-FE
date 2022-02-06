@@ -36,7 +36,7 @@ const Case: NextPage<ICase> = ({ data, networkStatus }) => {
   const location = entry?.location?.data?.attributes;
   const technologies = entry?.technologies;
   const services = entry?.services;
-  const industry = entry?.industry?.data?.attributes;
+  const industry = entry?.industry;
   const feedback = entry?.feedback?.data?.attributes;
   const nextProjectButton = entry?.nextProjectButton;
   const galleryIntro = entry?.gallery[0]?.intro;
@@ -83,7 +83,7 @@ const Case: NextPage<ICase> = ({ data, networkStatus }) => {
             titlesColor={theme.colors.white}
             titles={titles}
           >
-            <CaseIntroduction name={entry.name} description={entry.description} />
+            <CaseIntroduction isUnderNDA={entry?.IsUnderNDA} name={entry.name} description={entry.description} />
             <CaseDescription
               mainInfo={entry.mainInfo}
               location={location}

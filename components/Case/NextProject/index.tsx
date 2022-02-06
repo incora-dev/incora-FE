@@ -42,7 +42,7 @@ const NextProject = ({ nextProjectButton }: INextProject) => {
     <>
       {projectEntry && url && (
         <NextProjectWrapper>
-          <Link href={`/case_studies/case/${projectEntry.url}`} passHref>
+          <Link href={`/case-studies/${projectEntry.url}`} passHref>
             <NextProjectButton
               onMouseEnter={onMouseEnter}
               onMouseLeave={onMouseLeave}

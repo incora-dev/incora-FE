@@ -37,7 +37,7 @@ import { MenuContext } from "../../../../services/context/mainMenu";
 
 interface ITechnologiesLabels {
   title: string;
-  technologies: string[];
+  technologies: IUrl[];
   Icon: any;
 }
 
@@ -47,31 +47,158 @@ interface IExpertiseHoverElements {
   backgroundColor: string;
 }
 
+interface IUrl {
+  title: string;
+  url: string;
+}
+
 const industriesLabels = [
-  'Logistics',
-  'Delivery & Shipping',
-  'EduTech ',
-  'Healthcare',
-  'ECommerce',
-  'Legal Services',
-  'Booking systems',
-  'Cryptocurrency'
+  {
+    title: 'Logistics',
+    url: 'supply-chain-software-development/4'
+  },
+  {
+    title: 'Delivery & Shipping',
+    url: 'delivery-and-shipping-apps/3'
+  },
+  {
+    title: 'EduTech',
+    url: 'edutech/5'
+  },
+  {
+    title: 'Healthcare',
+    url: 'healthtech-solutions/6'
+  },
+  {
+    title: 'ECommerce',
+    url: 'ecommerce-marketplace-development/7'
+  },
+  {
+    title: 'Fintech',
+    url: 'fintech-app-development/8'
+  },
+  {
+    title: 'Booking Systems',
+    url: 'reservation-and-booking-software/9'
+  },
+  {
+    title: 'Cryptocurrency',
+    url: 'cryptosystems/10'
+  },
 ]
 
 const technologiesLabels: ITechnologiesLabels[] = [
-  { title: 'frontend', technologies: ['React', 'Angular2'], Icon: Frontend },
-  { title: 'backend', technologies: ['Node.js', 'Python ', 'Django' , 'Flask'], Icon: Backend },
-  { title: 'database', technologies: ['PostgreSQL', 'MySQL', 'MongoDB', 'Apollo', 'Redis' ], Icon: DataBase },
-  { title: 'mobile apps', technologies: ['React Native', 'Ionic'], Icon: MobileApps },
-  { title: 'devops tools', technologies: ['Docker', 'Kubernetes', 'Amazon ECS'], Icon: DevOpsTools },
-  { title: 'cloud services', technologies: ['Amazon Web Services', 'Google Cloud Platform', 'Microsoft Azure', 'DigitalOcean'], Icon: CloudServices },
+  { 
+    title: 'frontend', 
+    technologies: [
+      {
+        title: 'React',
+        url: 'react-js-development/1'
+      },
+      {
+        title: 'Angular2',
+        url: 'angular2-development/3'
+      },
+    ], Icon: Frontend },
+  { 
+    title: 'backend', 
+    technologies: [
+        {
+          title: 'Node.js',
+          url: 'node-js-development/4'
+        },
+        {
+          title: 'Python',
+          url: 'python-development/5'
+        },
+        {
+          title: 'Django',
+          url: 'django-development/6'
+        },
+        {
+          title: 'Flask',
+          url: 'flask-development/7'
+        },
+      ], Icon: Backend },
+  { 
+    title: 'database', 
+    technologies: [
+        {
+          title: 'PostgreSQL',
+          url: 'postgresql-development-services/8'
+        },
+        {
+          title: 'MySQL',
+          url: 'mysql-development-services/9'
+        },
+        {
+          title: 'MongoDB',
+          url: 'mongodb-development-services/10'
+        },
+        {
+          title: 'Apollo',
+          url: 'apollo-development/12'
+        },
+        {
+          title: 'Redis',
+          url: 'redis-development/11'
+        },
+      ], Icon: DataBase },
+  { 
+    title: 'mobile apps', 
+    technologies: [
+        {
+          title: 'React Native',
+          url: 'react-native-development/13'
+        },
+        {
+          title: 'Ionic',
+          url: 'ionic-development/14'
+        },
+      ], Icon: MobileApps },
+  { 
+    title: 'devops tools', 
+    technologies: [
+        {
+          title: 'Docker',
+          url: 'docker-development-services/2'
+        },
+        {
+          title: 'Kubernetes',
+          url: 'kubernetes-development-tools/15'
+        },
+        {
+          title: 'Amazon ECS',
+          url: 'amazon-ec2-development/16'
+        },
+      ], Icon: DevOpsTools },
+  { 
+    title: 'cloud services', 
+    technologies: [
+        {
+          title: 'Amazon Web Services',
+          url: 'aws-software-development/17'
+        },
+        {
+          title: 'Google Cloud Platform',
+          url: 'gcp-software-development/18'
+        },
+        {
+          title: 'Microsoft Azure',
+          url: 'microsoft-azure-development/19'
+        },
+        {
+          title: 'DigitalOcean',
+          url: 'digitalocean-development/20'
+        },
+      ], Icon: CloudServices },
 ]
 
-function getIndustries(labels: string[], linkClickHandler: () => void) {
+function getIndustries(labels: IUrl[], linkClickHandler: () => void) {
   return labels.map((label, index) =>
     <Industry key={index} onClick={linkClickHandler}>
-      <Link href={`/expertise/industries/${label.toLowerCase()}`}>
-        { label }
+      <Link href={`/expertise/industries/${label.url}`}>
+        { label.title }
       </Link>
     </Industry>
   )
@@ -98,8 +225,8 @@ function getTechnologies(labels: ITechnologiesLabels[], titleColor: string, link
               return (
                 <>
                   <Text key={index} onClick={linkClickHandler}>
-                    <Link href={`/expertise/technologies/${technology.toLowerCase()}`}>
-                      {technology}
+                    <Link href={`/expertise/technologies/${technology.url}`}>
+                      {technology.title}
                     </Link>
                   </Text>
                   <Slash>{slash}</Slash>

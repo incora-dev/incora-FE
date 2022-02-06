@@ -17,6 +17,10 @@ export const LetsAcquaintedWrapper = styled.div`
     padding-top: 0;
     padding-bottom: 40px;
   }
+
+  @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
+    padding-bottom: 0;
+  }
 `;
 
 export const ContentWrap = styled.div`
@@ -145,8 +149,29 @@ export const HexagonsWrap = styled.div`
     top: 65px;
     right: 210px;
 
+    @media only screen and (max-width: ${themeGet("breakpoints.mediumDesk")}) {
+      top: 235px;
+      right: 225px;
+    }
+
+    @media only screen and (max-width: ${themeGet("breakpoints.mDesk")}) {
+      top: 268px;
+      right: 224px;
+    }
+
+    @media only screen and (max-width: ${themeGet("breakpoints.tabletPro")}) {
+      top: 334px;
+      right: 212px;
+    }
+
     @media only screen and (max-width: ${themeGet("breakpoints.smallDesk")}) {
-      right: 0;
+      right: -14px;
+      top: 40px;
+      transform: scale(0.8);
+    }
+
+    @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
+      top: 152px;
     }
 
     @media only screen and (max-width: ${themeGet("breakpoints.sTablet")}) {
@@ -154,9 +179,9 @@ export const HexagonsWrap = styled.div`
     }
 
     @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
-      top: 120px;
-      transform: scale(0.8);
-      right: -17px;
+      top: 95px;
+      transform: scale(0.7);
+      right: -22px;
     }
   }
 
@@ -166,6 +191,10 @@ export const HexagonsWrap = styled.div`
     top: 110px;
 
     @media only screen and (max-width: ${themeGet("breakpoints.smallDesk")}) {
+      top: 206px;
+    }
+
+    @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
       display: none;
     }
   }

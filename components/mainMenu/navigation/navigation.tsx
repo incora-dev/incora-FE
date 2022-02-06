@@ -29,18 +29,15 @@ function Navigation({
   const snakeCaseToTitle = (string: string) => {
     const newS = string.replaceAll('/', '');
     let sentence = newS.toLowerCase().split("_");
-    for (let i = 0; i < sentence.length; i++) {
-      sentence[i] = sentence[i][0].toUpperCase() + sentence[i].slice(1);
-    }
     
-    return sentence.join(" ");
+    return sentence.join(" ").toLowerCase();
   };
 
   // console.log('onSelectedMenu', onSelectedMenu, selectedTitle, urlTitle)
   useEffect(() => {
     // console.log('useEffect')
     const text = snakeCaseToTitle(window.location.pathname);
-    setUrlTitle(titles.find((title) => text.toLowerCase().includes(title.toLowerCase())));
+    setUrlTitle(titles.find((title) => text.includes(title.toLowerCase())));
   }, [])
 
   const toggleMenu = (pageTitle: string) => {

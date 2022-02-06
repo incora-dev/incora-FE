@@ -311,7 +311,7 @@ export const SchemeWrap = styled.div`
 
   @media only screen and (max-width: ${themeGet("breakpoints.mDesk")}) {
     height: auto;
-    width: 1006px;
+    width: 100%;
   }
 
   @media only screen and (max-width: ${themeGet("breakpoints.smallDesk")}) {

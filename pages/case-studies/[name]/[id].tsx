@@ -83,7 +83,7 @@ const Case: NextPage<ICase> = ({ data, networkStatus }) => {
             titlesColor={theme.colors.white}
             titles={titles}
           >
-            <CaseIntroduction name={entry.name} description={entry.description} />
+            <CaseIntroduction isUnderNDA={entry?.IsUnderNDA} name={entry.name} description={entry.description} />
             <CaseDescription
               mainInfo={entry.mainInfo}
               location={location}

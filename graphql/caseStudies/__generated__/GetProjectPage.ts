@@ -258,6 +258,7 @@ export interface GetProjectPage_project_data_attributes {
   __typename: "Project";
   name: string;
   description: string;
+  IsUnderNDA: boolean | null;
   location: GetProjectPage_project_data_attributes_location | null;
   technologies: GetProjectPage_project_data_attributes_technologies | null;
   services: GetProjectPage_project_data_attributes_services | null;

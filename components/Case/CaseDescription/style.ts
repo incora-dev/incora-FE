@@ -3,13 +3,16 @@ import styled from "styled-components";
 
 export const CaseDescriptionWrapper = styled.div`
   width: 100%;
-  height: 727px;
+  height: fit-content;
+  padding-bottom: 70px;
   display: flex;
   justify-content: center;
 
   @media only screen and (max-width: ${themeGet('breakpoints.tabletPro')}) {
     height: fit-content;
+    padding-bottom: 0;
   }
+
 `;
 
 export const ContentWrapper = styled.div`
@@ -34,7 +37,7 @@ export const ContentWrapper = styled.div`
 
 export const TextWrap = styled.div`
   width: 540px;
-  height: 737px;
+  height: fit-content;
 
   @media only screen and (max-width: ${themeGet('breakpoints.tabletPro')}) {
     height: fit-content;

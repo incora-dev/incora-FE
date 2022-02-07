@@ -550,7 +550,7 @@ export const BlockContainer = styled.div`
 
 export const Wrapper = styled.div`
   position: relative;
-  height: 571px;
+  height: 500px;
 
   width: 700px;
 
@@ -580,7 +580,7 @@ export const Wrapper = styled.div`
   }
 
   @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
-    height: 340px;
+    height: fit-content;
     width: 100%;
   }
 
@@ -589,10 +589,6 @@ export const Wrapper = styled.div`
     width: 100%;
   }
 
-  @media only screen and (max-width: ${themeGet('breakpoints.xsMobile')}) {
-    height: 205px;
-    width: 100%;
-  }
 `;
 
 export const Container = styled.div`

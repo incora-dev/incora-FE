@@ -55,7 +55,7 @@ export const Div = styled.div`
 
 export const PositionTitle = styled.div`
   padding-top: ${({ disablePadding }: IPositionTitle) =>
-  disablePadding ? "0" : "120px"};
+  disablePadding ? "0" : "50px"};
   margin-bottom: 46px;
 
   @media only screen and (max-width: ${themeGet('breakpoints.tabletPro')}) {
@@ -121,7 +121,7 @@ export const ProjectsContainer = styled.div`
   row-gap: 174px;
   align-items: center;
 
-  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+  @media only screen and (max-width: ${themeGet('breakpoints.tabletPro')}) {
     row-gap: 70px;
   }
 

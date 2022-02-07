@@ -11,6 +11,13 @@ export const NextProjectWrapper = styled.div`
   background-color: ${themeGet("colors.black")};
   display: flex;
   justify-content: flex-end;
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+    height: 160px;
+  }
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+    height: fit-content;
+  }
 `;
 
 export const NextProjectButton = styled.div`
@@ -29,6 +36,16 @@ export const NextProjectButton = styled.div`
   &:hover {
     box-shadow: inset 543px 0 0 0 #e5b100ff;
   }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+    width: 500px;
+    padding-right: 0;
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+    width: 100%;
+    border-top-left-radius: 30px;
+  }
 `;
 
 export const ContentWrap = styled.div`
@@ -36,6 +53,23 @@ export const ContentWrap = styled.div`
   height: 108.37px;
   display: flex;
   align-items: center;
+
+  svg {
+    @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+     display: none;
+    }
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+    width: 100%;
+    padding: 0 25px 0 40px;
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+    width: 100%;
+    padding: 20px 15px 20px 20px;
+    height: fit-content;
+  }
 `;
 
 export const ImageWrap = styled.div`
@@ -67,6 +101,10 @@ export const ImageWrap = styled.div`
 export const TextWrap = styled.div`
   margin-right: 60px;
 
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+    margin-right: 0;
+  }
+
   > span {
     font-weight: 800;
     font-size: var(--fs-12);
@@ -81,5 +119,10 @@ export const TextWrap = styled.div`
     font-size: var(--fs-21);
     line-height: 31px;
     letter-spacing: 0.05em;
+
+    @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+      font-size: var(--fs-18);
+      line-height: 25px;
+    }
   }
 `;

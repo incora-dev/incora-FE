@@ -86,8 +86,6 @@ const Globe = ({ reviewIndex, points, changeCurrentGlobePoint }: IGlobe) => {
     const { lat, lng } = point;
     const pointCountry = point.country;
 
-    console.log({ point });
-
     const index = points.findIndex((point) => point.country === pointCountry);
 
     if (lat && lng && pointCountry && changeCurrentGlobePoint) {
@@ -96,20 +94,6 @@ const Globe = ({ reviewIndex, points, changeCurrentGlobePoint }: IGlobe) => {
     }
   };
 
-  // const updatePoints1 = points.map((point, index) => {
-  //   if (index === reviewIndex) {
-  //     return {
-  //       ...point,
-  //       size: 0.06,
-  //     };
-  //   } else {
-  //     return {
-  //       ...point,
-  //       size: 0.03,
-  //     };
-  //   }
-  // });
-
   useEffect(() => {
     setUpdatedPoints(
       points.map((point, index) => {
@@ -117,32 +101,18 @@ const Globe = ({ reviewIndex, points, changeCurrentGlobePoint }: IGlobe) => {
           return {
             ...point,
             size: 0.06,
+            radius: 1,
           };
         } else {
           return {
             ...point,
             size: 0.03,
+            radius: 0.6,
           };
         }
       })
     );
   }, [points, reviewIndex]);
-
-  // const updatePoints2 = points.map((point) => {
-  //   if (pointCountry === point.country) {
-  //     return {
-  //       ...point,
-  //       size: 0.06,
-  //       radius: 1,
-  //     };
-  //   } else {
-  //     return {
-  //       ...point,
-  //       size: 0.03,
-  //       radius: 0.06,
-  //     };
-  //   }
-  // });
 
   useEffect(() => {
     setControlsOptions();
@@ -173,13 +143,27 @@ const Globe = ({ reviewIndex, points, changeCurrentGlobePoint }: IGlobe) => {
         pointRadius={0.1}
         onPointClick={onPointClick}
         pointsTransitionDuration={0}
-        customLayerData={points}
+        customLayerData={points.map((point, index) => {
+          if (index === reviewIndex) {
+            return {
+              ...point,
+              size: 0.06,
+              radius: 1,
+            };
+          } else {
+            return {
+              ...point,
+              size: 0.03,
+              radius: 0.6,
+            };
+          }
+        })}
         customThreeObject={pointsSpheres}
         onCustomLayerClick={onPointClick}
-        pointLabel={({ country }: any) => {
+        pointLabel={({ country }: Point) => {
           return country;
         }}
-        customLayerLabel={({ country }: any) => country}
+        customLayerLabel={({ country }: Point) => country}
       />
     </GlobeWrapper>
   );

@@ -121,7 +121,7 @@ export const ProjectsContainer = styled.div`
   row-gap: 174px;
   align-items: center;
 
-  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+  @media only screen and (max-width: ${themeGet('breakpoints.tabletPro')}) {
     row-gap: 70px;
   }
 

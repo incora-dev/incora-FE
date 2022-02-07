@@ -71,7 +71,31 @@ export interface GetCaseStudies_industries {
   data: GetCaseStudies_industries_data[];
 }
 
+export interface GetCaseStudies_locations_data_attributes_location {
+  __typename: "ComponentProjectLocation";
+  lat: number;
+  lng: number;
+  id: string;
+}
+
+export interface GetCaseStudies_locations_data_attributes {
+  __typename: "Location";
+  country: string;
+  location: GetCaseStudies_locations_data_attributes_location | null;
+}
+
+export interface GetCaseStudies_locations_data {
+  __typename: "LocationEntity";
+  attributes: GetCaseStudies_locations_data_attributes | null;
+}
+
+export interface GetCaseStudies_locations {
+  __typename: "LocationEntityResponseCollection";
+  data: GetCaseStudies_locations_data[];
+}
+
 export interface GetCaseStudies {
   caseStudiesPage: GetCaseStudies_caseStudiesPage | null;
   industries: GetCaseStudies_industries | null;
+  locations: GetCaseStudies_locations | null;
 }

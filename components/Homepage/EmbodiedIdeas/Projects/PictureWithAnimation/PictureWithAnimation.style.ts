@@ -17,10 +17,10 @@ export const PositionElement1 = styled.div`
   if (index === 0) {
     return '-310px';
   } else {
-    return '-8px';
+    return '-21px';
   }
 }};
-  right: 0;
+  right: -5vw;
 
   transition: ${transitionTimeProjectsHoverDuration};
   
@@ -30,7 +30,7 @@ export const PositionElement1 = styled.div`
     }
   }
 
-  @media only screen and (max-width: ${themeGet('breakpoints.mDesk')}) {
+  @media only screen and (max-width: ${themeGet('breakpoints.desk')}) {
     transform: scale(0.7);
     bottom: ${({ index }: IElement) => {
       if (index === 0) {
@@ -39,6 +39,20 @@ export const PositionElement1 = styled.div`
         return '-52px';
       }
     }};
+    right: -100px;
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.mediumDesk')}) {
+    transform: scale(0.45);
+    bottom: ${({ index }: IElement) => {
+      if (index === 0) {
+        return '-310px';
+      } else {
+        return '-88px';
+      }
+    }};
+
+    right: -179px;
   }
 
   @media only screen and (max-width: ${themeGet('breakpoints.smallDesk')}) {
@@ -77,6 +91,19 @@ export const PositionElement2 = styled.div`
     }
   }
 
+  @media only screen and (max-width: ${themeGet('breakpoints.mediumDesk')}) {
+    transform: scale(0.6);
+    right: -98px;
+
+    top: ${({ index }: IElement) => {
+      if (index === 0) {
+        return '-220px';
+      } else {
+        return '-40px';
+      }
+    }};
+  }
+
   @media only screen and (max-width: ${themeGet('breakpoints.smallDesk')}) {
     transform: scale(0.5);
     top: ${({ index }: IElement) => {
@@ -98,12 +125,12 @@ export const PositionElement3 = styled.div`
   position: absolute;
   top: 0;
   left: ${({ index }: IElement) => {
-  if (index === 0) {
-    return '-220px';
-  } else {
-    return '0';
-  }
-}};
+    if (index === 0) {
+      return '-220px';
+    } else {
+      return '0';
+    }
+  }};
 
   transition: ${transitionTimeProjectsHoverDuration};
 
@@ -125,6 +152,30 @@ export const PositionElement3 = styled.div`
     left: -45px;
   }
 
+  @media only screen and (max-width: ${themeGet('breakpoints.desk')}) {
+    transform: scale(0.9);
+    top: -20px;
+    left: ${({index}: IElement) => {
+      if (index === 0) {
+        return '-310px';
+      } else {
+        return '-52px';
+      }
+    }};
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.mediumDesk')}) {
+    transform: scale(0.6);
+    top: -91px;
+    left: ${({index}: IElement) => {
+      if (index === 0) {
+        return '-310px';
+      } else {
+        return '-52px';
+      }
+    }};
+  }
+
   @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
     display: none;
   }
@@ -136,10 +187,10 @@ export const PositionElement4 = styled.div`
   if (index === 1) {
     return '-285px';
   } else {
-    return '0';
+    return '-21px';
   }
 }};
-  right: 0;
+  right: -70px;
 
   transition: ${transitionTimeProjectsHoverDuration};
 
@@ -147,6 +198,42 @@ export const PositionElement4 = styled.div`
     path {
       fill: ${({ elementsColor }: IElement) => elementsColor};
     }
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.desk')}) {
+    transform: scale(0.7);
+    right: -80px;
+    bottom: ${({index}: IElement) => {
+      if (index === 1) {
+        return '-285px';
+      } else {
+        return '-47px';
+      }
+    }};
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.mediumDesk')}) {
+    transform: scale(0.5);
+    right: -126px;
+    bottom: ${({index}: IElement) => {
+      if (index === 1) {
+        return '-285px';
+      } else {
+        return '-74px';
+      }
+    }};
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.smallDesk')}) {
+    transform: scale(0.5);
+    right: -128px;
+    bottom: ${({index}: IElement) => {
+      if (index === 1) {
+        return '-285px';
+      } else {
+        return '-76px';
+      }
+    }};
   }
 
   @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
@@ -172,6 +259,42 @@ export const PositionElement5 = styled.div`
       fill: ${({ elementsColor }: IElement) => elementsColor};
     }
   }
+  
+    @media only screen and (max-width: ${themeGet('breakpoints.desk')}) {
+    transform: scale(0.9);
+    right: -18px;
+    top: ${({index}: IElement) => {
+      if (index === 1) {
+        return '-285px';
+      } else {
+        return '-18px';
+      }
+    }};
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.mediumDesk')}) {
+    transform: scale(0.7);
+    right: -56px;
+    top: ${({index}: IElement) => {
+      if (index === 1) {
+        return '-285px';
+      } else {
+        return '-44px';
+      }
+    }};
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.smallDesk')}) {
+    transform: scale(0.5);
+    right: -89px;
+    top: ${({index}: IElement) => {
+      if (index === 1) {
+        return '-285px';
+      } else {
+        return '-77px';
+      }
+    }};
+  }
 
   @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
     display: none;
@@ -181,13 +304,13 @@ export const PositionElement5 = styled.div`
 export const PositionElement6 = styled.div`
   position: absolute;
   top: 0;
-  left: ${({ index }: IElement) => {
-  if (index === 1) {
-    return '-255px';
-  } else {
-    return '0';
-  }
-}};
+    left: ${({ index }: IElement) => {
+    if (index === 1) {
+      return '-255px';
+    } else {
+      return '0';
+    }
+  }};
 
   transition: ${transitionTimeProjectsHoverDuration};
 
@@ -195,6 +318,43 @@ export const PositionElement6 = styled.div`
     path {
       fill: ${({ elementsColor }: IElement) => elementsColor};
     }
+  }
+  
+    
+    @media only screen and (max-width: ${themeGet('breakpoints.desk')}) {
+    transform: scale(0.7);
+    top: -73px;
+    left: ${({ index }: IElement) => {
+      if (index === 1) {
+        return '-255px';
+      } else {
+        return '-40px';
+      }
+    }};
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.mediumDesk')}) {
+    transform: scale(0.7);
+    top: -73px;
+    left: ${({ index }: IElement) => {
+      if (index === 1) {
+        return '-255px';
+      } else {
+        return '-40px';
+      }
+    }};
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.smallDesk')}) {
+    transform: scale(0.5);
+    top: -120px;
+    left: ${({ index }: IElement) => {
+      if (index === 1) {
+        return '-255px';
+      } else {
+        return '-65px';
+      }
+    }};
   }
 
   @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
@@ -205,12 +365,12 @@ export const PositionElement6 = styled.div`
 export const PositionElement7 = styled.div`
   position: absolute;
   bottom: ${({ index }: IElement) => {
-  if (index === 2) {
-    return '-305px';
-  } else {
-    return '0';
-  }
-}};
+    if (index === 2) {
+      return '-305px';
+    } else {
+      return '-7px';
+    }
+  }};
   left: 0;
 
   transition: ${transitionTimeProjectsHoverDuration};
@@ -219,6 +379,43 @@ export const PositionElement7 = styled.div`
     path {
       fill: ${({ elementsColor }: IElement) => elementsColor};
     }
+  }
+  
+  @media only screen and (max-width: ${themeGet('breakpoints.desk')}) {
+    transform: scale(0.9);
+
+    bottom: ${({ index }: IElement) => {
+      if (index === 2) {
+        return '-305px';
+      } else {
+        return '-55px';
+      }
+    }};
+    left: -50px;
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.mediumDesk')}) {
+    transform: scale(0.7);
+    bottom: ${({ index }: IElement) => {
+      if (index === 2) {
+        return '-305px';
+      } else {
+        return '-55px';
+      }
+    }};
+    left: -50px;
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.smallDesk')}) {
+    transform: scale(0.5);
+    bottom: ${({ index }: IElement) => {
+      if (index === 2) {
+        return '-305px';
+      } else {
+        return '-82px';
+      }
+    }};
+    left: -100px;
   }
 
   @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
@@ -230,12 +427,12 @@ export const PositionElement8 = styled.div`
   position: absolute;
   top: 10px;
   right: ${({ index }: IElement) => {
-  if (index === 2) {
-    return '-200px';
-  } else {
-    return '0';
-  }
-}};
+    if (index === 2) {
+      return '-200px';
+    } else {
+      return '0';
+    }
+  }};
 
   transition: ${transitionTimeProjectsHoverDuration};
 
@@ -243,6 +440,43 @@ export const PositionElement8 = styled.div`
     path {
       fill: ${({ elementsColor }: IElement) => elementsColor};
     }
+  }
+  
+  @media only screen and (max-width: ${themeGet('breakpoints.desk')}) {
+    transform: scale(0.9);
+
+    top: 10px;
+    right: ${({ index }: IElement) => {
+      if (index === 2) {
+        return '-200px';
+      } else {
+        return '-10px';
+      }
+    }};
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.mediumDesk')}) {
+    transform: scale(0.7);
+    top: -67px;
+    right: ${({ index }: IElement) => {
+      if (index === 2) {
+        return '-200px';
+      } else {
+        return '-32px';
+      }
+    }};
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.smallDesk')}) {
+    transform: scale(0.5);
+    top: -101px;
+    right: ${({ index }: IElement) => {
+      if (index === 2) {
+        return '-200px';
+      } else {
+        return '-50px';
+      }
+    }};
   }
 
   @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
@@ -253,12 +487,12 @@ export const PositionElement8 = styled.div`
 export const PositionElement9 = styled.div`
   position: absolute;
   top: ${({ index }: IElement) => {
-  if (index === 2) {
-    return '-205px';
-  } else {
-    return '0';
-  }
-}};
+    if (index === 2) {
+      return '-205px';
+    } else {
+      return '0';
+    }
+  }};
   left: 0;
 
   transition: ${transitionTimeProjectsHoverDuration};
@@ -268,31 +502,76 @@ export const PositionElement9 = styled.div`
       fill: ${({ elementsColor }: IElement) => elementsColor};
     }
   }
+  
+    @media only screen and (max-width: ${themeGet('breakpoints.desk')}) {
+    transform: scale(0.9);
+
+    top: ${({ index }: IElement) => {
+      if (index === 2) {
+        return '-205px';
+      } else {
+        return '-12px';
+      }
+    }};
+    left: -26px;
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.mediumDesk')}) {
+    transform: scale(0.7);
+    top: -67px;
+    left: ${({ index }: IElement) => {
+      if (index === 2) {
+        return '-200px';
+      } else {
+        return '-122px';
+      }
+    }};
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.smallDesk')}) {
+    transform: scale(0.5);
+    top: -67px;
+    left: ${({ index }: IElement) => {
+      if (index === 2) {
+        return '-200px';
+      } else {
+        return '-122px';
+      }
+    }};
+  }
 
   @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
     display: none;
   }
 `;
 
+export const Wrapper = styled.div`
+  position: relative;
+
+  width: 700px;
+
+  @media only screen and (max-width: ${themeGet('breakpoints.sTablet')}) {
+    width: 100%;
+  }
+`;
+
 export const Container = styled.div`
   position: absolute;
+  top: 0;
+  left: 0;
   overflow: hidden;
   cursor: pointer;
-  max-width: 700px;
   width: 100%;
-  height: 537px;
   right: -180px;
 
   border-radius: ${({ borderRadius} : IImg) => borderRadius};
 
   @media only screen and (max-width: ${themeGet('breakpoints.mDesk')}) {
     max-width: 600px;
-    height: 460px;
   }
 
   @media only screen and (max-width: ${themeGet('breakpoints.smallDesk')}) {
     max-width: 370px;
-    height: 283px;
     right: -25px;
   }
 

@@ -32,8 +32,8 @@ const Pagination = ({
             className={"paginator"}
             activeClassName={"active"}
             pageCount={totalPageCount}
-            breakLabel="..."
             pageRangeDisplayed={3}
+            breakLabel="..."
             onPageChange={(page) => onPageChanged(page.selected + 1)}
             nextLabel={
               <RightArrow changeColor={rightChangeColorCondition}>

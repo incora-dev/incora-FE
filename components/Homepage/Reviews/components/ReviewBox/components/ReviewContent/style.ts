@@ -78,6 +78,10 @@ export const Photo = styled(Image)`
 `;
 
 export const NameWrap = styled.div`
+  @media only screen and (min-width: ${themeGet('breakpoints.tablet')}) {
+    max-width: 175px;
+  }
+
   margin-top: 6px;
   color: ${themeGet("colors.white")};
   font-size: var(--fs-13);

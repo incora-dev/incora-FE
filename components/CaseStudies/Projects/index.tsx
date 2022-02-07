@@ -8,11 +8,12 @@ import { NoCasesFounded, ProjectsWrapper } from "./style";
 
 interface IProjects {
   industry: string | undefined;
+  pointCountry: string | undefined;
 }
 
-const Projects = ({ industry }: IProjects) => {
+const Projects = ({ industry, pointCountry }: IProjects) => {
   const { data, loading } = useQuery<GetProjects>(GET_PROJECTS, {
-    variables: { industry },
+    variables: { industry, country: pointCountry },
   });
   const projects = data?.projects?.data;
 

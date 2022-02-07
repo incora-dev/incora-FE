@@ -40,6 +40,13 @@ const contactUs: IContactUs = {
   buttonLabel: "send",
 };
 
+const reasonsData = [
+  { id: 'reason_1', title: 'Extensive market research for the clear goals', description: 'ICP / Business Analysis / Time & Cost Estimation / Project Roadmap' },
+  { id: 'reason_2', title: 'Development with the focus on every angle', description: 'QA & Testing / Architecture scheme /  Source Code' },
+  { id: 'reason_3', title: 'Agile approach through each phase', description:'CI/CD Pipeline / DevOps services integration' },
+  { id: 'reason_4', title: 'Guaranteed safety with the NDA signing', description:'Legally recognized Confidential agreement' },
+]
+
 const colorWhite = theme.colors.white;
 const colorBlack = theme.colors.black;
 const colorBackgroundBlack = theme.colors.backgroundBlack;
@@ -93,7 +100,7 @@ const Technology: NextPage<ITechnology> = ({ data, networkStatus }) => {
     whyShouldYouUseItems &&
     popularWebSitesTitle &&
     popularWebSitesPictures &&
-    whyDevelopWithUs &&
+    // whyDevelopWithUs &&
     projects &&
     insightsIntro &&
     insightsArticles &&
@@ -146,7 +153,7 @@ const Technology: NextPage<ITechnology> = ({ data, networkStatus }) => {
               title={popularWebSitesTitle}
               pictures={popularWebSitesPictures}
             />
-            <WhyDevelopWithUs data={whyDevelopWithUs} />
+            <WhyDevelopWithUs items={reasonsData} />
             <EmbodiedIdeasComponent
               bgColor={theme.colors.yellow}
               elementsColor={theme.colors.black}

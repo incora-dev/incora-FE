@@ -7,6 +7,7 @@ const HamburgerButton = () => {
 
   const clickHandler = () => {
     toggleMenuMode();
+    document.body.style.position = 'fixed';
   };
 
   return (

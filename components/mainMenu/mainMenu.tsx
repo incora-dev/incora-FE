@@ -65,6 +65,7 @@ export default function MainMenu(props: IMenu) {
                 toggleHoverMenuMode();
                 setOnHoverElement(null);
               }
+              document.body.style.position = 'initial';
             }}
           >
             &#9587;

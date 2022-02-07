@@ -5,6 +5,7 @@ import { theme } from "../../../../styles/theme";
 
 interface IComponent {
   number: number;
+  maxWidth?: number;
 }
 
 export const Component = styled.div`
@@ -12,9 +13,9 @@ export const Component = styled.div`
   // grid-template-columns: ${({ number }: IComponent ) => `repeat(${number},1fr)`};
   display: flex;
   column-gap: 26px;
-
-  max-width: 1006px;
-  margin: 0 auto;
+  max-width: ${({ maxWidth }: IComponent) => maxWidth ? `calc((100vw - ${maxWidth}px) / 2 + ${maxWidth}px)` : `${maxWidth}px`};
+  margin-left: ${({ maxWidth }: IComponent) => maxWidth ? `calc((100vw - ${maxWidth}px) / 2)` : 'auto'};
+  padding-right: 26px;
   
   overflow: scroll;
 
@@ -23,10 +24,8 @@ export const Component = styled.div`
   }
 
   @media only screen and (max-width: ${themeGet('breakpoints.tabletPro')}) {
-    padding: 0 25px;
-  }
-  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
-    padding: 0 15px;
+    max-width: 1006px;
+    margin: 0 auto;
   }
 `;
 

@@ -27,6 +27,14 @@ export const PaddingTop = styled.div`
 
 export const MarginTop = styled.div`
   margin-top: 52px;
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tabletPro')}) {
+    padding-left: 25px;
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+    padding-left: 15px;
+  }
 `;
 
 export const Div = styled.div`
@@ -51,16 +59,13 @@ export const Div = styled.div`
   }
 
   @media only screen and (max-width: ${themeGet('breakpoints.tabletPro')}) {
+    max-width: 100%;
     padding: 0 25px;
   }
 
   @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     width: 100%;
-    padding-left: 25px;
-  }
-  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
-    width: 100%;
-    padding-left: 20px;
+    padding-left: 15px;
   }
 `;
 

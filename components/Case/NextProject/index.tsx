@@ -5,7 +5,6 @@ import {
   NextProjectWrapper,
   TextWrap,
 } from "./style";
-import project from "../../../public/project3.jpg";
 import Image from "next/image";
 
 import DecorOne from "../../../public/nextProjectBtnDecor1.svg";
@@ -16,6 +15,7 @@ import { useState } from "react";
 import { GetProjectPage_project_data_attributes_nextProjectButton } from "../../../graphql/caseStudies/__generated__/GetProjectPage";
 import { IMAGES_LINK } from "../../../constants";
 import Link from "next/link";
+import { ROUTES } from "../../../constants/routes";
 
 interface INextProject {
   nextProjectButton: GetProjectPage_project_data_attributes_nextProjectButton;
@@ -27,8 +27,8 @@ const NextProject = ({ nextProjectButton }: INextProject) => {
   const { intro, project } = nextProjectButton;
   const projectEntry = project?.data?.attributes;
   const url = projectEntry?.url;
-  const src =
-    IMAGES_LINK + projectEntry?.mainInfo.item[0]?.image?.data?.attributes?.url;
+  const src = IMAGES_LINK + projectEntry?.featuredImage.data[0].attributes?.url;
+  const projectId = project?.data?.id;
 
   const onMouseEnter = () => {
     setIsAnimate(true);
@@ -42,7 +42,10 @@ const NextProject = ({ nextProjectButton }: INextProject) => {
     <>
       {projectEntry && url && (
         <NextProjectWrapper>
-          <Link href={`/case-studies/${projectEntry.url}`} passHref>
+          <Link
+            href={ROUTES.CASE_STUDIES + `${projectEntry.url}/${projectId}`}
+            passHref
+          >
             <NextProjectButton
               onMouseEnter={onMouseEnter}
               onMouseLeave={onMouseLeave}

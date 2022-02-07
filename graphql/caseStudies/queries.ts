@@ -186,14 +186,11 @@ export const GET_PROJECT_PAGE = gql`
                 attributes {
                   url
                   name
-                  mainInfo {
-                    item {
-                      image {
-                        data {
-                          attributes {
-                            url
-                          }
-                        }
+                  featuredImage {
+                    data {
+                      id
+                      attributes {
+                        url
                       }
                     }
                   }

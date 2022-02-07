@@ -232,6 +232,18 @@ export const H4 = styled.h4`
   }
 `;
 
+export const SoftwareDevelopment = styled.h4`
+  max-width: 302px;
+
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 22px;
+
+  letter-spacing: 0.05em;
+  text-transform: capitalize;
+`;
+
 export const H5 = styled.h5`
   max-width: 250px;
 
@@ -262,7 +274,6 @@ export const H6 = styled.h5`
 
   letter-spacing: 0.05em;
   text-transform: capitalize;
-
 `;
 
 export const Text = styled.p`

@@ -12,6 +12,7 @@ import FooterComponent from "../../components/Footer";
 import {IContactUs} from "@interfaces";
 import CreateProgressTogether from "../../components/ContactUsPage/CreateProgressTogether";
 import {IMAGES_LINK} from "../../constants";
+import {useEffect, useState} from "react";
 
 interface IContacts {
   title: string;
@@ -50,10 +51,16 @@ const footer: IFooter = {
 };
 
 const Contacts = ({ title, text}: IContacts) => {
+  const [url, setUrl] = useState<string>('')
+
   const seoTitle = 'Contact us — Incora Software Development';
   const seoKeywords = 'full cycle of development services, Incora team, innovations for development';
   const seoDescription = 'Get the launch you imagined with the help of our Incora team, which is just a few clicks away from you.';
   const seoImage = `${IMAGES_LINK}`;
+
+  useEffect(() =>
+    setUrl(window.location.href)
+  ), [];
 
   return (
       <>
@@ -61,12 +68,12 @@ const Contacts = ({ title, text}: IContacts) => {
           { seoTitle && <title>{seoTitle}</title> }
           <meta property="og:site_name" content="Incora - European software development company" />
           <meta property="og:type" content="article" />
-          { seoTitle && <title>{seoTitle}</title> }
+          <meta property="og:url" content={url}/>
           { seoDescription && <meta name="description" content={seoDescription}/> }
           { seoKeywords && <meta name="keywords" content={seoKeywords} /> }
           { seoTitle && <meta property="og:title" content={seoTitle} /> }
           { seoDescription && <meta property="og:description" content={seoDescription} /> }
-          { seoImage && <meta property="og:url" content={seoImage}/> }
+          { seoImage && <meta property="og:image" content={seoImage}/> }
         </Head>
         <>
           <MainMenu

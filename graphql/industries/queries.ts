@@ -72,7 +72,7 @@ export const GET_INDUSTRY_PAGE = gql`
               }
             }
           }
-          projects {
+          projects(pagination: { limit: 1 }) {
             data {
               id
               attributes {

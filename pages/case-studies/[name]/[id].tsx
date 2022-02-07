@@ -16,6 +16,7 @@ import { NextPage, NextPageContext } from "next";
 import { IMAGES_LINK } from "../../../constants";
 import Head from "next/head";
 import React from "../../../public/SVG/technologies/react.svg";
+import { useEffect, useState } from "react";
 
 const titles = [
   "Services",
@@ -61,6 +62,12 @@ const Case: NextPage<ICase> = ({ data, networkStatus }) => {
     galleryIntro &&
     galleryPictures;
 
+  const [url, setUrl] = useState<string>('');
+
+  useEffect(() =>
+      setUrl(window.location.href)
+  ), [];
+
   if (networkStatus !== 7 || data.project?.data === null) return <Custom404 />;
 
   return (
@@ -74,16 +81,15 @@ const Case: NextPage<ICase> = ({ data, networkStatus }) => {
               content="Incora - European software development company"
             />
             <meta property="og:type" content="article" />
-            {seoTitle && <title>{seoTitle}</title>}
+            <meta property="og:url" content={url} />
             {seoDescription && (
-              <meta name="description" content={seoDescription} />
-            )}
+              <meta name="description" content={seoDescription} />)}
             {seoKeywords && <meta name="keywords" content={seoKeywords} />}
             {seoTitle && <meta property="og:title" content={seoTitle} />}
             {seoDescription && (
               <meta property="og:description" content={seoDescription} />
             )}
-            {seoImage && <meta property="og:url" content={seoImage} />}
+            {seoImage && <meta property="og:image" content={seoImage} />}
           </Head>
           <MainMenu
             backgroundColor={theme.colors.black}

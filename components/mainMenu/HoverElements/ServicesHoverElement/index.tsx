@@ -19,7 +19,8 @@ import {
   AllServicesText,
   PositionLoader,
   PositionLoader2,
-  PositionDots
+  PositionDots,
+  SoftwareDevelopment
 } from "./ServicesHoverElement.style";
 import Link from "next/link"
 import TeamExtension from "../../../../public/SVG/services/TeamExtension.svg"
@@ -143,7 +144,7 @@ const useGetElementsTop = (titleColor: string, linkClickHandler: () => void) => 
 
 function useGetElementsBottom(titleColor: string, linkClickHandler: () => void) {
         const {isMobile, isTablet, isSmallTablet} = useIsMobile();
-  
+
 
   return (
     <>
@@ -155,11 +156,7 @@ function useGetElementsBottom(titleColor: string, linkClickHandler: () => void) 
             viewBox="0 0 302 291"
           />
 
-          <H4 onClick={linkClickHandler}>
-            <Link href={`/services/Software Development`}>
-              Software Development
-            </Link>
-          </H4>
+          <SoftwareDevelopment>Software Development</SoftwareDevelopment>
         </TitleBlock>
         { arrowWithText('Web App Development', 'web-application-development/2', linkClickHandler) }
         { arrowWithText('Mobile App Development', 'mobile-application-development/4', linkClickHandler) }

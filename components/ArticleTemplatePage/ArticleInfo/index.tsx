@@ -42,6 +42,7 @@ import { UPDATE_COUNT } from "../../../graphql/insights/mutations";
 import { UpdateImpressionsCount } from "../../../graphql/insights/__generated__/UpdateImpressionsCount";
 import { IImpressions } from "../../../pages/insights/[articleTemplate]/[id]";
 import { UpdateCount } from "../../../graphql/insights/__generated__/UpdateCount";
+import {useRouter} from "next/router";
 
 interface IArticleInfo {
   facebook: string | null | undefined;
@@ -51,11 +52,6 @@ interface IArticleInfo {
   impressions: IImpressions;
   id: string;
   views: number;
-}
-
-interface ISocialIcons {
-  facebook: string | null | undefined;
-  linkedIn: string | null | undefined;
 }
 
 const pollLabels = ["Love it!", "Valuable", "Exciting", "Unsatisfied"];
@@ -110,23 +106,28 @@ function getElements(
   });
 }
 
-function GetSocialIcons({ facebook, linkedIn }: ISocialIcons) {
-  const facebookCondition = facebook && (
-    <FacebookShareButton url={facebook}>
+function GetSocialIcons({ url }: { url: string }) {
+  console.log(url)
+  const facebook =
+    <FacebookShareButton url={url}>
       <FacebookSVG />
     </FacebookShareButton>
-  );
 
-  const linkedInCondition = linkedIn && (
-    <LinkedinShareButton url={linkedIn}>
+  const linkedIn =
+    <LinkedinShareButton url={url}>
       <LinkedInSvg />
     </LinkedinShareButton>
-  );
+
+  const twitter =
+    <TwitterShareButton url={url}>
+      <TwitterSVG />
+    </TwitterShareButton>
 
   return (
     <Icons>
-      {facebookCondition}
-      {linkedInCondition}
+      {facebook}
+      {linkedIn}
+      {twitter}
     </Icons>
   );
 }
@@ -146,6 +147,12 @@ const ArticleInfo = ({
   const valuable = impressions.valuable;
   const exciting = impressions.exciting;
   const unsatisfied = impressions.unsatisfied;
+
+  const [url, setUrl] = useState<string>('');
+
+  useEffect(() =>
+    setUrl(window.location.href)
+  ), [];
 
   const onImpressionClick = (index: number) => {
     switch (index) {
@@ -281,7 +288,7 @@ const ArticleInfo = ({
               {socialsCondition}
 
               <SocialIcons>
-                <GetSocialIcons facebook={facebook} linkedIn={linkedIn} />
+                <GetSocialIcons url={url} />
               </SocialIcons>
             </SocialTitle>
             <Tags>

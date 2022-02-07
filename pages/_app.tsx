@@ -27,7 +27,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
     <Head>
-      <meta name="viewport" httpEquiv="ScreenOrientation" content="autoRotate:disabled" />
+      <meta httpEquiv="ScreenOrientation" content="autoRotate:disabled" />
     </Head>
       <NavState>
         <GlobalStyle />

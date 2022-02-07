@@ -43,6 +43,14 @@ export const ImgBlock = styled.a`
   img {
     border-radius: 0 20px 0 0;
   }
+
+  @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
+    width: 100%;
+
+    span {
+      width: 100% !important;
+    }
+  }
 `;
 
 export const H3 = styled.h3`

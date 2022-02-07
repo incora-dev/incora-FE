@@ -38,12 +38,30 @@ export const GET_CASE_STUDIES = gql`
         }
       }
     }
+
+    locations {
+      data {
+        attributes {
+          country
+          location {
+            lat
+            lng
+            id
+          }
+        }
+      }
+    }
   }
 `;
 
 export const GET_PROJECTS = gql`
-  query GetProjects($industry: String) {
-    projects(filters: { industry: { name: { eq: $industry } } }) {
+  query GetProjects($industry: String, $country: String) {
+    projects(
+      filters: {
+        industry: { name: { eq: $industry } }
+        and: { location: { country: { eq: $country } } }
+      }
+    ) {
       data {
         id
         attributes {
@@ -168,14 +186,11 @@ export const GET_PROJECT_PAGE = gql`
                 attributes {
                   url
                   name
-                  mainInfo {
-                    item {
-                      image {
-                        data {
-                          attributes {
-                            url
-                          }
-                        }
+                  featuredImage {
+                    data {
+                      id
+                      attributes {
+                        url
                       }
                     }
                   }
@@ -199,7 +214,7 @@ export const GET_PROJECT_PAGE = gql`
             title
             subtitle
           }
-          
+
           SEO {
             ogTitle
             ogImage {

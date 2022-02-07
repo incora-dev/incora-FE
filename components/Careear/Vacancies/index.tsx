@@ -41,17 +41,19 @@ const Vacancies = ({
   const [specialty, setSpeciality] = useState<string | undefined>(undefined);
   const [technology, setTechnology] = useState<string | undefined>(undefined);
 
-  const [getVacanciesList, { data, loading }] =
-    useLazyQuery<GetVacanciesList>(GET_VACANCIES_LIST);
-  const vacancies = data?.vacancies?.data;
-
-  useEffect(() => {
-    getVacanciesList({
+  const [getVacanciesList, { data, loading }] = useLazyQuery<GetVacanciesList>(
+    GET_VACANCIES_LIST,
+    {
       variables: {
         specialty,
         technology,
       },
-    });
+    }
+  );
+  const vacancies = data?.vacancies?.data;
+
+  useEffect(() => {
+    getVacanciesList();
   }, []);
 
   const { intro, header, text, buttonText } = currentVacancies;
@@ -141,14 +143,6 @@ const Vacancies = ({
                   label={buttonText}
                   link="/company/send-cv"
                   arrow={theme.colors.white}
-                  onClick={() =>
-                    getVacanciesList({
-                      variables: {
-                        specialty,
-                        technology,
-                      },
-                    })
-                  }
                 />
               </QuickApplyWrap>
             </Filter>

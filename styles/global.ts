@@ -41,6 +41,13 @@ const GlobalStyle = createGlobalStyle`
       max-width: 100vw;
     }
 
+    @media only screen and (orientation: landscape) {
+      body {
+        height: 100vw;
+        transform: rotate(90deg);
+      }
+    }
+
     html,
     html a,
     h1,

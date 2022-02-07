@@ -11,7 +11,7 @@ import { theme } from "../../styles/theme";
 import { GET_INSIGHTS_PAGE } from "../../graphql/insights/queries";
 import Custom404 from "../404";
 import { GetInsightsPage } from "../../graphql/insights/__generated__/GetInsightsPage";
-import { NextPage, NextPageContext } from "next";
+import { NextPage } from "next";
 import { initializeApollo } from "../../graphql/client";
 
 interface IInsightsPage {

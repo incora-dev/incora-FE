@@ -38,9 +38,10 @@ import FacebookSVG from "../../../public/SVG/socialNetwork/FacebookSVG.svg";
 import LinkedInSvg from "../../../public/SVG/socialNetwork/LinkedInSvg.svg";
 import TwitterSVG from "../../../public/SVG/socialNetwork/TwitterSVG.svg";
 import { useMutation } from "@apollo/client";
-import { UPDATE_IMPRESSIONS_COUNT } from "../../../graphql/insights/mutations";
+import { UPDATE_COUNT } from "../../../graphql/insights/mutations";
 import { UpdateImpressionsCount } from "../../../graphql/insights/__generated__/UpdateImpressionsCount";
 import { IImpressions } from "../../../pages/insights/[articleTemplate]/[id]";
+import { UpdateCount } from "../../../graphql/insights/__generated__/UpdateCount";
 
 interface IArticleInfo {
   facebook: string | null | undefined;
@@ -49,6 +50,7 @@ interface IArticleInfo {
   tags: GetArticle_article_data_attributes_tags_data[];
   impressions: IImpressions;
   id: string;
+  views: number;
 }
 
 interface ISocialIcons {
@@ -136,10 +138,9 @@ const ArticleInfo = ({
   id,
   facebook,
   linkedIn,
+  views,
 }: IArticleInfo) => {
-  const [updateImpressionsCount] = useMutation<UpdateImpressionsCount>(
-    UPDATE_IMPRESSIONS_COUNT
-  );
+  const [updateCount] = useMutation<UpdateCount>(UPDATE_COUNT);
 
   const likes = impressions.likes;
   const valuable = impressions.valuable;
@@ -149,37 +150,53 @@ const ArticleInfo = ({
   const onImpressionClick = (index: number) => {
     switch (index) {
       case 0:
-        updateImpressionsCount({
+        updateCount({
           variables: {
             id,
             likes: likes + 1,
+            valuable,
+            exciting,
+            unsatisfied,
+            views,
           },
         });
         break;
 
       case 1:
-        updateImpressionsCount({
+        updateCount({
           variables: {
             id,
+            likes,
             valuable: valuable + 1,
+            exciting,
+            unsatisfied,
+            views,
           },
         });
         break;
 
       case 2:
-        updateImpressionsCount({
+        updateCount({
           variables: {
             id,
+            likes,
+            valuable,
             exciting: exciting + 1,
+            unsatisfied,
+            views,
           },
         });
         break;
 
       case 3:
-        updateImpressionsCount({
+        updateCount({
           variables: {
             id,
+            likes,
+            valuable,
+            exciting,
             unsatisfied: unsatisfied + 1,
+            views,
           },
         });
         break;

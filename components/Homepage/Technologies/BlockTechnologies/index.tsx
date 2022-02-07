@@ -58,7 +58,7 @@ function BlockTechnologies({ techStacks }: IBlockTechnologies) {
     );
   });
 
-  return <Component number={technologies.length}>{technologies}</Component>;
+  return <Component number={technologies.length} maxWidth={1006}>{technologies}</Component>;
 }
 
 export default BlockTechnologies;

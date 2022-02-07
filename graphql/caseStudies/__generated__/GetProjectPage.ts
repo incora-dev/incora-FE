@@ -153,36 +153,27 @@ export interface GetProjectPage_project_data_attributes_feedback {
   data: GetProjectPage_project_data_attributes_feedback_data | null;
 }
 
-export interface GetProjectPage_project_data_attributes_nextProjectButton_project_data_attributes_mainInfo_item_image_data_attributes {
+export interface GetProjectPage_project_data_attributes_nextProjectButton_project_data_attributes_featuredImage_data_attributes {
   __typename: "UploadFile";
   url: string;
 }
 
-export interface GetProjectPage_project_data_attributes_nextProjectButton_project_data_attributes_mainInfo_item_image_data {
+export interface GetProjectPage_project_data_attributes_nextProjectButton_project_data_attributes_featuredImage_data {
   __typename: "UploadFileEntity";
-  attributes: GetProjectPage_project_data_attributes_nextProjectButton_project_data_attributes_mainInfo_item_image_data_attributes | null;
+  id: string | null;
+  attributes: GetProjectPage_project_data_attributes_nextProjectButton_project_data_attributes_featuredImage_data_attributes | null;
 }
 
-export interface GetProjectPage_project_data_attributes_nextProjectButton_project_data_attributes_mainInfo_item_image {
-  __typename: "UploadFileEntityResponse";
-  data: GetProjectPage_project_data_attributes_nextProjectButton_project_data_attributes_mainInfo_item_image_data | null;
-}
-
-export interface GetProjectPage_project_data_attributes_nextProjectButton_project_data_attributes_mainInfo_item {
-  __typename: "ComponentCommonItem";
-  image: GetProjectPage_project_data_attributes_nextProjectButton_project_data_attributes_mainInfo_item_image | null;
-}
-
-export interface GetProjectPage_project_data_attributes_nextProjectButton_project_data_attributes_mainInfo {
-  __typename: "ComponentProjectMainInfo";
-  item: (GetProjectPage_project_data_attributes_nextProjectButton_project_data_attributes_mainInfo_item | null)[];
+export interface GetProjectPage_project_data_attributes_nextProjectButton_project_data_attributes_featuredImage {
+  __typename: "UploadFileRelationResponseCollection";
+  data: GetProjectPage_project_data_attributes_nextProjectButton_project_data_attributes_featuredImage_data[];
 }
 
 export interface GetProjectPage_project_data_attributes_nextProjectButton_project_data_attributes {
   __typename: "Project";
   url: string | null;
   name: string;
-  mainInfo: GetProjectPage_project_data_attributes_nextProjectButton_project_data_attributes_mainInfo;
+  featuredImage: GetProjectPage_project_data_attributes_nextProjectButton_project_data_attributes_featuredImage;
 }
 
 export interface GetProjectPage_project_data_attributes_nextProjectButton_project_data {

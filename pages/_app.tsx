@@ -21,7 +21,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   const apolloClient = useApollo(pageProps);
 
   useEffect(() => {
-    screen.orientation.lock("portrait-primary");
+    // screen.orientation.lock("portrait-primary");
   }, []);
   return (
     <>

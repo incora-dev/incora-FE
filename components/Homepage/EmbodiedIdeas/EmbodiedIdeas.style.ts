@@ -15,6 +15,10 @@ export const Content = styled.div`
   width: 100%;
 
   padding: 0 15px 0 188px;
+
+  @media only screen and (max-width: ${themeGet('breakpoints.desk')}) {
+    padding: 0 15px 0 60px;
+  }
   
   @media only screen and (max-width: ${themeGet('breakpoints.mDesk')}) {
     padding: 0;
@@ -130,7 +134,7 @@ export const SeeMoreWorks = styled.div`
   position: relative;
 
   max-width: 1006px;
-  margin: 374px auto 70px;
+  margin: 70px auto 70px;
 
   display: flex;
   flex-direction: column;

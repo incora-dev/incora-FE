@@ -550,10 +550,47 @@ export const BlockContainer = styled.div`
 
 export const Wrapper = styled.div`
   position: relative;
+  height: 571px;
 
   width: 700px;
 
+  @media only screen and (max-width: ${themeGet('breakpoints.mediumDesk')}) {
+    height: 400px;
+    width: 600px;
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.smallDesk')}) {
+    height: 300px;
+    width: 500px;
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+    height: 560px;
+    width: 100%;
+  }
+
   @media only screen and (max-width: ${themeGet('breakpoints.sTablet')}) {
+    height: 480px;
+    width: 100%;
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.mobileTablet')}) {
+    height: 400px;
+    width: 100%;
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+    height: 340px;
+    width: 100%;
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.mMobile')}) {
+    height: 250px;
+    width: 100%;
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.xsMobile')}) {
+    height: 205px;
     width: 100%;
   }
 `;

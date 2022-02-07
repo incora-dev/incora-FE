@@ -66,7 +66,7 @@ export const GET_TECHNOLOGY_PAGE = gql`
               connectedItems
             }
           }
-          projects {
+          projects(pagination: { limit: 1 }) {
             data {
               id
               attributes {

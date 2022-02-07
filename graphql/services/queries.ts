@@ -138,7 +138,7 @@ export const GET_SERVICE = gql`
               }
             }
           }
-          projects {
+          projects(pagination: { limit: 1 }) {
             data {
               id
               attributes {

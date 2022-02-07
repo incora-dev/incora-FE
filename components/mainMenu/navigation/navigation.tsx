@@ -23,7 +23,7 @@ function Navigation({
   {
   const [selectedTitle, setSelectedTitle] = useState<string | null>(null);
   const  [urlTitle, setUrlTitle] = useState<string | null | undefined>(null);
-  const { toggleHoverMenuMode, toggleMenuMode } = useContext(MenuContext);
+  const { toggleHoverMenuMode, toggleMenuMode, isHoverMenuOpen, isMenuOpen } = useContext(MenuContext);
   const { isMobile, isTablet, isSmallTablet } = useIsMobile();
 
   const snakeCaseToTitle = (string: string) => {
@@ -116,7 +116,14 @@ function Navigation({
     if (!isMobile && !isTablet && !isSmallTablet) {
       toggleHoverMenu(pageTitle);
     }
-  }
+  };
+
+  const linkClickHandler = (redirectTo: string) => {
+    toggleMenuMode();
+    toggleHoverMenuMode();
+    setOnHoverElement(null);
+    router.push(redirectTo);
+  };
 
   return (
     <Nav color={titlesColor}>
@@ -149,9 +156,8 @@ function Navigation({
             <ButtonWithArrow
               key={index}
               buttonLabel={'Contact Us'}
-              redirectTo={'/contacts'}
               padding={'11.5px 14.5px;'}
-              // onClick={linkClickHandler}
+              onClick={() => linkClickHandler('/contacts')}
             />
           );
         }

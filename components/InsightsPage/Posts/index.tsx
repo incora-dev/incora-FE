@@ -26,6 +26,7 @@ const Posts = ({ query, industry }: IPosts) => {
 
   const onPageChanged = (page: number) => {
     setCurrentPage(page);
+    window.scrollTo(0, 0);
   };
 
   const paginationCondition =

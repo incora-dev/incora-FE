@@ -1,12 +1,13 @@
 import { gql } from "@apollo/client";
 
-export const UPDATE_IMPRESSIONS_COUNT = gql`
-  mutation UpdateImpressionsCount(
+export const UPDATE_COUNT = gql`
+  mutation UpdateCount(
     $id: ID!
     $likes: Long
     $valuable: Long
     $exciting: Long
     $unsatisfied: Long
+    $views: Long
   ) {
     updateArticle(
       id: $id
@@ -16,6 +17,7 @@ export const UPDATE_IMPRESSIONS_COUNT = gql`
           valuable: $valuable
           exciting: $exciting
           unsatisfied: $unsatisfied
+          views: $views
         }
       }
     ) {
@@ -28,6 +30,7 @@ export const UPDATE_IMPRESSIONS_COUNT = gql`
             valuable
             exciting
             unsatisfied
+            views
           }
         }
       }

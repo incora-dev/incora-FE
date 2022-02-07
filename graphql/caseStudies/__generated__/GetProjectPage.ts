@@ -278,5 +278,5 @@ export interface GetProjectPage {
 }
 
 export interface GetProjectPageVariables {
-  ID?: string | null;
+  id?: string | null;
 }

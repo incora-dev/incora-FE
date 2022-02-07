@@ -37,7 +37,7 @@ export const ContentWrapper = styled.div`
 
 export const TextWrap = styled.div`
   width: 540px;
-  height: 737px;
+  height: fit-content;
 
   @media only screen and (max-width: ${themeGet('breakpoints.tabletPro')}) {
     height: fit-content;

@@ -134,7 +134,7 @@ export const SeeMoreWorks = styled.div`
   position: relative;
 
   max-width: 1006px;
-  margin: 374px auto 70px;
+  margin: 70px auto 70px;
 
   display: flex;
   flex-direction: column;

@@ -9,7 +9,7 @@ import { GetProjects_projects } from "../../../../graphql/caseStudies/__generate
 import { useIsMobile } from "../../../../services/hooks";
 import { GetProjects_projects_data } from "../../../../graphql/caseStudies/__generated__/getProjects";
 import { ROUTES } from "../../../../constants/routes";
-import {isNumberEven} from "../../../../utils";
+import { isNumberEven } from "../../../../utils";
 
 interface IProjects {
   projects: GetProjects_projects_data[];
@@ -67,21 +67,21 @@ function Projects({ projects, elementsColor }: IProjects) {
               <Text>
                 <Link href={ROUTES.CASE_STUDIES + `${url}/${id}`} passHref>
                   <H3
-                    onMouseEnter={() => setShouldHover(index)}
+                    onMouseEnter={() => setShouldHover(getIndex[index])}
                     onMouseLeave={() => setShouldHover(-1)}
                   >
                     {name}
                   </H3>
                 </Link>
                 <P
-                  onMouseEnter={() => setShouldHover(index)}
+                  onMouseEnter={() => setShouldHover(getIndex[index])}
                   onMouseLeave={() => setShouldHover(-1)}
                 >
                   {description}
                 </P>
 
                 <Block
-                  onMouseEnter={() => setShouldHover(index)}
+                  onMouseEnter={() => setShouldHover(getIndex[index])}
                   onMouseLeave={() => setShouldHover(-1)}
                 >
                   {technologies.length > 0 && (

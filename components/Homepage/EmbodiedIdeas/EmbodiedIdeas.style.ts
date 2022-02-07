@@ -15,6 +15,10 @@ export const Content = styled.div`
   width: 100%;
 
   padding: 0 15px 0 188px;
+
+  @media only screen and (max-width: ${themeGet('breakpoints.desk')}) {
+    padding: 0 15px 0 60px;
+  }
   
   @media only screen and (max-width: ${themeGet('breakpoints.mDesk')}) {
     padding: 0;

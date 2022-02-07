@@ -43,8 +43,8 @@ const GlobalStyle = createGlobalStyle`
 
     @media only screen and (orientation: landscape) {
       body {
-        height: 100vw;
-        transform: rotate(90deg);
+        /* height: 100vw;
+        transform: rotate(90deg); */
       }
     }
 

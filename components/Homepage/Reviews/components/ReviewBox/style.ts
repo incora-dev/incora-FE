@@ -24,6 +24,17 @@ export const ReviewBoxWrapper = styled.div`
   }
 `;
 
+export const ButtonWrapper = styled.div`
+  position: absolute;
+  left: 0;
+  top: 300px;
+  
+  width: 100%;
+  
+  display: flex;
+  justify-content: space-between;
+`;
+
 export const CarouselButtonWrapper = styled.div`
   width: 269px;
   display: flex;
@@ -122,7 +133,7 @@ export const QuoteWrap = styled.div`
 
 export const QuoteText = styled.p`
   padding-top: 10px;
-  font-family: Poppins;
+
   font-style: normal;
   font-weight: normal;
   font-size: var(--fs-14);

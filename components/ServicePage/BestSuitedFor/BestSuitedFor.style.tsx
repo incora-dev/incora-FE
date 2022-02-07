@@ -89,11 +89,6 @@ export const ContentWrapper = styled.div`
       width: 50px;
     }
   }
-
-  opacity: ${({ animation }: IAnimation) => (animation ? "1" : "0")};
-
-  transition: opacity ${themeGet("transition.button")};
-  transition-delay: ${({ delay }: IAnimation) => `${delay}ms`};
 `;
 
 export const Text = styled.p`

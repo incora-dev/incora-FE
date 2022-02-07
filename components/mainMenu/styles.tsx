@@ -63,10 +63,12 @@ export const Block = styled.div`
   justify-content: space-between;
   width: 100%;
   gap: 20px;
+  max-height: 104px;
 
   @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
     padding: 10px 0;
     flex-direction: row-reverse;
+    max-height: 60px;
   }
 `;
 

@@ -20,8 +20,16 @@ export const BenefitsAndSolutionsWrap = styled.div`
   display: flex;
   justify-content: center;
   position: relative;
-
+  padding-bottom: 432px;
   background-color: ${({ bgColor }: IBackground) => bgColor};
+
+  @media only screen and (max-width: ${themeGet("breakpoints.mDesk")}) {
+    padding: 0 25px 100px;
+  }
+
+  @media only screen and (max-width: ${themeGet("breakpoints.tabletPro")}) {
+    padding-bottom: 0;
+  }
 
   @media only screen and (max-width: ${themeGet("breakpoints.smallDesk")}) {
     padding: 0 25px;

@@ -50,8 +50,11 @@ export const Content = styled.div`
   }
 
   @media only screen and (max-width: ${themeGet("breakpoints.tabletPro")}) {
+    max-width: 1006px;
+    width: 100%;
     overflow: initial;
     padding: 0 25px;
+    margin: 0 auto;
     flex-wrap: wrap;
     row-gap: 40px;
   }

@@ -13,6 +13,7 @@ const Project = ({ id, project, index, elementsColor}: any) => {
     (index + 1) % 10 !== 2 ? "81px 0 0 180px;" : "81px 180px 0 0";
 
   const url = project?.url;
+  const projectId = project?.id;
   const technologies = project?.technologies;
   const mainInfoEntry = project?.mainInfo.item[0];
   const imageEntry = mainInfoEntry?.image?.data?.attributes;
@@ -22,7 +23,7 @@ const Project = ({ id, project, index, elementsColor}: any) => {
     {mainInfoEntry && imageEntry && technologies && (
       <Container key={id} flexDirection={flexDirection}>
         <Text>
-          <Link href={`/case_studies/case/${url}`} passHref>
+          <Link href={`/case-studies/${url}/${projectId}`} passHref>
             <H3
               onMouseEnter={() => setShouldHover(index)}
               onMouseLeave={() => setShouldHover(-1)}

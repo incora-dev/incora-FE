@@ -3,6 +3,7 @@ import {
   CarouselButtonWrapper,
   CarouselReviewWrapper,
   ReviewBoxWrapper,
+  ButtonWrapper
 } from "./style";
 
 import ReviewContent from "./components/ReviewContent";
@@ -51,30 +52,28 @@ const ReviewBox = ({
   return (
     <ReviewBoxWrapper>
       <CarouselReviewWrapper>
-        <CarouselButtonsContainer>
-          <CarouselButtonWrapper>
-            {leftCarouselButtonCondition}
-          </CarouselButtonWrapper>
-          {(isMobile || isTablet || isSmallTablet) && (
+        {(isMobile || isTablet || isSmallTablet) &&
+          <CarouselButtonsContainer>
+            <CarouselButtonWrapper>
+              {leftCarouselButtonCondition}
+            </CarouselButtonWrapper>
             <CarouselButtonWrapper>
               {rightCarouselButtonCondition}
             </CarouselButtonWrapper>
-          )}
-        </CarouselButtonsContainer>
+          </CarouselButtonsContainer>
+        }
         <ReviewContent review={reviews[reviewIndex]} />
       </CarouselReviewWrapper>
 
       {!isMobile && !isTablet && !isSmallTablet && (
-        <CarouselButtonsContainer>
+        <ButtonWrapper>
           <CarouselButtonWrapper>
             {leftCarouselButtonCondition}
           </CarouselButtonWrapper>
-          {!isMobile && (
             <CarouselButtonWrapper>
               {rightCarouselButtonCondition}
             </CarouselButtonWrapper>
-          )}
-        </CarouselButtonsContainer>
+        </ButtonWrapper>
       )}
     </ReviewBoxWrapper>
   );

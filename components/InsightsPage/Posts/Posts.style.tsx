@@ -25,6 +25,7 @@ export const Wrapper = styled.div`
   @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
     padding: 50px 25px 50px;
     row-gap: 45px;
+    width: 100%;
   }
 
   @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
@@ -40,6 +41,7 @@ export const NewsBlock = styled.div`
 
   .news-container {
     margin-right: 50px;
+    width: calc((100% - 115px) / 3);
 
     :nth-child(3n) {
       margin-right: 0;
@@ -48,10 +50,51 @@ export const NewsBlock = styled.div`
 
   @media only screen and (max-width: ${themeGet("breakpoints.tabletPro")}) {
     .news-container {
+      margin-right: 12px;
+      width: calc((100% - 24px) / 3);
+
+      /* :nth-child(3n) {
+        margin-right: 25px;
+      } */
+    }
+  }
+
+  @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
+    .news-container {
+      width: 308px;
       margin-right: 25px;
+
+      :nth-child(2n) {
+        margin-right: 0;
+      }
 
       :nth-child(3n) {
         margin-right: 25px;
+      }
+    }
+  }
+
+  @media only screen and (max-width: ${themeGet("breakpoints.sTablet")}) {
+    row-gap: 30px;
+
+    .news-container {
+      width: calc((100% - 12px) / 2);
+      margin-right: 12px;
+      height: auto;
+
+      :nth-child(3n) {
+        margin-right: 0;
+      }
+    }
+  }
+
+  @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
+    .news-container {
+      width: 308px;
+      margin-right: 0;
+
+      :nth-child(3n) {
+        margin-right: 0;
       }
     }
   }

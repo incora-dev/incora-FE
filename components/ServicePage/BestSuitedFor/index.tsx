@@ -29,8 +29,8 @@ const GetContent = ({ labels, onBlockEnter = false }: IGetContent) => {
     return (
       <ContentWrapper
         key={label?.id}
-        animation={onBlockEnter}
-        delay={index * 200}
+        // animation={onBlockEnter}
+        // delay={index * 200}
       >
         <PositionDots>
           <Dots

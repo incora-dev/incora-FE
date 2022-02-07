@@ -44,7 +44,7 @@ function FormClassic({
     const request = new XMLHttpRequest();
     const files: any = inputSelectedFile || selectedFiles || null;
     const sendUrl =
-      url.includes('/career') || url.includes('/send_cv')
+      url.includes('/career') || url.includes('/send-cv')
       ? `${IMAGES_LINK}/api/candidate-responses`
       : `${IMAGES_LINK}/api/client-responses`;
 

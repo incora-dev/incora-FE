@@ -272,7 +272,7 @@ const ArticleInfo = ({
             <Tags>
               <P>Tags</P>
 
-              <Technologies technologies={tags} />
+              <Technologies isUrl={false} technologies={tags} />
             </Tags>
           </SocialTitleAndTagsBlock>
         </StickyWrapper>

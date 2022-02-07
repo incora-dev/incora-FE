@@ -9,19 +9,43 @@ import { GetProjects_projects } from "../../../../graphql/caseStudies/__generate
 import { useIsMobile } from "../../../../services/hooks";
 import { GetProjects_projects_data } from "../../../../graphql/caseStudies/__generated__/getProjects";
 import { ROUTES } from "../../../../constants/routes";
+import {isNumberEven} from "../../../../utils";
 
 interface IProjects {
   projects: GetProjects_projects_data[];
   elementsColor: string;
 }
 
+function indexesArray(length: number) {
+  const indexes = [];
+
+  for (let i = 0; i < length + 1; i++) {
+    if (indexes.length === 0 || indexes[indexes.length - 1] === 2) {
+      indexes.push(0)
+    }
+
+    if (indexes[indexes.length - 1] === 0) {
+      indexes.push(1)
+    }
+
+    if (indexes[indexes.length - 1] === 1) {
+      indexes.push(2)
+    }
+  }
+
+  return indexes;
+}
+
 function Projects({ projects, elementsColor }: IProjects) {
   const [shouldHover, setShouldHover] = useState(-1);
   const { isMobile, isTablet, isSmallTablet } = useIsMobile();
+  console.log(projects)
+  const getIndex = indexesArray(projects.length);
+  console.log(getIndex);
 
   function createProjects(): JSX.Element[] {
     return projects.map(({ id, attributes }, index) => {
-      const flexDirection = (index + 1) % 10 !== 2 ? "row" : "row-reverse";
+      const flexDirection = isNumberEven(index) ? "row" : "row-reverse";
       const marginText =
         (index + 1) % 10 !== 2
           ? isMobile || isTablet || isSmallTablet
@@ -76,7 +100,7 @@ function Projects({ projects, elementsColor }: IProjects) {
                 img={image}
                 width={700}
                 height={537}
-                index={index}
+                index={getIndex[index]}
                 elementsColor={elementsColor}
                 shouldHover={shouldHover}
                 setShouldHover={setShouldHover}

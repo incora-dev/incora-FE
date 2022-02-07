@@ -59,7 +59,7 @@ export const PositionElement1 = styled.div`
     transform: scale(0.4);
     bottom: ${({ index }: IElement) => {
       if (index === 0) {
-        return '-310px';
+        return '-220px';
       } else {
         return '-96px';
       }
@@ -108,7 +108,7 @@ export const PositionElement2 = styled.div`
     transform: scale(0.5);
     top: ${({ index }: IElement) => {
       if (index === 0) {
-        return '-220px';
+        return '-120px';
       } else {
         return '-40px';
       }
@@ -140,8 +140,20 @@ export const PositionElement3 = styled.div`
     }
   }
 
+  @media only screen and (max-width: ${themeGet('breakpoints.desk')}) {
+    transform: scale(1);
+    top: -52px;
+    left: ${({index}: IElement) => {
+      if (index === 0) {
+        return '-310px';
+      } else {
+        return '-6px';
+      }
+    }};
+  }
+
   @media only screen and (max-width: ${themeGet('breakpoints.smallDesk')}) {
-    transform: scale(0.6);
+    transform: scale(1);
     top: ${({ index }: IElement) => {
       if (index === 0) {
         return '-340px';
@@ -152,26 +164,14 @@ export const PositionElement3 = styled.div`
     left: -45px;
   }
 
-  @media only screen and (max-width: ${themeGet('breakpoints.desk')}) {
-    transform: scale(0.9);
-    top: -20px;
-    left: ${({index}: IElement) => {
-      if (index === 0) {
-        return '-310px';
-      } else {
-        return '-52px';
-      }
-    }};
-  }
-
   @media only screen and (max-width: ${themeGet('breakpoints.mediumDesk')}) {
-    transform: scale(0.6);
-    top: -91px;
+    transform: scale(0.9);
+    top: -52px;
     left: ${({index}: IElement) => {
       if (index === 0) {
-        return '-310px';
+        return '-200px';
       } else {
-        return '-52px';
+        return '-16px';
       }
     }};
   }
@@ -217,7 +217,7 @@ export const PositionElement4 = styled.div`
     right: -126px;
     bottom: ${({index}: IElement) => {
       if (index === 1) {
-        return '-285px';
+        return '-220px';
       } else {
         return '-74px';
       }
@@ -229,7 +229,7 @@ export const PositionElement4 = styled.div`
     right: -128px;
     bottom: ${({index}: IElement) => {
       if (index === 1) {
-        return '-285px';
+        return '-220px';
       } else {
         return '-76px';
       }
@@ -289,7 +289,7 @@ export const PositionElement5 = styled.div`
     right: -89px;
     top: ${({index}: IElement) => {
       if (index === 1) {
-        return '-285px';
+        return '-180px';
       } else {
         return '-77px';
       }
@@ -350,7 +350,7 @@ export const PositionElement6 = styled.div`
     top: -120px;
     left: ${({ index }: IElement) => {
       if (index === 1) {
-        return '-255px';
+        return '-190px';
       } else {
         return '-65px';
       }
@@ -373,7 +373,7 @@ export const PositionElement7 = styled.div`
   }};
   left: 0;
 
-  transition: ${transitionTimeProjectsHoverDuration};
+  transition: all ${transitionTimeProjectsHoverDuration} ease-in-out;
 
   svg {
     path {
@@ -410,7 +410,7 @@ export const PositionElement7 = styled.div`
     transform: scale(0.5);
     bottom: ${({ index }: IElement) => {
       if (index === 2) {
-        return '-305px';
+        return '-228px';
       } else {
         return '-82px';
       }
@@ -521,7 +521,7 @@ export const PositionElement9 = styled.div`
     top: -67px;
     left: ${({ index }: IElement) => {
       if (index === 2) {
-        return '-200px';
+        return '-340px';
       } else {
         return '-122px';
       }
@@ -533,7 +533,7 @@ export const PositionElement9 = styled.div`
     top: -67px;
     left: ${({ index }: IElement) => {
       if (index === 2) {
-        return '-200px';
+        return '-310px';
       } else {
         return '-122px';
       }
@@ -543,6 +543,9 @@ export const PositionElement9 = styled.div`
   @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
     display: none;
   }
+`;
+
+export const BlockContainer = styled.div`
 `;
 
 export const Wrapper = styled.div`
@@ -562,6 +565,7 @@ export const Container = styled.div`
   overflow: hidden;
   cursor: pointer;
   width: 100%;
+  height: max-content;
   right: -180px;
 
   border-radius: ${({ borderRadius} : IImg) => borderRadius};
@@ -580,5 +584,9 @@ export const Container = styled.div`
     max-width: 100%;
     right: 0;
     height: auto;
+  }
+  
+  img {
+    display: block;
   }
 `;

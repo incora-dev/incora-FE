@@ -28,7 +28,7 @@ function Navigation({
 
   const snakeCaseToTitle = (string: string) => {
     const newS = string.replaceAll('/', '');
-    let sentence = newS.toLowerCase().split("_");
+    let sentence = newS.toLowerCase().split("-");
     
     return sentence.join(" ").toLowerCase();
   };

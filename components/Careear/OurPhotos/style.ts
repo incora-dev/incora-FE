@@ -62,7 +62,7 @@ export const ImageContainer = styled.div`
     margin-bottom: 25px;
   }
 
-  @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
+  @media only screen and (max-width: ${themeGet("breakpoints.sTablet")}) {
     width: 100%;
   }
   
@@ -78,7 +78,7 @@ export const ImageContainer = styled.div`
       margin-right: 30px;
     }
 
-    @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
+    @media only screen and (max-width: ${themeGet("breakpoints.sTablet")}) {
       margin: 0 0 25px;
     }
 
@@ -94,6 +94,13 @@ export const VideoContainer = styled.div`
   top: -278px;
 
   z-index: 1;
+
+  @media only screen and (max-width: ${themeGet('breakpoints.mDesk')}) {
+    position: relative;
+    top: 0;
+    width: 100%;
+  }
+
   @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
     width: 100%;
   }
@@ -113,12 +120,18 @@ export const VideoBLock = styled.div`
 export const PosterVideoPosition = styled.div`
   position: absolute;
   top: 0;
-
+  width: 100%;
   opacity: ${( { display }: IShowVideo) => display ? 0 : 1};
   pointer-events: ${( { display }: IShowVideo) => display ? 'none' : 'all'};
 
   transition: opacity 1s linear;
   transition-delay: 1s;
+
+  img {
+    @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+      width: 100%;
+    }
+  }
 `;
 
 export const Video = styled.video`

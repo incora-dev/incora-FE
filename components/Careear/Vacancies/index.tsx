@@ -139,6 +139,7 @@ const Vacancies = ({
                   width={180}
                   height={67}
                   label={buttonText}
+                  link="/company/send-cv"
                   arrow={theme.colors.white}
                   onClick={() =>
                     getVacanciesList({

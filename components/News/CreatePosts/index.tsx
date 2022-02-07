@@ -49,6 +49,7 @@ const CreateNews = ({
         </Link>
 
         <Technologies
+          isUrl={false}
           technologies={tags}
           textTagsColor={theme.colors.black}
           bgTagsColor={theme.colors.grey}

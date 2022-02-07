@@ -1,8 +1,9 @@
 export const ROUTES = {
   EXPERTISE: {
     TECHNOLOGIES: "/expertise/technologies/",
+    INDUSTRIES: "/expertise/industries/",
   },
-  CASE_STUDIES: "/case_studies/",
+  CASE_STUDIES: "/case-studies/",
   SERVICES: "/services/",
   INSIGHTS: "/insights/",
   CONTACTS: "/contacts/",
@@ -10,6 +11,6 @@ export const ROUTES = {
     DEFAULT: "/company/",
     ABOUT: "/about/",
     CAREER: "/career/",
-    SEND_CV: "send_cv",
+    SEND_CV: "send-cv",
   },
 };

@@ -40,18 +40,47 @@ interface IServicesHoverElement {
   backgroundColor: string;
 }
 
+interface IServiceUrl {
+  title: string;
+  url: string;
+}
+
 const servicesLabel = [
-  'Research & Development',
-  'Web App',
- ' Mobile App',
-  'Team Extension',
-  'Dedicated Team',
-  'DevOps',
-  'Software QA & Testing',
-  'UI/UX design'
+  {
+    title: 'Research & Development',
+    url: 'discovery-phase/1'
+  },
+  {
+    title: 'Web App',
+    url: 'web-application-development/2'
+  },
+  {
+    title: 'Mobile App',
+    url: 'mobile-application-development/4'
+  },
+  {
+    title: 'Team Extension',
+    url: 'team-extension/3'
+  },
+  {
+    title: 'Dedicated Team',
+    url: 'dedicated-team/6'
+  },
+  {
+    title: 'DevOps',
+    url: 'devops-as-a-service/8'
+  },
+  {
+    title: 'Software QA & Testing',
+    url: 'qa-software-testing/7'
+  },
+  {
+    title: 'UI/UX design',
+    url: 'ui-ux-graphic-design/5'
+  },
 ];
 
-function arrowWithText(text: string, linkClickHandler: () => void) {
+function arrowWithText(text: string, url: string, linkClickHandler: () => void) {
   return (
     <ArrowWithTextBlock>
       <Arrow
@@ -62,7 +91,7 @@ function arrowWithText(text: string, linkClickHandler: () => void) {
 
       <H5 onClick={linkClickHandler}>
 
-        <Link href={`/services/${text.toLowerCase()}`}>
+        <Link href={`/services/${url}`}>
           {text}
         </Link>
       </H5>
@@ -84,7 +113,7 @@ const useGetElementsTop = (titleColor: string, linkClickHandler: () => void) => 
           />
 
           <H4 onClick={linkClickHandler}>
-            <Link href={`/services/Team Extension`}>
+            <Link href={`/services/team-extension/3`}>
               Team Extension
             </Link>
           </H4>
@@ -101,7 +130,7 @@ const useGetElementsTop = (titleColor: string, linkClickHandler: () => void) => 
           />
 
           <H4 onClick={linkClickHandler}>
-            <Link href={`/services/Dedicated Team`}>
+            <Link href={`/services/dedicated-team/6`}>
               Dedicated Team
             </Link>
           </H4>
@@ -132,8 +161,8 @@ function useGetElementsBottom(titleColor: string, linkClickHandler: () => void) 
             </Link>
           </H4>
         </TitleBlock>
-        { arrowWithText('Web App Development', linkClickHandler) }
-        { arrowWithText('Mobile App Development', linkClickHandler) }
+        { arrowWithText('Web App Development', 'web-application-development/2', linkClickHandler) }
+        { arrowWithText('Mobile App Development', 'mobile-application-development/4', linkClickHandler) }
       </IconBlock>
 
       {!isMobile && !isTablet && !isSmallTablet && <H6>Software development is aimed to provide you with support on each stage required for the successful launch of the product: from discovery to production.</H6>}
@@ -141,12 +170,12 @@ function useGetElementsBottom(titleColor: string, linkClickHandler: () => void) 
   )
 }
 
-function getServices(labels: string[], linkClickHandler: () => void) {
+function getServices(labels: IServiceUrl[], linkClickHandler: () => void) {
   return (
     labels.map((label, index) =>
       <Service key={index}  onClick={linkClickHandler}>
-        <Link href={`/services/${label.toLowerCase()}`}>
-          {label}
+        <Link href={`/services/${label.url}`}>
+          {label.title}
         </Link>
       </Service>)
   )

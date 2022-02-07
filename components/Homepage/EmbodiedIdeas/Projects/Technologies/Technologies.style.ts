@@ -7,6 +7,7 @@ interface IChangeColorText{
 
 interface IChangeColorTags{
   bgColor?: string;
+  isUrl?: boolean;
 }
 
 export const Container = styled.div`
@@ -42,7 +43,7 @@ export const Div = styled.div`
   height: 22px;
   top: 0;
 
-  cursor: pointer;
+  cursor: ${({ isUrl }: IChangeColorTags) => isUrl ? 'pointer' : 'initial'};
   background-color: ${({ bgColor }: IChangeColorTags) => bgColor ? bgColor : '#454A4D'};
   
   border-radius: 5px;
@@ -64,7 +65,7 @@ export const Div = styled.div`
   }
 
   &:hover :after {
-    width: 100%;
+    width: ${({ isUrl }: IChangeColorTags) => isUrl ? '100%' : '0'};
   }
 `;
 

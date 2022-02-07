@@ -17,7 +17,10 @@ import { GET_ARTICLE } from "../../../graphql/insights/queries";
 import { useIsMobile } from "../../../services/hooks";
 import { NextPage, NextPageContext } from "next";
 import { initializeApollo } from "../../../graphql/client";
-import { UPDATE_VIEWS } from "../../../graphql/insights/mutations";
+import {
+  UPDATE_COUNT,
+  UPDATE_VIEWS,
+} from "../../../graphql/insights/mutations";
 
 export interface IImpressions {
   intro: string | undefined;
@@ -36,7 +39,7 @@ const ArticleTemplate: NextPage<IArticleTemplate> = ({
   data,
   networkStatus,
 }) => {
-  const [updateViews] = useMutation(UPDATE_VIEWS);
+  const [updateCount] = useMutation(UPDATE_COUNT);
 
   const id = data.article?.data?.id;
   const entry = data.article?.data?.attributes;
@@ -69,14 +72,25 @@ const ArticleTemplate: NextPage<IArticleTemplate> = ({
   const seoTitle = entry?.SEO?.ogTitle;
   const seoKeywords = entry?.SEO?.keywords;
   const seoDescription = entry?.SEO?.description;
-  const seoImage = entry?.SEO?.ogImage?.data?.attributes?.url !== 'undefined'
-    && `${IMAGES_LINK}${entry?.SEO?.ogImage?.data?.attributes?.url}`;
+  const seoImage =
+    entry?.SEO?.ogImage?.data?.attributes?.url !== "undefined" &&
+    `${IMAGES_LINK}${entry?.SEO?.ogImage?.data?.attributes?.url}`;
 
   useEffect(() => {
     if (title) {
       const localStorageId = localStorage.getItem(title);
+      const { likes, exciting, valuable, unsatisfied } = impressions;
       if (localStorageId !== id) {
-        updateViews({ variables: { id, views: views + 1 } });
+        updateCount({
+          variables: {
+            id,
+            views: views + 1,
+            likes,
+            exciting,
+            valuable,
+            unsatisfied,
+          },
+        });
       }
     }
   }, [id]);
@@ -121,15 +135,22 @@ const ArticleTemplate: NextPage<IArticleTemplate> = ({
       {renderCondition && (
         <>
           <Head>
-            { seoTitle && <title>{seoTitle}</title> }
-            <meta property="og:site_name" content="Incora - European software development company" />
+            {seoTitle && <title>{seoTitle}</title>}
+            <meta
+              property="og:site_name"
+              content="Incora - European software development company"
+            />
             <meta property="og:type" content="article" />
-            { seoTitle && <title>{seoTitle}</title> }
-            { seoDescription && <meta name="description" content={seoDescription}/> }
-            { seoKeywords && <meta name="keywords" content={seoKeywords} /> }
-            { seoTitle && <meta property="og:title" content={seoTitle} /> }
-            { seoDescription && <meta property="og:description" content={seoDescription} /> }
-            { seoImage && <meta property="og:url" content={seoImage}/> }
+            {seoTitle && <title>{seoTitle}</title>}
+            {seoDescription && (
+              <meta name="description" content={seoDescription} />
+            )}
+            {seoKeywords && <meta name="keywords" content={seoKeywords} />}
+            {seoTitle && <meta property="og:title" content={seoTitle} />}
+            {seoDescription && (
+              <meta property="og:description" content={seoDescription} />
+            )}
+            {seoImage && <meta property="og:url" content={seoImage} />}
           </Head>
           <>
             <MainMenu
@@ -149,6 +170,7 @@ const ArticleTemplate: NextPage<IArticleTemplate> = ({
                 articleOwner={articleOwner}
               />
               <ArticleInfo
+                views={views}
                 facebook={facebook}
                 linkedIn={linkedIn}
                 mainText={entry.content}

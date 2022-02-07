@@ -28,14 +28,15 @@ export const Wrapper = styled.div`
   }
 
   @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
-      padding: 0 25px;
+    padding: 0 25px;
   }
   @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
     padding: 0 15px;
   }
 
+  transition: all ${themeGet("transition.menu")};
+
   background-color: ${({ backgroundColor }: IMenu) => backgroundColor};
-  transition: background-color ${themeGet("transition.menu")};
 
   &:hover {
     background-color: ${({ titlesColor }: IMenu) =>
@@ -77,7 +78,7 @@ export const IncoraLogo = styled.img`
   cursor: pointer;
 
   @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
-    max-width: 100px; 
+    max-width: 100px;
   }
   @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
     max-width: 80px;

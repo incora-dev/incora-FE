@@ -94,7 +94,7 @@ export const Wrapper = styled.div`
     padding: 15px;
     flex-direction: column;
     overflow: scroll;
-    height: 93vh;
+    /* height: 93vh; */
     gap: 20px;
   }
 `;

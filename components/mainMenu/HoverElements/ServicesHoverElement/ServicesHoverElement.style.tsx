@@ -62,7 +62,7 @@ export const Wrapper = styled.div`
 
   @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
     width: 100%;
-    padding: 25px;
+    padding: 25px 25px 50px;
     column-gap: 25px;
   }
 
@@ -72,10 +72,10 @@ export const Wrapper = styled.div`
   }
 
   @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
-    padding: 15px;
+    padding: 15px 15px 40px;
     flex-direction: column;
     overflow: scroll;
-    height: 93vh;
+    /* height: 93vh; */
     gap: 20px;
   }
 `;

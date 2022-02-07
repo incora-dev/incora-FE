@@ -106,7 +106,11 @@ export const HoverMenu = styled.div`
 
   @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
     margin: 60px auto 0 auto;
-    height: 100vh;
+    right: 0;
+    bottom: 0;
+    height: calc(100vh - 60px);
+    overflow: scroll;
+    min-height: fit-content;
   }
 `;
 

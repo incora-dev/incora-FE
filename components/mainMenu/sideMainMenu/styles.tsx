@@ -17,7 +17,8 @@ export const Menu = styled.nav<IMenu>`
   height: 100vh;
   max-width: 100%;
   margin-top: 0px;
-  padding-top: 100px;
+  padding-top: 70px;
+  padding-bottom: 60px;
   padding-right: 0px;
   align-items: stretch;
   background-color: ${({backgroundColor}: IMenu) => backgroundColor};

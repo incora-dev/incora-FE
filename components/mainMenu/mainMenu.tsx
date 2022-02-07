@@ -30,7 +30,6 @@ export default function MainMenu(props: IMenu) {
   const wrapperRef: React.RefObject<HTMLDivElement> = useRef(null);
 
   const closeHoverMenu = () => {
-    console.log('closeHoverMenu');
     // toggleHoverMenuMode();
     setOnHoverElement(null);
     setOnSelectedMenu(null);
@@ -80,16 +79,16 @@ export default function MainMenu(props: IMenu) {
               {isMobile || isTablet || isSmallTablet ? (
                 <>
                   <HamburgerButton/>
-                  <SideMenu 
-                    backgroundColor={backgroundColor} 
-                    titlesColor={titlesColor} 
-                    titles={titles} 
-                    setOnHoverElement={setOnHoverElement} 
-                    onSelectedMenu={onSelectedMenu} 
+                  <SideMenu
+                    backgroundColor={backgroundColor}
+                    titlesColor={titlesColor}
+                    titles={titles}
+                    setOnHoverElement={setOnHoverElement}
+                    onSelectedMenu={onSelectedMenu}
                     setOnSelectedMenu={setOnSelectedMenu}
                     ref={node} />
                 </>
-              ) 
+              )
               : (
                 <Navigation
                   titles={titles}
@@ -105,7 +104,7 @@ export default function MainMenu(props: IMenu) {
 
           <HoverMenu
             isShow={isMobile  || isTablet
-              ? (Boolean(onHoverElement) && isHoverMenuOpen) 
+              ? (Boolean(onHoverElement) && isHoverMenuOpen)
               : Boolean(onHoverElement)}
             titlesColor={titlesColor}
             onMouseLeave={() => {

@@ -12,14 +12,14 @@ import React, {useContext, useEffect, useState} from "react";
 import { MenuContext } from "../../../services/context/mainMenu";
 import { useIsMobile } from "../../../services/hooks";
 
-function Navigation({ 
-  titles, 
-  titlesColor, 
-  setOnHoverElement, 
-  onSelectedMenu, 
-  setOnSelectedMenu, 
+function Navigation({
+  titles,
+  titlesColor,
+  setOnHoverElement,
+  onSelectedMenu,
+  setOnSelectedMenu,
   backgroundColor,
- }: INavigation) 
+ }: INavigation)
   {
   const [selectedTitle, setSelectedTitle] = useState<string | null>(null);
   const  [urlTitle, setUrlTitle] = useState<string | null | undefined>(null);
@@ -29,13 +29,11 @@ function Navigation({
   const snakeCaseToTitle = (string: string) => {
     const newS = string.replaceAll('/', '');
     let sentence = newS.toLowerCase().split("-");
-    
+
     return sentence.join(" ").toLowerCase();
   };
 
-  // console.log('onSelectedMenu', onSelectedMenu, selectedTitle, urlTitle)
   useEffect(() => {
-    // console.log('useEffect')
     const text = snakeCaseToTitle(window.location.pathname);
     setUrlTitle(titles.find((title) => text.includes(title.toLowerCase())));
   }, [])
@@ -54,7 +52,6 @@ function Navigation({
   }
 
   const toggleHoverMenu = (pageTitle: string) => {
-    // console.log('toggleHoverMenu', selectedTitle, onSelectedMenu)
     if (onSelectedMenu === null) {
       setOnHoverElement(pageTitle);
       setSelectedTitle(pageTitle);
@@ -102,7 +99,6 @@ function Navigation({
   };
 
   const toggleMenuOnClick = (pageTitle: string) => {
-    // console.log('selectedTitle, pageTitle, onSelectedMenu',selectedTitle, pageTitle, onSelectedMenu)
     if (selectedTitle && selectedTitle === pageTitle) {
       // setOnHoverElement(pageTitle);
       // setSelectedTitle(pageTitle);
@@ -143,7 +139,7 @@ function Navigation({
                 onMouseEnter={() => toggleHoverMenuDesktop(title)}
               >
                 <Li>{title}</Li>
-  
+
                 <PositionArrow color={titlesColor}>
                   <Arrow/>
                 </PositionArrow>

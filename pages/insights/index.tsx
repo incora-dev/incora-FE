@@ -42,11 +42,8 @@ const Insights: NextPage<IInsightsPage> = ({ data, networkStatus }) => {
       : setMenuColor("none");
   };
 
-  console.log("error", networkStatus);
-
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
-    console.log("error", networkStatus);
 
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);

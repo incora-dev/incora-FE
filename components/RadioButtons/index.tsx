@@ -69,13 +69,10 @@ const RadioButtons = ({
                   value={attributes.name}
                   id={idWithPrefix}
                   onChange={(event) => {
-                    console.log(111, index)
                     if (preventChange) {
                       event.preventDefault();
                       return;
                     }
-
-                    console.log(currentIndex)
 
                     if (onChange) {
                       onChange(index);

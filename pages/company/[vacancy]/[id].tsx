@@ -40,9 +40,7 @@ const Vacancy: NextPage<IVacancy> = ({ data, networkStatus }) => {
   const seoKeywords = attributes?.SEO?.keywords;
   const seoDescription = attributes?.SEO?.description;
   const seoImage = (attributes?.SEO?.ogImage?.data?.attributes?.url !== undefined)
-      && `${IMAGES_LINK}${attributes?.SEO?.ogImage?.data?.attributes?.url}`;
-
-  console.log(seoKeywords)
+    && `${IMAGES_LINK}${attributes?.SEO?.ogImage?.data?.attributes?.url}`;
 
   const renderCondition =
     description &&

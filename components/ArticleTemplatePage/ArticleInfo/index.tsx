@@ -258,8 +258,6 @@ const ArticleInfo = ({
 
   useEffect(() => {
     getSideBarElements();
-
-    console.log(<ReactMarkdown>{mainText}</ReactMarkdown>);
   }, []);
 
   const socialsCondition = facebook || linkedIn ? <P>Social title</P> : null;

@@ -11,8 +11,14 @@ interface IPositionTitle {
 }
 
 export const Content = styled.div`
-  max-width: 1006px;
+  max-width: 1366px;
   width: 100%;
+
+  padding: 0 15px 0 188px;
+  
+  @media only screen and (max-width: ${themeGet('breakpoints.mDesk')}) {
+    padding: 0;
+  }
 `;
 
 export const Div = styled.div`
@@ -61,8 +67,6 @@ export const PositionTitle = styled.div`
 
 export const Block = styled.div`
   max-width: 1006px;
-
-  margin: 0 auto;
 
   @media only screen and (max-width: ${themeGet('breakpoints.mDesk')}) {
     max-width: 100%;
@@ -120,7 +124,7 @@ export const SeeMoreWorks = styled.div`
   position: relative;
 
   max-width: 1006px;
-  margin: 168px auto 70px;
+  margin: 374px auto 70px;
 
   display: flex;
   flex-direction: column;

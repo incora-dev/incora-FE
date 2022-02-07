@@ -1,11 +1,11 @@
 import Modal from 'react-modal';
 import { Button } from '../ButtonWithArrow/ButtonWithArrow.style';
 
-export const IncModal = ({ 
-    show, 
+export const IncModal = ({
+    show,
     onHide,
     content }: {show: boolean; onHide: () => void; title: string; content: any}) => {
-        console.log('modal', show);
+
   return (
       <Modal
         isOpen={show}

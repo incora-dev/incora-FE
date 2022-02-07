@@ -44,7 +44,6 @@ const CaseDescription = ({
       );
     }
   });
-  console.log(industry);
 
   const locationTag = location && (
     <TagBox>

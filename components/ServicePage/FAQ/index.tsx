@@ -63,18 +63,17 @@ const Description = ({
       const id = item?.id;
       const title = item?.title;
       const description = item?.description;
-  
+
       const icon = getIcon(blockIndex, index, textColor);
       const openedFAQ = index === blockIndex;
-  
+
       function onSetBlockIndex() {
-        console.log(isFullPage);
         if (blockIndex === index) {
           return setBlockIndex(-1);
         }
         setBlockIndex(index);
       }
-  
+
       return (
         <AccordionWrapper
           key={id}
@@ -87,7 +86,7 @@ const Description = ({
             <Title isFullPage={isFullPage}>{title}</Title>
             {icon}
           </Accordion>
-  
+
           {index === blockIndex && (
             <TextBlock onClick={onSetBlockIndex}>
               <Text isOpen={openedFAQ}>
@@ -102,15 +101,13 @@ const Description = ({
     createDescription = titles?.map((title, index) => {
       const icon = getIcon(blockIndex, index, textColor);
       const openedFAQ = index === blockIndex;
-  
+
       function onSetBlockIndex() {
-        console.log(isFullPage);
         if (blockIndex === index) {
           return setBlockIndex(-1);
         }
         setBlockIndex(index);
       }
-      console.log(isFullPage);
       return (
 
         <AccordionWrapper
@@ -124,7 +121,7 @@ const Description = ({
             <Title isFullPage={isFullPage}>{title}</Title>
             {icon}
           </Accordion>
-  
+
           {index === blockIndex && (
             <TextBlock onClick={onSetBlockIndex}>
               <Text isOpen={openedFAQ}>
@@ -145,7 +142,7 @@ const Faq = ({ title, items, titles, content, textColor, isFullPage }: IFaq) => 
   return (
     <Div>
       <Wrapper>
-          <ContentWrapper 
+          <ContentWrapper
             isFullPage={isFullPage}
           >
             {(!isFullPage) ? <H2>{title}</H2> : <></>}

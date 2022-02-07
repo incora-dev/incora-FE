@@ -39,9 +39,7 @@ function indexesArray(length: number) {
 function Projects({ projects, elementsColor }: IProjects) {
   const [shouldHover, setShouldHover] = useState(-1);
   const { isMobile, isTablet, isSmallTablet } = useIsMobile();
-  console.log(projects)
   const getIndex = indexesArray(projects.length);
-  console.log(getIndex);
 
   function createProjects(): JSX.Element[] {
     return projects.map(({ id, attributes }, index) => {

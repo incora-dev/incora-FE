@@ -19,7 +19,7 @@ function Technologies({
   textTagsColor,
   bgTagsColor,
 }: IProjectTechnologies) {
-  console.log(isUrl)
+
   return (
     <Container>
       {technologies.map(({ id, attributes }: any) => {
@@ -38,7 +38,7 @@ function Technologies({
                   </ButtonContainer>
                 </Div>
               </Link>
-            : 
+            :
               <Div bgColor={bgTagsColor} isUrl={isUrl}>
                 <ButtonContainer>
                   <Strong color={textTagsColor}>{attributes?.name}</Strong>

@@ -31,20 +31,23 @@ export const Container = styled.div`
 `;
 
 export const Text = styled.div`
+  max-width: 448px;
+  width: 100%;
+
   display: flex;
   flex-direction: column;
   row-gap: 21px;
-  min-height: 537px;
-  padding-right: 58%;
+  //min-height: 537px;
+  //padding-right: 58%;
   padding-top: 80px;
 
   @media only screen and (max-width: ${themeGet('breakpoints.mDesk')}) {
-    padding-right: 49%;
+    //padding-right: 49%;
     padding-top: 70px;
   }
 
   @media only screen and (max-width: ${themeGet('breakpoints.smallDesk')}) {
-    padding-right: 47%;
+    //padding-right: 47%;
     padding-top: 15px;
     min-height: 300px;
   }

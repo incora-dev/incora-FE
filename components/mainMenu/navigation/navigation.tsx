@@ -71,6 +71,7 @@ function Navigation({
     //   setOnHoverElement(pageTitle);
     //   setSelectedTitle(pageTitle);
     // }
+    document.body.style.position = 'initial';
     toggleHoverMenuMode();
   };
 
@@ -88,6 +89,7 @@ function Navigation({
         setSelectedTitle(null);
       }
     }
+    document.body.style.position = 'initial';
     // if (selectedTitle) {
     //   setOnHoverElement(null);
     //   setSelectedTitle(null);
@@ -104,6 +106,7 @@ function Navigation({
       // setSelectedTitle(pageTitle);
       toggleHoverMenu(pageTitle);
     }
+    document.body.style.position = 'initial';
     toggleHoverMenuMode();
   }
 
@@ -118,6 +121,7 @@ function Navigation({
     toggleMenuMode();
     toggleHoverMenuMode();
     setOnHoverElement(null);
+    document.body.style.position = 'initial';
     router.push(redirectTo);
   };
 

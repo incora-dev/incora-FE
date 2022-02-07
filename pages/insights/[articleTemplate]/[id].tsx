@@ -102,6 +102,7 @@ const ArticleTemplate: NextPage<IArticleTemplate> = ({
   const [menuColor, setMenuColor] = useState("none");
   const [goToTopVisible, setGoToTopVisible] = useState(false);
   const { isMobile, isTablet, isSmallTablet } = useIsMobile();
+  const [url, setUrl] = useState<string>('');
 
   const handleScroll = () => {
     window.scrollY >= 20
@@ -112,6 +113,7 @@ const ArticleTemplate: NextPage<IArticleTemplate> = ({
   };
 
   useEffect(() => {
+    setUrl(window.location.href)
     window.addEventListener("scroll", handleScroll);
 
     return () => window.removeEventListener("scroll", handleScroll);
@@ -150,7 +152,8 @@ const ArticleTemplate: NextPage<IArticleTemplate> = ({
             {seoDescription && (
               <meta property="og:description" content={seoDescription} />
             )}
-            {seoImage && <meta property="og:url" content={seoImage} />}
+            {url && <meta property="og:url" content={url} />}
+            {seoImage && <meta property="og:image" content={seoImage} />}
           </Head>
           <>
             <MainMenu

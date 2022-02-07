@@ -62,7 +62,7 @@ export const Wrapper = styled.div`
 
   @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
     width: 100%;
-    padding: 25px;
+    padding: 25px 25px 50px;
     column-gap: 25px;
   }
 
@@ -72,10 +72,10 @@ export const Wrapper = styled.div`
   }
 
   @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
-    padding: 15px;
+    padding: 15px 15px 40px;
     flex-direction: column;
     overflow: scroll;
-    height: 93vh;
+    /* height: 93vh; */
     gap: 20px;
   }
 `;
@@ -232,6 +232,18 @@ export const H4 = styled.h4`
   }
 `;
 
+export const SoftwareDevelopment = styled.h4`
+  max-width: 302px;
+
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 22px;
+
+  letter-spacing: 0.05em;
+  text-transform: capitalize;
+`;
+
 export const H5 = styled.h5`
   max-width: 250px;
 
@@ -262,7 +274,6 @@ export const H6 = styled.h5`
 
   letter-spacing: 0.05em;
   text-transform: capitalize;
-
 `;
 
 export const Text = styled.p`

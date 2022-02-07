@@ -9,7 +9,6 @@ import { IContactUs } from "@interfaces";
 import FooterComponent from "../components/Footer";
 
 import React from "../public/SVG/technologies/react.svg";
-import Angular from "../public/SVG/technologies/angular.svg";
 import VideoComponent from "../components/Homepage/Video";
 import Reviews from "../components/Homepage/Reviews";
 import HeaderComponent from "../components/Homepage/Header";
@@ -27,6 +26,7 @@ import EmbodiedIdeasComponent from "../components/Homepage/EmbodiedIdeas";
 import NewsComponent from "../components/News";
 import { initializeApollo } from "../graphql/client";
 import { NextPage } from "next";
+import Loader from "../components/common/Loader";
 
 const titles = [
   "Services",
@@ -80,8 +80,9 @@ const Home: NextPage<IHome> = ({ data, networkStatus }) => {
   const seoTitle = entry?.SEO?.ogTitle;
   const seoKeywords = entry?.SEO?.keywords;
   const seoDescription = entry?.SEO?.description;
-  const seoImage = entry?.SEO?.ogImage?.data?.attributes?.url !== 'undefined'
-    && `${IMAGES_LINK}${entry?.SEO?.ogImage?.data?.attributes?.url}`;
+  const seoImage =
+    entry?.SEO?.ogImage?.data?.attributes?.url !== "undefined" &&
+    `${IMAGES_LINK}${entry?.SEO?.ogImage?.data?.attributes?.url}`;
 
   const renderSlide = (
     slide: GetHomepage_homePage_data_attributes_coopSteps_steps | null,
@@ -121,15 +122,22 @@ const Home: NextPage<IHome> = ({ data, networkStatus }) => {
       {renderCondition && (
         <>
           <Head>
-            { seoTitle && <title>{seoTitle}</title> }
-            <meta property="og:site_name" content="Incora - European software development company" />
+            {seoTitle && <title>{seoTitle}</title>}
+            <meta
+              property="og:site_name"
+              content="Incora - European software development company"
+            />
             <meta property="og:type" content="article" />
-            { seoTitle && <title>{seoTitle}</title> }
-            { seoDescription && <meta name="description" content={seoDescription}/> }
-            { seoKeywords && <meta name="keywords" content={seoKeywords} /> }
-            { seoTitle && <meta property="og:title" content={seoTitle} /> }
-            { seoDescription && <meta property="og:description" content={seoDescription} /> }
-            { seoImage && <meta property="og:url" content={seoImage}/> }
+            {seoTitle && <title>{seoTitle}</title>}
+            {seoDescription && (
+              <meta name="description" content={seoDescription} />
+            )}
+            {seoKeywords && <meta name="keywords" content={seoKeywords} />}
+            {seoTitle && <meta property="og:title" content={seoTitle} />}
+            {seoDescription && (
+              <meta property="og:description" content={seoDescription} />
+            )}
+            {seoImage && <meta property="og:url" content={seoImage} />}
           </Head>
           <>
             <MainMenu
@@ -193,7 +201,7 @@ const Home: NextPage<IHome> = ({ data, networkStatus }) => {
 export async function getServerSideProps() {
   const client = initializeApollo();
 
-  const { data, networkStatus } = await client.query({
+  const { data, loading, networkStatus } = await client.query({
     query: GET_HOMEPAGE,
   });
 

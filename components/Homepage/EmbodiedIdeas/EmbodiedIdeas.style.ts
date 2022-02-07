@@ -62,7 +62,9 @@ export const PositionTitle = styled.div`
   @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
     margin-top: 0;
     margin-bottom: 20px;
+    padding-top: 30px;
   }
+
 `;
 
 export const Block = styled.div`
@@ -114,6 +116,10 @@ export const ProjectsContainer = styled.div`
   flex-direction: column;
   row-gap: 174px;
   align-items: center;
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+    row-gap: 70px;
+  }
 
   @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     row-gap: 53px;

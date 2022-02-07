@@ -549,6 +549,10 @@ export const Wrapper = styled.div`
   position: relative;
 
   width: 700px;
+
+  @media only screen and (max-width: ${themeGet('breakpoints.sTablet')}) {
+    width: 100%;
+  }
 `;
 
 export const Container = styled.div`

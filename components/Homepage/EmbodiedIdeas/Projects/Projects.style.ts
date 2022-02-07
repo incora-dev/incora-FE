@@ -43,7 +43,7 @@ export const Text = styled.div`
 
   @media only screen and (max-width: ${themeGet('breakpoints.mDesk')}) {
     //padding-right: 49%;
-    padding-top: 70px;
+    padding-top: 0;
   }
 
   @media only screen and (max-width: ${themeGet('breakpoints.smallDesk')}) {

@@ -272,7 +272,7 @@ const ArticleInfo = ({
     getSideBarElements();
   }, []);
 
-  const socialsCondition = facebook || linkedIn ? <P>Social title</P> : null;
+  const socialsCondition = facebook || linkedIn ? <P>Share this post</P> : null;
 
   return (
     <Div>

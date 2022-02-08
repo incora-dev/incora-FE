@@ -23,6 +23,7 @@ function FormClassic({
   isUploadFiles = false,
   uploadFilesLabel = <></>,
   selectedFiles,
+  inputVacancy = null
   }: IForm) {
 
   const [inputNameValue, setInputNameValue] = useState('');
@@ -46,8 +47,10 @@ function FormClassic({
 
     const request = new XMLHttpRequest();
     const files: any = inputSelectedFile || selectedFiles || null;
+    const vacancy: any = inputVacancy;
+
     const sendUrl =
-      url.includes('/career') || url.includes('/send-cv')
+      url.includes('/career') || url.includes('/send-cv') || url.includes('company')
       ? `${IMAGES_LINK}/api/candidate-responses`
       : `${IMAGES_LINK}/api/client-responses`;
 
@@ -59,7 +62,8 @@ function FormClassic({
       email: inputEmailValue,
       goals: inputMainGoalsValue,
       linkedin: inputLinkedInValue,
-      purpose: inputSelectedPurpose
+      purpose: inputSelectedPurpose,
+      vacancy
     }
 
     if (files) {

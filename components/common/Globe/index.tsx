@@ -122,7 +122,7 @@ const Globe = ({ reviewIndex, points, changeCurrentGlobePoint }: IGlobe) => {
     const { lat, lng } = points[reviewIndex];
     if (lat && lng) {
       changePointOfView(lat, lng);
-    } 
+    }
   }, [reviewIndex, points]);
 
   return (

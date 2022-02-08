@@ -124,6 +124,11 @@ export const H2 = styled.h2`
   @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
     font-size: var(--fs-22);
   }
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+    width: calc(100% - 130px);
+    line-height: 25px;
+  } 
+}
 `;
 
 export const Text = styled.p`

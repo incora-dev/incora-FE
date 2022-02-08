@@ -45,9 +45,41 @@ interface IServices {
 
 function ServicesComponent({ title, text, labels }: IServices) {
   const [onEnterBlock, setOnEnterBlock] = useState(false);
+  const [newLabels, setNewLabels] = useState<GetHomepage_homePage_data_attributes_services_services_data[]>(labels);
   const { isMobile, isTablet, isSmallTablet } = useIsMobile();
 
-  const label = labels.map((label, index) => {
+  function createNewLabels() {
+    const mobileApplicationDevelopment: GetHomepage_homePage_data_attributes_services_services_data =
+      newLabels.find((label) => label.attributes?.name === 'Mobile Application Development')
+        || {} as GetHomepage_homePage_data_attributes_services_services_data;
+
+    const webApplicationDevelopment: GetHomepage_homePage_data_attributes_services_services_data =
+      newLabels.find((label) => label.attributes?.name === 'Web Application Development')
+        || {} as GetHomepage_homePage_data_attributes_services_services_data;
+
+    const helperArr: GetHomepage_homePage_data_attributes_services_services_data[] = [];
+
+    labels.forEach((label, index) => {
+      if (label.id === mobileApplicationDevelopment?.id
+          || label.id === webApplicationDevelopment?.id) {
+        return;
+      }
+
+      helperArr.push(label);
+    })
+
+    helperArr.push(mobileApplicationDevelopment);
+    helperArr.push(webApplicationDevelopment);
+
+    setNewLabels(helperArr)
+  }
+
+
+  useEffect(() => {
+    createNewLabels();
+  }), []
+
+  const label = newLabels.map((label, index) => {
     const id = label.id;
     const url = ROUTES.SERVICES + `${label.attributes?.url}/${id}`;
     const name = label.attributes?.name;

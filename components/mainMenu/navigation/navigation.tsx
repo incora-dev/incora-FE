@@ -26,15 +26,15 @@ function Navigation({
   const { toggleHoverMenuMode, toggleMenuMode, isHoverMenuOpen, isMenuOpen } = useContext(MenuContext);
   const { isMobile, isTablet, isSmallTablet } = useIsMobile();
 
-  const snakeCaseToTitle = (string: string) => {
-    const newS = string.replaceAll('/', '');
-    let sentence = newS.toLowerCase().split("-");
-
-    return sentence.join(" ").toLowerCase();
+  const getTitleFromUrl = (string: string) => {
+    const newStr = string.split('/');
+    const filteredStr = newStr.filter((str) => str !== '');
+    const title = filteredStr[0].toLowerCase().split("-");
+    return title.join(" ");
   };
 
   useEffect(() => {
-    const text = snakeCaseToTitle(window.location.pathname);
+    const text = getTitleFromUrl(window.location.pathname);
     setUrlTitle(titles.find((title) => text.includes(title.toLowerCase())));
   }, [])
 

@@ -40,6 +40,10 @@ export const MenuBlock = styled.div`
   display: flex;
   flex-direction: column;
   row-gap: 13px;
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tabletPro')}) {
+    left: -15px;
+  }
 `;
 
 export const EstimatedTimeAndOutcomesBlock = styled.div`
@@ -83,7 +87,7 @@ export const EstimatedTime = styled.div`
 
 export const TextBlock = styled.div`
   width: 679px;
-  margin-left: 300px;
+  margin-left: 320px;
   padding: 120px 0;
 
   display: flex;

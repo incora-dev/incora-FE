@@ -77,7 +77,7 @@ function ServicesComponent({ title, text, labels }: IServices) {
 
   useEffect(() => {
     createNewLabels();
-  }), []
+  }, []);
 
   const label = newLabels.map((label, index) => {
     const id = label.id;

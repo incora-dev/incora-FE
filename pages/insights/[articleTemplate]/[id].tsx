@@ -154,6 +154,21 @@ const ArticleTemplate: NextPage<IArticleTemplate> = ({
             )}
             {url && <meta property="og:url" content={url} />}
             {seoImage && <meta property="og:image" content={seoImage} />}
+
+
+            <meta name="twitter:card" content={'summary'}/>
+            { seoTitle &&
+              <meta name="twitter:title" content={seoTitle} />
+            }
+            { seoDescription &&
+              <meta property="twitter:description" content={seoDescription} />
+            }
+            { url &&
+              <meta property="twitter:site" content={url} />
+            }
+            { seoImage &&
+              <meta property="twitter:image" content={seoImage}/>
+            }
           </Head>
           <>
             <MainMenu

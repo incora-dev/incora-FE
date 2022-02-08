@@ -49,7 +49,7 @@ export const Content = styled.div`
   position: relative;
 
   display: flex;
-  column-gap: 58px;
+  column-gap: ${({ columnGap }: { columnGap: string }) => columnGap};
   row-gap: 70px;
   flex-wrap: wrap;
   justify-content: center;
@@ -96,7 +96,7 @@ export const Text = styled.p`
   top: 51px;
   right: 25px;
 
-  max-width: 229px;
+  max-width: 200px;
 
   font-style: normal;
   font-weight: bold;

@@ -10,6 +10,10 @@ interface ISideBarRowGap {
   rowGap: string;
 }
 
+interface IBlockWidth {
+  rowGap: string;
+}
+
 export const Icons = styled.div`
   display: flex;
   column-gap: 10px;
@@ -50,6 +54,7 @@ export const Div = styled.div`
 export const Wrapper = styled.div`
   margin: 0 auto;
   max-width: 1366px;
+  width: ${({ width }: { width: string }) => width};
   
   display: flex;
   column-gap: 63px;

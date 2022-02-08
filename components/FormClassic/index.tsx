@@ -3,7 +3,8 @@ import {
   Container,
   FormContainer,
   InputBlock,
-  Input
+  Input,
+  Notification
 } from "./Form.style";
 import { ChangeEvent, FormEvent, useState } from "react";
 import CreateFormSelect from "./FormSelect";
@@ -11,7 +12,7 @@ import SubmitButton from "./SubmitButton";
 import FilesUploader from "./FilesUploader";
 import { IMAGES_LINK } from "../../constants";
 import { useRouter } from "next/router"
-import {EMAIL_REGEX, NAME_REGEX} from "../../constants/regex";
+import {EMAIL_REGEX, EMAIL_VALID, NAME_REGEX} from "../../constants/regex";
 
 function FormClassic({
   dropListLabels,
@@ -31,6 +32,7 @@ function FormClassic({
   const [inputMainGoalsValue, setInputMainGoalsValue] = useState('');
   const [inputSelectedPurpose, setSelectedPurpose] = useState('');
   const [inputSelectedFile, setSelectedFile] = useState('');
+  const [notification, setNotification] = useState(false);
   const url = useRouter().pathname;
 
   function inputNameOnChange(event: ChangeEvent<HTMLInputElement>) {
@@ -68,6 +70,11 @@ function FormClassic({
 
     request.open('POST', sendUrl);
     request.send(formData);
+    request.onload = (() => {
+      if (request.status === 200) {
+        setNotification(true);
+      }
+    })
   };
 
   return (
@@ -98,11 +105,15 @@ function FormClassic({
 
             <Input
                 formTheme={formBlack}
-                type={'email'}
+                type={'text'}
                 placeholder={'Email'}
                 value={inputEmailValue}
-                onChange={({ target }) => setInputEmailValue(target.value)}
-                pattern={EMAIL_REGEX}
+                onChange={({ target }) => {
+                  const currentEmailValue = target.value.replace(EMAIL_REGEX, '');
+
+                  setInputEmailValue(currentEmailValue);
+                }}
+                pattern={EMAIL_VALID}
                 required
             />
 
@@ -143,6 +154,12 @@ function FormClassic({
                 formTheme={formBlack}
                 setSelectedFile={setSelectedFile}
               />
+            }
+
+            { notification &&
+              <Notification>
+                Your message has been delivered successfully!
+              </Notification>
             }
 
             <SubmitButton text={buttonLabel}/>

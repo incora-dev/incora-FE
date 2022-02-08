@@ -10,10 +10,10 @@ import {
   VideoContainer} from "./style";
 import incoraLogoPhoto from "../../../public/incoraLogoPhoto.png";
 import Image from "next/image";
-import teamPhoto1 from "../../../public/teamPhoto1.jpg";
-import teamPhoto2 from "../../../public/teamPhoto2.jpg";
-import teamPhoto3 from "../../../public/teamPhoto3.jpg";
-import teamPhoto4 from "../../../public/teamPhoto4.jpg";
+import teamPhoto1 from "../../../public/teamPhoto1.png";
+import teamPhoto2 from "../../../public/teamPhoto2.png";
+import teamPhoto3 from "../../../public/teamPhoto3.png";
+import teamPhoto4 from "../../../public/teamPhoto4.png";
 import { CAREER_PAGE_VIDEO_LINK } from "../../../constants";
 import PlaySVG from "../../../public/Player/Play.svg";
 import { useEffect, useState } from "react";

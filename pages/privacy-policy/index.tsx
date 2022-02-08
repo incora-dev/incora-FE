@@ -13,14 +13,15 @@ interface IPrivacyPolicy {
 }
 
 const title = 'privacy policy';
-const text = 'Incora values the confidentiality of your information that is why our privacy policy is oriented at the client’s data safety. We protect the information provided through this website according to the following stances of Incora privacy policy.'
+const text = 'Incora values the confidentiality of your information that is why our privacy policy is oriented at the client’s data safety. We protect the information provided through this website according to the following stances of Incora privacy policy.';
+const secondText = 'We work in a B2B mode which means that we collect the information on an aggregate level and do not collect the client data.';
 
 const PrivacyPolicyText = () => {
   return (
       <>
         <h2>What data is collected during the client visit?</h2>
         <div>
-          <p>While browsing our site – www.incorainc.com, we may collect three types of data:</p>
+          <p>While browsing our site – incora.software, we may collect three types of data:</p>
           <ul>
             <li>Aggregate consumer data – number of visits per web page or per week.</li>
             <li>Customer data directly provided by the very client (contact information and name) in the fill-in forms and filled out forms in e-mail messages.</li>
@@ -30,7 +31,7 @@ const PrivacyPolicyText = () => {
         <h3>Incora cares about the customer’s information</h3>
         <p>All information that you indicate at the site is provided directly to the Incora exclusively with no third parties.</p>
         <h5>Cookies</h5>
-        <p>Like any other website, we use ‘cookies’. Cookies are used to store information about visitors’ preferences, and the pages on the website that the visitor accessed. Collected information is used to optimize the users’ experience by customizing our web page content based on visitors’ browser type and/or other information.        </p>
+        <p>Like any other website, we use ‘cookies’. Cookies are used to store information about visitors’ preferences, and the pages on the website that the visitor accessed. Collected information is used to optimize the users’ experience by customizing our web page content based on visitors’ browser type and/or other information.</p>
         <p>For more general information on cookies, please read
           <a href={'https://www.google.com/search?q=cookies'}> What Are Cookies.</a>
         </p>
@@ -74,7 +75,7 @@ const PrivacyPolicy = ({ title, text }: IPrivacyPolicy) => {
             titlesColor={theme.colors.white}
             titles={titles}
         >
-          <HeaderPrivacyPolicy title={title} text={text}/>
+          <HeaderPrivacyPolicy title={title} text={text} secondText={secondText} />
           <MainInfo PrivacyPolicyText={PrivacyPolicyText}/>
         </MainMenu>
         <FooterComponent />

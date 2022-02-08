@@ -42,8 +42,8 @@ const BenefitsAndSolutions = ({
             <Image
               loader={() => src}
               src={src}
-              width={width}
-              height={height}
+              width={width > 45 ? 45 : width}
+              height={height > 37 ? 37 : height}
               alt="icon"
               className="image"
             />

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import {
   Cover,
   Container,
@@ -14,6 +15,7 @@ import {
 } from "./styles";
 import SVG from "../../../public/SVG/deepen-to-the-core.svg";
 import Hexagon from "../../../public/SVG/hexagon1.svg";
+import Gif from '../../../public/gifs/12_crop.gif';
 import { useIsMobile } from "../../../services/hooks";
 
 interface IHeaderComponent {
@@ -49,7 +51,9 @@ function HeaderComponent({backgroundVideo}: IHeaderComponent) {
             >
               <source src={backgroundVideo} type="video/mp4" />
             </video>
-
+            <div className="gif">
+              <Image src={Gif} alt="gif" layout="responsive" />
+            </div>
             <PositionVideoSVG>
               <SVG />
             </PositionVideoSVG>

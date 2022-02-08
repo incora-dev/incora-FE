@@ -20,9 +20,10 @@ interface AttachCv {
   formBlack?: boolean;
   uploaderPadding?: string;
   uploaderHeight?: string;
+  vacancy?: string | null;
 }
 
-const AttachCv = ({ uploaderLabel, big, formBlack = false, uploaderPadding = '15px 30px', uploaderHeight = '103px'}: AttachCv) => {
+const AttachCv = ({ uploaderLabel, big, formBlack = false, uploaderPadding = '15px 30px', uploaderHeight = '103px', vacancy = null }: AttachCv) => {
   const [inputSelectedFile, setSelectedFile] = useState<File | File[] | null>(null);
 
   return (
@@ -42,6 +43,7 @@ const AttachCv = ({ uploaderLabel, big, formBlack = false, uploaderPadding = '15
         selectedFiles={inputSelectedFile}
         buttonLabel={contactUs.buttonLabel}
         formBlack={formBlack}
+        inputVacancy={vacancy}
       />
     </AttachCvWrapper>
   );

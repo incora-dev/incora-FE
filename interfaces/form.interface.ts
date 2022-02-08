@@ -9,4 +9,5 @@ export interface IForm {
   isUploadFiles?: boolean;
   uploadFilesLabel?: ReactElement;
   selectedFiles?: File | File[] | null;
+  inputVacancy?: string | null;
 }

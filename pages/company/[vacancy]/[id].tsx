@@ -73,6 +73,7 @@ const Vacancy: NextPage<IVacancy> = ({ data, networkStatus }) => {
             <VacancyDescription
               description={description}
               filterTechnologies={filterTechnologies}
+              vacancy={seoTitle}
             />
             <CheckAlso
               specialties={specialties}

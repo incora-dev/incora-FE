@@ -11,6 +11,7 @@ import ReactMarkdown from "react-markdown";
 interface IVacancyDescription {
   description: string;
   filterTechnologies: string;
+  vacancy?: string | null;
 }
 
 const uploadFilesLabel = () =>
@@ -19,7 +20,7 @@ const uploadFilesLabel = () =>
       <p>We accept PDF, DOC, DOCX, JPG and PNG files.</p>
     </>
 
-const VacancyDescription = ({ description, filterTechnologies }: IVacancyDescription) => {
+const VacancyDescription = ({ description, filterTechnologies, vacancy }: IVacancyDescription) => {
   return (
     <VacancyDescriptionWrapper>
       <ContentWrap>
@@ -30,7 +31,7 @@ const VacancyDescription = ({ description, filterTechnologies }: IVacancyDescrip
           </Description>
 
           <AttachCvWrap>
-            <AttachCv uploaderLabel={uploadFilesLabel()}/>
+            <AttachCv uploaderLabel={uploadFilesLabel()} vacancy={vacancy}/>
           </AttachCvWrap>
         </DescriptionAndCv>
       </ContentWrap>

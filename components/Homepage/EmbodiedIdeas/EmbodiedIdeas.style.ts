@@ -13,16 +13,7 @@ interface IPositionTitle {
 export const Content = styled.div`
   max-width: 1366px;
   width: 100%;
-
-  padding: 0 15px 0 188px;
-
-  @media only screen and (max-width: ${themeGet('breakpoints.desk')}) {
-    padding: 0 15px 0 60px;
-  }
-  
-  @media only screen and (max-width: ${themeGet('breakpoints.mDesk')}) {
-    padding: 0;
-  }
+  padding: 0;
 `;
 
 export const Div = styled.div`
@@ -79,7 +70,7 @@ export const Block = styled.div`
   }
 `;
 
-export const H2 = styled.h2`
+export const Span = styled.span`
   font-family: Poppins;
   font-style: normal;
   font-weight: 800;

@@ -14,7 +14,7 @@ const LetsAcquainted = () => {
     <LetsAcquaintedWrapper>
       <ContentWrap>
         <span className="text1">
-          {"Couldn't find anything tha would be the right fit for you?"}
+          {"Couldn't find anything that would be the right fit for you?"}
         </span>
         <h1>{"Let's get acquainted anyway!"}</h1>
         <DropAlineWrap>

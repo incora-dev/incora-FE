@@ -27,7 +27,7 @@ const paddingRight = (index: number) => {
 
 export const ProjectOverviewItemWrapper = styled.div`
   width: 1226px;
-  height: 402px;
+  min-height: 402px;
   display: flex;
   justify-content: space-between;
   flex-direction: ${({ isLeft }: IProjectOverviewItemWrapper) =>

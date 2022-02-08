@@ -15,7 +15,7 @@ import {
 } from "./styles";
 import SVG from "../../../public/SVG/deepen-to-the-core.svg";
 import Hexagon from "../../../public/SVG/hexagon1.svg";
-import Gif from '../../../public/gifs/12_crop.gif';
+import Gif from '../../../public/gifs/home.gif';
 import { useIsMobile } from "../../../services/hooks";
 
 interface IHeaderComponent {

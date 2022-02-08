@@ -58,7 +58,6 @@ export const RadioButton = styled.div`
   position: relative;
 
   user-select: none;
-  margin: 15px 0;
   
   input {
     width: 100px;

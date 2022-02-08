@@ -88,7 +88,6 @@ const CaseStudies: NextPage<ICaseStudies> = ({ data, networkStatus }) => {
               title={entry.title}
               description={entry.description}
               setCurrentIndustryTag={setCurrentIndustryTag}
-              pointCountry={pointCountry}
               setPointCountry={setPointCountry}
             />
             <Projects industry={industry} pointCountry={pointCountry} />

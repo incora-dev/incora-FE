@@ -26,7 +26,6 @@ interface ICaseFilter {
   setCurrentIndustryTag: Dispatch<SetStateAction<string>>;
   industries: GetCaseStudies_industries_data[];
   locations: GetCaseStudies_locations_data[];
-  pointCountry: string | undefined;
   setPointCountry: Dispatch<SetStateAction<string | undefined>>;
 }
 
@@ -38,7 +37,6 @@ const CaseFilter = ({
   setCurrentIndustryTag,
   industries,
   locations,
-  pointCountry,
   setPointCountry,
 }: ICaseFilter) => {
   const { isMobile, isTablet, isSmallTablet } = useIsMobile();
@@ -53,6 +51,13 @@ const CaseFilter = ({
   }, []);
 
   const handleSwitchValue = (value: boolean) => {
+    if (!value) {
+      setCurrentIndustryTag("all");
+      setPointCountry(undefined);
+    } else {
+      setCurrentIndustryTag("all");
+      setPointCountry(locations[0].attributes?.country);
+    }
     setFilterByFlag(value);
   };
 

@@ -108,9 +108,9 @@ const HorizontalSlider = ({ intro, slides, maxWidth }: HorizontalSliderProps) =>
                   </div>
                   <Controls>
                     <ControlsText>
-                      {currentSlide < 10
+                      {currentSlide < 9
                         ? `0${currentSlide + 1}`
-                        : currentSlide}
+                        : currentSlide + 1}
                     </ControlsText>
                     <Line />
                     <ControlsText>

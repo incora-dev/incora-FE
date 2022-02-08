@@ -127,7 +127,7 @@ export const SeeMoreWorks = styled.div`
   position: relative;
 
   max-width: 1006px;
-  margin: 70px auto 70px;
+  margin: 175px auto 70px;
 
   display: flex;
   flex-direction: column;
@@ -139,7 +139,21 @@ export const SeeMoreWorks = styled.div`
 
   @media only screen and (max-width: ${themeGet('breakpoints.tabletPro')}) {
     max-width: 100%;
-    margin: 100px auto 120px;
+    margin: 130px auto 120px;
+    height: fit-content;
+    padding-bottom: 30px;
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+    max-width: 100%;
+    margin: 175px auto 120px;
+    height: fit-content;
+    padding-bottom: 30px;
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.smallDesk')}) {
+    max-width: 100%;
+    margin: 250px auto 120px;
     height: fit-content;
     padding-bottom: 30px;
   }
@@ -147,7 +161,7 @@ export const SeeMoreWorks = styled.div`
   @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     width: 100%;
     padding-left: 0;
-    margin: 50px 0 75px;
+    margin: 120px 0 75px;
   }
 `;
 

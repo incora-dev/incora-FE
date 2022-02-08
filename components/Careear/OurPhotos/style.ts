@@ -112,6 +112,10 @@ export const VideoContainer = styled.div`
 export const VideoBLock = styled.div`
   position: relative;
 
+  #youTubeVideo {
+    width: 100%;
+  }
+
   @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
     width: 100%;
   }
@@ -126,6 +130,7 @@ export const PosterVideoPosition = styled.div`
 
   transition: opacity 1s linear;
   transition-delay: 1s;
+  overflow-x: hidden;
 
   img {
     @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {

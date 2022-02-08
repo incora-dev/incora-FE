@@ -33,7 +33,7 @@ const PrivacyPolicyText = () => {
         <h5>Cookies</h5>
         <p>Like any other website, we use ‘cookies’. Cookies are used to store information about visitors’ preferences, and the pages on the website that the visitor accessed. Collected information is used to optimize the users’ experience by customizing our web page content based on visitors’ browser type and/or other information.</p>
         <p>For more general information on cookies, please read
-          <a href={'https://www.google.com/search?q=cookies'}> What Are Cookies.</a>
+          <a href='https://tools.ietf.org/html/draft-ietf-httpbis-rfc6265bis-03' target="_blank" rel="noopener noreferrer"> What Are Cookies.</a>
         </p>
         <h4>What do we do with your information?</h4>
         <p>Incora does not share any information provided by the client with the third parties. This is how Incora uses your information:</p>

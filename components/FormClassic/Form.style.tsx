@@ -45,7 +45,7 @@ export const Input = styled.input`
   font-size: var(--fs-12);
   line-height: 18px;
   letter-spacing: 0.03em;
-  text-transform: capitalize;
+
   margin: 0;
   text-decoration: none;
   border: none;

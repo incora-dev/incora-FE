@@ -11,6 +11,7 @@ import SubmitButton from "./SubmitButton";
 import FilesUploader from "./FilesUploader";
 import { IMAGES_LINK } from "../../constants";
 import { useRouter } from "next/router"
+import {EMAIL_REGEX, NAME_REGEX} from "../../constants/regex";
 
 function FormClassic({
   dropListLabels,
@@ -33,7 +34,7 @@ function FormClassic({
   const url = useRouter().pathname;
 
   function inputNameOnChange(event: ChangeEvent<HTMLInputElement>) {
-    const currentInputNameValue = event.target.value.replace(/[^a-zA-Z ]/g, '');
+    const currentInputNameValue = event.target.value.replace(NAME_REGEX, '');
 
     setInputNameValue(currentInputNameValue);
   };
@@ -101,6 +102,7 @@ function FormClassic({
                 placeholder={'Email'}
                 value={inputEmailValue}
                 onChange={({ target }) => setInputEmailValue(target.value)}
+                pattern={EMAIL_REGEX}
                 required
             />
 

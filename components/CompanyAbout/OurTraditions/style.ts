@@ -44,7 +44,7 @@ export const TextWrap = styled.div`
     width: 100%;
   }
 
-  h1 {
+  h2 {
     text-transform: uppercase;
     font-weight: 800;
     font-size: var(--fs-26);

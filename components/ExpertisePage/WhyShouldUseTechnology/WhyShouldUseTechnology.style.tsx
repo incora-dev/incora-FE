@@ -48,7 +48,7 @@ export const InfoBlock = styled.div`
   }
 `
 
-export const H1 = styled.h1`
+export const H2 = styled.h2`
   max-width: 681px;
 
   font-style: normal;

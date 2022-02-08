@@ -118,7 +118,7 @@ const ProjectOverviewItem = ({
       </ImageWrap>
 
       <TextWrap isLeft={isLeft}>
-        <h2>{heading}</h2>
+        <h3>{heading}</h3>
         <p>
           {text}
           <ul>{listCondition}</ul>

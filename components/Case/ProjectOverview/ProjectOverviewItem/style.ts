@@ -134,7 +134,7 @@ export const TextWrap = styled.div`
   }
 
 
-  > h2 {
+  > h3 {
     font-weight: 800;
     font-size: var(--fs-28);
     line-height: 42px;

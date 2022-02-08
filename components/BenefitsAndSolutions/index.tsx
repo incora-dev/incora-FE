@@ -59,7 +59,7 @@ const BenefitsAndSolutions = ({
     <BenefitsAndSolutionsWrap bgColor={bgColor}>
       <HexagonsBackground />
       <ContentWrap>
-        <h1>{header}</h1>
+        <h2>{header}</h2>
         <Grid rowGap={rowGap}>{gridItems}</Grid>
       </ContentWrap>
     </BenefitsAndSolutionsWrap>

@@ -64,7 +64,7 @@ export const ContentWrap = styled.div`
     padding: 25px 0;
   }
 
-  h1 {
+  h2 {
     font-weight: 800;
     font-size: var(--fs-26);
     line-height: 54px;

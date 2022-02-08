@@ -90,7 +90,7 @@ const Invitation = ({ banner, process }: Invitation) => {
 
         <ProcessWrap>
           <HeaderWrap>
-            <h1>{intro}</h1>
+            <h2>{intro}</h2>
           </HeaderWrap>
           <SchemeWrap>
             <div className="mobile-version">

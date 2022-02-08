@@ -23,7 +23,7 @@ export const Wrapper = styled.div`
   }
 `;
 
-export const H1 = styled.h1`
+export const H2 = styled.h2`
   max-width: 1006px;
   //padding: 0 13.2vw;
   margin: 0 auto;

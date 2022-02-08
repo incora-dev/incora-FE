@@ -89,7 +89,7 @@ export const ContentWrapper = styled.div`
   row-gap: 18px;
 `;
 
-export const H1 = styled.h1`
+export const H2 = styled.h2`
   display: block;
 
   max-width: 396px;
@@ -139,7 +139,7 @@ export const Sphere = styled.div`
   }
 `;
 
-export const H2 = styled.h2`
+export const H3 = styled.h3`
   margin-top: 11px;
   width: 493px;
 

@@ -2,7 +2,7 @@ import {
   Div,
   Wrapper,
   InfoBlock,
-  H1,
+  H2,
   ArgumentsBlock,
   TechnologyWrapper,
   H3,
@@ -49,7 +49,7 @@ const WhyShouldUseTechnology = ({
     <Div bgColor={bgColor}>
       <Wrapper>
         <InfoBlock>
-          <H1 color={titleColor}>{title}</H1>
+          <H2 color={titleColor}>{title}</H2>
           <ArgumentsBlock>
             <GetArguments items={items} />
           </ArgumentsBlock>

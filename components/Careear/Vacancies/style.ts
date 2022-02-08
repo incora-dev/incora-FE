@@ -41,7 +41,7 @@ export const ContentWrapper = styled.div`
     padding-top: 20px;
   }
 
-  h1 {
+  h2 {
     font-weight: 800;
     font-size: var(--fs-36);
     line-height: 54px;
@@ -81,7 +81,7 @@ export const PositionFilter = styled.div`
 
   align-self: flex-start;
 
-  h1 {
+  h2 {
     text-transform: capitalize;
     margin-bottom: 56px;
     letter-spacing: 0.05em;
@@ -182,7 +182,7 @@ export const QuickApplyWrap = styled.div`
     margin-top: 0;
   }
 
-  h2 {
+  h3 {
     font-style: normal;
     font-weight: 800;
     font-size: var(--fs-21);

@@ -1,6 +1,6 @@
 import {
   Div,
-  H1,
+  H2,
   Wrapper,
   Text,
   Content,
@@ -58,7 +58,7 @@ const BestSuitedFor = ({ title, info }: IBestSuitedFor) => {
   return (
     <Div onMouseEnter={() => setOnBlock(true)}>
       <Wrapper>
-        <H1>{titleFirstLetterBig}</H1>
+        <H2>{titleFirstLetterBig}</H2>
         <Content>
           <GetContent labels={info} onBlockEnter={onBlock} />
         </Content>

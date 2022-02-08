@@ -16,7 +16,7 @@ const TextElement = ({ labels, currentSlide, bgColor, onChange }: ITextElementPr
   <MenuBlock>
     <MenuLabel bgColor={bgColor}>
       <RadioButtons
-        padding={"8px 30px"}
+        padding={"8px 15px"}
         labels={labels}
         currentIndex={currentSlide}
         bgColor={theme.colors.yellow}

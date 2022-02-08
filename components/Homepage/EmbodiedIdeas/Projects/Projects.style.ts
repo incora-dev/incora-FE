@@ -31,27 +31,20 @@ export const Container = styled.div`
     }
   }
 
-  @media only screen and (max-width: ${themeGet('breakpoints.mDesk')}) {
+  @media only screen and (max-width: ${themeGet('breakpoints.tabletPro')}) {
     max-width: 100%;
     width: 100%;
-
     &:nth-child(odd) {
       margin-left: 0;
-    }
 
-    &:nth-child(even) {
-      margin-right: 0;
-    }
-  }
-
-  @media only screen and (max-width: ${themeGet('breakpoints.tabletPro')}) {
-    &:nth-child(odd) {
       .text-block {
         margin-right: 40px;
       }
     }
 
     &:nth-child(even) {
+      margin-right: 0;
+
       .text-block {
         margin-left: 40px;
       }
@@ -111,6 +104,10 @@ export const Text = styled.div`
     padding: 0;
     min-height: auto;
     margin-bottom: 35px;
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+    max-width: 100%;
   }
 `;
 

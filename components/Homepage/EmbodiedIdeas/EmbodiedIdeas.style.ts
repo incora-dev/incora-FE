@@ -11,7 +11,7 @@ interface IPositionTitle {
 }
 
 export const Content = styled.div`
-  max-width: 1366px;
+  /* max-width: 1366px; */
   width: 100%;
   padding: 0;
 `;
@@ -24,7 +24,7 @@ export const Div = styled.div`
   justify-content: center;
   overflow-x: hidden;
 
-  @media only screen and (max-width: ${themeGet('breakpoints.mDesk')}) {
+  @media only screen and (max-width: ${themeGet('breakpoints.tabletPro')}) {
     max-width: 100%;
     padding: 25px;
   }
@@ -47,7 +47,8 @@ export const Div = styled.div`
 export const PositionTitle = styled.div`
   padding-top: ${({ disablePadding }: IPositionTitle) =>
   disablePadding ? "0" : "50px"};
-  margin-bottom: 46px;
+  /* max-width: 1006px; */
+  margin: 0 auto 46px;
 
   @media only screen and (max-width: ${themeGet('breakpoints.tabletPro')}) {
     padding-top: 70px;
@@ -64,8 +65,9 @@ export const PositionTitle = styled.div`
 
 export const Block = styled.div`
   max-width: 1006px;
+  margin: 0 auto;
 
-  @media only screen and (max-width: ${themeGet('breakpoints.mDesk')}) {
+  @media only screen and (max-width: ${themeGet('breakpoints.tabletPro')}) {
     max-width: 100%;
   }
 `;
@@ -110,7 +112,7 @@ export const ProjectsContainer = styled.div`
   display: flex;
   flex-direction: column;
   row-gap: 174px;
-  align-items: center;
+  /* align-items: center; */
 
   @media only screen and (max-width: ${themeGet('breakpoints.tabletPro')}) {
     row-gap: 70px;

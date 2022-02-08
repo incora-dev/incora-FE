@@ -42,7 +42,7 @@ import { UPDATE_COUNT } from "../../../graphql/insights/mutations";
 import { UpdateImpressionsCount } from "../../../graphql/insights/__generated__/UpdateImpressionsCount";
 import { IImpressions } from "../../../pages/insights/[articleTemplate]/[id]";
 import { UpdateCount } from "../../../graphql/insights/__generated__/UpdateCount";
-import {useRouter} from "next/router";
+import { useRouter } from "next/router";
 
 interface IArticleInfo {
   facebook: string | null | undefined;
@@ -107,21 +107,24 @@ function getElements(
 }
 
 function GetSocialIcons({ url }: { url: string }) {
-  console.log(url)
-  const facebook =
+  console.log(url);
+  const facebook = (
     <FacebookShareButton url={url}>
       <FacebookSVG />
     </FacebookShareButton>
+  );
 
-  const linkedIn =
+  const linkedIn = (
     <LinkedinShareButton url={url}>
       <LinkedInSvg />
     </LinkedinShareButton>
+  );
 
-  const twitter =
+  const twitter = (
     <TwitterShareButton url={url}>
       <TwitterSVG />
     </TwitterShareButton>
+  );
 
   return (
     <Icons>
@@ -148,11 +151,11 @@ const ArticleInfo = ({
   const exciting = impressions.exciting;
   const unsatisfied = impressions.unsatisfied;
 
-  const [url, setUrl] = useState<string>('');
+  const [url, setUrl] = useState<string>("");
 
-  useEffect(() =>
-    setUrl(window.location.href)
-  ), [];
+  useEffect(() => {
+    setUrl(window.location.href);
+  }, []);
 
   const onImpressionClick = (index: number) => {
     switch (index) {
@@ -235,7 +238,7 @@ const ArticleInfo = ({
     const querySelectorThan15 = "#scrollsLabels h2";
 
     if (sideBarList.length === 0) {
-      setWidth('1006px');
+      setWidth("1006px");
     }
 
     sideBarList.length > 15
@@ -270,7 +273,7 @@ const ArticleInfo = ({
 
   useEffect(() => {
     getSideBarElements();
-  }, []);
+  }, [mainText]);
 
   const socialsCondition = facebook || linkedIn ? <P>Share this post</P> : null;
 

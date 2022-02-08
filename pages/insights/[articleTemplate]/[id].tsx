@@ -17,10 +17,7 @@ import { GET_ARTICLE } from "../../../graphql/insights/queries";
 import { useIsMobile } from "../../../services/hooks";
 import { NextPage, NextPageContext } from "next";
 import { initializeApollo } from "../../../graphql/client";
-import {
-  UPDATE_COUNT,
-  UPDATE_VIEWS,
-} from "../../../graphql/insights/mutations";
+import { UPDATE_COUNT } from "../../../graphql/insights/mutations";
 
 export interface IImpressions {
   intro: string | undefined;
@@ -102,7 +99,7 @@ const ArticleTemplate: NextPage<IArticleTemplate> = ({
   const [menuColor, setMenuColor] = useState("none");
   const [goToTopVisible, setGoToTopVisible] = useState(false);
   const { isMobile, isTablet, isSmallTablet } = useIsMobile();
-  const [url, setUrl] = useState<string>('');
+  const [url, setUrl] = useState<string>("");
 
   const handleScroll = () => {
     window.scrollY >= 20
@@ -113,7 +110,7 @@ const ArticleTemplate: NextPage<IArticleTemplate> = ({
   };
 
   useEffect(() => {
-    setUrl(window.location.href)
+    setUrl(window.location.href);
     window.addEventListener("scroll", handleScroll);
 
     return () => window.removeEventListener("scroll", handleScroll);
@@ -155,20 +152,13 @@ const ArticleTemplate: NextPage<IArticleTemplate> = ({
             {url && <meta property="og:url" content={url} />}
             {seoImage && <meta property="og:image" content={seoImage} />}
 
-
-            <meta name="twitter:card" content={'summary'}/>
-            { seoTitle &&
-              <meta name="twitter:title" content={seoTitle} />
-            }
-            { seoDescription &&
+            <meta name="twitter:card" content={"summary"} />
+            {seoTitle && <meta name="twitter:title" content={seoTitle} />}
+            {seoDescription && (
               <meta property="twitter:description" content={seoDescription} />
-            }
-            { url &&
-              <meta property="twitter:site" content={url} />
-            }
-            { seoImage &&
-              <meta property="twitter:image" content={seoImage}/>
-            }
+            )}
+            {url && <meta property="twitter:site" content={url} />}
+            {seoImage && <meta property="twitter:image" content={seoImage} />}
           </Head>
           <>
             <MainMenu

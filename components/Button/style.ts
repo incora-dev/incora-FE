@@ -37,9 +37,9 @@ export const Btn = styled.button`
     transition: width ${themeGet("transition.button")};
   }
 
-  &:hover :after {
+  /* &:hover :after {
     width: 100%;
-  }
+  } */
 
   label {
     z-index: 1;

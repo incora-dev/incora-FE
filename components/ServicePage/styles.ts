@@ -71,7 +71,7 @@ export const TextBlock = styled.div`
   max-width: 650px;
 
   @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
-    row-gap: 35px;
+    row-gap: 40px;
   }
   
   color: ${({ bgColor }: IDiv) => bgColor === theme.colors.black ? theme.colors.white : theme.colors.black};

@@ -29,6 +29,7 @@ function Navigation({
   const getTitleFromUrl = (string: string) => {
     const newStr = string.split('/');
     const filteredStr = newStr.filter((str) => str !== '');
+    if (!filteredStr.length) return '';
     const title = filteredStr[0].toLowerCase().split("-");
     return title.join(" ");
   };

@@ -49,7 +49,7 @@ function BlockTechnologies({ techStacks }: IBlockTechnologies) {
                   height={height}
                   alt="tech stack icon"
                 />
-                <p>{name}</p>
+                <h3>{name}</h3>
               </ContainerTop>
             </Technology>
           </Container>

@@ -12,16 +12,12 @@ import {
 } from "./HeaderInsights.style";
 import MagnifyingGlass from "../../../public/SVG/magnifyingGlass.svg";
 import Tags from "../../CaseStudies/CaseFilter/components/Tags";
-import { useSelector } from "react-redux";
-import { filterTagsSelector } from "../../CaseStudies/selectors";
 import Posts from "../Posts";
 import React from "../../../public/SVG/technologies/react.svg";
 import Loader from "../../../public/loading2.svg";
 import LoaderSemiCircle from "../../../public/loading1.svg";
 import { GetInsightsPage_industries_data } from "../../../graphql/insights/__generated__/GetInsightsPage";
-import { Dispatch, SetStateAction, useState } from "react";
-import { useQuery } from "@apollo/client";
-import { GET_TOTAL_PAGE_COUNT } from "../../../graphql/industries/meta";
+import { useState } from "react";
 
 interface IHeaderInsights {
   title: string;

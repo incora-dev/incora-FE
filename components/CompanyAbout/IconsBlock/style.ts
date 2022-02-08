@@ -10,21 +10,21 @@ export const IconsWrapper = styled.div`
 export const IconsContainer = styled.div`
   width: 100%;
   max-width: 1006px;
-  padding: 129px 0 77px;
+  padding: 30px 0 50px;
   display: flex;
 
   @media only screen and (max-width: ${themeGet('breakpoints.mDesk')}) {
-    padding-top: 80px;
+    // padding-top: 80px;
     padding-bottom: 0;
   }
   
   @media only screen and (max-width: ${themeGet('breakpoints.tabletPro')}) {
     max-width: 100%;
-    padding: 60px 25px 0;
+    padding: 30px 25px 0;
   }
 
   @media only screen and (max-width: ${themeGet('breakpoints.sTablet')}) {
-    padding-top: 40px;
+    padding-top: 30px;
   }
 
   @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {

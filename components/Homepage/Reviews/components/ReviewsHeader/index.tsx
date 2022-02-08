@@ -12,7 +12,7 @@ const ReviewsHeader = ({ reviewIndex, reviewsLength }: IReviewsHeader) => {
 
   return (
     <ReviewsHeaderWrapper>
-      <h1>reviews</h1>
+      <h2>reviews</h2>
       <span>
         {padNumber(reviewIndex + 1)} / {padNumber(reviewsLength)}
       </span>

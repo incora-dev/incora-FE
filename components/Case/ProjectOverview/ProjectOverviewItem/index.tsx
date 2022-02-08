@@ -81,7 +81,7 @@ const ProjectOverviewItem = ({
       <li key={index * Math.random()}>{listItem}</li>
     ));
 
-  const isLeft = (index + 1) % 10 !== 2;
+  const isLeft = (index + 1) % 2 !== 0;
 
   const decoration = (index: number, isAnimate: boolean) => {
     switch (index) {
@@ -118,7 +118,7 @@ const ProjectOverviewItem = ({
       </ImageWrap>
 
       <TextWrap isLeft={isLeft}>
-        <h2>{heading}</h2>
+        <h3>{heading}</h3>
         <p>
           {text}
           <ul>{listCondition}</ul>

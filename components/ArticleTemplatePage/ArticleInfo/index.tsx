@@ -215,6 +215,7 @@ const ArticleInfo = ({
     useState<NodeListOf<HTMLElement>>();
   const [selected, setSelect] = useState(-1);
   const [sideBarRowGap, setSideRowGap] = useState("25px;");
+  const [width, setWidth] = useState("1366px;");
 
   const scrollTitles = getScrollLabels(selectedElementIndex, sideBarElements);
 
@@ -232,6 +233,10 @@ const ArticleInfo = ({
     const querySelectorAll =
       "#scrollsLabels h2, #scrollsLabels h3, #scrollsLabels h4, #scrollsLabels h5, #scrollsLabels h6";
     const querySelectorThan15 = "#scrollsLabels h2";
+
+    if (sideBarList.length === 0) {
+      setWidth('1006px');
+    }
 
     sideBarList.length > 15
       ? setSideBarElements(document.querySelectorAll(querySelectorThan15))
@@ -267,11 +272,11 @@ const ArticleInfo = ({
     getSideBarElements();
   }, []);
 
-  const socialsCondition = facebook || linkedIn ? <P>Social title</P> : null;
+  const socialsCondition = facebook || linkedIn ? <P>Share this post</P> : null;
 
   return (
     <Div>
-      <Wrapper>
+      <Wrapper width={width}>
         <StickyWrapper>
           <ScrollLabels rowGap={sideBarRowGap}>{scrollTitles}</ScrollLabels>
         </StickyWrapper>

@@ -3,10 +3,10 @@ import {
   Div,
   Wrapper,
   TextBlock,
-  H1,
+  H2,
   Content,
   Sphere,
-  H2,
+  H3,
   Text,
   ContentWrapper,
   PositionHexagon1,
@@ -55,7 +55,7 @@ const GetContent = ({ content }: IGetContent) => {
                     alt={"icon"}
                   />
                 </Sphere>
-                <H2>{title}</H2>
+                <H3>{title}</H3>
                 <Text>{description}</Text>
               </ContentWrapper>
             )}
@@ -73,7 +73,7 @@ const Information = ({ content }: IInformation) => {
     <Div>
       <Wrapper>
         <TextBlock>
-          <H1>{intro}</H1>
+          <H2>{intro}</H2>
           <GetContent content={items} />
         </TextBlock>
       </Wrapper>

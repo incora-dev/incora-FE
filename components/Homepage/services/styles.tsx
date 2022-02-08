@@ -191,8 +191,8 @@ export const Labels = styled.div`
 `
 
 export const Label = styled.a`
-  min-width: 202px;
-  font-family: Poppins;
+  width: 202px;
+
   font-style: normal;
   font-weight: 600;
   font-size: var(--fs-16);

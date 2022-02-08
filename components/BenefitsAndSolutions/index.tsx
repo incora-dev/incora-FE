@@ -42,8 +42,8 @@ const BenefitsAndSolutions = ({
             <Image
               loader={() => src}
               src={src}
-              width={width}
-              height={height}
+              width={width > 45 ? 45 : width}
+              height={height > 37 ? 37 : height}
               alt="icon"
               className="image"
             />
@@ -59,7 +59,7 @@ const BenefitsAndSolutions = ({
     <BenefitsAndSolutionsWrap bgColor={bgColor}>
       <HexagonsBackground />
       <ContentWrap>
-        <h1>{header}</h1>
+        <h2>{header}</h2>
         <Grid rowGap={rowGap}>{gridItems}</Grid>
       </ContentWrap>
     </BenefitsAndSolutionsWrap>

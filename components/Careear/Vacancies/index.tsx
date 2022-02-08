@@ -111,7 +111,7 @@ const Vacancies = ({
       <ContentWrapper>
         <ListWrap>
           <PositionFilter>
-            <h1>{intro}</h1>
+            <h2>{intro}</h2>
 
             <Filter>
               <FilterBlock>
@@ -132,7 +132,7 @@ const Vacancies = ({
                 />
               </FilterBlock>
               <QuickApplyWrap>
-                <h2>{header}</h2>
+                <h3>{header}</h3>
                 <p>{text}</p>
 
                 <Button

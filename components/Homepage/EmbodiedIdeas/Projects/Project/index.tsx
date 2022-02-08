@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Technologies from "../Technologies";
 import PictureWithAnimation from "../PictureWithAnimation";
-import { Container, Text, Block, H3, P, H4 } from "../Projects.style";
+import { Container, Text, Block, H2, P, H4 } from "../Projects.style";
 import { IMAGES_LINK } from "../../../../../constants";
 import { useState } from "react";
 
@@ -24,12 +24,12 @@ const Project = ({ id, project, index, elementsColor}: any) => {
       <Container key={id} flexDirection={flexDirection}>
         <Text>
           <Link href={`/case-studies/${url}/${projectId}`} passHref>
-            <H3
+            <H2
               onMouseEnter={() => setShouldHover(index)}
               onMouseLeave={() => setShouldHover(-1)}
             >
               {mainInfoEntry.title}
-            </H3>
+            </H2>
           </Link>
           <P
             onMouseEnter={() => setShouldHover(index)}

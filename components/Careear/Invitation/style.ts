@@ -278,7 +278,7 @@ export const HeaderWrap = styled.div`
     width: 100%;
   }
 
-  h1 {
+  h2 {
     font-weight: 800;
     font-size: var(--fs-36);
     line-height: 54px;

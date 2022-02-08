@@ -608,7 +608,7 @@ export const Container = styled.div`
   }
 
   @media only screen and (max-width: ${themeGet('breakpoints.smallDesk')}) {
-    max-width: 370px;
+    /* max-width: 370px; */
     right: -25px;
   }
 

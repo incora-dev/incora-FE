@@ -28,6 +28,18 @@ export const FormContainer = styled.form`
    row-gap: 21px;
 `;
 
+export const Notification = styled.p`
+  max-width: 400px;
+
+  font-style: normal;
+  font-weight: 700;
+  font-size: var(--fs-12);
+  line-height: 18px;
+  letter-spacing: 0.03em;
+
+  color: ${themeGet("colors.yellow")};
+`;
+
 export const Input = styled.input`
    box-sizing: content-box;
    width: 100%;
@@ -45,7 +57,7 @@ export const Input = styled.input`
   font-size: var(--fs-12);
   line-height: 18px;
   letter-spacing: 0.03em;
-  text-transform: capitalize;
+
   margin: 0;
   text-decoration: none;
   border: none;

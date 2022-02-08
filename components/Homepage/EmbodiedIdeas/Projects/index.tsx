@@ -1,4 +1,4 @@
-import { Container, Text, Block, H3, P, H4 } from "./Projects.style";
+import { Container, Text, Block, H2, P, H4 } from "./Projects.style";
 import Technologies from "./Technologies";
 import PictureWithAnimation from "./PictureWithAnimation";
 import { useEffect, useState } from "react";
@@ -64,14 +64,14 @@ function Projects({ projects, elementsColor }: IProjects) {
         <>
           {name && description && technologies && image && (
             <Container key={id} flexDirection={flexDirection}>
-              <Text>
+              <Text className="text-block">
                 <Link href={ROUTES.CASE_STUDIES + `${url}/${id}`} passHref>
-                  <H3
+                  <H2
                     onMouseEnter={() => setShouldHover(getIndex[index])}
                     onMouseLeave={() => setShouldHover(-1)}
                   >
                     {name}
-                  </H3>
+                  </H2>
                 </Link>
                 <P
                   onMouseEnter={() => setShouldHover(getIndex[index])}

@@ -46,7 +46,7 @@ export const Technology = styled.div`
   -o-transition: opacity ${homePageTechnologiesHoverDuration} ease-in-out;
   transition: opacity ${homePageTechnologiesHoverDuration} ease-in-out;
   
-  p {
+  h3 {
     font-style: normal;
     font-weight: bold;
     font-size: var(--fs-18);

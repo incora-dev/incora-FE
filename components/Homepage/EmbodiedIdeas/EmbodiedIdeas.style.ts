@@ -11,18 +11,9 @@ interface IPositionTitle {
 }
 
 export const Content = styled.div`
-  max-width: 1366px;
+  /* max-width: 1366px; */
   width: 100%;
-
-  padding: 0 15px 0 188px;
-
-  @media only screen and (max-width: ${themeGet('breakpoints.desk')}) {
-    padding: 0 15px 0 60px;
-  }
-  
-  @media only screen and (max-width: ${themeGet('breakpoints.mDesk')}) {
-    padding: 0;
-  }
+  padding: 0;
 `;
 
 export const Div = styled.div`
@@ -33,7 +24,7 @@ export const Div = styled.div`
   justify-content: center;
   overflow-x: hidden;
 
-  @media only screen and (max-width: ${themeGet('breakpoints.mDesk')}) {
+  @media only screen and (max-width: ${themeGet('breakpoints.tabletPro')}) {
     max-width: 100%;
     padding: 25px;
   }
@@ -56,7 +47,8 @@ export const Div = styled.div`
 export const PositionTitle = styled.div`
   padding-top: ${({ disablePadding }: IPositionTitle) =>
   disablePadding ? "0" : "50px"};
-  margin-bottom: 46px;
+  /* max-width: 1006px; */
+  margin: 0 auto 46px;
 
   @media only screen and (max-width: ${themeGet('breakpoints.tabletPro')}) {
     padding-top: 70px;
@@ -73,13 +65,14 @@ export const PositionTitle = styled.div`
 
 export const Block = styled.div`
   max-width: 1006px;
+  margin: 0 auto;
 
-  @media only screen and (max-width: ${themeGet('breakpoints.mDesk')}) {
+  @media only screen and (max-width: ${themeGet('breakpoints.tabletPro')}) {
     max-width: 100%;
   }
 `;
 
-export const H2 = styled.h2`
+export const Span = styled.span`
   font-family: Poppins;
   font-style: normal;
   font-weight: 800;
@@ -119,7 +112,7 @@ export const ProjectsContainer = styled.div`
   display: flex;
   flex-direction: column;
   row-gap: 174px;
-  align-items: center;
+  /* align-items: center; */
 
   @media only screen and (max-width: ${themeGet('breakpoints.tabletPro')}) {
     row-gap: 70px;
@@ -134,7 +127,7 @@ export const SeeMoreWorks = styled.div`
   position: relative;
 
   max-width: 1006px;
-  margin: 70px auto 70px;
+  margin: 175px auto 70px;
 
   display: flex;
   flex-direction: column;
@@ -146,7 +139,21 @@ export const SeeMoreWorks = styled.div`
 
   @media only screen and (max-width: ${themeGet('breakpoints.tabletPro')}) {
     max-width: 100%;
-    margin: 100px auto 120px;
+    margin: 130px auto 120px;
+    height: fit-content;
+    padding-bottom: 30px;
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+    max-width: 100%;
+    margin: 175px auto 120px;
+    height: fit-content;
+    padding-bottom: 30px;
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.smallDesk')}) {
+    max-width: 100%;
+    margin: 250px auto 120px;
     height: fit-content;
     padding-bottom: 30px;
   }
@@ -154,7 +161,7 @@ export const SeeMoreWorks = styled.div`
   @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
     width: 100%;
     padding-left: 0;
-    margin: 50px 0 75px;
+    margin: 120px 0 75px;
   }
 `;
 

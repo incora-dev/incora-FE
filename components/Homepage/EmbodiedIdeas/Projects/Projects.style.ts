@@ -11,10 +11,45 @@ interface IText {
 
 export const Container = styled.div`
   display: flex;
-  column-gap: 77px;
   flex-direction: ${({ flexDirection }: IContainer) => flexDirection};
-  width: 100%;
   position: relative;
+  max-width: calc((100vw - 1006px) / 2 + 1006px);
+
+  &:nth-child(odd) {
+    margin-left: calc((100vw - 1006px) / 2);
+
+    .text-block {
+      margin-right: 76px;
+    }
+  }
+
+  &:nth-child(even) {
+    margin-right: calc((100vw - 1006px) / 2);
+
+    .text-block {
+      margin-left: 76px;
+    }
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tabletPro')}) {
+    max-width: 100%;
+    width: 100%;
+    &:nth-child(odd) {
+      margin-left: 0;
+
+      .text-block {
+        margin-right: 40px;
+      }
+    }
+
+    &:nth-child(even) {
+      margin-right: 0;
+
+      .text-block {
+        margin-left: 40px;
+      }
+    }
+  }
 
   @media only screen and (max-width: ${themeGet('breakpoints.smallDesk')}) {
     column-gap: 30px;
@@ -22,6 +57,18 @@ export const Container = styled.div`
 
   @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
     flex-direction: column;
+
+    &:nth-child(odd) {
+      .text-block {
+        margin-right: 0;
+      }
+    }
+
+    &:nth-child(even) {
+      .text-block {
+        margin-left: 0;
+      }
+    }
   }
 
   @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
@@ -31,7 +78,7 @@ export const Container = styled.div`
 `;
 
 export const Text = styled.div`
-  max-width: 448px;
+  max-width: 410px;
   width: 100%;
 
   display: flex;
@@ -58,6 +105,10 @@ export const Text = styled.div`
     min-height: auto;
     margin-bottom: 35px;
   }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+    max-width: 100%;
+  }
 `;
 
 export const Block = styled.div`
@@ -68,7 +119,7 @@ export const Block = styled.div`
   cursor: pointer;
 `;
 
-export const H3 = styled.h3`
+export const H2 = styled.h2`
   font-style: normal;
   font-weight: 800;
   font-size: var(--fs-36);

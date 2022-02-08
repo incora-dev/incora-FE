@@ -25,7 +25,7 @@ export const ReviewsHeaderWrapper = styled.div`
     margin-bottom: 20px;
   }
 
-  h1 {
+  h2 {
     text-transform: uppercase;
     color: ${themeGet("colors.white")};
     font-weight: 800;

@@ -27,7 +27,7 @@ const paddingRight = (index: number) => {
 
 export const ProjectOverviewItemWrapper = styled.div`
   width: 1226px;
-  height: 402px;
+  min-height: 402px;
   display: flex;
   justify-content: space-between;
   flex-direction: ${({ isLeft }: IProjectOverviewItemWrapper) =>
@@ -134,7 +134,7 @@ export const TextWrap = styled.div`
   }
 
 
-  > h2 {
+  > h3 {
     font-weight: 800;
     font-size: var(--fs-28);
     line-height: 42px;

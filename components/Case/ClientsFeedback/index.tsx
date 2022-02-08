@@ -21,7 +21,7 @@ const ClientsFeedback = ({ feedback }: IClientFeedBack) => {
   return (
     <ClientsFeedbackWrapper>
       <HeadingWrap>
-        <h1>{"client's feedback"}</h1>
+        <h2>{"client's feedback"}</h2>
       </HeadingWrap>
       <FeedbackWrap>
         <Quotes />

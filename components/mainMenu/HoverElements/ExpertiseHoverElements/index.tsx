@@ -58,7 +58,7 @@ const industriesLabels = [
     url: 'supply-chain-software-development/4'
   },
   {
-    title: 'Delivery & Shipping',
+    title: 'Delivery&Shipping',
     url: 'delivery-and-shipping-apps/3'
   },
   {

@@ -24,6 +24,8 @@ export const VacancyCardWrapper = styled.div`
   }
 
   button {
+    z-index: -1;
+    
     @media only screen and (max-width: ${themeGet("breakpoints.smallDesk")}) {
       height: 45px;
       width: 140px;

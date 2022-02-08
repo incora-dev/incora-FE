@@ -96,7 +96,19 @@ export const VideoBlock = styled.div`
   height: 380px;
 
   video {
+    display: block;
 
+    @media only screen and (max-width: ${themeGet('breakpoints.sTablet')}) {
+      display: none;
+    }
+  }
+
+  .gif {
+    display: none;
+
+    @media only screen and (max-width: ${themeGet('breakpoints.sTablet')}) {
+      display: block;
+    }
   }
 
   @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {

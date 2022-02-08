@@ -1,8 +1,8 @@
 import {
   Div,
   Wrapper,
-  H1,
   H2,
+  H3,
   Content,
   ContentWrapper,
   Text,
@@ -54,7 +54,7 @@ const GetContent = ({ content }: IGetContent) => {
               />
               <TitleContent>
                 <Number>{numberTitle}</Number>
-                <H2>{title}</H2>
+                <H3>{title}</H3>
               </TitleContent>
             </Title>
             <Text>{description}</Text>
@@ -73,7 +73,7 @@ const WorkflowSetUp = ({ title, content }: IWorkflowSetUp) => {
   return (
     <Div>
       <Wrapper>
-        <H1>{titleFirstLetterBig}</H1>
+        <H2>{titleFirstLetterBig}</H2>
       </Wrapper>
 
       <Content>

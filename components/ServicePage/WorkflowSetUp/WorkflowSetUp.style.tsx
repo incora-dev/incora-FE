@@ -123,7 +123,7 @@ export const TitleContent = styled.div`
   margin-top: 8px;
 `;
 
-export const H1 = styled.h1`
+export const H2 = styled.h2`
   //max-width: 50vw;
 
   font-style: normal;
@@ -137,7 +137,7 @@ export const H1 = styled.h1`
   letter-spacing: 0.05em;
 `;
 
-export const H2 = styled.h2`
+export const H3 = styled.h3`
   margin-left: 5px;
 
   display: inline-block;
@@ -154,7 +154,7 @@ export const H2 = styled.h2`
   }
 `;
 
-export const Number = styled.h2`
+export const Number = styled.h3`
   display: inline-block;
 
   font-weight: 800;

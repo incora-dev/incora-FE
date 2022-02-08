@@ -1,6 +1,6 @@
 import {
   Div,
-  H2,
+  Span,
   H4,
   PositionTitle,
   ProjectsContainer,
@@ -55,7 +55,7 @@ function EmbodiedIdeasComponent({
           <Content>
             <PositionTitle disablePadding={disablePadding}>
               <Block>
-                <H2>{title}</H2>
+                <Span>{title}</Span>
               </Block>
             </PositionTitle>
 

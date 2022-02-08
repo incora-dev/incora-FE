@@ -1,5 +1,5 @@
 import FormClassic from "../../FormClassic";
-import { ContentWrap, LetsReactOutWrapper } from "./style";
+import { ContentWrap, LetsReactOutWrapper, FormContainer } from "./style";
 import Hexagon from "../../../public/SVG/hexagon1.svg";
 import WhiteSemicircle from "../../../public/SVG/whiteSemicircle.svg";
 import { GetCaseStudies_caseStudiesPage_data_attributes_contactUs } from "../../../graphql/caseStudies/__generated__/GetCaseStudies";
@@ -33,12 +33,13 @@ const LetsReachOut = ({ contactUs }: ILersReachOut) => {
           formTheme={true}
           setSelectedFile={setSelectedFile}
         />
-
-        <FormClassic
-          buttonLabel={"send"}
-          formBlack
-          selectedFiles={inputSelectedFile}
-        />
+        <FormContainer>
+          <FormClassic
+            buttonLabel={"send"}
+            formBlack
+            selectedFiles={inputSelectedFile}
+          />
+        </FormContainer>
 
         <Hexagon className="hex" />
 

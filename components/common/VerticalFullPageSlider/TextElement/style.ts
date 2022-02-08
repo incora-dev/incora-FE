@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import themeGet from "@styled-system/theme-get";
 
 interface IColors {
   bgColor?: string;
@@ -12,6 +13,10 @@ export const MenuBlock = styled.div`
   display: flex;
   flex-direction: column;
   row-gap: 13px;
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tabletPro')}) {
+    left: -15px;
+  }
 `;
 
 export const MenuLabel = styled.button`

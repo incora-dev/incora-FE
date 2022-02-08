@@ -169,7 +169,7 @@ const OurTraditions = ({ ourTraditions }: IOurTraditions) => {
     <OurTraditionsWrapper>
       <OurTraditionsTextWrap>
         <TextWrap>
-          <h1>{title}</h1>
+          <h2>{title}</h2>
           <Paragraphs>
             <p>{textArray[0]}</p>
             <p>{textArray[1]}</p>

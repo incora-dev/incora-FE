@@ -31,7 +31,7 @@ const ProjectOverview = ({ projectOverview }: IProjectOverview) => {
   return (
     <ProjectOverviewWrapper>
       <HeadingWrap>
-        <h1>{projectOverview.title}</h1>
+        <h2>{projectOverview.title}</h2>
       </HeadingWrap>
 
       <ContentWrap>{mapProjectOverviewItems}</ContentWrap>

@@ -145,6 +145,7 @@ const Home: NextPage<IHome> = ({ data, networkStatus }) => {
               backgroundColor={bgColorBlack}
               titlesColor={bgColorWhite}
             >
+              <h1 className="hidden">Incora Software Development Company</h1>
               <HeaderComponent backgroundVideo={backgroundVideo} />
               <VerticalFullPageSlider<GetHomepage_homePage_data_attributes_coopSteps_steps | null>
                 slides={coopSteps}

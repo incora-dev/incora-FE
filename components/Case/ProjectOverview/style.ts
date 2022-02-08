@@ -28,7 +28,7 @@ export const HeadingWrap = styled.div`
     margin-bottom: 55px;
   }
 
-  h1 {
+  h2 {
     font-weight: 800;
     font-size: var(--fs-64);
     line-height: 96px;

@@ -104,13 +104,8 @@ export const H2 = styled.h2`
   color: #000000;
 
   @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
-    font-size: var(--fs-40);
-    line-height: 60px;
-  }
-
-  @media only screen and (max-width: ${themeGet('breakpoints.sTablet')}) {
-    font-size: var(--fs-36);
-    line-height: 50px;
+    font-size: 30px;
+    line-height: 49px;
   }
 
   @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {

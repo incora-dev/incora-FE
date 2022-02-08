@@ -69,6 +69,10 @@ export const TextBlock = styled.div`
   flex-direction: column;
   row-gap: 19px;
   max-width: 650px;
+
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+    row-gap: 35px;
+  }
   
   color: ${({ bgColor }: IDiv) => bgColor === theme.colors.black ? theme.colors.white : theme.colors.black};
 `;
@@ -96,7 +100,7 @@ export const H1 = styled.h1`
     font-size: var(--fs-36);
     line-height: 46px;
     margin-top: 6px;
-    width: calc(100% - 100px);
+    width: calc(100% - 130px);
   }
 
   @media only screen and (max-width: ${themeGet('breakpoints.mMobile')}) {

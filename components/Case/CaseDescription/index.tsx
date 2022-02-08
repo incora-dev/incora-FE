@@ -35,14 +35,14 @@ const CaseDescription = ({
   industry,
 }: ICaseDescription) => {
   const info = mainInfo.item.map((item, index) => {
-    if (index !== 0) {
+    // if (index !== 0) {
       return (
         <>
           <h2>{item?.title}</h2>
           <p>{item?.description}</p>
         </>
       );
-    }
+    // }
   });
 
   const locationTag = location && (

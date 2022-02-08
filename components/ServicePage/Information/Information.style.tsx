@@ -97,8 +97,8 @@ export const H1 = styled.h1`
   font-family: Poppins;
   font-style: normal;
   font-weight: 800;
-  font-size: var(--fs-64);
-  line-height: 96px;
+  font-size: 50px;
+  line-height: 84px;
   letter-spacing: 0.05em;
 
   color: #000000;

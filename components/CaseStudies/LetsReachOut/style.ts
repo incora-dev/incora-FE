@@ -141,3 +141,11 @@ export const UploadBox = styled.div`
     color: ${themeGet("colors.yellow")};
   }
 `;
+
+export const FormContainer = styled.div`
+  padding-top: 50px;
+
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+    padding-top: 30px;
+  }
+`;

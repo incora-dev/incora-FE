@@ -99,7 +99,13 @@ export const PlusIconVisible = styled.div<IIcon>`
   svg {
     cursor: pointer;
     path {
-      fill: ${({color}) => color ? color : '#000'};
+      fill: ${({color}) => {
+        if (color === '#18181A') {
+          return '#fff';
+        } else {
+          return color;
+        }
+      }
     }
   }
 `;
@@ -110,7 +116,14 @@ export const MinusIconVisible = styled.div`
   svg {
     cursor: pointer;
     path {
-      fill: ${({color}) => color ? '#000' : 'color'};
+      fill: ${({color}) => {
+        if (color === '#18181A') {
+          return color;
+        } else {
+          return '#fff'
+        }
+      }
+      }
     }
   }
 `;
@@ -164,12 +177,6 @@ export const Accordion = styled.div`
   align-items: center;
 
   column-gap: 30px;
-
-  svg {
-    path {
-      fill: ${theme.colors.white};
-    }
-  }
 `;
 
 export const TextBlock = styled.div`
@@ -192,9 +199,10 @@ export const H2 = styled.h2`
   font-weight: 800;
   font-size: var(--fs-36);
   line-height: 54px;
-@media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
-  line-height: 40px;
-}
+
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+    line-height: 40px;
+  }
   /* identical to box height */
 
   letter-spacing: 0.05em;

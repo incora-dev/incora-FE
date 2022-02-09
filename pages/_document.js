@@ -41,7 +41,7 @@ class MyDocument extends Document {
           <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />
           <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
           <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap" rel="stylesheet"/>
-          <script async src="https://www.googletagmanager.com/gtag/js?id=UA-73161009-1"></script>
+          <script async src="https://www.googletagmanager.com/gtag/js?id=UA-73161009-1"/>
           <script
             dangerouslySetInnerHTML={{
               __html: `

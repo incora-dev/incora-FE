@@ -7,6 +7,8 @@ export const Div = styled.div`
   justify-content: center;
 
   background-color: ${themeGet("colors.white")};
+
+  padding: ${({ padding }: { padding: string }) => padding};
 `;
 
 export const Wrapper = styled.div`

@@ -5,7 +5,7 @@ import { IMAGES_LINK } from "../../../constants/links";
 import { useQuery } from "@apollo/client";
 import { GetArticlesList } from "../../../graphql/insights/__generated__/GetArticlesList";
 import { GET_ARTICLES_LIST } from "../../../graphql/insights/queries";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Loader from "../../common/Loader";
 import ArticlesList from "./ArticlesList";
 
@@ -18,6 +18,7 @@ const Posts = ({ query, industry }: IPosts) => {
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [totalPageCount, setTotalPageCount] = useState<number>();
   const [articlesLength, setArticlesLength] = useState<number>();
+  const [padding, setPadding] = useState('0')
 
   const handlePageCount = (totalPageCount: number, articlesLength: number) => {
     setTotalPageCount(totalPageCount);
@@ -29,12 +30,20 @@ const Posts = ({ query, industry }: IPosts) => {
     window.scrollTo(0, 0);
   };
 
+  useEffect(() => {
+    if (window.innerHeight === 1180) {
+      setPadding('95px 0')
+    } else {
+      setPadding('0')
+    }
+  }), [];
+
   const paginationCondition =
     totalPageCount && articlesLength && articlesLength > 0;
 
   return (
     <>
-      <Div>
+      <Div padding={padding}>
         <Wrapper>
           <ArticlesList
             currentPage={currentPage}

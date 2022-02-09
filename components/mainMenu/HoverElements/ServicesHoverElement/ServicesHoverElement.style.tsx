@@ -69,10 +69,12 @@ export const Wrapper = styled.div`
   @media only screen and (max-width: ${themeGet('breakpoints.sTablet')}) {
     flex-direction: column;
     row-gap: 30px;
+    height: calc(100vh - 60px);
+    padding-bottom: 120px;
   }
 
   @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
-    padding: 15px 15px 40px;
+    padding: 15px 15px 120px;
     flex-direction: column;
     overflow: scroll;
     /* height: 93vh; */

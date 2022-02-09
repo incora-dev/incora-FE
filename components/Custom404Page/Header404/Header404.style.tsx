@@ -13,8 +13,9 @@ export const Div = styled.div`
   }
 
   @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
-    height: calc(100vh - 328px);
+    height: calc(100vh - 290px);
     min-height: 500px;
+    width: 100vh;
   }
 
   @media only screen and (max-width: ${themeGet("breakpoints.sTablet")}) {

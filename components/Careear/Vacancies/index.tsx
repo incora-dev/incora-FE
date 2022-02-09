@@ -26,6 +26,7 @@ import { useEffect, useState } from "react";
 import CreateFormSelect from "../../FormClassic/FormSelect";
 import { ROUTES } from "../../../constants/routes";
 import Loader from "../../common/Loader";
+import { isUndefined } from "lodash";
 
 interface IVacancies {
   currentVacancies: GetCareersPage_careersPage_data_attributes_currentVacancies;
@@ -38,15 +39,15 @@ const Vacancies = ({
   specialties,
   technologies,
 }: IVacancies) => {
-  const [specialty, setSpeciality] = useState<string | undefined>(undefined);
+  const [specialty, setSpecialty] = useState<string | undefined>(undefined);
   const [technology, setTechnology] = useState<string | undefined>(undefined);
 
   const [getVacanciesList, { data, loading }] = useLazyQuery<GetVacanciesList>(
     GET_VACANCIES_LIST,
     {
       variables: {
-        specialty,
-        technology,
+        specialty: specialty === "all" ? undefined : specialty,
+        technology: technology === "all" ? undefined : technology,
       },
     }
   );
@@ -84,17 +85,20 @@ const Vacancies = ({
       );
     });
 
-  const specialtiesOptions = specialties.data.map((specialty) => {
-    const name = specialty.attributes?.name || "";
+  const createOptions = (
+    arr: GetVacancy_filterSpecialities | GetVacancy_filterTechnologies
+  ) => {
+    const options = arr.data.map((option) => {
+      const name = option.attributes?.name || "";
+      return name;
+    });
 
-    return name;
-  });
+    options.unshift("all");
+    return options;
+  };
 
-  const technologiesOptions = technologies.data.map((technology) => {
-    const name = technology.attributes?.name || "";
-
-    return name;
-  });
+  const specialtyOptions = createOptions(specialties);
+  const technologiesOptions = createOptions(technologies);
 
   const vacanciesCondition = () => {
     if (vacancies && vacancies.length <= 0) {
@@ -116,10 +120,10 @@ const Vacancies = ({
             <Filter>
               <FilterBlock>
                 <CreateFormSelect
-                  fields={specialtiesOptions}
+                  fields={specialtyOptions}
                   formTheme={false}
-                  setSelectedPurpose={setSpeciality}
-                  placeHolder={"speciality"}
+                  setSelectedPurpose={setSpecialty}
+                  placeHolder={"specialty"}
                   Icon={SmallStar}
                 />
 

@@ -62,11 +62,11 @@ const Case: NextPage<ICase> = ({ data, networkStatus }) => {
     galleryIntro &&
     galleryPictures;
 
-  const [url, setUrl] = useState<string>('');
+  const [url, setUrl] = useState<string>("");
 
-  useEffect(() =>
-      setUrl(window.location.href)
-  ), [];
+  useEffect(() => {
+    setUrl(window.location.href);
+  }, []);
 
   if (networkStatus !== 7 || data.project?.data === null) return <Custom404 />;
 
@@ -83,7 +83,8 @@ const Case: NextPage<ICase> = ({ data, networkStatus }) => {
             <meta property="og:type" content="article" />
             <meta property="og:url" content={url} />
             {seoDescription && (
-              <meta name="description" content={seoDescription} />)}
+              <meta name="description" content={seoDescription} />
+            )}
             {seoKeywords && <meta name="keywords" content={seoKeywords} />}
             {seoTitle && <meta property="og:title" content={seoTitle} />}
             {seoDescription && (

@@ -27,36 +27,45 @@ interface IHeaderComponent {
 function HeaderComponent({backgroundVideo}: IHeaderComponent) {
       const {isMobile, isTablet, isSmallTablet} = useIsMobile();
 
+  const scrollToSecondBlock = () => {
+    window.scrollTo({
+      top: document.getElementById('home-header')?.getBoundingClientRect().height,
+      behavior: 'smooth',
+    });
+  };
+
   return (
-    <Cover>
+    <Cover id="home-header">
       <Container>
         <Div>
           <VideoBlock>
-            <video
-              style={{ width: (isMobile || isTablet || isSmallTablet) && !isSmallTablet 
-                        ? '80vw' 
-                        : isSmallTablet 
+            {(!isMobile && !isSmallTablet) ? (
+              <video
+                style={{ width: (isMobile || isTablet || isSmallTablet) && !isSmallTablet 
                           ? '80vw' 
-                          : '710px', 
-                      height: (isMobile || isTablet || isSmallTablet) ? 'unset' : '380px', 
-                      position: (isMobile || isTablet || isSmallTablet) ? 'relative' : 'static', 
-                      top: '1px' }}
-                      // style={{
-                      //   width: isMobile ? "94vw" : "707px",
-                      //   height: isMobile ? "unset" : "380px",
-                      //   position: isMobile ? "relative" : "static",
-                      //   top: "1px",
-                      // }}
-              autoPlay
-              loop
-              muted
-            >
-              <source src={backgroundVideo} type="video/mp4" />
-            </video>
-            <div className="gif">
-              <img src={`${IMAGES_LINK}/uploads/home_885cce1415.gif`} alt="" />
-              {/* <Image src={Gif} alt="gif" layout="responsive" /> */}
-            </div>
+                          : isSmallTablet 
+                            ? '80vw' 
+                            : '710px', 
+                        height: (isMobile || isTablet || isSmallTablet) ? 'unset' : '380px', 
+                        position: (isMobile || isTablet || isSmallTablet) ? 'relative' : 'static', 
+                        top: '1px' }}
+                        // style={{
+                        //   width: isMobile ? "94vw" : "707px",
+                        //   height: isMobile ? "unset" : "380px",
+                        //   position: isMobile ? "relative" : "static",
+                        //   top: "1px",
+                        // }}
+                autoPlay
+                loop
+                muted
+              >
+                <source src={backgroundVideo} type="video/mp4" />
+              </video>
+            ) : (
+              <div className="gif">
+                <img src={`${IMAGES_LINK}/uploads/home_885cce1415.gif`} alt="" />
+              </div>
+            )}
             <PositionVideoSVG>
               <SVG />
             </PositionVideoSVG>
@@ -84,7 +93,7 @@ function HeaderComponent({backgroundVideo}: IHeaderComponent) {
 
           <ScrollContainer>
             <Line />
-            <ScrollText>scroll</ScrollText>
+            <ScrollText onClick={scrollToSecondBlock}>scroll</ScrollText>
           </ScrollContainer>
         </Div>
       </Container>

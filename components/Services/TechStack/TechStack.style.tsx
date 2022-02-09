@@ -37,6 +37,10 @@ export const Container = styled.div`
     padding: 0 15px;
       row-gap: 15px;
   }
+
+  .radio-btn {
+    margin: 15px 0;
+  }
 `
 
 export const H2 = styled.h2`

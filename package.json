@@ -7,7 +7,7 @@
     "start": "next start",
     "lint": "next lint",
     "codegen": "npx apollo codegen:generate --localSchemaFile=graphql-schema.json --target=typescript --tagName=gql",
-    "download-scheme": "apollo service:download --endpoint=http://35.171.193.21:1337/graphql graphql-schema.json"
+    "download-scheme": "apollo service:download --endpoint=https://admin.incora.software/graphql graphql-schema.json"
   },
   "dependencies": {
     "@apollo/client": "^3.5.7",

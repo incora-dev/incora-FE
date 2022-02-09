@@ -19,6 +19,8 @@ export const NewsContainer = styled.div`
 
   @media only screen and (max-width: ${themeGet("breakpoints.sTablet")}) {
     margin-right: 15px;
+    height: fit-content;
+    margin-bottom: 20px;
   }
 
   @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {

@@ -212,7 +212,7 @@ export const FollowUsBlock = styled.div`
   }
 
   .clutch-widget {
-    width: 190px;
+    width: 200px;
   }
 `;
 

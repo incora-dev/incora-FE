@@ -85,13 +85,13 @@ function FooterComponent() {
     <Container>
       <Position>
         <LogoBlock>
-          <Link href={"/"}>
+          <Link href={"/" } passHref>
             <IncoraLogo />
           </Link>
 
           <PoliciesBlock>
             {policies.map((policy, index) => (
-              <Link href={`/${policy.replace(" ", "-")}`} key={index}>
+              <Link href={`/${policy.replace(" ", "-")}`} key={index} passHref>
                 <PolicyLabel>{policy}</PolicyLabel>
               </Link>
             ))}

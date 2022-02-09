@@ -75,7 +75,7 @@ export const NewsBlock = styled.div`
   }
 
   @media only screen and (max-width: ${themeGet("breakpoints.sTablet")}) {
-    row-gap: 30px;
+    row-gap: 20px;
 
     .news-container {
       width: calc((100% - 12px) / 2);

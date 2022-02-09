@@ -34,10 +34,8 @@ function MyApp({ Component, pageProps }: AppProps) {
         <ThemeProvider theme={theme}>
           <Provider store={store}>
             <ApolloProvider client={apolloClient}>
-              <div>
-                {loading && <RouterLoader />}
-                <Component {...pageProps} />
-              </div>
+              {loading && <RouterLoader />}
+              <Component {...pageProps} />
             </ApolloProvider>
           </Provider>
         </ThemeProvider>

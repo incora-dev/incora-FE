@@ -164,6 +164,12 @@ export const Accordion = styled.div`
   align-items: center;
 
   column-gap: 30px;
+
+  svg {
+    path {
+      fill: ${theme.colors.white};
+    }
+  }
 `;
 
 export const TextBlock = styled.div`

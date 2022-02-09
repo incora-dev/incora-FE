@@ -4,9 +4,9 @@ import {
   MainBlock,
   IconBlock,
   TextBlock,
-  Text
+  Text,
 } from "./Header404.style";
-import Icon404 from "../../../public/SVG/404.svg"
+import Icon404 from "../../../public/SVG/404.svg";
 
 const Header404 = () => {
   return (
@@ -14,17 +14,18 @@ const Header404 = () => {
       <Wrapper>
         <MainBlock>
           <IconBlock>
-            <Icon404/>
+            <Icon404 />
           </IconBlock>
           <TextBlock>
-            <Text>Something’s missing.
+            <Text>
+              Something’s missing.
               <span onClick={() => history.back()}> Go back</span>
             </Text>
           </TextBlock>
         </MainBlock>
       </Wrapper>
     </Div>
-  )
-}
+  );
+};
 
 export default Header404;

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import themeGet from "@styled-system/theme-get";
-import {theme} from "../../../styles/theme";
+import { theme } from "../../../styles/theme";
 
 interface IAddLine {
   shouldAddLine: boolean;
@@ -19,7 +19,7 @@ export const Nav = styled.nav`
   letter-spacing: 0.03em;
   text-transform: capitalize;
 
-  color: ${( {color}) => color };
+  color: ${({ color }) => color};
 
   @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
     display: grid;
@@ -27,7 +27,7 @@ export const Nav = styled.nav`
     padding-left: 30px;
     width: fit-content;
   }
-`
+`;
 
 export const Ul = styled.ul`
   position: relative;
@@ -39,14 +39,14 @@ export const Ul = styled.ul`
 
   white-space: nowrap;
   list-style: none;
-  
+
   cursor: pointer;
 
-  @media only screen and (max-width: ${themeGet('breakpoints.tabletPro')}) {
+  @media only screen and (max-width: ${themeGet("breakpoints.tabletPro")}) {
     margin-right: 35px;
   }
 
-  @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+  @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
     width: fit-content;
   }
 
@@ -57,20 +57,20 @@ export const Ul = styled.ul`
 
     z-index: -1;
 
-    content: '';
+    content: "";
 
-    width: ${({ shouldAddLine }: IAddLine) => shouldAddLine ? '100%' : '0'};
+    width: ${({ shouldAddLine }: IAddLine) => (shouldAddLine ? "100%" : "0")};
     height: 7px;
 
     background-color: ${themeGet("colors.yellow")};
 
     transition: all ${themeGet("transition.button")};
 
-    @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
+    @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
       left: -10px;
     }
   }
-`
+`;
 
 export const UlButton = styled.ul`
   width: 100%;
@@ -79,13 +79,13 @@ export const UlButton = styled.ul`
 
   white-space: nowrap;
   list-style: none;
-`
+`;
 
 export const Li = styled.li`
   font-size: var(--fs-14);
   font-weight: 700;
   line-height: 21px;
-`
+`;
 
 export const A = styled.a`
   display: flex;
@@ -94,15 +94,15 @@ export const A = styled.a`
 
   background-color: #fec602;
   color: #000;
-`
+`;
 
 export const PositionArrow = styled.div`
   margin-left: 9.58px;
-  
+
   svg {
     display: block;
     path {
       fill: ${({ color }) => color};
     }
   }
-`
+`;

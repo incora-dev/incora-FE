@@ -79,6 +79,10 @@ export const Wrapper = styled.div`
   
   display: flex;
   column-gap: 182px;
+  
+  @media only screen and (max-width: ${themeGet('breakpoints.sTablet')}) {
+    height: calc(100vh - 60px);
+  }
 
   @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
     padding: 25px;
@@ -126,6 +130,10 @@ export const Industries = styled.div`
 export const TechnologiesBlock = styled.div`
   display: flex;
   flex-direction: column;
+
+  @media only screen and (max-width: ${themeGet('breakpoints.sTablet')}) {
+    padding-bottom: 110px;
+  }
 `;
 
 export const TechnologiesWrapper = styled.div`

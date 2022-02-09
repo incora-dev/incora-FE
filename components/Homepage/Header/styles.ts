@@ -249,6 +249,7 @@ export const ScrollText = styled.p`
   font-weight: 700;
   text-align: center;
   letter-spacing: 0.03em;
+  cursor: pointer;
 
   color: #fff;
 `;

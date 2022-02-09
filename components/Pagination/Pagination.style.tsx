@@ -23,6 +23,11 @@ export const NumberBlock = styled.div`
     display: flex;
     column-gap: 7px;
 
+    @media only screen and (max-width: ${themeGet('breakpoints.mMobile')}) {
+      column-gap: 4px;
+    }
+    
+
     li {
       cursor: pointer;
       list-style-type: none;
@@ -36,6 +41,14 @@ export const NumberBlock = styled.div`
       font-size: var(--fs-12);
       line-height: 18px;
       letter-spacing: 0.05em;
+
+      @media only screen and (max-width: ${themeGet('breakpoints.mMobile')}) {
+        width: 30px;
+      }
+
+      @media only screen and (max-width: ${themeGet('breakpoints.miniMobile')}) {
+        width: 25px;
+      }
     }
   }
 

@@ -98,7 +98,20 @@ export const ImageWrap = styled.div`
   }
 `;
 
+export const TextArrowWrap = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 70%;
+
+  svg {
+    display: block;
+  }
+`;
+
 export const TextWrap = styled.div`
+  width: 85%;
+
   > span {
     font-weight: 800;
     font-size: var(--fs-12);

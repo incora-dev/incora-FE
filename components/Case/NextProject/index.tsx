@@ -3,6 +3,7 @@ import {
   ImageWrap,
   NextProjectButton,
   NextProjectWrapper,
+  TextArrowWrap,
   TextWrap,
 } from "./style";
 import Image from "next/image";
@@ -64,12 +65,14 @@ const NextProject = ({ nextProjectButton }: INextProject) => {
                   />
                 </ImageWrap>
 
-                <TextWrap>
-                  <span>{intro}</span>
-                  <h3>{projectEntry?.name}</h3>
-                </TextWrap>
+                <TextArrowWrap>
+                  <TextWrap>
+                    <span>{intro}</span>
+                    <h3>{projectEntry?.name}</h3>
+                  </TextWrap>
 
-                <ArrowRight />
+                  <ArrowRight />
+                </TextArrowWrap>
               </ContentWrap>
             </NextProjectButton>
           </Link>

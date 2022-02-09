@@ -14,8 +14,7 @@ import {
   LoaderPosition,
   PositionButtonWithArrow,
 } from "./TechStack.style";
-import { IStacks } from "@interfaces";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import ButtonWithArrow from "../../ButtonWithArrow";
 import Dots from "../../Homepage/Cooperate/elements/dots/dots";
 import Loader from "../../../public/loading1.svg";

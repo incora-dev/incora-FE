@@ -92,7 +92,6 @@ const CaseStudies: NextPage<ICaseStudies> = ({ data, networkStatus }) => {
             />
             <Projects industry={industry} pointCountry={pointCountry} />
             <LetsReachOut contactUs={entry.contactUs} />
-            <FooterComponent />
           </MainMenu>
         </>
       )}

@@ -1,10 +1,9 @@
-import {IMAGES_LINK, titles} from "../../../constants";
+import { IMAGES_LINK, titles } from "../../../constants";
 import MainMenu from "../../../components/mainMenu/mainMenu";
 import { theme } from "../../../styles/theme";
 import HeaderService from "../../../components/ServicePage/HeaderService";
 import Head from "next/head";
 import React from "../../../public/SVG/technologies/react.svg";
-import FooterComponent from "../../../components/Footer";
 import LetsTalk from "../../../components/Services/LetsTalk";
 import Information from "../../../components/ServicePage/Information";
 import BestSuitedFor from "../../../components/ServicePage/BestSuitedFor";
@@ -40,8 +39,9 @@ const Service: NextPage<IService> = ({ data, networkStatus }) => {
   const seoTitle = entry?.SEO?.ogTitle;
   const seoKeywords = entry?.SEO?.keywords;
   const seoDescription = entry?.SEO?.description;
-  const seoImage = (entry?.SEO?.ogImage?.data?.attributes?.url !== undefined)
-    && `${IMAGES_LINK}${entry?.SEO?.ogImage?.data?.attributes?.url}`;
+  const seoImage =
+    entry?.SEO?.ogImage?.data?.attributes?.url !== undefined &&
+    `${IMAGES_LINK}${entry?.SEO?.ogImage?.data?.attributes?.url}`;
 
   const { isMobile, isTablet, isSmallTablet } = useIsMobile();
 
@@ -78,15 +78,22 @@ const Service: NextPage<IService> = ({ data, networkStatus }) => {
       {renderCondition && (
         <>
           <Head>
-            { seoTitle && <title>{seoTitle}</title> }
-            <meta property="og:site_name" content="Incora - European software development company" />
+            {seoTitle && <title>{seoTitle}</title>}
+            <meta
+              property="og:site_name"
+              content="Incora - European software development company"
+            />
             <meta property="og:type" content="article" />
-            { seoTitle && <title>{seoTitle}</title> }
-            { seoDescription && <meta name="description" content={seoDescription}/> }
-            { seoKeywords && <meta name="keywords" content={seoKeywords} /> }
-            { seoTitle && <meta property="og:title" content={seoTitle} /> }
-            { seoDescription && <meta property="og:description" content={seoDescription} /> }
-            { seoImage && <meta property="og:url" content={seoImage}/> }
+            {seoTitle && <title>{seoTitle}</title>}
+            {seoDescription && (
+              <meta name="description" content={seoDescription} />
+            )}
+            {seoKeywords && <meta name="keywords" content={seoKeywords} />}
+            {seoTitle && <meta property="og:title" content={seoTitle} />}
+            {seoDescription && (
+              <meta property="og:description" content={seoDescription} />
+            )}
+            {seoImage && <meta property="og:url" content={seoImage} />}
           </Head>
           <>
             <MainMenu
@@ -121,7 +128,6 @@ const Service: NextPage<IService> = ({ data, networkStatus }) => {
                 text={"Get everything you need for the project initiation."}
               />
             </MainMenu>
-            <FooterComponent />
           </>
         </>
       )}

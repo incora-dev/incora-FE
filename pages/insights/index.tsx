@@ -1,11 +1,9 @@
 import { useEffect, useState } from "react";
-import { useQuery } from "@apollo/client";
 import Head from "next/head";
-import FooterComponent from "../../components/Footer";
 import HeaderInsights from "../../components/InsightsPage/HeaderInsights";
 import MainMenu from "../../components/mainMenu/mainMenu";
 import React from "../../public/SVG/technologies/react.svg";
-import {footer, IMAGES_LINK, titles} from "../../constants";
+import { IMAGES_LINK, titles } from "../../constants";
 import { useIsMobile } from "../../services/hooks";
 import { theme } from "../../styles/theme";
 import { GET_INSIGHTS_PAGE } from "../../graphql/insights/queries";
@@ -27,13 +25,14 @@ const Insights: NextPage<IInsightsPage> = ({ data, networkStatus }) => {
   const text = insightsEntry?.description;
   const inputPlaceholder = insightsEntry?.searchBarText;
 
-  const {isMobile, isTablet, isSmallTablet} = useIsMobile();
+  const { isMobile, isTablet, isSmallTablet } = useIsMobile();
 
   const seoTitle = entry?.SEO?.ogTitle;
   const seoKeywords = entry?.SEO?.keywords;
   const seoDescription = entry?.SEO?.description;
-  const seoImage = (entry?.SEO?.ogImage?.data?.attributes?.url !== undefined)
-      && `${IMAGES_LINK}${entry?.SEO?.ogImage?.data?.attributes?.url}`;
+  const seoImage =
+    entry?.SEO?.ogImage?.data?.attributes?.url !== undefined &&
+    `${IMAGES_LINK}${entry?.SEO?.ogImage?.data?.attributes?.url}`;
 
   const [menuColor, setMenuColor] = useState("none");
   const handleScroll = () => {
@@ -57,20 +56,29 @@ const Insights: NextPage<IInsightsPage> = ({ data, networkStatus }) => {
       {renderCondition && (
         <>
           <Head>
-            { seoTitle && <title>{seoTitle}</title> }
-            <meta property="og:site_name" content="Incora - European software development company" />
+            {seoTitle && <title>{seoTitle}</title>}
+            <meta
+              property="og:site_name"
+              content="Incora - European software development company"
+            />
             <meta property="og:type" content="article" />
-            { seoDescription && <meta name="description" content={seoDescription}/> }
-            { seoKeywords && <meta name="keywords" content={seoKeywords} /> }
-            { seoTitle && <meta property="og:title" content={seoTitle} /> }
-            { seoDescription && <meta property="og:description" content={seoDescription} /> }
-            { seoImage && <meta property="og:url" content={seoImage}/> }
+            {seoDescription && (
+              <meta name="description" content={seoDescription} />
+            )}
+            {seoKeywords && <meta name="keywords" content={seoKeywords} />}
+            {seoTitle && <meta property="og:title" content={seoTitle} />}
+            {seoDescription && (
+              <meta property="og:description" content={seoDescription} />
+            )}
+            {seoImage && <meta property="og:url" content={seoImage} />}
           </Head>
           <>
             <MainMenu
-              backgroundColor={isMobile || isTablet || isSmallTablet
-                ? theme.colors.white
-                : menuColor}
+              backgroundColor={
+                isMobile || isTablet || isSmallTablet
+                  ? theme.colors.white
+                  : menuColor
+              }
               titlesColor={theme.colors.black}
               titles={titles}
             >
@@ -81,7 +89,6 @@ const Insights: NextPage<IInsightsPage> = ({ data, networkStatus }) => {
                 inputPlaceholder={inputPlaceholder}
               />
             </MainMenu>
-            <FooterComponent />
           </>
         </>
       )}

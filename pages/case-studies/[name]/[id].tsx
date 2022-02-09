@@ -118,8 +118,6 @@ const Case: NextPage<ICase> = ({ data, networkStatus }) => {
               isWhite
               text={contactUs.subtitle}
             />
-
-            <FooterComponent />
           </MainMenu>
         </>
       )}

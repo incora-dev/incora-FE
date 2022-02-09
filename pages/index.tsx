@@ -6,7 +6,6 @@ import TechnologiesComponent from "../components/Homepage/Technologies";
 import AboutUs from "../components/Homepage/AboutUs";
 import ContactUsComponent from "../components/Homepage/ContactUs";
 import { IContactUs } from "@interfaces";
-import FooterComponent from "../components/Footer";
 
 import React from "../public/SVG/technologies/react.svg";
 import VideoComponent from "../components/Homepage/Video";
@@ -190,7 +189,6 @@ const Home: NextPage<IHome> = ({ data, networkStatus }) => {
                 addresses={contactUs.addresses}
                 buttonLabel={contactUs.buttonLabel}
               />
-              <FooterComponent />
             </MainMenu>
           </>
         </>
@@ -202,7 +200,7 @@ const Home: NextPage<IHome> = ({ data, networkStatus }) => {
 export async function getServerSideProps() {
   const client = initializeApollo();
 
-  const { data, loading, networkStatus } = await client.query({
+  const { data, networkStatus } = await client.query({
     query: GET_HOMEPAGE,
   });
 

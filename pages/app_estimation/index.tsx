@@ -56,7 +56,6 @@ const Index = () => {
         text="Learn what it takes to create your app! Fulcrum calculator makes a rough* estimate of all app development costs. Ready?"
       />
       <MainContent platform={platform} />
-      <FooterComponent/>
     </MainMenu>
   );
 };

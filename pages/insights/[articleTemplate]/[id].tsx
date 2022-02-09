@@ -8,7 +8,6 @@ import HeaderArticleTemplate from "../../../components/ArticleTemplatePage/Heade
 import ArticleInfo from "../../../components/ArticleTemplatePage/ArticleInfo";
 import News from "../../../components/News";
 import LetsTalk from "../../../components/Services/LetsTalk";
-import FooterComponent from "../../../components/Footer";
 import GoToTop from "../../../components/GoToTop";
 import Custom404 from "../../404";
 import { useMutation } from "@apollo/client";
@@ -190,7 +189,6 @@ const ArticleTemplate: NextPage<IArticleTemplate> = ({
               <LetsTalk title={letsTalkTitle} text={letsTalkSubtitle} />
               <GoToTop isVisible={goToTopVisible} />
             </MainMenu>
-            <FooterComponent />
           </>
         </>
       )}

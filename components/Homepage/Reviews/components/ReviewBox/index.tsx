@@ -3,12 +3,11 @@ import {
   CarouselButtonWrapper,
   CarouselReviewWrapper,
   ReviewBoxWrapper,
-  ButtonWrapper
+  ButtonWrapper,
 } from "./style";
 
 import ReviewContent from "./components/ReviewContent";
 import CarouselButton from "../../../../common/CarouselButton";
-import { useDispatch } from "react-redux";
 import React, { Dispatch, SetStateAction } from "react";
 import { useIsMobile } from "../../../../../services/hooks";
 import { GetHomepage_homePage_data_attributes_aboutUs_feedbacks_data } from "../../../../../graphql/homepage/__generated__/GetHomepage";
@@ -26,7 +25,6 @@ const ReviewBox = ({
   setReviewIndex,
   changeCurrentGlobePoint,
 }: IReviewBox) => {
-  const dispatch = useDispatch();
   const { isMobile, isTablet, isSmallTablet } = useIsMobile();
 
   const changeReview = (right: boolean) => {
@@ -52,7 +50,7 @@ const ReviewBox = ({
   return (
     <ReviewBoxWrapper>
       <CarouselReviewWrapper>
-        {(isMobile || isTablet || isSmallTablet) &&
+        {(isMobile || isTablet || isSmallTablet) && (
           <CarouselButtonsContainer>
             <CarouselButtonWrapper>
               {leftCarouselButtonCondition}
@@ -61,7 +59,7 @@ const ReviewBox = ({
               {rightCarouselButtonCondition}
             </CarouselButtonWrapper>
           </CarouselButtonsContainer>
-        }
+        )}
         <ReviewContent review={reviews[reviewIndex]} />
       </CarouselReviewWrapper>
 
@@ -70,9 +68,9 @@ const ReviewBox = ({
           <CarouselButtonWrapper>
             {leftCarouselButtonCondition}
           </CarouselButtonWrapper>
-            <CarouselButtonWrapper>
-              {rightCarouselButtonCondition}
-            </CarouselButtonWrapper>
+          <CarouselButtonWrapper>
+            {rightCarouselButtonCondition}
+          </CarouselButtonWrapper>
         </ButtonWrapper>
       )}
     </ReviewBoxWrapper>

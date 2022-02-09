@@ -8,7 +8,7 @@ import { GetVacancy } from "../../../graphql/careers/__generated__/GetVacancy";
 import { initializeApollo } from "../../../graphql/client";
 import { NextPage, NextPageContext } from "next";
 import Custom404 from "../../404";
-import {IMAGES_LINK} from "../../../constants";
+import { IMAGES_LINK } from "../../../constants";
 import Head from "next/head";
 import React from "../../../public/SVG/technologies/react.svg";
 
@@ -39,8 +39,9 @@ const Vacancy: NextPage<IVacancy> = ({ data, networkStatus }) => {
   const seoTitle = attributes?.SEO?.ogTitle;
   const seoKeywords = attributes?.SEO?.keywords;
   const seoDescription = attributes?.SEO?.description;
-  const seoImage = (attributes?.SEO?.ogImage?.data?.attributes?.url !== undefined)
-    && `${IMAGES_LINK}${attributes?.SEO?.ogImage?.data?.attributes?.url}`;
+  const seoImage =
+    attributes?.SEO?.ogImage?.data?.attributes?.url !== undefined &&
+    `${IMAGES_LINK}${attributes?.SEO?.ogImage?.data?.attributes?.url}`;
 
   const renderCondition =
     description &&
@@ -56,14 +57,21 @@ const Vacancy: NextPage<IVacancy> = ({ data, networkStatus }) => {
       {renderCondition && (
         <>
           <Head>
-            { seoTitle && <title>{seoTitle}</title> }
-            <meta property="og:site_name" content="Incora - European software development company" />
+            {seoTitle && <title>{seoTitle}</title>}
+            <meta
+              property="og:site_name"
+              content="Incora - European software development company"
+            />
             <meta property="og:type" content="article" />
-            { seoDescription && <meta name="description" content={seoDescription}/> }
-            { seoKeywords && <meta name="keywords" content={seoKeywords} /> }
-            { seoTitle && <meta property="og:title" content={seoTitle} /> }
-            { seoDescription && <meta property="og:description" content={seoDescription} /> }
-            { seoImage && <meta property="og:url" content={seoImage}/> }
+            {seoDescription && (
+              <meta name="description" content={seoDescription} />
+            )}
+            {seoKeywords && <meta name="keywords" content={seoKeywords} />}
+            {seoTitle && <meta property="og:title" content={seoTitle} />}
+            {seoDescription && (
+              <meta property="og:description" content={seoDescription} />
+            )}
+            {seoImage && <meta property="og:url" content={seoImage} />}
           </Head>
           <MainMenu
             backgroundColor={theme.colors.white}
@@ -80,7 +88,6 @@ const Vacancy: NextPage<IVacancy> = ({ data, networkStatus }) => {
               technologies={technologies}
               currentVacancies={currentVacancies}
             />
-            <FooterComponent />
           </MainMenu>
         </>
       )}

@@ -19,7 +19,7 @@ import EmbodiedIdeasComponent from "../../../../components/Homepage/EmbodiedIdea
 import { useIsMobile } from "../../../../services/hooks";
 import { initializeApollo } from "../../../../graphql/client";
 import { NextPage, NextPageContext } from "next";
-import {IMAGES_LINK} from "../../../../constants";
+import { IMAGES_LINK } from "../../../../constants";
 
 const MainMenuTitles = [
   "Services",
@@ -41,11 +41,28 @@ const contactUs: IContactUs = {
 };
 
 const reasonsData = [
-  { id: 'reason_1', title: 'Extensive market research for the clear goals', description: 'ICP / Business Analysis / Time & Cost Estimation / Project Roadmap' },
-  { id: 'reason_2', title: 'Development with the focus on every angle', description: 'QA & Testing / Architecture scheme /  Source Code' },
-  { id: 'reason_3', title: 'Agile approach through each phase', description:'CI/CD Pipeline / DevOps services integration' },
-  { id: 'reason_4', title: 'Guaranteed safety with the NDA signing', description:'Legally recognized Confidential agreement' },
-]
+  {
+    id: "reason_1",
+    title: "Extensive market research for the clear goals",
+    description:
+      "ICP / Business Analysis / Time & Cost Estimation / Project Roadmap",
+  },
+  {
+    id: "reason_2",
+    title: "Development with the focus on every angle",
+    description: "QA & Testing / Architecture scheme /  Source Code",
+  },
+  {
+    id: "reason_3",
+    title: "Agile approach through each phase",
+    description: "CI/CD Pipeline / DevOps services integration",
+  },
+  {
+    id: "reason_4",
+    title: "Guaranteed safety with the NDA signing",
+    description: "Legally recognized Confidential agreement",
+  },
+];
 
 const colorWhite = theme.colors.white;
 const colorBlack = theme.colors.black;
@@ -76,8 +93,9 @@ const Technology: NextPage<ITechnology> = ({ data, networkStatus }) => {
   const seoTitle = entry?.SEO?.ogTitle;
   const seoKeywords = entry?.SEO?.keywords;
   const seoDescription = entry?.SEO?.description;
-  const seoImage = (entry?.SEO?.ogImage?.data?.attributes?.url !== undefined)
-    && `${IMAGES_LINK}${entry?.SEO?.ogImage?.data?.attributes?.url}`;
+  const seoImage =
+    entry?.SEO?.ogImage?.data?.attributes?.url !== undefined &&
+    `${IMAGES_LINK}${entry?.SEO?.ogImage?.data?.attributes?.url}`;
 
   const [menuColor, setMenuColor] = useState("none");
   const handleScroll = () => {
@@ -115,15 +133,22 @@ const Technology: NextPage<ITechnology> = ({ data, networkStatus }) => {
       {renderCondition && (
         <>
           <Head>
-            { seoTitle && <title>{seoTitle}</title> }
-            <meta property="og:site_name" content="Incora - European software development company" />
+            {seoTitle && <title>{seoTitle}</title>}
+            <meta
+              property="og:site_name"
+              content="Incora - European software development company"
+            />
             <meta property="og:type" content="article" />
-            { seoTitle && <title>{seoTitle}</title> }
-            { seoDescription && <meta name="description" content={seoDescription}/> }
-            { seoKeywords && <meta name="keywords" content={seoKeywords} /> }
-            { seoTitle && <meta property="og:title" content={seoTitle} /> }
-            { seoDescription && <meta property="og:description" content={seoDescription} /> }
-            { seoImage && <meta property="og:url" content={seoImage}/> }
+            {seoTitle && <title>{seoTitle}</title>}
+            {seoDescription && (
+              <meta name="description" content={seoDescription} />
+            )}
+            {seoKeywords && <meta name="keywords" content={seoKeywords} />}
+            {seoTitle && <meta property="og:title" content={seoTitle} />}
+            {seoDescription && (
+              <meta property="og:description" content={seoDescription} />
+            )}
+            {seoImage && <meta property="og:url" content={seoImage} />}
           </Head>
           <MainMenu
             titlesColor={colorWhite}
@@ -169,7 +194,6 @@ const Technology: NextPage<ITechnology> = ({ data, networkStatus }) => {
               buttonLabel={contactUs.buttonLabel}
             />
           </MainMenu>
-          <FooterComponent />
         </>
       )}
     </>

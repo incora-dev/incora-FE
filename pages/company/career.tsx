@@ -3,17 +3,15 @@ import LetsAcquainted from "../../components/Careear/LetsAcquainted";
 import OurBenefits from "../../components/Careear/OurBenefits";
 import OurPhotos from "../../components/Careear/OurPhotos";
 import Vacancies from "../../components/Careear/Vacancies";
-import FooterComponent from "../../components/Footer";
 import MainMenu from "../../components/mainMenu/mainMenu";
 import { theme } from "../../styles/theme";
 
-import { useQuery } from "@apollo/client";
 import { GET_CAREERS_PAGE } from "../../graphql/careers/queries";
 import { GetCareersPage } from "../../graphql/careers/__generated__/GetCareersPage";
 import Custom404 from "../404";
 import { initializeApollo } from "../../graphql/client";
 import { NextPage } from "next";
-import {IMAGES_LINK} from "../../constants";
+import { IMAGES_LINK } from "../../constants";
 import Head from "next/head";
 import React from "../../public/SVG/technologies/react.svg";
 
@@ -40,8 +38,9 @@ const Career: NextPage<ICareer> = ({ data, networkStatus }) => {
   const seoTitle = entry?.SEO?.ogTitle;
   const seoKeywords = entry?.SEO?.keywords;
   const seoDescription = entry?.SEO?.description;
-  const seoImage = (entry?.SEO?.ogImage?.data?.attributes?.url !== undefined)
-    && `${IMAGES_LINK}${entry?.SEO?.ogImage?.data?.attributes?.url}`;
+  const seoImage =
+    entry?.SEO?.ogImage?.data?.attributes?.url !== undefined &&
+    `${IMAGES_LINK}${entry?.SEO?.ogImage?.data?.attributes?.url}`;
 
   const renderCondition = entry && specialties && technologies && ourBenefits;
 
@@ -52,15 +51,22 @@ const Career: NextPage<ICareer> = ({ data, networkStatus }) => {
       {renderCondition && (
         <>
           <Head>
-            { seoTitle && <title>{seoTitle}</title> }
-            <meta property="og:site_name" content="Incora - European software development company" />
+            {seoTitle && <title>{seoTitle}</title>}
+            <meta
+              property="og:site_name"
+              content="Incora - European software development company"
+            />
             <meta property="og:type" content="article" />
-            { seoTitle && <title>{seoTitle}</title> }
-            { seoDescription && <meta name="description" content={seoDescription}/> }
-            { seoKeywords && <meta name="keywords" content={seoKeywords} /> }
-            { seoTitle && <meta property="og:title" content={seoTitle} /> }
-            { seoDescription && <meta property="og:description" content={seoDescription} /> }
-            { seoImage && <meta property="og:url" content={seoImage}/> }
+            {seoTitle && <title>{seoTitle}</title>}
+            {seoDescription && (
+              <meta name="description" content={seoDescription} />
+            )}
+            {seoKeywords && <meta name="keywords" content={seoKeywords} />}
+            {seoTitle && <meta property="og:title" content={seoTitle} />}
+            {seoDescription && (
+              <meta property="og:description" content={seoDescription} />
+            )}
+            {seoImage && <meta property="og:url" content={seoImage} />}
           </Head>
           <MainMenu
             titlesColor={theme.colors.white}
@@ -76,7 +82,6 @@ const Career: NextPage<ICareer> = ({ data, networkStatus }) => {
             <OurBenefits ourBenefits={ourBenefits} />
             <OurPhotos />
             <LetsAcquainted />
-            <FooterComponent />
           </MainMenu>
         </>
       )}

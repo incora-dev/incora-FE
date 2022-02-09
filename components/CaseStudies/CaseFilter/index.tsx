@@ -1,5 +1,4 @@
 import { Dispatch, SetStateAction, useEffect, useRef, useState } from "react";
-import { useDispatch } from "react-redux";
 import {
   GetCaseStudies_industries_data,
   GetCaseStudies_locations_data,
@@ -7,7 +6,6 @@ import {
 import { useIsMobile } from "../../../services/hooks";
 import { theme } from "../../../styles/theme";
 import Globe, { Point } from "../../common/Globe";
-import { getReview } from "../../Homepage/actions";
 import Switch from "./components/Switch";
 import Tags from "./components/Tags";
 import {
@@ -43,12 +41,6 @@ const CaseFilter = ({
 
   let points = useRef<Point[]>();
   const [currentIndex, setCurrentIndex] = useState<number>(0);
-
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(getReview.success()); // replace real backend data later
-  }, []);
 
   const handleSwitchValue = (value: boolean) => {
     if (!value) {

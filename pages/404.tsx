@@ -2,7 +2,6 @@ import Head from "next/head";
 import React from "../public/SVG/technologies/react.svg";
 import MainMenu from "../components/mainMenu/mainMenu";
 import { theme } from "../styles/theme";
-import FooterComponent from "../components/Footer";
 import Header404 from "../components/Custom404Page/Header404";
 
 const titles = [
@@ -30,7 +29,6 @@ function Custom404() {
           titles={titles}
         >
           <Header404 />
-          <FooterComponent />
         </MainMenu>
       </>
     </>

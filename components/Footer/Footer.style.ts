@@ -16,8 +16,7 @@ export const Container = styled.footer`
 
   background-color: ${({ backgroundColor = color }: IContainer) =>
     backgroundColor};
-  
-  
+
   @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
     height: fit-content;
   }
@@ -30,12 +29,10 @@ export const Position = styled.div`
   padding-top: 41px;
   justify-content: space-between;
 
-
   @media only screen and (max-width: ${themeGet("breakpoints.tabletPro")}) {
     padding: 40px 25px;
     width: 100%;
   }
-
 
   @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
     width: 100%;
@@ -51,7 +48,7 @@ export const LogoBlock = styled.div`
   display: flex;
   flex-direction: column;
   row-gap: 18px;
-  
+
   svg {
     cursor: pointer;
   }
@@ -77,11 +74,11 @@ export const PolicyLabel = styled.div`
 
   letter-spacing: 0.1em;
   text-transform: capitalize;
-  
+
   cursor: pointer;
 
   color: ${themeGet("colors.white")};
-  
+
   &:hover {
     color: ${themeGet("colors.yellow")};
   }
@@ -199,7 +196,7 @@ export const Page = styled.p`
   color: ${themeGet("colors.white")};
 
   cursor: pointer;
-  
+
   &:hover {
     color: ${themeGet("colors.yellow")};
   }
@@ -213,6 +210,10 @@ export const FollowUsBlock = styled.div`
   a {
     cursor: pointer;
   }
+
+  .clutch-widget {
+    width: 190px;
+  }
 `;
 
 export const FollowUs = styled.div`
@@ -222,11 +223,10 @@ export const FollowUs = styled.div`
   margin-bottom: 18px;
 
   svg {
-
     circle {
       fill: ${themeGet("colors.white")};
     }
-    
+
     &:hover circle {
       fill: ${themeGet("colors.yellow")};
     }

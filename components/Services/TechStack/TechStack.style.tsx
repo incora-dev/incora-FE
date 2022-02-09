@@ -139,8 +139,6 @@ export const LogoAndTitle = styled.a`
   flex-direction: column;
   row-gap: 11px;
 
-  justify-content: center;
-
   cursor: pointer;
 
   svg {
@@ -156,7 +154,6 @@ export const LogoAndTitle = styled.a`
 `;
 
 export const StackTitle = styled.p`
-  font-family: Poppins;
   font-style: normal;
   font-weight: 500;
   font-size: var(--fs-11);

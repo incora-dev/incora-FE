@@ -63,6 +63,7 @@ const RadioButtons = ({
                 padding={padding}
                 isHover={isHover}
                 cursor={cursor}
+                className="radio-btn"
               >
                 <input
                   type="radio"

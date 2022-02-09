@@ -1,4 +1,5 @@
 import Image from "next/image";
+
 import {
   Cover,
   Container,
@@ -15,8 +16,9 @@ import {
 } from "./styles";
 import SVG from "../../../public/SVG/deepen-to-the-core.svg";
 import Hexagon from "../../../public/SVG/hexagon1.svg";
-import Gif from '../../../public/gifs/home.gif';
+// import Gif from '../../../public/gifs/home.gif';
 import { useIsMobile } from "../../../services/hooks";
+import { IMAGES_LINK } from "../../../constants";
 
 interface IHeaderComponent {
   backgroundVideo: string;
@@ -52,7 +54,8 @@ function HeaderComponent({backgroundVideo}: IHeaderComponent) {
               <source src={backgroundVideo} type="video/mp4" />
             </video>
             <div className="gif">
-              <Image src={Gif} alt="gif" layout="responsive" />
+              <img src={`${IMAGES_LINK}/uploads/home_885cce1415.gif`} alt="" />
+              {/* <Image src={Gif} alt="gif" layout="responsive" /> */}
             </div>
             <PositionVideoSVG>
               <SVG />

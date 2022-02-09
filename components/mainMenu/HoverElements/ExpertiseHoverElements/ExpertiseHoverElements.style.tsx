@@ -95,7 +95,7 @@ export const Wrapper = styled.div`
   }
 
   @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
-    padding: 15px;
+    padding: 15px 15px 45px 15px;
     flex-direction: column;
     overflow: scroll;
     /* height: 93vh; */

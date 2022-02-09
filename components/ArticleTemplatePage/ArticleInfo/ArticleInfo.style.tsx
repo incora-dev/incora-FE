@@ -270,6 +270,10 @@ export const MainText = styled.div`
     }
   }
 
+  img {
+    width: 100%;
+  }
+
   ul {
     margin-left: 25px;
     padding: 0;

@@ -112,6 +112,8 @@ export const VideoBlock = styled.div`
 
     @media only screen and (max-width: ${themeGet('breakpoints.sTablet')}) {
       display: block;
+      position: relative;
+      top: 1px;
     }
   }
 

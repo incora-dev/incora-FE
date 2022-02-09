@@ -25,17 +25,22 @@ const OurTraditions = ({ ourTraditions }: IOurTraditions) => {
   const [positionScrollGalleryOne, setPositionScrollGalleryOne] =
     useState(false);
   const [positionScrollGalleryTwo, setPositionScrollGalleryTwo] =
-    useState(false);
+    useState(true);
 
   const refGalleryOne = useRef<any>(null);
   const refGalleryTwo = useRef<any>(null);
 
-  function changeGalleriesOnePosition(
+  function onWheelGalleriesPosition(
     gallery: any,
     positionScrollGallery: boolean,
     galleryMaxWidth: number,
-    setPositionGallery: Function
+    setPositionGallery: Function,
+    setMaxWidth: Function
   ) {
+    if (gallery.current.scrollLeft > galleryMaxWidth) {
+      setMaxWidth(gallery.current.scrollLeft)
+    }
+
     if (positionScrollGallery) {
       gallery.current.scrollLeft -= scrollPhotosBlockPX;
     } else {
@@ -43,36 +48,14 @@ const OurTraditions = ({ ourTraditions }: IOurTraditions) => {
     }
 
     if (
-      gallery.current.scrollLeft === galleryMaxWidth &&
-      !positionScrollGallery
+      gallery.current.scrollLeft === galleryMaxWidth
+        && !positionScrollGallery
     ) {
       setPositionGallery(true);
     }
 
-    if (gallery.current.scrollLeft === 0 && positionScrollGallery) {
-      setPositionGallery(false);
-    }
-  }
-
-  function changeGalleriesTwoPosition(
-    gallery: any,
-    positionScrollGallery: boolean,
-    galleryMaxWidth: number,
-    setPositionGallery: Function
-  ) {
-    if (positionScrollGallery) {
-      gallery.current.scrollLeft += scrollPhotosBlockPX;
-    } else {
-      gallery.current.scrollLeft -= scrollPhotosBlockPX;
-    }
-
-    if (gallery.current.scrollLeft === 0 && !positionScrollGallery) {
-      setPositionGallery(true);
-    }
-
-    if (
-      gallery.current.scrollLeft === galleryMaxWidth &&
-      positionScrollGallery
+    if (gallery.current.scrollLeft === 0
+        && positionScrollGallery
     ) {
       setPositionGallery(false);
     }
@@ -83,26 +66,28 @@ const OurTraditions = ({ ourTraditions }: IOurTraditions) => {
       if (onEnterBlock) {
         event.preventDefault();
 
-        changeGalleriesOnePosition(
+        onWheelGalleriesPosition(
           refGalleryOne,
           positionScrollGalleryOne,
           galleryOneMaxWidth,
-          setPositionScrollGalleryOne
+          setPositionScrollGalleryOne,
+          setGalleryOneMaxWidth
         );
-        changeGalleriesTwoPosition(
+        onWheelGalleriesPosition(
           refGalleryTwo,
           positionScrollGalleryTwo,
           galleryTwoMaxWidth,
-          setPositionScrollGalleryTwo
+          setPositionScrollGalleryTwo,
+          setGalleryTwoMaxWidth
         );
       }
     },
     [
+      onEnterBlock,
       galleryOneMaxWidth,
       galleryTwoMaxWidth,
-      onEnterBlock,
       positionScrollGalleryOne,
-      positionScrollGalleryTwo,
+      positionScrollGalleryTwo
     ]
   );
 
@@ -114,8 +99,6 @@ const OurTraditions = ({ ourTraditions }: IOurTraditions) => {
 
   useEffect(() => {
     refGalleryTwo.current.scrollLeft = 100000;
-    setGalleryOneMaxWidth(refGalleryTwo.current.scrollLeft);
-    setGalleryTwoMaxWidth(refGalleryTwo.current.scrollLeft);
   }, []);
 
   const title = ourTraditions.title;

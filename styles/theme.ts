@@ -51,6 +51,8 @@ export const theme = {
     mobile:'481px',
     mobileTablet:'580px',
     sTablet: '680px',
+    iPadMini: '768px',
+    iPadAir: '820px',
     tablet: '912px',
     smallDesk:'992px',
     tabletPro: '1024px',

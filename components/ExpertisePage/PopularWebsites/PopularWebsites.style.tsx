@@ -73,6 +73,16 @@ export const IconsBlock = styled.div`
     column-gap: 45px;
   }
 
+  @media only screen and (max-width: ${themeGet('breakpoints.iPadAir')}) {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 50px;
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.iPadMini')}) {
+    column-gap: 107px;
+  }
+
   @media only screen and (max-width: ${themeGet('breakpoints.sTablet')}) {
     display: block;
     text-align: left;

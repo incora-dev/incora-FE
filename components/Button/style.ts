@@ -62,7 +62,7 @@ export const Btn = styled.button`
     }
   }
 
-  &:hover {
+  /* &:hover {
     label {
       color: ${themeGet("colors.black")};
     }
@@ -72,5 +72,5 @@ export const Btn = styled.button`
         fill: ${themeGet("colors.black")};
       }
     }
-  }
+  } */
 `;

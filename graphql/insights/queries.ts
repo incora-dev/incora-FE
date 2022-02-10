@@ -8,7 +8,7 @@ export const GET_INSIGHTS_PAGE = gql`
           title
           description
           searchBarText
-          
+
           SEO {
             ogTitle
             ogImage {
@@ -48,6 +48,7 @@ export const GET_ARTICLES_LIST = gql`
         and: { industries: { name: { eq: $industry } } }
       }
       pagination: { page: $page, pageSize: 9 }
+      sort: "createdAt:desc"
     ) {
       meta {
         pagination {
@@ -210,7 +211,7 @@ export const GET_ARTICLE = gql`
               }
             }
           }
-          
+
           SEO {
             ogTitle
             ogImage {

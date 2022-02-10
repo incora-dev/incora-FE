@@ -7,6 +7,7 @@ import {
   SelectPlaceholder,
   Label,
   ArrowWrapper,
+  OptionWrap,
 } from "./FormSelect.style";
 import Arrow from "../../../public/navArrow.svg";
 
@@ -70,17 +71,17 @@ const CreateFormSelect = ({
         ref={dropList}
       >
         {fields.map((label, index) => (
-          <Option
+          <OptionWrap
+            formTheme={formTheme}
             onClick={(e) => {
               setSelectedOption(label);
               setShouldShowDropList("none");
               setSelectedPurpose(label);
             }}
-            formTheme={formTheme}
-            key={index}
+            key={`option-${index}`}
           >
             {label}
-          </Option>
+          </OptionWrap>
         ))}
       </DropList>
     </SelectBlock>

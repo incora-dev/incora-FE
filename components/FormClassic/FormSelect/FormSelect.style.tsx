@@ -130,15 +130,14 @@ export const ArrowWrapper = styled.div`
 
 export const DropList = styled.div`
   z-index: 4;
-  position: absolute;
   top: 0;
+  overflow-y: scroll;
 
   width: 100%;
-  padding: 16px 13px;
+  height: 320px;
 
   display: ${({ display }: IDropList) => display};
   flex-direction: column;
-  row-gap: 6px;
 
   font-style: normal;
   font-weight: 500;
@@ -156,8 +155,11 @@ export const DropList = styled.div`
   box-shadow: 4px 4px 8px 0 rgba(34, 60, 80, 0.2);
 `;
 
-export const Option = styled.option`
-  padding: 8px 12px;
+export const OptionWrap = styled.div`
+  width: 100%;
+  height: 50px;
+  padding: 15px 5px 15px 5px;
+
   color: ${({ formTheme }: IInput) =>
     formTheme ? themeGet("colors.white") : themeGet("colors.black")};
 
@@ -167,4 +169,8 @@ export const Option = styled.option`
     background-color: ${({ formTheme }: IInput) =>
       formTheme ? themeGet("colors.white") : themeGet("colors.black")};
   }
+`;
+
+export const Option = styled.option`
+  height: 50px;
 `;

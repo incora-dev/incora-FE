@@ -5,6 +5,10 @@ export const Div = styled.div`
   position: relative;
 
   overflow: hidden;
+
+  @media only screen and (max-width: ${themeGet("breakpoints.tabletPro")}) {
+    min-height: calc(100vh - 374px);
+  }
 `;
 
 export const PositionLoader = styled.div`
@@ -12,7 +16,7 @@ export const PositionLoader = styled.div`
   right: 0;
   top: 72px;
 
-  svg  {
+  svg {
     transform: rotate(90deg);
   }
 
@@ -26,7 +30,7 @@ export const PositionLoaderSemiCircle = styled.div`
   right: 104px;
   top: 117px;
 
-  svg  {
+  svg {
     path {
       fill: ${themeGet("colors.black")};
     }
@@ -61,7 +65,7 @@ export const Wrapper = styled.div`
     padding: 40px 15px 10px;
   }
 `;
- 
+
 export const TextBlock = styled.div`
   display: flex;
   flex-direction: column;
@@ -80,9 +84,9 @@ export const H1 = styled.h1`
   font-size: var(--fs-64);
   line-height: 81px;
 
-  letter-spacing: 0.05em; 
+  letter-spacing: 0.05em;
   text-transform: capitalize;
-  
+
   color: ${themeGet("colors.black")};
 
   @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
@@ -119,12 +123,12 @@ export const Text = styled.p`
 export const SearchBlock = styled.div`
   position: relative;
   margin-top: 41px;
-  
+
   svg {
     position: absolute;
     top: 50%;
     left: 27px;
-    
+
     transform: translate(-50%, -50%);
   }
 
@@ -162,9 +166,9 @@ export const Search = styled.input`
 
   display: flex;
   column-gap: 15px;
-  
+
   border: none;
-  
+
   background-color: ${themeGet("colors.background5")};
 
   &:focus-visible {

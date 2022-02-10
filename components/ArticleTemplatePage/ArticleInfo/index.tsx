@@ -42,7 +42,7 @@ import { UPDATE_COUNT } from "../../../graphql/insights/mutations";
 import { UpdateImpressionsCount } from "../../../graphql/insights/__generated__/UpdateImpressionsCount";
 import { IImpressions } from "../../../pages/insights/[articleTemplate]/[id]";
 import { UpdateCount } from "../../../graphql/insights/__generated__/UpdateCount";
-import { useRouter } from "next/router";
+import { Router, useRouter } from "next/router";
 
 interface IArticleInfo {
   facebook: string | null | undefined;
@@ -228,6 +228,10 @@ const ArticleInfo = ({
     setSelect,
     onImpressionClick
   );
+
+  Router.events.on("routeChangeComplete", () => {
+    setSelect(-1);
+  });
 
   function getSideBarElements() {
     const sideBarList = document.querySelectorAll(

@@ -42,6 +42,10 @@ export const NumberBlock = styled.div`
       line-height: 18px;
       letter-spacing: 0.05em;
 
+      @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+        width: 27px;
+      }
+
       @media only screen and (max-width: ${themeGet('breakpoints.mMobile')}) {
         width: 30px;
       }

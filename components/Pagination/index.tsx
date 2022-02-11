@@ -18,6 +18,7 @@ const Pagination = ({
   const totalPageCount = Math.ceil(totalCount / pageSize);
   const leftChangeColorCondition = currentPage === 0;
   const rightChangeColorCondition = currentPage === totalPageCount;
+  const arrowsNotAvailable = totalPageCount === 1;
 
   return (
     <>
@@ -25,7 +26,10 @@ const Pagination = ({
         <NumberBlock>
           <ReactPaginate
             previousLabel={
-              <LeftArrow changeColor={leftChangeColorCondition}>
+              <LeftArrow
+                arrowsNotAvailable={arrowsNotAvailable}
+                changeColor={leftChangeColorCondition}
+              >
                 <Arrow />
               </LeftArrow>
             }

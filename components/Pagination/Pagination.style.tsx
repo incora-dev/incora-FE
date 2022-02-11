@@ -6,6 +6,11 @@ interface IChangeArrowColor {
   changeColor: boolean;
 }
 
+interface ILeftArrowColor {
+  changeColor: boolean;
+  arrowsNotAvailable: boolean;
+}
+
 export const Div = styled.div`
   display: flex;
   justify-content: center;
@@ -23,10 +28,9 @@ export const NumberBlock = styled.div`
     display: flex;
     column-gap: 7px;
 
-    @media only screen and (max-width: ${themeGet('breakpoints.mMobile')}) {
+    @media only screen and (max-width: ${themeGet("breakpoints.mMobile")}) {
       column-gap: 4px;
     }
-    
 
     li {
       cursor: pointer;
@@ -42,15 +46,17 @@ export const NumberBlock = styled.div`
       line-height: 18px;
       letter-spacing: 0.05em;
 
-      @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+      @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
         width: 27px;
       }
 
-      @media only screen and (max-width: ${themeGet('breakpoints.mMobile')}) {
+      @media only screen and (max-width: ${themeGet("breakpoints.mMobile")}) {
         width: 30px;
       }
 
-      @media only screen and (max-width: ${themeGet('breakpoints.miniMobile')}) {
+      @media only screen and (max-width: ${themeGet(
+          "breakpoints.miniMobile"
+        )}) {
         width: 25px;
       }
     }
@@ -75,8 +81,8 @@ export const LeftArrow = styled.div`
   svg {
     transform: rotate(180deg);
 
-    opacity: ${({ changeColor }: IChangeArrowColor) =>
-      changeColor ? "0.2" : "1"};
+    opacity: ${({ arrowsNotAvailable, changeColor }: ILeftArrowColor) =>
+      arrowsNotAvailable || changeColor ? "0.2" : "1"};
   }
 `;
 

@@ -131,6 +131,7 @@ const OurTraditions = ({ ourTraditions }: IOurTraditions) => {
     gallery.map((photo, index) => {
       const src = IMAGES_LINK + photo.attributes?.url;
       return (
+        // eslint-disable-next-line @next/next/no-img-element
         <img
           src={src}
           width={327}

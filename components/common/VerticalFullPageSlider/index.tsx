@@ -4,10 +4,9 @@ import NumberElement from "./NumberElement";
 import TextElement from "./TextElement";
 import { ScrollListTypes } from "./types";
 import { Slide, SliderContent, SliderContainer } from "./style";
-import { GetServicesPage_servicesPage_data_attributes_services_data } from "../../../graphql/services/__generated__/GetServicesPage";
 import { useIsMobile } from "../../../services/hooks";
 import { theme } from "../../../styles/theme";
-import { GetHomepage_homePage_data_attributes_coopSteps_steps } from "../../../graphql/homepage/__generated__/GetHomepage";
+import Router from "next/router";
 
 interface IVerticalFullPageSliderProps<T> {
   slides: T[];

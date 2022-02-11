@@ -7,7 +7,7 @@ export const Container = styled.div`
   right: -28px;
   margin-top: 47px;
   margin-left: 4px;
-  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+  @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
     svg {
       position: relative;
       left: 55px;
@@ -15,7 +15,7 @@ export const Container = styled.div`
 
     margin-left: 0;
   }
-  @media only screen and (max-width: ${themeGet('breakpoints.xsMobile')}) {
+  @media only screen and (max-width: ${themeGet("breakpoints.xsMobile")}) {
     margin-left: 110px;
   }
 `;
@@ -24,31 +24,31 @@ export const AddressesContainer = styled.div`
   position: absolute;
   top: 131px;
   left: -51px;
-  
+
   max-width: 302px;
-  
+
   display: flex;
   flex-direction: column;
   row-gap: 27px;
 
   margin: auto;
-  @media only screen and (max-width: ${themeGet('breakpoints.sTablet')}) {
+  @media only screen and (max-width: ${themeGet("breakpoints.sTablet")}) {
     left: -80px;
   }
-  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+  @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
     left: -5px;
   }
-  @media only screen and (max-width: ${themeGet('breakpoints.mMobile')}) {
+  @media only screen and (max-width: ${themeGet("breakpoints.mMobile")}) {
     left: 20px;
   }
-  @media only screen and (max-width: ${themeGet('breakpoints.xsMobile')}) {
+  @media only screen and (max-width: ${themeGet("breakpoints.xsMobile")}) {
     left: -10px;
     width: 90%;
   }
 `;
 
 export const Address = styled.div`
-@media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+  @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
     width: inherit;
   }
 `;
@@ -63,7 +63,7 @@ export const Country = styled.div`
   letter-spacing: 0.1em;
   text-transform: capitalize;
 
-  color: #9CA3A7;
+  color: #9ca3a7;
 `;
 
 export const Street = styled.div`
@@ -78,16 +78,20 @@ export const Street = styled.div`
   color: #000;
 `;
 
-export  const  PositionLoading = styled.div`
+export const PositionLoading = styled.div`
   position: absolute;
   top: -32px;
   right: -87px;
-  
+
   svg {
     transform: rotate(-45deg);
-    
+
     path {
       fill: #000;
     }
+  }
+
+  @media only screen and (max-width: ${themeGet("breakpoints.iPadAir")}) {
+    display: none;
   }
 `;

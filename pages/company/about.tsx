@@ -2,7 +2,6 @@ import { IContactUs } from "@interfaces";
 import IconsBlock from "../../components/CompanyAbout/IconsBlock";
 import Introduction from "../../components/CompanyAbout/Introduction";
 import OurTraditions from "../../components/CompanyAbout/OurTraditions";
-import FooterComponent from "../../components/Footer";
 import ContactUsComponent from "../../components/Homepage/ContactUs";
 import MainMenu from "../../components/mainMenu/mainMenu";
 import { theme } from "../../styles/theme";
@@ -15,6 +14,7 @@ import { initializeApollo } from "../../graphql/client";
 import { NextPage } from "next";
 import { IMAGES_LINK } from "../../constants";
 import Head from "next/head";
+import {useEffect, useState} from "react";
 
 const titles = [
   "Services",
@@ -43,6 +43,7 @@ interface ICompanyAbout {
 const CompanyAbout: NextPage<ICompanyAbout> = ({ data, networkStatus }) => {
   const { addresses, buttonLabel } = contactUs;
 
+
   const entry = data?.aboutPage?.data?.attributes;
   const insightsTitle = entry?.insights.intro;
   const articles = entry?.insights.articles?.data;
@@ -53,6 +54,9 @@ const CompanyAbout: NextPage<ICompanyAbout> = ({ data, networkStatus }) => {
   const seoImage =
     entry?.SEO?.ogImage?.data?.attributes?.url !== undefined &&
     `${IMAGES_LINK}${entry?.SEO?.ogImage?.data?.attributes?.url}`;
+
+  const [url, setUrl] = useState<string>("");
+  useEffect(() => setUrl(window.location.href)), [];
 
   if (networkStatus !== 7) return <Custom404 />;
 
@@ -67,7 +71,6 @@ const CompanyAbout: NextPage<ICompanyAbout> = ({ data, networkStatus }) => {
               content="Incora - European software development company"
             />
             <meta property="og:type" content="article" />
-            {seoTitle && <title>{seoTitle}</title>}
             {seoDescription && (
               <meta name="description" content={seoDescription} />
             )}
@@ -76,7 +79,17 @@ const CompanyAbout: NextPage<ICompanyAbout> = ({ data, networkStatus }) => {
             {seoDescription && (
               <meta property="og:description" content={seoDescription} />
             )}
-            {seoImage && <meta property="og:url" content={seoImage} />}
+            {url && <meta property="og:url" content={url} />}
+
+            {seoImage && <meta property="og:image" content={seoImage} />}
+
+            <meta name="twitter:card" content={"summary"} />
+            {seoTitle && <meta name="twitter:title" content={seoTitle} />}
+            {seoDescription && (
+                <meta property="twitter:description" content={seoDescription} />
+            )}
+            {url && <meta property="twitter:site" content={url} />}
+            {seoImage && <meta property="twitter:image" content={seoImage} />}
           </Head>
           <MainMenu
             titlesColor={theme.colors.black}

@@ -11,6 +11,7 @@ import Custom404 from "../../404";
 import { IMAGES_LINK } from "../../../constants";
 import Head from "next/head";
 import React from "../../../public/SVG/technologies/react.svg";
+import { useEffect, useState } from "react";
 
 const titles = [
   "Services",
@@ -43,6 +44,9 @@ const Vacancy: NextPage<IVacancy> = ({ data, networkStatus }) => {
     attributes?.SEO?.ogImage?.data?.attributes?.url !== undefined &&
     `${IMAGES_LINK}${attributes?.SEO?.ogImage?.data?.attributes?.url}`;
 
+  const [url, setUrl] = useState<string>("");
+  useEffect(() => setUrl(window.location.href)), [];
+
   const renderCondition =
     description &&
     currentVacancies &&
@@ -71,7 +75,16 @@ const Vacancy: NextPage<IVacancy> = ({ data, networkStatus }) => {
             {seoDescription && (
               <meta property="og:description" content={seoDescription} />
             )}
-            {seoImage && <meta property="og:url" content={seoImage} />}
+            {url && <meta property="og:url" content={url} />}
+            {seoImage && <meta property="og:image" content={seoImage} />}
+
+            <meta name="twitter:card" content={"summary"} />
+            {seoTitle && <meta name="twitter:title" content={seoTitle} />}
+            {seoDescription && (
+                <meta property="twitter:description" content={seoDescription} />
+            )}
+            {url && <meta property="twitter:site" content={url} />}
+            {seoImage && <meta property="twitter:image" content={seoImage} />}
           </Head>
           <MainMenu
             backgroundColor={theme.colors.white}

@@ -6,7 +6,7 @@ import LetsReachOut from "../../components/CaseStudies/LetsReachOut";
 import { GetCaseStudies } from "../../graphql/caseStudies/__generated__/GetCaseStudies";
 import { GET_CASE_STUDIES } from "../../graphql/caseStudies/queries";
 import Custom404 from "../404";
-import { useState } from "react";
+import {useEffect, useState} from "react";
 import { initializeApollo } from "../../graphql/client";
 import Projects from "../../components/CaseStudies/Projects";
 import { NextPage } from "next";
@@ -52,6 +52,9 @@ const CaseStudies: NextPage<ICaseStudies> = ({ data, networkStatus }) => {
 
   const renderCondition = entry && industries && location;
 
+  const [url, setUrl] = useState<string>("");
+  useEffect(() => setUrl(window.location.href), []);
+
   if (networkStatus !== 7) return <Custom404 />;
 
   return (
@@ -73,7 +76,16 @@ const CaseStudies: NextPage<ICaseStudies> = ({ data, networkStatus }) => {
             {seoDescription && (
               <meta property="og:description" content={seoDescription} />
             )}
-            {seoImage && <meta property="og:url" content={seoImage} />}
+            {url && <meta property="og:url" content={url} />}
+            {seoImage && <meta property="og:image" content={seoImage} />}
+
+            <meta name="twitter:card" content={"summary"} />
+            {seoTitle && <meta name="twitter:title" content={seoTitle} />}
+            {seoDescription && (
+                <meta property="twitter:description" content={seoDescription} />
+            )}
+            {url && <meta property="twitter:site" content={url} />}
+            {seoImage && <meta property="twitter:image" content={seoImage} />}
           </Head>
           <MainMenu
             backgroundColor={menuBackgroundCondition}

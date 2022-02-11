@@ -139,7 +139,6 @@ const ArticleTemplate: NextPage<IArticleTemplate> = ({
               content="Incora - European software development company"
             />
             <meta property="og:type" content="article" />
-            {seoTitle && <title>{seoTitle}</title>}
             {seoDescription && (
               <meta name="description" content={seoDescription} />
             )}

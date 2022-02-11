@@ -23,6 +23,7 @@ const menuTitles = [
 
 const Contacts = ({ title, text }: IContacts) => {
   const [url, setUrl] = useState<string>("");
+  useEffect(() => setUrl(window.location.href)), [];
 
   const seoTitle = "Contact us — Incora Software Development";
   const seoKeywords =
@@ -30,8 +31,6 @@ const Contacts = ({ title, text }: IContacts) => {
   const seoDescription =
     "Get the launch you imagined with the help of our Incora team, which is just a few clicks away from you.";
   const seoImage = `${IMAGES_LINK}`;
-
-  useEffect(() => setUrl(window.location.href)), [];
 
   return (
     <>
@@ -50,6 +49,14 @@ const Contacts = ({ title, text }: IContacts) => {
           <meta property="og:description" content={seoDescription} />
         )}
         {seoImage && <meta property="og:image" content={seoImage} />}
+
+        <meta name="twitter:card" content={"summary"} />
+        {seoTitle && <meta name="twitter:title" content={seoTitle} />}
+        {seoDescription && (
+            <meta property="twitter:description" content={seoDescription} />
+        )}
+        {url && <meta property="twitter:site" content={url} />}
+        {seoImage && <meta property="twitter:image" content={seoImage} />}
       </Head>
       <>
         <MainMenu

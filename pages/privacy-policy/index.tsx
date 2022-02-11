@@ -6,6 +6,7 @@ import { theme } from "../../styles/theme";
 import HeaderPrivacyPolicy from "../../components/PrivacyPolicyPage/HeaderPrivacyPolicy";
 import MainInfo from "../../components/PrivacyPolicyPage/MainInfo";
 import FooterComponent from "../../components/Footer";
+import {useEffect, useState} from "react";
 
 interface IPrivacyPolicy {
   title: string;
@@ -112,6 +113,9 @@ const PrivacyPolicy = ({ title, text }: IPrivacyPolicy) => {
     "Incora values the confidentiality of your information that is why our privacy policy is oriented at the client’s data safety.";
   const seoImage = `${IMAGES_LINK}`;
 
+  const [url, setUrl] = useState<string>("");
+  useEffect(() => setUrl(window.location.href), []);
+
   return (
     <>
       <Head>
@@ -130,7 +134,17 @@ const PrivacyPolicy = ({ title, text }: IPrivacyPolicy) => {
           {seoDescription && (
             <meta property="og:description" content={seoDescription} />
           )}
-          {seoImage && <meta property="og:url" content={seoImage} />}
+          {url && <meta property="og:url" content={url} />}
+
+          {seoImage && <meta property="og:image" content={seoImage} />}
+
+          <meta name="twitter:card" content={"summary"} />
+          {seoTitle && <meta name="twitter:title" content={seoTitle} />}
+          {seoDescription && (
+              <meta property="twitter:description" content={seoDescription} />
+          )}
+          {url && <meta property="twitter:site" content={url} />}
+          {seoImage && <meta property="twitter:image" content={seoImage} />}
         </Head>
       </Head>
       <>

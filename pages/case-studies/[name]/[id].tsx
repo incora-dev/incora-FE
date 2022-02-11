@@ -64,9 +64,7 @@ const Case: NextPage<ICase> = ({ data, networkStatus }) => {
 
   const [url, setUrl] = useState<string>("");
 
-  useEffect(() => {
-    setUrl(window.location.href);
-  }, []);
+  useEffect(() => setUrl(window.location.href), []);
 
   if (networkStatus !== 7 || data.project?.data === null) return <Custom404 />;
 
@@ -91,6 +89,14 @@ const Case: NextPage<ICase> = ({ data, networkStatus }) => {
               <meta property="og:description" content={seoDescription} />
             )}
             {seoImage && <meta property="og:image" content={seoImage} />}
+
+            <meta name="twitter:card" content={"summary"} />
+            {seoTitle && <meta name="twitter:title" content={seoTitle} />}
+            {seoDescription && (
+                <meta property="twitter:description" content={seoDescription} />
+            )}
+            {url && <meta property="twitter:site" content={url} />}
+            {seoImage && <meta property="twitter:image" content={seoImage} />}
           </Head>
           <MainMenu
             backgroundColor={theme.colors.black}

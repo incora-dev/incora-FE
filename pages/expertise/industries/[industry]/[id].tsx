@@ -81,6 +81,9 @@ const Industry: NextPage<IIndustry> = ({ data, networkStatus }) => {
     articles &&
     projects;
 
+  const [url, setUrl] = useState<string>("");
+  useEffect(() => setUrl(window.location.href)), [];
+
   if (networkStatus !== 7 || data.industry?.data === null) return <Custom404 />;
 
   return (
@@ -94,7 +97,6 @@ const Industry: NextPage<IIndustry> = ({ data, networkStatus }) => {
               content="Incora - European software development company"
             />
             <meta property="og:type" content="article" />
-            {seoTitle && <title>{seoTitle}</title>}
             {seoDescription && (
               <meta name="description" content={seoDescription} />
             )}
@@ -103,7 +105,16 @@ const Industry: NextPage<IIndustry> = ({ data, networkStatus }) => {
             {seoDescription && (
               <meta property="og:description" content={seoDescription} />
             )}
-            {seoImage && <meta property="og:url" content={seoImage} />}
+            {url && <meta property="og:url" content={url} />}
+            {seoImage && <meta property="og:image" content={seoImage} />}
+
+            <meta name="twitter:card" content={"summary"} />
+            {seoTitle && <meta name="twitter:title" content={seoTitle} />}
+            {seoDescription && (
+                <meta property="twitter:description" content={seoDescription} />
+            )}
+            {url && <meta property="twitter:site" content={url} />}
+            {seoImage && <meta property="twitter:image" content={seoImage} />}
           </Head>
           <>
             <MainMenu

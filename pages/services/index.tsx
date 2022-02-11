@@ -21,6 +21,7 @@ import FAQ from "../../components/ServicePage/FAQ";
 import { GET_SERVICES_PAGE } from "../../graphql/services/queries";
 import { initializeApollo } from "../../graphql/client";
 import { NextPage } from "next";
+import {useEffect, useState} from "react";
 
 interface IServices {
   data: GetServicesPage;
@@ -52,6 +53,9 @@ const Services: NextPage<IServices> = ({ data, networkStatus }) => {
 
   const renderCondition = entry && banner && slides && stackTitle && stacks;
 
+  const [url, setUrl] = useState<string>("");
+  useEffect(() => setUrl(window.location.href)), [];
+
   if (networkStatus !== 7) return <Custom404 />;
 
   const faqContent = slides?.map((slide) => renderSlide(slide as any));
@@ -67,7 +71,6 @@ const Services: NextPage<IServices> = ({ data, networkStatus }) => {
               content="Incora - European software development company"
             />
             <meta property="og:type" content="article" />
-            {seoTitle && <title>{seoTitle}</title>}
             {seoDescription && (
               <meta name="description" content={seoDescription} />
             )}
@@ -76,7 +79,16 @@ const Services: NextPage<IServices> = ({ data, networkStatus }) => {
             {seoDescription && (
               <meta property="og:description" content={seoDescription} />
             )}
-            {seoImage && <meta property="og:url" content={seoImage} />}
+            {url && <meta property="og:url" content={url} />}
+            {seoImage && <meta property="og:image" content={seoImage} />}
+
+            <meta name="twitter:card" content={"summary"} />
+            {seoTitle && <meta name="twitter:title" content={seoTitle} />}
+            {seoDescription && (
+                <meta property="twitter:description" content={seoDescription} />
+            )}
+            {url && <meta property="twitter:site" content={url} />}
+            {seoImage && <meta property="twitter:image" content={seoImage} />}
           </Head>
           <MainMenu
             backgroundColor={colorWhite}

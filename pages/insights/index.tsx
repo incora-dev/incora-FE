@@ -50,7 +50,10 @@ const Insights: NextPage<IInsightsPage> = ({ data, networkStatus }) => {
   const renderCondition = industries && title && text && inputPlaceholder;
 
   const [url, setUrl] = useState<string>("");
-  useEffect(() => setUrl(window.location.href)), [];
+
+  useEffect(() => {
+    setUrl(window.location.href);
+  }, []);
 
   if (networkStatus !== 7) return <Custom404 />;
 
@@ -79,7 +82,7 @@ const Insights: NextPage<IInsightsPage> = ({ data, networkStatus }) => {
             <meta name="twitter:card" content={"summary"} />
             {seoTitle && <meta name="twitter:title" content={seoTitle} />}
             {seoDescription && (
-                <meta property="twitter:description" content={seoDescription} />
+              <meta property="twitter:description" content={seoDescription} />
             )}
             {url && <meta property="twitter:site" content={url} />}
             {seoImage && <meta property="twitter:image" content={seoImage} />}

@@ -19,14 +19,13 @@ import {
   GetVacancy_filterSpecialities,
   GetVacancy_filterTechnologies,
 } from "../../../graphql/careers/__generated__/GetVacancy";
-import { useLazyQuery, useQuery } from "@apollo/client";
+import { useLazyQuery } from "@apollo/client";
 import { GET_VACANCIES_LIST } from "../../../graphql/careers/queries";
 import { GetVacanciesList } from "../../../graphql/careers/__generated__/GetVacanciesList";
 import { useEffect, useState } from "react";
 import CreateFormSelect from "../../FormClassic/FormSelect";
 import { ROUTES } from "../../../constants/routes";
 import Loader from "../../common/Loader";
-import { isUndefined } from "lodash";
 
 interface IVacancies {
   currentVacancies: GetCareersPage_careersPage_data_attributes_currentVacancies;

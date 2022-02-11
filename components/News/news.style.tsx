@@ -13,12 +13,13 @@ export const Component = styled.div`
 
   background-color: ${({ bgColor }: IComponent) => bgColor};
 
-  @media only screen and (max-width: ${themeGet('breakpoints.tabletPro')}) {
+  @media only screen and (max-width: ${themeGet("breakpoints.tabletPro")}) {
     height: fit-content;
     padding-top: 50px;
+    margin-bottom: 40px;
   }
 
-  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+  @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
     height: fit-content;
     padding-top: 40px;
   }
@@ -29,10 +30,10 @@ export const HeaderContainer = styled.div`
   max-width: 1006px;
   margin: 0 auto;
 
-  @media only screen and (max-width: ${themeGet('breakpoints.tabletPro')}) {
+  @media only screen and (max-width: ${themeGet("breakpoints.tabletPro")}) {
     padding: 0 25px;
   }
-  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+  @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
     padding: 0 15px;
   }
 `;
@@ -52,7 +53,7 @@ export const HeaderWrap = styled.div`
 
     cursor: pointer;
 
-    @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+    @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
       position: relative;
       top: 2px;
     }
@@ -72,7 +73,7 @@ export const H2 = styled.h2`
 
   color: ${({ color }) => color};
 
-  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+  @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
     font-size: var(--fs-23);
   }
 `;
@@ -81,7 +82,7 @@ export const NewsWrap = styled.div`
   width: 100%;
   margin-top: 58px;
 
-  @media only screen and (max-width: ${themeGet('breakpoints.sTablet')}) {
+  @media only screen and (max-width: ${themeGet("breakpoints.sTablet")}) {
     margin-top: 35px;
   }
 `;

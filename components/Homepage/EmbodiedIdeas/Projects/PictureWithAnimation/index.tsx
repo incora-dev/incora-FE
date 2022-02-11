@@ -1,4 +1,8 @@
-import { Container, Wrapper, BlockContainer } from "./PictureWithAnimation.style";
+import {
+  Container,
+  Wrapper,
+  BlockContainer,
+} from "./PictureWithAnimation.style";
 import Animation from "./Animation";
 import Image from "next/image";
 import Link from "next/link";

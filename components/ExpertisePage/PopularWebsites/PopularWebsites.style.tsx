@@ -93,8 +93,4 @@ export const IconsBlock = styled.div`
       margin: 5px 15px !important;
     }
   }
-
-  svg {
-    cursor: pointer;
-  }
 `;

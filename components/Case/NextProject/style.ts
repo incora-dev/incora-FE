@@ -41,6 +41,7 @@ export const NextProjectButton = styled.div`
   @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
     width: 500px;
     padding-right: 0;
+    padding-left: 20px;
   }
 
   @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
@@ -106,6 +107,12 @@ export const TextArrowWrap = styled.div`
 
   svg {
     display: block;
+  }
+
+  @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
+    svg {
+      display: none;
+    }
   }
 `;
 

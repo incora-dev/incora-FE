@@ -136,7 +136,13 @@ const useGetElementsTop = (titleColor: string, linkClickHandler: () => void) => 
             </Link>
           </H4>
         </TitleBlock>
-        {!isMobile && !isTablet && !isSmallTablet && <Text>Alongside the core functional team, the acquisition of additional human resources would cover up the needed gaps and accelerate the development workflow.</Text>}
+        {!isMobile && !isTablet && !isSmallTablet && (
+          <Text>
+            Assigning the dedicated team for the full cycle of development
+            process you get a business model that fulfills your demands on a
+            long-term basis.
+          </Text>
+        )}
       </IconBlock>
     </>
   )

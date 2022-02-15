@@ -43,7 +43,7 @@ const footer: IFooter = {
   policies: ["privacy policy"],
   offices: [
     { "ukrainian office": "2 Horodotska Str.,\n" + "Lviv 75001 Ukraine" },
-    { "Usa office": "16192 Coastal Hwy, Lewes,\n" + "DE 19958 USA" },
+    { "USA office": "16192 Coastal Hwy, Lewes,\n" + "DE 19958 USA" },
   ],
   pages: ["Services", "Case Studies", "company", "Insights"],
   followUs: [

@@ -48,6 +48,7 @@ export const GET_ARTICLES_LIST = gql`
         and: { industries: { name: { eq: $industry } } }
       }
       pagination: { page: $page, pageSize: 9 }
+      sort: "createdAt:desc"
     ) {
       meta {
         pagination {

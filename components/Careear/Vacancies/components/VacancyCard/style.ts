@@ -3,11 +3,13 @@ import styled from "styled-components";
 
 export const VacancyCardWrapper = styled.div`
   width: 100%;
-  height: 99px;
+  height: 180px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 91px;
+  margin-bottom: 10px;
+  background-color: ${themeGet("colors.background4")};
+  padding: 40px;
 
   @media only screen and (max-width: ${themeGet("breakpoints.mDesk")}) {
     margin-bottom: 30px;

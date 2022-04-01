@@ -63,6 +63,7 @@ export const ContentWrapper = styled.div`
 export const ListWrap = styled.div`
   display: flex;
   justify-content: space-between;
+  gap: 10px;
 
   @media only screen and (max-width: ${themeGet("breakpoints.mDesk")}) {
     height: auto;
@@ -145,9 +146,7 @@ export const FilterBlock = styled.div`
 
 export const List = styled.div`
   margin-top: 122px;
-
-  width: 598px;
-  padding-right: 39px;
+  width: 620px;
 
   @media only screen and (max-width: ${themeGet("breakpoints.mDesk")}) {
     padding-right: 0;

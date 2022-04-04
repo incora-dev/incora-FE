@@ -68,15 +68,24 @@ export const IconsBlock = styled.div`
   row-gap: 50px;
   align-items: center;
   justify-items: center;
+  margin: auto;
+
+  @media only screen and (max-width: ${themeGet('breakpoints.tabletPro')}) {
+    grid-template-columns: repeat(3, max-content);
+  }
 
   @media only screen and (max-width: ${themeGet('breakpoints.tablet')}) {
-    column-gap: 45px;
+    column-gap: 40px;
   }
 
   @media only screen and (max-width: ${themeGet('breakpoints.sTablet')}) {
-    display: block;
-    text-align: left;
-    margin: 0 -15px;
+    grid-template-columns: repeat(2, max-content);
+    row-gap: 30px;
+  }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.mobileTablet')}) {
+    grid-template-columns: repeat(1, max-content);
+    row-gap: 10px;
   }
 
   > span {

@@ -6,7 +6,7 @@ import {
   Input,
   Notification
 } from "./Form.style";
-import { ChangeEvent, FormEvent, useState } from "react";
+import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import CreateFormSelect from "./FormSelect";
 import SubmitButton from "./SubmitButton";
 import FilesUploader from "./FilesUploader";
@@ -35,6 +35,13 @@ function FormClassic({
   const [inputSelectedFile, setSelectedFile] = useState('');
   const [notification, setNotification] = useState(false);
   const url = useRouter().pathname;
+
+  useEffect(() => {
+    setInputNameValue('');
+    setInputPhoneNumberValue('');
+    setInputEmailValue('');
+    setInputMainGoalsValue('');
+  }, [inputVacancy]);
 
   function inputNameOnChange(event: ChangeEvent<HTMLInputElement>) {
     const currentInputNameValue = event.target.value.replace(NAME_REGEX, '');

@@ -101,11 +101,25 @@ export const ImageWrap = styled.div`
 export const TextWrap = styled.div`
   margin-right: 60px;
 
-  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
-    margin-right: 0;
+  svg {
+    display: none;
   }
 
-  > span {
+  @media only screen and (max-width: ${themeGet('breakpoints.mobile')}) {
+    margin-right: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 108.17px;
+    flex: 1;
+
+    svg {
+      display: flex;
+      align-self: flex-end;
+    }
+  }
+
+  > div > span {
     font-weight: 800;
     font-size: var(--fs-12);
     line-height: 18px;
@@ -114,7 +128,7 @@ export const TextWrap = styled.div`
     color: ${themeGet("colors.white")};
   }
 
-  > h3 {
+  > div > h3 {
     font-weight: 800;
     font-size: var(--fs-21);
     line-height: 31px;

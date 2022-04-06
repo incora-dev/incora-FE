@@ -120,7 +120,7 @@ const ProjectOverviewItem = ({
       <TextWrap isLeft={isLeft}>
         <h3>{heading}</h3>
         <p>
-          {text}
+          <div dangerouslySetInnerHTML={{__html: text}}/>
           <ul>{listCondition}</ul>
         </p>
       </TextWrap>

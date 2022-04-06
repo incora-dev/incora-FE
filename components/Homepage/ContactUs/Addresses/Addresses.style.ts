@@ -90,4 +90,8 @@ export  const  PositionLoading = styled.div`
       fill: #000;
     }
   }
+
+  @media only screen and (max-width: ${themeGet('breakpoints.mDesk')}) {
+    display: none;
+  }
 `;

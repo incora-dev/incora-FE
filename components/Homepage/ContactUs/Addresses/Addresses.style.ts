@@ -91,7 +91,7 @@ export const PositionLoading = styled.div`
     }
   }
 
-  @media only screen and (max-width: ${themeGet("breakpoints.iPadAir")}) {
+  @media only screen and (max-width: ${themeGet('breakpoints.mDesk')}) {
     display: none;
   }
 `;

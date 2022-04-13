@@ -18,9 +18,11 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   router.events.on("routeChangeStart", () => {
     setLoading(true);
+    document.body.style.position = 'fixed';
   });
   router.events.on("routeChangeComplete", () => {
     setLoading(false);
+    document.body.style.position = 'initial';
   });
 
   return (

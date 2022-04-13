@@ -72,7 +72,7 @@ function Navigation({
     //   setOnHoverElement(pageTitle);
     //   setSelectedTitle(pageTitle);
     // }
-    document.body.style.position = 'initial';
+    // document.body.style.position = 'initial';
     toggleHoverMenuMode();
   };
 
@@ -90,7 +90,7 @@ function Navigation({
         setSelectedTitle(null);
       }
     }
-    document.body.style.position = 'initial';
+    // document.body.style.position = 'initial';
     // if (selectedTitle) {
     //   setOnHoverElement(null);
     //   setSelectedTitle(null);

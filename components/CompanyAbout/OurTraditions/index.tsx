@@ -6,7 +6,6 @@ import {
   TextWrap,
   PhotosBlock,
 } from "./style";
-import Image from "next/image";
 import { IMAGES_LINK, scrollPhotosBlockPX } from "../../../constants";
 import {
   GetAboutPage_aboutPage_data_attributes_ourTraditions,
@@ -135,7 +134,6 @@ const OurTraditions = ({ ourTraditions }: IOurTraditions) => {
         <img
           src={src}
           width={327}
-          height={220}
           key={index}
           alt="team photo"
         />

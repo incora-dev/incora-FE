@@ -110,7 +110,10 @@ export const Input = styled.input`
   text-decoration: none;
   border: none;
 
-  box-shadow: inset 0 -1px 0 0 #9ca3a7;
+  /* box-shadow: inset 0 -1px 0 0 #9ca3a7; */
+  border-radius: 0;
+  border-bottom: 1px solid #9ca3a7;
+
   -webkit-transition: ease-in-out 0.4s;
   -moz-transition: ease-in-out 0.4s;
   transition: all ease-in-out 0.4s;

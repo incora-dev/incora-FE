@@ -16,7 +16,7 @@ const Pagination = ({
   onPageChanged,
 }: IPagination) => {
   const totalPageCount = Math.ceil(totalCount / pageSize);
-  const leftChangeColorCondition = currentPage === 0;
+  const leftChangeColorCondition = currentPage === 1;
   const rightChangeColorCondition = currentPage === totalPageCount;
   const arrowsNotAvailable = totalPageCount === 1;
 

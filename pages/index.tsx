@@ -24,8 +24,11 @@ import { ScrollListTypes } from "../components/common/VerticalFullPageSlider/typ
 import EmbodiedIdeasComponent from "../components/Homepage/EmbodiedIdeas";
 import NewsComponent from "../components/News";
 import { initializeApollo } from "../graphql/client";
+// import { scrollTo } from "../utils";
 import { NextPage } from "next";
-import { useEffect, useState } from "react";
+// import { debounce } from "lodash";
+import { useEffect, useState, useRef } from "react";
+import { scrollSwipe } from "../utils";
 
 const titles = [
   "Services",
@@ -47,6 +50,8 @@ const contactUs: IContactUs = {
   ],
   buttonLabel: "send",
 };
+
+// const idList = ["top", "0-slide", "1-slide", "2-slide", "3-slide"];
 
 interface IHome {
   data: GetHomepage;
@@ -82,6 +87,8 @@ const Home: NextPage<IHome> = ({ data, networkStatus }) => {
   const seoImage =
     entry?.SEO?.ogImage?.data?.attributes?.url !== "undefined" &&
     `${IMAGES_LINK}${entry?.SEO?.ogImage?.data?.attributes?.url}`;
+  // let index = 0,
+  //   shouldScroll = true;
 
   const renderSlide = (
     slide: GetHomepage_homePage_data_attributes_coopSteps_steps | null,
@@ -117,6 +124,43 @@ const Home: NextPage<IHome> = ({ data, networkStatus }) => {
   const [url, setUrl] = useState<string>("");
   useEffect(() => setUrl(window.location.href)), [];
 
+  // const handleScroll = debounce((event: any) => {
+  // const handleScroll = (event: any) => {
+  //   console.log('scrolling');
+  //   if (!shouldScroll) return;
+  //   console.log("scrollTo", event.wheelDelta);
+  //   if (event.wheelDelta < 0) {
+  //     // scroll to bottom
+  //     index++;
+  //     if (!idList[index]) {
+  //       document.body.style.overflow = "auto";
+  //     } else {
+  //       shouldScroll = false;
+  //       scrollTo({ id: idList[index] });
+  //       setTimeout(() => {
+  //         shouldScroll = true;
+  //       }, 700);
+  //     }
+  //   } else {
+  //     // scroll to top
+  //     if (index) index--;
+  //     shouldScroll = false;
+  //     scrollTo({ id: idList[index] });
+  //     setTimeout(() => {
+  //       shouldScroll = true;
+  //     }, 700);
+  //   }
+  // };
+  // }, 20);
+
+  useEffect(() => {
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = "auto";
+      scrollSwipe({ kill: true });
+    };
+  }, []);
+
   if (networkStatus !== 7) return <Custom404 />;
 
   return (
@@ -144,7 +188,7 @@ const Home: NextPage<IHome> = ({ data, networkStatus }) => {
             <meta name="twitter:card" content={"summary"} />
             {seoTitle && <meta name="twitter:title" content={seoTitle} />}
             {seoDescription && (
-                <meta property="twitter:description" content={seoDescription} />
+              <meta property="twitter:description" content={seoDescription} />
             )}
             {url && <meta property="twitter:site" content={url} />}
             {seoImage && <meta property="twitter:image" content={seoImage} />}
@@ -162,7 +206,7 @@ const Home: NextPage<IHome> = ({ data, networkStatus }) => {
                 renderSlide={renderSlide}
                 scrollListType={ScrollListTypes.NUMBER}
               />
-              <section>
+              <section id="services">
                 <ServicesComponent
                   title={servicesTitle}
                   text={servicesDescription}

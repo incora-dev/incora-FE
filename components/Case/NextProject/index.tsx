@@ -64,11 +64,13 @@ const NextProject = ({ nextProjectButton }: INextProject) => {
                     alt="next project image"
                   />
                 </ImageWrap>
-
                 <TextArrowWrap>
                   <TextWrap>
-                    <span>{intro}</span>
-                    <h3>{projectEntry?.name}</h3>
+                    <div>
+                      <span>{intro}</span>
+                      <h3>{projectEntry?.name}</h3>
+                    </div>
+                    <ArrowRight />
                   </TextWrap>
 
                   <ArrowRight />

@@ -7,6 +7,8 @@ import { Slide, SliderContent, SliderContainer } from "./style";
 import { useIsMobile } from "../../../services/hooks";
 import { theme } from "../../../styles/theme";
 import Router from "next/router";
+import { scrollSwipe, scrollTo } from "../../../utils";
+import { IMappedIntent } from "../../../interfaces/services.interface";
 
 interface IVerticalFullPageSliderProps<T> {
   slides: T[];
@@ -16,6 +18,15 @@ interface IVerticalFullPageSliderProps<T> {
   stickyTopPosition?: number;
   maxWidth?: number;
 }
+
+const idList = [
+  "home-header",
+  "0-slide",
+  "1-slide",
+  "2-slide",
+  "3-slide",
+  "services",
+];
 
 function VerticalFullPageSlider<T>({
   slides,
@@ -159,8 +170,27 @@ function VerticalFullPageSlider<T>({
     return "auto";
   };
 
+  const handleFullScroll = (mappedIntent: IMappedIntent, id: string) => {
+    if (mappedIntent === "UP") {
+      const newId = idList[idList.findIndex((oldId) => oldId === id) - 1];
+      scrollTo({ id: newId });
+    }
+    if (mappedIntent === "DOWN") {
+      const newId = idList[idList.findIndex((oldId) => oldId === id) + 1];
+      scrollTo({ id: newId });
+    }
+  };
+
   return (
-    <SliderContainer bgColor={bgColor}>
+    <SliderContainer
+      bgColor={bgColor}
+      onMouseLeave={() => {
+        document.body.style.overflow = "auto";
+      }}
+      onMouseEnter={() => {
+        document.body.style.overflow = "hidden";
+      }}
+    >
       <SliderContent maxWidth={maxWidth}>
         <div
           className="scroll-item-container"
@@ -174,7 +204,20 @@ function VerticalFullPageSlider<T>({
         </div>
         <div>
           {slides.map((slide, index) => (
-            <div key={`slide${index}`} className="slide">
+            <div
+              key={`slide${index}`}
+              className="slide"
+              id={`${index}-slide`}
+              onMouseLeave={() => {
+                scrollSwipe({ kill: true });
+              }}
+              onMouseEnter={() => {
+                scrollSwipe({
+                  id: `${index}-slide`,
+                  handleScroll: handleFullScroll,
+                });
+              }}
+            >
               <Slide>{renderSlide(slide, index)}</Slide>
             </div>
           ))}

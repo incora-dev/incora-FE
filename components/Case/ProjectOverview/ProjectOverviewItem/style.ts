@@ -159,6 +159,14 @@ export const TextWrap = styled.div`
       line-height: 27px;
     }
 
+    > div {
+      overflow-wrap: break-word;
+      > a {
+        color: #0000EE;
+        text-decoration: underline;
+      }
+    }
+
     > ul {
       padding-left: 24px;
     }

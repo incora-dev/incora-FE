@@ -108,7 +108,7 @@ export const HoverMenu = styled.div`
     margin: 60px auto 0 auto;
     right: 0;
     bottom: 0;
-    height: calc(100vh - 60px);
+    /* height: calc(100vh - 60px); */
     overflow: scroll;
     min-height: fit-content;
   }

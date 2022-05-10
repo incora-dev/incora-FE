@@ -6,6 +6,7 @@ import {
   HoverMenu,
   Div,
   IncoraLogo,
+  MenuContainer,
   ContentWrapper,
   CloseBtn,
   MenuWrapper,
@@ -14,6 +15,7 @@ import { theme } from "../../styles/theme";
 import React, { useContext, useEffect, useRef, useState } from "react";
 import HoverElements from "./HoverElements";
 import Link from "next/link";
+import HeaderBanner from "../HeaderBanner";
 import HamburgerButton from "../BurgerMenuButton";
 import { SideMenu } from "./sideMainMenu";
 import { MenuContext } from "../../services/context/mainMenu";
@@ -91,7 +93,12 @@ export default function MainMenu(props: IMenu) {
             &#9587;
           </CloseBtn>
         )}
-        <ContentWrapper ref={wrapperRef}>
+        <HeaderBanner
+          link="https://bank.gov.ua/en/news/all/natsionalniy-bank-vidkriv-spetsrahunok-dlya-zboru-koshtiv-na-potrebi-armiyi"
+          text="Support Ukraine. Donate for Freedom"
+          emoji="&#127482;&#127462;"
+        />
+        <MenuContainer ref={wrapperRef}>
           <MenuWrapper>
             <Block>
               <Link href={"/"}>{logo}</Link>
@@ -143,7 +150,7 @@ export default function MainMenu(props: IMenu) {
               backgroundColor={backgroundColor}
             />
           </HoverMenu>
-        </ContentWrapper>
+        </MenuContainer>
       </Wrapper>
       <ContentWrapper>{children}</ContentWrapper>
     </Div>

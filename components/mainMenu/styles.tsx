@@ -21,18 +21,6 @@ export const Wrapper = styled.div`
   position: ${({ positionType }: IMenu) => positionType};
   top: 0;
   z-index: 10;
-  padding: 0 100px;
-
-  @media only screen and (max-width: ${themeGet("breakpoints.mediumDesk")}) {
-    padding: 0 25px;
-  }
-
-  @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
-    padding: 0 25px;
-  }
-  @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
-    padding: 0 15px;
-  }
 
   transition: all ${themeGet("transition.menu")};
 
@@ -49,6 +37,21 @@ export const Wrapper = styled.div`
 export const MenuWrapper = styled.div`
   max-width: 1166px;
   margin: 0 auto;
+`;
+
+export const MenuContainer = styled.div`
+  padding: 0 100px;
+
+  @media only screen and (max-width: ${themeGet("breakpoints.mediumDesk")}) {
+    padding: 0 25px;
+  }
+
+  @media only screen and (max-width: ${themeGet("breakpoints.tablet")}) {
+    padding: 0 25px;
+  }
+  @media only screen and (max-width: ${themeGet("breakpoints.mobile")}) {
+    padding: 0 15px;
+  }
 `;
 
 export const ContentWrapper = styled.div`
@@ -87,7 +90,7 @@ export const IncoraLogo = styled.img`
 
 export const HoverMenu = styled.div`
   position: absolute;
-  top: 0;
+  top: 100%;
   left: 0;
 
   opacity: ${({ isShow }: IHoverMenu) => (isShow ? 1 : 0)};
@@ -98,7 +101,7 @@ export const HoverMenu = styled.div`
       ? theme.colors.white
       : theme.colors.black};
 
-  margin: 104px auto 0 auto;
+  margin: 0 auto;
   width: 100%;
   min-height: 461px;
 
@@ -108,6 +111,7 @@ export const HoverMenu = styled.div`
     margin: 60px auto 0 auto;
     right: 0;
     bottom: 0;
+    top: 0;
     /* height: calc(100vh - 60px); */
     overflow: scroll;
     min-height: fit-content;

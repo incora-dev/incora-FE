@@ -6,6 +6,7 @@ export const theme = {
     yellow4: "#e7b301",
     yellow5: "#c79d08",
     black: "#18181A",
+    black1: "#000000",
     backgroundBlack: "#181819",
     backgroundBlack2: "#212125",
     white: "#FFFFFF",
@@ -23,7 +24,7 @@ export const theme = {
     background5: "#FAFAFA",
     hexagonBorderedGrey: "#FAFAFA",
     tagPreBg: "#312A30",
-    tagPreText: "#99c053"
+    tagPreText: "#99c053",
   },
 
   letterSpacing: {

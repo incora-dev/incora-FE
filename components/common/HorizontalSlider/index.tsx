@@ -1,5 +1,6 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import Image from "next/image";
+import { useRouter } from "next/router";
 import {
   AbsoluteRect,
   Slide,
@@ -33,6 +34,7 @@ const HorizontalSlider = ({
   const [horizontalSlides, setHorizontalSlides] = useState(slides);
   const [currentSlide, setCurrentSlide] = useState(0);
   const [leftPos, setLeftPos] = useState(0);
+  const { query } = useRouter();
 
   useEffect(() => {
     setHorizontalSlides(slides);
@@ -42,6 +44,13 @@ const HorizontalSlider = ({
     const [first, second] = horizontalSlides;
     setHorizontalSlides([...horizontalSlides, first, second]);
   }, []);
+  useEffect(() => {
+    const slider = document.getElementById("horizontal-slider");
+    setHorizontalSlides([...slides, slides[0], slides[1]]);
+    setCurrentSlide(0);
+    setLeftPos(0);
+    slider?.scrollTo({ left: 0 });
+  }, [query.name]);
 
   useEffect(() => {
     const slider = document.getElementById("horizontal-slider");
@@ -62,6 +71,11 @@ const HorizontalSlider = ({
         document.getElementsByClassName("horizontal-slide")[0].scrollWidth;
       setLeftPos(leftPos + slideWidth);
       slider.scrollTo({ left: leftPos + slideWidth, behavior: "smooth" });
+
+      setCurrentSlide(
+        currentSlide === slides.length - 1 ? 0 : currentSlide + 1
+      );
+
       (
         document.getElementsByClassName("horizontal-slide")[
           currentSlide + 1
@@ -72,13 +86,12 @@ const HorizontalSlider = ({
           currentSlide + 2
         ] as HTMLElement
       ).style.transform = "scale(0.85)";
-      setCurrentSlide(
-        currentSlide === slides.length - 1 ? 0 : currentSlide + 1
-      );
+
       if (currentSlide === slides.length - 1) {
         (
           document.getElementsByClassName("horizontal-slide")[1] as HTMLElement
         ).style.transform = "scale(0.85)";
+        setCurrentSlide(0);
       }
     }
   };
@@ -88,15 +101,16 @@ const HorizontalSlider = ({
       {horizontalSlides.map((slide, index) => {
         const id = slide.id;
         const src = IMAGES_LINK + slide.attributes?.url;
-
         return (
-          <Slide key={`slide-${id}-${index}`} className="horizontal-slide">
+          <Slide key={`slide-${id}-${index}`} className={`horizontal-slide`}>
             <Content>
               <ImageContainer>
                 <ImageBlock>
                   <Image
                     loader={() => src}
                     src={src}
+                    blurDataURL={src}
+                    placeholder="blur"
                     alt="image"
                     width={657}
                     height={377}

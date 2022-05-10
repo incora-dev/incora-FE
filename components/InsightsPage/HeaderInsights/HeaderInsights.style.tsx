@@ -101,7 +101,7 @@ export const H1 = styled.h1`
   }
 `;
 
-export const Text = styled.p`
+export const Text = styled.h2`
   max-width: 788px;
 
   font-style: normal;

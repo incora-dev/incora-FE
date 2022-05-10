@@ -19,43 +19,62 @@ import Hexagon from "../../../public/SVG/hexagon1.svg";
 // import Gif from '../../../public/gifs/home.gif';
 import { useIsMobile } from "../../../services/hooks";
 import { IMAGES_LINK } from "../../../constants";
+import { useState } from "react";
 
 interface IHeaderComponent {
   backgroundVideo: string;
 }
 
-function HeaderComponent({backgroundVideo}: IHeaderComponent) {
-      const {isMobile, isTablet, isSmallTablet} = useIsMobile();
+function HeaderComponent({ backgroundVideo }: IHeaderComponent) {
+  const { isMobile, isTablet, isSmallTablet } = useIsMobile();
+  const [loaded, setLoaded] = useState(false);
 
   return (
     <Cover>
       <Container>
         <Div>
           <VideoBlock>
+            {!loaded && (
+              <img
+                src="/images/defaultVideoImage.png"
+                alt="intro"
+                style={{ width: "100%", height: "100%" }}
+              />
+            )}
             <video
-              style={{ width: (isMobile || isTablet || isSmallTablet) && !isSmallTablet 
-                        ? '80vw' 
-                        : isSmallTablet 
-                          ? '80vw' 
-                          : '710px', 
-                      height: (isMobile || isTablet || isSmallTablet) ? 'unset' : '380px', 
-                      position: (isMobile || isTablet || isSmallTablet) ? 'relative' : 'static', 
-                      top: '1px' }}
-                      // style={{
-                      //   width: isMobile ? "94vw" : "707px",
-                      //   height: isMobile ? "unset" : "380px",
-                      //   position: isMobile ? "relative" : "static",
-                      //   top: "1px",
-                      // }}
+              style={{
+                width:
+                  (isMobile || isTablet || isSmallTablet) && !isSmallTablet
+                    ? "80vw"
+                    : isSmallTablet
+                    ? "80vw"
+                    : "710px",
+                height:
+                  isMobile || isTablet || isSmallTablet ? "unset" : "380px",
+                position:
+                  isMobile || isTablet || isSmallTablet ? "relative" : "static",
+                top: "1px",
+                opacity: loaded ? 1 : 0,
+              }}
               autoPlay
               loop
               muted
+              onPlay={(e) => {
+                setLoaded(true);
+                return e;
+              }}
             >
               <source src={backgroundVideo} type="video/mp4" />
             </video>
             <div className="gif">
-              <img src={`${IMAGES_LINK}/uploads/home_885cce1415.gif`} alt="" />
-              {/* <Image src={Gif} alt="gif" layout="responsive" /> */}
+              <img
+                alt="intro"
+                src={`${IMAGES_LINK}/uploads/home_885cce1415.gif`}
+                onLoad={() => setLoaded(true)}
+                style={{
+                  display: loaded ? "inherit" : "none",
+                }}
+              />
             </div>
             <PositionVideoSVG>
               <SVG />
@@ -63,23 +82,20 @@ function HeaderComponent({backgroundVideo}: IHeaderComponent) {
           </VideoBlock>
 
           {!isMobile && !isTablet && !isSmallTablet && (
-            <><PositionHexagon1>
-              <Hexagon
-                width="235"
-                viewBox="0 0 391 450" />
-            </PositionHexagon1><PositionHexagon2>
-                <Hexagon
-                  width="235"
-                  viewBox="0 0 391 450" />
-              </PositionHexagon2><PositionHexagon3>
-                <Hexagon
-                  width="235"
-                  viewBox="0 0 391 450" />
-              </PositionHexagon3><PositionHexagon4>
-                <Hexagon
-                  width="235"
-                  viewBox="0 0 391 450" />
-              </PositionHexagon4></>
+            <>
+              <PositionHexagon1>
+                <Hexagon width="235" viewBox="0 0 391 450" />
+              </PositionHexagon1>
+              <PositionHexagon2>
+                <Hexagon width="235" viewBox="0 0 391 450" />
+              </PositionHexagon2>
+              <PositionHexagon3>
+                <Hexagon width="235" viewBox="0 0 391 450" />
+              </PositionHexagon3>
+              <PositionHexagon4>
+                <Hexagon width="235" viewBox="0 0 391 450" />
+              </PositionHexagon4>
+            </>
           )}
 
           <ScrollContainer>

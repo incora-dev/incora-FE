@@ -50,6 +50,9 @@ function PictureWithAnimation(props: IPictureWithAnimation) {
             height={height}
             alt="case image"
             layout="responsive"
+            placeholder="blur"
+            blurDataURL={img}
+            sizes={`${width}px`}
           />
 
           <Animation

@@ -59,6 +59,8 @@ const NextProject = ({ nextProjectButton }: INextProject) => {
                   <Image
                     loader={() => src}
                     src={src}
+                    blurDataURL={src}
+                    placeholder="blur"
                     width={141}
                     height={108.17}
                     alt="next project image"

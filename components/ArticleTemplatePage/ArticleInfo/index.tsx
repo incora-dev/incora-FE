@@ -54,7 +54,12 @@ interface IArticleInfo {
   views: number;
 }
 
-const pollLabels = ["Love it!", "Valuable", "Exciting", "Unsatisfied"];
+const pollLabels = [
+  "Love it!",
+  "It was useful!",
+  "That’s exciting!",
+  "I’m unsatisfied!",
+];
 const pollIcons = [LoveItIcon, ValuableIcon, ExcitingIcon, UnsatisfiedIcon];
 
 function getScrollLabels(
@@ -65,7 +70,11 @@ function getScrollLabels(
   return Array.from(sideBarElements).map((el, index) => {
     const selected = elementIndex === index;
 
-    const element = React.createElement(el.tagName, {}, el.innerHTML);
+    const element: React.ReactElement = React.createElement(
+      el.tagName,
+      { ref: selected ? scroll : null },
+      el.innerText
+    );
 
     return (
       <ScrollLabel
@@ -107,7 +116,6 @@ function getElements(
 }
 
 function GetSocialIcons({ url }: { url: string }) {
-  console.log(url);
   const facebook = (
     <FacebookShareButton url={url}>
       <FacebookSVG />
@@ -244,10 +252,7 @@ const ArticleInfo = ({
     if (sideBarList.length === 0) {
       setWidth("1006px");
     }
-
-    sideBarList.length > 15
-      ? setSideBarElements(document.querySelectorAll(querySelectorThan15))
-      : setSideBarElements(document.querySelectorAll(querySelectorAll));
+    setSideBarElements(document.querySelectorAll(querySelectorAll));
   }
 
   const handleScroll = useCallback(() => {
@@ -285,7 +290,9 @@ const ArticleInfo = ({
     <Div>
       <Wrapper width={width}>
         <StickyWrapper>
-          <ScrollLabels rowGap={sideBarRowGap}>{scrollTitles}</ScrollLabels>
+          <div style={{ top: "150px", position: "sticky" }}>
+            <ScrollLabels rowGap={sideBarRowGap}>{scrollTitles}</ScrollLabels>
+          </div>
         </StickyWrapper>
 
         <MainText id={"scrollsLabels"}>

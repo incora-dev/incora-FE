@@ -76,7 +76,7 @@ export const ContentWrap = styled.div`
 export const ImageWrap = styled.div`
   position: relative;
   width: 141px;
-  height: 108.17px;
+  height: 100px;
   overflow: hidden;
   margin-right: 20px;
 
@@ -95,7 +95,7 @@ export const ImageWrap = styled.div`
   }
 
   .three {
-    bottom: ${({ isAnimate }: IImageWrap) => (isAnimate ? "-65px" : "1px")};
+    bottom: ${({ isAnimate }: IImageWrap) => (isAnimate ? "-65px" : "0px")};
   }
 `;
 

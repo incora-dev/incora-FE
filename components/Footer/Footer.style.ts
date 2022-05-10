@@ -197,7 +197,7 @@ export const Page = styled.p`
 
   cursor: pointer;
 
-  &:hover {
+  a:hover {
     color: ${themeGet("colors.yellow")};
   }
 `;

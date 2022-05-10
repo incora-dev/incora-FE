@@ -6,7 +6,7 @@ import LetsReachOut from "../../components/CaseStudies/LetsReachOut";
 import { GetCaseStudies } from "../../graphql/caseStudies/__generated__/GetCaseStudies";
 import { GET_CASE_STUDIES } from "../../graphql/caseStudies/queries";
 import Custom404 from "../404";
-import {useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 import { initializeApollo } from "../../graphql/client";
 import Projects from "../../components/CaseStudies/Projects";
 import { NextPage } from "next";
@@ -82,7 +82,7 @@ const CaseStudies: NextPage<ICaseStudies> = ({ data, networkStatus }) => {
             <meta name="twitter:card" content={"summary"} />
             {seoTitle && <meta name="twitter:title" content={seoTitle} />}
             {seoDescription && (
-                <meta property="twitter:description" content={seoDescription} />
+              <meta property="twitter:description" content={seoDescription} />
             )}
             {url && <meta property="twitter:site" content={url} />}
             {seoImage && <meta property="twitter:image" content={seoImage} />}

@@ -144,7 +144,7 @@ const Home: NextPage<IHome> = ({ data, networkStatus }) => {
             <meta name="twitter:card" content={"summary"} />
             {seoTitle && <meta name="twitter:title" content={seoTitle} />}
             {seoDescription && (
-                <meta property="twitter:description" content={seoDescription} />
+              <meta property="twitter:description" content={seoDescription} />
             )}
             {url && <meta property="twitter:site" content={url} />}
             {seoImage && <meta property="twitter:image" content={seoImage} />}

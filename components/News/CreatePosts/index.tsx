@@ -43,6 +43,8 @@ const CreateNews = ({
               src={image}
               width={293}
               height={201}
+              placeholder="blur"
+              blurDataURL={image}
               alt="article preview"
             />
           </ImgBlock>

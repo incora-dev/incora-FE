@@ -110,6 +110,8 @@ const ProjectOverviewItem = ({
           <Image
             loader={() => src}
             src={src}
+            blurDataURL={src}
+            placeholder="blur"
             width={506}
             height={292}
             alt="case photo"

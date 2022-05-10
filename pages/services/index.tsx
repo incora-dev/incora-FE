@@ -21,7 +21,7 @@ import FAQ from "../../components/ServicePage/FAQ";
 import { GET_SERVICES_PAGE } from "../../graphql/services/queries";
 import { initializeApollo } from "../../graphql/client";
 import { NextPage } from "next";
-import {useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 
 interface IServices {
   data: GetServicesPage;
@@ -85,7 +85,7 @@ const Services: NextPage<IServices> = ({ data, networkStatus }) => {
             <meta name="twitter:card" content={"summary"} />
             {seoTitle && <meta name="twitter:title" content={seoTitle} />}
             {seoDescription && (
-                <meta property="twitter:description" content={seoDescription} />
+              <meta property="twitter:description" content={seoDescription} />
             )}
             {url && <meta property="twitter:site" content={url} />}
             {seoImage && <meta property="twitter:image" content={seoImage} />}

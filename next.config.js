@@ -13,6 +13,6 @@ module.exports = {
     return config;
   },
   images: {
-    domains: ["https://admin.incora.software"],
+    domains: ["admin.incora.software"],
   },
 };

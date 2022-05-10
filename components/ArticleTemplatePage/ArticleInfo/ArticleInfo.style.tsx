@@ -55,7 +55,7 @@ export const Wrapper = styled.div`
   margin: 0 auto;
   max-width: 1366px;
   width: ${({ width }: { width: string }) => width};
-  
+
   display: flex;
   column-gap: 63px;
 
@@ -71,10 +71,8 @@ export const Wrapper = styled.div`
 `;
 
 export const ScrollLabels = styled.div`
-  position: -webkit-sticky;
-  position: sticky;
-  top: 150px;
-
+  height: 600px;
+  overflow-y: auto;
   display: flex;
   flex-direction: column;
   row-gap: ${({ rowGap }: ISideBarRowGap) => rowGap};
@@ -89,7 +87,6 @@ export const ScrollLabels = styled.div`
 
 export const StickyWrapper = styled.div`
   margin-top: 5px;
-
   display: block;
 `;
 
@@ -99,7 +96,8 @@ export const Line = styled.div`
   width: 7px;
   height: 100%;
 
-  background: ${({ selected }: ISelect) => selected ? theme.colors.yellow2 : 'none'};
+  background: ${({ selected }: ISelect) =>
+    selected ? theme.colors.yellow2 : "none"};
 `;
 
 export const Label = styled.div`
@@ -107,7 +105,7 @@ export const Label = styled.div`
   margin-left: 20px;
 
   font-style: normal;
-  font-weight: ${({ selected }: ISelect) => selected ? '700' : 'normal'};
+  font-weight: ${({ selected }: ISelect) => (selected ? "700" : "normal")};
   font-size: 12px;
   line-height: 18px;
 
@@ -115,24 +113,28 @@ export const Label = styled.div`
 
   color: ${themeGet("colors.black")};
 
-  h1, h2 {
+  h1,
+  h2 {
     font-style: normal;
     font-weight: 700;
     font-size: 14px;
     line-height: 21px;
     letter-spacing: 0.05em;
 
-    color: ${({ selected }: ISelect) => selected ? theme.colors.black : theme.colors.grey2};
+    color: ${({ selected }: ISelect) =>
+      selected ? theme.colors.black : theme.colors.grey2};
 
     &:hover {
       color: ${themeGet("colors.yellow")};
     }
   }
 
-  h3, h4, h5, h6 {
+  h3,
+  h4,
+  h5,
+  h6 {
     font-style: normal;
-    font-weight: ${({ selected }: ISelect) => selected ? '700': 'normal' };
-    font-size: 12px;
+    font-weight: ${({ selected }: ISelect) => (selected ? "700" : "normal")};
     line-height: 18px;
 
     letter-spacing: 0.05em;
@@ -143,11 +145,17 @@ export const Label = styled.div`
       color: ${themeGet("colors.yellow")};
     }
   }
+  h3 {
+    font-size: 12px;
+  }
+  h4,
+  h5,
+  h6 {
+    font-size: 10px;
+  }
 `;
 
-export const PreBlock = styled.div`
-
-`;
+export const PreBlock = styled.div``;
 
 export const ScrollLabel = styled.div`
   position: relative;
@@ -158,7 +166,7 @@ export const ScrollLabel = styled.div`
   column-gap: 20px;
   justify-content: flex-start;
   align-items: center;
-  
+
   cursor: pointer;
 
   @media only screen and (max-width: ${themeGet("breakpoints.tabletPro")}) {
@@ -170,7 +178,7 @@ export const SocialTitleAndTagsBlock = styled.div`
   position: -webkit-sticky;
   position: sticky;
   top: 150px;
-  
+
   display: flex;
   flex-direction: column;
   row-gap: 30px;
@@ -186,7 +194,7 @@ export const SocialTitleAndTagsBlock = styled.div`
 
 export const Tags = styled.div`
   max-width: 180px;
-  
+
   display: flex;
   flex-direction: column;
   row-gap: 10px;
@@ -212,12 +220,12 @@ export const LineRetreat = styled.div`
 
   opacity: 0.3;
 
-  background-color: ${themeGet("colors.font2")};;
+  background-color: ${themeGet("colors.font2")}; ;
 `;
 
 export const MainText = styled.div`
   max-width: 653px;
-  
+
   display: flex;
   flex-direction: column;
   row-gap: 30px;
@@ -236,8 +244,9 @@ export const MainText = styled.div`
     padding: 0 15px 0;
     row-gap: 15px;
   }
-  
-  h1, h2 {
+
+  h1,
+  h2 {
     font-style: normal;
     font-weight: 800;
     font-size: 28px;
@@ -255,12 +264,13 @@ export const MainText = styled.div`
     }
   }
 
-  h3, h4, h5, h6 {
+  h3,
+  h4,
+  h5,
+  h6 {
     font-style: normal;
     font-weight: bold;
-    font-size: 18px;
     line-height: 30px;
-
     letter-spacing: 0.1em;
 
     color: ${themeGet("colors.font2")};
@@ -280,8 +290,9 @@ export const MainText = styled.div`
 
     box-sizing: border-box;
   }
-  
-  p, li {
+
+  p,
+  li {
     font-style: normal;
     font-weight: normal;
     font-size: 14px;
@@ -296,7 +307,8 @@ export const MainText = styled.div`
     }
   }
 
-  strong, b {
+  strong,
+  b {
     font-weight: 600;
     font-size: 14px;
     line-height: 30px;
@@ -321,7 +333,7 @@ export const MainText = styled.div`
     letter-spacing: 0.1em;
 
     color: ${themeGet("colors.yellow2")};
-    
+
     &:hover {
       color: ${themeGet("colors.yellow5")};
     }
@@ -413,8 +425,9 @@ export const Element = styled.div`
   cursor: pointer;
 
   border-radius: 7px;
-  background-color: ${({ selected }: ISelect) => selected ? theme.colors.yellow2 : theme.colors.grey };
-  
+  background-color: ${({ selected }: ISelect) =>
+    selected ? theme.colors.yellow2 : theme.colors.grey};
+
   svg {
     display: block;
     z-index: 1;
@@ -423,18 +436,18 @@ export const Element = styled.div`
   &:after {
     position: absolute;
     left: 0;
-    
+
     width: 0;
     height: 100%;
 
-    content: '';
+    content: "";
 
     border-radius: 7px;
     background-color: ${themeGet("colors.yellow2")};
-    
+
     transition: width ease-in-out 0.3s;
   }
-  
+
   &:hover :after {
     width: 100%;
   }
@@ -443,7 +456,7 @@ export const Element = styled.div`
 export const ElementTitle = styled.p`
   position: relative;
   z-index: 1;
-  
+
   font-style: normal;
   font-weight: 600;
   font-size: 12px;
@@ -464,9 +477,9 @@ export const SocialIcons = styled.div`
   max-width: 200px;
   display: flex;
   column-gap: 10px;
-  
+
   a {
     height: 25px;
-    width: 25px
+    width: 25px;
   }
 `;

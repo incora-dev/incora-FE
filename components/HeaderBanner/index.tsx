@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Link from "next/link";
 import { BannerWrapper, Emoji, Text, LinkContent, CloseBtn } from "./style";
 
 interface IHeaderBanner {
@@ -12,12 +13,14 @@ const HeaderBanner = ({ emoji, link, text }: IHeaderBanner) => {
 
   return (
     <BannerWrapper isHidden={isHidden}>
-      <a href={link} target='_blank' rel="noreferrer">
-        <LinkContent>
-          <Text>{text}</Text>
-          <Emoji>{emoji}</Emoji>
-        </LinkContent>
-      </a>
+      <Link href={link}>
+        <a target='_blank'>
+          <LinkContent>
+            <Text>{text}</Text>
+            <Emoji>{emoji}</Emoji>
+          </LinkContent>
+        </a>
+      </Link>
 
       <CloseBtn
         onClick={() => {

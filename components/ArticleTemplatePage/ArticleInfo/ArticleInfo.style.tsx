@@ -53,8 +53,8 @@ export const Div = styled.div`
 
 export const Wrapper = styled.div`
   margin: 0 auto;
-  max-width: 1366px;
-  width: ${({ width }: { width: string }) => width};
+  max-width: ${({ width }: { width: string }) => width};;
+  width: 100%;
   
   display: flex;
   column-gap: 63px;
